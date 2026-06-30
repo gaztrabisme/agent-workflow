@@ -1,11 +1,11 @@
 ---
 name: business-intelligence
-description: "Build defensible intelligence on enterprise clients for presale engagements — presentations, proposals, negotiations. USE WHEN preparing for a high-stakes client conversation where what you claim will be tested. Keywords: research, client, executive, presentation, proposal, intel, profile, deep research, presale."
+description: "Build defensible intelligence on enterprise clients for presale engagements — presentations, proposals, negotiations. USE WHEN preparing for a high-stakes client conversation where what you claim will be tested. Keywords: research, client, executive, presentation, proposal, intel, profile, deep research, presale, discovery, account, qualify, business case, win loss."
 ---
 
 # Business Intelligence
 
-Research foundation for enterprise presale. The output of this skill is intelligence you can **defend in the room** — not a literature review.
+Full presale intelligence lifecycle — from deal qualification through post-engagement learning. The output of this skill is intelligence you can **defend in the room** — not a literature review.
 
 ## Posture (read first, every time)
 
@@ -57,31 +57,88 @@ Research [Company] for [presentation/proposal/meeting]
 Build intel on [Company] — I'm meeting with [executives]
 ```
 
+```
+Prep for discovery call with [Company] tomorrow
+```
+
+```
+Should we pursue the [Company] deal?
+```
+
+```
+Debrief on the [Company] meeting — what worked, what didn't
+```
+
+```
+What's our position with [Company]? Review the account.
+```
+
+```
+Build a business case for [Company]
+```
+
 ---
 
 ## Workflow
 
 ```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   SCOPE     │────▶│  RESEARCH   │────▶│  PROFILES   │────▶│  SYNTHESIZE │
-│  (clarify)  │     │  (parallel) │     │  (execs)    │     │  (outputs)  │
-└─────────────┘     └──────┬──────┘     └─────────────┘     └──────┬──────┘
-                           │                   │                    │
-                           └───────────────────┘                    │
-                           (gap analysis loops back)                │
-                                                                    │
-                    On re-entry (multi-phase): read previous ◀──────┘
-                    outputs first, update profiles, re-verify claims
+┌──────────┐  ┌─────────┐  ┌───────────┐  ┌─────────────┐  ┌───────────┐  ┌───────────┐
+│ QUALIFY   │─▶│  SCOPE  │─▶│ RESEARCH  │─▶│ STAKEHOLDER │─▶│ SYNTHESIZE│─▶│ DISCOVERY │
+│ (score)   │  │(clarify)│  │ (parallel)│  │    MAP      │  │ (outputs) │  │   PREP    │
+└──────────┘  └─────────┘  └─────┬─────┘  └─────────────┘  └─────┬─────┘  └───────────┘
+                                 │               │                │
+                                 └───────────────┘                │
+                                 (gap analysis loops back)        │
+                                                                  │
+┌───────────────────────────────────────────────────────────────── │ ───────────────┐
+│ ACCOUNT STRATEGY — persists across engagements, updated after each              │
+│ (account plan, relationship map, white space, competitive position)              │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                                                  │
+                          POST-ENGAGEMENT (debrief, win/loss)  ◀──┘
 ```
+
+### Phase activation (not all phases fire every time)
+
+| Trigger | Phases that fire |
+|---------|-----------------|
+| "Research [Company] for [meeting]" | Qualify → Scope → Research → Stakeholders → Synthesize → Discovery Prep |
+| "Prep for call with [Company]" | Discovery Prep (pulls existing intel if available) |
+| "Should we pursue [Company]?" | Qualify only |
+| "[Company] meeting went well/badly" | Post-Engagement debrief |
+| "What's our position with [Company]?" | Account Strategy review |
+| "Build a business case for [Company]" | Value Engineering (Phase 4 output) |
+| Quick meeting / conference follow-up | Scope → lightweight Research → Profiles only |
 
 ### Multi-phase engagements
 
 Real engagements iterate. Each invocation may be a new phase building on the last. On re-entry:
 
 1. Read previous intelligence outputs before starting new research
-2. Update executive profiles (new attendees, role changes, re-assessed risk including political layer)
+2. Update executive profiles and stakeholder map (new attendees, role changes, champion status)
 3. Re-run Claims Verification against any positioning changes
-4. Carry forward what worked, drop what didn't land
+4. Update MEDDPICC score with new intelligence
+5. Carry forward what worked, drop what didn't land
+
+---
+
+## Phase 0 — Qualify
+
+**Posture reminder:** Principle 1. Not every deal deserves full research. Score before committing.
+
+Run MEDDPICC scoring at entry. Each element: **Strong** (evidence) / **Weak** (partial) / **Missing** (unknown). See `references/deal-qualification.md` for the full scoring template, go/no-go matrix, and buying influence mapping.
+
+| Condition | Decision |
+|-----------|----------|
+| No identified pain | Walk away |
+| No access to Economic Buyer after 2 attempts | High risk — escalate or walk |
+| No Champion identified | Stall likely — invest in champion development or walk |
+| 5+ elements Strong | Pursue — high-quality opportunity |
+| 2+ elements Missing | Pause — gather intelligence before committing |
+
+**Output:** Deal Qualification Score with go/no-go recommendation and intelligence targets (what to resolve during research).
+
+**When to skip:** Client is well-known, deal is low-risk, or engagement is already contracted.
 
 ---
 
@@ -144,15 +201,16 @@ See `references/frameworks_vocabulary.md` for named frameworks to anchor queries
 
 ---
 
-## Phase 3 — Executive profiles
+## Phase 3 — Stakeholder map & executive profiles
 
 **Posture reminder:** Principle 3. Risk scoring without a political layer is a half-answer. Principle 4 applies: know what each exec won't tolerate as much as what they'd lean into.
 
-For each attendee, document:
+### 3a. Executive profiles (per attendee + known stakeholders)
 
 | Element | Purpose |
 |---------|---------|
 | **Role & tenure** | Authority level, organizational context |
+| **Buying influence** | Economic Buyer / User Buyer / Technical Buyer / Coach |
 | **Background** | Career history, expertise areas, education |
 | **Public positions** | Speeches, articles, LinkedIn activity |
 | **Likely questions** | What they'll ask based on role |
@@ -160,9 +218,22 @@ For each attendee, document:
 | **Interest signals** | What would make them lean in |
 | **Risk level** | H/M/L with rationale |
 | **Political layer** | Reports to whom / measured on what / loses what if we win |
+| **Win-result** | Organizational result + personal win they'd get |
 | **Cultural notes** | Languages, background, personal interests |
 
-See `references/executive-profiling.md` for the political-layer pattern, NEW-executive handling, attack vectors by role, cultural intelligence.
+See `references/executive-profiling.md` for political-layer pattern, NEW-executive handling, buying influence roles, champion identification, attack vectors by role, cultural intelligence.
+
+### 3b. Buying committee map (beyond attendees)
+
+Profile the attendees, then map the broader buying committee. Enterprise purchases involve 8-13 stakeholders — profiling only attendees leaves half the decision-making unit invisible.
+
+**Produce a stakeholder map** covering: buying influence roles, attitude scores, relationship strength, coverage gaps, multi-threading score, political dynamics.
+
+**Hunt for invisible stakeholders:** Legal/Compliance, Security/InfoSec, CFO's office, Board/Investment committee, predecessor's preferred vendor champion.
+
+**Champion assessment:** Identify, test (assign a task — do they follow through?), and enable (give them the internal selling tools).
+
+See `references/stakeholder-mapping.md` for the full stakeholder map template, champion development, multi-threading assessment, consensus building, and buying process intelligence.
 
 ---
 
@@ -175,12 +246,23 @@ See `references/executive-profiling.md` for the political-layer pattern, NEW-exe
 | Output | Why it exists |
 |--------|---------------|
 | **Intelligence Report** | Baseline context — strategy, pain, tech, competitive, partnership |
-| **Executive Profiles** | Risk map including political layer |
+| **Executive Profiles** | Risk map including political layer and buying influence roles |
+| **Stakeholder Map** | Buying committee, multi-threading assessment, champion status, coverage gaps |
 | **Capability Map** | Honest positioning tool — which capabilities lead, which stay off stage |
 | **Honest Q&A Table** | Words you already have when you're under pressure |
 | **Negative Space** | Landmine avoidance — what NOT to present or claim |
 | **Claims Verification Summary** | Kills overclaim at the source, before it reaches a slide |
 | **"What Competitor CANNOT Do"** | One defensible differentiator per named competitor |
+
+### Conditional outputs (when the engagement warrants it)
+
+| Output | When to produce | Reference |
+|--------|----------------|-----------|
+| **Deal Qualification Score** | New client or large deal | `deal-qualification.md` |
+| **Business Case Skeleton** | $100K+ deal, CFO involvement, "no decision" risk | `value-engineering.md` |
+| **Battle Card** | Named competitor in the evaluation | `battle-cards.md` |
+| **Discovery Playbook** | Live meeting coming up | `discovery-methodology.md` |
+| **Account Plan** | Strategic account, multi-phase engagement | `account-strategy.md` |
 
 ### Output structure
 
@@ -244,14 +326,80 @@ Do not silently adjust. The user is the one who has to defend the work in the ro
 
 ---
 
+## Phase 5 — Discovery preparation
+
+**When:** A live meeting is coming up. Fires after synthesis (full cycle) or standalone ("prep for call with [Company] tomorrow").
+
+### Pre-call playbook
+
+Produce a concise discovery playbook using intelligence from earlier phases:
+
+1. **Objective:** "As a result of this call, the buyer will [specific action]"
+2. **Minimum acceptable outcome:** The floor if the call goes sideways
+3. **Top 3 questions:** Must-answer for this call (use SPIN — lead with Problem and Implication, not Situation)
+4. **Likely objections (top 2):** With prepared responses (LAER framework)
+5. **Role assignment:** Who leads, who handles technical, who takes notes
+6. **Relevant evidence:** Which case study or data point matches
+7. **Landmines:** What could go wrong (from Negative Space and competitive intel)
+8. **Meeting type playbook:** Initial discovery / Technical deep-dive / Demo / Executive briefing / POC scoping / Negotiation (each has a different approach)
+
+See `references/discovery-methodology.md` for SPIN in practice, Sandler pain funnel, active listening techniques, meeting type playbooks, objection handling (LAER), and handling difficult moments.
+
+---
+
+## Phase 6 — Post-engagement learning
+
+**When:** After a meeting, after a deal decision (win or loss), or when the user says "debrief."
+
+### Post-meeting debrief
+
+Capture within 1 hour:
+- Pain points heard (in their exact words)
+- Business impact (quantified where possible)
+- Decision process intelligence (who, when, how)
+- Political dynamics (who championed, who resisted, who was silent)
+- MEDDPICC updates (any elements moved from Missing/Weak to Strong?)
+- Stakeholder map updates (attitudes shifted? new stakeholders?)
+
+### Win/Loss debrief
+
+After a deal decision, run a structured debrief. See `references/win-loss.md` for:
+- Win/loss interview questions (IT services-specific)
+- Win/loss debrief template
+- Deal health scoring
+- Pattern tracking across deals
+
+### Intelligence handoff (presale → delivery)
+
+When a deal is won, transfer: stakeholder map, decision criteria, competitive context, business drivers, risk factors, champion identity, Honest Q&A Table. See `references/win-loss.md` for the full handoff checklist.
+
+---
+
+## Account Strategy (overarching layer)
+
+For strategic accounts with multi-phase engagements, maintain a persistent account plan. This is not per-engagement — it compounds across engagements.
+
+See `references/account-strategy.md` for:
+- Account plan template (snapshot, relationship map, engagement history, white space, competitive landscape, growth strategy, 90-day actions)
+- Land-and-expand vectors
+- Multi-year arc (Year 1: credibility → Year 2: expansion → Year 3: strategic partnership)
+- Relationship mapping and gap analysis
+- Competitive displacement framework
+- Reference selling
+
+**Trigger:** "What's our position with [Company]?" or any multi-phase engagement.
+
+---
+
 ## When to stop and hand off
 
-This skill produces **intelligence**. It does not produce deliverables.
+This skill produces **intelligence and preparation**. It does not produce deliverables.
 
-- **Stops at:** synthesis outputs (above)
+- **Stops at:** synthesis outputs + discovery playbook
 - **Hands off to:** presentation / proposal / demo script authoring
 - **Does not create:** slides, proposal text, demo scripts
-- **Designed to minimize the handoff gap:** Honest Q&A Table and Negative Space are structured so the person writing the deliverable picks them up and uses them directly
+- **Designed to minimize the handoff gap:** Honest Q&A Table, Negative Space, Discovery Playbook, and Business Case Skeleton are structured so the person writing the deliverable picks them up directly
+- **Loops back via:** Post-engagement debriefs that feed into the next engagement's intelligence
 
 ### When NOT to use this skill
 
@@ -267,15 +415,18 @@ Before declaring the intel ready:
 
 **Principle 1 — Scope**
 - [ ] Every research track points back to positioning. No drift.
+- [ ] Deal qualification score completed (if new client/large deal)
 
 **Principle 2 — Evidence**
-- [ ] All intel has source + date
+- [ ] All intel has source + date + confidence grade
 - [ ] Claims Verification complete; Overclaims resolved (soften / remove / verify)
+- [ ] Business case assumptions graded H/M/L with sources
 
 **Principle 3 — Score**
 - [ ] Pain points ranked by offering-relevance
-- [ ] Executives risk-scored with political layer
+- [ ] Executives risk-scored with political layer AND buying influence role
 - [ ] Capabilities classified Gap / Overlap / Competition / Complement
+- [ ] MEDDPICC score current (if qualifying)
 
 **Principle 4 — Negative space**
 - [ ] Negative Space output exists and is non-empty
@@ -283,6 +434,18 @@ Before declaring the intel ready:
 
 **Principle 5 — Loop-back**
 - [ ] Loop-back triggers checked; any firing surfaced to user before synthesis
+
+**Stakeholder coverage**
+- [ ] Buying committee mapped beyond attendees (if known)
+- [ ] Champion identified and tested (or flagged as gap)
+- [ ] Multi-threading score assessed
+- [ ] Coverage gaps flagged
+
+**Discovery readiness** (if meeting coming up)
+- [ ] Pre-call playbook produced with objective + minimum outcome
+- [ ] Top questions prepared (SPIN — Implication-heavy, not Situation-heavy)
+- [ ] Objection responses prepared (LAER)
+- [ ] Role assignment clear
 
 ---
 
@@ -297,9 +460,25 @@ Before declaring the intel ready:
 
 ## Cross-links
 
+**Other skills:**
 - **`ms-ai-discovery`** — for enterprise AI engagements specifically. That skill runs the Microsoft AI Discovery & Envisioning workshop and uses BXT scoring. Run BI skill as prework (executive profiles + competitive context) before Day 1.
-- **`references/frameworks_vocabulary.md`** — named frameworks for query anchoring
+- **`solution-architect`** — the next step after intel. BI tells you *what you know about the client*; `solution-architect` turns that (plus any scoped use cases) into a defensible solution architecture and a winning RFI/RFP/proposal response. Feed BI's profiles, competitor context, and capability map into its Frame phase and win themes.
+
+**Core references (existing):**
+- **`references/frameworks_vocabulary.md`** — named frameworks for query anchoring (MEDDPICC, SPIN, Challenger, Miller Heiman, Sandler, Admiralty Code, TCO, LAER, and more)
 - **`references/subagent-directives.md`** — parallel research orchestration
-- **`references/deep-research-patterns.md`** — iterative research mechanics
-- **`references/executive-profiling.md`** — political layer, NEW-executive handling
+- **`references/deep-research-patterns.md`** — CI discipline, source grading, iterative research mechanics
+- **`references/executive-profiling.md`** — political layer, buying influences, champion identification, NEW-executive handling
 - **`references/defensive-positioning.md`** — Capability Map, Competitor CANNOT-Do, Honest Q&A, Negative Space
+
+**New references (from research sprint):**
+- **`references/deal-qualification.md`** — MEDDPICC scoring, go/no-go, buying influence mapping
+- **`references/value-engineering.md`** — business case skeleton, TCO, ROI, cost of inaction, value by role
+- **`references/stakeholder-mapping.md`** — buying committee, champion development, multi-threading, consensus building
+- **`references/discovery-methodology.md`** — SPIN practice, Sandler pain funnel, meeting types, objection handling, pre-call planning
+- **`references/account-strategy.md`** — account planning, land-and-expand, relationship mapping, multi-year arc
+- **`references/win-loss.md`** — win/loss practice, deal health scoring, post-engagement debrief, intelligence handoff
+- **`references/battle-cards.md`** — battle card structure, war gaming, competitive displacement, CI source grading
+
+**Raw research (for reference):**
+- **`research-sprint/`** — full research outputs from the 6-track discipline survey (enterprise sales methodology, competitive intelligence, value engineering, stakeholder/buying process, discovery/needs analysis, account strategy/win-loss)
