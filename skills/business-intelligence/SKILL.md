@@ -21,7 +21,7 @@ These five principles govern the skill. If a downstream pattern conflicts with t
 
 **Why:** Research output becomes the sales conversation. An unverified intel point surfaces as an unverified claim in the room, and that's where credibility dies. This applies symmetrically: every piece of client intel needs a source, and every claim in *your* materials needs verification before it reaches a slide.
 
-**How to apply:** Every intel point cites source + date. Every claim you plan to make passes a Claims Verification check (see subagent-directives.md). Unsourced = unused until sourced.
+**How to apply (this is the Grounding Gate — inherited from `core`):** Every intel point cites source + date and carries an Admiralty grade; every claim you plan to make passes a Claims Verification check (see subagent-directives.md). Record it: `Grounded: <claim> → <source>, grade <A–F/1–6>` or flag it as an assumption/unknown. **Unsourced = unused until sourced. A claim you cannot ground, you do not make** — or you state it as negative space. Silent skip = integrity violation. Canonical gate + honesty corollary: `../core/references/grounding-gate.md`.
 
 ### 3. Score before recommending.
 
@@ -369,6 +369,8 @@ After a deal decision, run a structured debrief. See `references/win-loss.md` fo
 - Deal health scoring
 - Pattern tracking across deals
 
+**Close the loop — deal-learning → skill-learning.** A debrief that ends in `win-loss.md` teaches you about *that deal*. After each one, ask "does this contradict or extend the skill?" — and when a pattern recurs, promote it into `EVOLUTION.md` so it changes BI's frameworks, positioning, or gates. That is the difference between a skill that learns about deals and one that learns about itself. See `EVOLUTION.md` (loop: `../core/references/evolution-loop.md`).
+
 ### Intelligence handoff (presale → delivery)
 
 When a deal is won, transfer: stakeholder map, decision criteria, competitive context, business drivers, risk factors, champion identity, Honest Q&A Table. See `references/win-loss.md` for the full handoff checklist.
@@ -459,6 +461,9 @@ Before declaring the intel ready:
 ---
 
 ## Cross-links
+
+**Kernel:**
+- **`core`** — the shared spine BI inherits: integrity constraints, gate-by-artifact, the Grounding Gate (posture #2), the Output Contract, and the evolution loop behind `EVOLUTION.md`. Reference `../core/references/…`, don't re-derive. See `../core/SKILL.md`.
 
 **Other skills:**
 - **`ms-ai-discovery`** — for enterprise AI engagements specifically. That skill runs the Microsoft AI Discovery & Envisioning workshop and uses BXT scoring. Run BI skill as prework (executive profiles + competitive context) before Day 1.
