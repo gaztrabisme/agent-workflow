@@ -50,4 +50,4 @@ This is a *kernel*, not a workflow. It has no modes of its own. A role-skill con
 
 ## Provenance note
 
-`wiki-protocol.md` and `pushback-and-teach.md` originated in `dev` (fire-tested there over many iterations) and are copied here byte-identical as the canonical cross-skill home. `dev` still carries its own embedded copies and has not been repointed — migrating it is a deliberate, separate task on a heavily-coupled, proven skill. Until then, keep the two copies in sync (or migrate dev to reference here). New skills should reference `core`, never `dev`, for the general spine.
+`wiki-protocol.md` and `pushback-and-teach.md` originated in `dev` (fire-tested there over many iterations) and are now the canonical cross-skill home here. As of 2026-07-01, `dev` has been **migrated to reference `core`** — its duplicate copies were removed and its ~21 references repointed — so there is a single canonical home and no drift. All skills, `dev` included, reference `core` for the general spine.

@@ -23,7 +23,7 @@ The kernel's own loop. Mechanism: `references/evolution-loop.md`. Harvest source
 5. This `EVOLUTION.md`. (Pattern 4.)
 
 ### Open items / validation (fill after the constellation runs on real work)
-- [ ] **Migrate `dev` to reference core** (retire the two duplicated files) — resolves Pattern 2. Deferred: high-touch on a fire-tested skill.
+- [x] **Migrate `dev` to reference core** (retire the two duplicated files) — resolves Pattern 2. **Done 2026-07-01:** repointed 21 references across SKILL/CLAUDE/6 modes/subagent-briefs/EVOLUTION, deleted dev's copies. Single canonical home; drift risk closed.
 - [ ] Confirm the Grounding Gate's per-role substrate is actually recorded in real traces (dev/BI/SA).
 - [ ] Confirm no gate is too abstract to apply in a role skill without re-deriving it.
 - **Verdict: PENDING** — core is a same-day extraction; it earns `KEEP` once ≥2 skills demonstrably run on the kernel without re-deriving or duplicating it.
