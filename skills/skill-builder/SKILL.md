@@ -1,6 +1,6 @@
 ---
 name: skill-builder
-description: "Author or refine an agent skill so it inherits the shared spine and earns its place in the constellation. USE WHEN creating a new skill, splitting/merging skills, distilling a methodology or documents into a skill, or hardening an existing skill (frontmatter, references, templates, gates, EVOLUTION loop). Bakes in the core kernel so every skill built is disciplined by construction. Keywords: skill, agent skill, build a skill, author skill, meta, skill design, SKILL.md, frontmatter, distill, dogfood, evolution loop, compose skills."
+description: "Author or refine an agent skill so it inherits the shared spine and earns its place in the constellation. USE WHEN creating a new skill, splitting/merging skills, distilling a methodology or documents into a skill, or hardening an existing skill (frontmatter, references, templates, gates, EVOLUTION loop). Bakes in the core kernel so every skill built is disciplined by construction. Not `core` — that's the kernel a skill *references*; this is the authoring *workflow* that produces skills. Keywords: skill, agent skill, build a skill, author skill, meta, skill design, SKILL.md, frontmatter, distill, dogfood, evolution loop, compose skills."
 ---
 
 # Skill-builder
@@ -52,7 +52,7 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 - **Grounding.** Before authoring, read `core` and the sibling skills the new one will touch — ground conventions in what exists, don't reinvent. Record `Grounded: read core + <siblings> → <what you reused>`. See `../core/references/grounding-gate.md`.
 - **Reference, don't duplicate.** The spine lives in `core`. Copying `wiki-protocol`/`pushback`/gates into a new skill is the cardinal sin — reference them. New content only for what's genuinely unique to the skill.
 - **Compose, don't merge.** Keep skills narrow and well-triggered; wire them via cross-links and hand-offs. A mega-skill triggers on everything and disambiguates nothing.
-- **Dogfood before trust (Output Contract).** A skill is not done when written — it's done when a **fresh-context subagent has used it on a real task** and its findings are folded back. Spawn the agent, have it *use* the skill (not just read it) and report gaps as a harsh critic; apply the fixes; record the pass in `EVOLUTION.md` at verdict `PENDING`. (This is `references/authoring-checklist.md` step 6, and it's non-negotiable — it's the gate-by-artifact rule applied to skills.)
+- **Dogfood before trust (Output Contract).** A skill is not done when written — it's done when a **fresh-context subagent has used it on a real task** and its findings are folded back. Brief the critic with `references/templates/dogfood-brief.md` (it also defines the *pass condition* and where evidence goes — a thin brief yields a thin dogfood); have it *use* the skill (not just read it); apply the fixes; record the pass in `EVOLUTION.md` at verdict `PENDING`. (This is `references/authoring-checklist.md` step 6, and it's non-negotiable — it's the gate-by-artifact rule applied to skills.)
 - **Own repo + EVOLUTION.md.** `git init` the skill; ship `EVOLUTION.md` with the birth + first dogfood recorded, verdict `PENDING` until ≥2 real uses.
 
 ## Anti-patterns (hard no-list)
@@ -70,3 +70,6 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 
 ## References
 - `references/authoring-checklist.md` — the step-by-step build/refine checklist, including the fresh-context dogfood.
+- `references/templates/SKILL.md.skeleton` — canonical section headers to fill (keeps the constellation greppable by section).
+- `references/templates/EVOLUTION.md.skeleton` — the evolution-ledger shape (mirrors `../core/references/evolution-loop.md`).
+- `references/templates/dogfood-brief.md` — the fresh-context critic brief + pass condition + evidence location.
