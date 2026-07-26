@@ -205,6 +205,21 @@ Every mode, at minimum, appends a `log.md` entry (what happened, dated) and upda
 - [ ] Primary artifact for this mode exists and is linked from `index.md`
 - [ ] Decisions *and* rejected approaches recorded where one was made
 - [ ] Breadcrumbs are specific findings, not "looked at X"
+- [ ] Any **roll-up** of this work (a parent/console page summarizing several projects) updated in the same session — see below
+
+---
+
+## Roll-ups: a summary is a pointer, not a source
+
+Wikis grow layers: a detail page, a project `active-work.md`, and often a parent/console page rolling several projects up. Those layers drift, and the drift is silent — nothing fails, the stale text just sits there reading like fact.
+
+**Reading rule — never reason from a roll-up about a decision.** A roll-up tells you *that* a topic exists and roughly where it stands. Before you rely on it for anything consequential — what was decided, what a number is, whether something is still open — **open the dated entry it summarizes.** Especially when a roll-up says a question is *open*, *reopened*, or *pending*: that is exactly the sentence most likely to have been superseded and never rewritten, because closing a question is where attention moves on. Treat "still open" in a summary as a claim to verify, not a state to act on.
+
+**Writing rule — date-stamp claims, not sections.** A section header like `Status (as of <date>)` above a paragraph whose later sentences are older is *worse than no stamp*: it actively signals currency for text that no longer has it. Put the date on the claim that owns it. When you supersede a claim in a roll-up, rewrite that claim — don't append a newer one beneath it and leave both standing.
+
+**Why this is a gate, not advice:** the failure mode is one-directional and invisible. The source page is correct; only the summary is wrong; and the summary is the page that gets read first. Nothing surfaces the contradiction unless someone opens both — so the reader who trusts the roll-up is the one who gets burned, and they get burned *confidently*.
+
+> **Structural note.** If a wiki lives outside version control, roll-up drift has no diff to catch it and can persist indefinitely. Getting project memory under version control is worth more than any prose rule here, because it turns "the summary disagrees with its source" from invisible into reviewable.
 
 The cost of this contract is a few minutes of writing; the cost of skipping it is every future session re-deriving what this one already knew. That asymmetry is why it's a gate, not a suggestion.
 
