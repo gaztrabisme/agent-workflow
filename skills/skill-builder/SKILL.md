@@ -54,6 +54,7 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 - **Compose, don't merge.** Keep skills narrow and well-triggered; wire them via cross-links and hand-offs. A mega-skill triggers on everything and disambiguates nothing.
 - **Dogfood before trust (Output Contract).** A skill is not done when written — it's done when a **fresh-context subagent has used it on a real task** and its findings are folded back. Brief the critic with `references/templates/dogfood-brief.md` (it also defines the *pass condition* and where evidence goes — a thin brief yields a thin dogfood); have it *use* the skill (not just read it); apply the fixes; record the pass in `EVOLUTION.md` at verdict `PENDING`. (This is `references/authoring-checklist.md` step 6, and it's non-negotiable — it's the gate-by-artifact rule applied to skills.)
 - **Own repo + EVOLUTION.md.** `git init` the skill; ship `EVOLUTION.md` with the birth + first dogfood recorded, verdict `PENDING` until ≥2 real uses.
+- **Scrub gate (only when publishing publicly).** A skill authored inside real work carries the client detail that made it good. Before any public push: generalize identifiers to *shapes*, sever any reference to private traces, run `scripts/scrub_check.py --history`, and **verify by cloning the published repo and re-scanning it**. A clean working tree above a dirty history publishes the dirty history. Full procedure: `references/publishing.md`.
 
 ## Anti-patterns (hard no-list)
 - Duplicating `core` instead of referencing it.
@@ -73,3 +74,5 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 - `references/templates/SKILL.md.skeleton` — canonical section headers to fill (keeps the constellation greppable by section).
 - `references/templates/EVOLUTION.md.skeleton` — the evolution-ledger shape (mirrors `../core/references/evolution-loop.md`).
 - `references/templates/dogfood-brief.md` — the fresh-context critic brief + pass condition + evidence location.
+- `references/publishing.md` — the gate between "the skill works" and "the skill is public": generalization, the no-linkage rule, denylist construction, orphan-branch history, verify-from-a-clean-clone.
+- `scripts/scrub_check.py` — the denylist gate itself; reads a per-skill `.scrub-denylist`, scans the working tree and (with `--history`) every blob in git history.
