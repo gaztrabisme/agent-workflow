@@ -12,6 +12,65 @@ Methodology for building actionable executive profiles with attack vectors.
 - **Opportunity** — Know what would make them lean in
 - **Connection** — Find cultural or personal touchpoints
 - **Risk Management** — Identify who could derail AND who could champion the engagement
+- **Deal Strategy** — Map buying influences and identify the real decision architecture
+
+---
+
+## Buying Influence Role
+
+For each profiled executive, assign a buying influence role (Miller Heiman). These are roles, not titles — one person may hold multiple.
+
+| Role | What they do | Profile implication |
+|------|-------------|-------------------|
+| **Economic Buyer** | Final budget authority — can say yes when everyone says no | Highest priority profile. Prepare win-result (personal + organizational). |
+| **User Buyer** | Lives with the solution daily | Prepare workflow-level value story, not strategic. |
+| **Technical Buyer** | Gates on feasibility, security, compliance — cannot say yes but CAN say no | Satisfy, don't sell to. Prepare honest technical depth. |
+| **Coach** | Internal advocate with organizational influence who supports you | Protect — never reveal what they told you. Enable — give them tools to sell internally. |
+
+Add this to every profile:
+
+```
+Buying Influence: [Economic Buyer / User Buyer / Technical Buyer / Coach / Unknown]
+Win-Result: [Organizational result they need] + [Personal win they'd get]
+```
+
+---
+
+## Champion Identification
+
+A champion is not a friendly contact. A champion spends political capital pushing your deal forward.
+
+### Champion signals (add to profile when observed)
+
+| Signal | Champion | Supporter (not champion) |
+|--------|----------|------------------------|
+| In meetings | Drives agenda, proposes next steps | Nods, agrees, friendly |
+| Between meetings | Does homework, sends intel proactively | Responsive when you reach out |
+| Internal advocacy | "Here's why we should do this — I built the case" | "They seem good" |
+| Risk tolerance | Will argue for you in rooms you're not in | Won't stick neck out |
+
+### Champion testing
+
+When you suspect someone is a champion, assign a task:
+- "Could you share your team's process metrics for the business case?"
+- "Would you take a 15-minute call with a reference customer?"
+- "Could you draft a problem statement for the internal proposal?"
+
+Follow-through = real champion. No follow-through = supporter. Adjust strategy.
+
+### Multi-threading assessment (add to profile set)
+
+After profiling all attendees + known stakeholders:
+
+```
+Multi-Threading Score:
+  Contacts engaged: [N]
+  Roles covered: [list]
+  Coverage gaps: [missing roles or levels]
+  Single-thread risk: [Y/N — if champion is only contact]
+```
+
+See `stakeholder-mapping.md` for the full buying committee map that wraps around individual profiles.
 
 ---
 
@@ -143,7 +202,7 @@ Prepare a 2-3 sentence breadth summary for each engagement. When someone signals
 
 **Format**: "Beyond [what we just showed], [breadth of capabilities]. [Concrete second example]."
 
-**Example from a European utility Phase 2**: "Beyond asset management, we've built forecasting pipelines, data enrichment workflows, and low-code model deployment. For example, the solar forecasting pipeline uses the same platform to go from raw sensor data to operational dashboards."
+**Example (composite)**: "Beyond asset management, we've built forecasting pipelines, data enrichment workflows, and low-code model deployment. For example, a renewable-generation forecasting pipeline uses the same platform to go from raw sensor data to operational dashboards."
 
 If you don't have the breadth to zoom out, hand up to management: "Let me bring [senior person] in — they can speak to how this connects across the broader architecture." This is not failure. This is the hierarchy working correctly.
 
