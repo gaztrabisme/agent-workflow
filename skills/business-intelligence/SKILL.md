@@ -1,6 +1,7 @@
 ---
 name: business-intelligence
 description: "Build defensible intelligence on enterprise clients for presale engagements — presentations, proposals, negotiations. USE WHEN preparing for a high-stakes client conversation where what you claim will be tested. Keywords: research, client, executive, presentation, proposal, intel, profile, deep research, presale, discovery, account, qualify, business case, win loss."
+license: MIT
 ---
 
 # Business Intelligence
