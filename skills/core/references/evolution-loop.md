@@ -30,6 +30,21 @@ Each skill repo carries an **`EVOLUTION.md`** (projects use `wiki/decisions.md` 
 
 This is why `solution-architect` and `ms-ai-discovery` (both document-distilled) must sit at `PENDING` until real engagements validate them — borrowed confidence is not evidence.
 
+## Non-adoption is a scoping signal before it is a validity signal
+
+When a later engagement **doesn't use** something the skill told it to use, the tempting read is "the hypothesis failed." Usually it didn't. Usually the hypothesis was **described more broadly than the evidence supported** — correct machinery, over-generalized from the one context that produced it.
+
+Before writing `REVERT`, ask in this order:
+
+1. **Was it scoped too broadly?** Did the trace that produced it share a context (deal type, project size, domain, team shape) that the skill silently assumed was universal? → the fix is a **selector** that names when it applies, not a retraction.
+2. **Was it discoverable?** Buried in a reference nothing points at is not a validity result.
+3. **Was it too heavy for the case?** A 15-sheet instrument on a two-week job gets skipped for cost, not correctness. → state a lighter floor.
+4. **Only then: was it wrong?** → `REVERT` + post-mortem.
+
+Record the outcome as **`REVISED`** when 1–3 apply: the change survives, its applicability gets named, and the new selector inherits verdict `PENDING`. Collapsing all of these into `REVERT` throws away machinery that works, and — worse — teaches the loop that the safe move is to never generalize.
+
+The corollary for **harvesting**: the second engagement's greatest value is rarely confirming the first. It's exposing which parts of the first were *context* wearing the costume of *principle*. Go in looking for that.
+
 ## Role variants of "harvest"
 
 | Skill | Harvest source | Turns into |
