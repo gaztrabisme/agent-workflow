@@ -1,6 +1,7 @@
 ---
 name: solution-architect
 description: "Vendor-neutral Solution Architect lifecycle for presale — turn client requirements (an RFI/RFP, a discovery output, a brief) into a defensible solution architecture and a winning response. USE WHEN scoping or architecting a client solution, writing/reviewing an RFI/RFP/proposal/tender response, doing tech-stack options analysis and tradeoffs, defining non-functional requirements, building a requirements-traceability matrix, or phasing/sizing/risk-assessing a deal. Composes with business-intelligence (client intel), ms-ai-discovery (MS workshop scoping), and dev (the build). Keywords: solution architect, SA, RFI, RFP, proposal, tender, bid, solution architecture, reference architecture, tech stack selection, options analysis, tradeoff, NFR, non-functional, traceability matrix, presale, phasing, roadmap, sizing, estimation, win theme."
+license: MIT
 ---
 
 # Solution Architect
