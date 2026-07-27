@@ -100,6 +100,57 @@ git branch -D pre-public-history
 git reflog expire --expire=now --all && git gc --prune=now
 ```
 
+### Every remote branch, not just the one you're on
+
+**A scan of your current branch can report clean while a full copy of the leak sits one branch over.**
+Stale feature branches, abandoned agent branches, and anything pushed and forgotten are complete copies of
+the history you are trying to clean — and `filter-repo` will not touch a branch that exists only on the
+remote, because it rewrites *local* refs.
+
+Enumerate the remote before you believe any result:
+
+```bash
+git ls-remote --heads origin              # what the world can actually fetch
+git fetch origin                          # pull them into local refs so --history sees them
+for b in $(git branch -r | grep -v HEAD | sed 's|origin/||'); do
+  git branch --track "$b" "origin/$b" 2>/dev/null
+done
+```
+
+Then re-run the scan. Do not delete a stale branch to make the scan pass without reading it first — an
+abandoned branch is exactly where unmerged work hides, and deleting it destroys content that exists nowhere
+else.
+
+### Preserve history when it's worth keeping — redact, don't orphan
+
+The orphan procedure above is the blunt instrument: guaranteed clean, but it discards every commit. When the
+repo has real history worth keeping (an evolution ledger, a decision trail), **`git-filter-repo` redacts the
+identifiers across every blob and commit message while preserving the commit graph**:
+
+```bash
+cat > redactions.txt <<'EOF'
+Documents/Work/Contoso==>an internal work path    # longest/most specific FIRST
+Contoso Accelerator==>an internal accelerator
+Contoso==>the employer
+EOF
+git filter-repo --replace-text redactions.txt --force
+```
+
+Order matters — entries apply in sequence, so a bare `Contoso==>` listed first will mangle the longer
+strings before they match. Two gotchas: `filter-repo` **removes the `origin` remote** as a safety measure
+(re-add it), and removing the remote also destroys the remote-tracking refs that `--force-with-lease` needs
+for its baseline, so the push fails with `stale info`. Fix that by pinning the lease explicitly rather than
+falling back to a bare `--force`:
+
+```bash
+git remote add origin <url>
+git push --force-with-lease=main:<known-remote-sha> origin main
+```
+
+Cleanest when several branches are involved: run it in a **fresh clone** (which has every branch in its
+original form), then push each branch from there. Filtering an already-filtered repo produces a duplicated
+parallel lineage.
+
 ### Fix leaks by rewriting, never by committing a fix
 
 If a leak is already committed, **a follow-up commit that removes it preserves it in the diff.** Deleting a
@@ -117,11 +168,19 @@ Everything above verifies your *intent*. This verifies the *artifact*:
 
 ```bash
 git clone https://github.com/<you>/<repo>.git /tmp/verify-live
+cd /tmp/verify-live
+for b in $(git branch -r | grep -v HEAD | sed 's|origin/||'); do
+  git branch --track "$b" "origin/$b" 2>/dev/null      # every branch, or you scan one of them
+done
 python scripts/scrub_check.py /tmp/verify-live --history
 ```
 
 Clone what the world can actually fetch and scan that. A local working tree can be clean while the push was
 partial, a branch leaked, or a file was gitignored locally but committed earlier. Gate on the clone.
+
+**Check what is actually tracked, too.** A leak you find in your working tree may never have been published
+(untracked file), and a file you assume is local may be committed. `git ls-files` is the authority — not
+`ls`. Report the difference honestly rather than overstating or understating the exposure.
 
 ## 6. The public-facing files
 
@@ -137,14 +196,45 @@ partial, a branch leaked, or a file was gitignored locally but committed earlier
   convention (`EVOLUTION-traces.md`) discloses that the convention exists. Ignore *categories*
   (`*.xlsx`, `scratchpad/`), not the names of your secrets.
 
+## 7. The gate is not one-time, and it is not per-repo
+
+The failure this page was written for is a *publish-time* leak. The failure that actually happens is
+**drift**: a skill published clean months ago, then evolved, harvested, and re-pushed a dozen times — each
+edit written inside real work, each one a chance to reintroduce an identifier. Meanwhile a sibling skill was
+made public without ever running the gate at all, because the gate lived in the head of whoever published
+the *first* repo.
+
+Two rules follow:
+
+- **Scan the constellation, not the repo you happen to be publishing.** Identifiers are shared — the same
+  employer, manager, and client accounts appear across every skill authored in that job. So the denylist
+  should be shared too: keep one `all-skills.scrub-denylist` in the private store covering what is common,
+  with per-engagement lists supplementing it. A per-skill denylist silently misses a sibling's client.
+- **Re-run the sweep on a schedule, not on a trigger.** Before any push is the floor; a periodic sweep across
+  every public skill is what actually catches drift. Confirm visibility from the API each time
+  (`gh repo view --json isPrivate`) — a repo you believe is private is a belief, not a fact.
+
+```bash
+for s in <skill> <skill> …; do
+  python scripts/scrub_check.py "$s" --denylist ~/…/all-skills.scrub-denylist --history
+done
+```
+
+When the sweep finds a new identifier (a client you hadn't listed, a codename), add it to the shared
+denylist immediately — the value of the list is that it accumulates, and the one you skip adding is the one
+that ships.
+
 ## Pre-push checklist
 
 - [ ] Every identifier generalized to a shape; currencies, platforms, regulatory terms, and counts included
 - [ ] No reference anywhere to the existence of private traces
 - [ ] `.scrub-denylist` written, short tokens word-bounded, and **stored outside the public repo**
 - [ ] `scrub_check.py` clean on the working tree
-- [ ] `scrub_check.py --history` clean, **or** a fresh root commit created and the old branch renamed
+- [ ] `scrub_check.py --history` clean, **or** history redacted (`filter-repo`) / a fresh root commit created
+- [ ] **`git ls-remote --heads origin` enumerated** and every branch scanned — not just the current one
+- [ ] Unmerged work on stale branches read before any branch is deleted
 - [ ] README names sibling-skill dependencies and where to get them
 - [ ] LICENSE present, copyright holder confirmed with the author
-- [ ] **Cloned the published repo and re-scanned it** — this is the gate
+- [ ] **Cloned the published repo, tracked every branch, and re-scanned it** — this is the gate
 - [ ] Repo visibility confirmed via API, not assumed from the create command
+- [ ] Sibling skills swept with the shared denylist — the leak is rarely only in the repo you're publishing
