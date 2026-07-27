@@ -52,6 +52,7 @@ The corollary for **harvesting**: the second engagement's greatest value is rare
 | `dev` | build commits, wiki decisions/gotchas | mode + heuristic edits |
 | `business-intelligence` | win/loss debriefs, deal outcomes | framework/positioning/gate edits — learning about *the skill*, not just the deal |
 | `solution-architect` | response outcomes, RFP conversion, dogfood runs | lifecycle/reference/template edits |
+| `delivery` | completed engagements: estimate vs actual, contested criteria, obligation slippage | lifecycle/tracker edits — **and a correction pushed back to `solution-architect`**, since a contested criterion was written ambiguously upstream |
 | `ms-ai-discovery` | workshop outcomes vs distilled method | method/script edits; validate the PDF's claims |
 | `skill-builder` | skills authored + their later EVOLUTION verdicts | convention/checklist edits |
 
