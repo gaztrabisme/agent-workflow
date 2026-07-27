@@ -1,0 +1,10 @@
+.DS_Store
+scratchpad/
+
+# Engagement source material never belongs in this repo.
+*.xlsx
+*.docx
+*.pptx
+
+# Scrub configuration is kept outside this repo.
+.scrub-denylist
