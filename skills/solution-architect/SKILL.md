@@ -11,8 +11,8 @@ Turn a client's stated need — an RFI, an RFP, a workshop output, a one-line br
 This is the connective tissue of the presale lifecycle. It sits *after* you know the client and *before* anyone writes code:
 
 ```
-business-intelligence → ms-ai-discovery → [ SOLUTION-ARCHITECT ] → dev
- (know the client)      (scope use cases,   (architect the solution  (build it)
+business-intelligence → ms-ai-discovery → [ SOLUTION-ARCHITECT ] ──signed──┬─→ delivery (run the engagement)
+ (know the client)      (scope use cases,   (architect the solution        └─→ dev      (build it)
                          Microsoft-specific) + write the response)
 ```
 
@@ -24,6 +24,7 @@ It **consumes** client intel (from `business-intelligence`) and scoped use cases
 - **`business-intelligence` instead:** you need to *research* the client, competitors, stakeholders, or build the business case — the *inputs* to architecture, not the architecture.
 - **`ms-ai-discovery` instead:** you're running a *Microsoft discovery/envisioning workshop* (BXT, Five Golden Questions, Discovery Cards) to scope use cases. SA consumes its output; when the deal positions Microsoft, SA *invokes* it for the MS lens rather than duplicating it.
 - **`dev` (Design mode) instead:** the audience is the *engineering team*, not the client — implementation specs, data models, contracts, success criteria for code. SA stops at the architecture and the response; dev takes it into the build.
+- **`delivery` instead:** the deal is **signed** and the work is now being run — baselining the estimate, tracking acceptance criteria to sign-off, chasing client obligations, pricing change requests, reporting status. SA *produces* the acceptance annex, obligations register, estimate, and ID spine; `delivery` baselines and tracks them. Decide on **tense**: criteria being *negotiated* → SA; criteria being *tracked to sign-off* → delivery.
 
 > **Disambiguation rule:** both SA and dev/Design trigger on "design/architect." Decide on **artifact + audience**. Client solution / proposal / tech selection → **SA**. Internal spec / data model / feature implementation → **dev/Design**.
 
@@ -80,6 +81,8 @@ These are inherited from the `core` kernel so the discipline is consistent acros
 - **From `business-intelligence`:** client profile, decision-makers & political layer, competitor context, capability map, verified claims → feed Phase 1 (Frame) and Phase 5 win themes. Full handoff in `references/composition.md`.
 - **From `ms-ai-discovery`:** BXT-scored use cases, agentic journey map, ROI baseline → feed Phase 2–3. When positioning Microsoft, use its stack/commercial-framing references instead of re-deriving them.
 - **To `dev`:** accepted architecture + decision records + NFRs + traceability → become the Design-mode input and the project `AGENTS.md`/`wiki/` for the build.
+- **To `delivery` (on signature):** the estimate, phased roadmap, acceptance annex, client-obligation register, risk register, and the declared **ID spine** → become the delivery baseline and its trackers. `delivery` runs for the whole engagement with `dev` cycling inside it.
+- **Back from `delivery` (at close-out):** estimate vs actual per phase, which criteria were contested and why, which client obligations slipped. This is the highest-value correction signal `references/estimation-and-costing.md` and `references/acceptance-and-contract.md` will ever receive — a criterion that caused a dispute was written ambiguously here.
 
 ## Artifacts & Output Contract
 
