@@ -53,6 +53,11 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 - **Reference, don't duplicate.** The spine lives in `core`. Copying `wiki-protocol`/`pushback`/gates into a new skill is the cardinal sin — reference them. New content only for what's genuinely unique to the skill.
 - **Compose, don't merge.** Keep skills narrow and well-triggered; wire them via cross-links and hand-offs. A mega-skill triggers on everything and disambiguates nothing.
 - **Dogfood before trust (Output Contract).** A skill is not done when written — it's done when a **fresh-context subagent has used it on a real task** and its findings are folded back. Brief the critic with `references/templates/dogfood-brief.md` (it also defines the *pass condition* and where evidence goes — a thin brief yields a thin dogfood); have it *use* the skill (not just read it); apply the fixes; record the pass in `EVOLUTION.md` at verdict `PENDING`. (This is `references/authoring-checklist.md` step 6, and it's non-negotiable — it's the gate-by-artifact rule applied to skills.)
+- **Spec validation.** Run the official validator before calling a skill done — it catches what a human read misses (unquoted `description:` containing colons silently breaks the frontmatter, and the skill then loads wrong or not at all):
+  ```bash
+  npx -y skills-ref@latest validate <skill-path>
+  ```
+  Conform to the [Agent Skills spec](https://agentskills.io/specification): `name` matches the directory, `description` ≤1024 chars with `USE WHEN` + keywords, SKILL.md under ~500 lines, and declare `license` in frontmatter for anything public — a public repo with no license is all-rights-reserved and cannot be reused.
 - **Own repo + EVOLUTION.md.** `git init` the skill; ship `EVOLUTION.md` with the birth + first dogfood recorded, verdict `PENDING` until ≥2 real uses.
 - **Scrub gate (only when publishing publicly).** A skill authored inside real work carries the client detail that made it good. Before any public push: generalize identifiers to *shapes*, sever any reference to private traces, run `scripts/scrub_check.py --history`, and **verify by cloning the published repo and re-scanning it**. A clean working tree above a dirty history publishes the dirty history. Full procedure: `references/publishing.md`.
 
