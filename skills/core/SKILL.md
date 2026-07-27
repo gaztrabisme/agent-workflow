@@ -1,6 +1,7 @@
 ---
 name: core
 description: "The shared operating spine every role-skill inherits — integrity constraints, gate-by-artifact, shared memory (wiki), grounding gate, pushback-and-teach, approach declaration, and the evolution loop. Rarely invoked directly; it is the kernel that dev, business-intelligence, solution-architect, ms-ai-discovery, and skill-builder reference so discipline is defined once, not copy-pasted. USE WHEN you need the canonical statement of a cross-cutting gate, or the shared spine a skill should reference. To *author or refine* a skill, use `skill-builder` (which references this kernel) — not this directly. Keywords: spine, kernel, integrity, gate by artifact, output contract, wiki memory, grounding gate, pushback, evolution loop, skill discipline."
+license: MIT
 ---
 
 # Core — the shared spine
