@@ -42,8 +42,11 @@ to stop you building a second measurement system beside it.
 Skills live in `~/.claude/skills/` (or your agent's equivalent):
 
 ```bash
-git clone https://github.com/<you>/delivery.git ~/.claude/skills/delivery
+git clone https://github.com/gaztrabisme/delivery-skill.git ~/.claude/skills/delivery
 ```
+
+The directory **must** be named `delivery` — the Agent Skills spec requires the folder name to match the
+`name` field in the frontmatter.
 
 **Dependencies.** This skill references sibling skills by relative path and expects them installed alongside:
 
