@@ -6,7 +6,7 @@ license: MIT
 
 # Core — the shared spine
 
-The operating discipline that makes any role trustworthy — whether the artifact is code, a client dossier, a proposal, a delivery baseline, or a workshop plan. It lives here once so the role-skills (`dev`, `business-intelligence`, `solution-architect`, `delivery`, `ms-ai-discovery`, `skill-builder`) can **reference it, not re-derive it**.
+The operating discipline that makes any role trustworthy — whether the artifact is code, a client dossier, a proposal, a delivery baseline, or a workshop plan. It lives here once so the role-skills (`dev`, `business-intelligence`, `solution-architect`, `delivery`, `ms-ai-discovery`, `skill-builder`) and the execution-layer skills (`omlx`, `media-gen`) can **reference it, not re-derive it**.
 
 This is a *kernel*, not a workflow. It has no modes of its own. A role-skill consumes it by (a) obeying the Integrity Constraints, (b) declaring the gates in its own flow, and (c) pointing at the canonical references below.
 
