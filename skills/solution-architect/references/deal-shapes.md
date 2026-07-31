@@ -20,6 +20,33 @@ how it's priced, and what "done" means — follows from it.
 | **Terminal artifact** | The response, submitted. | The contract, signed. |
 | **Biggest risk** | A scored gap you didn't trace. | An acceptance criterion you can't run because the client didn't deliver something. |
 
+## Axis 2 — declare the recipient
+
+Shape tells you what the *deal* is. It does not tell you who picks the artifact up next, or what they have
+to decide with it. Both axes are needed, and the second one is easier to forget because the skill has
+historically only had a name for the first.
+
+Declare it beside the shape, in one line:
+
+`Recipient: <role> — decides <what> — therefore the primary artifact is <shape>`
+
+| Recipient | What they decide | Primary artifact | What is noise to them |
+|---|---|---|---|
+| **Client evaluator** | whether to buy, and from whom | the response — narrative, win themes, traceability as proof | internal capacity maths, cut order, your risk register |
+| **Delivery planner (PM / TL)** | release split, staffing, sequence | a WBS **instrument** — task rows, disciplines, **effort column empty** | scope defence, assumptions prose, commercial framing |
+| **Engineering team** | how to build it | spec, contracts, data models, success criteria | pricing, positioning, commercial risk |
+| **Signing counterparty** | what they are bound to | acceptance annex + obligation register | architecture detail, options analysis |
+
+**Why this page needed a second axis.** On a real engagement the shape was declared correctly — fixed-price
+delivery, workbook explicitly rejected as ceremony — and the primary artifact was still rejected by its
+recipient. It was eight sheets: Summary · Scope-In · Scope-Out · WBS · Capacity · Assumptions · Obligations
+· Risks. **Three about the work; five about defending the number.** Correct for a client evaluator, noise
+to a PM distributing tasks to discipline leads. His verdict: *"this is governance and process, not
+implementation."* He then rebuilt it himself, with five times the rows and a third of the words per cell.
+
+The machinery was not wrong. It was aimed at the wrong reader — which is a selector problem, not a
+retraction (`../../core/references/evolution-loop.md`).
+
 ## What both shapes share
 
 These are shape-independent — never skip them on the grounds that "this is only a small deal":

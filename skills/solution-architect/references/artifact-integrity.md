@@ -101,6 +101,77 @@ file and **one** named owner. Parallel authorship without this produces silent f
 Byte-identical duplicates are the mild version (retire one). Same-name divergent files are the dangerous
 version: every reader believes they read the current one.
 
+### C8 — One namespace per concept
+Before choosing an ID prefix, check it against **every other register in the engagement**. Renaming a
+register to suit a stakeholder is exactly when collisions get created.
+
+> *Observed:* a PM asked for the obligations register to be re-framed as "dependencies", so `O-01…O-06`
+> became `D-01…D-12` — colliding with decision records `D-001…D-013` already in the wiki. One page then
+> read "D-10 · Funding approval" three lines from "D-009/D-010" meaning decisions.
+
+A prefix is part of the spine. Accommodating a stakeholder's vocabulary is right; minting a second meaning
+for a live prefix is not. Rename the *label*, keep the prefix unique.
+
+**Fixing this pays for itself immediately.** On the same engagement the collision was resolved by moving the
+dependency register to `O-` (client) and `F-` (internal) — and that is what made the next decision ID
+mintable at all, because the project instructions had frozen `D-` while it was ambiguous. A colliding prefix
+does not just confuse readers; it blocks the register that owns it.
+
+**Preserve the numbers when a register shrinks.** Dropping rows and renumbering breaks every cross-reference
+already written elsewhere. Leave the gaps — `O-01, O-02, O-05` with `O-03`/`O-04` absent is honest and cheap;
+resequencing is neither.
+
+### C8a — Two registers for two audiences is correct, not a defect
+
+C8 says one namespace per **concept**. It does not say one register per **name**. Where the same word serves
+two different consumers with different decisions, splitting is the right answer and merging is the bug.
+
+> *Observed:* an engineering task inventory needed *assumptions that change the build* — sign conventions,
+> per-column execution, skip-vs-fail on absent input. The proposal carried *assumptions the client must
+> correct* — the accuracy reading, zero-tolerance scope, a deadline's provenance. Both are "assumptions".
+> They share almost no rows, serve different readers, and a merged register is unreadable to both.
+
+Resolution: distinct prefixes (`EA-` engineering, `A-` proposal), and **an explicit note in the index saying
+they are deliberate and must not be reconciled** — otherwise the next integrity pass reads two registers with
+overlapping names and "fixes" them. A deliberate split needs a recorded reason, or the machinery in this file
+will treat it as the defect it is designed to catch.
+
+---
+
+## The check must execute, not narrate
+
+**A ✓ you typed is a proxy, not a gate.** A reconciliation written as prose is true at the moment of typing
+and goes stale silently — and it goes stale in the one place a reader trusts most.
+
+> *Observed:* an estimate's reconciliation section asserted `WBS total vs feature-build line | 58 = 58 ✓`
+> while the WBS total row three sections above read **59**. The same engagement carried three live values
+> for total effort (106 / 120 / 121) across four artifacts, and its project instructions stated
+> *"numeric reconciliation has been run."* Every check on this page was present. None had executed.
+
+So:
+
+- **Totals and counts live in formulas**, computed from the detail rows, not typed onto a summary. A typed
+  total is a claim; a formula is a check that cannot disagree with its own source.
+- **Cross-artifact checks live in a script** that re-reads the artifacts and re-derives the numbers. Twenty
+  lines, run every round.
+- **Never record a check as passed in prose.** Record *how it was run* and let the artifact carry the result.
+- **Ground the defect statement too, not just the artifact.** A defect *description* propagates like any other
+  claim, and nobody re-checks it because it looks like a finding rather than an assertion.
+
+> *Observed, on the same estimate.* The three-live-totals defect above was recorded everywhere as
+> *"106 / 120 / 121"* — and `106` **appeared nowhere in any artifact.** It was wrong when first written, and
+> the string was then copied verbatim into four files as the canonical description of the problem. The real
+> defect was two totals, `120` and `121`, and it was **definitional rather than arithmetic**: one counted
+> nominal capacity, the other counted requirement. Nobody could have resolved it from the description, because
+> the description was fiction. A phantom number was propagating faster than the real ones.
+
+The rule: when you write down a defect, run the same search you would run on a client claim. *"Three totals:
+106/120/121"* is a grep away from being verified or falsified, and one of those numbers did not survive it.
+
+If a workbook must ship with cached values for readers who lack a formula engine, keep the formulas and
+open-and-resave to populate the cache — do not replace formulas with literals. Literal-only workbooks lose
+the self-checking property, which is the whole reason the numbers were trustworthy.
+
 ---
 
 ## When to run

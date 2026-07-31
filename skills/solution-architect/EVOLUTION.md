@@ -225,3 +225,262 @@ This evolution also corrected the loop itself. Evolution 2's verdicts were writt
 would mean the hypothesis was wrong. It didn't — it meant the hypothesis was *scoped wrong*. When a later
 engagement declines to use something, the first question is whether it was described too broadly, not
 whether it works.
+
+---
+
+## Evolution 4 — 2026-07-29 — The recipient axis; rigour aimed at the wrong reader
+
+### Harvest scope
+
+**A competitive, vendor-brokered presale for a document-extraction and verification platform** — a Big-4
+professional-services client in South-East Asia. Fixed-price delivery shape. Genuinely independent of Evolutions 1–3: different client, sector,
+country, team, language, and broker. The skill ran **end to end** — Phase 0 intake through a priced
+3-week estimate, plus a research fan-out and a cold adversarial review.
+
+Two hard signals, both from practitioners rather than self-assessment:
+
+1. **The delivery PM rejected the primary artifact and rebuilt it himself** — *"đọc mấy cái hiện tại anh
+   thấy kiểu ko liên quan đến implementation mà liên quan đến governance và process hơn"* ("this is
+   governance and process, not implementation"), *"máy móc quá"* (too mechanical), *"AI suggest a thấy nó
+   ko hợp lý"* (the AI suggestion doesn't look sensible).
+2. **The engagement owner lost the thread.** Asked for a scope list and a man-day estimate, received 11
+   markdown files totalling 22,400 words: *"I'm lost in the middle… I thought we just need to make a WBS?
+   Did Tri just push more tasks to us?"* — and diagnosed the style as *"too many proses, narratives, and
+   showing someone insecure trying too hard to justify and prove themselves."*
+
+### Patterns found
+
+1. **Recipient-blindness — H/L.** The skill selects machinery by *deal shape* and has no axis for **who
+   picks the artifact up next and what they must decide**. `composition.md` hardcoded one downstream
+   consumer (`dev`). The rejected workbook was Summary · Scope-In · Scope-Out · WBS · Capacity ·
+   Assumptions · Obligations · Risks — **three sheets about the work, five about defending the number.**
+   Correct for a client evaluator; noise to a PM distributing tasks to discipline leads.
+   *Not a wrongness result — a selector result (`evolution-loop.md` §non-adoption).*
+2. **The instrument/argument distinction — H/M.** The adopted artifact's effort column is **empty: 0
+   numeric cells across 234 task rows**, yellow-highlighted, with a fill legend and a calibration anchor.
+   Ours pre-filled it, pre-derived capacity, collapsed releases to one and pre-decided the cut order. An
+   architect who fills the effort column has answered a question the PM owns.
+3. **The teaching mandate has no channel boundary — H/L.** `core/references/pushback-and-teach.md` is
+   written for one developer in a chat window and is inherited unchanged. Justification migrated into
+   cells and into a parallel prose corpus. Measured density, cells ≥12 words: **PM 0.49% · peer
+   practitioner 2.2% · our rebuild 10.3% · our rejected version 21%.** Adoption tracks that column
+   monotonically. Literal instance in a client-bound scope document: *"This is a disclosure, not a hedge."*
+4. **An input assumption reverse-engineered to fit capacity — H/L, and it recurred.** The client said on
+   the record *"about 200 data fields… needs to be verified"*; the estimate assumed 40–60, which made the
+   work fit and broke the headline claim. Caught by cold review. Re-priced at 200 → 72 MD against 58
+   available → closed to 59 by a 0.7 productivity factor on a selected subset. **Same reflex, second
+   costume.**
+5. **Integrity checks present, correct, and never executed — H/L.** Three live values for total effort
+   (106/120/121) across four artifacts; an orphaned `AC-11`; two live assumption registers; a `D-` prefix
+   collision created by accommodating the PM's vocabulary; and a reconciliation section asserting
+   `58 = 58 ✓` three sections below a total row reading **59** — while the project instructions stated
+   *"numeric reconciliation has been run."* **A false clean report.**
+6. **Artifact proliferation defeats the integrity machinery — M/L.** Reconciliation cost grows with the
+   square of the artifact count. 11 documents + 2 workbooks + a 75-row manifest against a two-item ask.
+7. **Coverage-matrix polarity — M/L.** Our *"4 covered, 4 partial, 5 minimal, 3 out"* and his *"GAP items
+   are where we differentiate"* are the same arithmetic. One is a confession.
+8. **Formula regression — M/L.** Our rebuild shipped **0 formulas** (a deliberate fix for blank cached
+   values); the PM's has 226, the peer practitioner's 27. Literal-only workbooks lose the self-checking
+   property, which was the reason the numbers were trustworthy.
+
+**Not a pattern, and worth recording:** the PM's replacement was itself machine-written (`creator:
+openpyxl`, never opened in Excel). He did not object to a machine-made artifact — he objected to *that
+specification*. Every failure here is reachable by editing the skill.
+
+### Hypotheses applied
+
+| # | Change | File(s) | Pattern |
+|---|---|---|---|
+| 1 | **Axis 2 — declare the recipient**, with the four-recipient table and the declaration line | `deal-shapes.md`, `SKILL.md`, `sa-lifecycle.md` Phase 0 | 1 |
+| 2 | **Downstream is four consumers, not one** — incl. the pre-signature PM and `delivery` (which upstream had wired into `SKILL.md` but not into this file) | `composition.md` | 1 |
+| 3 | **New: the WBS as a collection instrument** — effort column ships empty, formula summary, capacity sheet, two-direction traceability | `templates/delivery-wbs-workbook.md` | 2, 8 |
+| 4 | **Two channels** — the WHY belongs in conversation and `decisions.md`, never in a deliverable; ≤1 prose cell per 100 | `../core/references/pushback-and-teach.md` | 3 |
+| 5 | **The capacity-fit gate** — no input assumption selected because it makes the total fit; a calibrated factor is the same defect | `estimation-and-costing.md` | 4 |
+| 6 | **The check must execute, not narrate** + **C8 one namespace per concept** | `artifact-integrity.md` | 5 |
+| 7 | **Ask ledger** — anything beyond the ask is *proposed*, not produced | `SKILL.md`, `sa-lifecycle.md` | 6 |
+| 8 | **Traceability polarity** — Origin column, gaps lead, run both directions | `rfi-rfp-response.md` | 7 |
+| 9 | **Tier in the schema, not the prose** — `*_reported` fields and an asserted invariant | `../core/references/grounding-gate.md` | 5 |
+| 10 | **Cold review before a primary artifact ships**; Wu Wei extended to engagement artifacts | `../core/SKILL.md` | 6 |
+
+### Validation — Evolution 3's checklist, resolved
+
+| Ev.3 item | Result |
+|---|---|
+| Deal shape declared before machinery; selector prevents ≥1 mismatch | **PASS.** D-001 declared fixed-price delivery and *explicitly rejected* the blueprint workbook and blended-rate chain as *"ceremony instead of leverage on a 3-week window."* Second independent use → **`KEEP` candidate.** |
+| Estimation envelope declared with exclusions, not a naked multiplier | **PASS.** Five-line distribution, ×1.55 effective, exclusions stated as risk not booked as saving. Second independent use → **`KEEP` candidate.** |
+| Phase 0 runs on an informal start; fog → concrete next step | **MIXED.** The frame was produced and both parties worked from it; *"I'm lost in the middle"* is counter-evidence on the second half. → `PENDING`; hypothesis 7 addresses it. |
+| Artifact-integrity catches ≥1 defect, or honestly reports clean | **FAILED — worse than not run.** Not executed; a false clean report shipped. → **`REVISED`**: the checks are correct, the execution mode is wrong (hypothesis 6). |
+| Sensitive-inference rule exercised | **PASS, with a gap.** Exercised with a named holder — but left sitting in `docs/`, the folder the client deck gets built from. → `PENDING`; it needs a location rule, not just a label. |
+| Client-obligation register with named focal points; ≥1 risk-transfer term in a contract | **PARTIAL.** Register produced with deadlines and blocking effects; no contract reached. → `PENDING`. |
+| Opportunity→candidate-project promotion demotes ≥1 item | **Not observed.** Carry forward. |
+| Source-integrity scan catches a real document inconsistency *(open since Ev.1)* | **REVISED, not cut.** Third engagement without firing *as specified* — but it fired against **our own** inherited artifacts: a proposal deck shipped carrying another client's RACI (including a "Shariah review" row) and a chatbot engagement's phasing, and a Q&A workbook carrying a third engagement's requirements. → broaden from "audit the client's source document" to "audit any inherited document, ours included." |
+
+### Validation (fill on the next independent engagement)
+
+- [ ] Recipient declared in Phase 0, and the primary artifact is **accepted by that recipient rather than rebuilt**. *This is the real test.*
+- [ ] Where the recipient is a delivery planner, the effort column ships **empty** and comes back filled.
+- [ ] Primary artifact scores **≤2% of cells ≥12 words**, and any summary sheet carries formulas.
+- [ ] Integrity checks run **as a script**; the result is the artifact's, not a typed ✓.
+- [ ] An estimate that does not fit is reported as *"doesn't fit, by N MD"* rather than closed by moving an input.
+- [ ] Artifact count matches the ask ledger; anything beyond it was proposed and accepted first.
+- [ ] A cold review runs before a client-bound artifact ships, scored against pre-registered weaknesses.
+- **Verdict: `PENDING`.** One trace. Two Ev.3 items reach `KEEP` candidate on a genuine second independent
+  use; the integrity execution mode is `REVISED`; everything authored here is unvalidated.
+
+### What was deliberately not changed
+
+The rejected artifact was not over-rigorous — it was **rigorous at the wrong reader**. Strip the argument,
+not the analysis. Held intact: `artifact-integrity.md` in full (every check fired as a live defect; the
+failure was non-execution); the capacity chain, which the adopted benchmark lacks entirely — 165 tasks
+tagged for one release against a 15-day window with no denominator anywhere; the uncertainty-driver column;
+`decisions.md` with rejected options — **hypothesis 4 moves justification *into* that file, and if it is
+ever implemented as "write less" it has failed**; the declared cut order and committed-vs-upside criteria;
+and Phase 0 intake, which no failure implicated.
+
+Also held: **D-002, "MVP, never POC."** The adopted benchmark labels 56 tasks `POC` and is wrong against
+the buyer's twice-recorded words. Recorded here so that *"adopt his shape"* is never later misread as
+*"adopt his content."*
+
+### Cross-skill note
+
+`delivery`'s principle 7 — *"the engagement is one graph… never invent a second numbering system"* — was
+violated **in presale, by SA**, before delivery existed. The fix lands in `artifact-integrity.md` C8, not
+in `delivery`. **First pass concluded `delivery` had no harvestable evidence here because the trace never
+reached signature; that was corrected** — see `delivery`'s Evolution 1. No *execution* trace is not no trace:
+the delivery planner's pre-signature behaviour tests the SA↔delivery seam, which both skills had drawn by
+inference and both had drawn wrong.
+
+---
+
+## Evolution 5 — 2026-07-30 — Same engagement, next day: the recipient accepted the artifact
+
+### Harvest scope
+
+**The same engagement as Evolution 4, one day later** — the day the rebuilt artifacts actually met their
+recipients. Not an independent trace, and its value is not confirmation: Evolution 4 closed with a
+seven-item checklist marked *"fill on the next independent engagement,"* and six of those items got real
+evidence within 24 hours. **This is the validation window Evolution 4 asked for, arriving early.**
+
+Traces: two architecture diagrams through **three practitioner review rounds** (solution architect, then
+delivery PM); a WBS through **three rebuilds** driven by recipient feedback; a client-facing deck a colleague
+built from our output; a Teams thread in which the team made two scope decisions and reversed two recorded
+ones; and a transcript re-read that found a second instance of a defect class purged the day before.
+
+### Validation — Evolution 4's checklist, answered
+
+| Ev.4 item | Result |
+|---|---|
+| **Recipient declared; the primary artifact is accepted by that recipient rather than rebuilt.** *"This is the real test."* | **PASS.** The PM reviewed it, asked three clarifying questions, flagged one defect, made two scope decisions, then **took ownership** — *"khi anh xong cái file slide, thì em work trên cái slide luôn đi, đừng work trên file WBS nữa."* He did not rebuild it. ⚠ It took **three in-session iterations** to get there, so the hypothesis is validated at the artifact level, not first-pass. → **`KEEP` candidate** (second use, and the decisive one) |
+| Effort column ships **empty** and comes back filled | **REVISED.** It shipped *absent*. The PM asked for *"not MD est but grouped by week."* Filled/empty was a false binary; **schedule position** is a third form and the right one when duration is the unknown. Machinery survives, applicability named → new selector at `PENDING` |
+| ≤2% of cells ≥12 words; summary carries formulas | **MIXED → REVISED.** First cut failed loudly, with the reviewer quoting my own banner rows back. Passed only after an `assert` was put in the generator. The metric is right; **the mechanism was missing.** Formulas: still zero — pattern 8 of Ev.4 **unresolved and now twice-observed** |
+| Integrity checks run **as a script** | **PASS.** Three gate scripts run after every edit; the index gate *failed twice* on real omissions and that failure was the gate working. Generator asserts caught a dangling dependency. → **`KEEP` candidate** |
+| An estimate that does not fit is **reported**, not closed by moving an input | **PASS, in a new form.** Work landed in W5 against a publicly-stated four weeks, left visible in the grid. Separately, a broken numbers chain was left broken behind a *stale-at-the-premise* banner rather than force-reconciled |
+| Artifact count matches the ask ledger | **FAILED, then fixed in-session.** The workbook accreted all five jobs `delivery-wbs-workbook.md` §8 warns about. **The author had read that warning.** |
+| **Cold review before a client-bound artifact ships** | **FAILED, with a cost.** A colleague's client deck shipped embedding a stale diagram export whose rule count was wrong — and wrong again in the body text beside it. No cold review ran on it |
+
+**The last two are one finding: a prose warning fails silently.** This is precisely the mechanism
+`grounding-gate.md` already documents for provenance tiering — *"prose rules fail silently at scale"* — now
+observed a third time, in a third place. The correction is always the same shape: make it countable, or make
+it execute.
+
+### Patterns found
+
+| # | Pattern | I/E | Proof |
+|---|---|---|---|
+| 1 | **Effort has three representations, not two.** The empty column assumes the window is fixed and effort unknown. When *duration* is the unknown, the instrument is a week grid, and bars spilling past the committed number are the planner's verdict — derived, not argued | H/L | *"not MD est but grouped by week"*; work landed in W5 against a deck stating four |
+| 2 | **A time marker inside a structurally-ordered list is a false claim.** Horizontal milestone banners read *"everything above is complete"*; rows grouped by feature run three weeks past them | H/L | PM: *"chỗ title End W1 nhưng task a thấy qua mấy W2 và 3,4."* **The reference schedule he had himself supplied already showed the correct pattern** — a vertical band in one week column. Right example in hand, wrong shape used |
+| 3 | **The accretion warning is prose and failed on its own author.** §8 names the five jobs and calls the outcome *"exactly how an eight-sheet workbook gets built and rejected"* | H/L | Shipped obligations-with-consequences, a risk register, a cut order, commercial assumptions and a status banner into an engineering task inventory. Recipient: *"we just went out of our lanes"* |
+| 4 | **Out-of-lane is a distinct failure from too-long, and trimming does not fix it.** Every offending row was short, accurate and well-written — and aimed at a different reader | H/L | The prose budget had *already* been applied to those rows; the lane problem survived it untouched |
+| 5 | **A `Confirmed` tier with no named speaker is not confirmed** — and the same defect class recurred one day after being purged | H/L | *"~80%"* purged 29 Jul; *"~10 Sep"* found 30 Jul, tiered **Confirmed** as the engagement trigger. Transcript: the **broker** says *"within September"*; **our own account lead** says *"the 10th September"*; the client's *"Correct"* answers a remark about decision timing. No client voice states the date |
+| 6 | **A defect description propagates like any other ungrounded claim.** *"106 / 120 / 121"* was copied into four files; `106` existed **nowhere** | M/L | Grep. The real defect was two totals and was **definitional, not arithmetic** — one counted capacity, the other requirement. Unresolvable from a description that was fiction |
+| 7 | **Two registers for two audiences is correct; C8 as written would merge them** | M/L | Engineering assumptions (build-changing) vs proposal assumptions (client-correctable) share almost no rows and serve different readers |
+| 8 | **Fixing a namespace collision unblocks the register that owns it** | M/L | Moving dependencies off `D-` is what made the next decision ID mintable; the project had frozen `D-` while ambiguous |
+| 9 | **Numbers inside images are ungreppable, so the completeness search is blind** | H/L | A corrected count could not be found in a `.pptx`; recovery required parsing the archive and reading the image |
+| 10 | **A colleague's client-facing artifact stating a position *is* the decision once sent** | M/L | A deck stated three assumptions that reversed two recorded decisions (tenant, ground-truth ownership). Captured as a decision record rather than treated as input |
+| 11 | **Every column must be readable by the recipient without a glossary** | M/L | *"What does T0-1 here mean?"* (an internal package ref) and *"how to read Priority and do we even need it?"* — both dropped |
+| 12 | **Handover inverts "regenerate, don't hand-edit" into a destructive instruction** | M/L | The PM took the file; the index still said regenerate; the next run would have destroyed his edits |
+
+### Hypotheses applied
+
+| # | Change | File(s) | Pattern |
+|---|---|---|---|
+| 1 | **Effort has three representations** — filled / empty / **schedule position**, with a selector and the `N+2` column rule | `templates/delivery-wbs-workbook.md` §0; `../delivery/references/delivery-lifecycle.md` Phase −1 | 1 |
+| 2 | **Milestones live on the time axis**, never as horizontal bands | same, both files | 2 |
+| 3 | **Countable pre-ship check** replacing the accretion warning: sheets describing the work must outnumber sheets defending the number | `templates/delivery-wbs-workbook.md` §7 | 3 |
+| 4 | **The prose budget is asserted, not aspired to** — if the artifact is generated, one `assert` makes it a gate | same §7 | 3 |
+| 5 | **The lane test** — name recipient + decision, ask if the row serves them; distinct from the prose budget, run both | `../core/references/pushback-and-teach.md`; `templates/delivery-wbs-workbook.md` §7 | 4 |
+| 6 | **A section heading is a label, not an argument** — the diagram rule, promoted to structure | `../core/references/pushback-and-teach.md` | 3 |
+| 7 | **Record the speaker, not the source** — *whose sentence is this?*; plus the re-read-on-refresh corollary | `engagement-intake.md` §2; `../core/references/grounding-gate.md` | 5 |
+| 8 | **Ground the defect statement too** | `artifact-integrity.md` §The check must execute | 6 |
+| 9 | **C8a — two registers for two audiences**, with the requirement to record the split so integrity passes do not merge it; plus *preserve the numbers when a register shrinks* | `artifact-integrity.md` C8 | 7, 8 |
+| 10 | **Final QA items 7–8** — every embedded diagram matches its source export; figures inside images re-verified by eye; ask where the previous export went | `rfi-rfp-response.md` | 9 |
+| 11 | **Every column readable without a glossary**; dependencies declared by key and resolved at build time; a constant column carries nothing | `templates/delivery-wbs-workbook.md` §1 | 11 |
+| 12 | **Handover retires the generator** | `templates/delivery-wbs-workbook.md` §6b; `../delivery/references/delivery-lifecycle.md` | 12 |
+| 13 | **Phase vocabulary survives a phase collapse** — name the survivor in the buyer's word (*"MVP (next phase)"*) so workbook and deck do not diverge | `templates/delivery-wbs-workbook.md` §7 | — |
+
+### Validation (fill on the next independent engagement)
+
+- [ ] Effort form is **chosen with the planner before the sheet is built**, and the chosen form is the one returned.
+- [ ] Primary artifact accepted **first-pass**, not after three iterations. *This is the unmet half of Ev.4's real test.*
+- [ ] The sheet-count check catches ≥1 accreting sheet, or the artifact is clean by construction.
+- [ ] Prose budget **asserted in code** where the artifact is generated.
+- [ ] The lane test rejects ≥1 correct-but-misaimed row before a recipient does.
+- [ ] Every client constraint in the frame carries a **named speaker**; ≥1 turns out to be ours.
+- [ ] Final QA opens every artifact that embeds a diagram; no stale export reaches a third party.
+- [ ] Formulas present on any summary sheet — **twice-failed, still open** (Ev.4 pattern 8).
+
+**Verdict: `PENDING` for everything authored here.** The trace is the same engagement as Evolution 4, so it
+validates but cannot independently confirm. Two Ev.4 items reach **`KEEP` candidate** — *recipient-accepted
+artifact* and *integrity checks execute as a script*. One is **`REVISED`** — the effort binary gains a third
+form. Two remain **`FAILED`** with named mechanisms: the cold-review gate did not run on a colleague's
+client-bound artifact, and the accretion warning did not survive contact with its own author.
+
+### What was deliberately not changed
+
+**The prose budget was not loosened.** It fired correctly and the artifact that passed it was better. What
+failed was that it was measured by hand, and that it does not look at headings or at whether the content was
+ours to write — hence hypotheses 4, 5 and 6 rather than a revision.
+
+**The empty-effort-column rule was not weakened into "ask the PM what they want."** The prohibition on an
+architect pre-filling it is intact and was never contested; what changed is that "empty" is one of two valid
+collection modes, not the only one.
+
+**`artifact-integrity.md` stands, again.** Every finding this session was a defect the file already names —
+a phantom number, a namespace collision, a stale derived artifact. The additions are about *what the checks
+look at* (defect descriptions, embedded images, deliberate splits), never about relaxing them.
+
+---
+
+## Evolution 6 — 2026-07-31 — The re-review: what a rebuild breaks, and the artifact you didn't check
+
+**Trigger.** Final check on the revised client deck (32 → 35 slides) against a **pre-registered** plan written
+before the revision was opened. 12 of 14 items closed; the interest is in the two that didn't and the five
+defects the rebuild introduced.
+
+### Patterns found
+
+| # | Pattern | I/E | Proof |
+|---|---|---|---|
+| 1 | **A fix applied to *an* instance is not a fix applied to *the* string.** A correction landed on one slide and was missed on two others; the tracker said done | H/L | *"24 false-positive suppressors"* fixed on slide 23, live on 21 and 22 |
+| 2 | **Splitting a dense slide is the highest-yield density fix and it reliably leaves stale continuation headers.** Two splits produced two pairs of consecutive slides sharing a section counter *and* a title | H/L | Slides 28/29 and 32/33 each read `1 / 2` under identical headings; advancing looks like the deck failed to change. Meanwhile the split itself worked: slides over 1,600 chars went **7 → 1** |
+| 3 | **The working file and its export are two deliverables and can carry different defects.** The deck was clean; the PDF made from it had opaque grey slabs on 28 of 35 pages, from an exporter flattening a 30%-opacity layout image | H/L | Checking only the source ships a disfigured client PDF; checking only the export reports a defect that isn't in the deck. It had also been present in the *previous* version, unreported, because no renderer had been tried |
+| 4 | **Pre-registering the weaknesses of a check makes the check auditable, and it pays.** Of six pre-registered failure modes, two fired and were caught by their own entries; one was refuted outright | H/L | *"'already fixed' is an assumption"* → caught pattern 1. *"word-vs-digit will miss something"* → caught the third invented quantity. *"no visual QA is possible"* → **false**, and refuting it produced every structural finding |
+| 5 | **A reviewer's own artifacts are outside their review frame.** The diagram handed to the deck author carried the exact defect the review was telling him to fix in the text | M/L | Body text corrected to 38; the supplied diagram said 42 |
+
+### Hypotheses applied
+
+| # | Change | File | Pattern |
+|---|---|---|---|
+| 1 | **Final QA pass extended by four items** — word-and-digit number sweeps with clause-mate verification (9); re-verify "already fixed" rather than trusting the tracker (10); walk section counters and continuation slides after any split (11); treat the source file and its export as two deliverables (12) | `references/rfi-rfp-response.md` §Final QA pass | 1, 2, 3 |
+
+### Validation (fill on the next response cycle)
+
+- [ ] Every correction is re-swept across the whole deliverable, not just the reported instance.
+- [ ] Any slide split is followed by a counter-and-title pass.
+- [ ] Where both a source file and an export will circulate, both are checked and both are named as deliverables.
+- [ ] The review's own supplied artifacts are checked against the same criteria as the client's.
+- [ ] A re-review pre-registers its failure modes before opening the revision, and scores itself against them.
+
+**Verdict: `PENDING`.** Pattern 4 is the one to promote if it holds — pre-registration cost about ten minutes
+and was the only reason three of these findings exist. Pattern 5 has no cure yet beyond awareness; the
+candidate is *"list what you supplied, and review it as if someone else had."*

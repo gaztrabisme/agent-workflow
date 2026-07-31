@@ -101,6 +101,29 @@ Hardware is CapEx and behaves differently from the labour chain above: it doesn'
 
 The response shows **CapEx** (one-time implementation + hardware + out-of-pocket) and **OpEx** (cloud consumption per environment + AMS) as separate tables. When the client prefers a subscription-model comparison, present subscription as the primary comparison basis and usage-based as supplementary sensitivity — mirror *their* preferred commercial lens, don't impose yours.
 
+## The capacity-fit gate — the one that hides best
+
+**No input assumption may be selected because it makes the total fit the capacity.**
+
+When an estimate closes only *after* an assumption moves, name the assumption, put the client's own stated
+figure beside it, and re-derive. If it still doesn't fit, the output is **"it doesn't fit, by N MD"** —
+that is a finding, not a failure, and it is the most useful thing you can hand a deal owner.
+
+This applies identically to an efficiency or productivity factor. **A factor calibrated until the gap
+closes is the same defect wearing a different hat**, and it is harder to spot because it looks like
+craft rather than arithmetic.
+
+> *Observed, twice in one engagement.* The client said on the record: *"there's about 200 data fields the
+> user is going to use and it needs to be verified."* The estimate assumed a 40–60 field set — which made
+> the work fit the window, and broke the headline claim the scope existed to make, since "200 → 25 flagged"
+> only holds if the denominator really is 200. Caught by a cold review. Re-priced at 200, the requirement
+> came to 72 MD against 58 available — and closed to 59 via a 0.7 productivity factor applied to a
+> selected subset of packages. Same reflex, second costume.
+
+The tell: you changed an input and the total landed within a rounding error of capacity. Write down what
+the number was *before* you touched the assumption, in the same table. If a reader can't see the
+pre-adjustment figure, the adjustment isn't an estimate — it's a target.
+
 ## Sanity checks before the numbers ship
 
 This is the canonical home for the numeric checks. All of these have shipped in real deliverables.

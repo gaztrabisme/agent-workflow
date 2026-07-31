@@ -56,6 +56,8 @@ Full method, checklists, and templates per phase: `references/sa-lifecycle.md`. 
 
 **Pick the deal shape before reaching for machinery.** An *enterprise bid* (scored RFI/RFP, requirement refs, blueprint workbook, blended-rate pricing) and a *fixed-price delivery* engagement (acceptance-criteria spine, obligation register, lump sum + CapEx) need different instruments. Declare it in Phase 0: `references/deal-shapes.md`. Applying one shape's machinery to the other is how this skill generates ceremony instead of leverage.
 
+**Then declare the recipient — it is a second axis, not a detail.** Shape says what the deal is; it does not say who picks the artifact up next or what they decide with it. One line, beside the shape: `Recipient: <role> — decides <what> — therefore the primary artifact is <shape>`. A correctly-shaped artifact aimed at the wrong reader still gets rejected. See `references/deal-shapes.md` §Axis 2.
+
 ## Gates (declared, not skipped)
 
 These are inherited from the `core` kernel so the discipline is consistent across every role. On entry, read the referenced files.
@@ -64,6 +66,7 @@ These are inherited from the `core` kernel so the discipline is consistent acros
 - **KB Grounding gate.** When a decision touches a KB-covered domain (ML/RAG, RAG-evaluation, multilingual NLU, databases, security, distributed systems, cryptography), search the Knowledge Base first and record one line: `KB: searched "<q>" → applied <finding>` or `→ nothing relevant`. A silent skip on a covered domain is a gate violation. (The general gate — and its substrate-by-role table and honesty corollary — is in `../core/references/grounding-gate.md`; for SA the tech-layer substrate is the KB.)
 - **Approach declaration.** Before substantive work, state in one line how you'll run it: `Approach: <single-architect | options-panel | research-first | fan-out over requirements> — <reason>`. For wide solution spaces, generate independent options and compare; for unknowns, research first; for big multi-requirement RFPs, fan out coverage and merge. *Skippable for a single-actor engagement (one architect, a small RFI clarification) — declare only when the work fans out or forks.*
 - **Output Contract.** A phase is not done until its artifact exists on disk and is captured in the project wiki. See "Artifacts & Output Contract" below and `../core/references/wiki-protocol.md`.
+- **Ask ledger.** Restate the ask verbatim, then list the artifacts you will produce against it. **Anything beyond the ask is *proposed*, not produced** — with a named consumer and the decision it serves. Research that changes the build is a *findings list*, not a paper. The failure this closes is real: an engagement asked for a scope list and an estimate, and received eleven documents totalling 22,400 words; the owner's report was *"I'm lost in the middle — I thought we just need to make a WBS?"* Volume also defeats `artifact-integrity.md`, whose reconciliation cost grows with the square of the artifact count.
 
 ## Anti-patterns (hard no-list)
 
@@ -88,16 +91,17 @@ These are inherited from the `core` kernel so the discipline is consistent acros
 
 Every SA engagement, at minimum, writes its result to the project wiki (`wiki/` per `../core/references/wiki-protocol.md`) — append a dated `log.md` entry and keep `active-work.md` current. Beyond that floor, the **primary artifacts** are:
 
-| Artifact | Lives in | Purpose |
-|----------|----------|---------|
-| Engagement frame | `docs/` | Phase 0 output: the problem, buyer, trigger, constraints, negative space, candidate projects — tiered fact vs inference. The thing every later choice is checked against. |
-| Clarification questions + assumptions register | `docs/` | What only the client can answer; what we assume in the meantime. |
-| Client-obligation register | `docs/` | What the *client* must deliver, by when, to whom — the schedule risk the assumptions register doesn't hold. *(Delivery shape.)* |
-| Acceptance annex | `docs/` | The criteria that gate payment, with per-criterion preconditions and preparing party. *(Delivery shape.)* |
-| Solution architecture doc | `docs/` | Reference architecture, integration, security, residency, NFRs. |
-| Options/decision records | `wiki/decisions.md` | Each major choice: alternatives, why the rest lost, what it binds. **Record rejected approaches.** |
-| Requirements-traceability matrix | `docs/` | Every requirement → solution element → phase. Proof of coverage. |
-| The response (RFI/RFP/proposal) | `docs/` | The client-facing deliverable. |
+| Artifact | Consumer | Lives in | Purpose |
+|----------|----------|----------|---------|
+| Engagement frame | **SA (internal)** — never shipped | `docs/` | Phase 0 output: the problem, buyer, trigger, constraints, negative space, candidate projects — tiered fact vs inference. The thing every later choice is checked against. |
+| Clarification questions + assumptions register | Client | `docs/` | What only the client can answer; what we assume in the meantime. |
+| Client-obligation register | Client · `delivery` | `docs/` | What the *client* must deliver, by when, to whom — the schedule risk the assumptions register doesn't hold. *(Delivery shape.)* |
+| Acceptance annex | Client · `delivery` | `docs/` | The criteria that gate payment, with per-criterion preconditions and preparing party. *(Delivery shape.)* |
+| Solution architecture doc | Client · `dev` | `docs/` | Reference architecture, integration, security, residency, NFRs. |
+| Options/decision records | SA · `dev` | `wiki/decisions.md` | Each major choice: alternatives, why the rest lost, what it binds. **Record rejected approaches.** |
+| Requirements-traceability matrix | Client | `docs/` | Every requirement → solution element → phase. Proof of coverage. |
+| The response (RFI/RFP/proposal) | Client evaluator | `docs/` | The client-facing deliverable. |
+| **Delivery WBS (instrument)** | **PM / delivery planner** | `docs/` | **The task inventory they price and staff from — enumerate the work, ship the effort column empty.** Its absence from this table is why an eight-sheet scope-defence workbook got handed to a PM who needed a task list. Spec: `references/templates/delivery-wbs-workbook.md`. |
 
 **Close-out before "done":** artifact on disk · `wiki/log.md` entry · `decisions.md` updated with choices *and* rejected options · assumptions register reflects open items · traceability matrix has no silent gaps · **Final QA pass run on every client-bound export** (label/content alignment, internal-comment strip, totals/conversion recompute, numbering walk — full 6-item list in `references/rfi-rfp-response.md`) · **artifact-integrity checks run across the artifact set** (count reconciliation, dangling spine refs, orphans, version lineage, language parity, priced-vs-committed — `references/artifact-integrity.md`). The two passes catch different defects; running one is not running the other.
 
@@ -121,3 +125,4 @@ Every SA engagement, at minimum, writes its result to the project wiki (`wiki/` 
 - `references/templates/clarification-questions.md` — two-bucket question template (ask-the-client vs resolve-internally) with paired working-assumption, **impact-if-wrong**, and **serves-criterion** columns.
 - `references/templates/assumptions-register.md` — standalone assumptions-register (a primary artifact); pairs 1:1 with the clarification questions.
 - `references/templates/client-obligations-register.md` — what the client must deliver, by a schedule-relative deadline, with a named focal point; pre-seeded with the contract terms that cost money to fix after signature.
+- `references/templates/delivery-wbs-workbook.md` — the WBS as a **collection instrument** for a delivery planner: column spec, the effort column shipped **empty**, formula-driven summary, capacity sheet, two-direction traceability.

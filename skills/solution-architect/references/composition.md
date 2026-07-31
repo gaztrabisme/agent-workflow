@@ -23,8 +23,28 @@ What it produces that SA consumes:
 
 Boundary: ms-ai-discovery is *Microsoft-flavored and workshop-scoped*. SA is *vendor-neutral and covers the no-workshop path* (straight from an RFI/RFP). If there's no workshop, SA does its own framing/clarify (Phases 1–2) without it.
 
-## → To `dev` (hand-off to the build)
-What SA produces that dev consumes:
+## → Downstream: four consumers, not one
+
+SA has never had a single downstream. Naming only `dev` is how an artifact built for engineers gets handed
+to someone who needed a different shape entirely.
+
+| Consumer | Consumes | Shape it needs | Strip before handing over |
+|---|---|---|---|
+| **`dev`** (build) | architecture, decision records, NFRs, traceability | spec + contracts + success criteria | commercial framing, win themes |
+| **PM / delivery planner** *(pre-signature)* | the WBS as a **collection instrument** — task rows, disciplines, release buckets | spreadsheet; **effort column empty** for them to fill | cut order, risk narrative, scope defence |
+| **Commercial / bid owner** | cost drivers, envelope, exclusions | priced attachment | architecture detail |
+| **Client evaluator** | the response | narrative, tight | everything internal |
+| **`delivery`** *(on signature)* | estimate, roadmap, acceptance annex, obligation register, risk register, **the ID spine** | the baseline it will track against | nothing — this is the full handover |
+
+**The pre-signature PM is the one the skill kept missing.** They own the release split and the staffing
+plan, and both are *their* decisions. An architect who arrives with the effort column already filled has
+answered a question that wasn't his and silently allocated work to a team nobody has named. Enumerate the
+work; let the disciplines price it. Full spec: `templates/delivery-wbs-workbook.md`.
+
+Distinguish by **tense**, per `delivery`'s own rule: an estimate being *derived* → SA. An estimate being
+*measured against* → `delivery`.
+
+### To `dev` specifically
 - Accepted reference architecture + **decision records** (with rejected options) → dev Design-mode input.
 - NFRs + constraints + residency → dev's non-functional design and gates.
 - Requirements-traceability matrix → dev's coverage check / backlog seed.

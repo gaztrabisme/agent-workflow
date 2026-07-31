@@ -18,6 +18,8 @@ Scale each phase to the deal. A small RFI clarification may touch only Phases 1�
 - **Collapse opportunities into candidate projects.** A list of opportunities is zero projects. Promote only what has a named beneficiary, an observable outcome, an existing access path, and a definition of done; everything else is a parked lead with one named dependency.
 - **Apply the sensitive-inference handling rule** to any inference that would damage the relationship if surfaced — internal-only, named holder, never in a shared artifact, never used as stated justification.
 - **Declare the deal shape and the ID spine** (`deal-shapes.md`, `artifact-integrity.md`).
+- **Declare the recipient** — `Recipient: <role> — decides <what> — therefore the primary artifact is <shape>` (`deal-shapes.md` §Axis 2). A correctly-shaped artifact aimed at the wrong reader still gets rejected.
+- **Open the ask ledger** — the ask verbatim, the artifacts you will produce against it, and anything beyond it marked *proposed* with a named consumer and the decision it serves.
 
 **Forcing questions:**
 - What changes for the business, in their words, if this works — and what's the baseline?

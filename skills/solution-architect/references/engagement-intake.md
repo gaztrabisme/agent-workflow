@@ -33,6 +33,27 @@ Nothing downstream is trustworthy if this is skipped. Tag each material claim:
 | **Inference** | Nobody said it; we concluded it | "Their machines likely have no digital interfaces" |
 | **Speculation** | We're guessing and should say so | "Possibly a budget cycle driving the timing" |
 
+**Record the speaker, not just the fact. A `Confirmed` tier with no named speaker is not confirmed.**
+
+For anything the client is treated as having *constrained* — a date, a volume, an accuracy bar, a budget —
+the frame must carry **who said it**. Not the document it appears in: the mouth it came out of. Our own side
+is in the room, our own side speaks on the call, and our own side's guesses get transcribed alongside the
+client's requirements. A "Confirmed" cell that cites only a source file cannot distinguish them.
+
+> *Observed twice on one engagement, and the second instance survived a purge of the first.*
+> **(a)** *"Their extraction runs at ~80%"* was tiered Confirmed and shipped in four documents. The client
+> never gave an accuracy figure; the number originated in our own internal chat and was promoted across the
+> boundary. Purged.
+> **(b)** *"MVP needed by ~10 Sep"* was tiered **Confirmed** as the engagement trigger. The transcript reads:
+> our account lead asks for a timeline → **the broker** says *"within September"* → **our own account lead**
+> says *"the 10th September"* → the client says *"Correct"* — to the preceding remark about the *decision*
+> needing to be made soon, not to a date. **No client voice ever states 10 September.** Every downstream
+> artifact then worked backwards from it, compressing the plan for no stated reason.
+
+The check is one question, asked of every constraint in the frame: **whose sentence is this?** If the answer
+is "ours", the tier is Reported at best. The failure mode is not lying — it is a colleague's helpful
+clarification hardening into a client requirement because the transcript records both in the same voice.
+
 **A statement never changes tier silently.** If an inference later gets confirmed, say what confirmed it.
 Downstream artifacts inherit the tier — an assumption built on hearsay is a weaker assumption, and the
 register should show that.
