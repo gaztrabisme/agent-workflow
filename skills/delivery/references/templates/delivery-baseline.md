@@ -43,7 +43,7 @@ Scope **is** the acceptance-criteria set. Do not restate it in prose — referen
 
 | Element | Baselined | Notes |
 |---|---|---|
-| Effort (person-days) | | By phase if useful |
+| Effort (person-days) | | By phase, **and by discipline** — discipline is what turns a total into a staffing plan, and what makes actuals comparable back to the estimate at close |
 | Labour cost | | |
 | Hardware / CapEx | | |
 | Third-party / licences | | |
@@ -52,23 +52,45 @@ Scope **is** the acceptance-criteria set. Do not restate it in prose — referen
 
 *Record the effort distribution this was built on — it is what the next estimate gets corrected against.*
 
+### Capacity fit
+
+A cost baseline that has never been divided by the calendar is a total, not a plan.
+
+| | |
+|---|---|
+| Available | *N people × M working days = **A** person-days* |
+| Required | *the effort baseline above* |
+| **Gap** | *required − available* |
+| Contingency | *days, and whether delivery or commercial holds them* |
+
+A gap of zero is not a pass — it is a plan with no contingency, and it should be frozen only if someone has
+said that out loud. A positive gap cannot be frozen as-is: re-scope, re-staff, or extend, and record which.
+
 ## Reconciliation at mobilisation
 
 Run before freezing. Every discrepancy is a finding to report, not to silently fix.
 
-- [ ] Every criterion in the annex appears in the cost model
-- [ ] Every function priced in the cost model appears in the annex
-- [ ] Criterion count matches across annex, cost model, and any workplan
-- [ ] Language versions agree on scope (governing version declared)
-- [ ] No dangling references to removed items
-- [ ] T0 event is contractually defined
-- [ ] Deemed-acceptance term exists *(if not — escalate, see `acceptance-execution.md`)*
+**Each line is a comparison you run, not a box you tick — write the two values beside it.** A tick with no
+numbers next to it is a claim *about* a check rather than the check. This table freezes the plan of record,
+so a false clean report here has money attached.
+
+| # | Check | Value A | Value B | ✓ / finding |
+|---|---|---|---|---|
+| 1 | Every criterion in the annex appears in the cost model | *annex: N* | *cost model: N* | |
+| 2 | Every function priced in the cost model appears in the annex | | | |
+| 3 | Criterion count matches across annex, cost model, and any workplan | | | |
+| 4 | Effort baseline fits declared capacity, or the gap is stated and signed | *required* | *available* | |
+| 5 | **ID spine is unique across every register** — criteria, decisions, risks, assumptions, obligations. Two registers sharing a prefix is the second-numbering-system failure arriving early *(SA `artifact-integrity.md` C8)* | | | |
+| 6 | Language versions agree on scope (governing version declared) | | | |
+| 7 | No dangling references to removed items | | | |
+| 8 | T0 event is contractually defined | | | |
+| 9 | Deemed-acceptance term exists *(if not — escalate, see `acceptance-execution.md`)* | | | |
 
 **Discrepancies found:**
 
-| # | Discrepancy | Money at stake | Raised with | Date | Resolution |
-|---|---|---|---|---|---|
-| | | | | | |
+| # | Discrepancy | Values compared | Money at stake | Raised with | Date | Resolution |
+|---|---|---|---|---|---|---|
+| | | | | | | |
 
 ## Baseline history
 

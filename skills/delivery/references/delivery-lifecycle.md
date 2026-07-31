@@ -1,8 +1,40 @@
 # The delivery lifecycle
 
-Five phases from signature to close-out. Scale each to the engagement — but **Phase 0 and Phase 1 are not
-optional at any size.** They are cheap when done first and impossible to retrofit once the engagement is
-already slipping.
+Five phases from signature to close-out, plus **Phase −1**, which runs before there is a contract at all.
+Scale each to the engagement — but **Phase 0 and Phase 1 are not optional at any size.** They are cheap when
+done first and impossible to retrofit once the engagement is already slipping.
+
+---
+
+## Phase −1 — Pre-signature input *(runs inside SA's planning phase; there is no contract yet)*
+
+**Goal:** the effort number that gets priced is authored by the people who will be held to it.
+
+Not a delivery phase in the contractual sense — nothing is baselined and nothing is tracked. But a skill that first sees the plan at mobilisation inherits a number it had no hand in, and Phase 0's reconciliation can then only discover the problem *after* it has been quoted.
+
+**Do, when SA hands over a WBS for pricing:**
+- **Fill the effort column — do not accept it pre-filled.** An architect who arrives with it filled has answered a question this role owns. Split the sheet by discipline and have the leads price their own rows.
+- **Own the release split**, in the buyer's recorded vocabulary. What is in the first release is a delivery judgement about risk, not an architecture judgement about coherence.
+- **Own the cut order** — what comes out under pressure, and what the client loses per line.
+- **Return a capacity verdict, not just a total.** People × days available vs required. If it does not fit, the answer is *"it does not fit, by N days"* — a finding handed back for re-scoping, not a number to be closed by adjusting an input (`../../solution-architect/references/estimation-and-costing.md` §capacity-fit gate).
+
+**Say which form the effort takes before the sheet is built.** There are three, not two, and only you can pick:
+
+| Form | Use when | You supply |
+|---|---|---|
+| **Effort column, empty** | the window is fixed and effort is the unknown | a number per row, from the lead who will do it |
+| **Schedule position** | **duration is the unknown** and effort is roughly understood | *when* each task sits; duration falls out of it |
+| Pre-filled | never | — |
+
+**Where duration is yours to determine, ask for the week grid instead of the column.** *Observed:* a PM asked for *"not man-day estimates but grouped by week"* — and the grid collected exactly what the empty column was designed to collect, in the unit he actually owned. It also produced the capacity verdict for free: with bars placed from dependency order, the work landed one week past the duration already stated publicly, and **the gap was visible rather than argued**. That is a stronger artifact than a total, because a schedule that does not fit shows it.
+
+Two things to insist on in that form: **milestones belong on the time axis**, never as horizontal bands across a task list ordered by feature — a band reads as *"everything above is done"* and it is not; and **the number of columns should exceed the committed duration**, with the excess marked, so overrun is expressible rather than requiring a renegotiation to state. Full column spec: `../../solution-architect/references/templates/delivery-wbs-workbook.md`.
+
+**Artifact:** the filled WBS — or the placed grid — returned to SA for pricing.
+
+**When you take the artifact over, retire its generator.** If the WBS was generated and you begin hand-editing it, *"regenerate, don't hand-edit"* inverts into a destructive instruction: the next run silently overwrites your work. Say so in the index, mark the generated version final, and keep the script only as the record of what it produced.
+
+**Common failure:** treating the architect's estimate as settled because it arrived with confidence and a formula behind it. The second failure is the mirror image — refusing to engage until signature, and then being handed the result. **The third is answering the wrong question well:** pricing an artifact aimed at a different reader. Ask what decision the sheet must serve before filling anything in it.
 
 ---
 

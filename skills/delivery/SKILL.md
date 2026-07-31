@@ -22,10 +22,18 @@ Note the shape: delivery is **not** the next box after `dev`. It runs *concurren
 ## When this fires — and when a sibling owns it
 
 - **This skill:** anything after the contract is signed that is about the *engagement* rather than the *code* — baseline, progress, acceptance, change, obligations, reporting, escalation, invoicing triggers.
-- **`solution-architect` instead:** the deal isn't signed yet. Estimating, architecting, writing the proposal, negotiating acceptance criteria and contract terms. SA *produces* the artifacts this skill baselines; it does not track them.
+- **`solution-architect` instead:** the deal isn't signed yet — architecting, positioning, writing the proposal, negotiating acceptance criteria and contract terms. SA *produces* the artifacts this skill baselines; it does not track them. **But see the pre-signature exception below: the effort number SA prices is not SA's to author.**
 - **`dev` instead:** the unit of work is code — designing a spec, building a feature, assessing a codebase, coordinating a sprint's waves. Delivery says *which* deliverables are due and whether they're accepted; `dev` builds them.
 
 > **Disambiguation rule:** both SA and delivery touch "acceptance criteria," "estimate," and "risk." Decide on **tense**. Criteria being *negotiated* → SA. Criteria being *tracked to sign-off* → delivery. An estimate being *derived* → SA. An estimate being *measured against* → delivery.
+
+### The pre-signature exception
+
+The tense rule has one bounded exception, and it sits exactly where engagements get mispriced. **The delivery planner is a consumer of SA's artifacts *before* signature, not only after it** — because the effort number SA prices is the number this skill will later be measured against, and whoever will be held to an estimate owns authoring it.
+
+> *Observed.* On a live presale, the architect produced a WBS with the effort column filled, capacity pre-derived, releases collapsed to one and the cut order pre-decided. The delivery PM rejected it and rebuilt it — *"too mechanical," "the AI suggestion doesn't look sensible," "I can work this out myself"* — as 234 task rows with the **effort column empty**, tagged by discipline so the sheet could be split and filled by the leads who would do the work.
+
+**An estimate authored by someone who will not be held to it is a proposal for an estimate, not an estimate.** Engaged pre-signature, this skill *supplies* the effort, the release split and the cut order rather than receiving them (`references/delivery-lifecycle.md` → Phase −1). Everything else in the tense rule stands: nothing is baselined, tracked or accepted until there is a contract.
 
 ## Anchoring principles
 
@@ -72,6 +80,7 @@ Inherited from the `core` kernel. On entry, read the referenced files.
 ## Composition with sibling skills
 
 - **From `solution-architect`:** the estimate, phased roadmap, acceptance annex, client-obligation register, risk register, and the declared **ID spine** → these become the Phase 0 baseline. Delivery *inherits* these artifacts rather than re-deriving them; where delivery finds them inconsistent, that is a finding to report, not to silently fix.
+- **Pre-signature, back to `solution-architect`:** the filled effort column, the release split, the cut order, and a capacity verdict. SA enumerates and prices; this skill supplies the numbers. SA's `templates/delivery-wbs-workbook.md` is the instrument that carries them.
 - **To/with `dev`:** deliverables and their due dates flow in; built artifacts and their evidence flow back. `dev` runs its own design/build/sprint cycles inside the envelope this skill maintains.
 - **Back to `solution-architect`:** every engagement's actuals are the correction signal for the next estimate. A delivery that ran 1.6× the estimate is the most valuable input SA's `estimation-and-costing.md` will ever get. Close the loop deliberately — see `references/delivery-lifecycle.md` → Phase 4.
 

@@ -95,3 +95,128 @@ Specifically **unvalidated and worth watching**:
 The next fixed-price delivery. Harvest specifically: estimate vs actual per phase, which criteria were
 contested and why, which client obligations slipped and by how much, and which of these five templates were
 actually maintained past week 3.
+
+---
+
+## Evolution 1 — 2026-07-29 — The pre-signature seam
+
+### Harvest scope
+
+Harvested from a **presale** engagement (a Big-4 professional-services client in South-East Asia; see
+`solution-architect`'s Evolution 4). This skill's stated harvest source is *completed engagements*, and none
+has occurred — so the initial reading was that there was nothing to harvest.
+
+**That reading was wrong, and the error is worth recording.** Evolution 0 declared this skill *distilled, not
+fire-tested* — authored from prior-art research and one engagement's presale trace, with no practitioner
+contact. What the trace supplies is not execution data but the thing a theory-built skill most lacks: a
+**real delivery planner's behaviour**, in the form of an artifact he authored, an artifact he rejected, and
+his stated reasons for both. That falls squarely inside the boundary this skill drew for itself — and it lands
+on the one seam drawn purely by inference.
+
+### Patterns found
+
+1. **The tense rule is false at its own boundary — H/L.** `SKILL.md` sends anything pre-signature to SA:
+   *"SA produces the artifacts this skill baselines."* Observed: the delivery PM was engaged **weeks before
+   signature**, rejected SA's WBS outright, rebuilt it, and asserted ownership of exactly the decisions this
+   skill later gets measured on — the effort figure (*"I can work this out myself"*), the release split, and
+   the cut order (*"drop this cut order"*). Neither skill owned that interaction: SA believed it did and was
+   rejected; delivery disclaimed it. **The estimate SA prices is the estimate delivery is held to.**
+2. **The instrument/argument distinction, from the delivery side — H/M.** The adopted artifact carried **0
+   numeric cells across 234 task rows**, yellow fill markers, a calibration anchor, and a discipline tag per
+   row so the sheet could be split and priced by the leads who would do the work. The rejected one had the
+   column pre-filled. The fix landed in SA as a template; the *principle* — whoever will be held to a number
+   authors it — is delivery's, and was absent here.
+3. **No capacity line in the baseline — M/L.** The cost baseline carried effort, labour, CapEx, licences,
+   contingency, total — and no denominator. Both practitioner artifacts in the trace lacked one too: one
+   tagged 165 tasks to a single release against a 15-working-day window with no capacity figure anywhere. A
+   baseline frozen without a capacity check freezes an infeasible plan and only discovers it in Phase 2.
+4. **The mobilisation reconciliation inherits SA's execution defect — H/L.** Seven prose checkboxes, the same
+   shape as SA's `artifact-integrity.md` — which on this trace was *present, correct, and never executed*,
+   shipping a false clean report over three live totals for one population. Delivery's version sits at a
+   higher-stakes moment: it freezes the plan of record.
+5. **Principle 7 fires too late — M/L.** *"Never invent a second numbering system"* is correct, and the
+   collision it warns about was created **in presale**, by SA, accommodating the PM's vocabulary. Delivery is
+   where it gets discovered, so the namespace check belongs in the mobilisation list — not only as a principle.
+
+### Hypotheses applied
+
+| # | Change | File | Pattern |
+|---|---|---|---|
+| 1 | **The pre-signature exception** — the delivery planner is a consumer of SA's artifacts before signature; an estimate authored by someone who will not be held to it is not an estimate | `SKILL.md` | 1, 2 |
+| 2 | **Phase −1 — pre-signature input**: fill the effort column (never accept it pre-filled), own the release split and cut order, return a capacity verdict rather than a total | `references/delivery-lifecycle.md` | 1, 2 |
+| 3 | **Capacity-fit block** in the baseline: available vs required vs gap; a zero gap is a declared choice, a positive gap cannot be frozen | `templates/delivery-baseline.md` | 3 |
+| 4 | **Reconciliation as a value table, not checkboxes** — write both compared values; a tick with no numbers is a claim about a check | `templates/delivery-baseline.md` | 4 |
+| 5 | **Namespace-uniqueness check** added to mobilisation; effort recorded **by discipline** | `templates/delivery-baseline.md` | 5, 2 |
+
+### What was deliberately not changed
+
+**Most of the skill.** Nothing was observed about running the cadence, acceptance execution, UAT, defect
+severity, deemed acceptance, change control, status reporting or RAG derivation — so `progress-measurement.md`,
+`acceptance-execution.md`, `change-control.md` and three of the five templates are **untouched**. Evolution 0's
+three named unknowns (0/100 on coarse criteria, whether the zero-cost CR log survives week 3, whether five
+templates is the right five) remain exactly as open as they were. This trace could not test any of them.
+
+### Validation (fill on the next engagement)
+
+- [ ] The skill is engaged **before** signature, and the effort column it returns is the one that gets priced.
+- [ ] A capacity gap is reported as *"does not fit, by N days"* rather than closed by moving an input.
+- [ ] The mobilisation reconciliation ships with **values in both columns**, not ticks.
+- [ ] An ID-namespace collision is caught at mobilisation rather than after a tracker is built on it.
+- **Verdict: `PENDING`.** One trace, and a *presale* one. Hypothesis 1 is the load-bearing change and also the
+  riskiest: it widens this skill's trigger into territory SA currently claims, and the failure mode to watch
+  for is two skills both trying to own the estimate. If that happens, the boundary is drawn wrong again — but
+  in the other direction.
+
+### Note on the initial mis-scoping
+
+The first pass at this evolution concluded *"no delivery trace ⇒ nothing to harvest"* and shipped the skill
+unchanged. The distinction it missed: **no execution trace is not no trace.** For a skill that has never met a
+practitioner, a practitioner's rejection of its sibling's artifact is first contact. Worth stating as a loop
+rule: *when a skill is distilled rather than harvested, the bar for what counts as evidence is lower, because
+the alternative is not "wait for better data" — it is "keep shipping inference."*
+
+---
+
+## Evolution 2 — 2026-07-30 — The planner accepted the sheet, then asked for a different unit
+
+### Harvest scope
+
+**The same presale engagement as Evolution 1, one day later** — still pre-signature, so still Phase −1 only.
+Evolution 1 authored Phase −1 on a single signal: a PM rejected an artifact and rebuilt it. This window shows
+the **other half of that seam** — what the same PM does when handed an instrument built to his shape.
+
+Traces: three WBS rebuilds driven by his written feedback; a Teams thread carrying two scope decisions and a
+handover instruction; and a schedule grid that produced a duration verdict rather than receiving one.
+
+### Patterns found
+
+| # | Pattern | I/E | Proof |
+|---|---|---|---|
+| 1 | **Phase −1's "fill the effort column" assumes the window is fixed.** When *duration* is the unknown and effort is roughly understood, the planner does not want a column at all | H/L | *"not MD est but grouped by week"*, then *"windows is depending on the amount of work required… I'm engineer, I get to push back realistically"* |
+| 2 | **A week grid produces the capacity verdict for free, and produces it in a form that is harder to argue with.** With bars placed from dependency order, the work landed one week past a duration already stated publicly — visible, derived, not asserted | H/L | Grid lands in W5; the client-facing deck states four weeks in three places. Nobody had to make the argument; the sheet made it |
+| 3 | **The planner will accept a machine-made artifact and then take it over.** Ownership transfer is the success condition, and it **inverts the regeneration instruction** | H/L | *"khi anh xong cái file slide, thì em work trên cái slide luôn đi, đừng work trên file WBS nữa."* The index still said *"regenerate, don't hand-edit"* — one run would have destroyed his edits |
+| 4 | **A milestone drawn as a horizontal band across a task list is a false claim**, and the planner is who catches it | H/L | *"chỗ title End W1 nhưng task a thấy qua mấy W2 và 3,4."* Rows grouped by feature ran three weeks past a banner asserting completion |
+| 5 | **The third Phase −1 failure mode: answering the wrong question well.** Ev.1 named two (accepting a pre-filled estimate; refusing to engage until signature). A third is pricing an artifact aimed at a different reader | H/L | The sheet arrived carrying obligations, risks, a cut order and commercial assumptions — all correct, none the planner's to price |
+
+### Hypotheses applied
+
+| # | Change | File | Pattern |
+|---|---|---|---|
+| 1 | **Three effort forms, with a selector** — empty column / **schedule position** / never pre-filled; *"say which form before the sheet is built"* | `references/delivery-lifecycle.md` Phase −1 | 1 |
+| 2 | **Ask for the grid when duration is yours to determine**, with the `N+2` column rule so overrun is expressible without a renegotiation | same | 1, 2 |
+| 3 | **Milestones on the time axis, never horizontal bands** | same, pointing at SA's template for the column spec | 4 |
+| 4 | **Handover retires the generator** — mark the generated version final, reverse the index instruction, keep the script as a record | same | 3 |
+| 5 | **Third common failure named:** answering the wrong question well; ask what decision the sheet must serve before filling anything in | same | 5 |
+
+### Validation (fill on the next engagement that reaches Phase −1)
+
+- [ ] Effort form **agreed with the planner before the sheet is built**, and the returned artifact uses it.
+- [ ] Where duration is engineering-set, the grid is what reports the overrun — not a paragraph.
+- [ ] On handover, the generator is retired and the index instruction reversed **before** anyone re-runs it.
+- [ ] A milestone never implies completion it cannot deliver.
+- [ ] Phase −1 asks what decision the artifact serves, and declines rows outside it.
+- **Verdict: `PENDING`.** Same engagement as Evolution 1, still pre-signature, and every hypothesis is a
+  refinement of machinery authored one day earlier. Pattern 3 is the highest-value observation in this file:
+  **Ev.1 assumed the seam's failure mode was rejection; the real end state is transfer**, and the skill had no
+  guidance for the moment a practitioner takes the artifact and keeps it. Phases 0–4 remain entirely
+  unvalidated — this skill still has no post-signature trace of any kind.
