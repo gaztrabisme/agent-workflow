@@ -86,6 +86,46 @@ This is how the user absorbs patterns passively across many tasks. Over a month 
 
 ---
 
+## Two channels — where the WHY goes
+
+The narration above is a **conversation** obligation. It has a second home in `decisions.md`. It has **no home inside a deliverable**.
+
+| Channel | Carries | Form |
+|---|---|---|
+| The conversation | teaching, the forks, the recommendation and its reason | prose, tagged |
+| `decisions.md` | the choice, the alternatives, why the rest lost, what it binds | prose, permanent |
+| A handoff or client-bound artifact | the conclusion, plus a token pointing at the above | a cell, a ref, a column |
+
+**The failure this closes.** Justification that belongs in the first two channels migrates into the third — because the mandate above is written for one developer in a chat window, and every role-skill inherits it unchanged. In a workbook it surfaces as multi-clause cells; across an engagement it surfaces as a parallel prose corpus nobody reads.
+
+**Budget, where the artifact is tabular:** ≤1 prose cell (≥12 words) per 100 non-empty cells. A cell needing more than one clause is a decision — write it in `decisions.md` and put the ref in the cell.
+
+**Exempt:** internal design specs and architecture documents, where the rationale *is* the deliverable.
+
+**Anti-pattern — defending a choice inside the deliverable.** A sentence like *"This is a disclosure, not a hedge"* is an argument with an imagined critic. The recipient never raised the objection; a pre-emptive rebuttal tells them you expected one. It reads as insecurity. It belongs in `decisions.md`.
+
+**A section heading is a label, not an argument.** The same reflex escapes into structure, where the budget above does not look at it. *Observed:* banner rows reading *"RISKS CARRIED — tracked here because a risk is a dependency you cannot name an owner for yet"* and *"CLIENT OBLIGATIONS — the client must deliver these. Unmet, they stop us."* Both are correct, and both are arguing. `Dependencies` is the heading. Apply the same test used for a diagram box: **could a reader disagree with this line?** If yes it is explanation, and it goes in `decisions.md`.
+
+### The lane test — a distinct failure from being too long
+
+Out-of-lane content is not verbose content, and trimming does not fix it. A row can be **short, true, well-written and still wrong for the artifact**, because it serves a different reader.
+
+**The test, applied per row or per section:** name the recipient and the decision they must make, then ask whether *this* helps *that* person make *that* decision.
+
+> *Observed.* An engineering task inventory shipped carrying client obligations with late-consequence prose, a risk register with commercial mitigations, a scope-defence cut order, and commercial assumptions about how a client would read an accuracy figure. Every row was accurate. The recipient's verdict: *"why are you including lots of commercial assumptions? We're building this WBS from engineering POV, exactly what tasks needed to build this — we just went out of our lanes."*
+
+**Prose budgets and lane tests catch different defects.** The budget measures how much you wrote; the lane test asks whether it was yours to write. Run both.
+
+### Restating an assumption can invert it — check the negatives
+
+When a rule's value lies in a **prohibition** — *do not escalate this*, *do not build that*, *never assume this* — a restatement, a summary or a translation can flip the polarity while keeping every word plausible.
+
+> *Observed.* An assumption said: if the sign convention differs between fields, a few documents will fail to balance, and **those failures are our own bug, not real findings** — so fix the convention, do not report them. Restated for the team in another language, it became *"those wrong ones we escalate to the user"* — the exact action the assumption existed to prevent. A warning had become a feature, in one sentence, with no word obviously wrong.
+
+Before a negative rule leaves your hands in someone else's words: **read the restatement back and ask what action it authorises.** If the original forbids an action and the restatement permits it, the polarity flipped.
+
+---
+
 ## Escape hatches
 
 - `"just do it"` / `"skip the teaching"` on a specific task → respect for that task only, resume on the next

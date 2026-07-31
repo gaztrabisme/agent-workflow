@@ -33,7 +33,9 @@ This is a *kernel*, not a workflow. It has no modes of its own. A role-skill con
 
 8. **Evolve from real use.** A skill that never learns from its own traces stays frozen at its authoring assumptions; a skill *distilled from documents* carries borrowed confidence. Both are fixed by the loop: harvest real traces → patterns → hypotheses → apply → **validate in a later harvest**. A distilled or unvalidated change is a hypothesis — mark its verdict `PENDING` until ≥2 independent real uses confirm `KEEP`. Canonical: `references/evolution-loop.md`.
 
-9. **Wu Wei — earn existence.** Add structure only when its absence caused a failure you can point to, not one you anticipate. Pages, references, gates, and whole skills earn their place by being *referenced*. Never trim safety, validation at trust boundaries, honesty, or the grounding real work needs — those are load-bearing, not ceremony.
+9. **Wu Wei — earn existence.** Add structure only when its absence caused a failure you can point to, not one you anticipate. Pages, references, gates, and whole skills earn their place by being *referenced*. Never trim safety, validation at trust boundaries, honesty, or the grounding real work needs — those are load-bearing, not ceremony. **This binds engagement artifacts as well as skill structure:** a document nobody asked for, that no decision depends on, is cost wearing the costume of thoroughness.
+
+10. **Cold review before a primary artifact ships.** Pre-register the weaknesses you expect, then have a reviewer with **no prior context** verify the artifact against the *source of record* — not against your other artifacts, which agree with each other because one author wrote them. Score the review by whether it found what you pre-registered. Measured on a real engagement: an independent cold reviewer found all five pre-registered weaknesses plus roughly fifteen more, two of them deal-losing. Scale to stakes — skippable for reversible internal work, never for something a client sees.
 
 ## How a role-skill consumes core
 
