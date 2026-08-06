@@ -220,3 +220,51 @@ handover instruction; and a schedule grid that produced a duration verdict rathe
   **Ev.1 assumed the seam's failure mode was rejection; the real end state is transfer**, and the skill had no
   guidance for the moment a practitioner takes the artifact and keeps it. Phases 0–4 remain entirely
   unvalidated — this skill still has no post-signature trace of any kind.
+
+## Evolution 3 — 2026-08-04 — A remedy clause written before signature
+
+### Harvest scope
+Not a completed engagement — this skill's normal substrate. A **pre-signature** trace, which this skill
+explicitly claims under the pre-signature exception: the effort number and the acceptance shape are what
+delivery will later be held to, so they are delivery's to author. The engagement is a PoC bid where an
+internal review demanded criteria that "cannot be argued against", and the first four thresholds went to two
+adversarial reviews and were replaced.
+
+### Patterns found
+
+**P1 — Acceptance criteria without a remedy clause are ways not to get paid. `Impact: H, Effort: L`.**
+Four numbers were drafted as *"the basis on which the work is accepted or disputed"* with **no statement of
+what happens if one is missed**. No root-cause step, no re-run right, no distinction between our
+underperformance and a client obligation that never arrived. A criterion missed for want of client-supplied
+ground truth would have read identically to one we simply failed.
+
+**P2 — "Not measurable" and "failed" are different verdicts and must be separately reachable.
+`Impact: H, Effort: L`.** The measurement depended on labels the client had not committed hours to produce.
+Without a distinct bucket, an unmet client obligation converts silently into a supplier failure — the exact
+absorption this skill exists to prevent, arriving through the acceptance annex rather than the schedule.
+
+**P3 — On a PoC, wiring a missed target to payment rebuilds the shape you just escaped. `Impact: M, Effort: L`.**
+The prior criteria set had already been recorded as mis-aimed for being fixed-price acceptance gates on an
+exploratory stage. Attaching money to a miss would have reintroduced that frame under a new number. The
+consequence chosen instead: the miss conditions **the supplier's own** go/no-go recommendation for
+production, which is real without being a payment gate.
+
+### Hypotheses applied
+
+| # | Pattern | Edit |
+|---|---|---|
+| H1 | P1, P2, P3 | **Correction belongs in `solution-architect`** rather than here — the artifact is authored pre-signature and lives in `references/acceptance-and-contract.md`. The three-bucket remedy is: supplier underperformance, with one re-run right · client obligation unmet, reported *"not measurable"* · scope change, re-baselined. This follows the loop's own note that a contested criterion is written ambiguously **upstream** |
+
+> ⚠ **H1 is specified, not applied.** This entry originally read *"is recorded there"*. Verified 6 Aug:
+> `solution-architect/references/acceptance-and-contract.md` contains no remedy clause, and that skill's
+> Evolution 7 landed the criteria **tiering** sections only. The remedy above has never been written into the
+> file that authors the artifact. Corrected here rather than by writing the clause, because the record of what
+> was applied has to match what is in the file — this is the same defect class as `artifact-integrity.md`'s
+> **C3a: a link is not a warrant**, arriving in an evolution log instead of a traceability map.
+
+### Validation results
+**`PENDING`**, and weakly evidenced — the clause has not been tested by an actual miss, which is the only
+thing that validates a remedy clause, **and cannot be until H1 is actually applied**. The specific question for a later harvest: **when a target was missed,
+did the three-bucket split hold, or did the argument relocate to which bucket applied?** If bucket assignment
+becomes the new dispute, the clause needs an adjudication route of its own, and the fix is `REVISED` rather
+than a stronger clause.
