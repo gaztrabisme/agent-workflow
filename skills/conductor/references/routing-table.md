@@ -17,10 +17,49 @@ Intent → skill → mode. Conductor's only original judgment. Everything downst
 | "validate", "is this true", "what does it actually cost", "check my numbers" | Ground | task-force fan-out — `task-force-protocol.md` |
 | "pressure-test", "what breaks", "red team", "will this survive the room" | Contest | persona fan-out — `persona-fanout.md` |
 | "status", "are we on track", "they want a change", "get it accepted" | Run | `delivery` |
-| local LLM call, schema enforcement, thinking control | — | `omlx` |
-| generated stills/clips/synthetic data | — | `media-gen` |
-| Zalo OA / Mini App / ZNS / quotas / pricing | — | `zalo-platform` |
-| deck / doc / spreadsheet as the deliverable | — | `pptx` / `docx` / `xlsx` / `gsheets` |
+
+Everything above routes on **work shape**. The table below routes on something else entirely.
+
+## Carrier and capability skills — the second axis
+
+A deck is not a kind of work. It is the **form an artifact takes**, and the skill that owns the form is chosen independently of the skill that decides the content. `dev` already names this split for its own execution-layer companions ("not pipeline stages — skills dev *calls into* mid-build"); conductor generalises it.
+
+**Two rules:**
+
+1. **Choose the carrier in the Plan Block, not at the end.** "We'll turn it into a deck later" is false — knowing the output is 12 slides changes what the producers write. Carrier chosen late means the content gets rewritten.
+2. **A carrier skill never decides content.** `pptx` owns how the deck is built; `solution-architect` owns what it says. When a carrier skill starts making substantive calls, the routing was wrong.
+
+| The artifact is… | Skill |
+|---|---|
+| a slide deck | `pptx` |
+| a Word document | `docx` |
+| a local spreadsheet (`.xlsx` / `.csv`) | `xlsx` |
+| a Google Sheet (over the network, acts as you) | `gsheets` — **not** `xlsx` |
+| a diagram as a file (`.drawio`, exported PNG/SVG) | `drawio` |
+| **any** chart, plot, dashboard or stat tile, in any medium | `dataviz` — read **before** the first line of chart code |
+| a published web page on claude.ai | `Artifact` + `artifact-design`; diagrams → `artifact-diagramming`; live/stateful → `artifact-capabilities` |
+| generated stills, clips, or synthetic training data | `media-gen` |
+
+**Frontend work has five overlapping skills. Pick on two axes, never one:**
+
+| Axis | Choice |
+|---|---|
+| **Workflow** | new build → `frontend-design` (or `design-taste-frontend` for landing/portfolio) · existing UI → `redesign-existing-projects` (audit-first) |
+| **Aesthetic direction** | `high-end-visual-design` (agency, expensive-feeling) · `minimalist-ui` (editorial, warm monochrome, flat) |
+
+One workflow skill **plus** one direction. Loading two directions produces a hybrid that reads as neither. `color-expert` fires beneath any of them when the task is genuinely about colour — palettes, ramps, perceptual matching, accessibility.
+
+**Capability skills, fired by substrate not by shape:**
+
+| Trigger | Skill |
+|---|---|
+| the LLM call is **local** (MLX / oMLX / Apple Silicon) | `omlx` — owns the request contract, schema enforcement, thinking control |
+| the LLM is **Anthropic**, or the task is LLM-shaped with the provider unstated | `claude-api` — read before opening the file. **Stands down** the moment another provider is named (OpenAI, Gemini, Deepseek, Llama, Mistral, Ollama) |
+| Zalo OA / Mini App / ZNS / quota / pricing facts | `zalo-platform` — grounds the facts; `dev` builds against them |
+| third-party API docs needed | `get-api-docs` |
+| authoring or hardening a skill | `skill-builder` |
+
+**Ambiguity rule, same as above:** name both candidates in the Plan Block and pick one with a reason. A carrier chosen silently is the cheapest routing error to make and the most annoying to undo.
 
 ## Disambiguation — the three collisions that actually happen
 
