@@ -56,6 +56,36 @@ Every spine ID should be covered by the views that claim coverage — or explici
 Orphans are not always defects — some criteria genuinely need nothing. But an *unexamined* orphan is a
 test that fails on acceptance day for a reason you could have surfaced months earlier.
 
+### C3a — The inverse orphan: a link is not a warrant
+
+C3 asks whether every spine ID is covered. The inverse is the dangerous one, because it **passes**: a
+client-facing claim cites a spine ID that exists — and that does not deliver the claimed capability.
+
+**Traceability proves a link exists. It does not prove the target satisfies the source.** A gate written as
+*"every claim must name a real task"* is satisfied by any real task, including the adjacent one.
+
+> *Observed.* A slide claimed four reviewer actions, badged in-scope. The traceability map behind it carried
+> a note — *"approve and correct are built; comment and escalate are not separately scoped"* — while the
+> mockup beside it drew a button for one of them. It passed **five automated gates and three cold reviewers**,
+> because the claim named task `4.2.3` and `4.2.3` exists. The client-facing artifact promised a capability
+> the plan did not fund, and the record that knew it was sitting in the file the gate read.
+
+**Two rules follow, and the second is the general one.**
+
+- **Check the target's content, not just its existence.** For each claim, the question is *"does what this
+  task delivers cover what this sentence promises?"* — a comparison no ID-set operation can perform. It needs
+  either a capability field on the task that the gate can read, or a human pass over the claim/target pairs.
+- **A field that records a gap is not a control unless something reads it.** The note above was *correct*.
+  It had been written deliberately, by someone who understood the gap. It changed nothing, because no gate
+  consumed that field — so it functioned as documentation while reading, to every later reviewer, as
+  governance. **If your traceability map carries caveat or exception fields, either the gate consumes them or
+  they should be deleted**, since their presence suppresses the very suspicion that would catch the defect.
+
+This is the same family as *"a ✓ you typed is a proxy, not a gate"* below, and as the sibling failure in this
+skill's Evolution 7: consistency gates check that claims agree, not that the load-bearing one survived. **A
+gate can run, pass, and have checked the wrong property.** When a gate has never failed on a class of defect,
+ask what property it actually asserts before concluding the class does not occur.
+
 ### C4 — Version lineage
 One artifact per class is current; the rest are history. Check that **filename, internal version cell, and
 content actually agree**.
@@ -135,6 +165,33 @@ Resolution: distinct prefixes (`EA-` engineering, `A-` proposal), and **an expli
 they are deliberate and must not be reconciled** — otherwise the next integrity pass reads two registers with
 overlapping names and "fixes" them. A deliberate split needs a recorded reason, or the machinery in this file
 will treat it as the defect it is designed to catch.
+
+### C9 — Attributed quotations are cross-artifact facts
+
+A quoted sentence attributed to the client propagates faster than any number, because it is the thing people
+reach for when they need the argument to land. Two properties must hold, and neither is checked by anything
+else on this page:
+
+- **Verbatim in a source of record.** The exact characters, in that order, in the transcript or thread —
+  not a faithful summary of them. `core`'s grounding gate owns *whose sentence is this*; this check owns
+  *does the string exist*.
+- **Byte-identical everywhere it appears.** One quotation drifting across a proposal, a deck and a wiki page
+  is the same failure as one population counted four ways (**C1**) — and it is harder to spot, because each
+  version reads fine alone.
+
+> *Observed.* A quotation attributed to a named client partner and tagged `(Confirmed)`, in the orientation
+> document every new contributor is told to read first, turned out to be a colleague's summary from an
+> internal chat. One copy-paste from a client slide. The same engagement had already purged an invented
+> accuracy figure from four documents, and a guard sentence recorded in three files was a composite that
+> appeared on no page of the artifact it was guarding.
+
+**Do it cheaply and it becomes a gate:** extract every quoted string above a length threshold, filter to those
+attributed to a **named external speaker**, and search the source of record for each. The filter is what makes
+it usable — unscoped, the same check returns hundreds of correct-but-irrelevant matches and gets ignored. See
+`core/references/grounding-gate.md` → *Scope the check until its output is all signal*.
+
+⚠ **A quotation you cannot locate is not necessarily false — but it is not quotable.** Drop the quotation
+marks and state the substance in your own voice, which is almost always sufficient and costs nothing.
 
 ---
 

@@ -484,3 +484,140 @@ defects the rebuild introduced.
 **Verdict: `PENDING`.** Pattern 4 is the one to promote if it holds — pre-registration cost about ten minutes
 and was the only reason three of these findings exist. Pattern 5 has no cure yet beyond awareness; the
 candidate is *"list what you supplied, and review it as if someone else had."*
+
+## Evolution 7 — 2026-08-04 — Acceptance criteria that could not be measured, and the one that was deleted
+
+### Harvest scope
+Same engagement as Evolutions 4–6, now at the point where an internal review demanded *measurable success
+criteria the client agrees in advance, so the outcome cannot be argued afterwards*. Four thresholds were
+authored, put through **two independent adversarial reviews on different models**, redesigned, and rebuilt.
+Representative because it is the seam this skill owns — turning a solution into something a client can sign —
+and because the first attempt failed in a way the skill's own prior evolution had already warned about.
+
+### Patterns found
+
+**P1 — Two of four thresholds were unmeasurable by the instrument proposed. `Impact: H, Effort: M`.**
+*Detection ≥90%* counted the share of the client's extraction errors caught — against a denominator produced
+by a component we had contractually agreed not to test or tune. At the component's likely accuracy the golden
+set contains ~10 errors; demonstrating 90% needs ~29 with zero misses. **Perverse structure: the better the
+client's component performs, the less provable our number becomes.** *False positives ≤15%* contradicted our
+own design document — *"a failed rule identifies a set of fields, one of which is wrong; it does not identify
+which"* — so one honest break implicating twelve fields is eleven false positives at field level.
+
+**P2 — The metric scored our best outputs against us. `Impact: H, Effort: L`.**
+Under *"of the fields flagged, the share that were correct all along"*, a document whose **own published
+totals fail arithmetic** counts as a false positive. So does a correctly-detected restatement. Those are the
+two findings the pitch most wants to show. A metric definition can invert the product's value proposition
+without anyone noticing, because the definition reads as neutral.
+
+**P3 — Effective n is clusters, not observations. `Impact: H, Effort: L`.**
+~1,020 labels sounded like a sample. They came from 10 documents, sharing one extraction, one layout, one
+column-detection pass — behaving like 15–29 independent observations. The confidence interval around a 95%
+claim was ±8–11 points, which cannot distinguish 95% from 87%. Nobody involved had asked.
+
+**P4 — A restatement deleted the value proposition and no gate noticed. `Impact: H, Effort: L`.**
+The old criteria bounded reviewer workload at *"≤30 of ~200 fields flagged"*. A same-day restatement dropped
+it. Nothing then constrained queue size, so a system routing 120 of 200 fields would pass every remaining
+threshold while delivering **no efficiency gain at all** — against a client whose stated goal was exactly that
+reduction. Consistency gates check that claims agree; they do not check that the load-bearing one survives.
+
+**P5 — Criteria authored for the wrong deal shape cannot be patched. `Impact: H, Effort: M`.**
+The set was already recorded as mis-aimed — written as fixed-price acceptance gates for what is a PoC stage.
+The first fix retired three and restated one with new numbers, **repeating the original error at smaller
+scale three days later.** The shape, not the numbers, was the defect.
+
+**P6 — Two adversarial reviews on different models is a materially stronger instrument than one.
+`Impact: M, Effort: L`.** Run cold with the same facts and none of the prior conclusions, they converged on
+the unmeasurable denominator and independently demanded the same one-day corpus check — which was then run
+and changed a design decision. Where they diverged marked exactly where the judgement was soft.
+
+### Hypotheses applied
+
+| # | Pattern | Edit |
+|---|---|---|
+| H1 | P1, P3 | `references/acceptance-and-contract.md` → **"Tier criteria by what the instrument can carry"** (commit / report / method, with the membership test), plus **"Effective sample size is clusters, not observations"** and **"A denominator you do not control is not measurable"** — the latter carrying the constructed-denominator fix and its three credibility guardrails |
+| H2 | P2, P4 | Same file → **"Check the set for gameability before you sign it"** — read every criterion as an adversary, bond criteria that are only meaningful together *on the artifact*, and watch what a restatement drops |
+| H3 | P5 | Same file → **"When the deal shape changes, replace the criteria — do not renumber them"**, including the observed repeat-at-smaller-scale failure |
+| H4 | — | *No edit made for P6.* Cross-model adversarial review is a `core` practice, not an SA one; folded into `core` Evolution 5 instead so it is not duplicated |
+
+### Validation results
+All **`PENDING`**. P1–P3 are the most likely to generalise — they are properties of measurement, not of this
+domain — but every one came from a single engagement and none has yet survived a client conversation, which
+is the actual test. **The specific thing to check at the next harvest: did the tiering survive contact with a
+buyer who wanted a single headline number?** The design's answer is a bonded pair plus a lock date; if that
+gets negotiated away in the room, the tiering is right in theory and unusable in practice, and the honest
+verdict is `REVISED` with a lighter floor rather than `KEEP`.
+
+**Update, 6 Aug — the room happened and the question is still open.** The deck carrying the tiered criteria
+was presented. The only record of the session is a short set of team notes, and **they say nothing about the
+criteria either way** — so this is *no evidence*, not *weak evidence*. Do not read the silence as acceptance:
+the notes discuss scope, not measurement, and a tiering that was never tested is indistinguishable in a
+summary from one that passed. Verdict unchanged at `PENDING`; ask again when the scope settles.
+
+---
+
+## Evolution 8 — 2026-08-06 — A gate that ran, passed, and checked the wrong property
+
+### Harvest scope
+
+The end of the same engagement: a client-facing deck rebuilt under five parallel agents, taken through six
+automated gates and **three cold reviewers**, and presented. Small harvest by design — most of what this pass
+produced is kernel material and went to `core` Evolution 6. What is left is the part this skill owns: the
+integrity machinery over a client-bound artifact set.
+
+**Representative because the defect below is the first one in this engagement that every existing instrument
+was pointed at and still missed.** Earlier misses were gaps in coverage. This one was covered.
+
+### Patterns found
+
+**P1 — A note that records a gap is not a control. `Impact: H, Effort: M`.**
+A slide claimed four reviewer actions and badged them in scope. The traceability map behind it carried an
+explicit note that two of the four were *"not separately scoped"*, and the mockup on the same slide drew a
+button for one of them. **Five automated gates and three cold reviewers passed it**, because the gate asserts
+*a claim must name a real WBS task* — and the task it named exists. The client-facing artifact promised
+capability the plan did not fund, and **the record that knew it was inside the file the gate was reading.**
+
+Two distinct failures, and separating them is the whole finding:
+
+- **Traceability proves a link exists, not that the target satisfies the source.** No ID-set operation can
+  compare a sentence's promise against a task's content, so a gate built from set differences will never see
+  this class however well it is written.
+- **A caveat field nothing consumes is worse than no field.** The note was correct and deliberate. Its
+  presence made the map *look* governed, which suppressed exactly the suspicion that would have caught it.
+
+**P2 — An attributed quotation is a cross-artifact fact, and this skill had no check for it. `Impact: M-H,
+Effort: L`.** `artifact-integrity.md` checks counts, dangling refs, orphans, versions, language parity,
+priced-vs-committed, namespaces — and had nothing on quoted material. A quotation attributed to a named
+client partner and tagged `(Confirmed)`, in the engagement's own orientation document, was a colleague's
+internal summary. The general rule is `core`'s; the **cross-artifact** obligation is this skill's, because a
+quotation drifting between a proposal, a deck and a wiki page is structurally the same defect as one
+population counted four ways.
+
+### Hypotheses applied
+
+| # | Pattern | Edit |
+|---|---|---|
+| H1 | P1 | `references/artifact-integrity.md` → new **C3a — The inverse orphan: a link is not a warrant**, placed beside C3 so the pair reads together. Carries the capability-comparison requirement and the general rule: **if a traceability map has caveat or exception fields, the gate consumes them or they get deleted.** Closes with the transferable question — *when a gate has never failed on a class of defect, ask what property it actually asserts* |
+| H2 | P2 | Same file → new **C9 — Attributed quotations are cross-artifact facts**: verbatim in a source of record, byte-identical across artifacts, with the cheap scripted form and a pointer to `core`'s scoping rule rather than a restatement of it |
+
+### Validation results
+
+**Both `PENDING`.** One engagement, and both defects were found and fixed inside the pass that produced them.
+
+**H1 is the stronger claim and the harder one to test**, because its own logic says a *passing* gate is not
+evidence. The test is not "did C3a fire" — it is whether a later engagement, applying it, finds a claim whose
+cited task does not cover it. If a harvest reports C3a running clean across a large artifact set, that is
+**ambiguous**, not confirmatory: it may mean the claims are sound, or that the check was applied as another
+ID-set operation. Ask *how* it was run.
+
+**H1's second half is the more portable half, and it is where I would expect friction.** "Delete a caveat
+field the gate does not read" is a strong instruction, and the natural objection — *the note was true and
+useful* — is correct. The reason it still holds is that a true note in a governance file reads as governance.
+If a later engagement pushes back on deleting rather than wiring, the right verdict is `REVISED` with a third
+option: keep the field and make its presence itself a gate failure until something consumes it.
+
+**H2 should be cheap to validate and is the one most likely to reach `KEEP` first** — it is mechanical, and
+the engagement that produced it already has the script.
+
+**Next harvest should ask:** did any client-facing claim ship whose cited task did not deliver it, and was
+C3a run as a content comparison or quietly reduced to another set difference?

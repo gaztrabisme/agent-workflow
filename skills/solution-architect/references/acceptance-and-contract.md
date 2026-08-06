@@ -133,3 +133,79 @@ penalty schedule · notice templates. The acceptance appendix is yours.
 - **Treating obligations as assumptions.** An assumption you can proceed on; an unmet obligation stops you.
 - **Acceptance criteria written after the price is fixed.** The criteria *are* the scope; pricing before
   they exist is pricing a guess.
+
+## Tier criteria by what the instrument can carry
+
+A criterion is only as good as the thing that will measure it. Before writing a number, ask what will produce
+it and how big the sample actually is — then place it in one of three tiers, and say on the artifact which
+tier it is in.
+
+| Tier | Holds | Test for membership |
+|---|---|---|
+| **Commit** | Counts, coverage, determinism, and rates whose **denominator you construct** | Could two people compute this to the same value from the same run, with no sampling argument available? |
+| **Report** | Every rate measured against a sample you did not construct | State it *with* its sample size and the honest uncertainty, and do not commit |
+| **Method** | The measurement contract itself — the definitions, the inputs, the adjudication route | Makes every other number computable. It is a criterion, not preamble |
+
+**Prefer a count to a rate.** A count has no sampling noise, can be measured across the whole population
+rather than a labelled subset, and cannot be argued down with a confidence interval. Where the value
+proposition can be stated as a count, that is the headline.
+
+### Effective sample size is clusters, not observations
+
+Observations inside one document, one interview, one site are **not independent** — they share a layout, a
+respondent, a configuration. A thousand data points drawn from ten documents behave like somewhere between
+fifteen and thirty independent observations, not a thousand. A single structural failure produces dozens of
+correlated errors in one event.
+
+Consequence: a ±5-point claim on a ten-document sample is not defensible, and a numerate client will say so.
+Either widen the sample, or move the number to **report** and state the clustering.
+
+### A denominator you do not control is not measurable
+
+If a metric counts *"the share of X we catch"* and X is produced by a component you have contractually agreed
+not to test or tune, the denominator is outside your control and probably small. Worse, the relationship is
+perverse: **the better that component performs, the fewer instances exist, and the less provable your number
+becomes.** You have tied your evidence to your client's component failing.
+
+**The fix is to construct the denominator.** Inject instances of known class and magnitude into verified-correct
+inputs and measure against those. It costs engineering time rather than client-expert time — usually the scarce
+resource — and it converts an unmeasurable claim into a committable one.
+
+Three guardrails make a self-set test credible rather than self-serving, and they are what a sceptical buyer
+will look for:
+
+- **Publish the suite before the run** and let the client add cases and veto yours.
+- **Include the hard classes by name** — specifically the ones your mechanism is least likely to catch. Their
+  low scores are the honest boundary of the method and should be reported, not omitted.
+- **Report per class, never pooled.** Pooling is how a self-set test is gamed.
+
+State the limitation yourself: a constructed sample measures **sensitivity per class**, not expected live
+performance, because injected instances are not distributed like real ones. Both numbers answer real
+questions; conflating them is what gets caught.
+
+### Check the set for gameability before you sign it
+
+Every committed criterion should be read as an adversary would: *what is the cheapest way to satisfy this
+while delivering nothing?* Criteria that are individually sound are routinely gameable in combination.
+
+The recurring shape is a **workload or volume commitment with no quality floor beside it** — "no more than N
+items reach a human" is won outright by a system that surfaces nothing. Where two criteria are only
+meaningful together, **bond them on the artifact itself**: say on the card that one is valid only against the
+other. An internal understanding does not survive the artifact being read alone, which is exactly when it
+will be read.
+
+### When the deal shape changes, replace the criteria — do not renumber them
+
+Criteria authored for one commercial shape cannot be salvaged by editing their numbers; the **shape is the
+defect**. A set written as fixed-price acceptance gates carries assumptions — that a miss has a payment
+consequence, that thresholds precede evidence, that "done" is binary — which survive any amount of
+rewording.
+
+Observed failure mode: a set was correctly recorded as mis-aimed, then "fixed" by retiring three criteria and
+restating one with new percentages. **That repeated the original error at smaller scale**, and two independent
+reviews caught it within hours. Replace the set, continue the ID namespace rather than reusing numbers, and
+banner the retired set at its source so the old IDs cannot be cited by accident.
+
+Watch for what the restatement quietly drops. In the same case the rewrite deleted the only criterion
+bounding the reviewer's workload — the number that *was* the value proposition — and nothing caught it,
+because consistency gates check that claims agree, not that the important one is still present.
