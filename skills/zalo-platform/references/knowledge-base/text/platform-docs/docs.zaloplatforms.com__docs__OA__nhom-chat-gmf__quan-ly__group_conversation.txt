@@ -1,0 +1,208 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/nhom-chat-gmf/quan-ly/group_conversation
+# FETCHED: 2026-08-06
+# TITLE: Lấy thông tin tin nhắn trong một nhóm | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Điều kiện gửi tin nhắn nhóm
+Gửi tin nhắn nhóm dạng Text
+Gửi tin nhắn nhóm dạng File
+Gửi tin nhắn nhóm dạng Hình ảnh
+Gửi tin nhắn nhóm dạng Sticker
+Gửi tin nhắn Mention tới nhóm
+Quản lý nhóm
+Tạo nhóm mới
+Lấy thông tin nhóm
+Cập nhật nhóm
+Cập nhật dịch vụ cho Nhóm chat
+Mời tham gia nhóm
+Lấy danh sách thành viên chờ duyệt
+Đồng ý duyệt thành viên mới vào nhóm
+Từ chối duyệt thành viên mới vào nhóm
+Lấy danh sách thành viên nhóm
+Thêm phó nhóm
+Xóa phó nhóm
+Xóa thành viên khỏi nhóm
+OA Giải tán nhóm
+Lấy danh sách nhóm OA đang quản lý
+Kiểm tra hạn mức nhóm
+Lấy danh sách tin nhắn nhóm gần nhất
+Lấy thông tin tin nhắn trong một nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Lấy thông tin tin nhắn trong một nhóm
+Lưu ý
+Ứng dụng cần được cấp quyền quản lý thông tin nhóm.
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/group/conversation
+Method: GET
+Response Type: text/json
+Example request​
+curl --location --request GET 'https://openapi.zalo.me/v3.0/oa/group/conversation?group_id=f414c8f76fa586fbdfb4&offset=0&count=2' \
+--header 'access_token: <access_token>'
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Tham số​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+group_id
+string
+yes
+ID nhóm muốn query
+offset
+integer
+optional
+Offset muốn query.
+Mặc định: 0
+count
+integer
+optional
+Số lượng mong muốn query.
+Mặc định: 5
+Example respond​
+{
+"data": [
+{
+"src": 1,
+"time": 1695953605615,
+"type": "photo",
+"thumb": "https://t-f56-zpg-r.zdn.vn/480/1368523566580101744/c5e2bffd9feb4bb512fa.jpg",
+"url": "https://f56-zpg-r.zdn.vn/1368523566580101744/c5e2bffd9feb4bb512fa.jpg",
+"description": "",
+"message_id": "d181af9c7607d15d8812",
+"from_id": "8756287263669629130",
+"from_display_name": "Hoàng Trường Phước",
+"from_avatar": "https://s240-ava-talk.zadn.vn/8/0/d/7/2/240/59fc092d056c759a71fd16d3bc508458.jpg",
+"group_id": "f414c8f76fa586fbdfb4"
+},
+{
+"src": 0,
+"time": 1695953568367,
+"type": "text",
+"message": "m4",
+"message_id": "1e43a3935908fe52a71d",
+"from_id": "607812198688816074",
+"from_display_name": "Chủ Trại Mèo",
+"from_avatar": "https://s240-ava-talk.zadn.vn/d/e/f/d/7/240/380ffb601008ba5c58852a80cb635b79.jpg",
+"group_id": "f414c8f76fa586fbdfb4"
+}
+],
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Tham số
+Kiểu dữ liệu
+Mô tả
+src
+integer
+Thuộc tính cho biết tin nhắn được gửi từ OA hoặc người dùng.
+Các giá trị trả về:
+0: tin nhắn được gửi từ OA
+1: tin nhắn được gửi từ người dùng
+time
+long
+Thời gian tin nhắn được gửi (định dạng timestamp)
+type
+string
+Loại tin nhắn.
+Các giá trị trả về:
+text: tin nhắn văn bản
+voice: tin nhắn thoại
+photo: tin nhắn ảnh
+GIF: tin nhắn GIF
+link: tin nhắn có nội dung là đường link
+links: tin nhắn theo mẫu đính kèm danh sách
+sticker: tin nhắn sticker
+location: tin nhắn chia sẻ location
+message
+string
+Nội dung tin nhắn
+message_id
+string
+ID của tin nhắn
+from_id
+string
+ID của đối tượng gửi tin nhắn (có thể là user_id hoặc oa_id)
+from_display_name
+string
+Tên hiển thị của đối tượng gửi tin nhắn
+from_avatar
+string
+Đường dẫn đến ảnh đại diện của đối tượng gửi tin nhắn
+group_id
+string
+ID của nhóm
+links
+string
+Thuộc tính trả về 1 danh sách các đường dẫn được đính kèm trong tin nhắn
+Lưu ý: thuộc tính chỉ được trả về khi loại tin nhắn là link hoặc links.
+thumb
+string
+URL của ảnh hoặc GIF.
+Lưu ý: thuộc tính chỉ được trả về khi loại tin nhắn là GIF hoặc photo
+url
+string
+Đường dẫn đến audio (trong trường hợp loại tin nhắn là voice), hoặc đường dẫn đến ảnh/GIF/nhãn dán (trong trường hợp loại tin nhắn là photo, GIF, nhãn dán)
+description
+string
+Mô tả của ảnh.
+Lưu ý: thuộc tính chỉ được trả về khi loại tin nhắn là photo.
+location
+string
+Thuộc tính trả về giá trị longitude và latitude của người dùng.
+Lưu ý: thuộc tính chỉ được trả về khi loại tin nhắn là location.
+Trước
+Lấy danh sách tin nhắn nhóm gần nhất
+Kế tiếp
+Tổng quan
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,517 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/quan-ly-template/bat-dau/danh-sach-components
+# FETCHED: 2026-08-06
+# TITLE: Danh sách Components | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Bắt đầu
+Giới thiệu chung về Template
+Danh sách Components
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+API Lấy thông tin phản hồi nhanh của khách hàng
+Template Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi trạng thái Template
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Sự kiện người dùng phản hồi template phản hồi nhanh
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+Danh sách Components
+Các components của template, được sử dụng trong API tạo template và API chỉnh sửa template.
+Thứ tự và số lượng các components của mỗi template phụ thuộc vào loại template được chọn khởi tạo hoặc chỉnh sửa
+Danh sách components​
+1. Tiêu đề (Title)
+2. Đoạn văn bản (Paragraph)
+3. OTP
+4. Bảng (Table)
+5. Tệp đính kèm (Attachment)
+6. Logo
+7. Image
+8. Button
+9. Payment
+10. Voucher
+11. Rating
+Syntax
+{
+"TITLE": {"value": "<value>"}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+value
+yes
+string
+Bao gồm text cố định hoặc param. Số lượng param ở component TITLE không được vượt quá 4.
+Tối thiểu 9 ký tự và tối đa 65 ký tự.
+Syntax
+{
+"PARAGRAPH": {"value": "<value>"}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+value
+yes
+string
+Bao gồm text cố định hoặc param. Số lượng param ở component PARAGRAPH vượt quá 10.
+Tối thiểu 9 ký tự và tối đa 400 ký tự.
+Syntax
+{
+"OTP": {"value":"<value>"}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+value
+yes
+string
+Bao gồm text cố định hoặc param. Nếu là param cần define param type là OTP(10).
+Tối thiểu 1 ký tự và tối đa 10 ký tự.
+Syntax
+{
+"TABLE": {
+"rows": [
+{
+"title": "<title>",
+"value": "<value>",
+"row_type": 1
+},
+{
+"title": "<title>",
+"value": "<value>"
+}
+]
+}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+rows
+yes
+JSON Array
+Mỗi object là một dòng của table.
+Tối thiểu 2 objects, tối đa 8 objects.
+Cấu trúc data Object
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+title
+yes
+string
+Chỉ chứa text cố định
+Tối thiểu 3 ký tự, tối đa 36 ký tự
+value
+yes
+string
+Bao gồm text cố định hoặc param (số lượng param không bị giới hạn theo component nhưng bị giới hạn theo template).
+Tối thiểu 3 ký tự, tối đa 90 ký tự.
+row_type
+no
+integer
+Hiệu ứng row, bao gồm các hiệu ứng:
+0: Không có hiệu ứng
+1: Thành công
+2: Cập nhật
+3: Lưu ý
+4: Báo lỗi
+5: Cơ bản
+Syntax
+{
+"type": "<type>",
+"media_id": "<media_id>"
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+type
+yes
+string
+Các định dạng support:
+"IMAGE": Ảnh
+media_id
+yes
+string
+media_id nhận được khi upload ảnh sử dụng API upload ảnh.
+Syntax
+{
+"LOGO": {
+"light": "<attachment>",
+"dark": "<attachment>"
+}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+light
+yes
+Attachment Object
+Sử dụng component Attachment
+dark
+yes
+Attachment Object
+Sử dụng component Attachment
+Syntax
+{
+"IMAGES": {
+"items": [
+"<attachment>"
+]
+}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+items
+yes
+Attachment Array
+Sử dụng component Attachment. Tối thiểu 1 Attachment và tối đa 3 Attachment
+Syntax
+{
+"BUTTONS": {
+"items": [
+{
+"type": 1,
+"title": "<button_title>",
+"content": "<button_content>"
+},
+{
+"type": 2,
+"title": "<button_title>",
+"content": "<button_content>"
+}
+]
+}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+items
+yes
+Attachment Array
+Chứa các object, mỗi object là một button
+Tối thiểu 1 object và tối đa 2 objects
+Dữ liệu trường thông tin items
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+type
+yes
+integer
+Danh sách button:
+value
+Loại button
+1
+Đến trang của doanh nghiệp
+2
+Gọi điện
+3
+Đến trang thông tin OA
+4
+Đến ứng dụng Zalo Mini App của doanh nghiệp
+5
+Đến trang ứng dụng của doanh nghiệp
+6
+Đến trang phân phối sản phẩm
+(Ngừng hỗ trợ sau ngày 16/03/2026)
+7
+Đến trang web/Zalo Mini App khác
+8
+Đến trang ứng dụng của doanh nghiệp khác
+9
+Đến bài viết của OA
+10
+Sao chép
+11
+Thanh toán ngay
+12
+Xem chi tiết
+13
+Đến trang tra cứu hoá đơn điện tử
+14
+Đến trang đích kêu gọi hành động tải ứng dụng
+Từ ngày 16/03/2026, loại button “Đến trang phân phối sản phẩm” sẽ ngừng hỗ trợ cho việc tạo mới và chỉnh sửa template. Các template đang sử dụng phân loại này sẽ được tự động chuyển sang phân loại “Đến trang web/Zalo Mini App khác”.
+title
+yes
+string
+Nội dung button
+Chỉ bao gồm text cố định, không cho phép param
+Tối thiểu 5 ký tự và tối đa 30 ký tự
+content
+yes
+string
+Đường dẫn liên kết/số điện thoại
+Cho phép param. Param cần được định nghĩa với type là URL(200) và ở vị trí sub domain.
+Syntax
+{
+"PAYMENT": {
+"bank_code": "970425",
+"account_name": "Lê Huỳnh Minh Trí",
+"bank_account": "31231902930129",
+"amount": "<amount>",
+"note": "<amount>"
+}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+bank_code
+yes
+string
+Bank code. Khi gửi tin sẽ hiển thị tên ngân hàng tương ứng.
+Không cho phép truyền param, truyền vào các giá trị cố định tương ứng với BIN code nằm trong list Danh sách BIN CODE
+account_name
+yes
+string
+Tên tài khoản
+Chỉ cho phép truyền text cố định
+Tối thiểu 1 ký tự, tối đa 100 ký tự
+bank_account
+yes
+string
+Số tài khoản
+Chỉ cho phép truyền fix text
+Tối thiểu 1 ký tự, tối đa 100 ký tự
+amount
+yes
+list
+Số tiền
+Cho phép truyền text cố định hoặc truyền biến
+Truyền fix cần có giá trị từ 2,000 đến 500,000,000
+Param được truyền cần định nghĩa với type: Tiền tệ (VNĐ) (12)
+note
+no
+string
+Nội dung chuyển khoản.
+Cho phép truyền text cố định hoặc truyền param.
+Truyền fix: Tối thiếu 1, tối đa 90 ký tự
+Truyền biến : Biến cần được định nghĩa với type: Bank transfer note (90).
+Syntax
+{
+"VOUCHER": {
+"name": "<name>",
+"condition": "<condition>",
+"start_date": "<start_date>",
+"end_date": "<end_date>",
+"voucher_code": "ABC123"
+}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+name
+yes
+string
+Voucher name
+Cho phép truyền text cố định hoặc param
+Tối thiểu 1 ký tự, tối đa 30 ký tự
+condition
+yes
+string
+Điều kiện sử dụng voucher
+Cho phép truyền text cố định hoặc param
+Tối thiểu 1 ký tự, tối đa 40 ký tự
+start_date
+no
+string
+Ngày bắt đầu hiệu lực của voucher
+Cho phép truyền text cố định hoặc param
+Truyền param: Param cần được định nghĩa với type: Thời gian (20)
+Truyền cố định: Giá trị tuân theo định dạng datetime
+end_date
+yes
+string
+Ngày kết thúc của voucher
+Cho phép truyền text cố định hoặc param
+Truyền param: Param cần được định nghĩa với type: Thời gian (20)
+Truyền cố định: Giá trị tuân theo định dạng datetime
+voucher_code
+yes
+string
+Mã voucher
+Cho phép truyền text cố định hoặc param. Tối thiểu 1 ký tự, tối đa 25 ký tự
+Truyền param: Param cần được định nghĩa với type: Mã số (30)
+Syntax
+{
+"RATING": {
+"rating_type": "csat",
+"option": "five_stars",
+"items": [
+{
+"rate": 1,
+"title": "Rất không hài lòng",
+"question": "chúng tôi có thể cải thiện điều gì?",
+"answers": [
+"đóng gói hàng tốt hơn",
+"chất lượng sản phẩm tốt hơn"
+],
+"thanks": "abc",
+"description": "hello"
+},
+{
+"rate": 2,
+"title": "Không hài lòng",
+"question": "chúng tôi có thể cải thiện điều gì?",
+"answers": [
+"đóng gói hàng tốt hơn",
+"chất lượng sản phẩm tốt hơn"
+],
+"thanks": "abc",
+"description": "hello"
+},
+{
+"rate": 3,
+"title": "Bình thường",
+"question": "chúng tôi có thể cải thiện điều gì?",
+"answers": [
+"đóng gói hàng tốt hơn",
+"chất lượng sản phẩm tốt hơn"
+],
+"thanks": "abc",
+"description": "hello"
+},
+{
+"rate": 4,
+"title": "Hài lòng",
+"question": "chúng tôi có thể cải thiện điều gì?",
+"answers": [
+"đóng gói hàng tốt hơn",
+"chất lượng sản phẩm tốt hơn"
+],
+"thanks": "abc",
+"description": "hello"
+},
+{
+"rate": 5,
+"title": "Rất hài lòng",
+"question": "chúng tôi có thể cải thiện điều gì?",
+"answers": [
+"đóng gói hàng tốt hơn",
+"chất lượng sản phẩm tốt hơn"
+],
+"thanks": "abc",
+"description": "hello"
+}
+]
+}
+}
+Tham số
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+rating_type
+no
+string
+Loại đánh giá. Bao gồm 1 trong các giá trị sau:
+csat (Mặc định nếu không set giá trị cho trường rating_type)
+option
+yes
+string
+three_emotions
+five_emotions
+five_stars
+items
+yes
+Array object
+Chứa các object, mỗi object là một sao
+Bao gồm 5 objects (Bắt buộc)
+Dữ liệu trường thông tin items
+Field
+Tính bắt buộc
+Kiểu dữ liệu
+Mô tả
+rate
+yes
+string
+Giá trị đánh giá tương ứng với từng mức trong thang đo khi chọn options.
+three_emotions: giá trị từ 1 đến 3
+five_emotions: giá trị từ 1 đến 5
+five_stars: giá trị từ 1 đến 5
+title
+yes
+string
+Tiêu đề tương ứng với số sao
+Tối thiểu 1 ký tự, tối đa 50 ký tự
+question
+no
+string
+Câu hỏi tương ứng với số sao
+Tối thiểu 1 ký tự, tối đa 100 ký tự
+answers
+no
+List string
+Danh sách câu trả lời, tương ứng với số sao
+Tối thiểu 1 câu trả lời (trong trường hợp field answers được truyền), Tối đa 5 câu trả lời.
+Mỗi câu trả lời: tối thiểu 1 ký tự, tối đa 50 ký tự
+thanks
+yes
+string
+Câu cám ơn, tương ứng với số sao
+Tối thiểu 1 ký tự, tối đa 100 ký tự
+description
+yes
+string
+Mô tả, tương ứng với số sao
+Tối thiểu 1 ký tự, tối đa 200 ký tự
+Trước
+Giới thiệu chung về Template
+Kế tiếp
+API Upload Ảnh
+Danh sách components
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

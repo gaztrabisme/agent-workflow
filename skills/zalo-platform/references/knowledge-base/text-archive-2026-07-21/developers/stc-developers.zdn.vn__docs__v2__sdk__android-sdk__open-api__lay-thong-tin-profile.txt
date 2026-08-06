@@ -1,0 +1,57 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/android-sdk/open-api/lay-thong-tin-profile
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin profile | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Open APILấy thông tin profile
+Lấy thông tin profile
+
+SDK cung cấp API để lấy thông tin người dùng sau khi đăng nhập thành công:
+
+ZaloSDK.Instance.getProfile(
+  Context ctx,String access_token, ZaloOpenAPICallback callback, String[] fields)
+
+
+Tham số:
+
+ctx: application context
+access_token:  được lấy ở mục (link)
+callback: override method onResult để nhận json trả về từ open api. Ví dụ:
+{
+    "id": "UserId",
+    "name": "User Name",
+    "picture": {
+        "data": {
+            "url": "User avatar url"
+        }
+    }
+}
+
+fields : id, picture, name
+Trước
+Đăng xuất
+Kế tiếp
+Câu hỏi thường gặp
+©2023 Zalo for Developers

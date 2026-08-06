@@ -1,0 +1,68 @@
+# SOURCE: https://bot.zapps.me/docs/apis/sendChatAction/
+# FETCHED: 2026-08-06
+# TITLE: sendChatAction | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Trang chủ
+Bắt đầuTài liệuGiá góiGiải phápFAQ
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Trên trang này
+sendChatAction
+Trước
+Kế tiếp
+Cập nhật lần cuối: 10/12/2025
+API cho phép Bot hiển thị một trạng thái tạm thời trong cuộc trò chuyện, chẳng hạn như đang soạn tin nhắn hoặc đang gửi ảnh.
+URL: https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/sendChatAction
+Method: POST
+Response Type: application/json
+Sample code​
+Code demo fallback when rendering server side!
+Parameters​
+Trường
+Kiểu dữ liệu
+Bắt buộc
+Mô tả
+chat_id
+String
+true
+ID của người nhận hoặc cuộc trò chuyện
+action
+String
+true
+Loại hành động mà bot sẽ phát đi. Các loại hành động có sẵn bao gồm:
+typing: Cho tin nhắn văn bản.
+upload_photo: Cho ảnh (Sắp ra mắt).
+Sample response​
+{
+"ok": true
+}
+Trước
+Kế tiếp
+zi-chevron-up
+Parameters
+Sample response
+EN
+Zalo Bot Platform
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+Công Ty TNHH Zalo Platforms
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+© 2025 Zalo Platforms. All Rights Reserved.

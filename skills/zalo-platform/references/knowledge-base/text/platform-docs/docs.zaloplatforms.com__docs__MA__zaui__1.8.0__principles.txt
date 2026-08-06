@@ -1,0 +1,114 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.8.0/principles
+# FETCHED: 2026-08-06
+# TITLE: Principles | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.8.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Principles
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.8.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+1. Để người dùng kiểm soát giao diện​
+UI tốt đem lại cho người dùng cảm giác được kiểm soát, giúp họ dễ dàng nắm bắt và làm chủ sản phẩm.
+Cho phép hoàn tác các hành động
+Giao diện dễ dàng điều hướng
+Cung cấp phản hồi cho các hành động
+Hiển thị trạng thái của hệ thống
+2. Tạo sự thoải mái khi tương tác với sản phẩm​
+Loại bỏ tất cả những yếu tố không có ích cho người dùng
+Không bắt người dùng nhập lại những gì họ từng nhập
+Tránh sử dụng những thuật ngữ khó hiểu
+Áp dụng luật Fitts cho các phần tử có sự tương tác
+Sử dụng phép ẩn dụ với thế giới thực
+Thông báo lỗi một cách hiệu quả
+Đảm bảo người dùng không bị mất những gì họ đã làm
+3. Giảm các suy nghĩ không cần thiết​
+Phân tách chuỗi thông tin
+Giảm số lượng hành động bắt buộc để đạt được mục tiêu
+4. Tính nhất quán​
+Nhất quán về giao diện
+Nhất quán về chức năng
+Phù hợp với mong đợi của người dùng
+1. Để người dùng kiểm soát giao diện
+2. Tạo sự thoải mái khi tương tác với sản phẩm
+3. Giảm các suy nghĩ không cần thiết
+4. Tính nhất quán
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

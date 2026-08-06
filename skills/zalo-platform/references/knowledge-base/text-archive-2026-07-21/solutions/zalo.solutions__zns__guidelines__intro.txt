@@ -1,0 +1,102 @@
+# SOURCE: https://zalo.solutions/zns/guidelines/intro
+# FETCHED: 2026-07-21
+# TITLE: Giới thiệu về ZBS Template Message | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Business Message
+Giới thiệu
+Tài liệu hướng dẫn
+Bảng giá
+Chính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Giới thiệu về ZBS Template Message
+Hướng dẫn thiết lập tài khoản ZBS
+Hướng dẫn liên kết Ứng dụng (AppID) vào tài khoản ZBS
+Hướng dẫn liên kết Zalo OA vào tài khoản ZBS
+Hướng dẫn Uỷ quyền ứng dụng (AppID) cho OA
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+
+Giới thiệu về ZBS Template Message
+
+1. Giới thiệu chung​
+
+ZBS Template Message là dịch vụ gửi tin nhắn chăm sóc khách hàng đến số điện thoại hoặc tương tác tới khách hàng trên Zalo, vận hành theo phương thức gọi API giữa các máy chủ. Dịch vụ nằm trong bộ giải pháp dành cho nhóm tài khoản Official Account (OA).
+
+Tìm hiểu thêm về lợi ích của ZBS Template Message cho doanh nghiệp tại đây:
+
+Ứng dụng của ZBS Template Message dành cho doanh nghiệp
+Ưu điểm của ZBS Template Message
+2. Giới thiệu về tin nhắn ZBS Template​
+
+Khác với các mẫu tin nhắn thông thường, tin nhắn ZBS Template bao gồm các hình thức đa dạng như logo, hình ảnh, tham số, v.v... và các yếu tố tương tác chăm sóc khách hàng như nút thao tác gọi điện, dẫn đến website doanh nghiệp, đánh giá sao, nút thanh toán nhanh. Các mẫu tin này được chủ động thiết kế bởi doanh nghiệp trên công cụ nằm trong gói dịch vụ, hoặc qua yêu cầu đặc biệt đến đội ngũ ZBS.
+
+Các mẫu tin được kiểm duyệt trước khi gửi để đảm bảo tính chuyên nghiệp, uy tín của doanh nghiệp OA và nền tảng Zalo. Ngoài ra, để tránh tình trạng tin rác và thưởng cho các doanh nghiệp có chất lượng gửi tin cao, hệ thống áp dụng các quy định ưu đãi hoặc phạt về mục đích gửi tin và số lượng tin, dựa trên phản hồi của người nhận.
+
+Công cụ theo dõi hạn mức và chất lượng gửi tin trên ZCA
+
+3. Bắt đầu sử dụng dịch vụ ZBS Template Message​
+
+Bước 1. Để sử dụng dịch vụ, trước hết, doanh nghiệp cần thiết lập và liên kết/ủy quyền các tài khoản sau:
+
+Tài khoản ZBS công cụ quản lý chi tiêu và vận hành các dịch vụ tin nhắn ZBS Template và OA.
+
+Quản lý chi tiêu trong tài khoản ZBS
+
+Tạo tin nhắn ZBS Template trong ZCA
+
+Zalo Official Account (OA): tài khoản chính thức của doanh nghiệp trên Zalo, giúp doanh nghiệp và khách hàng/người quan tâm tương tác với nhau dễ dàng hơn.
+Ứng dụng (App): công cụ đại diện cho một hoặc nhiều OA gửi tin nhắn ZBS Template.
+
+Bước 2. Sau khi thiết lập các tài khoản, doanh nghiệp tiến hành tạo mẫu bằng công cụ tạo Mẫu Tin nhắn ZBS trên ZBS. Sau khi tạo mẫu tin, doanh nghiệp tiến hành gửi duyệt. Mẫu sẽ được đánh giá phê duyệt bởi Zalo trong vòng 2-3 ngày làm việc.
+
+Bước 3. Thiết lập hệ thống API hoặc gửi theo chiến dịch, và gửi tin đến người nhận.
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+Kế tiếp
+Hướng dẫn thiết lập tài khoản ZBS
+1. Giới thiệu chung
+2. Giới thiệu về tin nhắn ZBS Template
+3. Bắt đầu sử dụng dịch vụ ZBS Template Message
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

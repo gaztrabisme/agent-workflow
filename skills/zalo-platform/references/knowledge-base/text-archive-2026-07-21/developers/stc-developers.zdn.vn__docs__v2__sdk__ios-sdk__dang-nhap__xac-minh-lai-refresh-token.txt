@@ -1,0 +1,49 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/ios-sdk/dang-nhap/xac-minh-lai-refresh-token
+# FETCHED: 2026-07-21
+# TITLE: Xác minh lại RefreshToken | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+IOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Đăng nhậpXác minh lại RefreshToken
+Xác minh lại RefreshToken
+
+ZaloSDK hỗ trợ method validateRefreshToken để kiểm tra RefreshToken có còn hiệu lưu hay không:
+
+ZaloSDK.sharedInstance().validateRefreshToken(refreshToken, extInfo: Constant.EXT_INFO) { (response) in
+      if response?.isSucess == true {
+          // RefreshToken vẫn còn hiệu lực
+      } else {
+          // RefreshToken không còn hiệu lực
+      }
+}
+
+
+Lưu ý: ZaloSDK không hỗ trợ việc lưu lại session đăng nhập mà phía app sẽ tự quản lí việc này. Có thể sử dụng hình thức lưu lại RefreshToken ở local, và dùng method validateRefreshToken để xác minh session đăng nhập có đang còn hiệu lực hay không.
+
+Trước
+Lấy Access Token
+Kế tiếp
+Đăng xuất
+©2023 Zalo for Developers

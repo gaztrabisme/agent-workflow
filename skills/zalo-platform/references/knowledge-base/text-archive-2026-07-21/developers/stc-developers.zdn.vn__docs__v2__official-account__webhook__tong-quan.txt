@@ -1,0 +1,77 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/tong-quan
+# FETCHED: 2026-07-21
+# TITLE: Giới thiệu về Webhook | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Extension
+Quản lý
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookGiới thiệu về Webhook
+Giới thiệu về Webhook
+Zalo sẽ gửi các request http (method POST) đến webhook url của ứng dụng khi có tương tác từ người dùng hoặc các thay đổi liên quan đến Offical Account, bao gồm: có người dùng gửi tin nhắn tới Offical Account, các thay đổi liên quan tới bài viết(Article) hoặc cửa hàng(Zalo Shop). Các sự kiện webhook được gửi dưới dạng các yêu cầu POST đến webhook đã đăng ký trong trang cài đặt ứng dụng của bạn.
+LƯU Ý
+
+Để đạt hiểu suất cao nhất. Webhook Url không nên dùng host:port, thay vào đó hãy dùng domain và phải được cấu hình https.
+
+1. Hướng dẫn cấu hình Webhook​
+Nhấn chọn "Thay đổi", Webhook Url sẽ được kích hoạt để bạn nhập thông tin vào:
+Nếu bạn bật tính năng "Lọc cú pháp", webhook của bạn chỉ có thể nhận được các tin nhắn text bắt đầu bằng "#" từ người dùng:
+Hãy bật Event Webhook mà bạn muốn nhận:
+2. Yêu cầu về cấp quyền Official Account cho App:​
+Official Account phải tiến hành cấp Official_Account_Access_Token cho App đang liên kết để có thể nhận về các sự kiện.
+3. Yêu cầu hiệu suất cho webhook​
+
+Phản hồi tất cả sự kiện webhook với http status code = 200 OK.
+
+Phản hồi tất cả sự kiện webhook tối đa 2 giây.
+
+Nếu webhook của bạn không đáp ứng được bất kỳ yêu cầu nào ở trên thì sẽ nhận được thông báo webhook không hoạt động gửi về tài khoản zalo của người quản lý ứng dụng.
+
+4. Retry Event Webhook​
+Zalo hỗ trợ gửi lại sự kiện về địa chỉ webhook đã đăng ký đối với những sự kiện gửi không thành công (Không mở được connection tới webhook url)
+Zalo sẽ liên tục gửi lại các sự kiện tương tự sau các mốc thời gian sau: sau 30 giây, sau 5 phút, sau 15 phút, sau 30 phút, sau 1 giờ. Các sự kiện đó với nội dung hoàn toàn tương tự, nhưng sẽ có truyền thêm ở header của request trường "num_retry" - chính là số lần gửi lại sự kiện đó.
+Bạn cần xử lý để webhook hoạt động lại trong khoảng thời gian sự kiện được gửi lại. Nếu webhook của bạn tiếp tục không đáp ứng được yêu cầu trong khoảng thời gian đó, bạn sẽ nhận được thông báo webhook đã bị vô hiệu hóa và ứng dụng của bạn sẽ bị hủy đăng ký nhận các sự kiện webhook cho Offical Account.
+Sau khi khắc phục sự cố với webhook. Bạn cần xin quyền nhận sự kiện lại trong trang cài đặt của ứng dụng.
+Trước
+Danh sách sản phẩm
+Kế tiếp
+Sự kiện người dùng gửi tin nhắn
+1. Hướng dẫn cấu hình Webhook
+2. Yêu cầu về cấp quyền Official Account cho App:
+3. Yêu cầu hiệu suất cho webhook
+4. Retry Event Webhook
+©2023 Zalo for Developers

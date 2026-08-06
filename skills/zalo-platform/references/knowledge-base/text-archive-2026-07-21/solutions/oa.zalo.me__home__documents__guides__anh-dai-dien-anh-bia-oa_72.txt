@@ -1,0 +1,101 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/anh-dai-dien-anh-bia-oa_72
+# FETCHED: 2026-07-21
+# TITLE: Ảnh đại diện, ảnh bìa OA | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Ảnh đại diện, ảnh bìa OA
+Quy định về hình ảnh OA (ảnh bìa, ảnh đại diện):​
+Hình ảnh phải là logo chính thức của doanh nghiệp/ tổ chức hoặc bảng hiệu của doanh nghiệp hoặc hình ảnh sản phẩm (*)/ dịch vụ mà doanh nghiệp đang kinh doanh. Tên doanh nghiệp/ hộ kinh doanh trên bảng hiệu/ logo phải giống với tên của doanh nghiệp/ hộ kinh doanh hoặc hình ảnh sản phẩm, dịch vụ phải giống với sản phẩm, dịch vụ mà doanh nghiệp đang kinh doanh. 
+Không được sử dụng hình ảnh sao chép các tính năng của Zalo/VNG nhầm gây hiểu lầm cho người xem. 
+Không được sử dụng hình ảnh hoặc logo đã được đăng ký với Cục Sở hữu Trí tuệ khi chưa được phép của chủ sở hữu nhãn hiệu. Zalo có quyền gỡ hình ảnh đại diện/ ảnh bìa của OA nếu có tranh chấp, khiếu nại về bản quyền hình ảnh 
+Không được sử dụng hình ảnh cá nhân (ngoại trừ hình ảnh cá nhân đã được bảo vệ bản quyền), hình ảnh phản cảm hay vi phạm thuần phong mỹ tục, pháp luật… 
+Không được sử dụng hình ảnh liên quan đến nội dung chính trị, quân đội; 
+Không được sử dụng hình ảnh sản phẩm liên quan đến thuốc lá (thuốc lá điện tử, khói thuốc…) hoặc sản phẩm có yếu tố bạo lực như kim tiêm, vũ khí.
+Đối với OA đã tạo, bạn có thể cập nhật ảnh đại diện, ảnh bìa OA theo các bước sau: ​
+
+Bước 1: Đăng nhập tài khoản trang OA theo đường dẫn http://oa.zalo.me/manage ➞ Chọn OA muốn cập nhật hình ảnh 
+
+Bước 2: Chọn mục "Quản lý" ➞ Chọn "Trang thông tin OA"  ➞ Chọn tiếp Thông tin chung
+
+Bước 3: Ở phần "Thông tin tài khoản", chọn "Chỉnh sửa" ➞ Chọn các thông tin OA cần cập nhật 
+
+Bước 4: Chọn "Cập nhật thông tin" để hoàn tất. 
+
+❗ Hình ảnh sau khi cập nhật sẽ được duyệt bởi BQT Zalo OA trong vòng 2-3 ngày làm việc.  
+
+⚠ Một số lưu ý khác: ​
+
+Đối với ảnh đại diện: 
+
+Dung lượng ảnh đại diện tối đa 15MB 
+Kích thước tối thiểu 240x240 pixel 
+Hỗ trợ định dạng JPG, PNG 
+Ảnh được hiển thị là khu vực A được tô sáng như hình sau 
+
+ 
+ 
+
+ Đối với ảnh bìa: 
+
+Dung lượng ảnh bìa tối đa 15MB 
+Kích thước tối thiểu 320x180 pixel 
+Hỗ trợ định dạng JPG, PNG 
+Ảnh được hiển thị là khu vực A được tô sáng như hình sau. 
+
+--------------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT Zalo OA để được phản hồi sớm nhất.
+
+Previous
+Trang thông tin OA
+Next
+Truy vấn tự động
+Quy định về hình ảnh OA (ảnh bìa, ảnh đại diện):
+Đối với OA đã tạo, bạn có thể cập nhật ảnh đại diện, ảnh bìa OA theo các bước sau: 
+⚠ Một số lưu ý khác: 
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

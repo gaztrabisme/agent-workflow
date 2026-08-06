@@ -1,0 +1,87 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/truy-xuat-thong-tin/lay-thong-tin-quota-zns
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin quota ZNS | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Lấy thông tin trạng thái ZNS
+Lấy thông tin quota ZNS
+Lấy thông tin loại nội dung ZNS được phép gửi
+Lấy danh sách template
+Lấy thông tin chi tiết template ZNS
+Lấy dữ liệu mẫu của template
+Lấy thông tin đánh giá của khách hàng
+Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Truy xuất thông tinLấy thông tin quota ZNS
+Lấy thông tin quota ZNS
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+API cho phép đối tác truy xuất thông tin quota (số lượng) thông báo ZNS OA được gửi mỗi ngày.
+
+HTTP request​
+URL: https://business.openapi.zalo.me/message/quota
+Method: GET
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" "https://business.openapi.zalo.me/message/quota"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Example respond​
+{
+    "data": {
+        "dailyQuota": 500,
+        "remainingQuota": 499,
+        "dailyQuotaPromotion": null,
+        "remainingQuotaPromotion": null,
+        "monthlyPromotionQuota": 125,
+        "remainingMonthlyPromotionQuota": 124,
+        "estimatedNextMonthPromotionQuota" :2000
+    },
+    "error": 0,
+    "message": "success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+dailyQuota	string	Số thông báo ZNS OA được gửi trong 1 ngày.
+Lưu ý: Hạn mức gửi ZNS mỗi ngày của OA sẽ tự động được điều chỉnh dựa theo chất lượng và nhu cầu gửi. Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi ZNS tại đây.
+remainingQuota	string	Số thông báo ZNS OA được gửi trong ngày còn lại.
+dailyQuotaPromotion	string	Số tin ZNS hậu mãi OA được gửi trong ngày.
+Ghi chú: Từ ngày 1/11, thuộc tính này sẽ trả về giá trị null
+remainingQuotaPromotion	string	Số tin ZNS hậu mãi còn lại OA được gửi trong ngày.
+Ghi chú: Từ ngày 1/11, thuộc tính này sẽ trả về giá trị null
+monthlyPromotionQuota	long	Số tin ZNS hậu mãi OA được gửi trong tháng.
+remainingMonthlyPromotionQuota	long	Số tin ZNS hậu mãi còn lại OA được gửi trong tháng.
+estimatedNextMonthPromotionQuota	long	Số tin ZNS hậu mãi dự kiến mà OA có thể gửi trong tháng tiếp theo.
+Trước
+Lấy thông tin trạng thái ZNS
+Kế tiếp
+Lấy thông tin loại nội dung ZNS được phép gửi
+HTTP request
+Example request
+Tham số header
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

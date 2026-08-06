@@ -1,0 +1,43 @@
+# SOURCE: https://zalo.solutions/blog/lam-the-nao-de-giam-ty-le-bao-xau-report-khi-gui-mau-thong-bao-zns-/j4uvw9eppb98eka4a9
+# FETCHED: 2026-08-06
+# TITLE: Làm thế nào để giảm tỷ lệ báo xấu (report) khi gửi mẫu thông báo ZNS  | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Làm thế nào để giảm tỷ lệ báo xấu (report) khi gửi mẫu thông báo ZNS
+Làm thế nào để giảm tỷ lệ báo xấu (report) khi gửi mẫu thông báo ZNS
+26 tháng 11, 2025 17:41
+Tỷ lệ báo xấu (report - phản hồi tiêu cực) của người nhận thông báo ZNS sẽ ảnh hưởng đến quyền lợi của doanh nghiệp vì liên quan trực tiếp đến số lượng ZNS gửi mỗi ngày cũng như loại nội dung thông báo có thể gửi và có thể khiến mẫu thông báo bị vô hiệu hóa. Trong bài viết này, đội ngũ hỗ trợ và chăm sóc khách hàng Zalo Cloud sẽ giải thích chi tiết hơn về vấn đề này nhằm giúp doanh nghiệp giảm thiểu tỷ lệ báo xấu (report) khi gửi mẫu thông báo ZNS.
+Xem thêm Cơ chế đánh giá chất lượng và quyền lợi gửi ZNS
+Một số lý do phản hồi từ người nhận
+Nội dung làm phiền
+Các nội dung không mang lại những thông tin mà người nhận quan tâm thường sẽ được người nhận liệt kê vào mục “làm phiền” và được đánh giá là spam.
+Đồng thời, mẫu thông báo ZNS của doanh nghiệp cũng sẽ bị đánh giá là làm phiền nếu thời gian gửi không hợp lý.
+Ví dụ: Nếu thông báo ZNS được gửi quá trễ hoặc quá sớm, sẽ có thể ảnh hưởng đến thời gian nghỉ ngơi riêng tư, hoặc thời điểm nhận thông tin không còn hiệu lực/quá xa so với thời điểm xảy ra giao dịch.
+Không có giao dịch với doanh nghiệp/Không đúng người nhận
+Trường hợp này xảy ra có thể là do dữ liệu từ tệp danh sách đối tượng nhận ZNS (file data) truyền sai số điện thoại người nhận. Đồng thời, nguyên nhân còn có thể là do sai sót đối với dữ liệu truyền vào tham số định danh khách hàng khiến cho khách hàng chưa định hình được các thông tin liên quan đến giao dịch vừa xảy ra.
+Đặc biệt lưu ý, doanh nghiệp cần tránh sử dụng dữ liệu khách hàng đã không có quan hệ giao dịch sau 06 tháng để gửi các thông báo khuyến mãi, ưu đãi, quảng cáo liên tục vì sẽ gây khó chịu cho người nhận.
+Nội dung không hiển thị hoặc hiển thị lỗi
+Để tránh hiển thị lỗi khi gửi mẫu thông báo ZNS tới người nhận, doanh nghiệp cần đảm bảo các yêu cầu về logo ở cả giao diện sáng (light mode) và giao diện tối (dark mode) cũng như đường dẫn liên kết (link CTA) không bị lỗi trước khi gửi đi.
+Ngoài ra, trường hợp này còn có thể là do nguyên nhân khách quan từ đường truyền dữ liệu của người nhận.
+Tóm lại, để giảm tỷ lệ báo xấu (report) khi gửi mẫu thông báo ZNS, doanh nghiệp cần:
+Đảm bảo nội dung gửi mang mục đích chăm sóc và hỗ trợ khách hàng, giúp khách hàng nắm bắt được các thông tin một cách nhanh và chính xác nhất.
+Doanh nghiệp cần xem lại thật kỹ nội dung thông báo trước khi gửi để tránh nhầm lẫn nội dung các biến truyền vào nội dung thông báo không đúng thứ tự.
+Đồng thời, hạn chế các mẫu ZNS liên quan đến hậu mãi liên tục,…
+Nếu có bất kì yêu cầu hỗ trợ, khách hàng có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud. Đội ngũ CSKH Zalo Cloud sẽ phản hồi cho khách hàng trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

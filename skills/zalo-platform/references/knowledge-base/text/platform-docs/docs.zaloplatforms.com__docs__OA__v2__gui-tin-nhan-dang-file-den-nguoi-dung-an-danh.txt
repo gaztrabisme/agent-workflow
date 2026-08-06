@@ -1,0 +1,193 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/v2/gui-tin-nhan-dang-file-den-nguoi-dung-an-danh
+# FETCHED: 2026-08-06
+# TITLE: Gửi tin nhắn dạng file đến người dùng ẩn danh | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Broadcast bài viết
+Các loại tin và định dạng được hỗ trợ
+Gửi lệnh phản hồi người dùng
+Gửi thông báo văn bản
+Gửi thông báo đính kèm file
+Gửi thông báo kèm sticker
+Gửi thông báo theo mẫu đính kèm ảnh
+Gửi thông báo theo mẫu đính kèm danh sách
+Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Lấy thông tin quota lệnh chủ động miễn phí
+Lấy thông tin quota lệnh phản hồi người dùng
+Thả biểu tượng cảm xúc vào tin nhắn
+Trả lời tin nhắn
+Lấy danh sách khách hàng quan tâm OA
+Lấy thông tin khách hàng quan tâm OA
+Cập nhật thông tin khách hàng quan tâm OA
+Lấy quota tin Tư vấn
+Trên trang này
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Quyền cần có: Quyền gửi tin và thông báo qua OA
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/message
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X POST
+-H "Content-Type: application/json"
+-H 'access_token: <your_access_token>'
+-d '{
+"recipient": {
+"anonymous_id": "5443873f256ecc30957f",
+"conversation_id": "2c298a21b4645d3a0475"
+},
+"message": {
+"attachment": {
+"type": "file",
+"payload": {
+"token": "12i8LV3BcmmDS4iLfyoU3qKxHXNtpu077ZjA7xRHmmi8EXrEjuR50LHjJXJWWvTQ17OJ7R2Oc5q4SHSJjPoPKmDq5X2tyS4MI78oKexCna1CUJnQyiMvUKmfG7UOX8PYVW5FJAckbWbi1tWbj8BnCNOyTGMBr8mrG5XZ4epkfbD4HczzjUs3FM0QL1ZM"
+}
+}
+}
+}' "https://openapi.zalo.me/v2.0/oa/message"
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+recipient
+object
+yes
+Thông tin người nhận
+message
+object
+yes
+Nội dung cần gửi
+Cấu trúc thuộc tính recipient​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+anonymous_id
+string
+yes
+Id đại diện cho người dùng ẩn danh.
+conversation_id
+string
+yes
+Id của cuộc hội thoại.
+Cấu trúc thuộc tính message​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+attachment
+object
+yes
+Attachment cần gửi.
+Cấu trúc thuộc tính message.attachment​
+Tham số
+Loại
+Tính bắt buộc
+Mô tả
+type
+string
+yes
+Loại attachment.
+Giá trị nhận vào bắt buộc:
+type = file
+payload
+object
+yes
+Chứa payload của attachment muốn gửi.
+Cấu trúc thuộc tính message.attachment.payload​
+Tham số
+Loại
+Tính bắt buộc
+Mô tả
+token
+string
+yes
+Chuỗi token được trả về khi sử dụng API upload file.
+Example respond​
+{
+"data": {
+"message_id": "92abd4e6156c8333da7c",
+"anonymous_id": "1ffedc467f179649cf06",
+"conversation_id": "fa8f3f8701c2e89cb1d3"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+message_id
+string
+Id của tin nhắn.
+anonymous_id
+string
+Id đại diện người dùng ẩn danh.
+conversation_id
+string
+Id của cuôc hội thoại.
+Trước
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Kế tiếp
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Cấu trúc thuộc tính recipient
+Cấu trúc thuộc tính message
+Cấu trúc thuộc tính message.attachment
+Cấu trúc thuộc tính message.attachment.payload
+Example respond
+Cấu trúc thuộc tính data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

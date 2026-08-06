@@ -1,0 +1,328 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-thong-tin-oa/lay-thong-tin-zalo-official-account
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin Zalo Official Account. | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Kiểm tra hạn mức tin nhắn OA
+Lấy thông tin Zalo Official Account.
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý thông tin OALấy thông tin Zalo Official Account.
+Lấy thông tin Zalo Official Account.
+LƯU Ý
+
+Ứng dụng cần được cấp quyền quản lý thông tin OA
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/getoa
+Method: GET
+Response Type: text/json
+Example request​
+curl \
+-X GET \
+-H 'access_token: <your_access_token>' \
+"https://openapi.zalo.me/v2.0/oa/getoa"
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+
+Example respond​
+{
+    "data": {
+        "oaid": "4462152339089565647",
+        "name": "Zalo Official Account",
+        "description": "Zalo Official Account (Zalo OA) là tài khoản chính thức của Doanh Nghiệp, Media và Cơ quan nhà nước với mục đích kết nối và mang lại giá trị với người dùng Zalo.",
+        "oa_alias": "officialaccount",
+        "is_verified": true,
+        "oa_type": 2,
+        "cate_name": "Thực phẩm & Đồ uống",
+        "num_follower": 5,
+        "avatar": "https://s160-ava-talk.zadn.vn/a/e/f/b/1/160/5e56485fc25803aa9f1c646fa931c592.jpg",
+        "cover": "https://cover-talk.zadn.vn/c/1/0/5/2/5e56485fc25803aa9f1c646fa931c592.jpg",
+        "package_name": "Nâng cao",
+        "package_valid_through_date": "13/12/2023",
+        "package_auto_renew_date": "14/12/2023",
+        "linked_ZCA": "ZBA-1048473834"
+    },
+    "error": 0,
+    "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+
+Thuộc tính
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+oa_id
+
+	
+
+long
+
+	
+
+ID của OA được lấy thông tin
+
+
+
+
+name
+
+	
+
+string
+
+	
+
+Tên của OA
+
+
+
+
+description
+
+	
+
+string
+
+	
+
+Mô tả của OA
+
+
+
+
+oa_alias
+
+	
+
+string
+
+	
+
+Tên gợi nhớ dùng cho đường dẫn OA
+
+
+
+
+is_verified
+
+	
+
+boolean
+
+	
+
+Trạng thái xác thực của OA
+Các giá trị trả về:
+• false: OA chưa được xác thực
+• true: OA đã xác thực
+
+
+
+
+oa_type
+
+	
+
+integer
+
+	
+
+Loại OA:
+2: OA Doanh nghiệp
+4: OA Cơ quan nhà nước
+
+
+
+
+cate_name
+
+	
+
+string
+
+	
+
+Danh mục hoạt động của OA
+
+
+
+
+num_follower
+
+	
+
+integer
+
+	
+
+Tổng số người quan tâm của OA
+
+
+
+
+avatar
+
+	
+
+string
+
+	
+
+Đường dẫn đến ảnh đại diện của OA
+
+
+
+
+cover
+
+	
+
+string
+
+	
+
+Đường dẫn đến ảnh bìa của OA
+
+
+
+
+package_name
+
+	
+
+string
+
+	
+
+Tên gói dịch vụ
+Chỉ Loại OA Doanh nghiệp mới trả về thông tin này
+
+
+
+
+package_valid_through_date
+
+	
+
+string
+
+	
+
+Ngày hiệu lực cuối cùng của gói dịch vụ
+Chỉ OA đang sử dụng gói dịch vụ OA mới có thông tin này
+
+
+
+
+package_auto_renew_date
+
+	
+
+string
+
+	
+
+Ngày thực hiện gia hạn tự động
+Chỉ OA đang sử dụng gói dịch vụ OA và có bật tự động gia hạn mới có thông tin này.
+
+
+
+
+linked_zca
+
+	
+
+string
+
+	
+
+Thông tin ZCA mà OA đang liên kết
+Chỉ OA đang liên kết ví ZCA mới có thông tin này.
+
+Trước
+Kiểm tra hạn mức tin nhắn OA
+Kế tiếp
+Lấy nội dung form Zalo Ads
+HTTP request
+Example request
+Tham số header
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

@@ -1,0 +1,181 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/goi-thoai/cap-quyen-goi/kiem-tra-nguoi-dung-da-cap-quyen-goi
+# FETCHED: 2026-07-21
+# TITLE: Kiểm tra người dùng đã cấp quyền gọi | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Tổng quan
+Cấp quyền gọi
+Gửi yêu cầu cấp quyền gọi
+Kiểm tra người dùng đã cấp quyền gọi
+Mã lỗi
+Tạo link gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Gọi thoạiCấp quyền gọiKiểm tra người dùng đã cấp quyền gọi
+Kiểm tra người dùng đã cấp quyền gọi
+LƯU Ý
+
+Ứng dụng cần được OA cấp quyền sử dụng chức năng gọi thoại
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/call/checkconsent
+Method: GET
+Response Type: text/json
+Example request​
+curl \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'access_token: <your_access_token>' \
+'https://openapi.zalo.me/v2.0/oa/call/checkconsent?data={"phone":"84773543888"}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+
+Tham số​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+data
+
+	
+
+Json object
+
+	
+
+yes
+
+	
+
+Thông tin truyền vào để lấy tin nhắn.
+
+Cấu trúc tham số data​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+phone
+
+	
+
+String
+
+	
+
+ yes
+
+	
+
+Số điện thoại của người nhận.
+
+Example respond​
+{
+    "error": 0,
+    "message": "User approved the request",
+        "expired_time": 1648696628738
+}
+
+Tham số​
+
+Tham khảo bảng mã lỗi tại đây (hyperlink)
+
+Trước
+Gửi yêu cầu cấp quyền gọi
+Kế tiếp
+Mã lỗi
+HTTP request
+Example request
+Tham số header
+Tham số
+Cấu trúc tham số data
+Example respond
+Tham số
+©2023 Zalo for Developers

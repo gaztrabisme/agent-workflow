@@ -1,0 +1,122 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/tin-nhan/su-kien-nguoi-dung-nhan-tin-nhan-tu-official-account
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện người dùng nhận tin nhắn từ Official Account | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Sự kiện người dùng gửi tin nhắn
+Sự kiện người dùng click nút “Nhắn tin” trên Official Account
+Sự kiện người dùng thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện OA thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện Official Account gửi tin nhắn cho người dùng
+Sự kiện Official Account gửi tin nhắn cho người dùng ẩn danh
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Sự kiện người dùng nhận tin nhắn từ Official Account
+Nhóm chat - GMF
+Gọi thoại
+Extension
+Quản lý
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookTin nhắnSự kiện người dùng nhận tin nhắn từ Official Account
+Sự kiện người dùng nhận tin nhắn từ Official Account
+
+Khi Official Account gửi tin nhắn cho người dùng và tin nhắn đó đã được nhận, hệ thống Zalo sẽ gửi đến Webhook Url của Official Account một request http như sau Quyền cần có:
+
+Sự kiện tin nhắn đã được nhận
+
+Sự kiện này chỉ được gửi về khi user nhận tin nhắn trên Zalo Mobile
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+    "app_id": "360846524840903967",
+    "sender": {
+        "id": "388613280879808645"
+    },
+    "recipient": {
+        "id": "246845883529697922"
+    },
+    "event_name": "user_received_message",
+    "message": {
+        "msg_id": "43b59c025aebfb5e6fa"
+    },
+    "timestamp": "1540363714911"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+app_id	String	Id của ứng dụng đang nhận sự kiện.
+sender	Json Object	Ví dụ:
+{
+    "id": "388613280879808645"
+}
+
+
+Trong đó:
+
+"id": Id của Official Account gửi tin nhắn
+
+recipient	Json Object	Ví dụ:
+{
+    "id": "246845883529697922"
+}
+
+
+Trong đó:
+
+"id": Id của User nhận tin nhắn
+
+event_name	String	Giá trị là "user_received_message".
+message	Json Object	Ví dụ:
+{
+    "msg_id": "43b59c025aebfb5e6fa"
+}
+
+
+Trong đó:
+
+"msg_id": Id của tin nhắn.
+
+timestamp	String	Thời điểm request được gửi, tính bằng milisecond
+Trước
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Kế tiếp
+Sự kiện tạo nhóm OA
+Ví dụ:
+Mô tả thuộc tính
+©2023 Zalo for Developers

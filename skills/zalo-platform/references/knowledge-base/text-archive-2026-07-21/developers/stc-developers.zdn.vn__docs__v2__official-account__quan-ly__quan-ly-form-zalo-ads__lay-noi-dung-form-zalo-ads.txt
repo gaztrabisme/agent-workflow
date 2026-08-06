@@ -1,0 +1,155 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-form-zalo-ads/lay-noi-dung-form-zalo-ads
+# FETCHED: 2026-07-21
+# TITLE: Lấy nội dung form Zalo Ads | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Lấy nội dung form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý form Zalo AdsLấy nội dung form Zalo Ads
+Lấy nội dung form Zalo Ads
+
+API cho phép truy xuất dữ liệu khách hàng tiềm năng từ Zalo Form.
+
+LƯU Ý
+
+Quyền cần có: Quyền quản lý ads
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/form/get
+Method: GET
+Response Type: text/json
+Example request​
+curl \
+-X GET \
+-H 'access_token: <your_access_token>' \
+'https://openapi.zalo.me/v2.0/oa/form/get?form_id=<FORM_ID>&from_time=1621137100&to_time=1623689999&offset=0&limit=200'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Tham số​
+Tham số	Loại	Tính bắt buộc	Mô tả
+form_id	string	yes	ID của form cần lấy thông tin.
+from_time	int (timestamp)
+
+Đơn vị: second	yes	Thời điểm bắt đầu của khoảng thời gian cần lấy data được gửi lên hệ thống.
+to_time	int (timestamp)
+
+Đơn vị: second	yes	Thời điểm kết thúc của khoảng thời gian cần lấy data được lên hệ thống.
+
+Lưu ý: khoảng thời gian cần lấy data phải nhỏ hơn hoặc bằng 30 ngày.
+offset	int	yes	Vị trí thứ tự của item đầu tiên được trả về
+limit	int	yes	Số lượng item tối đa được trả về. Tối đa 200 items.
+Example respond​
+{
+    "data": {
+           "total": 1,
+           "questions": [
+            {
+                   "questionId": "322952247199289087",
+                   "title": "Họ và tên"
+            },
+            {
+                   "questionId": "6485904598335572953",
+                   "title": "Default Title 2"
+            }
+        ],
+           "responses": [
+            {
+                   "leadId": "735780658144901000",
+                   "submitTime": "1623670227",
+                   "adId": "19742774",
+                   "answers": [
+                    {
+                        "questionId": "322952247199289087",
+                        "responses": [
+                            "Lê Nguyễn Thủy Tiên"
+                        ]
+                    },
+                    {
+                        "questionId": "6485904598335572953",
+                        "responses": [
+                            "Trả lời 1. "
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "error": 0,
+    "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+total	int	Tổng số lượng respond trong khoảng thời gian cần lấy data.
+questions	array object	Danh sách câu hỏi của form. Xem cấu trúc data array bên dưới.
+responses	array object	Danh sách respond. Xem cấu trúc respond bên dưới.
+Cấu trúc thuộc tính data.questions​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+questionId	long	ID của câu hỏi.
+title	string	Nội dung câu hỏi
+Cấu trúc thuộc tính data.responses​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+submitTime	int (timestamp)
+
+Đơn vị: second	Thời gian người dùng submit form. Biến submitTime sẽ có giá trị trong khoảng thời gian từ from_time đến to_time (được truyền vào từ request).
+leadId	string	Id cho lead submit được hệ thống ads tạo ra
+
+1. Về mặt Technical thì leadId sẽ dùng là dạng noised.
+2. leadId thay đổi từng lần submit. Ví dụ: Account user A khi submit Form của VUS thì lần 1 sẽ là lead_id = A1, lần 2 submit đúng lại form của VUS đó thì sẽ có lead_id = A2.
+adId	string	Id của quảng cáo gắn với form
+answers	array object	Danh sách câu trả lời của respond. Xem cấu trúc answers bên dưới.
+Cấu trúc thuộc tính data.responses.answers​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+questionId	long	ID của câu hỏi.
+responses	array string	Nội dung câu trả lời.
+Trước
+Lấy thông tin Zalo Official Account.
+Kế tiếp
+Luồng mua sản phẩm / dịch vụ OA
+HTTP request
+Example request
+Tham số header
+Tham số
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính data.questions
+Cấu trúc thuộc tính data.responses
+Cấu trúc thuộc tính data.responses.answers
+©2023 Zalo for Developers

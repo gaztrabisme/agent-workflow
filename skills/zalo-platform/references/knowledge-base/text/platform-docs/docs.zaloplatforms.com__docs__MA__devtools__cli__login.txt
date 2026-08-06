@@ -1,0 +1,62 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/devtools/cli/login
+# FETCHED: 2026-08-06
+# TITLE: Đăng nhập | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Cấu Hình Zalo Mini App
+Zalo Mini App Extension
+Cài đặt
+Tạo dự án
+Khởi động
+Xuất bản
+Zalo Mini App CLI
+Cài đặt
+Đăng nhập
+Tạo dự án
+Khởi động
+Xuất bản
+Open APIs
+eKYC APIs
+Checkout SDK
+Đăng nhập
+Cập nhật lần cuối:5/8/2026
+zmp login
+Trong quá trình phát triển Zalo Mini App, bạn sẽ thường xuyên được yêu cầu đăng nhập để xác thực tài khoản nhà phát triển Zalo Mini App. Zalo Mini App CLI cung cấp các cách để bạn đăng nhập và xác thực tài khoản sau:
+Hình thức
+Mô tả
+QR Code
+Một mã QR sẽ xuất hiện trên màn hình của bạn. Bạn cần sử dụng ứng dụng Zalo trên điện thoại để quét mã QR này. Sau khi quét mã QR, bạn cần nhấn vào nút Xác nhận trên ứng dụng Zalo trên điện thoại để hoàn tất quá trình đăng nhập trên Zalo Mini App CLI.
+Access Token
+Bạn cần cung cấp một access token hợp lệ. Để lấy access token, bạn có thể truy cập trang Zalo for Developers, sau đó chọn Công cụ > API Explorer và nhấn nút Lấy Access Token. Đảm bảo rằng bạn đã chọn đúng ứng dụng Zalo App mà bạn đang phát triển khi lấy access token (ở mục Chọn ứng dụng).
+Trước
+Cài đặt
+Kế tiếp
+Tạo dự án
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

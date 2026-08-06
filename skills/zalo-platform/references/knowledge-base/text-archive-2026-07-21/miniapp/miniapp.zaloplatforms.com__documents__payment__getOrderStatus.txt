@@ -1,0 +1,94 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/getOrderStatus/
+# FETCHED: 2026-07-21
+# TITLE: getOrderStatus | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+createOrder
+notify
+checkTransaction
+callback
+getOrderStatus
+updateOrderStatus
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+getOrderStatus
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+API cho phép đối tác gọi để truy vấn tình trạng của 1 đơn hàng.
+
+Đối với API này, sẽ không được tích hợp sẵn trong Payment SDK. Đơn vị kinh doanh cần chủ động xây dựng phương án gọi API này để thực hiện tra cứu trạng thái đơn hàng.
+
+API specification​
+Method	Headers	Endpoint
+GET		https://payment-mini.zalo.me/api/transaction/get-status
+Parameters​
+Object object​
+Property	Type	Required	Description
+orderId	string	true	Mã đơn hàng của yêu cầu thanh toán đã tạo
+appId	string	true	Id định danh của mini app
+mac	string	true	Thông tin chứng thực của đơn hàng, xem cách tạo thông tin chứng thực cho đơn hàng ở dưới
+success	function		Callback function khi gọi api thành công
+fail	function		Callback function khi gọi api thất bại
+Tạo thông tin chứng thực​
+data = "appId={appId}&orderId={orderId}&privateKey={privateKey}";
+mac = HMAC("HmacSHA256", privateKey, data);
+
+Return Values​
+Promise <Object data>​
+Property	Type	Description
+transId	string	Mã giao dịch của yêu cầu thanh toán với đối tác thanh toán
+method	String	Phương thức thanh toán. Tham khảo mã tại đây
+returnCode	int	
+0 : Giao dịch đang thực hiện
+1 : Giao dịch thành công
+-1: Giao dịch thất bại
+
+returnMessage	string	Mô tả thông tin returnCode
+isProcessing	boolean	
+true: giao dịch đang xử lý
+false: giao dịch chưa thực hiện / giao dịch đã kết thúc xử lý
+
+amount	long	Số tiền giao dịch
+transTime	long	Thời gian giao dịch của đối tác thanh toán
+merchantTransId	String	Mã giao dịch của đối tác thanh toán
+extradata	String	Thông tin thêm
+Lưu ý: Dữ liệu này đã được encodeURIComponent
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

@@ -1,0 +1,159 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/zaui/
+# FETCHED: 2026-07-21
+# TITLE: Introduction | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+Z
+Zalo Platforms
+Tài liệu
+Cộng đồng
+Liên hệ
+Tìm kiếm tài liệu...
+K
+Hỏi AI
+Mini App Platform
+ZaUI Components
+Overview
+Introduction
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Introduction
+Cập nhật lần cuối:
+15/6/2026
+ZaUI Components​
+
+ZaUI Components bao gồm mini app ZaUI, các tập file thư viện thiết kế và bộ hướng dẫn đi kèm được thiết kế để giúp bạn rút ngắn thời gian phát triển Mini App và tạo được giao diện thân thiện với người dùng.
+
+Bộ thư viện cung cấp các thành phần thiết kế cơ bản, cần thiết cho một ứng dụng Mini App. Các component, tài liệu thiết kế của ZaUI Components được tùy chỉnh, rút gọn từ bộ thư viện ZDS - Design system chính thức của Zalo
+
+MẸO
+
+ZaUI Components cung cấp hầu hết các component cơ bản cần thiết cho một ứng dụng Mini App và sẽ được cập nhật liên tục theo Design System của Zalo Mini App Team. Bạn có thể tham khảo tài liệu thiết kế tại đây.
+
+Foundation
+Global Token Color
+Corner Radius
+Typography
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+Data Display
+Avatar
+Calendar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+Snackbar
+Trải nghiệm ZaUI​
+TRƯỚC
+Change Log
+KẾ TIẾP
+Installation
+ZaUI Components
+Trải nghiệm ZaUI
+Z
+Zalo Platforms
+
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+
+Sản phẩm
+Mini App Platform
+Zalo Business Solution
+Open APIs
+Social
+Transfer Service
+Zalo Bot
+Tài nguyên
+Tài liệu
+API Reference
+SDKs & Tools
+Changelog
+Hỗ trợ
+Liên hệ với chúng tôi
+
+© 2026 Zalo Platforms. All rights reserved.
+
+Build: 2026-07-21 15:14:46 +07 · ea1a6218

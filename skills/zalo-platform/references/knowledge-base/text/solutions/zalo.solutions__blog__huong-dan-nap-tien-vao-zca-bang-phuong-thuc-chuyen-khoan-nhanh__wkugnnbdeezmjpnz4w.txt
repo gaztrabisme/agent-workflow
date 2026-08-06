@@ -1,0 +1,52 @@
+# SOURCE: https://zalo.solutions/blog/huong-dan-nap-tien-vao-zca-bang-phuong-thuc-chuyen-khoan-nhanh/wkugnnbdeezmjpnz4w
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn nạp tiền vào tài khoản ZBS bằng phương thức Chuyển khoản nhanh | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Hướng dẫn nạp tiền vào tài khoản ZBS bằng phương thức Chuyển khoản nhanh
+Hướng dẫn nạp tiền vào tài khoản ZBS bằng phương thức Chuyển khoản nhanh
+13 tháng 01, 2026 15:33
+438 hữu ích
+Nhằm mục đích hỗ trợ doanh nghiệp cập nhật tiền vào tài khoản ZBS nhanh chóng, Zalo Business Solutions cho ra mắt thêm một phương thức nạp tiền mới là Chuyển khoản nhanh với các ưu điểm như sau.
+Thời gian tiền được cập nhật tài khoản được rút ngắn hơn vì được cập nhật ngay trong vòng 30 phút;
+Hỗ trợ cách thức ghi nhận hóa đơn cho giao dịch chuyển khoản;
+Thông tin tài khoản chuyển khoản nhanh đi theo tài khoản ZBS nên số tài khoản ngắn gọn, dễ nhớ.
+Lưu ý quan trọng:
+Quý khách vui lòng làm đúng như hướng dẫn bên dưới để số dư có thể cập nhật nhanh vào tài khoản ZBS (trong vòng 30 ~ 45 phút), không tự ý thay đổi thông tin Số tài khoản thụ hưởng.
+Vui lòng copy thông tin Số tài khoản thụ hưởng và sử dụng trên app banking, internet banking của quý khách.
+Nếu quý khách không sử dụng chính xác thông tin Số tài khoản thụ hưởng thì sẽ chuyển thành phương thức chuyển khoản thông thường và thời gian xử lý nạp tiền từ 3~5 ngày làm việc
+Lưu ý: Tính năng chỉ áp dụng cho Doanh nghiệp trả trước, Doanh nghiệp có tài khoản trả sau vui lòng liên hệ với nhân viên quản lý tài khoản để được cung cấp tài khoản Chuyển khoản thanh toán.
+Bài viết này sẽ hướng dẫn chi tiết cho quý doanh nghiệp các nạp tiền bằng chuyển khoản nhanh:
+Bước 1: Đăng nhập vào tài khoản Zalo Business Solutions Account -> “Nạp tiền”
+Bước 2: Lựa chọn kênh nạp tiền chuyển khoản.
+Hiện tại, hệ thống Zalo Business Solutions hỗ trợ doanh nghiệp Chuyển khoản nhanh và chuyển khoản thường. Doanh nghiệp nhấn chọn vào Chuyển khoản nhanh.
+Nếu doanh nghiệp có nhu cầu xuất hóa đơn cho giao dịch nạp tiền, doanh nghiệp vui lòng chọn Xuất hóa đơn và điền đầy đủ thông tin xuất hóa đơn (Tên công ty, mã số thuế, họ tên, số điện thoại, email nhận hóa đơn điện tử.) -> nhấn “Lưu thông tin này” để lưu lại thông tin xuất hóa đơn -> nhấn nút Tiếp tục
+Bước 3: Doanh nghiệp kiểm tra thông tin tài khoản định danh của mình tại phần Chuyển khoản nhanh.
+Tiến hành chuyển khoản đến ngân hàng MSB – Ngân hàng TMCP Hàng Hải Việt Nam – Chi nhánh Tân Bình với thông tin Số tài khoản thụ hưởng và Tên tài khoản thụ hưởng được cung cấp.
+Mỗi tài khoản Zalo Business Solutions có một số tài khoản định danh khác nhau, vì vậy, doanh nghiệp vui lòng nhập đúng số tài khoản thụ hưởng và kiểm tra kỹ thông tin trước khi chuyển khoản.
+Để nhận hóa đơn cho doanh nghiệp, doanh nghiệp phải nhập đúng Nội dung chuyển khoản được cung cấp là “HDDN” (Hóa đơn doanh nghiệp)
+Lưu ý quan trọng:
+Nếu nội dung chuyển khoản không đúng, hệ thống Zalo Business Solutions sẽ hiểu doanh nghiệp không nhận hóa đơn cho giao dịch nạp tiền này.
+Doanh nghiệp vui lòng kiểm tra đúng thông tin số tài khoản thụ hưởng trước khi nạp tiền. Các giao dịch chuyển nhầm vào tài khoản định danh của khách hàng khác, Zalo Business Solutions sẽ không hỗ trợ hoàn lại.
+Zalo Business Solutions sẽ đóng kênh Chuyển khoản thường. Nếu doanh nghiệp cần thông tin chuyển khoản thông qua ngân hàng cho bộ phận kế toán, doanh nghiệp vui lòng liên hệ với nhân viên quản lý tài khoản để được hỗ trợ.
+Bước 4: Tiến hành chuyển khoản trên hệ thống Internet Banking của các ngân hàng doanh nghiệp đang sử dụng.
+Bước 5: Nhập nội dung chuyển khoản là “HDDN” trong trường hợp Khách hàng muốn nhận hoá đơn doanh nghiệp.
+Ngoài việc hỗ trợ doanh nghiệp xuất hóa đơn, Zalo Business Solutions còn có một số quy định về phần xuất hóa đơn trên hệ thống. Doanh nghiệp vui lòng nhấn vào tham khảo thông tin tại đây.
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24 giờ làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

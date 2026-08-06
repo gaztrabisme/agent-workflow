@@ -1,0 +1,96 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/huong-dan-xem-bao-cao-chi-tieu-dich-vu
+# FETCHED: 2026-07-21
+# TITLE: Hướng dẫn xem báo cáo chi tiêu dịch vụ | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Business Message
+Giới thiệu
+Tài liệu hướng dẫn
+Bảng giá
+Chính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Hướng dẫn xem báo cáo chi tiêu dịch vụ
+Hướng dẫn nạp tiền vào tài khoản zbs
+Những lưu ý quan trọng về việc xuất hoá đơn
+Trường hợp nào được hỗ trợ điều chỉnh hóa đơn doanh nghiệp?
+Câu hỏi thường gặp
+Hướng dẫn xem báo cáo chi tiêu dịch vụ
+
+Để xem báo cáo chi tiêu các dịch vụ liên quan đến tài khoản ZBS nói chung và Tin nhắn ZBS Template nói riêng, doanh nghiệp có thể thao tác trên tài khoản ZBS tại đây.  
+
+Xem thống kê lịch sử giao dịch của tài khoản​
+
+Chọn Lịch sử giao dịch. Doanh nghiệp có thể điều chỉnh thời gian để xem báo cáo ở các giai đoạn trước đó. 
+
+Lưu ý:
+
+Số liệu thuộc hoạt động dịch vụ Tin nhắn ZBS Template sẽ được cập chính xác vào cuối ngày.
+Các khoản thanh toán đã bao gồm thuế GTGT và phục vụ cho mục đích tham khảo số liệu, không phục vụ cho mục đích đối soát theo thời gian thực vì cần chờ đồng bộ dữ liệu sau các đợt gửi thông báo (quá trình đồng bộ có thể kéo dài trong vài ngày)
+Xem thống kê lịch sử chi tiêu của tài khoản​
+
+Chọn Chi tiêu → Tổng quan  để hiển thị toàn bộ các chi tiêu sử dụng tất cả các dịch vụ khác của tài khoản, bao gồm dịch vụ gửi tin nhắn ZBS Template, dịch vụ OA.
+
+Doanh nghiệp có thể tải (download) báo cáo thống kê bằng thao tác nhấp vào ký hiệu mũi tên hướng xuống bên phải góc màn hình. 
+
+Chọn Chi tiêu → Dịch vụ gửi tin để hiển thị các chi tiêu liên quan đến dịch vụ Tin nhắn ZBS Template, bao gồm:  
+
+Tổng chi tiêu: Là tổng chi phí cần thanh toán cho số lượng tin nhắn ZBS Template tính phí theo khoảng thời gian đã chọn ở trên. Chi phí đã áp dụng khuyến mãi, chiết khấu (nếu có) và GTGT.
+Số tin đã gửi: là tổng số Tin nhắn ZBS Template đã đến thiết bị người dùng trong khoản thời gian đã chọn ở trên.
+Số tin tính phí: là số Tin nhắn ZBS Template đã đến thiết bị người dùng trong thời gian quy định trong khoảng thời gian đã chọn ở trên.
+
+Doanh nghiệp đồng thời có thể xem báo cáo liên quan đến: Chi tiêu theo ứng dụng và Chi tiêu theo OA dưới dạng biểu đồ để có cái nhìn tổng quát hơn. 
+
+Mục Lịch sử chi tiêu sẽ hiển thị chi tiết lịch sử thời gian, hoạt động, và tổng chi tiêu cho mỗi hoạt động đó. 
+
+Lưu ý: Các số liệu hiển thị trên tài khoản mang tính chất tham khảo, không phục vụ cho mục đích đối soát theo thời gian thực vì cần có thời gian đồng bộ số liệu. 
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+Trước
+Cơ chế tính giá của Tin nhắn ZBS Template
+Kế tiếp
+Hướng dẫn nạp tiền vào tài khoản zbs
+Xem thống kê lịch sử giao dịch của tài khoản
+Xem thống kê lịch sử chi tiêu của tài khoản
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

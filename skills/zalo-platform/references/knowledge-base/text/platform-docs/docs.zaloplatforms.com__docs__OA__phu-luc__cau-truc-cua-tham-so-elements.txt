@@ -1,0 +1,142 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/phu-luc/cau-truc-cua-tham-so-elements
+# FETCHED: 2026-08-06
+# TITLE: Cấu trúc của tham số elements | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Cấu trúc của tham số elements
+type: JsonArray
+Lưu ý
+Hiện tại Zalo API hỗ trợ tối đa 5 element .
+Cấu trúc của một element​
+Tham số
+Kiểu dữ liệu
+Mô tả
+title
+String
+Tiêu đề của action
+Tối đa: 100 ký tự
+subtitle
+String
+mô tả của action. Nếu đây là element đầu tiên trong danh sách elements thì tham số này là bắt buộc. Nếu đây không phải là action đầu tiên thì thược tính này là tùy chọn.
+Tối đa: 500 ký tự
+image_url
+String
+URL ảnh của action
+default_action
+String
+Ví dụ:
+{
+"type": "oa.open.url",
+"url": "https://developers.zalo.me/"
+}
+Nếu đây là element đầu tiên thì tham số này là không bắt buộc.
+Xem chi tiết tham số default_action tại bảng dưới.
+Cấu trúc của tham số default_action​
+Tham số
+Kiểu dữ liệu
+Mô tả
+type
+String
+Loại action sẽ thực hiện khi người dùng bấm vào
+payload
+Dữ liệu của action. Cấu trúc của payload phải phù hợp với từng loại action và được cho ở bảng bên dưới
+Cấu trúc payload cho các loại action được hỗ trợ​
+Giá trị type
+Kiểu dữ liệu
+Giá trị payload và kết quả khi người dùng bấm vào
+oa.open.url
+String
+Url sẽ được mở trong ứng dụng Zalo khi người dùng bấm vào action. Ví dụ:
+{
+"type": "oa.open.url",
+"url": "https://developers.zalo.me/"
+}
+oa.query.show
+String
+Payload là một chuỗi ký tự ví dụ “#123”. Khi người dùng bấm vào action, hệ thống sẽ gửi một tin nhắn có nội dung chứa trong data từ người dùng đến Official Account. Tin nhắn này sẽ hiện trên cửa sổ chat trên máy của người dùng. Ví dụ:
+{
+"type": "oa.query.show",
+"payload": "#123"
+}
+oa.query.hide
+String
+Payload là một chuỗi ký tự ví dụ “#123”. Khi người dùng bấm vào action, hệ thống sẽ gửi một tin nhắn có nội dung chứa trong data từ người dùng đến Official Account. Tin nhắn này sẽ bị ẩn trên cửa sổ chat trên máy của người dùng. Ví dụ:
+{
+"type": "oa.query.hide",
+"payload": "#123"
+}
+oa.open.sms
+Json Object
+Data đối tượng json chứa 2 thuộc tính “content” và “phone_code”, ví dụ:
+{
+"type": "oa.open.sms",
+"payload": {
+"content":"alo",
+"phone_code":"84123456789″
+}
+}
+Khi người dùng click vào action, cửa sổ sms trên điện thoại của người dùng sẽ được mở với 2 thông tin sẵn có là phone code và nội dung tin nhắn trong data
+oa.open.phone
+Json Object
+phone_code là số điện thoại sẽ gọi đi khi bật ứng dụng gọi điện, ví dụ:
+{
+"type": "oa.open.phone",
+"payload": {
+"phone_code":"84123456789″
+}
+}
+Khi người dùng click vào action, cửa sổ call trên điện thoại của người dùng sẽ được mở với thông tin số điện thoại là giá trị của phone_code
+Trước
+Cấu trúc tham số buttons
+Kế tiếp
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Cấu trúc của một element
+Cấu trúc của tham số default_action
+Cấu trúc payload cho các loại action được hỗ trợ
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

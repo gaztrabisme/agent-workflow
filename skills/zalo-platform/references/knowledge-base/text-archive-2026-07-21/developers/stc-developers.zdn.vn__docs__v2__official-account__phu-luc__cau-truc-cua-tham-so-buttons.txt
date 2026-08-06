@@ -1,0 +1,184 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/phu-luc/cau-truc-cua-tham-so-buttons
+# FETCHED: 2026-07-21
+# TITLE: Cấu trúc tham số buttons | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Phụ lụcCấu trúc tham số buttons
+Cấu trúc tham số buttons
+
+* Tính năng chỉ hiển thị trên Zalo Mobile
+
+type: JSON Array
+LƯU Ý
+
+Hiện tại Zalo API hỗ trợ tối đa 5 button .
+
+Example request​
+{
+    "recipient": {
+        "user_id": "2440805291994947133"
+    },
+    "message": {
+        "text": "Tin nhắn đính kèm button",
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "buttons": [
+                    {
+                        "title": "OPEN URL",
+                        "payload": {
+                            "url": "https://developers.zalo.me/"
+                        },
+                        "type": "oa.open.url"
+                    },
+                    {
+                        "title": "QUERY SHOW",
+                        "type": "oa.query.show",
+                        "payload": "#callback_data"
+                    },
+                    {
+                        "title": "QUERY HIDE",
+                        "type": "oa.query.hide",
+                        "payload": "#callback_data"
+                    },
+                    {
+                        "title": "OPEN SMS",
+                        "type": "oa.open.sms",
+                        "payload": {
+                            "content": "alo",
+                            "phone_code": "84919018791"
+                        }
+                    },
+                    {
+                        "title": "OPEN PHONE",
+                        "type": "oa.open.phone",
+                        "payload": {
+                            "phone_code": "84919018791"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+
+Cấu trúc tham số button​
+Tham số	Kiểu dữ liệu	Mô tả
+title	String	Tiêu đề của button
+type	String	Loại action sẽ thực hiện khi người dùng bấm vào
+payload		Dữ liệu của action.  Cấu trúc của payload  phải phù hợp với từng loại action và được cho ở bảng bên dưới
+Cấu trúc payload cho các loại action được hỗ trợ​
+Giá trị type	Kiểu dữ liệu của payload	Giá trị payload và kết quả khi người dùng bấm vào
+oa.open.url	String	Data là một Url sẽ được mở trong ứng dụng Zalo khi người dùng bấm vào button. Ví dụ:
+{
+    "title": "OPEN URL",
+    "payload" : {
+        "url": "https://developers.zalo.me/"
+    },
+    "type": "oa.open.url"
+}
+
+Chú ý:  Giới hạn cho thuộc tính "title" là 100 kí tự.
+
+oa.query.show	String	Data là một chuỗi ký tự ví dụ “#callback_data”. Khi người dùng bấm vào button, hệ thống sẽ gửi một tin nhắn có nội dung chứa trong data từ người dùng đến Official Account. Tin nhắn này sẽ hiện trên cửa sổ chat trên máy của người dùng.  Ví dụ:
+{
+    "title": "QUERY SHOW",
+    "type": "oa.query.show",
+    "payload": "#callback_data"
+}
+
+Chú ý:  
+Giới hạn cho thuộc tính "title" là 100 kí tự.
+Giới hạn cho thuộc tính "payload" là 1000 kí tự.
+
+oa.query.hide	String	Data là một chuỗi ký tự ví dụ “#callback_data”. Khi người dùng bấm vào button, hệ thống sẽ gửi một tin nhắn có nội dung chứa trong data từ người dùng đến Official Account. Tin nhắn này sẽ bị ẩn trên cửa sổ chat trên máy của người dùng. Ví dụ:
+{
+    "title": "QUERY HIDE",
+    "type": "oa.query.hide",
+    "payload": "#callback_data"
+}
+
+Chú ý:  
+Giới hạn cho thuộc tính "title" là 100 kí tự.
+Giới hạn cho thuộc tính "payload" là 1000 kí tự.
+
+oa.open.sms	json object	Data đối tượng json chứa 2 thuộc tính “content” và “phoneCode”. Ví dụ:
+{
+    "title": "OPEN SMS",
+    "type": "oa.open.sms",
+    "payload": {
+        "content":"alo",
+        "phone_code":"84919018791"
+    }
+}
+
+
+Khi người dùng click vào button, cửa sổ sms trên điện thoại của người dùng sẽ được mở với 2 thông tin sẵn có là phone code và nội dung tin nhắn trong data.
+
+Chú ý:
+Giới hạn cho thuộc tính "title" là 100 kí tự.
+Thuộc tính "content" có giới hạn là 160 kí tự.
+
+oa.open.phone	Json Object	Data số điện thoại sẽ nhập vào khi bật ứng dụng gọi điện, ví dụ:
+{
+    "title": "OPEN PHONE",
+    "type": "oa.open.phone",
+    "payload":{
+        "phone_code":"84919018791"
+    }
+}
+
+
+Khi người dùng click vào button, cửa sổ call trên điện thoại của người dùng sẽ được mở với thông tin sẵn có là phone number trong data.
+
+Chú ý:  Giới hạn cho thuộc tính "title" là 100 kí tự.
+Trước
+Giới hạn tốc độ gọi API
+Kế tiếp
+Cấu trúc của tham số elements
+Example request
+Cấu trúc tham số button
+Cấu trúc payload cho các loại action được hỗ trợ
+©2023 Zalo for Developers

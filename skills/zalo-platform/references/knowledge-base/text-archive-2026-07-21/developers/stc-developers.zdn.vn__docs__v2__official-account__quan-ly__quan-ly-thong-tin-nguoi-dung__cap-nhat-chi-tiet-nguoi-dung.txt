@@ -1,0 +1,333 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-thong-tin-nguoi-dung/cap-nhat-chi-tiet-nguoi-dung
+# FETCHED: 2026-07-21
+# TITLE: Cập nhật chi tiết người dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Gắn nhãn người dùng
+Gỡ nhãn người dùng
+Lấy danh sách nhãn
+Xóa nhãn
+Truy xuất danh sách người dùng
+Truy xuất chi tiết người dùng
+Cập nhật chi tiết người dùng
+Xóa thông tin người dùng
+Truy xuất thông tin tùy biến của người dùng
+Cập nhật thông tin tùy biến của người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý thông tin người dùngCập nhật chi tiết người dùng
+Cập nhật chi tiết người dùng
+LƯU Ý
+
+Ứng dụng cần được cấp quyền quản lý thông tin người dùng
+
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/user/update
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl --location --request POST 'https://openapi.zalo.me/v3.0/oa/user/update' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "user_id": "4064634764263601113",
+    "shared_info": {
+        "name": "Display name",
+            "phone": "012345678",
+            "address":"ho chi minh",
+            "city_id": city_id,
+            "district_id": district_id,
+            "user_dob" : "31/12/1999"
+    },
+    "user_alias": "Alias name"
+    "user_external_id": "ED123mi09hfh"
+}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+ID của người dùng cần thay đổi thông tin.
+
+
+
+
+shared_info
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Thông tin người dùng cần cập nhật
+
+
+
+
+user_alias
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Tên alias của người dùng
+
+
+
+
+user_external_id
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Mã liên kết do OA tùy biến. Mỗi mã chỉ được gắn cho 1 khách hàng.
+
+Cấu trúc body của shared_info​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+name
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Tên cập nhật
+
+
+
+
+phone
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Số điện thoại cập nhật
+
+
+
+
+address
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Địa chỉ cập nhật
+
+
+
+
+city_id
+
+	
+
+int
+
+	
+
+no
+
+	
+
+Mã tỉnh, thành phố trực thuộc trung ương. Xem tại đây.
+
+
+
+
+district_id
+
+	
+
+int
+
+	
+
+no
+
+	
+
+Mã quận, huyện, thành phố trực thuộc tỉnh. Xem tại đây.
+
+
+
+
+user_dob
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Ngày sinh theo định dạng định dạng dd/MM/yyyy. Hiện tại chỉ hỗ trợ nhập các giá trị từ 1/1/1970.
+
+Example respond​
+{
+  "error": 0,
+  "message": "Success"
+}
+
+Trước
+Truy xuất chi tiết người dùng
+Kế tiếp
+Xóa thông tin người dùng
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Cấu trúc body của shared_info
+Example respond
+©2023 Zalo for Developers

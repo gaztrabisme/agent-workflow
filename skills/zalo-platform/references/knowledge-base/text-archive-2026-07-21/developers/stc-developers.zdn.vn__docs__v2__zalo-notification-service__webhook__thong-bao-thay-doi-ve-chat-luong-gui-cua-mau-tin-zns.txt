@@ -1,0 +1,79 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/webhook/thong-bao-thay-doi-ve-chat-luong-gui-cua-mau-tin-zns
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện thay đổi về chất lượng gửi của mẫu tin ZNS | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi về hạn mức gửi ZNS
+Sự kiện thay đổi về loại nội dung ZNS có thể gửi
+Sự kiện thay đổi về chất lượng gửi của mẫu tin ZNS
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận thông báo ZNS
+Sự kiện thay đổi trạng thái Template ZNS
+Phụ lục
+Ngừng hỗ trợ
+WebhookSự kiện thay đổi về chất lượng gửi của mẫu tin ZNS
+Sự kiện thay đổi về chất lượng gửi của mẫu tin ZNS
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+Khi có sự kiện thay đổi về chất lượng của mẫu tin ZNS phát sinh theo hệ thống đánh giá, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau.
+
+LƯU Ý
+
+Quyền cần có: Sử dụng Zalo Notification Service
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+  "event_name": "change_template_quality",
+  "oa_id": "2352868362652028400",
+  "template_id": "123456",
+  "quality": "HIGH",
+  "timestamp": "1602560967477"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Mô tả
+event_name
+String	Tên sự kiện
+Giá trị nhận về: change_template_quality
+oa_id
+String	ID của OA ủy quyền
+template_id
+String	ID của mẫu tin ZNS
+quality
+String	Chất lượng sau khi cập nhật.
+HIGH – Mức độ chất lượng tốt
+MEDIUM – Mức độ chất lượng trung bình
+LOW – Mức độ chất lượng kém
+UNDEFINED – Mức độ chất lượng Template chưa được xác định (trường hợp Template chưa được gửi thông báo ZNS nào trong khung thời gian đánh giá)
+
+timestamp
+String	Thời gian hệ thống gửi thông báo
+Trước
+Sự kiện thay đổi về loại nội dung ZNS có thể gửi
+Kế tiếp
+Sự kiện journey hết hạn
+Ví dụ:
+Mô tả thuộc tính
+©2023 Zalo for Developers

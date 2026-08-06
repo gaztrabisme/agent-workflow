@@ -1,0 +1,100 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/intro/intro/what-is-miniapp
+# FETCHED: 2026-08-06
+# TITLE: Giới thiệu Zalo Mini App | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+1. Giới thiệu
+1. Vấn đề của Native App và Web
+2. Giới thiệu Zalo Mini App
+3. Tài khoản Nhà phát triển
+4. Các điểm truy cập Zalo Mini App
+2. Triển khai
+3. Xin cấp quyền trong Zalo Mini App
+4. Phát Hành Zalo Mini App
+5. Zalo Mini App Design Guidelines
+6. Chuyển đổi nhanh Web App có sẵn thành Zalo Mini App
+7. Các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App
+8. Best Practices
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+2. Yêu cầu theo dõi Official Account
+3. Call API
+4. Tương tác, điều hướng tới Zalo Mini App
+5. Cache dữ liệu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Giới thiệu Zalo Mini App
+Cập nhật lần cuối:5/8/2026
+Zalo Mini App là những "ứng dụng nhỏ” chạy trực tiếp trên nền tảng Zalo, tận dụng nguồn tài nguyên có sẵn với tiềm năng không giới hạn từ Zalo.
+Zalo Mini App được thiết kế theo dạng một ứng dụng Web nhỏ gọn (nhỏ hơn 10MB) chạy trên Super App (ứng dụng Zalo) để giải quyết một hạn chế giữa ứng dụng Web và Native App như:
+Không yêu cầu cài đặt.
+Đem lại được hiệu năng và trải nghiệm tốt hơn.
+Tận dụng tính năng sẵn có của Zalo.
+Nội dung đáng tin cậy hơn vì ứng dụng đã được Zalo xác thực.
+Tiếp cận được lượng người dùng lớn, có thể phân phối tới người dùng qua nhiều kênh khác nhau dựa trên nền tảng Zalo.
+Để hiểu thêm về Zalo Mini App, vui lòng truy cập tại đây
+Dễ dàng phát triển​
+Zalo Mini App là giải pháp được phát triển hoàn toàn dựa trên nền tảng Web (sử dụng HTML, CSS và JavaScript), giúp các nhà phát triển dễ dàng tiếp cận và chuyển đổi các dự án có sẵn.
+Điểm khác biệt duy nhất giữa Zalo Mini App và các Web thông thường là Zalo Mini App đã được tối ưu hóa để chạy trên Webview Zalo và có thể giao tiếp với ứng dụng Zalo thông qua JavaScript Bridge.
+Giao diện và trải nghiệm người dùng​
+Zalo Mini App đem lại cho người dùng trải nghiệm tốt hơn nhờ đồng nhất thiết kế: Loading, Thanh điều hướng, Icon, Menu mở rộng... giữa các Apps.
+Ngoài ra còn cung cấp các bộ UI Components đã được chuẩn hóa theo phong cách thiết kế của Zalo, giúp các bên rút ngắn thời gian phát triển.
+Dịch vụ lưu trữ Web (Web hosting service)​
+Với Zalo Mini App, các ứng dụng của nhà phát triển sẽ được đóng gói và hosting trên hệ thống của Zalo và phân phối tới người dùng qua các hệ thống CDN, bảo đảm tốc độ truy cập nhanh và chịu tải được lưu lượng người dùng lớn.
+Caching và cập nhật phiên bản mới​
+Tài nguyên của Zalo Mini App sẽ được lưu trong bộ nhớ Cache của ứng dụng Zalo, vì vậy khi người dùng truy cập ứng dụng lần thứ hai, nó sẽ được tải gần như ngay lập tức và có thể hỗ trợ cơ chế load offline không cần Network.
+Nếu có bản cập nhật mới, bản cập nhật sẽ được tải tự động khi người dùng truy cập. Nhà phát triển sẽ quản lý các phiên bản thông qua hệ thống quản lý Zalo Mini App.
+Bảo mật và quyền hạn​
+Các ứng dụng Zalo Mini App sẽ được hệ thống Zalo xác thực và kiểm định trước khi phân phối tới người dùng, vì vậy sẽ an toàn hơn so với các ứng dụng Web thông thường.
+Các quyền truy cập tính năng của hệ thống hay truy xuất thông tin người dùng của các Zalo Mini App đều cần phải khai báo và xét duyệt trước khi được sử dụng thực tế.
+Tiếp cận các tính năng nâng cao​
+Thông qua ZJSBridge (JavaScript Bridge) tương tác với ứng dụng Zalo, các Zalo Mini App có thể sử dụng các tính năng nâng cao của hệ thống và Zalo như:
+Media picker
+Save Media
+Data Local Storage
+GPS
+Biometric authentication
+Push notifications
+Vibration
+Sharing (Friend, Group, Feed)
+Follow OA widget
+Và nhiều tính năng khác...
+Trước
+1. Vấn đề của Native App và Web
+Kế tiếp
+3. Tài khoản Nhà phát triển
+Dễ dàng phát triển
+Giao diện và trải nghiệm người dùng
+Dịch vụ lưu trữ Web (Web hosting service)
+Caching và cập nhật phiên bản mới
+Bảo mật và quyền hạn
+Tiếp cận các tính năng nâng cao
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

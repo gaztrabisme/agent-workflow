@@ -1,0 +1,94 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.9.0/SafeAreas
+# FETCHED: 2026-08-06
+# TITLE: SafeAreas | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.9.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Header
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.9.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Kể tử version SDK version: 2.25.0 và Zalo: 23.02.01.r2, bạn có thể cấu hình tuỳ chỉnh các thành phần chính trên Mini App, từ đây có thêm không gian hiển thị giao diện Mini App, tuy nhiên một số phần của giao diện có thể sẽ bị che trên các thiết bị cutout, hay Home Indicator trên iOS,... Khi gặp vấn đề trên, bạn cần thêm các khoảng trống an toàn vào trên/dưới vào các thành phần bị ảnh hưởng. Chúng tôi cung cấp các css variables để hỗ trợ bạn dễ dàng xử lý vấn đề này:
+--zaui-safe-area-inset-top: Khoảng an toàn phía trên, tính theo px, trường hợp không bị ảnh hưởng giá trị sẽ là 0
+--zaui-safe-area-inset-bottom: Khoảng an toàn phía dưới, tính theo px, trường hợp không bị ảnh hưởng giá trị sẽ là 0
+Đối với các Components của bộ thư viện zmp-ui như Header, BottomNavigation, Sheet Action,... kể tử version 1.6.0 đã được thêm các khoảng an toàn, UI sẽ không bị ảnh hưởng khi bạn bật chế độ toàn màn hình (ẩn Action Bar và Status Bar, ẩn Safe Area Bottom trên iOS,...)
+Example
+.page-content {
+padding-top: var(--zaui-safe-area-inset-top, 16px);
+padding-bottom: var(--zaui-safe-area-inset-bottom, 16px);
+}
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

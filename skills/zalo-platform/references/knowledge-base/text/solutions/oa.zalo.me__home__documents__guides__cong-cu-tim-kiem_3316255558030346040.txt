@@ -1,0 +1,43 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/cong-cu-tim-kiem_3316255558030346040
+# FETCHED: 2026-08-06
+# TITLE: Công cụ tìm kiếm | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Quản lý hội thoại
+Quản lý nhãn
+Công cụ tìm kiếm
+Tin mời đánh giá phiên chăm sóc khách hàng
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Quản lý hội thoại
+Công cụ tìm kiếm
+On this page
+Công cụ tìm kiếm
+Để tối ưu tính năng Chat trong việc chăm sóc khách hàng của doanh nghiệp khi sử dụng Zalo Official Account (Zalo OA), đội ngũ phát triển đã nâng cấp công cụ tìm kiếm từ khóa trong tính năng Chat. Từ nay, OA đã có thể tìm kiếm đa dạng nội dung theo: tên người dùng, nội dung đoạn chat, tên tệp tin.
+Hướng dẫn sử dụng công cụ tìm kiếm​
+Quản trị viên hoặc chăm sóc khách hàng của OA có thể tìm kiếm theo từ khóa ở thanh công cụ tìm kiếm, kết quả trả ra sẽ được phân vào các mục Tất cả, Hội thoại, Tin nhắn, File cụ thể như sau:
+1. Tất cả: Hiển thị tất cả Tên người dùng, Nội dung đoạn chat, Tên tệp tin (file) khớp với từ khóa đang tìm kiếm.
+2. Hội thoại: Chỉ hiển thị Tên người dùng khớp với từ khóa đang tìm kiếm.
+Ví dụ: Gõ chữ "Quỳnh" trên thanh công cụ tìm kiếm của mục Chat → chọn mục Hội thoại. Kết quả tìm kiếm sẽ hiện các hội thoại có tên Zalo của người dùng chứa các chữ "quynh" hoặc "Quynh", sắp xếp theo thứ tự từ thời điểm từ lâu đến gần nhất.
+3. Tin nhắn: Chỉ hiển thị Nội dung đoạn chat khớp với từ khóa đang tìm kiếm.
+Ví dụ: Gõ chữ "Xin chào" trên thanh công cụ tìm kiếm của mục Chat → chọn mục Tin nhắn → Kết quả tìm kiếm sẽ hiện các hội thoại của người dùng có từ "xin chào" trong nội dung tin nhắn với OA.
+File: Chỉ hiển thị Tệp tin (file) có Tên khớp với từ khóa đang tìm kiếm.
+Ví dụ: Gõ chữ "bảng giá" trên thanh công cụ tìm kiếm của mục Chat → chọn mục File → Kết quả tìm kiếm sẽ là người dùng Zalo đã gửi tệp tin với tên "bảng giá".
+-----------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+Previous
+Quản lý nhãn
+Next
+Tin mời đánh giá phiên chăm sóc khách hàng
+Hướng dẫn sử dụng công cụ tìm kiếm

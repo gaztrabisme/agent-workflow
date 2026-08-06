@@ -1,0 +1,83 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/phu-luc/lam-the-nao-de-tao-chatbot-tra-loi-tu-dong-voi-zalo-api
+# FETCHED: 2026-08-06
+# TITLE: Làm thế nào để tạo chatbot trả lời tự động với Zalo API | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Bài viết hướng dẫn từng bước để tạo một chatbot với Zalo API phục vụ mục đích chăm sóc khách hàng, trả lời tự động...
+1. Thiết lập​
+Để hiện thực luồng chatbot trả lời tự động thông qua Zalo API, bạn cần thiết lập các thành phần liên quan như sau:
+1.1 Tạo Official Account​
+Official Account (OA) là tài khoản chính thức, đại diện cho Doanh nghiệp trên nền tảng Zalo. Hiện tại, Zalo chỉ hỗ trợ tích hợp bộ API để xây dựng được chatbot với tài khoản OA
+Nếu chưa có OA, bạn có thể đăng ký tại đây.
+1.2 Tạo ứng dụng (Zalo App) và nhận uỷ quyền từ Official Account (OA):​
+Bạn cần tạo Zalo App và được uỷ quyền từ OA để đại diện OA gửi tin đến User
+Tham khảo bài viết:
+Tạo ứng dụng Zalo App tại đây.
+Xác thực và uỷ quyền cho Ứng dụng tại đây.
+1.3 Cấu hình Webhook​
+Để chatbot có thể tự động trả lời tin nhắn khi có người dùng nhắn tới, bạn cần có Webhook để chủ động nghe sự kiện từ người dùng
+Tham khảo bài viết:
+Giới thiệu và cấu hình webhook tại đây.
+Sự kiện người dùng gửi tin nhắn tại đây.
+2. Nghe webhook khi có tin nhắn từ người dùng đến OA và xử lý​
+Khi người dùng gửi 1 tin nhắn dạng text đến Official Account, hệ thống Zalo sẽ gửi 1 http request (method POST) về webhook url của ứng dụng đã thiết lập ở bước 1.3
+3. Gọi API gửi tin nhắn đến người quan tâm​
+Bạn có thể thảm khảo chi tiết cách gửi tin nhắn cho người dùng tại đây.
+Trước
+Cấu trúc của tham số elements
+Kế tiếp
+Các trạng thái của video
+1. Thiết lập
+1.1 Tạo Official Account
+1.2 Tạo ứng dụng (Zalo App) và nhận uỷ quyền từ Official Account (OA):
+1.3 Cấu hình Webhook
+2. Nghe webhook khi có tin nhắn từ người dùng đến OA và xử lý
+3. Gọi API gửi tin nhắn đến người quan tâm
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,98 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/quan-ly-template/template-webhook/su-kien-thay-doi-ve-chat-luong-gui-cua-mau-tin
+# FETCHED: 2026-08-06
+# TITLE: Sự kiện thay đổi về chất lượng gửi của mẫu tin | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Bắt đầu
+Giới thiệu chung về Template
+Danh sách Components
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+API Lấy thông tin phản hồi nhanh của khách hàng
+Template Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi trạng thái Template
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Sự kiện người dùng phản hồi template phản hồi nhanh
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Khi có sự kiện thay đổi về chất lượng của mẫu tin phát sinh theo hệ thống đánh giá, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau.
+Lưu ý
+Quyền cần có: Nhận sự kiện quản lý Message Template
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+"event_name": "change_template_quality",
+"oa_id": "2352868362652028400",
+"template_id": "123456",
+"quality": "HIGH",
+"timestamp": "1602560967477"
+}
+Mô tả thuộc tính​
+Thuộc tính
+Mô tả
+event_name
+String
+Tên sự kiện
+Giá trị nhận về: change_template_quality
+oa_id
+String
+ID của OA ủy quyền
+template_id
+String
+ID của mẫu tin
+quality
+String
+Chất lượng sau khi cập nhật.
+HIGH – Mức độ chất lượng tốt
+MEDIUM – Mức độ chất lượng trung bình
+LOW – Mức độ chất lượng kém
+UNDEFINED – Mức độ chất lượng Template chưa được xác định (trường hợp Template chưa được gửi thông báo nào trong khung thời gian đánh giá)
+timestamp
+String
+Thời gian hệ thống gửi thông báo
+Trước
+Sự kiện thay đổi trạng thái Template
+Kế tiếp
+Sự kiện người dùng phản hồi template phản hồi nhanh
+Ví dụ:
+Mô tả thuộc tính
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

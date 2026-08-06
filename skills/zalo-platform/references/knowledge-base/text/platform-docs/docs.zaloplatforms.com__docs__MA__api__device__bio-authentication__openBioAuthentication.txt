@@ -1,0 +1,247 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/device/bio-authentication/openBioAuthentication
+# FETCHED: 2026-08-06
+# TITLE: openBioAuthentication | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+openBioAuthentication
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.5.3
+Cho phép ứng dụng mở giao diện đăng nhập sinh trắc học của thiết bị. Lưu ý: Chỉ hỗ trợ các OS chuẩn không bị Root hoặc Jailbreak.
+Parameters​
+Object object​
+Property
+Type
+Default
+Required
+Description
+Minimum Version
+secretData
+string
+true
+Khoá bí mật, dùng một lần cho quá trình xác thực. Bạn có thể tạo secretData = hash(accessToken + eventTime)
+2.5.3
+ui
+object
+2.5.3
+requireFingerprint
+boolean
+Chỉ sử dụng vân tay. Hỗ trợ Android
+2.5.3
+success
+function
+Callback function khi gọi api thành công
+2.5.3
+fail
+function
+Callback function khi gọi api thất bại
+2.5.3
+UI Object​
+Property
+Type
+Default
+Required
+Description
+Minimum Version
+title
+string
+"Xác thực"
+Tiêu đề form xác thực
+subTitle
+string
+"Sử dụng sinh trắc học của bạn để xác thực"
+Nội dung hướng dẫn
+negativeButtonText
+string
+"Đóng"
+Tiêu đề của Button thoát
+Sample code​
+import { openBioAuthentication } from "zmp-sdk/apis";
+openBioAuthentication({
+secretData: "<secretData>",
+ui: {
+title: "Biometric login for my app",
+subTitle: "Log in using your biometric credential",
+negativeButtonText: "Cancel",
+},
+success: (data) => {},
+fail: (error) => {
+const { code } = error;
+},
+});
+Hoặc
+import { openBioAuthentication } from "zmp-sdk/apis";
+const openBioAuthenUI = async () => {
+try {
+const data = await openBioAuthentication({
+secretData: "<secretData>",
+ui: {
+title: "Biometric login for my app",
+subTitle: "Log in using your biometric credential",
+negativeButtonText: "Cancel",
+},
+});
+} catch (error) {
+const { code } = error;
+}
+};
+Trước
+checkStateBioAuthentication
+Kế tiếp
+openPermissionSetting
+Parameters
+Object object
+UI Object
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,81 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/dotnet-sdk/tai-lieu/social-api
+# FETCHED: 2026-07-21
+# TITLE: Social API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Dotnet SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Social API
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tích hợpSocial API
+Social API
+Khai báo sử dụng Zalo SDK​
+using ZaloDotNetSDK;
+
+Khởi tạo ZaloAppClient​
+ZaloAppInfo appInfo = new ZaloAppInfo(appId, "secretKey", "callbackUrl");
+ZaloAppClient appClient = new ZaloAppClient(appInfo);
+
+Social API​
+
+Lấy LoginUrl
+
+string loginUrl = appClient.getLoginUrl();
+
+
+Lấy AccessToken Hướng dẫn cách lấy OAuth Code
+
+string code = 'put_your_code_here'
+JObject token = appClient.getAccessToken(code);
+
+
+Thông tin người dùng
+
+JObject profile = appClient.getProfile(accessToken, "fields");
+
+
+Lấy danh sách tất cả bạn bè của người dùng đã sử dụng ứng dụng
+
+JObject friends = appClient.getFriends(accessToken, 0, 10, "fields");
+
+
+Lấy danh sách bạn bè chưa sử dụng ứng dụng và có thể nhắn tin mời sử dụng ứng dụng
+
+JObject invitableFriends = appClient.getInvitableFriends(accessToken, 0, 10, "fields");
+
+
+Đăng bài viết
+
+JObject postFeed = appClient.postFeed(accessToken, "put_your_message_here", "https://developers.zalo.me/");
+
+
+Mời sử dụng ứng dụng
+
+JObject sendAppRequest = appClient.sendAppRequest(accessToken, listUser, "put_your_message_here");
+
+
+Gởi tin nhắn tới bạn bè
+
+JObject sendMessage = appClient.sendMessage(accessToken, userId, "put_your_message_here", "https://developers.zalo.me/");
+
+Trước
+Official Account API V3
+Kế tiếp
+Official Account API
+Khai báo sử dụng Zalo SDK
+Khởi tạo ZaloAppClient
+Social API
+©2023 Zalo for Developers

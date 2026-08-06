@@ -1,0 +1,61 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/social-plugin/nut-quan-tam
+# FETCHED: 2026-08-06
+# TITLE: Nút Quan tâm | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Social Plugin
+Widget cấp tương tác
+Tổng quan
+Cài đặt Widget cấp tương tác
+Widget Quan tâm
+Nút Quan tâm
+Widget Chat
+Trên trang này
+Nút Quan tâm
+Nút Quan tâm cho phép người dùng đăng ký nhận các cập nhật công khai của Official Account.
+Cài đặt​
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+<div class="zalo-follow-only-button" data-oaid="OA_ID"></div>
+Cấu hình​
+Attribute
+Required
+Description
+data-oaid
+Có
+Zalo Official Account ID.
+data-callback
+Không
+Tên hàm callback global. Hàm được gọi khi người dùng quan tâm thành công.
+Dùng ZaloSocialSDK.reload() để init lại widget khi cấu hình được thay đổi động trên trang.
+Trước
+Widget Quan tâm
+Kế tiếp
+Widget Chat
+Cài đặt
+Cấu hình
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

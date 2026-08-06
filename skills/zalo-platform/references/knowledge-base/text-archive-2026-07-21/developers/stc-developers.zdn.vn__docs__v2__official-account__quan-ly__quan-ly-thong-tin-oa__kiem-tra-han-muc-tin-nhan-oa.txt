@@ -1,0 +1,145 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-thong-tin-oa/kiem-tra-han-muc-tin-nhan-oa
+# FETCHED: 2026-07-21
+# TITLE: Kiểm tra hạn mức tin nhắn OA | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Kiểm tra hạn mức tin nhắn OA
+Lấy thông tin Zalo Official Account.
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý thông tin OAKiểm tra hạn mức tin nhắn OA
+Kiểm tra hạn mức tin nhắn OA
+Bạn có thể sử dụng API để lấy quota tin chi tiết theo:​
+Loại tin: Tư vấn / Giao dịch
+Thực thể sở hữu quota: OA / App
+Nguồn quota: quota miễn phí từ gói dịch vụ OA / quota từ gói mua lẻ
+LƯU Ý
+
+Quyền cần có: Quyền quản lý thông tin OA
+
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/quota/message
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl --location 'https://openapi.zalo.me/v3.0/oa/quota/message' \
+--header 'access_token: <oa_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "quota_owner": "OA"
+}'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Thuộc tính	Kiểu dữ liệu	Bắt buộc	Mô tả
+quota_owner	string	Yes	Thực thể sở hữu Quota muốn truy xuất OA / APP
+product_type	string	No	
+loại sản phẩm thuộc nhánh tính năng muốn truy xuất:
+cs: tin Tư vấn
+transaction: tin Giao dịch
+
+quota_type	string	No	
+loại quota (nguồn quota sử dụng) muốn truy xuất:
+sub_quota: quota tin theo gói dịch vụ OA
+purchase_quota: quota tin mua lẻ
+reward_quota: quota tin được tặng từ các chương trình khuyến mãi
+Example respond​
+{
+  "data": [
+    {
+      "asset_id": "216991e1ea59bc03e54c",
+      "product_type": "cs",
+      "quota_type": "sub_quota",
+      "valid_through": "10/10/2024",
+      "total": 2000,
+      "remain": 1990
+    },
+    {
+      "asset_id": "cdfef30e10c5399f60d0",
+      "product_type": "transaction",
+      "quota_type": "purchase_quota",
+      "valid_through": "10/12/2024",
+      "total": 5000,
+      "remain": 1200
+    },
+    {
+      "asset_id": "988332fbc118e842b10d",
+      "product_type": "transaction",
+      "quota_type": "purchase_quota",
+      "valid_through": "10/10/2024",
+      "total": 2000,
+      "remain": 1990
+    },
+    {
+      "asset_id": "ec88cd4123a20af853b7",
+      "product_type": "transaction",
+      "quota_type": "reward_quota",
+      "valid_through": "10/11/2024",
+      "total": 2000,
+      "remain": 2000
+    }
+  ],
+  "error": 0,
+  "message": "success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+asset_id	string	ID của asset
+product_type	string	loại sản phẩm thuộc nhánh tính năng
+quota_type	string	
+loại quota (nguồn quota sử dụng)
+Giá trị theo bảng quota_type
+
+valid_through	string	ngày hết hạn của của asset_id
+total	string	tổng số lượng quota CHƯA hết hạn (bao gồm available + used) của asset_id
+remain	string	số lượng quota ở trạng thái available của asset_id
+Trước
+Xóa trường thông tin tùy biến
+Kế tiếp
+Lấy thông tin Zalo Official Account.
+Bạn có thể sử dụng API để lấy quota tin chi tiết theo:
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+©2023 Zalo for Developers

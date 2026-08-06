@@ -1,0 +1,46 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/dotnet-sdk/tai-lieu/cac-ham-ma-hoa
+# FETCHED: 2026-07-21
+# TITLE: Các hàm mã hóa thường dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Dotnet SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Social API
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tích hợpCác hàm mã hóa thường dùng
+Các hàm mã hóa thường dùng
+
+build X-Event-Signature
+
+String webhookBody = "webhookBody";
+String mac = MacUtils.buildMac(webhookBody);
+
+
+PKCE Util (Code verifier và Code challenge)
+
+String codeVer = PKCEUtil.genCodeVerifier();
+String codeCha = PKCEUtil.genCodeChallenge(codeVer);
+
+
+appsecret_proof Util
+
+String oaAccessToken = "oaAccessToken";
+String appSecretKey = "appSecretKey";
+String appSecretProof = AppSecretProofUtil.HmacSha256Digest(oaAccessToken, appSecretKey);
+
+Trước
+Article API
+©2023 Zalo for Developers

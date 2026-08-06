@@ -1,0 +1,209 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/phu-luc/huong-dan-xac-thuc-domain
+# FETCHED: 2026-07-21
+# TITLE: Hướng dẫn xác thực domain | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Phụ lụcHướng dẫn xác thực domain
+Hướng dẫn xác thực domain
+
+Bạn cần xác minh domain của mình - địa chỉ website của bạn (ví dụ: example.com, zalo_verifier.example.com) trước khi bạn sử dụng cho các dịch vụ của Zalo Platform. Điều này giúp bạn đảm bảo không có ai khác đang sử dụng địa chỉ website của bạn mà không có sự cho phép của bạn. Bạn có thể xác thực nhiều domain cho một app. Đồng thời, bạn cũng có thể xác thực một domain cho nhiều app. Bạn có thể thêm nhiều phương thức xác thực. Bạn nên thêm nhiều phương thức xác thực đề phòng trường hợp một trong những phương thức xác thực hiện tại không thành công.  Zalo Platform cung cấp hai lựa chọn để bạn thực hiện xác thực là xác thực với domain và xác thực với tiền tố URL.
+
+Có 3 phương thức xác thực với domain là Thêm DNS TXT record vào domain của bạn, Tải tệp HTML lên trang web của bạn, Thêm thẻ meta vào trang chủ trang web của bạn. 
+Có 2 phương thức xác thực với tiền tố URL là Tải tệp HTML lên trang web của bạn, Thêm thẻ meta vào trang chủ trang web của bạn. 
+
+Những domain và URL nằm trong danh sách xác thực mới có thể sử dụng cho các dịch vụ của Zalo Platform. Để hủy xác thực với domain hoặc tiền tố URL thì bạn phải xóa chúng ra khỏi danh sách xác thực tương ứng.
+
+1. Xác thực với domain​
+Thêm DNS TXT record vào domain của bạn​
+
+Domain Name System (DNS) record chứa thông tin văn bản về website của bạn đóng vai trò như hướng dẫn về cách máy chủ sẽ phản hồi yêu cầu. Bạn phải thêm bản ghi TXT vào DNS để Zalo Platform có thể xác nhận rằng bạn có quyền sở hữu domain đó. Đối với cách xác thực này, Zalo Platform hỗ trợ kiểm tra domain và subdomain zalo_verifier của second-level domain. Ví dụ:
+
+Người dùng nhập domain là example.com thì sẽ kiểm tra txt record trên example.com và zalo_verifier.example.com.
+Người dùng nhập domain là my-subdomain.example.com thì sẽ kiểm tra txt record trên my-subdomain.example.com và zalo_verifier.example.com.
+Thêm DNS TXT record​
+
+1.  Vào phần Quản lý ứng dụng và chọn Xác thực domain
+
+2.  Nhập domain cần xác thực ở phần Domain và chọn Xác thực
+
+3.  Hệ thống sẽ tiến hành kiểm tra domain của bạn. Nếu domain bạn chưa được xác thực thì hiển thị như sau
+
+ 
+
+Bạn chọn Xác thực ngay để tiến hành xác thực.
+
+4.  Chọn cách xác thực Thêm DNS TXT record vào domain của bạn và làm theo hướng dẫn
+
+5.  Kết quả sau khi Xác thực thành công
+
+Tải tệp HTML lên trang web của bạn​
+
+Tệp HTML chứa Hypertext Markup Language (HTML) được sử dụng để định dạng cấu trúc của trang web. Bạn phải download tệp này từ Zalo Platform và tải nó lên trang web của bạn.
+
+Tải tệp HTML​
+
+1.  Vào phần Quản lý ứng dụng và chọn Xác thực domain
+
+2.  Nhập domain cần xác thực ở phần Domain và chọn Xác thực
+
+3.  Hệ thống sẽ tiến hành kiểm tra domain của bạn. Nếu domain bạn chưa được xác thực thì hiển thị như sau
+
+Bạn chọn Xác thực ngay để tiến hành xác thực.
+
+4.  Chọn cách xác thực Tải tệp HTML lên trang web của bạn và làm theo hướng dẫn
+
+5.  Kết quả sau khi Xác thực thành công
+
+Để duy trì trạng thái xác minh, không xóa tệp ngay cả sau khi xác minh thành công.  
+
+Thêm thẻ meta vào trang chủ trang web của bạn​
+
+Thẻ meta là một đoạn văn bản mô tả nội dung của trang web. Bạn phải thêm thẻ meta vào mã nguồn trang chủ trang web của bạn để Zalo Platform xác thực quyền sở hữu. Với domain (example.com) của người dùng, Zalo Platform xác định đường dẫn đến trang chủ là https://<domain> (https://example.com)
+
+Thêm thẻ meta​
+
+1.  Vào phần Quản lý ứng dụng và chọn Xác thực domain
+
+.  Nhập domain cần xác thực ở phần Domain và chọn Xác thực
+
+3.  Hệ thống sẽ tiến hành kiểm tra domain của bạn. Nếu domain bạn chưa được xác thực thì hiển thị như sau
+
+Bạn chọn Xác thực ngay để tiến hành xác thực.
+
+4.  Chọn cách xác thực Thêm thẻ meta vào trang chủ trang web của bạn và làm theo hướng dẫn
+
+5.  Kết quả sau khi Xác thực thành công
+
+Để duy trì trạng thái được xác minh, không xóa thẻ meta, ngay cả sau khi xác minh thành công.
+
+2. Xác thực với tiền tố URL​
+
+Khi bạn xác thực với một URL (ví dụ: https://example.com/party/) thì Zalo Platform nhận định các URL có path con (ví dụ: https://example.com/party/abc/, https://example.com/party/xyz, https://example.com/party/abc/xyz....) đã được xác thực mà không cần có xác thực. Đối với trường hợp URL có truy vấn (ví dụ: https://example.com/party?state=12345) thì Zalo Platform sẽ bỏ qua các tham số truy vấn (https://example.com/party/).
+
+Đối với trường hợp URL có extension file (ví dụ: https://example.com/party/index.html) thì Zalo Platform sẽ bỏ qua phần path có extension file (https://exmaple.com/party/).
+
+Tải tệp HTML lên trang web của bạn​
+
+Tệp HTML chứa Hypertext Markup Language (HTML) được sử dụng để định dạng cấu trúc của trang web. Bạn phải download tệp này từ Zalo Platform và tải nó lên trang web của bạn.
+
+Tải tệp HTML​
+
+1.  Vào phần Quản lý ứng dụng và chọn Xác thực domain
+
+2.  Nhập URL cần xác thực vào phần Tiền tố URL và chọn Xác thực
+
+3.  Hệ thống sẽ tiến hành kiểm tra URL của bạn. Nếu URL bạn chưa được xác thực thì hiển thị như sau
+
+Bạn chọn Xác thực ngay để tiến hành xác thực.
+
+4.  Chọn cách xác thực Tải tệp HTML lên trang web của bạn và làm theo hướng dẫn
+
+5.  Kết quả sau khi Xác thực thành công
+
+Để duy trì trạng thái xác minh, không xóa tệp ngay cả sau khi xác minh thành công.
+
+Thêm thẻ meta vào trang chủ trang web của bạn​
+
+Với URL (https://example.com/party/) của người dùng, Zalo Platform xác định URL đó là đường dẫn trang chủ trang web của bạn.
+
+Thêm thẻ meta​
+
+1.  Vào phần Quản lý ứng dụng và chọn Xác thực domain
+
+2.  Nhập URL cần xác thực vào phần Tiền tố URL và chọn Xác thực
+
+3.  Hệ thống sẽ tiến hành kiểm tra URL của bạn. Nếu URL bạn chưa được xác thực thì hiển thị như sau
+
+ 
+
+Bạn chọn Xác thực ngay để tiến hành xác thực.
+
+4.  Chọn cách xác thực Thêm thẻ meta vào trang chủ trang web của bạn và làm theo hướng dẫn
+
+5.  Kết quả sau khi Xác thực thành công
+
+Để duy trì trạng thái được xác minh, không xóa thẻ meta, ngay cả sau khi xác minh thành công.
+
+3. Hủy xác thực​
+
+Trước khi hủy xác thực, bạn nên xóa tất cả DNS TXT record, tệp HTML và thẻ meta tương ứng ở website của bạn.
+
+Trường hợp: Hủy xác thực với domain​
+
+Bước 1: Chọn nút X bên phải domain tương ứng
+
+Bước 2: Chọn Đồng ý
+
+Kết quả
+
+Trường hợp: Hủy xác thực với URL​
+
+Bước 1: Chọn nút X bên phải URL tương ứng
+
+Bước 2: Chọn Đồng ý
+
+Kết quả
+
+Chú ý​
+Số lượng domain tối đa xác thực cho một app là 20.
+Số lượng URL tối đa xác thực cho một app là 20.
+Số kí tự tối đa cho một domain hoặc một URL là 75 kí tự.
+Để hỗ trợ cho các developers phát triển nhanh ứng dụng, Zalo Platform không kiểm tra xác thực domain với các dịch vụ localtunnel.me, ngrok.io, localhost.run, serveo.net.
+Trước
+Các trạng thái của video
+Kế tiếp
+Mã lỗi Official Account API
+1. Xác thực với domain
+Thêm DNS TXT record vào domain của bạn
+Tải tệp HTML lên trang web của bạn
+Thêm thẻ meta vào trang chủ trang web của bạn
+2. Xác thực với tiền tố URL
+Tải tệp HTML lên trang web của bạn
+Thêm thẻ meta vào trang chủ trang web của bạn
+3. Hủy xác thực
+Trường hợp: Hủy xác thực với domain
+Trường hợp: Hủy xác thực với URL
+Chú ý
+©2023 Zalo for Developers

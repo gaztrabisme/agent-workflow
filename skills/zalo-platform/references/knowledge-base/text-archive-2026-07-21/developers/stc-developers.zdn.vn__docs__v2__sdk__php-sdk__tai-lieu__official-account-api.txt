@@ -1,0 +1,243 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/php-sdk/tai-lieu/official-account-api
+# FETCHED: 2026-07-21
+# TITLE: Official Account API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+PHP SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API
+Social API
+Tích hợpOfficial Account API
+Official Account API
+Tạo link Offical Account ủy quyền cho ứng dụng​
+$oaCallbackUrl = "https://www.callbackPage.com"
+$codeChallenge = "your code challenge";
+$state = "your state";
+$linkOAGrantPermission2App = $helper->getLoginUrlByOA($oaCallbackUrl, $codeChallenge, $state);
+
+Lấy access token​
+
+Khi quản trị viên của OA click vào link và ủy quyền cho ứng dụng. Hệ thống sẽ thực hiện xử lý và chuyển hướng về link callback đã đăng ký với app, OAuth code sẽ được trả về và hiển thị trên đường dẫn của link callback. Hãy đặt đoạn mã dưới tại link callback bạn đã đăng ký với app, đoạn mã sẽ thực hiện lấy oauth code từ link callback và gửi yêu cầu lên hệ thống để lấy access token.
+
+$codeVerifier = "your code verifier";
+$zaloToken = $helper->getZaloTokenByOA($codeVerifier); // get zalo token
+$accessToken = $zaloToken->getAccessToken();
+
+Gửi tin nhắn text​
+// build data
+$msgBuilder = new MessageBuilder('text');
+$msgBuilder->withUserId('494021888309207992');
+$msgBuilder->withText('Message Text');
+
+// add buttons (only support 5 buttons - optional)
+$actionOpenUrl = $msgBuilder->buildActionOpenURL('https://wwww.google.com'); // build action open link
+$msgBuilder->withButton('Open Link', $actionOpenUrl);
+
+$actionQueryShow = $msgBuilder->buildActionQueryShow('query_show'); // build action query show
+$msgBuilder->withButton('Query Show', $actionQueryShow);
+
+$actionQueryHide = $msgBuilder->buildActionQueryHide('query_hide'); // build action query hide
+$msgBuilder->withButton('Query Hide', $actionQueryHide);
+
+$actionOpenPhone = $msgBuilder->buildActionOpenPhone('0919018791'); // build action open phone
+$msgBuilder->withButton('Open Phone', $actionOpenPhone);
+
+$actionOpenSMS = $msgBuilder->buildActionOpenSMS('0919018791', 'sms text'); // build action open sms
+$msgBuilder->withButton('Open SMS', $actionOpenSMS);
+
+$msgText = $msgBuilder->build();
+// send request
+$response = $zalo->post(ZaloEndpoint::API_OA_SEND_MESSAGE, $accessToken, $msgText);
+$result = $response->getDecodedBody(); // result
+
+Gửi tin nhắn hình​
+// build data
+$msgBuilder = new MessageBuilder('media');
+$msgBuilder->withUserId('494021888309207992');
+$msgBuilder->withText('Message Image');
+$msgBuilder->withAttachment('cb2ab1696b688236db79');
+
+// add buttons (only support 5 buttons - optional)
+$actionOpenUrl = $msgBuilder->buildActionOpenURL('https://wwww.google.com'); // build action open link
+$msgBuilder->withButton('Open Link', $actionOpenUrl);
+
+$actionQueryShow = $msgBuilder->buildActionQueryShow('query_show'); // build action query show
+$msgBuilder->withButton('Query Show', $actionQueryShow);
+
+$actionQueryHide = $msgBuilder->buildActionQueryHide('query_hide'); // build action query hide
+$msgBuilder->withButton('Query Hide', $actionQueryHide);
+
+$actionOpenPhone = $msgBuilder->buildActionOpenPhone('0919018791'); // build action open phone
+$msgBuilder->withButton('Open Phone', $actionOpenPhone);
+
+$actionOpenSMS = $msgBuilder->buildActionOpenSMS('0919018791', 'sms text'); // build action open sms
+$msgBuilder->withButton('Open SMS', $actionOpenSMS);
+
+$msgImage = $msgBuilder->build();
+$response = $zalo->post(ZaloEndpoint::API_OA_SEND_MESSAGE, $accessToken, $msgImage);
+$result = $response->getDecodedBody(); // result
+
+Gửi tin nhắn list​
+$msgBuilder = new MessageBuilder('list');
+$msgBuilder->withUserId('494021888309207992');
+
+$actionOpenUrl = $msgBuilder->buildActionOpenURL('https://www.google.com');
+$msgBuilder->withElement('Open Link Google', 'https://img.icons8.com/bubbles/2x/google-logo.png', 'Search engine', $actionOpenUrl);
+
+$actionQueryShow = $msgBuilder->buildActionQueryShow('query_show');
+$msgBuilder->withElement('Query Show', 'https://www.computerhope.com/jargon/q/query.jpg', '', $actionQueryShow);
+
+$actionQueryHide = $msgBuilder->buildActionQueryHide('query_hide');
+$msgBuilder->withElement('Query Hide', 'https://www.computerhope.com/jargon/q/query.jpg', '', $actionQueryHide);
+
+$actionOpenPhone = $msgBuilder->buildActionOpenPhone('0919018791');
+$msgBuilder->withElement('Open Phone', 'https://cdn.iconscout.com/icon/premium/png-256-thumb/phone-275-123408.png', '', $actionOpenPhone);
+
+$actionOpenSMS = $msgBuilder->buildActionOpenSMS('0919018791', 'sms text');
+$msgBuilder->withElement('Open SMS', 'https://cdn0.iconfinder.com/data/icons/new-design/512/42-Chat-512.png', '', $actionOpenSMS);
+
+$msgList = $msgBuilder->build();
+$response = $zalo->post(ZaloEndpoint::API_OA_SEND_MESSAGE, $accessToken, $msgList);
+$result = $response->getDecodedBody(); // result
+
+Gửi tin nhắn dạng Gif​
+$msgBuilder = new MessageBuilder('media');
+$msgBuilder->withUserId('494021888309207992');
+$msgBuilder->withText('Message Image');
+$msgBuilder->withAttachment('PWhbF13YGGi9VTkG/vHcTyoskajfj5Ve/EGsTK80XYo=');
+$msgBuilder->withMediaType('gif');
+$msgBuilder->withMediaSize(120, 120);
+$msgImage = $msgBuilder->build();
+
+$response = $zalo->post(ZaloEndpoint::API_OA_SEND_MESSAGE, $accessToken, $msgImage);
+$result = $response->getDecodedBody(); // result
+
+Gửi File​
+$msgBuilder = new MessageBuilder('file');
+$msgBuilder->withUserId('494021888309207992');
+$msgBuilder->withFileToken('call_upload_file_api_to_get_file_token');
+$msgFile = $msgBuilder->build();
+$response = $zalo->post(ZaloEndPoint::API_OA_SEND_MESSAGE, $accessToken, $msgFile);
+$result = $response->getDecodedBody(); // result
+
+
+## Upload hình
+
+$data = array('file' => new ZaloFile($filePath));
+$response = $zalo->post(ZaloEndpoint::API_OA_UPLOAD_PHOTO, $accessToken, $data);
+$result = $response->getDecodedBody(); // result
+
+Upload hình Gif​
+$data = array('file' => new ZaloFile($filePath));
+$response = $zalo->post(ZaloEndpoint::API_OA_UPLOAD_GIF, $accessToken, $data);
+$result = $response->getDecodedBody(); // result
+
+Upload file PDF​
+$data = array('file' => new ZaloFile($filePath));
+$response = $zalo->post(ZaloEndpoint::API_OA_UPLOAD_FILE, $accessToken, $data);
+$result = $response->getDecodedBody(); // result
+
+Lấy danh sách nhãn​
+$response = $zalo->get(ZaloEndpoint::API_OA_GET_LIST_TAG, $accessToken, [[]);
+$result = $response->getDecodedBody();
+
+Xóa nhãn​
+// build data
+$data = array('tag_name' => 'vip');
+// send request
+$response = $zalo->post(ZaloEndpoint::API_OA_REMOVE_TAG, $accessToken, $data);
+$result = $response->getDecodedBody();
+
+Gỡ người quan tâm khỏi nhãn​
+// build data
+$data = array(
+        'user_id' => '494021888309207992',
+        'tag_name' => 'vip'
+);
+// send request
+$response = $zalo->post(ZaloEndpoint::API_OA_REMOVE_USER_FROM_TAG, $accessToken, $data);
+$result = $response->getDecodedBody();
+
+Gán nhãn người quan tâm​
+// build data
+$data = array(
+        'user_id' => '494021888309207992',
+        'tag_name' => 'vip'
+);
+// send request
+$response = $zalo->post(ZaloEndpoint::API_OA_TAG_USER, $accessToken, $data);
+$result = $response->getDecodedBody();
+
+Lấy thông tin người quan tâm​
+$data = ['data' => json_encode(array(
+            'user_id' => '494021888309207992'
+        ))[];
+$response = $zalo->get(ZaloEndpoint::API_OA_GET_USER_PROFILE, $accessToken, $data);
+$result = $response->getDecodedBody(); // result
+
+
+Lấy thông tin OA
+
+$response = $zalo->get(ZaloEndPoint::API_OA_GET_PROFILE, $accessToken, [[]);
+$result = $response->getDecodedBody(); // result
+
+
+Lấy danh sách người quan tâm
+
+$data = ['data' => json_encode(array(
+                'offset' => 0,
+                'count' => 10
+            ))[];
+$response = $this->zalo->get(ZaloEndPoint::API_OA_GET_LIST_FOLLOWER, $accessToken, $data);
+$result = $response->getDecodedBody(); // result
+
+
+Lấy danh sách tin nhắn gần nhất
+
+$data = ['data' => json_encode(array(
+                'offset' => 0,
+                'count' => 10
+            ))[];
+$response = $zalo->get(ZaloEndPoint::API_OA_GET_LIST_RECENT_CHAT, $accessToken, $data);
+$result = $response->getDecodedBody(); // result
+
+
+Lấy danh sách tin nhắn với người quan tâm
+
+$data = ['data' => json_encode(array(
+                'user_id' => 494021888309207992,
+                'offset' => 0,
+                'count' => 10
+            ))[];
+$response = $zalo->get(ZaloEndPoint::API_OA_GET_CONVERSATION, $accessToken, $data);
+$result = $response->getDecodedBody(); // result
+
+Trước
+Bắt đầu nhanh
+Kế tiếp
+Social API
+Tạo link Offical Account ủy quyền cho ứng dụng
+Lấy access token
+Gửi tin nhắn text
+Gửi tin nhắn hình
+Gửi tin nhắn list
+Gửi tin nhắn dạng Gif
+Gửi File
+Upload hình Gif
+Upload file PDF
+Lấy danh sách nhãn
+Xóa nhãn
+Gỡ người quan tâm khỏi nhãn
+Gán nhãn người quan tâm
+Lấy thông tin người quan tâm
+©2023 Zalo for Developers

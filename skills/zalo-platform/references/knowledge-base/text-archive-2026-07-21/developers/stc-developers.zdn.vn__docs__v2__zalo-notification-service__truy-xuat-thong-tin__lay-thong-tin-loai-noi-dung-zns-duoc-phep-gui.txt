@@ -1,0 +1,84 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/truy-xuat-thong-tin/lay-thong-tin-loai-noi-dung-zns-duoc-phep-gui
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin loại nội dung ZNS được phép gửi | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Lấy thông tin trạng thái ZNS
+Lấy thông tin quota ZNS
+Lấy thông tin loại nội dung ZNS được phép gửi
+Lấy danh sách template
+Lấy thông tin chi tiết template ZNS
+Lấy dữ liệu mẫu của template
+Lấy thông tin đánh giá của khách hàng
+Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Truy xuất thông tinLấy thông tin loại nội dung ZNS được phép gửi
+Lấy thông tin loại nội dung ZNS được phép gửi
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+Nội dung gửi ZNS được chia thành những loại nội dung sau, với cấp độ tăng dần dựa trên tính chất phức tạp và rủi ro ảnh hưởng đến trải nghiệm của người nhận:
+
+Cấp độ	Loại nội dung ZNS	Code
+1	Giao dịch	TRANSACTION
+2	Chăm sóc khách hàng	CUSTOMER_CARE
+3	Hậu mãi	PROMOTION
+
+Dựa theo chất lượng gửi ZNS của OA, Zalo sẽ tự động điều chỉnh loại nội dung OA được gửi. Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi ZNS tại đây.
+
+HTTP request​
+URL: https://business.openapi.zalo.me/message/template-tag
+Method: GET
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" "https://business.openapi.zalo.me/message/template-tag"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Example respond​
+{
+    "data": [
+        "OTP",
+        "IN_TRANSACTION",
+            "POST_TRANSACTION"
+    ],
+    "error": 0,
+    "message": "success"
+}
+
+Cấu trúc respond​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+data	string array	Mảng thông tin các loại nội dung mà OA có thể gửi. Các giá trị được trả về theo thứ tự:
+TRANSACTION: Giao dịch
+CUSTOMER_CARE: Chăm sóc khách hàng
+PROMOTION: Hậu mãi
+Trước
+Lấy thông tin quota ZNS
+Kế tiếp
+Lấy danh sách template
+HTTP request
+Example request
+Tham số header
+Example respond
+Cấu trúc respond
+©2023 Zalo for Developers

@@ -1,0 +1,181 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/v2/gui-thong-bao-theo-mau-dinh-kem-danh-sach
+# FETCHED: 2026-07-21
+# TITLE: Gửi thông báo theo mẫu đính kèm danh sách | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Broadcast bài viết
+Các loại tin và định dạng được hỗ trợ
+Gửi lệnh phản hồi người dùng
+Gửi thông báo văn bản
+Gửi thông báo đính kèm file
+Gửi thông báo kèm sticker
+Gửi thông báo theo mẫu đính kèm ảnh
+Gửi thông báo theo mẫu đính kèm danh sách
+Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Lấy thông tin quota lệnh chủ động miễn phí
+Lấy thông tin quota lệnh phản hồi người dùng
+Thả biểu tượng cảm xúc vào tin nhắn
+Trả lời tin nhắn
+Lấy danh sách khách hàng quan tâm OA
+Lấy thông tin khách hàng quan tâm OA
+Cập nhật thông tin khách hàng quan tâm OA
+Lấy quota tin Tư vấn
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)Gửi thông báo theo mẫu đính kèm danh sách
+Gửi thông báo theo mẫu đính kèm danh sách
+
+Quyền cần có: Quyền gửi tin và thông báo qua OA
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/message
+Method: POST
+Content Type: application/json
+Response Type: text/json
+
+Example request​
+curl
+-X POST
+-H "Content-Type: application/json"
+-H 'access_token: <your_access_token>'
+-d '{ 
+  "recipient": {
+    "user_id": "2468458835296117922"
+  },
+  "message": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "list",
+        "elements": [
+          {
+            "title": "Official Account API",
+            "subtitle": "There Is No Limit To What You Can Accomplish Using Zalo",
+            "image_url": "https://stc-developers.zdn.vn/images/bg_1.jpg",
+            "default_action": {
+              "type": "oa.open.url",
+              "url": "https://developers.zalo.me/docs/api/official-account-api-147"
+            }
+          },
+          {
+            "title": "Article API",
+            "image_url": "https://stc-zaloprofile.zdn.vn/pc/v1/images/zalo_sharelogo.png",
+            "default_action": {
+              "type": "oa.open.url",
+              "url": "https://developers.zalo.me/docs/api/article-api-151"
+            }
+          },
+          {
+            "title": "Social API",
+            "image_url": "https://stc-zaloprofile.zdn.vn/pc/v1/images/zalo_sharelogo.png",
+            "default_action": {
+              "type": "oa.open.url",
+              "url": "https://developers.zalo.me/docs/api/social-api-4"
+            }
+          }
+        ]
+      }
+    }
+  }
+}' "https://openapi.zalo.me/v2.0/oa/message"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+recipient	object	yes	Thông tin người nhận
+message	object	yes	Nội dung cần gửi
+Cấu trúc thuộc tính recipient​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+user_id	string	yes	ID của người nhận (nhận được thông qua API truy xuất chi tiết người dùng, API truy xuất danh sách người dùng)
+Cấu trúc thuộc tính message​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+attachment	object	yes	Attachment cần gửi
+Cấu trúc thuộc tính message.attachment​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+type	string	yes	Loại attachment.
+
+Giá trị nhận vào bắt buộc:
+
+type = template
+
+payload	object	yes	Chứa payload của attachment muốn gửi
+Cấu trúc thuộc tính message.attachment.payload​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+template_type	string	yes	Loại template.
+
+Với template gửi thông báo theo mẫu đính kèm ảnh, giá trị nhận vào:
+
+template_type = list
+Tham khảo các template khác tại đây.
+elements	array	yes	OA API hỗ trợ gửi thông báo theo 2 dạng danh sách:
+List of elements: Tham khảo cấu trúc của element tại đây.
+List of button (chỉ hỗ trợ với phiên bản mobile): Tham khảo cấu trúc của button tại đây.
+Lưu ý:
+Cấu trúc element thay đổi tùy theo loại template. Với template danh sách, danh sách element bao gồm tối đa 5 phần tử.
+Kích thước hình ảnh tối ưu:
+Element chính: 500x320 pixel.
+Element phụ: 50 x 50 pixel.
+Example respond​
+{
+  "data": {
+    "message_id": "e6fa968f027",
+    "user_id": "2468458835296117922"
+  },
+  "error": 0,
+  "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+message_id	string	ID của thông báo
+user_id	string	ID của người nhận
+Trước
+Gửi thông báo theo mẫu đính kèm ảnh
+Kế tiếp
+Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Cấu trúc thuộc tính recipient
+Cấu trúc thuộc tính message
+Cấu trúc thuộc tính message.attachment
+Cấu trúc thuộc tính message.attachment.payload
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

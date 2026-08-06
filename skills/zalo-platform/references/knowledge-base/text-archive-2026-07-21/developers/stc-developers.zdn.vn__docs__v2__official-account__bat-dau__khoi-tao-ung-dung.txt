@@ -1,0 +1,55 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/bat-dau/khoi-tao-ung-dung
+# FETCHED: 2026-07-21
+# TITLE: Khởi tạo ứng dụng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Bắt đầuKhởi tạo ứng dụng
+Khởi tạo ứng dụng
+Tạo ứng dụng trên nền tảng Zalo (Zalo App)​
+
+Để sử dụng các chức năng thuộc hệ thống OpenAPI (OA, ZNS, Zalo Shop, Mini App...), bạn cần thực hiện tạo một ứng dụng trên nền tảng Zalo (Zalo App).
+
+Truy cập tại đây và đăng nhập bằng tài khoản Zalo của bạn. Điền các thông tin cần thiết để tạo và kích hoạt ứng dụng.
+
+Liên kết và sử dụng Zalo App cho Zalo OA OpenAPI​
+
+Để ứng dụng của bạn có thể liên kết và đại diện cho một hoặc nhiều OA (Official Account), vui lòng tham khảo thiết lập tại đây.
+
+Trước
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Kế tiếp
+Xác thực và ủy quyền cho Ứng dụng
+Tạo ứng dụng trên nền tảng Zalo (Zalo App)
+Liên kết và sử dụng Zalo App cho Zalo OA OpenAPI
+©2023 Zalo for Developers

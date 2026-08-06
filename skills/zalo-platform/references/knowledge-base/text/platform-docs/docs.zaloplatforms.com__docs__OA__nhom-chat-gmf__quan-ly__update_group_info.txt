@@ -1,0 +1,276 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/nhom-chat-gmf/quan-ly/update_group_info
+# FETCHED: 2026-08-06
+# TITLE: Cập nhật nhóm | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Điều kiện gửi tin nhắn nhóm
+Gửi tin nhắn nhóm dạng Text
+Gửi tin nhắn nhóm dạng File
+Gửi tin nhắn nhóm dạng Hình ảnh
+Gửi tin nhắn nhóm dạng Sticker
+Gửi tin nhắn Mention tới nhóm
+Quản lý nhóm
+Tạo nhóm mới
+Lấy thông tin nhóm
+Cập nhật nhóm
+Cập nhật dịch vụ cho Nhóm chat
+Mời tham gia nhóm
+Lấy danh sách thành viên chờ duyệt
+Đồng ý duyệt thành viên mới vào nhóm
+Từ chối duyệt thành viên mới vào nhóm
+Lấy danh sách thành viên nhóm
+Thêm phó nhóm
+Xóa phó nhóm
+Xóa thành viên khỏi nhóm
+OA Giải tán nhóm
+Lấy danh sách nhóm OA đang quản lý
+Kiểm tra hạn mức nhóm
+Lấy danh sách tin nhắn nhóm gần nhất
+Lấy thông tin tin nhắn trong một nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Cập nhật nhóm
+Lưu ý
+Ứng dụng cần được cấp quyền quản lý thông tin nhóm.
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/group/updateinfo
+Method: POST
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl --request POST 'https://openapi.zalo.me/v3.0/oa/group/updateinfo' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+"group_id": "f414c8f76fa586fbdfb4",
+"group_name": "Tư vấn nha khoa nhân viên",
+"group_avatar": "https://genk.mediacdn.vn/139269124445442048/2022/10/25/4311-1663948766-1666658898382-1666658898610182205404.png",
+"group_description": "Group tư vấn nha khoa cho các nhân viên",
+"lock_send_msg": true,
+"join_appr": true,
+"enable_msg_history": false,
+"enable_link_join": false
+}'
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+group_id
+string
+yes
+ID của nhóm
+group_name
+string
+optional
+Tên nhóm
+group_avatar
+string
+optional
+Avatar của nhóm
+group_description
+string
+optional
+Mô tả nhóm
+lock_send_msg
+boolean
+optional
+Cài đặt chức năng nhắn tin của các thành viên
+true: Khóa tính năng nhắn tin của các thành viên trong nhóm
+false: Mở khóa cho phép các thành viên trong nhóm nhắn tin
+join_appr
+boolean
+optional
+Cài đặt chế độ phê duyệt thành viên mới
+true: Thành viên mới phải được duyệt
+false: Không cần duyệt thành viên mới
+enable_msg_history
+boolean
+optional
+Cài đặt cho phép thành viên mới đọc tin nhắn gần nhất
+true: Cho phép thành viên mới đọc tin nhắn gần nhất
+false: Không cho phép thành viên mới đọc tin nhắn gần nhất
+enable_link_join
+boolean
+optional
+Cài đặt bật tắt tham gia nhóm bằng link
+true: Cho phép tham gia nhóm bằng link
+false: Không cho phép tham gia nhóm bằng link
+Example respond​
+{
+"data": {
+"group_info": {
+"group_id": "a57a91e562b78be9d2a6",
+"group_link": "https://zalo.me/g/zkfgeb641",
+"name": "b52",
+"group_description": "",
+"avatar": "http://s120.ava.grp.talk.zdn.vn/default",
+"status": "enabled",
+"total_member": 2,
+"max_member": "10",
+"auto_delete_date":"10/11/2024"
+},
+"asset_info":{
+"asset_type": "gmf10",
+"asset_id": "asset_id",
+"valid_through": "10/10/2024",
+"auto_renew": "true"
+},
+"group_setting": {
+"lock_send_msg": false,
+"join_appr": true,
+"enable_msg_history": true,
+"enable_link_join": true
+}
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Tham số
+Kiểu dữ liệu
+Mô tả
+group_info
+json object
+Các thông tin của nhóm chat
+asset_info
+json object
+Các thông tin của dịch vụ gắn với nhóm chat
+group_setting
+json object
+Các thông tin cài đặt trong nhóm chat
+Cấu trúc thuộc tính group_info​
+Tham số
+Kiểu dữ liệu
+Mô tả
+name
+string
+Tên nhóm
+avatar
+string
+Avatar của nhóm
+group_id
+string
+ID của nhóm
+group_link
+string
+Link tham gia của nhóm
+group_description
+string
+Mô tả nhóm
+status
+string
+Trạng thái nhóm
+enabled: OA có thể quản lý và gửi tin nhắn trong nhóm
+disabled: OA không thể quản lý và không thể gửi tin nhắn trong nhóm
+total_member
+integer
+Tổng số lượng thành viên trong nhóm
+max_member
+string
+Số lượng thành viên tối đa của nhóm
+auto_delete_date
+string
+Ngày nhóm chat tự động giải tán. Nhóm chat sẽ tự động giải tán sau 45 ngày không gia hạn
+Cấu trúc thuộc tính asset_info​
+Tham số
+Kiểu dữ liệu
+Mô tả
+asset_type
+string
+Loại sản phẩm
+gmf10: Sản phẩm dành cho Nhóm chat tối đa 10 thành viên
+gmf50: Sản phẩm dành cho Nhóm chat tối đa 50 thành viên
+gmf100: Sản phẩm dành cho Nhóm chat tối đa 100 thành viên
+asset_id
+string
+ID gói GMF, sử dụng để làm dịch vụ hoạt động của Nhóm
+valid_through
+string
+Ngày hết hạn của gói
+auto_renew
+string
+True: Có bật tự động gia hạn
+False: KHÔNG bật tự động gia hạn
+Cấu trúc thuộc tính group_setting​
+Tham số
+Kiểu dữ liệu
+Mô tả
+lock_send_msg
+boolean
+Cài đặt chức năng nhắn tin của các thành viên
+true: Khóa tính năng nhắn tin của các thành viên trong nhóm
+false: Mở khóa cho phép các thành viên trong nhóm nhắn tin
+join_appr
+boolean
+Cài đặt chế độ phê duyệt thành viên mới
+true: Thành viên mới phải được duyệt
+false: Không cần duyệt thành viên mới
+enable_msg_history
+boolean
+Cài đặt cho phép thành viên mới đọc tin nhắn gần nhất
+true: Cho phép thành viên mới đọc tin nhắn gần nhất
+false: Không cho phép thành viên mới đọc tin nhắn gần nhất
+enable_link_join
+boolean
+Cài đặt bật tắt tham gia nhóm bằng link
+true: Cho phép tham gia nhóm bằng link
+false: Không cho phép tham gia nhóm bằng link
+Trước
+Lấy thông tin nhóm
+Kế tiếp
+Cập nhật dịch vụ cho Nhóm chat
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính group_info
+Cấu trúc thuộc tính asset_info
+Cấu trúc thuộc tính group_setting
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

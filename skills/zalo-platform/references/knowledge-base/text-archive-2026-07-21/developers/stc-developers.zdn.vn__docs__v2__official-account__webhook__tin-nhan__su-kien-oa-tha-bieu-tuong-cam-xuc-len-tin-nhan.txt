@@ -1,0 +1,119 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/tin-nhan/su-kien-oa-tha-bieu-tuong-cam-xuc-len-tin-nhan
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện OA thả biểu tượng cảm xúc lên tin nhắn | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Sự kiện người dùng gửi tin nhắn
+Sự kiện người dùng click nút “Nhắn tin” trên Official Account
+Sự kiện người dùng thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện OA thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện Official Account gửi tin nhắn cho người dùng
+Sự kiện Official Account gửi tin nhắn cho người dùng ẩn danh
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Sự kiện người dùng nhận tin nhắn từ Official Account
+Nhóm chat - GMF
+Gọi thoại
+Extension
+Quản lý
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookTin nhắnSự kiện OA thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện OA thả biểu tượng cảm xúc lên tin nhắn
+LƯU Ý
+Quyền cần có: Sự kiện Official Account thả biểu tượng cảm xúc
+Sự kiện này chỉ được gửi về khi user nhận tin nhắn trên Zalo Mobile
+
+Khi OA thả biểu tượng cảm xúc vào tin nhắn, hệ thống Zalo sẽ gửi đến Webhook Url của Official Account một request HTTP như sau:
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+    "app_id": "4591324301967398637",
+    "event_name": "oa_reacted_message",
+    "sender": {
+        "id": "607812198688816074"
+    },
+    "recipient": {
+        "id": "186729651760683225"
+    },
+    "message": {
+        "msg_id": "789f573aecf8a9a4f0eb",
+        "react_icon": ":-h"
+    },
+    "timestamp": "1637119864504",
+    "user_id_by_app": "835572138790572528"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+app_id	String	Id của ứng dụng bên thứ 3
+sender	Json Object	Ví dụ:
+{
+    "id": "246845883529197922"
+}
+
+Trong đó:
+“id”: Id của Official Account thả biểu tượng cảm xúc
+
+recipient	Json Object	Ví dụ:
+{
+    "id": "388613280878808645"
+}
+
+Trong đó:
+“id”: Id của User/ Official Account nhận biểu tượng cảm xúc
+
+event_name	String	Giá trị là “oa_reacted_message”.
+message	Json Object	Ví dụ:
+{
+    "msg_id": "43b59c025aebfb5e6fa",
+    "react_icon": "/-strong"
+}
+
+
+timestamp	String	Thời điểm request được gửi, tính bằng milisecond
+user_id_by_app	String	Trường này chỉ có khi app_id và oa_id trên đang liên kết với nhau.
+
+Id này có thể sử dụng cho social_api
+Trước
+Sự kiện người dùng thả biểu tượng cảm xúc lên tin nhắn
+Kế tiếp
+Sự kiện Official Account gửi tin nhắn cho người dùng
+Ví dụ:
+Mô tả thuộc tính
+©2023 Zalo for Developers

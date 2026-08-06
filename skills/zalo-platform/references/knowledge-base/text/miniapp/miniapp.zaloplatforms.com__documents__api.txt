@@ -1,0 +1,364 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/api/
+# FETCHED: 2026-07-21
+# TITLE: Giới Thiệu | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+Z
+Zalo Platforms
+Tài liệu
+Cộng đồng
+Liên hệ
+Tìm kiếm tài liệu...
+K
+Hỏi AI
+Mini App Platform
+API
+Giới Thiệu
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Cập nhật lần cuối:
+15/6/2026
+
+Zalo Mini App API cung cấp các api để bạn tương tác với ứng dụng Zalo. Một số API yêu cầu bạn gửi xét duyệt trước khi được sử dụng.
+
+MẸO
+
+Với tài khoản là Admin của Ứng dụng, bạn có thể sử dụng toàn bộ các API trong quá trình phát triển ứng dụng mà không cần đợi xét duyệt.
+
+Cài Đặt​
+npm install zmp-sdk
+
+Events API​
+Tên	Mô tả	Note
+on	Thêm một hàm xử lý cho sự kiện. Khi sự kiện xảy ra, tất cả các hàm xử lý của sự kiện đó sẽ được gọi	
+once	Thêm hàm xử lý một lần cho sự kiện. Khi sự kiện xảy ra, hàm xử lý này sẽ bị xoá và sau đó thực thi	
+off	Xoá một hàm xử lý cụ thể trong mảng các hàm xử lý của sự kiện	
+removeAllListeners	Xoá tất cả hàm xử lý của sự kiện	
+onConfirmToExit	Dùng để lắng nghe sự kiện khi user nhấn đóng mini app	Ngừng hỗ trợ
+offConfirmToExit	Hủy nghe sự kiện user nhấn đóng mini app	Ngừng hỗ trợ
+onNetworkStatusChange	Dùng để lắng nghe sự kiện thay đổi mạng	
+Events Name​
+Tên	Mô tả
+AppPaused	Sự kiện này xảy ra khi Zalo Mini App chuyển từ foreground sang background
+AppResumed	Sự kiện này xảy ra khi Zalo Mini App chuyển từ background sang foreground
+NetworkChanged	Sự kiện này xảy ra khi phát hiện thay đổi kết nối mạng
+OnDataCallback	Sự kiện này xảy ra khi nhận được data từ Mini App được mở trước đó
+OpenApp	Sự kiện này xảy ra khi Zalo Mini App được mở lại từ chế độ nền (chưa tắt hẳn)
+User​
+Authorization​
+Tên	Mô tả
+authorize	Cấp quyền sử dụng API
+User Information​
+Tên	Mô tả
+getUserID	Lấy ID của người dùng
+getUserInfo	Lấy thông tin của người dùng
+getAccessToken	Lấy token dùng để định danh người dùng
+getPhoneNumber	Lấy thông tin số điện thoại của người dùng
+User Settings​
+Tên	Mô tả
+getSetting	Lấy thông tin cài đặt hiện tại của người dùng.
+Basic​
+Tên	Mô tả
+getAppInfo	Lấy thông tin của Zalo Mini App
+getSystemInfo	Lấy thông tin của Zalo App và thiết bị
+getDeviceIdAsync	Lấy chuỗi định danh duy nhất cho từng thiết bị.
+getContextAsync	Lấy thông tin về ngữ cảnh mà Zalo Mini App được mở
+Routing​
+Tên	Mô tả
+closeApp	Đóng mini app
+openMiniApp	Mở mini app
+openWebview	Mở webview
+sendDataToPreviousMiniApp	Gửi dữ liệu cho mini app trước đó
+getRouteParams	Lấy các param được gửi đến trang hiện tại của mini app
+Storage​
+Tên	Mô tả
+setItem	Lưu trữ dữ liệu xuống bộ đệm theo cơ chế đồng bộ. Dữ liệu sẽ được lưu ở thiết bị của người dùng.
+getItem	Lấy dữ liệu đã lưu ở bộ đệm theo cơ chế đồng bộ
+removeItem	Xóa dữ liệu đã lưu ở bộ đệm theo cơ chế đồng bộ
+clear	Xóa tất cả dữ liệu đã lưu ở bộ đệm theo cơ chế đồng bộ
+getStorageInfo	Lấy thông tin bộ đệm theo cơ chế đồng bộ
+Local File Storage​
+Tên	Mô tả
+Tổng quan về local file	Giới thiệu tổng quan về hệ thống local file của mini app.
+isSupportLFS	Kiểm tra xem LFS có được hỗ trợ không.
+getFileInfo	Lấy thông tin của local file (local cache hoặc local data).
+getSavedFileList	Lấy thông tin tất cả các local file đã lưu của mini app.
+removeSavedFile	Xoá local file đã lưu.
+saveFile	Lưu file từ đường dẫn tạm thời về vùng nhớ cục bộ (local data)
+UI​
+Feedback​
+Tên	Mô tả
+showToast	Hiển thị toast và tự ẩn sau 1 khoảng thời gian
+closeLoading	Tắt màn hình Splash Loading
+View​
+Tên	Mô tả
+configAppView	Ẩn/ hiện, tuỳ chỉnh màu sắc, kiểu hiển thị của status bar, action bar, bottom navigation (Android) / safe area inset bottom (iOS)
+setNavigationBarColor	Đặt lại màu thanh điều hướng của trang hiện tại
+setNavigationBarLeftButton	Đặt lại nút bên trái (Home, Back) trên thanh điều hướng của trang hiện tại
+setNavigationBarTitle	Đặt lại tiêu đề trên thanh điều hướng của trang hiện tại
+Keyboard​
+Tên	Mô tả
+hideKeyboard	Ẩn bàn phím
+Location​
+Tên	Mô tả
+getLocation	Lấy vị trí hiện tại của người dùng
+Media​
+Camera​
+Tên	Mô tả
+createCameraContext	Tạo đối tượng quản lý streaming
+start	Bắt đầu streaming từ camera
+stop	Kết thúc streaming từ camera
+pause	Tạm dừng streaming
+resume	Tiếp tục lại streaming
+isUsing	Kiểm tra trạng thái streaming
+updateMediaConstraints	Update cấu hình streaming
+takePhoto	Chụp ảnh từ camera
+flip	Chuyển camera trước/sau
+setMirror	Bật/tắt chế độ gương cho ảnh.
+getCameraList	Lấy danh sách camera đang active trên điện thoại
+getSelectedDeviceId	Lấy deviceId của camera đang active
+setDeviceId	Chuyển camera active bằng deviceId
+on	Lắng nghe các sự kiện CameraEvents
+off	Ngừng lắng nghe sự kiện CameraEvents
+checkZaloCameraPermission	Cho phép ứng dụng kiểm tra quyền truy cập camera của Zalo
+requestCameraPermission	Cho phép ứng dụng yêu cầu device cấp quyền truy cập camera
+Media​
+Tên	Mô tả
+chooseImage	Chọn hình ảnh từ album hoặc camera
+openMediaPicker	Mở cửa sổ chọn media (camera, ảnh, file, video) từ thiết bị
+saveImageToGallery	Lưu ảnh vào thư viện media của thiết bị
+saveVideoToGallery	Lưu video vào thư viện media của thiết bị
+downloadFile	Dowload file về máy
+openDocument	Mở tài liệu PDF từ URL
+Device​
+Network​
+Tên	Mô tả
+getNetworkType	Lấy thông tin kết nối mạng
+downloadFile	Dowload file về máy
+Contact​
+Tên	Mô tả
+openPhone	Mở ứng dụng gọi điện thoại của thiết bị
+openSMS	Mở ứng dụng tin nhắn của thiết bị
+Screen​
+Tên	Mô tả
+keepScreen	Giữ màn hình luôn bật
+Vibrate​
+Tên	Mô tả
+vibrate	Kích hoạt chế độ rung của thiết bị
+Biometric Authentication​
+Tên	Mô tả
+openBioAuthentication	Mở giao diện đăng nhập sinh trắc học
+checkStateBioAuthentication	Kiểm tra thông tin xác thực sinh trắc học
+Permission​
+Tên	Mô tả
+requestSendNotification	Yêu cầu người dùng cho phép ứng dụng gửi thông báo qua OA Mini App
+openPermissionSetting	Mở cửa sổ cài đặt quyền mà người dùng đã cấp cho ứng dụng
+Zalo​
+Tên	Mô tả
+openProfile	Mở màn hình thông tin của người dùng hoặc Official Account
+openProfilePicker	Mở cửa sổ chọn bạn bè trong Zalo
+openChat	Mở cửa sổ nhắn tin với người dùng hoặc Official Account
+followOA	Theo dõi Official Account
+unfollowOA	Bỏ theo dõi Official Account
+openShareSheet	Mở cửa sổ chia sẻ trong Zalo
+openPostFeed	Mở cửa sổ chia sẻ lên nhật ký trong Zalo
+createShortcut	Tạo shorcut của mini app trên màn hình thiết bị
+viewOAQr	Hiển thị QR code của Official Account
+requestUpdateZalo	Chủ động điều hướng người dùng tới AppStore/CH Play để cập nhật phiên bản Zalo mới nhất
+minimizeApp	Thu nhỏ mini app
+favoriteApp	Thêm ứng dụng vào danh sách ưa thích ở Mini Store
+addRating	Mở cửa sổ đánh giá ứng dụng
+Advertising​
+Tên	Mô tả
+setupAd	Cấu hình các thông tin dùng để chạy quảng cáo.
+loadAd	API dùng để tải quảng cáo
+displayAd	API dùng để hiển thị quảng cáo sau khi tải xong
+refreshAd	API dùng để xóa quảng cáo ở phiên hiện tại
+Widgets​
+Tên	Mô tả
+showOAWidget	Hiển thị Widget Quan tâm OA
+showFunctionButtonWidget	Hiển thị Widget Function Button
+TRƯỚC
+5. Cache dữ liệu
+KẾ TIẾP
+Events
+Cài Đặt
+Events API
+Events Name
+User
+Authorization
+User Information
+User Settings
+Basic
+Routing
+Storage
+Local File Storage
+UI
+Feedback
+View
+Keyboard
+Location
+Media
+Camera
+Media
+Device
+Network
+Contact
+Screen
+Vibrate
+Biometric Authentication
+Permission
+Zalo
+Advertising
+Widgets
+Z
+Zalo Platforms
+
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+
+Sản phẩm
+Mini App Platform
+Zalo Business Solution
+Open APIs
+Social
+Transfer Service
+Zalo Bot
+Tài nguyên
+Tài liệu
+API Reference
+SDKs & Tools
+Changelog
+Hỗ trợ
+Liên hệ với chúng tôi
+
+© 2026 Zalo Platforms. All rights reserved.
+
+Build: 2026-07-21 15:14:46 +07 · ea1a6218

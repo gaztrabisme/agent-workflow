@@ -1,0 +1,125 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/ngung-ho-tro/lay-thong-tin-chi-tiet-template-v1
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin chi tiết template [v1] | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Thông báo thay đổi quota của mẫu tin ZNS rủi ro
+Lấy thông tin chi tiết template [v1]
+Ngừng hỗ trợLấy thông tin chi tiết template [v1]
+Lấy thông tin chi tiết template [v1]
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+HTTP request​
+URL: https://business.openapi.zalo.me/template/info
+Method: GET
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json"
+"https://business.openapi.zalo.me/template/info?template_id=12345"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+template_id	string	yes	ID của template cần lấy thông tin.
+Example respond​
+{
+    "error": 0,
+    "message": "Success",
+    "data": {
+        "templateId": "12345",
+        "templateName": "Test tạo mẫu tin từ trang admin - dạng bảng",
+        "status": "ENABLE",
+        "listParams": [
+            {
+                "name": "payment_link",
+                "require": true,
+                "type": "STRING",
+                "maxLength": 30,
+                "minLength": 0,
+                "acceptNull": false
+            }
+        ],
+        "timeout": 7200000,
+        "previewUrl": "https://account.zalo.cloud/znspreview/c1t6Wk43sxXTiLPyC__hXQ==",
+        "templateQuality": "HIGH",
+        "templateTag": "IN_TRANSACTION",
+        "price": "800.0",
+        "applyTemplateQuota": true,
+        "templateDailyQuota": "8000",
+        "templateRemainingQuota": "8000"
+    }
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+templateId	String	ID của template.
+templateName	string	Tên của template.
+status	string	Trạng thái template.
+listParams	object array	Danh sách các thuộc tính của template.
+timeout	long	Thời gian timeout của template.
+previewUrl	string	Đường dẫn đến bản xem trước của template.
+templateQuality	string	Chất lượng gửi tin hiện tại của template.
+
+Các giá trị trả về:
+
+HIGH
+MEDIUM
+LOW
+UNDEFINED
+Lưu ý: Trường hợp chất lượng gửi tin hiện tại của template là Low thì template có khả năng bị khóa. Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi ZNS tại đây.
+templateTag	string	Loại nội dung của template. Các giá trị trả về:
+OTP - OTP
+IN_TRANSACTION - Xác nhận/Cập nhật giao dịch
+POST_TRANSACTION - Hỗ trợ dịch vụ liên quan sau giao dịch
+ACCOUNT_UPDATE - Cập nhật thông tin tài khoản
+GENERAL_UPDATE - Thay đổi thông tin dịch vụ
+FOLLOW_UP - Thông báo ưu đãi đến khách hàng cũ
+
+price	string	Đơn giá của template.
+applyTemplateQuota	boolean	Trường thông tin cho biết template có áp dụng hạn mức Daily Quota hay không.
+Chú thích: Hạn mức Daily Quota chỉ áp dụng cho một số template đặc biệt mang tính thử nghiệm và đã trực tiếp được đăng ký với Zalo. Các template bình thường sẽ không bị ảnh hưởng bởi giới hạn này. Để biết thêm chi tiết, vui lòng liên hệ bộ phận hỗ trợ.
+templateDailyQuota	string	Số tin ZNS thuộc template này OA được gửi trong ngày.
+Lưu ý: Trường thông tin này chỉ được trả về khi applyTemplateQuota = true.
+templateRemainingQuota	string	Số tin ZNS thuộc template này OA được gửi trong ngày còn lại.
+Lưu ý: Trường thông tin này chỉ được trả về khi applyTemplateQuota = true.
+Cấu trúc thuộc tính data.listParams​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+name	string	Tên thuộc tính.
+require	boolean	Tính bắt buộc của thuộc tính.
+type	string	Định dạng validate của thuộc tính.
+maxLength	int	Số kí tự tối đa được truyền vào thuộc tính.
+minLength	int	Số kí tự tối thiểu được truyền vào thuộc tính.
+acceptNull	boolean	Thông tin cho biết thuộc tính có thể nhận giá trị rỗng hay không.
+Trước
+Thông báo thay đổi quota của mẫu tin ZNS rủi ro
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính data.listParams
+©2023 Zalo for Developers

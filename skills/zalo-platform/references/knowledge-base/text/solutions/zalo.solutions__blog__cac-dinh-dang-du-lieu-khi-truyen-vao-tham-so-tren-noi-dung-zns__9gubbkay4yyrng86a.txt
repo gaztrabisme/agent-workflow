@@ -1,0 +1,203 @@
+# SOURCE: https://zalo.solutions/blog/cac-dinh-dang-du-lieu-khi-truyen-vao-tham-so-tren-noi-dung-zns/9gubbkay4yyrng86a
+# FETCHED: 2026-08-06
+# TITLE: Các định dạng dữ liệu khi truyền vào tham số trên nội dung mẫu tin nhắn ZBS | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Các định dạng dữ liệu khi truyền vào tham số trên nội dung mẫu tin nhắn ZBS
+Các định dạng dữ liệu khi truyền vào tham số trên nội dung mẫu tin nhắn ZBS
+6 tháng 07, 2026 09:39
+Dữ liệu khi truyền vào tham số (param) được hệ thống cài đặt với một số định dạng nhất định. Trong bài viết này, đội ngũ hỗ trợ khách hàng Zalo Business Solutions sẽ liệt kê các dạng khi truyền vào tham số và cách hiển thị của trên mẫu tin nhắn ZBS gửi đến người nhận nhằm mục đích giúp đối tác hiểu rõ hơn về cách định dạng dữ liệu trước khi truyền vào tham số cũng như các định dạng sẽ hiển thị của mẫu tin nhắn ZBS khi đến máy người dùng (người nhận mẫu tin nhắn ZBS).
+Quý khách có thể xem thêm Tham số (Param) là gì? Thế nào là một tham số đúng quy chuẩn?
+Hướng dẫn cài đặt kỹ thuật tham số
+Trong quá trình tạo mẫu tin nhắn ZBS, tại bước “Tạo nội dung” có phần cài đặt kĩ thuật cho tham số.
+Mỗi tham số sẽ có các cài đặt kĩ thuật khác nhau, tùy vào nhu cầu của doanh nghiệp sẽ có cách cài đặt khác nhau. Tuy nhiên, người dùng cần lưu ý chọn đúng cài đặt kĩ thuật cho từng tham số và truyền đúng định dạng, độ dài ký tự vào param.
+Ví dụ:
+Doanh nghiệp chọn tham số <customer_name> với cài kỹ thuật là Tên khách hàng (30) thì độ dài kí tự tối đa mà khách hàng truyền vào là 30 kí tự.
+Đối với các tham số liên quan đến thời gian (ngày/tháng/năm hoặc giờ:phút:giây), doanh nghiệp nên chọn đúng cài đặt kỹ thuật là thời gian.
+Tương ứng với từng tham số sẽ có các cài đặt kỹ thuật khác nhau
+Các định dạng của tham số khi tạo mẫu tin nhắn ZBS
+1. Tham số trong nội dung chính
+Dữ liệu khi truyền vào tham số được hệ thống cài đặt với một số định dạng nhất định. Đối với các tham số được truyền vào ở nội dung chính của template, không cần thực hiện mã hóa, mà có thể giữ nguyên dữ liệu gốc khi truyền vào API để gửi mẫu tin nhắn ZBS.
+#
+Nhãn tham số
+Tên tham số
+Cài đặt kỹ thuật
+Giới hạn ký tự
+Data type
+Dữ liệu truyền vào
+1
+Tên khách hàng
+customer_name
+Tên khách hàng (30)
+30
+string
+Nguyễn Văn A
+2
+Điện thoại
+phone_number
+Số điện thoại (15)
+15
+string
+096987453x
+3
+Địa chỉ
+address
+Địa chỉ (80)
+80
+string
+104 Tạ Quang Bửu
+4
+Mã số
+product_code
+Mã số (30)
+30
+string
+TP-34512
+5
+Nhãn tùy chỉnh
+custom_field
+Nhãn tùy chỉnh (30)
+30
+string
+Mẫu nội dung tuỳ chỉnh
+6
+Trạng thái giao dịch
+transaction_status
+Trạng thái giao dịch (30)
+30
+string
+Giao dịch thành công
+7
+Thông tin liên hệ
+contact
+Thông tin liên hệ (50)
+50
+string
+096987453x
+8
+Giới tính / Danh xưng
+personal_title
+Giới tính / Danh xưng (5)
+5
+string
+Chị
+9
+Tên sản phẩm, thương hiệu
+product_name
+Tên sản phẩm / Thương hiệu (100)
+100
+string
+Bàn phím Razer
+10
+Số lượng / Số tiền
+amount_vn_standard
+Số lượng / Số tiền (20)
+20
+number
+Nếu truyền định dạng dữ liệu số nguyên: 1000
+Dữ liệu hiển thị: 1.000
+Nếu truyền định dạng dữ liệu số thập phân: 0.3
+Dữ liệu hiển thị: 0,3
+11
+Thời gian
+time
+Thời gian (20)
+20
+datetime
+hh:mm:ss,
+hh:mm,
+hh:mm:ss dd/mm/yyyy,
+hh:mm dd/mm/yyyy,
+dd/mm/yyyy,
+mm/yyyy
+12
+Bank Transfer Note
+bank_transfer_note
+Bank Transfer Note (90)
+90
+Bank Transfer Note
+Không cho phép các ký tự đặc biệt @[]^_!"•#$%¥&'()*+,€-./:;{|<}=~>?
+Xem thêm chi tiết các định dạng dữ liệu tại đây.
+2. Tham số tại nút thao tác
+*Lưu ý: Doanh nghiệp nên mã hóa các tham số truyền vào ở đường liên kết CTA, không mã hóa toàn bộ đường liên kết sẽ ảnh hưởng đến chất lượng template và gây ra những lỗi khác.
+CTA Đường dẫn liên kết
+Cần đảm bảo tất cả các yếu tố sau:
+Nên mã hóa các dữ liệu truyền vào tham số ở đường liên kết CTA, không mã hóa toàn bộ đường liên kết sẽ ảnh hưởng đến chất lượng template và gây ra những lỗi khác (không bắt buộc)
+Các tham số trong CTA phải có tên khác với các tham số đã được định nghĩa trong phần nội dung chính & tiêu đề của Template.
+Việc mã hóa dữ liệu truyền vào tham số sẽ giúp Zalo giải mã các tham số một cách chính xác và hoàn chỉnh liên kết mà Doanh nghiệp đã sử dụng để tạo mẫu ZBS.
+VD: Dữ liệu cần truyền vào tham số tại nút thao là “Nguyễn Văn A”, dữ liệu truyền vào cần được mã hóa trước theo đúng chuẩn UTF-8 như sau:
+#
+Nhãn tham số
+Tên tham số
+Cài đặt kỹ thuật
+Data type
+Dữ liệu truyền vào
+Dữ liệu hiển thị
+1
+URL
+customer_name
+URL (200)
+string
+Nguy%E1%BB%85n+V%C4%83n+A
+Giữ nguyên
+Sau khi định dạng các tham số, Liên kết (URL) truyền vào CTA sẽ có dạng là:
+https://example.com/param?customer_name=<param1>&URL=<param2>
+Xem chi tiết hướng dẫn truyền tham số vào link CTA tại đây
+Các định dạng dữ liệu khác
+Dành cho các KH có templates được tạo qua yêu cầu đặc biệt.
+#
+Data type
+Dữ liệu truyền vào
+1
+Number
+Cho phép ký tự số
+Cho phép số dương, số âm và số thập phân (ngăn cách phần nguyên và phần thập phân bởi dấu ".")
+123
+100000
+-100
+-100.2
+2
+DateTime
+Các format cho phép:
+hh:mm:ss,
+hh:mm,
+hh:mm:ss dd/mm/yyyy,
+hh:mm dd/mm/yyyy,
+dd/mm/yyyy,
+mm/yyyy
+3
+Currency
+Chỉ cho phép các ký tự số 0 → 9
+Chỉ cho phép số dượng
+4
+QR code
+Cho phép các ký tự trong bảng mã ascii:
+Chữ cái
+Số
+Các ký tự đặc biệt: @, #, $,%, &, *, +, -,...
+5
+Bank Transfer Note
+Không cho phép truyền các ký tự đặc biệt trên bàn phím di động, bao gồm: @[]^_!"•#$%¥&'()*+,€-./:;{|<}=~>?
+6
+BIN Code
+Mã 6 số theo bảng BIN Code tại đây.
+Hướng dẫn xử lý mã lỗi liên quan thường gặp
+Xem thêm chi tiết và hướng dẫn xử lý các mã lỗi tại đây
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24 giờ làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

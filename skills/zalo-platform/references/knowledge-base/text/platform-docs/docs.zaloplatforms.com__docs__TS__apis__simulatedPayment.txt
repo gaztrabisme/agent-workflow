@@ -1,0 +1,113 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/TS/apis/simulatedPayment
+# FETCHED: 2026-08-06
+# TITLE: Giả lập thanh toán | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Cấu hình API
+API Reference
+Khởi tạo giao dịch
+Giả lập thanh toán
+Truy vấn trạng thái giao dịch
+Webhook nhận kết quả thanh toán
+Bảng mã lỗi
+Trên trang này
+Giả lập thanh toán
+API cho phép Merchant Server giả lập việc thanh toán đơn hàng trong môi trường sandbox.
+URL: https://api-transfer.zaloplatforms.com/sandbox/v1/simulate/pay
+Method: POST
+Response Type: application/json
+Parameters​
+Trường
+Kiểu dữ liệu
+Bắt buộc
+Mô tả
+Yêu cầu
+orderId
+String
+true
+ID của đơn hàng cần thành toán
+app_id
+String
+true
+ID ứng dụng merchant đăng ký với Transfer Service
+Phải là app_id đã đăng ký với Transfer Service
+timestamp
+Long
+true
+Thời điểm tạo request (timestamp)
+Dùng để validate request
+signature
+String
+true
+Thông tin xác thực request
+Chữ ký dùng để xác thực request. Xem tài liệu
+Sample request​
+{
+"orderId": "30e634401005f95ba014",
+"app_id": "0752a0528b1762493b06",
+"timestamp": 1764039951659,
+"signature": "xxxx"
+}
+Sample response​
+{
+"error_code": 0,
+"error_message": "Thành công",
+"data": {}
+}
+Error codes​
+Error code
+Error message
+Ghi chú
+-105
+Invalid signature
+Lỗi chữ ký xác thực request
+-501
+Invalid application id
+Application id không hợp lệ
+-506
+Invalid application env
+Môi trường application không hợp lệ
+-510
+Application not exist
+Application không tồn tại
+-512
+Invalid application status
+Trạng thái application không hợp lệ
+-101
+Exception
+Lỗi ngoại lệ không xác định
+-1
+Failed
+Thanh toán thất bại
+Trước
+Khởi tạo giao dịch
+Kế tiếp
+Truy vấn trạng thái giao dịch
+Parameters
+Sample request
+Sample response
+Error codes
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

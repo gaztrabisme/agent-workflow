@@ -1,0 +1,156 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/form/OTP
+# FETCHED: 2026-08-06
+# TITLE: OTP | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+OTP
+Cập nhật lần cuối:5/8/2026
+import { Input } from "zmp-ui";
+const { OTP } = Input;
+Dùng để nhập mã OTP.
+Ví dụ​
+Bảng thuộc tính​
+InputProps​
+Property
+Type
+Required
+Description
+value
+InputHTMLAttributes['value']
+No
+Giá trị của input.
+Cần được sử dụng cùng với `onChange` để cập nhật lại giá trị.
+onChange
+InputHTMLAttributes['onChange']
+No
+Callback được gọi khi giá trị của input thay đổi. Cần phải cập nhật lại giá trị của `value` nếu được truyền vào.
+type
+InputType
+No
+Loại input.
+status
+InputStatus
+No
+Trạng thái hợp lệ của input. Nếu là `error`, input sẽ có màu cảnh báo kèm theo `errorText`, ngược lại input sẽ có màu trung hoà kèm theo `helperText`.
+onPressEnter
+KeyboardEventHandler
+No
+Callback được gọi khi người dùng nhấn Enter hoặc xuống dòng trong input.
+size
+InputSize
+No
+Kích thước của input. Mang một trong các giá trị `small`, `medium` hoặc `large`. (default: 'medium')
+OTPProps​
+Property
+Type
+Required
+Description
+value
+string
+No
+Giá trị của OTP. Cần được sử dụng cùng với `onChange` để cập nhật lại giá trị.
+defaultValue
+string
+No
+Giá trị mặc định của OTP. Thay đổi giá trị của `defaultValue` khi component đã được render sẽ không có tác dụng.
+otpLength
+number
+No
+Độ dài của OTP, cũng đồng thời là số lượng ô nhập mã OTP. Mặc định là 4 ô. (default: 4)
+show
+boolean
+No
+Hiển thị hoặc che đi mã OTP được nhập. Mặc định, mã OTP sẽ được hiển thị dưới dạng các dấu hoa thị (*). (default: false)
+Trước
+TextArea
+Kế tiếp
+Select
+Ví dụ
+Bảng thuộc tính
+InputProps
+OTPProps
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,92 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/gui-tin-template-qua-sdt/webhook-gui-tin-qua-sdt/su-kien-nguoi-dung-nhan-tin-qua-sdt
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện người dùng nhận tin qua SĐT | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Sự kiện thay đổi về hạn mức gửi tin qua SĐT
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Gửi tin Template qua SĐTWebhook gửi tin qua SĐTSự kiện người dùng nhận tin qua SĐT
+Sự kiện người dùng nhận tin qua SĐT
+
+Khi Official Account gửi tin nhắn cho người dùng và tin nhắn đã đến thiết bị người dùng, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau
+
+LƯU Ý
+
+Quyền cần có: Nhận sự kiện gửi tin qua SĐT
+
+LƯU Ý
+
+Thời điểm user nhận tin nhắn là giá trị của trường delivery_time, không phải thời điểm webhook nhận event hay giá trị của trường timestamp
+
+URL: webhook URL của ứng dụng
+Method: POST
+Content Type: application/json
+Header X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Header X-ZEvent-Server: ZNS
+Example request​
+{
+  "sender": {
+    "id": "2893352839501541173"
+  },
+  "recipient": {
+    "id": "84123456789"
+  },
+  "event_name": "user_received_message",
+  "message": {
+    "delivery_time": "1602960467432",
+    "msg_id": "15a0cc0bbb13bd4ce403",
+    "tracking_id": "tracking_id"
+  },
+  "app_id": "2074138120372622546",
+  "timestamp": "1602560967477"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+sender.id	string	ID của Official Account gửi tin
+recipient.id	string	Số điện thoại người dùng nhận tin
+
+Lưu ý: Số điện thoại sẽ có dạng mã hóa SHA-256 nếu đối tác gửi tin qua SĐT sử dụng hash phone.
+event_name	string	Tên sự kiện
+
+Giá trị nhận về: user_received_message
+message.delivery_time	string	Thời gian thiết bị của người dùng nhận được tin qua SĐT
+message.msg_id	string	ID của tin qua SĐT
+message.tracking_id	string	Mã số đánh dấu lần gọi API của đối tác, do đối tác định nghĩa.
+app_id	string	ID của ứng dụng gửi tin (ứng dụng mà OA đã cấp quyền)
+timestamp	string	Thời điểm gửi sự kiện
+Trước
+Sự kiện journey được tính phí
+Kế tiếp
+Quy định gửi tin qua UID
+Example request
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

@@ -1,0 +1,72 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/devtools/ext/deploy
+# FETCHED: 2026-08-06
+# TITLE: Xuất bản | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Cấu Hình Zalo Mini App
+Zalo Mini App Extension
+Cài đặt
+Tạo dự án
+Khởi động
+Xuất bản
+Zalo Mini App CLI
+Cài đặt
+Đăng nhập
+Tạo dự án
+Khởi động
+Xuất bản
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Xuất bản
+Cập nhật lần cuối:5/8/2026
+Đăng nhập​
+Để có thể đóng gói và xuất bản ứng dụng Zalo Mini App, trước hết bạn cần phải:
+Liên kết với một Zalo Mini App ID hợp lệ. Hướng dẫn cách liên kết Zalo Mini App ID, bạn có thể xem ở phần Tạo dự án.
+Xác thực quyền đối với Zalo Mini App ID đó. Bạn chỉ cần nhấn vào nút Đăng nhập, sử dụng ứng dụng Zalo đã đăng nhập với một tài khoản của Admin hoặc Developer của Mini App, và scan mã QR code được hiện trên giao diện đăng nhập của Extension.
+Xuất bản​
+Để có thể xuất bản (deploy) ứng dụng lên nền tảng Zalo Mini App, bạn có thể sử dụng hộp thoại deploy (A) và cung cấp các thông tin sau:
+Loại phiên bản:
+Development: không hiển thị trên mục Quản lý phiên bản của mini app và sẽ bị ghi đè bởi bản phát triển mới mỗi khi deploy. Điều này tiện lợi khi bạn muốn kiểm tra nhanh trên Zalo khi ứng dụng vẫn đang được phát triển.
+Testing: tất cả các phiên bản kiểm thử đều được đánh số và lưu trữ trên mục Quản lý phiên bản. Bạn có thể gửi phiên bản kiểm thử để xem xét và phát hành phiên bản đã được xem xét để người dùng Zalo có thể sử dụng.
+Mô tả phiên bản (đối với loại phiên bản Testing): Mô tả phiên bản này có thể giúp bạn phân biệt được nhanh các phiên bản với nhau trong danh sách phiên bản (C).
+Đối với phiên bản Testing, bạn cần cung cấp mô tả cho nó. Tên phiên bản nên phản ánh chính xác những thay đổi quan trọng của phiên bản này so với phiên bản trước, từ đó bạn có thể dễ dàng quay trở lại phiên bản trước đó khi cần thiết.:
+Nhấn nút Deploy và đợi đến khi quá trình đóng gói (build) và xuất bản (deploy) hoàn tất.
+Lịch sử phiên bản​
+Sau khi quá trình đóng gói và xuất bản hoàn tất, bạn sẽ nhận được báo cáo Deploy Thành Công (2) có chứa entry point để mở Mini App (dưới dạng QR Code và Deep Link). Ngoài ra, bạn cũng có thể xem lại tất cả các phiên bản đã được đóng gói và xuất bản trong quá khứ bằng Danh sách Lịch Sử Phiên Bản (3).
+Trước
+Khởi động
+Kế tiếp
+Cài đặt
+Đăng nhập
+Xuất bản
+Lịch sử phiên bản
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

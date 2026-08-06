@@ -1,0 +1,207 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/dotnet-sdk/tai-lieu/official-account-api-v3
+# FETCHED: 2026-07-21
+# TITLE: Official Account API V3 | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Dotnet SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Social API
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tích hợpOfficial Account API V3
+Official Account API V3
+
+Thông tin chi tiết về các API vui lòng tham khảo tài liệu Official Account API. Hướng dẫn gọi Official Account API sử dụng DotNet SDK.
+
+Khai báo sử dụng Zalo DotNet SDK
+
+using ZaloDotNetSDK;
+
+
+Khởi tạo ZaloClient
+
+ZaloClient client = new ZaloClient(access_token);
+
+
+Gửi tin tư vấn dạng văn bản
+
+JObject jObject = client.sendTextMessageToUserIdV3(user_id, "text_message");
+
+
+Gửi tin tư vấn đính kèm hình ảnh
+
+JObject jObject = client.sendImageMessageToUserIdByUrlV3(user_id, "text_message", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+
+
+Gửi tin Tư vấn theo mẫu yêu cầu thông tin người dùng
+
+JObject jObject = client.sendRequestUserProfileToUserIdV3(user_id, "Official Account", "Đang yêu cầu thông tin từ bạn", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+
+
+Gửi tin Tư vấn đính kèm file
+
+JObject jObject = client.sendFileToUserIdV3(user_id, "attachment_id");
+
+
+Gửi tin Tư vấn trích dẫn
+
+JObject jObject = client.sendQuoteMessageToUserIdV3(user_id, "text_messate", "quote_message_id");
+
+
+Gửi tin Tư vấn kèm Sticker
+
+JObject jObject = client.sendStickerMessageToUserIdV3(user_id, "sticker_id");
+
+
+Gửi tin Giao dịch
+
+List<ElementV3> elements = new List<ElementV3>();
+BannerElementV3 bannerElement = new BannerElementV3("https://stc-developers.zdn.vn/zalo.png", "");
+HeaderElementV3 headerElementV3 = new HeaderElementV3("title", ElementV3Align.CENTER);
+TextElementV3 textElementV3 = new TextElementV3("subtitle", ElementV3Align.LEFT);
+
+List<ElementV3TableItem> tableItems = new List<ElementV3TableItem>();
+ElementV3TableItem tableItem1 = new ElementV3TableItem("Tên khách hàng", "value1", ElementV3TableItemStyle.GREEN);
+ElementV3TableItem tableItem2 = new ElementV3TableItem("key2", "value2", ElementV3TableItemStyle.BLUE);
+ElementV3TableItem tableItem3 = new ElementV3TableItem("key3", "value3", ElementV3TableItemStyle.RED);
+ElementV3TableItem tableItem4 = new ElementV3TableItem("key4", "value4", ElementV3TableItemStyle.GREY);
+ElementV3TableItem tableItem5 = new ElementV3TableItem("key5", "value5", ElementV3TableItemStyle.NONE);
+tableItems.Add(tableItem1);
+tableItems.Add(tableItem2);
+tableItems.Add(tableItem3);
+tableItems.Add(tableItem4);
+tableItems.Add(tableItem5);
+TableElementV3 tableElement = new TableElementV3(tableItems);
+
+elements.Add(bannerElement);
+elements.Add(headerElementV3);
+elements.Add(textElementV3);
+elements.Add(tableElement);
+
+List<ButtonV3> buttons = new List<ButtonV3>();
+OpenUrlButtonV3 openUrlButton = new OpenUrlButtonV3("openUrlButton", "", "https://stc-developers.zdn.vn/zalo.png");
+OpenSMSButtonV3 openSMSButton = new OpenSMSButtonV3("openSMSButton", "", "0123456789", "message sms");
+OpenPhoneButtonV3 openPhoneButton = new OpenPhoneButtonV3("openPhoneButton", "", "0123456789");
+QueryShowButtonV3 queryShowButton = new QueryShowButtonV3("queryShowButton", "", "queryShowButton");
+buttons.Add(openUrlButton);
+buttons.Add(openSMSButton);
+buttons.Add(openPhoneButton);
+buttons.Add(queryShowButton);
+
+JObject jObject = client.sendTransactionMessagetoUserId(user_id, "VI", elements, buttons, TransactionTemplateType.TRANSACTION_EVENT);
+
+
+Gửi tin Truyền thông cá nhân
+
+List<ElementV3> elements = new List<ElementV3>();
+BannerElementV3 bannerElement = new BannerElementV3("https://stc-developers.zdn.vn/zalo.png", "");
+HeaderElementV3 headerElementV3 = new HeaderElementV3("title", ElementV3Align.CENTER);
+TextElementV3 textElementV3 = new TextElementV3("subtitle", ElementV3Align.LEFT);
+
+List<ElementV3TableItem> tableItems = new List<ElementV3TableItem>();
+ElementV3TableItem tableItem1 = new ElementV3TableItem("Tên khách hàng", "value1", ElementV3TableItemStyle.GREEN);
+ElementV3TableItem tableItem2 = new ElementV3TableItem("key2", "value2", ElementV3TableItemStyle.BLUE);
+ElementV3TableItem tableItem3 = new ElementV3TableItem("key3", "value3", ElementV3TableItemStyle.RED);
+ElementV3TableItem tableItem4 = new ElementV3TableItem("key4", "value4", ElementV3TableItemStyle.GREY);
+ElementV3TableItem tableItem5 = new ElementV3TableItem("key5", "value5", ElementV3TableItemStyle.NONE);
+tableItems.Add(tableItem1);
+tableItems.Add(tableItem2);
+tableItems.Add(tableItem3);
+tableItems.Add(tableItem4);
+tableItems.Add(tableItem5);
+TableElementV3 tableElement = new TableElementV3(tableItems);
+
+elements.Add(bannerElement);
+elements.Add(headerElementV3);
+elements.Add(textElementV3);
+elements.Add(tableElement);
+
+List<ButtonV3> buttons = new List<ButtonV3>();
+OpenUrlButtonV3 openUrlButton = new OpenUrlButtonV3("openUrlButton", "", "https://stc-developers.zdn.vn/zalo.png");
+OpenSMSButtonV3 openSMSButton = new OpenSMSButtonV3("openSMSButton", "", "0123456789", "message sms");
+OpenPhoneButtonV3 openPhoneButton = new OpenPhoneButtonV3("openPhoneButton", "", "0123456789");
+QueryShowButtonV3 queryShowButton = new QueryShowButtonV3("queryShowButton", "", "queryShowButton");
+buttons.Add(openUrlButton);
+buttons.Add(openSMSButton);
+buttons.Add(openPhoneButton);
+buttons.Add(queryShowButton);
+
+JObject jObject = client.sendPromotionMessagetoUserId(user_id, "VI", elements, buttons);
+
+
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+
+JObject jObject = client.sendTextMessageToAnonyous("anonymous_id", "conversation_id", "text_message");
+
+
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+
+JObject jObject = client.sendImageMessageToAnonyousByUrl("anonymous_id", "conversation_id", "text_message", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+
+
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+
+JObject jObject = client.sendFileToAnonyous("anonymous_id", "conversation_id", "attachment_id");
+
+
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+
+JObject jObject = client.sendStickerMessageAnonyous("anonymous_id", "conversation_id", "attachment_id");
+
+
+Thả biểu tượng cảm xúc vào tin nhắn
+
+JObject jObject = client.sendReactionToMessage(user_id, ReactIcon.HAHA.getValue(), "react_message_id");
+
+
+Tải lên hình ảnh
+
+JObject result = client.uploadImageForOfficialAccountAPI(new ZaloFile("C:\\Users\\CPU10932-local\\Desktop\\developers_zalo.png"));
+
+
+Tải lên ảnh gif
+
+JObject result = client.uploadGifForOfficialAccountAPI(new ZaloFile("C:\\Users\\CPU10932-local\\Desktop\\minion.gif"));
+
+
+Tải lên file
+
+ZaloFile file = new ZaloFile("C:\\Users\\CPU10932-local\\Desktop\\pdf_4mb.pdf");
+file.setMediaTypeHeader("application/pdf");
+JObject result = client.uploadFileForOfficialAccountAPI(file);
+
+
+Kiểm tra hạn mức Tin tư vấn miễn phí
+
+JObject jObject = client.getQuotaCSMessageFree();
+
+
+Kiểm tra hạn mức Tin tư vấn 48h
+
+JObject jObject = client.getQuotaCSMessageIn48h("message_id");
+
+
+Kiểm tra hạn mức Tin truyền thông
+
+JObject jObject = client.getQuotaPromotionMessage(user_id);
+
+
+Và còn nhiều hơn nữa các tính năng đang chờ bạn khám phá, truy cập ngay tài liệu Official Account API.
+
+Trước
+Bắt đầu nhanh
+Kế tiếp
+Social API
+©2023 Zalo for Developers

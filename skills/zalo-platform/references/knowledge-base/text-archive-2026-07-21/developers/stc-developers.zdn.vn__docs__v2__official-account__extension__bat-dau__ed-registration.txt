@@ -1,0 +1,85 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/ed-registration
+# FETCHED: 2026-07-21
+# TITLE: Đăng ký phát triển Extension | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuĐăng ký phát triển Extension
+Đăng ký phát triển Extension
+
+Trong giai đoạn Testing, quyền sử dụng và phát triển extension chỉ được cấp cho số lượng giới hạn nhà phát triển. Nhà phát triển cần thực hiện đăng ký theo các bước sau:
+
+1. Tạo mới Zalo App và OA test​
+
+Nhà phát triển cần tạo mới Zalo App và OA Test dành riêng cho mục đích phát triển extension.
+
+2. Cung cấp thông tin đăng ký​
+
+Nhà phát triển cung cấp thông tin App_ID và OA_ID cho Zalo OA thông qua một trong các kênh sau:
+
+👩‍💻 Kênh Group Chat
+📧 Email: extension.oa@vng.com.vn
+Tiêu đề email: [Extension Hub] Hỗ trợ <Tên đơn vị>
+
+Khi nhận được thông tin đầy đủ, Zalo OA sẽ mở quyền phát triển Extension cho App_ID và OA_ID đã cung cấp.
+
+LƯU Ý:
+Mỗi App_ID chỉ có thể phát triển 1 tiện ích (1 App_ID - 1 Extension_ID).
+Để phát triển nhiều tiện ích, cần tạo mới và đăng ký cho từng App_ID khác nhau.
+01 OA test có thể được sử dụng cho nhiều tiện ích khác nhau.
+Tài liệu tham khảo​
+
+Để biết thêm chi tiết về quá trình tạo Zalo App và OA test, vui lòng tham khảo:
+
+Hướng dẫn khởi tạo Zalo App
+Hướng dẫn tạo OA test
+Trước
+Giới thiệu
+Kế tiếp
+Khởi tạo và Phát triển ZOA Extension
+1. Tạo mới Zalo App và OA test
+2. Cung cấp thông tin đăng ký
+Tài liệu tham khảo
+©2023 Zalo for Developers

@@ -1,0 +1,94 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/openApis/partner/intro
+# FETCHED: 2026-08-06
+# TITLE: Giới thiệu | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+Tổng quan
+Tài liệu Open API
+Giới thiệu
+Cấu hình Open API
+Tài liệu API tích hợp
+Cài đặt client
+Thống kê
+Webhook
+Thiết lập webhook URL
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Hướng dẫn verify signature
+Tài liệu tích hợp cho đối tác giải pháp
+Giới thiệu
+Thông tin cấu hình
+Tài liệu API tích hợp
+Cài đặt client
+Lấy danh sách danh mục
+Tạo mini app
+Lấy thông tin Mini App
+Cập nhật loại hình
+Deploy mini app
+Lấy danh sách mini app
+Lấy danh sách phiên bản
+Publish mini app
+Gửi yêu cầu xét duyệt
+Tạo short link QR code
+Thống kê
+Cấu hình API Domain
+Checkout SDK
+Quản lý Quyền Mini App
+KYB - Giấy tờ doanh nghiệp
+Tổng quan
+Lấy danh sách loại giấy tờ cần thiết
+Nộp giấy tờ chủ sở hữu
+Tải lên tệp giấy tờ
+Nộp giấy tờ kinh doanh
+Lấy danh sách giấy tờ đã nộp
+Webhook
+Sự kiện xét duyệt app
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Hướng dẫn verify signature
+Gửi thông báo cho người dùng
+Mã lỗi
+eKYC APIs
+Checkout SDK
+Trên trang này
+Giới thiệu
+Cập nhật lần cuối:5/8/2026
+Bộ tài liệu hướng dẫn các đối tác có nhu cầu tự động hóa việc quản lý và phát triển Mini App bằng việc tích hợp API server-to-server.
+Tính năng chỉ được mở cho các đối tác của Zalo Mini App, xem thêm thông tin về đối tác giải pháp tại đây.
+Sau khi đăng ký đối tác giải pháp thành công, vui lòng liên hệ với Zalo Mini App để được cấp API Key và hướng dẫn sử dụng.
+Cấu trúc tài liệu​
+Thông tin cấu hình Open API
+Cài đặt Client và Tài liệu API tích hợp
+Sự kiện Webhook
+Trước
+Hướng dẫn verify signature
+Kế tiếp
+Thông tin cấu hình
+Cấu trúc tài liệu
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

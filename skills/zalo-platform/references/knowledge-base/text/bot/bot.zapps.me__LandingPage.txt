@@ -1,0 +1,53 @@
+# SOURCE: https://bot.zapps.me/LandingPage/
+# FETCHED: 2026-08-06
+# TITLE: Zalo Bot Platform
+
+Tạo Zalo Bot dễ dàng và nhanh chóng
+Zalo Bot Platform - hỗ trợ tích hợp giải pháp Chatbot cho cá nhân & doanh nghiệp
+Nền tảng tích hợp Chatbot cho phép nhà phát triển tương tác với người dùng thông qua tin nhắn một cách đơn giản, nhanh gọn và hiệu quả.
+Bắt đầu ngayTìm hiểu thêm
+Lợi ích cho doanh nghiệp
+Dùng thử miễn phí ngay hôm nay để trải nghiệm Zalo Bot – Giải pháp tương tác tự động thông qua Zalo.
+Miễn phí
+Tự Động Hóa Dịch Vụ Khách Hàng
+Xây dựng Bot bán hàng tự động, giải quyết nhanh nhu cầu hỏi đáp thông tin của khách hàng.
+Phản hồi tức thì 24/7
+Giảm áp lực cho nhân sự hỗ trợ
+Tối ưu chi phí vận hành
+Miễn phí
+Hệ Thống Thông Báo Thông Minh
+Tích hợp gửi cảnh báo, thông báo đơn hàng và tin nhắn từ hệ thống nội bộ (CRM, ERP, POS, CI/CD...).
+Theo dõi thông tin
+Duy trì kết nối với khách hàng
+Nâng cao trải nghiệm dịch vụ
+Miễn phí
+Kết Nối AI & Hệ Thống Nội Bộ
+Kết nối với các AI Agent (như chatbot AI, trợ lý ảo) và hệ thống backend,... tối ưu các quy trình nội bộ
+Tự động hóa quy trình
+Tích hợp dữ liệu đa nền tảng
+Tiết kiệm thời gian xử lý
+Các gói đáp ứng linh hoạt cho tổ chức của bạn
+Basic
+Phù hợp với: nhu cầu cá nhân, các dự án thử nghiệm.
+Miễn phí
+Đăng ký gói
+Tạo tối đa 3 Bot
+Mỗi Bot tương tác với tối đa với 50 người dùng
+Cho phép gửi tối đa 3.000 tin nhắn mỗi tháng
+Tương tác với 3 nhóm Chat (Beta)
+Pro
+Dành cho người dùng chuyên nghiệp, doanh nghiệp vừa và nhỏ.
+**.000đ
+129.000đ/tháng
+Sắp ra mắt
+Gói Pro mang đến khả năng mở rộng vượt trội với số lượng người dùng và nhóm tương tác lớn hơn, cùng hạn mức tin nhắn gửi - nhận hàng tháng được nâng cao. Đây là lựa chọn lý tưởng cho các nhà phát triển có nhu cầu giao tiếp tự động quy mô lớn. Hãy theo dõi các kênh chính thức để cập nhật thông tin chi tiết trong thời gian tới!
+Enterprise
+Đối với các tổ chức có nhu cầu sử dụng với tần suất cao hoặc quy mô lớn hơn, vui lòng tham khảo thêm các dịch vụ nâng cao từ Zalo Official Account để có giải pháp phù hợp và tối ưu nhất.
+Tìm hiểu Zalo Official Account
+Zalo Official Account là tài khoản chính thức của doanh nghiệp trên nền tảng Zalo. Cung cấp giải pháp giúp doanh nghiệp kết nối và tương tác với người dùng Zalo.
+Các câu hỏi thường gặp
+Zalo Bot là gì?
+Tôi cần những gì để bắt đầu sử dụng Zalo Bot?
+Zalo Bot có miễn phí không?
+Zalo Bot có thể gửi tin nhắn chủ động cho người dùng không?
+Tôi có thể tích hợp Zalo Bot với phần mềm quản lý CRM, Website,...?

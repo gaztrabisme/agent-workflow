@@ -1,0 +1,34 @@
+# SOURCE: https://zalo.solutions/blog/huong-dan-thay-doi-quyen-quan-tri-vien-cap-cao-cua-tai-khoan-zca/z4ujvknzjwbnqavdkj
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn thay đổi quyền quản trị viên cấp cao của tài khoản ZBS | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Hướng dẫn thay đổi quyền quản trị viên cấp cao của tài khoản ZBS
+Hướng dẫn thay đổi quyền quản trị viên cấp cao của tài khoản ZBS
+12 tháng 01, 2026 11:22
+Quản trị viên cấp cao là người tạo tài khoản ZBS với quyền hạn cao nhất, là chủ sở hữu duy nhất và bắt buộc phải có đối với mỗi tài khoản ZBS. Vì vậy, các quản trị viên khác sẽ không thể tự ý xóa/thay đổi quyền quản trị viên cấp cao, đồng thời, quản trị viên cấp cao cũng không thể tự xóa mình ra khỏi quyền quản trị.
+Đồng thời, thành viên có quyền quản trị cao hơn sẽ có thể thay đổi/xóa đối với các thành viên có quyền quản trị thấp hơn hoặc cùng cấp.
+Ví dụ: Quản trị viên cấp cao sẽ có quyền thay đổi/xóa các thành viên còn lại (Quản trị viên, Biên tập viên,…), quản trị viên sẽ có quyền xóa/thay thành viên có vai trò là quản trị viên, biên tập viên,…
+Tuy nhiên, Zalo Business Solutions sẽ hỗ trợ doanh nghiệp thay đổi quyền quản trị viên cấp cao khi có công văn yêu cầu kèm chữ ký và đóng mộc của Công ty.
+Quý khách có thể tải mẫu công văn thay đổi quyền quản trị viên cấp cao
+Sau khi hoàn thành công văn, Quý khách vui lòng Gửi biểu mẫu hỗ trợ tại: https://zalo-solutions.freshdesk.com/en/support/tickets/new (kèm tiêu đề: Yêu cầu thay đổi quyền quản trị viên cấp cao [Điền mã tài khoản ZBS]), đồng thời cung cấp lý do yêu cầu chuyển đổi trong nội dung email. Đội ngũ hỗ trợ và chăm sóc khách hàng sẽ tiếp nhận và phản hồi thông tin đến quý khách trong 48 giờ (không kể Thứ bảy, Chủ nhật và ngày lễ).
+Sau khi tiếp nhận đầy đủ thông tin, chúng tôi sẽ tiến hành hỗ trợ. Hệ thống sẽ gửi 1 thông báo "Lời mời tham gia ZBS", Quý khách vui lòng xác nhận trong 24 giờ kể từ thời điểm nhận thông báo. Sau khi xác nhận, quý khách vui lòng phản hồi lại email, cung cấp clip quay màn hình xác nhận tham gia ZCA để được hỗ trợ tiếp. Nếu quý khách không xác nhận kịp trong 24 giờ, hệ thống sẽ tự động đóng yêu cầu.
+Lưu ý: Để xem thông tin mã tài khoản ZBS, Quý khách có thể truy cập vào tài khoản ZBS, tại mục “Cài đặt” chọn “Thông tin tài khoản”
+Nếu Quý khách cần thêm thông tin hoặc gặp khó khăn trong quá trình sử dụng dịch vụ, vui lòng gửi Biểu mẫu: https://go.zalo.me/zbs-support. Đội ngũ Zalo Business Solutions luôn sẵn sàng hỗ trợ và sẽ phản hồi trong vòng 48 giờ.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

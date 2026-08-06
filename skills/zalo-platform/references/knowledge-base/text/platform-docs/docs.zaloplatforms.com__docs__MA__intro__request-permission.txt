@@ -1,0 +1,179 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/intro/request-permission
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn xin cấp quyền trong Zalo Mini App | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+1. Giới thiệu
+1. Vấn đề của Native App và Web
+2. Giới thiệu Zalo Mini App
+3. Tài khoản Nhà phát triển
+4. Các điểm truy cập Zalo Mini App
+2. Triển khai
+3. Xin cấp quyền trong Zalo Mini App
+4. Phát Hành Zalo Mini App
+5. Zalo Mini App Design Guidelines
+6. Chuyển đổi nhanh Web App có sẵn thành Zalo Mini App
+7. Các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App
+8. Best Practices
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+2. Yêu cầu theo dõi Official Account
+3. Call API
+4. Tương tác, điều hướng tới Zalo Mini App
+5. Cache dữ liệu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Hướng dẫn xin cấp quyền trong Zalo Mini App
+Cập nhật lần cuối:5/8/2026
+Tổng quan​
+Trong quá trình phát triển Mini App sẽ có những tính năng cần phải truy cập vào các thông tin của người dùng. Các quyền này cần sự đồng ý và cho phép của người dùng.
+1. Các nhóm quyền có trong Zalo Mini App​
+Trong Zalo Mini App có 4 nhóm quyền như sau:
+User Device Permission​
+Là các quyền liên quan đến thiết bị của người dùng. Ví dụ: location, camera,...
+User Information Permission​
+Là các quyền liên quan đến thông tin cá nhân của người dùng: Ví dụ: số điện thoại, ...
+Để đảm bảo về tính bảo mật cho người dùng, các quyền này chỉ có hiệu lực trong một khoảng thời gian. Quá thời gian này, các quyền sẽ được thu hồi. Vì vậy, Zalo Mini App cung cấp tính năng để User ghi nhớ lựa chọn.
+Zalo Permission​
+Là các quyền liên quan đến các tính năng của Zalo. Ví dụ: mở scan QR Code trên Zalo, hiển thị QR OA, ...
+Mini App Permission​
+Là các quyền liên quan đến các tính năng trên Mini App. Ví dụ: thay đổi màu của navigation bar, đóng/mở Mini App.
+2. Danh sách quyền​
+Nhóm quyền
+Quyền
+Mô tả
+Cần sự cho phép từ
+User Device Permisison
+Mở màn hình cuộc gọi Native
+Cho phép ứng dụng mở màn hình cuộc gọi native có thể tuỳ chỉnh số điện thoại
+Mặc định
+Mở màn hình tin nhắn Native
+Cho phép ứng dụng mở màn hình tin nhắn native có thể tuỳ chỉnh nội dung tin nhắn
+Mặc định
+Shortcut
+Cho phép ứng dụng tạo lối tắt trên màn hình điện thoại
+Zalo
+Hiển thị toast
+Cho phép ứng dụng hiển thị toast trên màn hình điện thoại
+Mặc định
+Lấy thông tin network device
+Cho phép ứng dụng lấy thông tin network của device
+Zalo
+Giữ màn hình luôn bật
+Cho phép ứng dụng giữ cho màn hình luôn bật
+Zalo
+Sử dụng native storage
+Cho phép ứng dụng sử dụng Native Storage của Zalo App để caching dữ liệu
+Zalo
+Lưu ảnh vào điện thoại
+Lưu ảnh vào thư viện ảnh của điện thoại
+Zalo
+Ẩn bàn phím
+Cho phép ứng dụng ẩn bàn phím
+Mặc định
+Rung
+Kích hoạt chế độ rung trên thiết bị
+Zalo
+Vị trí
+Cho phép ứng dụng lấy thông tin vị trí hiện tại của người dùng
+Zalo & User
+Camera
+Cho phép ứng dụng yêu cầu device cấp quyền truy cập camera
+Zalo
+User Information Permisison
+Số điện thoại
+Lấy thông tin số điện thoại của người dùng. Một thông báo xin cấp quyền sẽ được hiển thị sau khi gọi API. Chỉ lấy được thông tin số điện thoại nếu người dùng đồng ý cấp quyền
+Zalo & User
+Zalo Permission
+Mở giao diện chia sẻ lên nhật ký Zalo
+Cho phép ứng dụng mở giao diện chia sẻ để người dùng chia sẻ thông tin lên nhật ký Zalo
+Mặc định
+Mở Scan QR Code trên Zalo
+Cho phép ứng dụng mở tính năng quét QR Code của Zalo và trả về kết quả sau khi người dùng quét ...
+Zalo
+Mở màn hình Share với bạn bè trên Zalo
+Cho phép ứng dụng mở giao diện chia sẻ để người dùng chia sẻ thông tin với bạn bè Zalo.
+Mặc định
+Hiển thị QR OA
+Cho phép ứng dụng hiển thị QR code của Official Account
+Mặc định
+Yêu cầu theo dõi/bỏ theo dõi OA
+Cho phép ứng dụng hiển thị giao diện yêu cầu theo dõi Official Account để người dùng xác nhận
+Mặc định
+Màn hình chọn bạn bè trên Zalo
+Cho phép ứng dụng hiển thị giao diện yêu cầu bỏ theo dõi Official Account để người dùng xác nhận
+Mặc định
+Mở profile User or OA
+Cho phép mở màn hình chọn bạn bè trong Zalo. API sẽ trả về danh sách những người được chọn
+Mặc định
+Mở cửa sổ chat trên Zalo
+Cho phép ứng dụng mở cửa sổ chat với User hoặc Official Account
+Mặc định
+Mini App Permission
+Thay đổi màu của navigation bar
+Cho phép ứng dụng thay đổi màu của navigation bar
+Mặc định
+Thay đổi title trên Navigation bar
+Cho phép ứng dụng thay đổi title trên thanh navigation bar của Zalo App
+Mặc định
+Yêu cầu mở Mini App
+Cho phép ứng dụng mở Mini App khác
+Mặc định
+Yêu cầu đóng Mini App
+Cho phép ứng dụng đóng Mini App
+Mặc định
+Hướng dẫn xin cấp quyền từ Zalo Mini App​
+Đối với các quyền cần sự cho phép từ Zalo Mini App, nhà phát triển cần tạo yêu cầu cấp quyền & có sự cho phép từ Zalo Mini App.
+Bộ phận kiểm duyệt sẽ xét duyệt yêu cầu cấp quyền khi xét duyệt phiên bản mới.
+Hướng dẫn:
+1. Nhà phát triển truy cập vào hệ thống quản lý Mini App Center, click chọn vào mục Quyền Mini App​
+2. Chọn quyền bạn muốn yêu cầu xét duyệt từ Zalo​
+3. Mô tả lý do & hình ảnh của quyền​
+4. Nhà phát triển nhập nội dung mô tả quyền để hiển thị cho người dùng (Tuỳ chọn)​
+5. Gửi xét duyệt​
+6. Sau khi bộ phận xét duyệt xong sẽ có thông báo qua OA & Mini App Center cho nhà phát triển​
+TIP
+Nhà phát triển vui lòng mô tả rõ lý do & hình ảnh để bộ phận xét duyệt xử lý nhanh hơn
+Hướng dẫn xin cấp quyền từ người dùng​
+Đối với các quyền cần sự cho phép từ người dùng, nhà phát triển cần gọi API để xin cấp quyền từ người dùng. Một số gợi ý để nâng cao trải nghiệm cho người dùng khi xin quyền như sau:
+Xin quyền đúng ngữ cảnh​
+Để người dùng hiểu rõ nhu cầu sử dụng quyền và dễ dàng cấp quyền hơn. Các quyền nên được xin đúng ngữ cảnh sử dụng của người dùng.
+Khi mới vào Mini App, chỉ xin các quyền thực sự cần thiết và ảnh hưởng đến các tính năng lõi sau đó của Mini App.
+Trước
+2. Triển khai
+Kế tiếp
+4. Phát Hành Zalo Mini App
+Tổng quan
+1. Các nhóm quyền có trong Zalo Mini App
+2. Danh sách quyền
+Hướng dẫn xin cấp quyền từ Zalo Mini App
+Hướng dẫn xin cấp quyền từ người dùng
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,318 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/nhom-chat-gmf/message_webhook
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện tin nhắn được gửi tới nhóm | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Nhóm chat - GMF
+Sự kiện tạo nhóm OA
+Sự kiện thành viên mới tham gia nhóm
+Sự kiện thành viên mới yêu cầu tham gia nhóm
+Sự kiện duyệt thành viên
+Sự kiện từ chối duyệt thành viên
+Sự kiện thêm phó nhóm
+Sự kiện xóa phó nhóm
+Sự kiện cập nhật thông tin nhóm
+Sự kiện thành viên rời nhóm
+Sự kiện xóa nhóm
+Sự kiện tin nhắn được gửi tới nhóm
+Gọi thoại
+Extension
+Quản lý
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookNhóm chat - GMFSự kiện tin nhắn được gửi tới nhóm
+Sự kiện tin nhắn được gửi tới nhóm
+
+Khi người dùng gửi tin nhắn đến nhóm, hệ thống Zalo sẽ gửi một request HTTP đến Webhook Url đã đăng ký của ứng dụng.
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Example request​
+{
+  "event_name": "user_send_group_text",
+  "app_id": "4591324301967398637",
+  "sender": {
+    "id": "8756287263669629130"
+  },
+  "recipient": {
+    "id": "f414c8f76fa586fbdfb4"
+  },
+  "message": {
+    "text": "Hello group from User",
+    "msg_id": "e52fe5da281f9745ce0a"
+  },
+  "oa_id": "607812198688816074",
+  "timestamp": "1696908900672",
+  "user_id_by_app": "8109713063707884003"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+sender	Json Object	Trong đó:
+id: Id của User gửi tin nhắn
+
+recipient	Json Object	Trong đó:
+id: Id của nhóm
+
+event_name	String	Xác định loại event, gồm các giá trị sau:
+event_name = oa_send_group_text: OA gửi tin nhắn văn bản tới nhóm
+event_name = oa_send_group_image: OA gửi tin nhắn hình ảnh tới nhóm
+event_name = oa_send_group_link: OA gửi tin nhán liên kết tới nhóm
+event_name = oa_send_group_audio: OA gửi tin nhắn âm thanh thới nhóm
+event_name = oa_send_group_location: OA gửi tin nhắn vị trí tới nhóm
+event_name = oa_send_group_video: OA gửi tin nhắn video tới nhóm
+event_name = oa_send_group_business_card: OA gửi tin nhắn danh thiếp tới nhóm
+event_name = oa_send_group_sticker: OA gửi tin nhắn sticker tới nhóm
+event_name = oa_send_group_gif: OA gửi tin nhắn gif tới nhóm
+event_name = oa_send_group_file: OA gửi tin nhắn file tới nhóm
+event_name = user_send_group_text: Người dùng gửi tin nhắn văn bản tới nhóm
+event_name = user_send_group_image: Người dùng gửi tin nhắn hình ảnh tới nhóm
+event_name = user_send_group_link: Người dùng gửi tin nhắn liên kết tới nhóm
+event_name = user_send_group_audio: Người dùng gửi tin nhắn âm thanh tới nhóm
+event_name = user_send_group_video: Người dùng gửi tin nhắn video tới nhóm
+event_name = user_send_group_business_card: Người dùng gửi tin nhắn danh thiếp tới nhóm
+event_name = user_send_group_sticker: Người dùng gửi tin nhắn sticker tới nhóm
+event_name = user_send_group_gif: Người dùng gửi tin nhắn gif tới nhóm
+event_name = user_send_group_file: Người dùng gửi tin nhắn file tới nhóm
+
+message	Json Object	
+Tùy theo event_name mà message sẽ có định dạng khác nhau, chi tiết sẽ được định nghĩa bên dưới bảng này.
+Trong đó:
+text: Nội dung tin nhắn người dùng gửi trong nhóm
+message_id: Id của tin nhắn
+Ngoài ra:
+Nếu tin nhắn được gửi là tin nhắn đa phương tiện (Hình ảnh, ảnh gif, video,...) thì sẽ có thêm thuộc tính attachments
+Nếu trong data trả về có thuộc tính “quote_msg_id” thì tin nhắn này được gửi qua “Trả lời”
+Nếu trong data trả về có dạng [@group_id] thì tin nhắn này là tin nhắn mention toàn bộ thành viên nhóm
+Nếu trong data trả về có dạng [@user_id] thì tin nhắn này là tin nhắn mention user_id là thành viên trong nhóm
+Nếu trong data trả về có dạng [@oa_id] thì tin nhắn này là tin nhắn mention OA
+
+timestamp	String	Thời điểm request được gửi, tính bằng millisecond
+oa_id	String	Id của Official Account
+Cấu trúc thuộc tính attachments​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Các dạng tin nhắn đa phương tiện (Hình ảnh, ảnh gif, video,...) sẽ có phần attachments chứa các thông tin chi tiết kèm theo tin nhắn đó.
+Cấu trúc attachments đối với từng loại tin nhắn:​
+
+1. Tin nhắn hình ảnh
+
+[
+  {
+    "payload": {
+      "thumbnail": "http://t.f6.photo.talk.zdn.vn/9c2db3ccc0a223fc7ab3.jpg",
+      "url": "http://f6.photo.talk.zdn.vn/9c2db3ccc0a223fc7ab3.jpg"
+    },
+    "type": "image"
+  }
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+thumbnail: thumbnail của ảnh
+url: đường dẫn đến hình ảnh gốc
+type: Loại tin nhắn
+
+2. Tin nhắn ảnh gif
+
+[
+  {
+    "payload": {
+      "thumbnail": "http://cgif.zp.zdn.vn/634e85277d6a07b_t.jpg",
+      "url": "http://cgif.zp.zdn.vn/634e81577d6a07b_n.gif"
+    },
+    "type": "gif"
+  }
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+thumbnail: thumbnail của ảnh gif
+url: đường dẫn đến ảnh gif
+type: Loại tin nhắn
+
+3. Tin nhắn liên kết
+
+[
+  {
+    "payload": {
+      "thumbnail": "https://link.photo.talk.zdn.vn/photolinkv2/720/YyZw==",
+      "description": "Trang thông tin về Zalo dành cho cộng đồng lập trình viên",
+      "url": "https://developers.zalo.me/"
+    },
+    "type": "link"
+  }
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+thumbnail: hình ảnh hiển thị
+url: thông tin mô tả của trang web đó.
+type: Loại tin nhắn
+
+4. Tin nhắn âm thanh
+
+[
+  {
+    "payload": {
+      "url": "http://f1.voice.talk.zdn.vn/507667510983167001/7e00789a51e4b9bae0f5.amr"
+    },
+    "type": "audio"
+  }
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+url: đường dẫn đến file âm thanh
+type: Loại tin nhắn
+
+5. Tin nhắn video
+
+[
+  {
+    "payload": {
+      "url": "https://f4-zvc.zdn.vn/9ae8cac9eead07f35ebc/494930035692638423",
+      "thumbnail": "http://f7.photo.talk.zdn.vn/2111897866637249674/3665d4b4022a37cfa33.jpg",
+      "description": ""
+    },
+    "type": "video"
+  }
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+thumbnail: hình ảnh hiển thị
+description: Thông tin mô tả của trang web đó.
+url: đường dẫn đến trang web
+type: Loại tin nhắn
+
+6. Tin nhắn sticker
+
+[
+  {
+    "payload": {
+      "url": "https://api.zalo.me/api/emoticon/oasticker?eid=73585551855742711&amp;size=130",
+      "id": "e1540df031b5deb81a4"
+    },
+    "type": "sticker"
+  }
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+id: id của sticker
+url: đường dẫn đến sticker
+type: Loại tin nhắn
+
+7. Tin nhắn về vị trí
+
+[
+{
+"payload": {
+"coordinates": {
+"latitude": "10.7642473",
+"longitude": "106.65643139999999"
+}
+},
+"type": "location"
+}
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+coordinates: chứa thông tin tọa độ theo latitude và longitude
+type: Loại tin nhắn
+
+8. Tin nhắn đính kèm file
+
+[
+  {
+    "payload": {
+      "size": "233947",
+      "name": "developer.docx",
+      "checksum": "db8f0a790d28e3d8658a0ff0846189",
+      "type": "docx",
+      "url": "https://f7-group-zf.zdn.vn/xxx484bd4258d6a/xxx52598708747"
+    },
+    "type": "file"
+  }
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+size: kích thước của file
+name: tên file
+checksum: kết quả nhận được khi hash MD5 file, dùng để check tính toàn vẹn của file
+type:loại file
+url: đường dẫn để download file
+type: Loại tin nhắn
+
+9. Tin nhắn danh thiếp
+
+[
+  {
+    "payload": {
+      "thumbnail": "http://s120.avatar.talk.zdn.vn/5/b/6/c/14/120/5d9a5881ec552cdbbb3b9ada694a52d6.jpg",
+      "description": "{\"phone\":\"0345535930\",\"qrCodeUrl\":\"https:\\/\\/qr-talk.zdn.vn\\/13\\/6647972d63\\/e61300fca7b44dea14a5.jpg\"}",
+      "url": "www.zaloapp.com"
+    },
+    "type": "link"
+  }
+]
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachments	Json Array	Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện
+thumbnail: Hình ảnh hiển thị
+description: Thông tin mô tả của danh thiếp.
+url: đường dẫn đến trang web
+type: Loại tin nhắn
+​
+Trước
+Sự kiện xóa nhóm
+Kế tiếp
+Sự kiện yêu cầu cấp quyền được gửi và hết hạn.
+Example request
+Mô tả thuộc tính
+Cấu trúc thuộc tính attachments
+©2023 Zalo for Developers

@@ -1,0 +1,74 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/Khoi-tao-ung-dung-va-cap-quyen_117071366476220195
+# FETCHED: 2026-08-06
+# TITLE: Khởi tạo ứng dụng và cấp quyền | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Khởi tạo ứng dụng và cấp quyền
+Tạo tài khoản OA thử nghiệm kỹ thuật
+Nhà phát triển
+Khởi tạo ứng dụng và cấp quyền
+On this page
+Khởi tạo ứng dụng và cấp quyền
+Zalo OA OpenAPI là gì?​
+Zalo OA OpenAPI là bộ công cụ hỗ trợ vận hành tài khoản Zalo OA doanh nghiệp (Zalo Official Account), thông qua tích hợp Zalo OA với hệ thống nội bộ của doanh nghiệp. OA OpenAPI giúp doanh nghiệp vận hành một cách tự động, hỗ trợ vận hành nhiều tài khoản OA, và đặc biệt là giúp tập trung thông tin và dữ liệu.
+Bên cạnh OA OpenAPI, doanh nghiệp có thể vận hành Zalo OA bằng công cụ OA Manager phiên bản web và Mini App trên Zalo (công cụ với giao diện dành cho người dùng - UI). Xem thêm hướng dẫn sử dụng công cụ OA Manager tại website oa.zalo.me.
+Doanh nghiệp có thể tích hợp Zalo OA với nhiều hệ thống ngoài Zalo, để phục vụ nhiều hoạt động kinh doanh và nhiều mục đích, như: các nền tảng Marketing, phần mềm bán hàng, CRM, ERP, Omni channel, Chatbot,...
+Doanh nghiệp cũng có thể kết hợp đồng thời công cụ OpenAPI và công cụ OA Manager để linh hoạt trong vận hành. Ví dụ: Với doanh nghiệp có nhiều OA được tích hợp với CRM, nhân viên có thể thực hiện CSKH trên công cụ OA Manager, đồng thời các hoạt động tương tác và dữ liệu khách hàng vẫn được tập trung tại CRM.
+Zalo không tính phí tích hợp Zalo OA, Doanh nghiệp có thể hoàn toàn chủ động thực hiện tích hợp và vận hành theo các hướng dẫn, tài liệu tại website developer.zalo.me. Tuy nhiên, Doanh nghiệp có thể cần trả phí gói OA và các tính năng. Xem thêm chi phí OA tại đây.
+Để vận hành bằng OA OpenAPI, doanh nghiệp cần có các tài khoản sau:
+Tài khoản
+Định nghĩa
+Khởi tạo và sử dụng
+Zalo Official Account (Zalo OA)
+Zalo OA là tài khoản chính thức của Doanh nghiệp trên Zalo, giúp Doanh nghiệp tương tác với người dùng Zalo cá nhân.
+Doanh nghiệp chưa có tài khoản OA, có thể bắt đầu tạo OA theo hướng dẫn tại đây.
+Ứng dụng trên nền tảng Zalo (Zalo App)
+Ứng dụng của doanh nghiệp khởi tạo trên nền tảng Zalo, dùng để quản lý Zalo OA hoặc các dịch vụ của nền tảng Zalo (ZBS Account, Mini App,…).
+Doanh nghiệp chưa có Zalo App có thể khởi tạo Ứng dụng theo hướng dẫn tại đây.
+Sau khi tạo ứng dụng, Doanh nghiệp cần xác thực và cấp quyền cho ứng dụng theo hướng dẫn tại đây.
+Zalo Business Solutions Account (ZBS Account)
+ZBS Account là công cụ quản lý chi tiêu cho dịch vụ Zalo OA và ZBS Template Message
+Doanh nghiệp chưa có ZBS Account có thể khởi tạo ZBS Account theo hướng dẫn tại đây.
+Sau đó liên kết ZBS Account với Zalo OA theo hướng dẫn tại đây và liên kết ZBS Account với Zalo App theo hướng dẫn tại đây.
+(Lưu ý: 01 ZBS Account có thể link với nhiều OA và nhiều App)
+⚠ LƯU Ý
+Admin (Quản trị viên) Zalo OA, Zalo App, ZBS Account là người dùng Zalo cá nhân. Admin của các tài khoản kể trên không nhất thiết phải cùng là một người dùng Zalo.
+Mô hình vận hành Zalo OA bằng công cụ OA OpenAPI​
+Để quản lý Zalo OA bằng OA OpenAPI, doanh nghiệp cần tích hợp Zalo OA với hệ thống (server) của doanh nghiệp thông qua việc cấp quyền cho ứng dụng Zalo App. Doanh nghiệp sẽ gọi các API tương ứng với các quyền quản lý OA và tương tác với người dùng thông qua ứng dụng. Khi có sự kiện tương tác giữa người dùng và OA hoặc các thông báo từ Zalo, Zalo sẽ gửi các request http (method POST) đến webhook url của ứng dụng.
+Các nhóm quyền của hệ thống OA OpenAPI gồm: Nhắn tin, Gọi thoại, Nội dung, Nhóm, Quản lý,…. Mỗi nhóm quyền sẽ gồm các tài liệu cho từng hành động, và tương ứng với nó là webhook chứa thông tin sự kiện.
+Quản lý dữ liệu và vận hành qua OA Open API​
+Tương tác với người dùng qua OA Open API như sau​
+Chú thích
+Doanh nghiệp có thể nhận được UserID khi User tương tác với Official Account hoặc các sản phẩm liên kết với Official Account trong nền tảng Zalo:
+Zalo Official Account: Xem thêm các tương tác từ User đến OA được định nghĩa tại đây.
+Zalo MiniApp: Xem thêm cách yêu cầu người dùng cho phép gửi thông báo qua Official Account trên sản phẩm Zalo Mini App tại đây.
+Các nhóm quyền API hỗ trợ quản lý & vận hành ZOA​:​
+Tổng quan
+Nhắn tin
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Previous
+Cài đặt và quản lý Tiện ích (Extension)
+Next
+Tạo tài khoản OA thử nghiệm kỹ thuật
+Zalo OA OpenAPI là gì?
+Mô hình vận hành Zalo OA bằng công cụ OA OpenAPI
+Quản lý dữ liệu và vận hành qua OA Open API
+Tương tác với người dùng qua OA Open API như sau
+Các nhóm quyền API hỗ trợ quản lý & vận hành ZOA​:

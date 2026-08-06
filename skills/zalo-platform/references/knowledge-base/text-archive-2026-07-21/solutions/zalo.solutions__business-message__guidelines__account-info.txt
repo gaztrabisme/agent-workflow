@@ -1,0 +1,74 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/account-info
+# FETCHED: 2026-07-21
+# TITLE: Thông tin tài khoản | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Business Message
+Giới thiệu
+Tài liệu hướng dẫn
+Bảng giá
+Chính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Thông tin tài khoản
+Phân quyền Quản lý thành viên trên tài khoản ZBS
+Quản lý thành viên
+Quản lý danh sách liên kết Ứng dụng/OA
+Tính Năng Quản Lý Thông Báo Cho Tài Khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+
+Hướng dẫn kiểm tra và điều chỉnh thông tin trên tài khoản ZBS
+
+Zalo Business Solutions sẽ liên tục kiểm tra tự động toàn bộ tài khoản ZBS trên hệ thống, nếu có dấu hiệu bất thường như các thông tin được cung cấp không được xác thực hoặc không trùng khớp với thông tin trên Cổng thông tin quốc gia về đăng ký doanh nghiệp,… thì chúng tôi sẽ tạm ngưng các dịch vụ và tạm khóa tài khoản ZBS đó. Vì vậy, doanh nghiệp cần đảm bảo thông tin cung cấp trên tài khoản ZBS là hoàn toàn chính xác.
+
+Để kiểm tra/chỉnh sửa thông tin, Quý khách vui lòng truy cập vào tài khoản ZBS. Tại mục “Cài đặt”, chọn “Thông tin tài khoản”
+
+Để điều chỉnh lại thông tin, Quý khách vui lòng chọn "Chỉnh sửa". Sau khi đã điều chỉnh lại thông tin, chọn "Cập nhật thông tin"
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+Trước
+Hướng dẫn Uỷ quyền ứng dụng (AppID) cho OA
+Kế tiếp
+Phân quyền Quản lý thành viên trên tài khoản ZBS
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

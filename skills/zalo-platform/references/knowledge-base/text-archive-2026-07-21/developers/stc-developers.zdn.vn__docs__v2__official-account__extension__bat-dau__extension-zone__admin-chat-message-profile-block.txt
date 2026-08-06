@@ -1,0 +1,161 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/extension-zone/admin-chat-message-profile-block
+# FETCHED: 2026-07-21
+# TITLE: admin-chat-message-profile-block | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuExtension zoneadmin-chat-message-profile-block
+admin-chat-message-profile-block
+Tổng quan​
+
+Zone admin-chat-message-profile-block giúp nâng cao hiệu quả và chất lượng tương tác giữa admin và khách hàng trong giao diện chat. Zone này cho phép hiển thị thông tin và công cụ bổ sung, giúp admin có cái nhìn tổng quan và xử lý nhanh chóng các yêu cầu của khách hàng. Các tính năng có thể bao gồm:
+
+Hiển thị thông tin chi tiết về khách hàng (lịch sử mua hàng, giá trị đơn hàng trung bình, v.v.).
+Công cụ quản lý nhanh như gắn tag, chuyển cuộc hội thoại.
+Hiển thị các gợi ý trả lời tự động dựa trên nội dung cuộc hội thoại.
+Tích hợp các công cụ phân tích sentiment và ý định của khách hàng.
+Hiển thị thông tin sản phẩm liên quan để hỗ trợ tư vấn bán hàng.
+
+Zone này đóng vai trò quan trọng trong việc cải thiện trải nghiệm khách hàng và tăng hiệu suất làm việc của admin.
+
+THÔNG TIN:
+
+Zone chỉ hiển thị trong giao diện chat của admin. Các công cụ và thông tin hiển thị có thể được tùy chỉnh theo nhu cầu cụ thể của OA.
+
+Cấu hình​
+app-config.json​
+{
+  "zones": {
+    "admin-chat-message-profile-block": {
+      "roles": ["admin", "agent"]
+    }
+  }
+}
+
+zoaSDK.getSessionInfo(data)​
+
+Các thông tin được cung cấp:
+
+oaid: ID của Official Account
+admin_id: ID của admin đang đăng nhập
+user_id: ID của người dùng trong cuộc trò chuyện hiện tại
+Chi tiết hiển thị​
+Vị trí: Trang chat (oa.zalo.me/chatv2)
+Kích thước:
+Chiều cao tối đa: 300px
+Chiều rộng: Tự động điều chỉnh theo màn hình, đồng nhất với mục "Quản lý nhãn" đang có
+Hình ảnh minh họa​
+Hướng dẫn sử dụng​
+Thiết kế nội dung hiển thị phù hợp với chiều cao tối đa 300px và chiều rộng linh hoạt.
+Sử dụng thông tin từ zoaSDK.getSessionInfo(data) để hiển thị thông tin phù hợp với từng cuộc trò chuyện.
+Tạo các công cụ quản lý nhanh để tăng hiệu quả làm việc cho admin.
+Đảm bảo thông tin hiển thị không ảnh hưởng đến trải nghiệm chat chính.
+Ứng dụng​
+
+Hiển thị thông tin khách hàng 360 độ:
+
+Tạo một bảng thông tin tổng hợp hiển thị lịch sử mua hàng, giá trị đơn hàng trung bình, sản phẩm quan tâm gần đây.
+Hiển thị chỉ số Net Promoter Score (NPS) và các phản hồi trước đây của khách hàng.
+
+Công cụ quản lý tương tác nhanh:
+
+Tạo các nút để gắn tag nhanh cho cuộc hội thoại (ví dụ: "Khiếu nại", "Tư vấn sản phẩm", "Hỗ trợ kỹ thuật").
+Thêm tùy chọn để chuyển nhanh cuộc hội thoại đến bộ phận chuyên môn phù hợp.
+
+Hệ thống gợi ý trả lời thông minh:
+
+Tích hợp AI để phân tích nội dung cuộc hội thoại và đề xuất các câu trả lời phù hợp.
+Hiển thị các template tin nhắn được cá nhân hóa dựa trên thông tin của khách hàng.
+
+Công cụ phân tích sentiment:
+
+Hiển thị biểu đồ phân tích cảm xúc của khách hàng trong cuộc hội thoại hiện tại.
+Cảnh báo khi phát hiện sentiment tiêu cực để admin có thể xử lý kịp thời.
+
+Hỗ trợ tư vấn sản phẩm:
+
+Hiển thị các sản phẩm liên quan dựa trên nội dung cuộc hội thoại.
+Tạo nút để nhanh chóng chia sẻ thông tin sản phẩm, hình ảnh hoặc video demo.
+
+Tích hợp công cụ quản lý hiệu suất:
+
+Hiển thị chỉ số hiệu suất của admin (thời gian phản hồi trung bình, số lượng cuộc hội thoại đã xử lý).
+Tạo reminder cho các nhiệm vụ cần follow-up.
+
+Tích hợp hệ thống quản lý quan hệ khách hàng (CRM):
+
+Hiển thị và cho phép cập nhật nhanh thông tin CRM của khách hàng.
+Tạo nút để nhanh chóng tạo task hoặc ghi chú trong hệ thống CRM.
+
+Những ứng dụng này không chỉ giúp admin xử lý cuộc hội thoại hiệu quả hơn mà còn nâng cao chất lượng dịch vụ khách hàng, từ đó tăng sự hài lòng và lòng trung thành của khách hàng đối với thương hiệu.
+
+Lưu ý​
+Đảm bảo thông tin hiển thị nhanh và chính xác để hỗ trợ công việc của admin.
+Tuân thủ các quy định về bảo mật thông tin khi hiển thị dữ liệu khách hàng.
+Thường xuyên cập nhật và tối ưu các công cụ dựa trên phản hồi của người dùng.
+
+Cập nhật lần cuối: 2024-08-19
+
+Trước
+admin-profile-config-action
+Kế tiếp
+admin-chat-message-toolbar-action
+Tổng quan
+Cấu hình
+app-config.json
+zoaSDK.getSessionInfo(data)
+Chi tiết hiển thị
+Hình ảnh minh họa
+Hướng dẫn sử dụng
+Ứng dụng
+Lưu ý
+©2023 Zalo for Developers

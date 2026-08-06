@@ -1,0 +1,178 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-thong-tin-nguoi-dung/gan-nhan-nguoi-dung
+# FETCHED: 2026-07-21
+# TITLE: Gắn nhãn người dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Gắn nhãn người dùng
+Gỡ nhãn người dùng
+Lấy danh sách nhãn
+Xóa nhãn
+Truy xuất danh sách người dùng
+Truy xuất chi tiết người dùng
+Cập nhật chi tiết người dùng
+Xóa thông tin người dùng
+Truy xuất thông tin tùy biến của người dùng
+Cập nhật thông tin tùy biến của người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý thông tin người dùngGắn nhãn người dùng
+Gắn nhãn người dùng         
+MẸO
+
+Nhãn là công cụ hữu ích giúp phân nhóm người dùng. OA có thể thuận tiện triển khai các hoạt động chăm sóc khác nhau phù hợp với nhu cầu riêng của từng nhóm người dùng
+
+LƯU Ý
+
+Ứng dụng cần được cấp quyền quản lý thông tin OA
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/tag/tagfollower
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl \
+-X POST \
+-H "Content-Type: application/json" \
+-H 'access_token: <your_access_token>' \
+-d '{
+   "user_id": 2468458835296197922,
+   "tag_name": "Khách hàng Quận 1"
+}' "https://openapi.zalo.me/v2.0/oa/tag/tagfollower"
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API.
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+long
+
+	
+
+yes
+
+	
+
+ID của người dùng cần gắn nhãn.
+
+
+
+
+tag_name
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Tên của nhãn.
+
+Lưu ý: trong trường hợp tên nhãn truyền vào không tồn tại, API sẽ tự động tạo nhãn mới.
+
+Example respond​
+{
+  "error": 0,
+  "message": "Success"
+}
+
+Trước
+Tổng quan
+Kế tiếp
+Gỡ nhãn người dùng
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+©2023 Zalo for Developers

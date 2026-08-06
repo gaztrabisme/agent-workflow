@@ -1,0 +1,202 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.8.0/tabs/Tabs
+# FETCHED: 2026-08-06
+# TITLE: Tabs | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.8.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Tabs
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.8.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Guidelines
+Implementation
+Tab giúp tổ chức, phân loại và điều hướng giữa các nhóm nội dung đồng cấp và cùng liên quan đến một chủ đề.
+Anatomy​
+1
+Container
+Required
+2
+Active Tab Item
+Required
+3
+Inactive Tab Item
+Required
+4
+Divider
+Required
+Usage​
+Sử dụng khi:
+Số lượng tab item từ 2 trở lên
+Số lượng tab item cố định tại thời điểm user sử dụng feature, không bị ảnh hưởng bởi bất kì input nào của user
+Lượng content của từng tab item ngắn gọn
+Component giúp tổ chức và cho phép điều hướng giữa các nhóm nội dung có liên quan và ở cùng cấp độ.
+Properties​
+Tabs​
+Name
+Type
+Default
+Description
+items
+Array
+Mảng các tab cần hiển thị
+activeKey
+string
+Chỉ định tab ở trạng thái active
+defaultActiveKey
+string
+Chỉ định tab ở trạng thái active khi component được khởi tạo
+scrollable
+boolean
+Chế độ scroll của tab
+onChange
+function
+Thêm event handler khi tab thay đôi
+onTabClick
+function
+Thêm event handler khi tab được click
+renderTabBar
+RenderTabBar
+Custom tab bar
+bottomBar
+boolean
+Hiển thị bottom bar
+destroyInactiveTabPane
+boolean
+Destroy các tab có trạng thái inactive
+Tabs.Tab​
+Name
+Type
+Default
+Description
+label
+ReactNode
+Label hiển thị của tab.
+destroyInactiveTabPane
+boolean
+Destroy khi tab có trạng thái inactive
+tabKey
+string
+Key của tab
+active
+boolean
+Trạng thái active của tab
+Example​
+import React from "react";
+import { Page, Tabs, List, Icon, Avatar } from "zmp-ui";
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+const users = Array.from(Array(10).keys()).map((i) => ({
+name: `Người dùng ${i}`,
+avatar: alphabet[Math.floor(Math.random() * alphabet.length)].toUpperCase(),
+online: Math.floor(Math.random() * 10) % 2 === 0,
+key: i,
+}));
+export default function HomePage(props) {
+return (
+<Tabs id="contact-list">
+<Tabs.Tab key="tab1" label="Tab 1">
+<List>
+{users.map((user) => (
+<List.Item
+key={user.key}
+prefix={<Avatar online={user.online}>{user.avatar}</Avatar>}
+title={user.name}
+subTitle="subtitle"
+suffix={}
+/>
+))}
+</List>
+</Tabs.Tab>
+<Tabs.Tab key="tab2" label="Tab 2">
+Tab 2 content
+</Tabs.Tab>
+<Tabs.Tab key="tab3" label="Tab 3">
+Tab 3 content
+</Tabs.Tab>
+</Tabs>
+);
+}
+Anatomy
+Usage
+Properties
+Tabs
+Tabs.Tab
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

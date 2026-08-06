@@ -1,0 +1,112 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/quan-ly-template/template-api/api-lay-du-lieu-mau-cua-template
+# FETCHED: 2026-08-06
+# TITLE: API Lấy dữ liệu mẫu của Template | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Bắt đầu
+Giới thiệu chung về Template
+Danh sách Components
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+API Lấy thông tin phản hồi nhanh của khách hàng
+Template Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi trạng thái Template
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Sự kiện người dùng phản hồi template phản hồi nhanh
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+API Lấy dữ liệu mẫu của Template
+Lưu ý
+Quyền cần có: Quản lý Message Template
+HTTP request​
+URL: https://business.openapi.zalo.me/template/sample-data
+Method: GET
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json"
+"https://business.openapi.zalo.me/template/sample-data?template_id=12345"
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+template_id
+string
+yes
+ID của template cần lấy thông tin.
+Example respond​
+{
+"message": "Success",
+"data": {
+"balance_debt": 2000,
+"due_date": "01/01/1970",
+"number_debt": 2000,
+"customer_name": "customer_name_sample"
+},
+"error": 0
+}
+Cấu trúc respond​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+data
+object
+Chứa tham số và dữ liệu mẫu của template bạn cần truy xuất.
+Trước
+API Lấy thông tin chi tiết Template
+Kế tiếp
+API Lấy thông tin đánh giá của khách hàng
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc respond
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

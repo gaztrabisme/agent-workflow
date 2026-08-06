@@ -1,0 +1,98 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/nhom-chat-gmf/quan-ly/delete_group
+# FETCHED: 2026-07-21
+# TITLE: OA Giải tán nhóm | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Quản lý nhóm
+Tạo nhóm mới
+Lấy thông tin nhóm
+Cập nhật nhóm
+Cập nhật dịch vụ cho Nhóm chat
+Mời tham gia nhóm
+Lấy danh sách thành viên chờ duyệt
+Đồng ý duyệt thành viên mới vào nhóm
+Từ chối duyệt thành viên mới vào nhóm
+Lấy danh sách thành viên nhóm
+Thêm phó nhóm
+Xóa phó nhóm
+Xóa thành viên khỏi nhóm
+OA Giải tán nhóm
+Lấy danh sách nhóm OA đang quản lý
+Kiểm tra hạn mức nhóm
+Lấy danh sách tin nhắn nhóm gần nhất
+Lấy thông tin tin nhắn trong một nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Nhóm chat - GMFQuản lý nhómOA Giải tán nhóm
+OA Giải tán nhóm
+LƯU Ý
+
+Ứng dụng cần được cấp quyền quản lý thông tin nhóm.
+
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/group/delete
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl --location --request POST 'https://openapi.zalo.me/v3.0/oa/group/delete' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "group_id": "f414c8f76fa586fbdfb4"
+}'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token  tại đây.
+Cấu trúc body của request​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+group_id	string	yes	ID của nhóm
+Example respond​
+{
+    "error": 0,
+    "message": "Success"
+}
+
+​
+Trước
+Xóa thành viên khỏi nhóm
+Kế tiếp
+Lấy danh sách nhóm OA đang quản lý
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+©2023 Zalo for Developers

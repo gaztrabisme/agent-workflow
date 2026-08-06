@@ -1,0 +1,159 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/android-sdk/tong-quan
+# FETCHED: 2026-07-21
+# TITLE: Tổng quan | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Tổng quan
+Tổng quan
+
+Zalo SDK là bộ thư viện để các app có thể tương tác với Zalo Platform. Zalo SDK bao gồm các chức năng chính như sau:
+
+Đăng nhập bằng tài khoản Zalo
+Hỗ trợ app lấy thông tin profile của user, danh sách bạn bè
+Hiện tại Zalo SDK hỗ trợ tất cả các thiệt bị cài đặt hệ điều hành Android 4.3 (API 18) trở lên.
+
+Hỗ trợ
+
+Nếu trong quá trình tích hợp có thắc mắc gì bạn có thể:
+
+Liên hệ trực tiếp qua email với team SDK để được trợ giúp
+Tham khảo Demo
+Bước 1:​
+
+Vào trang web http://developers.zalo.me tạo ứng dụng mới cho Android. Cần điền đầy đủ các thông tin:
+
+Package name
+Base64 của sha1 sign key
+
+Để lấy được Base64 của sha1 sign key, có thể dùng đoạn code sau: (lưu ý cần điền release signkey khi chuẩn bị publish app)
+
+public static String getApplicationHashKey(Context ctx) throws Exception {
+    PackageInfo info = ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), PackageManager.GET_SIGNATURES);
+    for (Signature signature : info.signatures) {
+        MessageDigest md = MessageDigest.getInstance("SHA");
+        md.update(signature.toByteArray());
+        String sig = Base64.encodeToString(md.digest(), Base64.DEFAULT).trim();
+        if (sig.trim().length() > 0) {
+            return sig;
+        }
+    }
+}
+
+Bước 2:​
+
+Thêm thư viện ZaloSDK vào build gradle
+
+Trong file build.gradle của app thêm các config sau :
+
+Thêm url repo bên trong block repositories
+repositories {
+    maven {
+        url "https://gitlab.com/api/v4/projects/50747855/packages/maven"
+    }
+}
+
+Thêm các dependencies
+implementation "me.zalo:sdk-core:+"
+implementation "me.zalo:sdk-auth:+"
+implementation "me.zalo:sdk-openapi:+"
+
+Bước 3:​
+
+Lấy app id từ trang http://developers.zalo.me và thêm vào file strings.xml
+
+<string name="appID"> ... </string>
+
+
+Thêm thẻ metadata cho appID trong AndroidManifest.xml:
+
+<!-- Required zalo app id -->
+ <meta-data
+      android:name="com.zing.zalo.zalosdk.appID"
+      android:value="@string/appID" />
+
+
+Lưu ý: AppID cần được thêm vào strings.xml theo hướng dẫn ở trên, không gán trực tiếp chuỗi appID trong thẻ metaData sẽ gây ra lỗi ZaloSDK không nhận dạng được appID.
+
+Bước 4:​
+
+Trong file AndroidManifest thêm attribute name của Application như sau:
+
+<application android:name="com.zing.zalo.zalosdk.oauth.ZaloSDKApplication" />
+
+
+Trường hợp nếu app có class Application riêng thì trong method onCreate của Application phải gọi:
+
+public class DemoApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        ZaloSDKApplication.wrap(this);
+    }
+}
+
+Bước 5:​
+
+Thêm activity để login Zalo bằng Web:
+
+<activity android:name="com.zing.zalo.zalosdk.oauth.BrowserLoginActivity" 
+**android:exported="true"**\>
+
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="zalo-xxxxx" />
+    </intent-filter>
+</activity>
+
+
+Lưu ý: - Thay xxxxx bằng appid của ứng dụng lấy trên trang developers - Với app target android 11 (api >=30) trở lên khai báo thêm trong manifest để có thể mở được ZaloApp
+
+<queries>
+        <package android:name="com.zing.zalo" />
+</queries>
+
+Với app target android 12 (api >=31) trở lên khai báo thêm android:exported="true"  để nhận được callback khi login bằng Browser
+Bước 6:​
+
+Thêm proguard cho zaloSDK:
+
+-keep class com.zing.zalo.\*\*{ \*; }
+-keep enum com.zing.zalo.\*\*{ \*; }
+-keep interface com.zing.zalo.\*\*{ \*; }
+
+
+Các thay đổi quan trọng ở V4 mời xem thêm tại (link)
+
+Kế tiếp
+Thay đổi quan trọng trên SDK V4
+Bước 1:
+Bước 2:
+Bước 3:
+Bước 4:
+Bước 5:
+Bước 6:
+©2023 Zalo for Developers

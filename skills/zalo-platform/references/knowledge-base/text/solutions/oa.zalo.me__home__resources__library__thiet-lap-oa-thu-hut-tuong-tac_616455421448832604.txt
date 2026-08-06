@@ -1,0 +1,78 @@
+# SOURCE: https://oa.zalo.me/home/resources/library/thiet-lap-oa-thu-hut-tuong-tac_616455421448832604
+# FETCHED: 2026-08-06
+# TITLE: Thiết lập OA thu hút tương tác | Zalo Official Account
+
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+Trang chủ
+Thư viện
+Thiết lập OA thu hút tương tác
+16/06/2025
+|
+Best practice
+Thiết lập OA thu hút tương tác
+Trang thông tin OA là điểm chạm đầu tiên khi khách hàng tiếp cận với doanh nghiệp trên Zalo. Khách hàng có tương tác, hoặc tìm hiểu thêm về doanh nghiệp hay không, phụ thuộc rất nhiều vào việc doanh nghiệp đầu tư cho trang thông tin OA. Trong bài viết này, Zalo OA sẽ đưa ra một số khuyến nghị thiết lập trang thông tin OA chuyên nghiệp, giúp thúc đẩy tương tác tối đa.
+Tại sao cần thiết lập trang thông tin OA và các tính năng cơ bản?
+Tăng độ tin cậy với khách hàng: Một trang thông tin OA thể hiện rõ thông tin của doanh nghiệp như logo doanh nghiệp, thông tin liên hệ, địa chỉ và câu chuyện về doanh nghiệp sẽ giúp tăng độ tin cậy của người dùng và tăng mức độ tương tác, chia sẻ thông tin với doanh nghiệp.
+Thúc đẩy tương tác với Zalo OA: Theo Báo cáo nền tảng Zalo Official Account 2023 "Sau khi tiếp cận Zalo OA, người dùng có xu hướng tương tác nếu như OA có nội dung hấp dẫn". Vì vậy việc đầu tư vào trang thông tin OA, thiết lập đầy đủ thông tin và các tính năng giúp tăng tỷ lệ khách hàng nhắn tin, gọi và duy trì tương tác lâu dài với OA.
+Tối ưu hóa tìm kiếm: Theo Báo cáo nền tảng Zalo Official Account 2024, 45.5% người dùng tìm kiếm Zalo OA doanh nghiệp thông qua công cụ tìm kiếm trên Zalo. Thông tin OA được thiết lập hiệu quả sẽ giúp tối ưu hiệu quả tìm kiếm và tăng tỉ lệ tiếp cận tới khách hàng.
+Cách tối ưu trang thông tin OA
+1. Tối ưu thông tin cơ bản:
+Ảnh đại diện và ảnh bìa
+Ảnh đại diện và ảnh bìa là 2 yếu tố người dùng tiếp cận đầu tiên với OA doanh nghiệp, và cũng là yếu tố quan trọng nhất giúp người dùng nhận diện doanh nghiệp trên Zalo. Ảnh đại diện và ảnh bìa cần đồng nhất về mặt phong cách với nhận diện thương hiệu chung của doanh nghiệp như màu sắc, hình ảnh, biểu tượng,...
+Ảnh đại diện: Nên là logo của doanh nghiệp/thương hiệu đang dùng. Hạn chế thay đổi ảnh đại diện để tạo sự quen thuộc với người dùng khi tìm kiếm OA.
+Ảnh bìa: Chiếm diện tích lớn trên trang thông tin OA. Nên ảnh bìa có thể dùng để truyền đạt những thông tin hấp dẫn nhất về doanh nghiệp, có thể là câu định vị thương hiệu, hình ảnh sản phẩm/dịch vụ hoặc cửa hàng, thông tin chương trình ưu đãi mới nhất,... Ảnh bìa có thể thường xuyên thay đổi theo mục đích của doanh nghiệp. Và cũng nên đồng nhất về mặt nhận diện thương hiệu để tạo sự chuyên nghiệp cho OA.
+Xem thêm hướng dẫn thiết lập ảnh đại diện, ảnh bìa tại đây
+Giới thiệu doanh nghiệp và thông tin liên lạc
+Thông tin giới thiệu doanh nghiệp giúp khách hàng hiểu rõ hơn về ngành nghề, lĩnh vực kinh doanh của doanh nghiệp. Thông tin giới thiệu càng rõ ràng và càng đúng với hoạt động của doanh nghiệp thì khả năng tiếp cận được với đúng khách hàng tiềm năng càng lớn.
+Thông tin mô tả doanh nghiệp cần làm rõ một số thông tin sau về doanh nghiệp:
+Sản phẩm/dịch vụ đang cung cấp
+Hình thức cung cấp (Online, Offline,...)
+Điểm nổi bật của doanh nghiệp so với thị trường (ngắn gọn)
+Ngoài các thông tin chính về doanh nghiệp bắt buộc phải có, bạn có thể tùy chọn thêm các thông tin khác như địa chỉ, hotline, thời gian hoạt động và website. Với các thông tin này, doanh nghiệp có thể linh hoạt hiển thị lên OA để người dùng dễ dàng truy cập thông tin khi cần thiết.
+Xem thêm hướng dẫn thiết lập thông tin OA tại đây
+2. Menu tương tác
+Tương tác nhanh (Menu nhanh)
+Menu nhanh hiển thị đầy đủ ngay tại giao diện chính, cho phép người dùng thấy hết nội dung Menu, có thể nhấn (click) và mở ra ngay các tính năng cần thiết như (tin nhắn, gọi thoại, bài viết,...). Với tính năng này doanh nghiệp có thể đặt các thông tin cập nhật mới nhất tại đây như thông tin sản phẩm mới, thông tin chương trình khuyến mãi mới,... để kích thích người dùng tương tác với Zalo OA. Hoặc gắn những hành động muốn khách hàng thực hiện để khách hàng có thể truy cập nhanh chóng ngay trên trang thông tin OA.
+Dịch vụ (Menu chính)
+Menu chính cho phép doanh nghiệp sắp xếp thông tin dưới dạng cây thư mục giúp điều hướng thông tin khách hàng tìm hiểu về doanh nghiệp dễ dàng. Tại đây doanh nghiệp có thể thiết lập các thông tin khách hàng thường xuyên cần đến như website doanh nghiệp, thông tin về sản phẩm/dịch vụ, chính sách mua hàng,...
+Với cả 2 tính năng Menu nhanh và Menu chính, ngoài các tính năng được hỗ trợ trên nền tảng Zalo OA, doanh nghiệp có thể tích hợp với hệ thống bên thứ 3 để nâng cao tính ứng dụng cho OA như khách hàng thân thiết, ứng dụng mua hàng, Zalo Mini App, Mini game,...
+Xem thêm hướng dẫn thiết lập menu tại đây
+3. Bài viết
+Bài viết là nơi doanh nghiệp có thể truyền thông đến khách hàng về câu chuyện thương hiệu của doanh nghiệp hoặc những nội dung mà doanh nghiệp muốn khách hàng tìm hiểu như thông tin sản phẩm, chương trình ưu đãi, sự kiện mới,... Nội dung bài viết được đầu tư và cập nhật thường xuyên cũng thể hiện cho khách hàng thấy rằng OA đang được chăm sóc thường xuyên từ đó khách hàng tin tưởng và quyết định tương tác với OA.
+Với bài viết, doanh nghiệp có thể sử dụng nhiều định dạng khác nhau để thể hiện thông tin như văn bản, hình ảnh, video,... Doanh nghiệp còn có thể tạo nút kêu gọi hành động (CTA) để hướng khách hàng thực hiện một hành động cụ thể như mua hàng, đặt lịch dịch vụ, đăng ký thành viên,... Các bài viết có nội dung liên quan thể được đính kèm trong phần tin liên quan tại mỗi bài viết giúp khách hàng có thể tiếp tục khám phá nội dung trên OA.
+Để bài viết tiếp cận trực tiếp đến khách hàng, OA có thể sử dụng công cụ Broadcast để gửi đến tất cả người dùng đang quan tâm OA của doanh nghiệp.
+Xem thêm hướng dẫn tạo bài viết tại đây
+Trong bài viết này chúng tôi đã chia sẻ đến anh/chị về cách xây dựng một trang thông tin OA chuyên nghiệp dễ dàng thu hút tương tác. Anh/chị có thể tham khảo thêm cách thiết lập tất cả các tính năng khác tại đây. Và có thể theo dõi các bài viết khác tại mục Thư viện.
+Bài viết này có hữu ích với bạn không?
+KhôngCó, nhưng...Có
+Chúng tôi có thể làm cho bài viết này hữu ích hơn bằng cách nào?
+Khác
+Trở lạiGửi đi
+Search
+Cảm ơn bạn đã góp ý cho chúng tôi!
+Tạo Zalo Official Account và kết nối với
+người dùng Zalo ngay!
+Tạo Official Account ngay
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+Nhấn vào đây để được tư vấn
+©2024 Zalo Official Account

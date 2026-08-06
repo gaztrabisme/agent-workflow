@@ -1,0 +1,106 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/TS/error_code
+# FETCHED: 2026-08-06
+# TITLE: Bảng mã lỗi | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Cấu hình API
+API Reference
+Bảng mã lỗi
+Trên trang này
+Bảng mã lỗi
+Bảng mô tả mã lỗi có thể phát sinh khi sử dụng các APIs của hệ thống Transfer Service. Với các trường hợp lỗi, vui lòng tham khảo thông tin trong trường error_message trong response để biết thêm chi tiết.
+Mã lỗi nghiệp vụ (API response)​
+Các mã lỗi dưới đây được trích từ response body (error_code) khi gọi API.
+error_code < 0 (giá trị âm) cho biết lỗi nghiệp vụ.
+error_code = 0 nghĩa là thành công.
+Mã lỗi
+Error message
+Ý nghĩa
+-105
+Invalid signature
+Lỗi chữ ký xác thực request
+-201
+Invalid merchant id
+Merchant id không hợp lệ
+-302
+Invalid bank account id
+Tài khoản ngân hàng không hợp lệ
+-402
+Invalid order id
+Mã giao dịch không hợp lệ
+-403
+Invalid order amount
+Số tiền giao dịch không hợp lệ
+-408
+Invalid order status
+Trạng thái giao dịch không cho phép (ví dụ: không cho phép hoàn tiền)
+-409
+Invalid merchant order time
+Thời gian đơn hàng không hợp lệ
+-410
+Invalid order description
+Mô tả đơn hàng không hợp lệ
+-411
+Invalid order expire duration seconds
+Thời gian hết hạn giao dịch không hợp lệ
+-412
+Invalid order client id
+Mã client của đơn hàng không hợp lệ
+-414
+Invalid callback url
+Callback URL không hợp lệ
+-501
+Invalid application id
+Application id không hợp lệ
+-510
+Application not exist
+Application không tồn tại
+-514
+Application has no linked bank account
+Application chưa liên kết tài khoản ngân hàng
+Mã lỗi HTTP (response status)​
+Khi gọi API, ngoài mã lỗi nghiệp vụ trong body, server có thể trả về các mã HTTP sau:
+Mã HTTP
+Ý nghĩa
+400
+Bad request – Sai đường dẫn hoặc tham số không hợp lệ
+401
+Unauthorized – Token đã hết hạn hoặc không hợp lệ
+403
+Forbidden – Không có quyền truy cập
+404
+Not found – Tài nguyên không tồn tại
+408
+Request timeout – Quá thời gian xử lý cho phép
+429
+Too many requests – Vượt quá giới hạn sử dụng API
+5xx
+Internal server error – Lỗi phía server
+Trước
+Webhook nhận kết quả thanh toán
+Mã lỗi nghiệp vụ (API response)
+Mã lỗi HTTP (response status)
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

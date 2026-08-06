@@ -1,0 +1,96 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/nhom-chat-gmf/user_request_join_group
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện thành viên mới yêu cầu tham gia nhóm | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Nhóm chat - GMF
+Sự kiện tạo nhóm OA
+Sự kiện thành viên mới tham gia nhóm
+Sự kiện thành viên mới yêu cầu tham gia nhóm
+Sự kiện duyệt thành viên
+Sự kiện từ chối duyệt thành viên
+Sự kiện thêm phó nhóm
+Sự kiện xóa phó nhóm
+Sự kiện cập nhật thông tin nhóm
+Sự kiện thành viên rời nhóm
+Sự kiện xóa nhóm
+Sự kiện tin nhắn được gửi tới nhóm
+Gọi thoại
+Extension
+Quản lý
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookNhóm chat - GMFSự kiện thành viên mới yêu cầu tham gia nhóm
+Sự kiện thành viên mới yêu cầu tham gia nhóm
+
+Khi có user yêu cầu tham gia nhóm, hệ thống Zalo sẽ gửi một request HTTP đến Webhook URL đã đăng ký của ứng dụng.
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây
+Example request​
+{
+    "oa_id": "2057086764452860443",
+    "group_id": "48382b0bb7595e070748",
+    "event_name": "user_request_join_group",
+    "app_id": "3570977494304483078",
+    "users": [
+        {
+            "id": "8509985270925410066"
+        }
+    ],
+    "timestamp": "1696407729124"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+event_name	String	Thuộc tính xác định loại event
+oa_id	String	Id của Official Account
+group_id	String	Id nhóm
+timestamp	String	Thời điểm request được gửi, tính bằng millisecond
+app_id	String	Id ứng dụng đang nhận event
+users	Array	Thông tin các user yêu cầu tham gia nhóm
+Mô tả thuộc tính users​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+id	String	Id của user yêu cầu tham gia nhóm
+​
+Trước
+Sự kiện thành viên mới tham gia nhóm
+Kế tiếp
+Sự kiện duyệt thành viên
+Example request
+Mô tả thuộc tính
+Mô tả thuộc tính users
+©2023 Zalo for Developers

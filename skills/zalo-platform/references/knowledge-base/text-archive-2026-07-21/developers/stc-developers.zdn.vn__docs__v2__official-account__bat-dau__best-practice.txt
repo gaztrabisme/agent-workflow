@@ -1,0 +1,67 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/bat-dau/best-practice
+# FETCHED: 2026-07-21
+# TITLE: Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Bắt đầuTối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Gợi ý ứng dụng Zalo OA trong hành trình khách hàng​
+
+Để khách hàng có thể trải nghiệm dịch vụ của Doanh nghiệp theo hành trình liền mạch, không đứt gãy, Doanh nghiệp có thể ứng dụng linh hoạt các tính năng tương tác thông qua Zalo OA, đồng thời kết hợp với các giải pháp của hệ sinh thái Zalo hoặc các nền tảng do doanh nghiệp sở hữu.
+
+Zalo OA gợi ý một số trường hợp ứng dụng sau đây để Doanh nghiệp có thể tham khảo trong quá trình tối ưu trải nghiệm khách hàng.
+
+Tham khảo thêm các giải pháp của hệ sinh thái Zalo dành cho Doanh nghiệp:
+
+Zalo Mini App: Giải pháp phát hành chương trình của doanh nghiệp trên kho ứng dụng Zalo. Kết hợp Zalo Mini App và Zalo OA giúp Doanh nghiệp mở rộng điểm tiếp cận khách hàng, từ đó Doanh nghiệp có thể chủ động thiết lập và duy trì tương tác. Tham khảo về Zalo Mini App tại đây.
+
+Zalo Notification Service (ZNS): Giải pháp gửi thông báo đến số điện thoại khách hàng. ZNS là tính năng hiệu quả giúp Doanh nghiệp đưa Zalo OA đến trực tiếp tệp khách hàng sẵn có, từ đó khuyến khích khách hàng tương tác với OA. Tìm hiểu thêm về ZNS tại đây.
+
+Zalo Ads: Giải pháp quảng cáo trên hệ sinh thái Zalo. Thông qua quảng cáo, khách hàng có thể tiếp cận Zalo OA và các dịch vụ của Doanh nghiệp cung cấp thông qua Zalo. Tìm hiểu thêm về Zalo Ads tại đây.
+
+Gợi ý ứng dụng Zalo OA trong quản lý dữ liệu và vận hành​
+
+Khi khách hàng tương tác với OA, Doanh nghiệp có thể tổng hợp, lưu trữ và quản lý thông tin khách hàng (chưa quan tâm hoặc đã quan tâm OA), tập trung về một hệ thống duy nhất của doanh nghiệp (CRM, CDP,...). Từ đó đưa ra các chiến lược chăm sóc khách hàng và marketing phù hợp với từng đối tượng.
+
+Doanh nghiệp cũng có thể linh hoạt và chủ động đo lường hoạt động của các nhân viên chăm sóc khách hàng (là quản trị viên các OAs), hoặc đo lường hoạt động của nhiều OA thuộc cùng hệ thống, phục vụ nhu cầu liên quan đến vận hành nội bộ của doanh nghiệp, đặc biệt là doanh nghiệp có nhiều chi nhánh (chuỗi, hệ thống,...)
+
+Doanh nghiệp có nhu cầu tạo và vận hành số lượng lớn OA, vui lòng liên hệ tới BQT Zalo OA tại địa chỉ email oa@zalo.me để được hỗ trợ và giải đáp.
+
+Trước
+Khám phá
+Kế tiếp
+Khởi tạo ứng dụng
+Gợi ý ứng dụng Zalo OA trong hành trình khách hàng
+Gợi ý ứng dụng Zalo OA trong quản lý dữ liệu và vận hành
+©2023 Zalo for Developers

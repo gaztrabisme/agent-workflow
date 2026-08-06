@@ -1,0 +1,135 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/noi-dung/noi-dung-dang-video/chinh-sua-noi-dung-dang-video
+# FETCHED: 2026-08-06
+# TITLE: Chỉnh sửa nội dung dạng video | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Tổng quan
+Nội dung dạng bài viết
+Nội dung dạng Bài viết
+Tải video lên cho nội dung bài viết
+Kiểm tra kết quả tiến trình tạo nội dung
+Lấy chi tiết của nội dung dạng bài viết
+Lấy danh sách nội dung dạng bài viết
+Xóa nội dung dạng bài viết
+Cập nhật nội dung
+Nội dung dạng video
+Nội dung dạng Video
+Chỉnh sửa nội dung dạng video
+Lấy chi tiết nội dung dạng video
+Lấy danh sách nội dung dạng video
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Chỉnh sửa nội dung dạng video
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/article/update
+Method: POST
+Content Type: application/json
+Reponse Type: text/json
+Sample​
+curl \
+-X POST \
+-H "Content-Type: application/json" \
+-H "access_token: <ACCESS_TOKEN>" \
+-d '{
+"id" : "s54d2s54d113",
+"title": "News",
+"description": "This is news",
+"status": "show",
+"video_id": "7f8c46bf7bfa94cbeb",
+"avatar": "image",
+"comment": "show"
+}' \
+'https://openapi.zalo.me/v2.0/article/update'
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính băt buộc
+Mô tả
+access_token
+String
+Yes
+Xem hướng dẫn lấy access_token ở đây.
+Cấu trúc body​
+Tham số
+Kiểu dữ liệu
+Tính băt buộc
+Mô tả
+id
+String
+Yes
+Id của bài viết video muốn chỉnh sửa.
+title
+String
+Yes
+Tiêu đề bài viết. Tối đa 150 ký tự.
+description
+String
+Yes
+Mô tả về bài viết. Tối đa 300 ký tự.
+status
+String
+Yes
+Trạng thái của bài viết. Chỉ nhận 1 trong 2 giá trị: “show”, “hide”
+video_id
+String
+Yes
+id của video hiển thị trên bài viết.
+avatar
+String
+Yes
+Đường dẫn url đến hình ảnh muốn dùng làm thumbnail .
+comment
+String
+Yes
+Gồm 2 giá trị: “hide” (không cho phép comment trên bài viết này), “show”(Cho phép comment trên bài viết này). (Không bắt buộc, mặc định là “show”)
+Respond​
+{
+"error": 0,
+"message": "Success",
+"data": {
+"token": "9xk090B1ANibkhyg9ke8SZgMg39Pz7bNJvJvKrpA821_XVbaI-Dr9ME5ma44nqGPOw3dKmR2SreHY_yaUiOcMrkWX0XknWH0IOQtEY_N1r9Ahu8xJT9QEIU9paOpwc0QDhhqSmU3So8WmlqcEvDEKb_euG5CbKHp9kJS432-35aKsOzSQva30L2cabKwcZqJNwkvQ63M7Mf7bQml9SK5BZJyZ4O8jmT16OwbFNdmA4iIdQPETiq8EtUkhM0AYMCHDkNmJWs9CLPkgFuBJ9Gm536kw1DQb34I9xF_4qE2BX4fk_uJIOKl6ZIYuH9LdpaMPAxi5mILRn5XgxmNLi8v56VywqLGnJaGDJ4mKWZXC0_G15"
+}
+}
+Trước
+Nội dung dạng Video
+Kế tiếp
+Lấy chi tiết nội dung dạng video
+HTTP request
+Sample
+Tham số header
+Cấu trúc body
+Respond
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

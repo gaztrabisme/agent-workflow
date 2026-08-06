@@ -1,0 +1,98 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/bat-dau/gioi-thieu-ve-cac-nhom-quyen-thuoc-zbs-template-message
+# FETCHED: 2026-08-06
+# TITLE: Giới thiệu về các nhóm quyền thuộc ZBS Template Message | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Để sử dụng ZBS Template Message qua API hoặc qua Gửi tin nhắn theo chiến dịch, đối tác sở hữu AppID cần được OA uỷ quyền tương ứng để có thể sử dụng API hoặc nhận sự kiện qua webhook.
+Đối tác tham khảo danh sách API/webhook với các nhóm quyền tương ứng:
+1. Quyền sử dụng API​
+Nhóm quyền
+API liên quan
+Quyền gửi tin qua SĐT:
+- Gửi tin qua sđt
+- Truy xuất dữ liệu gửi tin SĐT
+- API Gửi tin
+- API Gửi tin sử dụng hash phone
+- API Gửi tin sử dụng development mode
+- API Gửi tin với hệ mã hóa RSA
+- API Gửi tin journey
+- API Lấy thông tin trạng thái gửi tin qua SĐT
+- API Lấy thông tin quota gửi tin qua SĐT
+- API Lấy thông tin chất lượng gửi tin qua SĐT hiện tại của OA
+Quyền quản lý Message Template:
+- Tạo và chỉnh sửa thông tin Template
+- Truy xuất thông tin Template
+- Quản lý hình ảnh / logo dùng cho việc tạo Template
+- API tạo template
+- API chỉnh sửa template
+- API Upload ảnh
+- API Lấy danh sách template
+- API Lấy thông tin chi tiết template
+- API Lấy dữ liệu mẫu của template
+- API Lấy thông tin đánh giá của khách hàng
+Quyền gửi tin nhắn
+- API gửi tin UID (Tham khảo bài viết tại đây)
+2. Quyền nhận sự kiện webhook​
+Nhóm quyền
+Sự kiện liên quan
+Quyền nhận sự kiện quản lý gửi tin qua SĐT:
+- Sự kiện quản lý quyền lợi của OA
+- Sự kiện từ người dùng
+- Sự kiện người dùng nhận tin qua SĐT
+- Sự kiện thay đổi về hạn mức gửi tin qua SĐT
+Quyền nhận sự kiện quản lý gửi tin qua UID:
+- Sự kiện người dùng đã nhận tin nhắn từ OA
+- Sự kiện người dùng đã đọc tin nhắn
+- Sự kiện người dùng gửi tin nhắn đến OA
+- Sự kiện OA gửi tin nhắn cho người dùng
+- Sự kiện về gửi tin UID
+Quyền nhận sự kiện quản lý message template:
+- Sự kiện người dùng phản hồi Template đánh giá dịch vụ
+- Sự kiện thay đổi trạng thái Template ZBS
+- Sự kiện thay đổi chất lượng gửi của Template ZBS
+- Sự kiện thay đổi thông tin Journey
+- Sự kiện người dùng phản hồi template đánh giá dịch vụ
+- Sự kiện thay đổi về chất lượng gửi của mẫu tin
+- Sự kiện thay đổi trạng thái Template
+- Sự kiện Journey hết hạn
+- Sự kiện Journey được tính phí
+Trước
+Giới thiệu ZBS Template Message
+Kế tiếp
+Giới thiệu chung về Template
+1. Quyền sử dụng API
+2. Quyền nhận sự kiện webhook
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

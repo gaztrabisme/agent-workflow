@@ -1,0 +1,143 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/tin-nhan/cac-loai-tin-khac/gui-tin-nhan-dang-sticker-den-nguoi-dung-an-danh
+# FETCHED: 2026-07-21
+# TITLE: Gửi tin nhắn dạng sticker đến người dùng ẩn danh | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Thả biểu tượng cảm xúc vào tin nhắn
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tin nhắnCác loại tin khácGửi tin nhắn dạng sticker đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+LƯU Ý
+
+Quyền cần có: Quyền gửi tin và thông báo qua OA
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/message
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'access_token: <your_access_token>' \
+-d '{
+  "recipient": {
+    "anonymous_id": "5443873f256ecc30957f",
+    "conversation_id": "2c298a21b4645d3a0475"
+  },
+  "message": {
+    "attachment": {
+        "type": "template",
+        "payload": {
+            "template_type": "media",
+            "elements": [{
+                "media_type": "sticker",
+                "attachment_id": "bfe458bf64fa8da4d4eb"
+            }[]
+        }
+    }
+  }
+}' "https://openapi.zalo.me/v2.0/oa/message"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token  tại đây.
+Cấu trúc body của request​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+recipient	object	yes	Thông tin người nhận
+message	object	yes	Nội dung cần gửi
+Cấu trúc thuộc tính recipient​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+anonymous_id	string	yes	Id đại diện cho người dùng ẩn danh.
+conversation_id	string	yes	Id của cuộc hội thoại.
+Cấu trúc thuộc tính message​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+attachment	object	yes	Attachment cần gửi.
+Cấu trúc thuộc tính message.attachment​
+Tham số	Loại	Tính bắt buộc	Mô tả
+type	string	yes	Loại attachment.
+
+Giá trị nhận vào bắt buộc:
+
+type = template
+
+payload	object	yes	Chứa payload của attachment muốn gửi.
+Cấu trúc thuộc tính message.attachment.payload​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+template_type	string	yes	Loại template
+Với template gửi thông báo theo mẫu đính kèm ảnh, giá trị nhận vào là:
+template_type = media
+elements	array	yes	Các đối tượng của template.
+
+Lưu ý: Cấu trúc element thay đổi tùy theo loại template. Với template media, danh sách element bao gồm tối đa 1 phần tử.
+Cấu trúc thuộc tính message.attachment.payload.element​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+media_type	string	yes	Nhận vào giá trị: sticker
+attachment_id	array	yes	Truyền vào stricker lấy từ nguồn:https://stickers.zaloapp.com/ Xem video: https://vimeo.com/649330161
+Example respond​
+{
+    "data": {
+        "message_id": "92abd4e6156c8333da7c",
+        "anonymous_id": "1ffedc467f179649cf06",
+        "conversation_id": "fa8f3f8701c2e89cb1d3"
+    },
+    "error": 0,
+    "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+message_id	string	Id của tin nhắn.
+anonymous_id	string	Id đại diện người dùng ẩn danh.
+conversation_id	string	Id của cuộc hội thoại.
+Trước
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Kế tiếp
+Thả biểu tượng cảm xúc vào tin nhắn
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Cấu trúc thuộc tính recipient
+Cấu trúc thuộc tính message
+Cấu trúc thuộc tính message.attachment
+Cấu trúc thuộc tính message.attachment.payload
+Cấu trúc thuộc tính message.attachment.payload.element
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

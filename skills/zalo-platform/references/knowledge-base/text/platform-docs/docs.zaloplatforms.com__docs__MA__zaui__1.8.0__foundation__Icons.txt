@@ -1,0 +1,285 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.8.0/foundation/Icons
+# FETCHED: 2026-08-06
+# TITLE: Icons | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.8.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Icons
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.8.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Icon Kit​
+Thư viện icon phục vụ thiết kế Mini App trên Zalo
+Arrow
+zi_arrow_downzi-arrow-down
+zi_arrow_leftzi-arrow-left
+zi_arrow_rightzi-arrow-right
+zi_arrow_upzi-arrow-up
+zi_autozi-auto
+zi_auto_solidzi-auto-solid
+zi_backup_arrow_solidzi-backup-arrow-solid
+zi_chevron_double_downzi-chevron-double-down
+zi_chevron_double_upzi-chevron-double-up
+zi_chevron_downzi-chevron-down
+zi_chevron_leftzi-chevron-left
+zi_chevron_left_headerzi-chevron-left-header
+zi_chevron_rightzi-chevron-right
+zi_chevron_upzi-chevron-up
+zi_downloadzi-download
+zi_download_solidzi-download-solid
+zi_reorder_solidzi-reorder-solid
+zi_replyzi-reply
+zi_reply_solidzi-reply-solid
+zi_retryzi-retry
+zi_retry_solidzi-retry-solid
+zi_sharezi-share
+zi_share_external_1zi-share-external-1
+zi_share_external_2zi-share-external-2
+zi_share_solidzi-share-solid
+zi_unfold_lesszi-unfold-less
+zi_unfold_morezi-unfold-more
+zi_uploadzi-upload
+Basic
+zi_add_storyzi-add-story
+zi_banzi-ban
+zi_bullet_solidzi-bullet-solid
+zi_checkzi-check
+zi_check_circlezi-check-circle
+zi_check_circle_solidzi-check-circle-solid
+zi_closezi-close
+zi_close_circlezi-close-circle
+zi_close_circle_solidzi-close-circle-solid
+zi_copyzi-copy
+zi_deletezi-delete
+zi_drag_indicator_solidzi-drag-indicator-solid
+zi_filterzi-filter
+zi_filter_solidzi-filter-solid
+zi_homezi-home
+zi_leavezi-leave
+zi_leave_solidzi-leave-solid
+zi_list_1zi-list-1
+zi_list_2zi-list-2
+zi_minus_circlezi-minus-circle
+zi_minus_circle_solidzi-minus-circle-solid
+zi_more_diamond_solidzi-more-diamond-solid
+zi_more_gridzi-more-grid
+zi_more_grid_solidzi-more-grid-solid
+zi_more_horizzi-more-horiz
+zi_more_horiz_solidzi-more-horiz-solid
+zi_more_vertzi-more-vert
+zi_pluszi-plus
+zi_plus_circlezi-plus-circle
+zi_plus_circle_solidzi-plus-circle-solid
+zi_radio_checkedzi-radio-checked
+zi_radio_uncheckedzi-radio-unchecked
+zi_save_to_collectionzi-save-to-collection
+zi_searchzi-search
+zi_settingzi-setting
+zi_tunezi-tune
+Time
+zi_calendarzi-calendar
+zi_calendar_solidzi-calendar-solid
+zi_clock_1zi-clock-1
+zi_clock_1_solidzi-clock-1-solid
+zi_clock_2zi-clock-2
+zi_clock_2_solidzi-clock-2-solid
+zi_memoryzi-memory
+zi_reminderzi-reminder
+zi_reminder_deletezi-reminder-delete
+zi_reminder_solidzi-reminder-solid
+Tools
+zi_filezi-file
+zi_inboxzi-inbox
+zi_notezi-note
+zi_note_deletezi-note-delete
+zi_pclinezi-pcline
+zi_pollzi-poll
+zi_poll_solidzi-poll-solid
+zi_qrlinezi-qrline
+zi_truyen_filezi-truyen-file
+zi_wallpaperzi-wallpaper
+Edit
+zi_editzi-edit
+zi_edit_deletezi-edit-delete
+zi_edit_delete_solidzi-edit-delete-solid
+zi_edit_solidzi-edit-solid
+zi_edit_textzi-edit-text
+zi_edit_text_solidzi-edit-text-solid
+zi_postzi-post
+Communication
+zi_atzi-at
+zi_bubble_multiselectzi-bubble-multiselect
+zi_callzi-call
+zi_call_solidzi-call-solid
+zi_chatzi-chat
+zi_chat_solidzi-chat-solid
+zi_grid_solidzi-grid-solid
+zi_locationzi-location
+zi_location_solidzi-location-solid
+zi_miczi-mic
+zi_quotezi-quote
+zi_quote_solidzi-quote-solid
+zi_recallzi-recall
+zi_send_solidzi-send-solid
+zi_user_window_solidzi-user-window-solid
+zi_videozi-video
+zi_video_groupzi-video-group
+zi_video_solidzi-video-solid
+zi_wifizi-wifi
+zi_wifi_offzi-wifi-off
+Media
+zi_add_photozi-add-photo
+zi_camerazi-camera
+zi_galleryzi-gallery
+zi_linkzi-link
+zi_livestreamzi-livestream
+zi_pausezi-pause
+zi_pause_solidzi-pause-solid
+zi_photozi-photo
+zi_photo_searchzi-photo-search
+zi_photo_solidzi-photo-solid
+zi_playzi-play
+zi_play_solidzi-play-solid
+User
+zi_add_memberzi-add-member
+zi_add_member_solidzi-add-member-solid
+zi_add_userzi-add-user
+zi_add_user_solidzi-add-user-solid
+zi_adminzi-admin
+zi_create_groupzi-create-group
+zi_create_group_solidzi-create-group-solid
+zi_groupzi-group
+zi_group_solidzi-group-solid
+zi_memberszi-members
+zi_members_solidzi-members-solid
+zi_strangerzi-stranger
+zi_stranger_solidzi-stranger-solid
+zi_switch_userszi-switch-users
+zi_switch_users_solidzi-switch-users-solid
+zi_userzi-user
+zi_user_checkzi-user-check
+zi_user_circlezi-user-circle
+zi_user_circle_solidzi-user-circle-solid
+zi_user_searchzi-user-search
+zi_user_search_solidzi-user-search-solid
+zi_user_settingszi-user-settings
+zi_user_settings_solidzi-user-settings-solid
+zi_user_solidzi-user-solid
+Backup
+zi_backup_solidzi-backup-solid
+zi_backup_success_solidzi-backup-success-solid
+zi_backup_warning_solidzi-backup-warning-solid
+Bookmark
+zi_bookmarkzi-bookmark
+zi_bookmark_deletezi-bookmark-delete
+zi_favorite_listzi-favorite-list
+zi_heartzi-heart
+zi_heart_solidzi-heart-solid
+zi_pinzi-pin
+zi_pin_solidzi-pin-solid
+zi_starzi-star
+zi_star_solidzi-star-solid
+zi_unpinzi-unpin
+Signage
+zi_exclamationzi-exclamation
+zi_help_circlezi-help-circle
+zi_info_circlezi-info-circle
+zi_info_circle_solidzi-info-circle-solid
+zi_warningzi-warning
+zi_warning_circlezi-warning-circle
+zi_warning_circle_solidzi-warning-circle-solid
+zi_warning_solidzi-warning-solid
+Privacy
+zi_hidezi-hide
+zi_key_solidzi-key-solid
+zi_lockzi-lock
+zi_lock_open_solidzi-lock-open-solid
+zi_lock_solidzi-lock-solid
+zi_notifzi-notif
+zi_notif_offzi-notif-off
+zi_notif_off_solidzi-notif-off-solid
+zi_notif_ringzi-notif-ring
+zi_shield_solidzi-shield-solid
+zi_unhidezi-unhide
+zi_unlockzi-unlock
+zi_unlock_solidzi-unlock-solid
+Icon Kit
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

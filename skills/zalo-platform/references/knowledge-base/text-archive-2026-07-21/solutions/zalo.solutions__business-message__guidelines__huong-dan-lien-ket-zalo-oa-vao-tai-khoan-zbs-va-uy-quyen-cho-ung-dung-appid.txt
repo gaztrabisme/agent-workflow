@@ -1,0 +1,95 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/huong-dan-lien-ket-zalo-oa-vao-tai-khoan-zbs-va-uy-quyen-cho-ung-dung-appid
+# FETCHED: 2026-07-21
+# TITLE: Hướng dẫn liên kết Zalo OA vào tài khoản ZBS | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Business Message
+Giới thiệu
+Tài liệu hướng dẫn
+Bảng giá
+Chính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Giới thiệu về ZBS Template Message
+Hướng dẫn thiết lập tài khoản ZBS
+Hướng dẫn liên kết Ứng dụng (AppID) vào tài khoản ZBS
+Hướng dẫn liên kết Zalo OA vào tài khoản ZBS
+Hướng dẫn Uỷ quyền ứng dụng (AppID) cho OA
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+
+Hướng dẫn liên kết Zalo OA vào tài khoản ZBS
+
+Tài khoản ZBS là nơi quản lý số dư và các chi phí liên quan đến việc sử dụng dịch vụ tin nhắn ZBS Template. Khi tài khoản OA được liên kết với tài khoản ZBS, mọi chi phí phát sinh từ việc gửi tin nhắn ZBS Template sẽ được trừ trực tiếp từ số dư trong tài khoản ZBS.
+
+Giới thiệu về Zalo Official Account (OA)  ​
+
+Zalo Official Account doanh nghiệp (OA doanh nghiệp) là tài khoản chính thức của doanh nghiệp trên Zalo, giúp doanh nghiệp và khách hàng/người quan tâm tương tác với nhau dễ dàng hơn thông qua các tính năng.
+
+Tài khoản OA cần được liên kết với tài khoản ZBS để sử dụng dịch vụ gửi tin nhắn ZBS template. Sau đây là hướng dẫn về cách thiết lập tài khoản Zalo Official Account (OA):
+
+a. Thiết lập tài khoản OA​
+
+Xem hướng dẫn khởi tạo và xác thực tài khoản OA tại ĐÂY
+
+b. Liên kết tài khoản OA với tài khoản ZBS​
+
+Lưu ý:* Để liên kết, người dùng cần là quản trị viên của cả OA và tài khoản ZBS có quyền liên kết.
+
+Bước 1: Doanh nghiệp truy cập vào tài khoản ZBS tại ĐÂY.
+
+Bước 2: Trong mục Cài đặt chọn Quản lý tài sản → Liên kết OA. Sau đó xác định OA cần liên kết mới.
+
+Bước 3: Chọn OA cần liên kết mới → Liên kết → Xác nhận liên kết.
+
+Lưu ý: Chỉ OA xác thực mới có thể liên kết vào tài khoản ZBS
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+Trước
+Hướng dẫn liên kết Ứng dụng (AppID) vào tài khoản ZBS
+Kế tiếp
+Hướng dẫn Uỷ quyền ứng dụng (AppID) cho OA
+Giới thiệu về Zalo Official Account (OA)  
+a. Thiết lập tài khoản OA
+b. Liên kết tài khoản OA với tài khoản ZBS
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

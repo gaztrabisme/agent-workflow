@@ -1,0 +1,229 @@
+# SOURCE: https://oa.zalo.me/home/resources/library/ra-mat-tien-ich-oa-quan-ly-dat-lich-tu-dong-va-chuyen-nghiep-hoa-quy-trinh-dat-hen-cho-doanh-nghiep-dich-vu_8290655254433058367
+# FETCHED: 2026-07-21
+# TITLE: Ra mắt Tiện ích OA “Quản lý đặt lịch” – Tự động và chuyên nghiệp hoá quy trình đặt hẹn cho Doanh nghiệp Dịch vụ | Zalo Official Account
+
+📢 [Chính thức] Quyền lợi và biểu phí các gói dịch vụ Zalo OA mới từ 1/6/2026
+Xem chi tiết
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+Chia sẻ cookie
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ.
+Từ chối
+Đồng ý
+Trang chủ
+Thư viện
+Ra mắt Tiện ích OA “Quản lý đặt lịch” – Tự động và chuyên nghiệp hoá quy trình đặt hẹn cho Doanh nghiệp Dịch vụ
+20/11/2025
+|
+Best practice
+Ra mắt Tiện ích OA “Quản lý đặt lịch” – Tự động và chuyên nghiệp hoá quy trình đặt hẹn cho Doanh nghiệp Dịch vụ
+
+Với các doanh nghiệp kinh doanh dịch vụ như F&B, Spa, Sửa chữa, Y tế,..., một bước quan trọng trong quy trình kinh doanh là ghi nhận nhu cầu của khách hàng thông qua hành động đặt lịch/ đặt bàn (booking/ reservation), việc này đảm bảo khách hàng có ý định sử dụng dịch vụ rõ ràng và doanh nghiệp chủ động trong vận hành. Từ nay, OA Doanh nghiệp đã có thể cài đặt Tiện ích Quản lý đặt lịch ngay tại OA Manager, giúp tối ưu quy trình chăm sóc khách hàng và cung cấp dịch vụ:
+
+Tự động hoá quy trình đặt lịch nhằm tối ưu trải nghiệm khách hàng & tiết kiệm nguồn lực chăm sóc khách hàng
+Tự động nhắc lịch nhằm giảm tỷ lệ lỡ hẹn (No-show)
+Quản lý lịch hẹn tập trung ngay tại OA Manager
+
+OA thuộc nhiều lĩnh vực đều có thể sử dụng Tiện ích Quản lý đặt lịch, tùy biến theo nhu cầu doanh nghiệp. Ngoài ra, OA có thể kết hợp sử dụng thêm các tiện ích khác tại Kho Tiện ích (phục vụ các nhu cầu quản lý bán hàng, khảo sát, chatbot,...) để nâng cao chất lượng chăm sóc khách hàng, bên cạnh các tính năng cơ bản như chat, call, broadcast hay bài viết.
+
+Tiện ích Quản lý Đặt lịch trong Kho tiện ích ngay tại OA Manager
+
+ 
+
+🗓 Tiện ích Quản lý đặt lịch
+
+Tiện ích Quản lý đặt lịch (với chi phí chỉ từ 129K/tháng) giúp OA tự động hóa toàn bộ quy trình từ tiếp nhận yêu cầu, xác nhận, đến nhắc hẹn, đặc biệt phù hợp với các ngành có tần suất đặt hẹn cao.
+
+Giá trị nổi bật của Tiện ích Quản lý đặt lịch (USP)
+
+✨ Tự động Nhắc Lịch: Gửi tin nhắn nhắc hẹn qua Zalo khách hàng, giảm thiểu tỷ lệ lỡ hẹn (No-show).
+
+ 
+
+✨ Tiếp cận đa điểm chạm: Doanh nghiệp có thể tích hợp nút Đặt Lịch Hẹn tại nhiều vị trí trên OA (trang OA Profile, cửa sổ chat, bài viết OA,...) giúp khách hàng tiếp cận được giao diện đặt lịch mọi lúc.
+
+ 
+
+✨ Quản lý tập trung: Quản trị viên OA có thể theo dõi trạng thái, thống kê lịch hẹn trực quan ngay trên OA Manager mà không cần nhập liệu thủ công.
+
+ 
+
+Gợi ý ứng dụng Tiện ích Quản lý đặt lịch theo Ngành hàng (Use-case thực tế)
+
+Ngành hàng
+
+	
+
+Ứng dụng Tiện ích Quản lý đặt lịch
+
+
+
+
+Nhà hàng/ Quán cà phê/ Lounge/ Bar
+
+	
+Đặt bàn, giữ chỗ, đặt món trước
+Tự động nhắc hẹn trước theo thời gian đã cài đặt
+
+
+
+Spa/ Thẩm mỹ viện/ Nail – Hair Salon
+
+	
+Đặt lịch chỉ định nhân viên/ dịch vụ
+Tự động nhắc hẹn trước theo thời gian đã cài đặt
+
+
+
+Phòng khám/ Nha khoa/ Trung tâm tư vấn sức khỏe
+
+	
+Tự động thu thập thông tin khách hàng trước khi đến khám và gửi tin xác nhận lịch hẹn
+Tự động nhắc hẹn trước theo thời gian đã cài đặt kèm hướng dẫn khách hàng,...
+
+
+
+Đào tạo/ Giáo dục
+
+	
+Đặt lịch tư vấn khóa học, thi xếp lớp,...
+Tự động nhắc hẹn trước theo thời gian đã cài đặt kèm link, địa điểm, dặn dò học viên,...
+
+
+
+Showroom/ Garage xe hoặc Điện máy
+
+	
+Đặt lịch trải nghiệm sản phẩm (Demo), lái thử xe, tư vấn chuyên sâu,...
+Đặt lịch bảo dưỡng, sửa chữa
+Tự động nhắc hẹn trước theo thời gian đã cài đặt
+
+
+
+Sân thể thao/ GYM (Cầu lông, Bóng đá, Pickleball, phòng GYM..)
+
+	
+Đặt sân & dịch vụ đi kèm
+Đặt lịch với HLV
+Đặt lịch trải nghiệm lớp tập nhóm
+ 
+Khám phá & Tìm hiểu cách sử dụng Tiện ích Quản lý đặt lịch tại đây.
+
+Liên hệ để được tư vấn qua kênh chat CSKH OA: Tiện ích Quản lý đặt lịch
+
+ 
+
+💡 Kết hợp sử dụng các Tiện ích khác để tối ưu Bán và Chăm sóc khách hàng
+
+Bên cạnh Tiện ích Quản lý đặt lịch, Kho Tiện ích Zalo OA giúp doanh nghiệp hoàn thiện quy trình tương tác với khách hàng và tăng mức độ hài lòng với các Tiện ích sau. Doanh nghiệp hoàn toàn có thể kết hợp sử dụng nhiều Tiện ích để bổ trợ cho nhau và tối ưu hiệu quả chăm sóc khách hàng.
+
+️🛒 Tiện Ích Bán Hàng: E-commerce dễ dàng
+
+Tiện ích bán hàng (với giá bán chỉ 49k/tháng) giúp OA dễ dàng đăng tải sản phẩm, dịch vụ (thông số, hình ảnh, mô tả chi tiết,...), cho phép khách hàng đặt hàng, thanh toán và chọn hình thức nhận hàng.
+
+Các ưu điểm nổi bật của Tiện ích bán hàng:
+
+Tiện ích giúp OA xây dựng kênh bán hàng chủ động ngay trên Zalo: Đăng sản phẩm, tạo đơn hàng, thanh toán,...
+Thông tin khách hàng & hội thoại với khách hàng được khởi tạo và lưu trữ ngay tại Zalo OA
+OA không mất thêm phí nào khác ngoài phí sử dụng Tiện ích hàng tháng
+
+Gợi ý ngành hàng và use-case phù hợp:
+
+Shop online / cửa hàng thời trang, mỹ phẩm, phụ kiện,..
+Siêu thị mini / cửa hàng tiện lợi,...
+Với ngành dịch vụ, OA có thể đăng tải các dịch vụ cung cấp tại tiện ích Bán hàng và kết hợp với tiện ích Đặt lịch để tự động toàn bộ quy trình khách hàng khám phá đến chuyển đổi
+
+ 
+
+🤖 Tiện ích Chatbot AI: Trợ lý tư vấn 24/7 cho mọi ngành hàng
+
+Tiện ích Chatbot AI giúp doanh nghiệp xây dựng chatbot thông minh ngay trên OA Manager. Với công nghệ AI, Chatbot AI tự động hóa việc giao tiếp, cung cấp phản hồi tức thì 24/7 và nâng cao trải nghiệm khách hàng.
+
+Lợi ích nổi bật của Chatbot AI:
+
+Hỗ trợ khách hàng 24/7, giảm tải CSKH thủ công, giúp nhân viên tập trung xử lý nhu cầu của khách hàng sau khi chatbot đã phản hồi sơ bộ.
+Công nghệ Xử lý Ngôn ngữ Tự nhiên (NLP): Đảm bảo trải nghiệm giao tiếp mượt mà, tự nhiên như trò chuyện với con người.
+Tính tùy biến cao: OA có thể linh hoạt điều chỉnh các kịch bản và cài đặt của chatbot theo nhu cầu của doanh nghiệp.
+
+Ngành hàng và use-case gợi ý sử dụng Chatbot AI:
+
+Tiện ích Chatbot AI phù hợp với mọi ngành hàng, do khả năng tùy biến và linh hoạt cao. Một số ngành hàng đã sử dụng Tiện ích và đạt hiệu quả tốt có thể kể đến:
+
+Ngân hàng/Tài chính: Tự động trả lời các câu hỏi thường gặp (FAQ) về lãi suất, thủ tục mở thẻ, hoặc hướng dẫn tìm chi nhánh/ATM.
+Thương mại Điện tử/Bán lẻ: Trả lời tức thì về tình trạng đơn hàng, chính sách đổi trả, và gợi ý sản phẩm liên quan.
+Dịch vụ Viễn thông/Internet: Ghi nhận sự cố kỹ thuật, báo hỏng dịch vụ và cung cấp hướng dẫn khắc phục sự cố cơ bản.
+Bảo hiểm: Cung cấp thông tin sơ bộ về các gói bảo hiểm, hỗ trợ quy trình yêu cầu bồi thường và thủ tục gia hạn.
+Du lịch/Khách sạn: Hỗ trợ check-in online, trả lời câu hỏi về tiện ích khách sạn, hoặc tư vấn lịch trình du lịch cơ bản.
+
+ 
+
+📝 Tiện ích Easy Survey (Khảo sát): Thu thập insight giá trị
+
+Tiện ích Easy Survey (Khảo sát) là giúp OA thiết lập và gửi biểu mẫu khảo sát một cách trực quan, thân thiện, nhằm lắng nghe và thu thập phản hồi từ khách hàng. Tiện ích này cho phép OA Admin dễ dàng quản lý khảo sát từ OA Manager, trong khi người dùng Zalo có thể tương tác và hoàn thành khảo sát trực tiếp ngay tại Zalo.
+
+Lợi ích nổi bật của Tiện ích Easy Survey:
+
+Thiết lập Khảo sát tự động: OA Admin có thể thiết lập gửi biểu mẫu khảo sát ngay sau khi người dùng thực hiện hành động Quan tâm OA để thu thập thông tin, lắng nghe nhu cầu,...
+Tiếp cận Khách hàng hàng loạt: Hỗ trợ gửi khảo sát tự động đến tất cả khách hàng đã Quan tâm OA để thu thập nhiều dữ liệu.
+Cải thiện dịch vụ: tạo khảo sát đánh giá dịch vụ để cải thiện và hỗ trợ khách hàng theo đúng nhu cầu
+
+Ngành hàng và use-case gợi ý sử dụng Easy Survey:
+
+Tất cả ngành hàng có nhu cầu gửi biểu mẫu khảo sát, đánh giá tới khách hàng, đều có thể sử dụng Tiện ích. Một số gợi ý tham khảo:
+
+Bán hàng/Bán lẻ/F&B/Spa: Gửi biểu mẫu thu thập thông tin người Quan tâm để gửi phiếu giảm giá khi mua hàng; Gửi khảo sát Đánh giá chất lượng dịch vụ/sản phẩm sau mua hàng,...
+Đào tạo/Giáo dục: Gửi khảo sát thu thập nhu cầu học viên; Gửi khảo sát đánh giá chất lượng đào tạo,..
+Sự kiện/Marketing: Gửi khảo sát thu thập Thông tin đăng ký sự kiện, từ đó tiếp tục chăm sóc tại Zalo OA
+👉 Khám phá và cài đặt ngay các Tiện ích (Quản lý đặt lịch, Tiện Ích Bán Hàng, Chatbot AI,...) tại đây.
+Bài viết này có hữu ích với bạn không?
+Không
+Có, nhưng...
+Có
+Search
+Nội dung liên quan
+Thể loại
+Tin tức
+13
+Thư viện
+23
+Tài nguyên khác
+0
+Tag phổ biến
+Zalo Official Account
+Tiện ích
+Kho Tiện ích
+Extension
+Quản lý đặt lịch
+Quản lý đặt hẹn
+Quản lý lịch hẹn
+Đặt lịch
+Đặt hẹn
+Đặt lịch hẹn
+Lịch hẹn
+OA Manager
+OA
+Zalo Business Solutions
+Tạo Zalo Official Account và kết nối với
+người dùng Zalo ngay!
+Tạo Official Account ngay
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

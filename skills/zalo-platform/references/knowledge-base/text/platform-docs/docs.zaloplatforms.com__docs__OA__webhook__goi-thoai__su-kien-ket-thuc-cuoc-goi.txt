@@ -1,0 +1,159 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/webhook/goi-thoai/su-kien-ket-thuc-cuoc-goi
+# FETCHED: 2026-08-06
+# TITLE: Sự kiện kết thúc cuộc gọi | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Sự kiện người dùng gửi tin nhắn
+Sự kiện người dùng click nút “Nhắn tin” trên Official Account
+Sự kiện người dùng thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện OA thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện Official Account gửi tin nhắn cho người dùng
+Sự kiện Official Account gửi tin nhắn cho người dùng ẩn danh
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Sự kiện người dùng nhận tin nhắn từ Official Account
+Nhóm chat - GMF
+Sự kiện tạo nhóm OA
+Sự kiện thành viên mới tham gia nhóm
+Sự kiện thành viên mới yêu cầu tham gia nhóm
+Sự kiện duyệt thành viên
+Sự kiện từ chối duyệt thành viên
+Sự kiện thêm phó nhóm
+Sự kiện xóa phó nhóm
+Sự kiện cập nhật thông tin nhóm
+Sự kiện thành viên rời nhóm
+Sự kiện xóa nhóm
+Sự kiện tin nhắn được gửi tới nhóm
+Gọi thoại
+Sự kiện yêu cầu cấp quyền được gửi và hết hạn.
+Sự kiện người dùng trả lời yêu cầu cấp quyền gọi điện
+Sự kiện kết thúc cuộc gọi
+Extension
+Sự kiện mua Tiện ích
+Quản lý
+Sự kiện người dùng đồng ý chia sẻ thông tin
+Sự kiện người dùng quan tâm hay bỏ quan tâm OA
+Sự kiện gắn nhãn cho người dùng
+Sự kiện gỡ nhãn khỏi người dùng
+Sự kiện tạo nhãn
+Sự kiện xóa nhãn
+Sự kiện người dùng đồng ý cấp quyền tương tác
+Sự kiện Đồng bộ user_external_id thất bại
+Sự kiện người dùng Zalo thực hiện quyền chủ thể dữ liệu
+Sự kiện cập nhật thông tin người dùng
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Sự kiện kết thúc cuộc gọi
+Khi kết thúc cuộc gọi qua OA, Zalo sẽ gửi một request HTTP đến Webhook Url đã đăng ký của ứng dụng.
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Example request​
+{
+"event_name": "user_call_oa",
+"app_id": "1519815886763164419",
+"oa_id": "3095317316932447722",
+"user_id": "1259615188599360970", //(hoặc "phone": 8491231231")
+"call_id": "25d5ccee85e6cca22e5156f8f530e82ba2854",
+"call_type": "AUDIO",
+"init_time": "1652855176743",
+"call_duration": "13202",
+"waiting_time": "4",
+"talk_time": "9013",
+"status_code": 1206,
+"timestamp": "1652855215943"
+}
+Mô tả thuộc tính​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+event_name
+String
+Thuộc tính xác định loại event.
+· user_call_oa
+· oa_call_user
+app_id
+String
+Id ứng dụng.
+oa_id
+String
+Id của Official Account.
+user_id/phone
+String
+Chiều gọi: user_call_oa
+· Trả user_id
+Chiều gọi: oa_call_user
+· OA gọi user thông qua phone: trả phone.
+· OA gọi user thông qua user_id: trả user_id.
+user_id_by_app
+String
+Trường này chỉ có khi app_id và oa_id trên đang liên kết với nhau. Id này có thể sử dụng cho social_api.
+call_id
+String
+Id cuộc gọi.
+call_type
+String
+Loại cuộc gọi. Danh sách giá trị:
+· AUDIO: Cuộc gọi thoại
+· VIDEO: Cuộc gọi video
+init_time
+String
+Thời gian bắt đầy cuộc gọi, tính bằng milisecond.
+call_duration
+String
+Tổng thời gian của cuộc gọi: Bao gồm thời gian đợi bắt máy và thời gian nói chuyện, tính bằng milisecond.
+waiting_time
+String
+Thời gian đợi bắt máy, tính bằng second.
+talk_time
+String
+Thời gian nói chuyện, tính bằng milisecond.
+status_code
+String
+Kết quả của cuộc gọi, xem chi tiết ở đây.
+timestamp
+String
+Thời điểm request được gửi, tính bằng milisecond.
+Trước
+Sự kiện người dùng trả lời yêu cầu cấp quyền gọi điện
+Kế tiếp
+Sự kiện mua Tiện ích
+Example request
+Mô tả thuộc tính
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

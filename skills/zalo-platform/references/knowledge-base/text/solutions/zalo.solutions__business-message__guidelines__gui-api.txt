@@ -1,0 +1,148 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/gui-api
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn gửi API | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Quản lý tài khoản
+Business Message
+Giới thiệuTài liệu hướng dẫnBảng giáChính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hướng dẫn gửi API
+Hướng dẫn sử dụng tính năng gửi theo chiến dịch (không cần thông qua API)
+Hướng dẫn xử lý mã lỗi
+Cơ chế tính giá của Tin nhắn ZBS Template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hướng dẫn gửi API
+Hướng dẫn sử dụng tính năng gửi theo chiến dịch (không cần thông qua API)
+Hướng dẫn xử lý mã lỗi
+Cơ chế tính giá của Tin nhắn ZBS Template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+Hướng dẫn gửi API
+Gửi tin nhắn ZBS template
+Hướng dẫn gửi API
+Trên trang này
+Hướng dẫn gửi API
+1. Giới thiệu về các phương thức gửi Tin nhắn ZBS Template
+Có 2 hình thức gửi tin:
+1. Qua API
+2. Gửi theo chiến dịch (Không qua API)
+Qua API
+Theo chiến dịch (Không qua API)
+· Gửi qua API
+· Cần nhân lực có kiến thức về kỹ thuật
+· Gửi số lượng lớn
+· Dữ liệu gửi API không được lưu trên ZCA
+· Gửi qua file Excel tải lên ZBS
+· Cần chuẩn bị file Excel
+· Gửi số lượng có hạn mức
+· Dữ liệu gửi được lưu trên tài khoản ZBS
+2. Hướng dẫn gửi API
+Sequence diagram API giữa Đối tác gửi tin, Zalo server và người nhận tin
+Miêu tả chi tiết:
+a. Gửi request API
+Gửi request API theo hướng dẫn tại ĐÂY và lấy Access Token (Mã định danh để gửi tin) theo 1 trong 2 cách sau:
+Công cụ API explorer: Dành cho Admin của OA/Ứng dụng lấy mã xác thực gửi tin.
+Giao thức OAuth: Dành cho người có kiến thức về lập trình, hoặc khi Doanh nghiệp sử dụng Ứng dụng của bên thứ 3.
+b. Response sau khi gửi API
+Sau khi yêu cầu được gửi đi, máy chủ Zalo sẽ phản hồi với các thông tin sau:
+Tham số
+Mô tả
+error
+0 nếu request thành công
+Ngược lại, xem Error Code chi tiết tại đây
+message
+Mô tả của lỗi tương ứng
+msg_id
+ID của tin
+Lưu ý: chỉ trả về nếu yêu cầu thành công
+sent_time
+Thời gian máy chủ Zalo bắt đầu gửi tin (Định dạng timestamp)
+quota
+Thông tin quota của OA
+Lưu ý: chỉ trả về nếu yêu cầu thành công
+Example response
+{
+"error": 0,
+"message": "Success",
+"data": {
+"msg_id": "a4d0243feee163bd3af2"
+"sent_time": "1626926349402",
+"quota": {
+"dailyQuota": "500",
+"remainingQuota": "499"
+}
+}
+}
+Xem chi tiết hơn về cấu trúc của request và response tại ĐÂY.
+c. Sự kiện gửi tin
+Nếu request thành công, tin sẽ được gửi tới người dùng:
+· sent_time: Thời điểm máy chủ Zalo bắt đầu gửi tin.
+· delivery_time: Thời gian người dùng nhận được tin trên thiết bị.
+d. Sự kiện người dùng nhận được tin
+Nếu tin được gửi thành công trên thiết bị của người dùng, thì một sự kiện sẽ được gửi tới URL webhook của Doanh nghiệp.
+Tham số
+Mô tả
+sender
+ID của Official Account gửi thông báo
+recipient
+Số điện thoại người dùng nhận thông báo
+event_name
+Tên sự kiện: user_received_message
+delivery_time
+Thời gian trên thiết bị người dùng nhận được ZNS
+msg_id
+ID của tin ZNS
+Lưu ý: chỉ trả về nếu yêu cầu thành công
+tracking_id
+Mã số đánh dấu lần gọi API của đối tác, do đối tác định nghĩa ở bước (1)
+app_id
+ID của ứng dụng gửi tin (ứng dụng mà OA đã cấp quyền)
+timestamp
+Thời điểm gửi sự kiện
+Xem thêm chi tiết sự kiện tại ĐÂY.
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Chúng tôi có thể làm cho bài viết này hữu ích hơn bằng cách nào?
+Nội dung bài viết cần ví dụ chi tiết hơn.
+Nội dung bài viết cần diễn đạt dễ hiểu hơn.
+Nội dung bài viết chưa chính xác.
+Khác
+Trở lạiGửi đi
+Trước
+Hướng dẫn sử dụng thư viện template
+Kế tiếp
+Hướng dẫn sử dụng tính năng gửi theo chiến dịch (không cần thông qua API)
+1. Giới thiệu về các phương thức gửi Tin nhắn ZBS Template
+2. Hướng dẫn gửi API
+a. Gửi request API
+b. Response sau khi gửi API
+c. Sự kiện gửi tin
+d. Sự kiện người dùng nhận được tin
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam

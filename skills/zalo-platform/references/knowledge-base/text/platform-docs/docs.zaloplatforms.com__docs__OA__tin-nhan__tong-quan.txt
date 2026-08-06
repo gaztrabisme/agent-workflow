@@ -1,0 +1,142 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/tin-nhan/tong-quan
+# FETCHED: 2026-08-06
+# TITLE: Tổng quan | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Điều kiện gửi tin Tư vấn
+Gửi tin Tư vấn dạng văn bản
+Gửi tin Tư vấn đính kèm ảnh
+Gửi tin Tư vấn đính kèm file
+Gửi tin Tư vấn theo mẫu yêu cầu thông tin người dùng
+Gửi tin tư vấn trích dẫn
+Gửi tin tư vấn kèm Sticker
+Tin Giao dịch
+Điều kiện gửi tin Giao dịch
+Gửi tin giao dịch
+Tin Truyền thông
+Điều kiện gửi tin Truyền thông
+Gửi tin Truyền thông cá nhân
+Các loại tin khác
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Thả biểu tượng cảm xúc vào tin nhắn
+Quản lý tin nhắn
+Kiểm tra hạn mức gửi tin tới User cụ thể
+Lấy thông tin Tin nhắn gần nhất
+Lấy thông tin Tin nhắn trong một hội thoại
+Upload hình ảnh
+Upload file
+Upload ảnh GIF
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Tổng quan
+Tin nhắn là tương tác dạng tin nhắn gửi từ Zalo OA của Doanh nghiệp đến người dùng Zalo cá nhân. Tin nhắn trên Zalo Official Account gồm 2 loại chính:
+Tin nhắn Cơ bản là tin nhắn cho phép OA sử dụng để giao tiếp với người dùng, bao gồm:
+Tin Tư vấn
+Tin gửi từ OA vào Nhóm chat GMF.
+Tin Broadcast
+ZBS Template Message là giải pháp tin nhắn cho Doanh nghiệp theo mẫu (template), gửi đến người dùng qua UID và qua số điện thoại (SĐT) trên Zalo.
+ZBS Template Message có 2 loại chính: Tin Giao dịch và Tin Hậu mãi.
+User ID (UID) trong Zalo Official Account là ID của một người dùng xác định đối với một tài khoản OA.
+Tương tác của người dùng với OA được hiểu là mọi hành động người dùng thực hiện với OA theo các hình thức được nền tảng công nhận để xác định quyền gửi tin nhắn của OA, bao gồm:
+Gửi tin nhắn đến OA
+Gửi tin nhắn trong nhóm chat GMF
+Gọi thoại đến OA
+Đồng ý nhận cuộc gọi từ OA
+Bình luận (comment) bài viết của OA
+Tương tác với OA Chatbot
+Nhấn Menu hoặc CTA query
+Quan tâm OA
+Nhấn nút Nhắn tin trên trang Thông tin OA
+Nhấn vào Widget của OA
+🚩 Lưu ý:
+OA cần sử dụng các loại tin theo đúng mục đích được quy định, tránh làm phiền người dùng và tuân thủ các quy định về tương tác của OA. Hệ thống có cơ chế xác định và tự động hạn chế các luồng gửi tin có dấu hiệu gây phiền tới người dùng.
+Hạn mức nhận tin nhắn có mục đích truyền thông của người quan tâm OA không được quá hạn mức do nền tảng quy định theo chính sách từng thời kỳ. Xem chi tiết tại đây.
+👉 Xem chi tiết Chính sách về tương tác của OA với người dùng tại đây.
+📌 Tin nhắn Cơ bản​
+Tin Tư vấn
+Tin gửi từ OA vào Nhóm chat GMF
+Tin Broadcast
+Mục đích sử dụng
+Phản hồi khách hàng và hỗ trợ giải đáp về sản phẩm, dịch vụ khi khách hàng yêu cầu.
+Trao đổi với người dùng đang tham gia Nhóm chat GMF của OA
+Cập nhật đồng loạt đến khách hàng những thông tin chung, nội dung hữu ích hoặc thông tin về sản phẩm, dịch vụ.
+Điều kiện để gửi tin
+Người dùng có phát sinh tương tác với OA trong vòng 7 ngày và đang không chặn OA, chi tiết như sau:
+Khi người dùng thực hiện một trong các tương tác: Gửi tin nhắn đến OA, Gửi tin nhắn trong nhóm chat GMF,
+Gọi thoại đến OA, Đồng ý nhận cuộc gọi từ OA, Bình luận (comment) bài viết của OA,
+Tương tác với OA Chatbot, Nhấn Menu, CTA query hoặc Widget của OA, OA có thể gửi tin Tư vấn đến người dùng.
+Khi người dùng thực hiện một trong các tương tác: Quan tâm OA, Nhấn nút Nhắn tin trên trang Thông tin OA,
+OA có thể gửi lời chào ngay sau khi người dùng thực hiện hành động.
+Xem thêm về điều kiện gửi tin Tư vấn qua OA OpenAPI
+tại đây .
+OA đang sử dụng Nhóm chat GMF. Xem thêm về điều kiện gửi tin từ OA vào Nhóm chat GMF qua OA OpenAPI
+tại đây .
+Người dùng đang quan tâm OA.
+Công cụ gửi tin
+Trang Quản lý OA - OA Manager (trên Web và Mini App)
+OA OpenAPI
+Trang Quản lý OA - OA Manager (trên Web và Mini App)
+OA OpenAPI
+Trang Quản lý OA - OA Manager (trên Web và Mini App)
+Chi phí
+Trong vòng 48 giờ kể từ tương tác cuối của người dùng, tin Tư vấn hoàn toàn miễn phí.
+Sau 48 giờ kể từ tương tác cuối của người dùng, giá tin Tư vấn được tính theo bảng giá
+tại đây.
+Miễn phí. Xem Bảng giá
+tại đây (mục Chi phí nhóm)
+Số lượng tin người dùng có thể nhận trong tháng áp dụng theo hạn mức tin Broadcast của Gói dịch vụ OA.
+Xem thêm
+tại đây.
+📌 ZBS Template Message​
+ZBS Template Message là giải pháp tin nhắn cho Doanh nghiệp theo mẫu (template). ZBS Template Message có 2 loại chính: Tin Giao dịch và Tin Hậu mãi.
+Để đăng ký ZBS Template Message, OA có thể đăng ký bằng 02 cách sau:
+Công cụ Tạo mẫu tin tại tài khoản ZBS: xem chi tiết tại đây.
+Công cụ OpenAPI: xem chi tiết tại đây.
+Template được đăng ký và kiểm duyệt theo quy định có thể được gửi đến người dùng bằng hai phương thức: gửi qua UID hoặc gửi qua SĐT trên Zalo.
+👉 Cách gửi ZBS Template message: Xem thêm tại đây và vui lòng theo dõi các thông báo tiếp theo trên trang Zalo for Developer.
+👉 Xem thêm về Quy định chung khi kiểm duyệt mẫu tại đây.
+Trước
+Giới thiệu Official Account API và các nhóm Quyền
+Kế tiếp
+Điều kiện gửi tin Tư vấn
+📌 Tin nhắn Cơ bản
+📌 ZBS Template Message
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

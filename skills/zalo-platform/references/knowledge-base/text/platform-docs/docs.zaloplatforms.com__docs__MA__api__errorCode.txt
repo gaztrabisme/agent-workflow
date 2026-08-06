@@ -1,0 +1,392 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/errorCode
+# FETCHED: 2026-08-06
+# TITLE: Errors | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Errors
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.21.0
+Hướng dẫn xử lý lỗi​
+Hầu hết các API trong ZMP SDK đều trả về Promise khi sử dụng, vì vậy bạn có thể lấy kết quả trả về và xử lý lỗi như sau:
+1. Sử dụng async/await kết hợp với try/catch (khuyến khích)​
+async/await là một cơ chế hiện đại của JavaScript, được hỗ trợ ở hầu hết các môi trường web hiện nay. Việc sử dụng async/await giúp xử lý các logic bất đồng bộ một cách tuyến tính, tránh rơi vào tình trạng callback hell.
+const { userInfo } = await getUserInfo({
+autoRequestPermission: true,
+});
+const { orders } = await fetchOrders({
+userId: userInfo.id,
+});
+console.log("Các đơn hàng của người dùng: ", orders);
+Lưu ý:
+await phải được gọi bên trong hàm async. Ví dụ:
+function login() { // ❌ Không thể dùng await trong một hàm thông thường, do JavaScript là non-blocking
+await getUserInfo();
+}
+async function login() { // ✅ Hợp lệ
+await getUserInfo();
+}
+Để xử lý lỗi khi sử dụng async/await, bạn có thể dùng try/catch như thông thường:
+try {
+const { userInfo } = await getUserInfo({
+autoRequestPermission: true,
+});
+const { orders } = await fetchOrders({
+userId: userInfo.id,
+});
+} catch (error) {
+if (error instanceof AppError) {
+if (error.code === -1401) {
+// Người dùng từ chối cung cấp tên và ảnh đại diện
+}
+// Lỗi khác khi gọi `getUserInfo`
+} else {
+// Lỗi khác khi gọi `fetchOrders`
+}
+}
+2. Sử dụng các method của Promise như .then() và .catch()​
+Cách này có thể sử dụng nếu bạn không muốn chuyển context hiện tại sang async. Tuy nhiên, nếu cần chain nhiều method, cách này có thể dẫn đến callback hell:
+getUserInfo({
+autoRequestPermission: true,
+}).then(({ userInfo }) => {
+fetchOrders({
+userId: userInfo.id,
+}).then((orders) => {
+console.log("Các đơn hàng của người dùng: ", orders);
+});
+});
+Để xử lý lỗi khi sử dụng .then(), bạn cần dùng .catch():
+getUserInfo({
+autoRequestPermission: true,
+})
+.then(({ userInfo }) => {
+fetchOrders({
+userId: userInfo.id,
+})
+.then((orders) => {
+console.log("Các đơn hàng của người dùng: ", orders);
+})
+.catch((error) => {
+// Lỗi khi gọi `fetchOrders`
+});
+})
+.catch((error) => {
+if (error instanceof AppError) {
+if (error.code === -1401) {
+// Người dùng từ chối cung cấp tên và ảnh đại diện
+}
+// Lỗi khác khi gọi `getUserInfo`
+}
+});
+3. Sử dụng callback success và fail của ZMP SDK​
+Tất cả API của ZMP SDK hỗ trợ truyền vào 2 callback đặc biệt là success và fail. Callback success sẽ được gọi khi API thành công và trả về kết quả:
+Lưu ý:
+Khi sử dụng các callback này, API sẽ không trả về Promise nữa.
+getUserInfo({
+autoRequestPermission: true,
+success: ({ userInfo }) => {
+fetchOrders({
+userId: userInfo.id,
+success: (orders) => {
+console.log("Các đơn hàng của người dùng: ", orders);
+},
+});
+},
+});
+Để xử lý lỗi, bạn có thể truyền callback fail tương tự:
+getUserInfo({
+autoRequestPermission: true,
+success: ({ userInfo }) => {
+fetchOrders({
+userId: userInfo.id,
+success: (orders) => {
+console.log("Các đơn hàng của người dùng: ", orders);
+},
+fail: (error) => {
+// Lỗi khi gọi `fetchOrders`
+},
+});
+},
+fail: (error) => {
+if (error.code === -1401) {
+// Người dùng từ chối cung cấp tên và ảnh đại diện
+}
+// Lỗi khác khi gọi `getUserInfo`
+},
+});
+Bảng đặc tả mã lỗi​
+Các mã lỗi không đề cập API(s) áp dụng với tất cả API trong ZMP SDK.
+Các mã lỗi > 0 là lỗi khi tích hợp Server-Server, ví dụ như truy xuất số điện thoại từ token của getPhoneNumber.
+Code
+Message
+Note
+-203
+This action reached the limit
+Bạn đã vượt quá số lần gọi API cho phép.
+-1400
+Bad request
+Tham số truyền vào API không hợp lệ.
+-1403
+You don
+Bạn cần xin cấp quyền tại trang Quản lý ứng dụng.
+-1404
+This API is not supported in this Zalo version
+Vui lòng cập nhật Zalo để sử dụng các API mới.
+-1408
+Request timeout. Please try again later.
+Yêu cầu mất quá nhiều thời gian để xử lý, vui lòng thử lại sau.
+-2000
+Unknown error. Please try again later.
+Đã xảy ra lỗi không xác định, vui lòng thử lại sau.
+-2001
+Can not decode id. Please check your params again.
+Id truyền vào API không hợp lệ.
+108
+Xác thực quá nhiều lần => Đã bị khóa Biometic
+Bạn đã xác thực quá nhiều lần, chức năng xác thực sinh trắc học đã bị khóa.
+103
+Xác thực không thành công (Bấm nhập mật khẩu - iOS)
+Xác thực sinh trắc học không thành công, người dùng đã chọn nhập mật khẩu trên iOS.
+102
+Hủy xác thực
+Người dùng đã hủy quá trình xác thực.
+101
+Xác thực thất bại 3 lần (Android)
+Người dùng xác thực thất bại 3 lần liên tiếp trên Android.
+100
+Unknown error
+Đã xảy ra lỗi không xác định khi xác thực sinh trắc học.
+-201
+User deny request permission!
+Người dùng đã từ chối cấp quyền truy cập.
+-202
+User deny request permission!
+Người dùng từ chối cấp quyền và chọn không hỏi lại lần sau.
+-2002
+User denied
+Người dùng đã từ chối cấp quyền trước đó và không muốn hỏi lại.
+-1401
+User Authentication Required. Please grant User Authentication permission before requesting User Permission
+Người dùng chưa cấp thông tin xác thực. Vui lòng tham khảo thêm tại getAccessToken.
+114
+code is empty
+Tham số code truyền vào đang bị rỗng.
+115
+code is invalid
+Tham số code truyền vào không hợp lệ.
+116
+secret_key is empty
+Tham số secret_key truyền vào đang bị rỗng.
+117
+secret_key is invalid
+Tham số secret_key truyền vào không hợp lệ.
+118
+code is invalid
+Tham số code không hợp lệ, thuộc về một ứng dụng khác.
+119
+code has already been used
+Code này đã được sử dụng trước đó.
+-301
+Your device run out of storage
+Thiết bị của bạn đã hết dung lượng lưu trữ.
+-302
+File cannot be found. Please check your param again.
+Không tìm thấy file. Có thể do đường dẫn sử dụng http (chỉ hỗ trợ https) hoặc file không tồn tại.
+-303
+Please wait... We
+File đang được tải xuống, vui lòng chờ trong giây lát.
+-304
+No Internet connection. Please check your network settings.
+Không có kết nối Internet. Vui lòng kiểm tra lại mạng của bạn.
+-305
+Download failed. Please check your network or file path again.
+Tải file thất bại. Vui lòng kiểm tra lại kết nối mạng hoặc đường dẫn file.
+-306
+File type unsupported
+Định dạng file không được hỗ trợ. Tham khảo danh sách file hỗ trợ.
+-2003
+User cancel
+Người dùng đã hủy thao tác chọn media.
+-2004
+Unable to pick media
+Không thể chọn media. Vui lòng kiểm tra lại kết nối mạng hoặc máy chủ upload.
+-2005
+Unable to save media
+Không thể lưu media vào thư viện ảnh.
+-2006
+Unable to save video
+Không thể lưu video vào thư viện.
+-700
+Invalid URL format
+Đường dẫn URL không hợp lệ.
+-701
+Unsupported file type
+Định dạng file không được hỗ trợ.
+-702
+Download fail
+Tải file thất bại.
+-703
+Open document fail
+Mở tài liệu thất bại.
+Trước
+Events
+Kế tiếp
+getAppInfo
+Hướng dẫn xử lý lỗi
+1. Sử dụng async/await kết hợp với try/catch (khuyến khích)
+2. Sử dụng các method của Promise như .then() và .catch()
+3. Sử dụng callback success và fail của ZMP SDK
+Bảng đặc tả mã lỗi
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

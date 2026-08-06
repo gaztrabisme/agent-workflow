@@ -1,0 +1,55 @@
+# SOURCE: https://oa.zalo.me/home/documents/vie/guides/Gioi-thieu-tinh-nang-102022_7741960861449996368
+# FETCHED: 2026-08-06
+# TITLE: Giới thiệu tính năng | Zalo Official Account
+
+Nhảy tới nội dung
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Giới thiệu tính năng
+Thiết lập Mini Call Center (MCC)
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Gọi thoại
+Giới thiệu tính năng
+Trên trang này
+Giới thiệu tính năng
+Gọi thoại - tính năng tương tác nâng cao giúp doanh nghiệp tăng độ nhận diện thương hiệu và sự tin tưởng của khách hàng thông qua việc hiển thị tên OA (brandname) trong mỗi cuộc gọi. Hơn nữa, đây là giải pháp tiện dụng, nhanh chóng kết nối trực tiếp Doanh nghiệp và khách hàng với chi phí thấp.
+Tính năng Gọi thoại bao gồm 2 thiết lập chính, doanh nghiệp linh động lựa chọn thiết lập phù hợp với nhu cầu:
+Minicall (MCC) là thiết lập Gọi thoại trực tiếp trên OA Manager, đơn giản, dễ sử dụng.
+Zalo Cloud Connect (ZCC) là thiết lập Gọi thoại kết nối đến hệ thống tổng đài SIP của doanh nghiệp và vận hành qua API. Cần có nhân sự phụ trách kĩ thuật và hiểu về hệ thống tổng đài để triển khai.
+⚠ Lưu ý:
+Tính năng Gọi thoại chỉ áp dụng cho các OA đã xác thực và đang sử dụng Gói dịch vụ OA. Tùy vào nhu cầu của doanh nghiệp về cách thiết lập Gọi thoại (MCC hoặc ZCC), doanh nghiệp cần đăng ký các Gói dịch vụ phù hợp. Xem chi tiết tại đây.
+Vì thiết lập ZCC liên kết đến hệ thống tổng đài SIP của doanh nghiệp, nên phù hợp với Doanh nghiệp có số lượng cuộc gọi lớn và có sẵn nhân sự về chuyên môn kỹ thuật, có kiến thức về hệ thống tổng đài. Tham khảo thêm cách thiết lập ZCC tại tại đây.
+✅ Với đối tượng khách hàng đã có tương tác​
+Doanh nghiệp có thể trực tiếp gọi ngay cho các khách hàng đã chủ động tương tác với OA của doanh nghiệp trong vòng 30 ngày (từ lần tương tác cuối) mà không cần gửi yêu cầu Gọi thoại và hoàn toàn miễn phí. Áp dụng với cả hai thiết lập MCC và ZCC.
+💡Tips: Sử dụng tối ưu tính năng Gọi thoại cho nhiều đối tượng khách hàng đã tương tác với các mục đích khác nhau: cung cấp thông tin, giải đáp thắc mắc về đơn hàng đã và đang được xử lý, đặt lịch hẹn, khảo sát chất lượng dịch vụ…
+✅ Với đối tượng khách hàng chưa có tương tác​
+Với riêng thiết lập ZCC, doanh nghiệp có thể tiến hành Gọi thoại với khách hàng thông qua số điện thoại sử dụng Zalo, doanh nghiệp cần gửi yêu cầu Gọi thoại với chi phí 440đ/ yêu cầu (bao gồm VAT) và cần nhận được sự đồng ý từ khách hàng. Khách hàng có thời gian là 24 giờ để phản hồi. Khi yêu cầu được đồng ý, OA có thể gọi ra miễn phí trong vòng 30 ngày.
+Tham khảo thêm các chi phí của OA tại đây.
+💡 Tips: Sử dụng Gọi thoại thông qua số điện thoại để tư vấn cho khách hàng mới, tập trung chăm sóc và quản lý khách hàng từ nhiều kênh khác nhau, từ đó tiết kiệm công sức quản lý của Doanh nghiệp.
+⚠ Lưu ý:
+Nhằm đảm bảo chất lượng cuộc gọi, tính năng gọi thoại ZCC của Zalo OA hiện đang giới hạn mức trần như sau:
+Đối với các cuộc gọi từ OA đến người dùng Zalo đã tương tác trong vòng 30 ngày (thông qua UID*): giới hạn 5,000 cuộc gọi/ tháng/ OA.
+Đối với các cuộc gọi từ OA đến người dùng Zalo chưa/đã tương tác với OA bằng số điện thoại: giới hạn 10,000 cuộc gọi/ tháng/ OA.
+Tổng số cuộc gọi từ OA đến người dùng Zalo (không phân biệt bằng UID hay số điện thoại) được thực hiện tại một thời điểm không vượt quá 50 cuộc gọi.
+* UID: là User ID trong Zalo Official Account - định danh của một người dùng xác định đối với một tài khoản OA xác định.
+Cho phép người dùng Zalo chặn cuộc gọi​
+Nhằm đảm bảo quyền riêng tư, chống các cuộc gọi làm phiền và an toàn thông tin mạng, người dùng có thể chặn nhận cuộc gọi thoại từ OA ngay lập tức nếu cảm thấy bị làm phiền, dù yêu cầu gọi thoại đã được chấp nhận và vẫn còn hiệu lực.
+------------------------------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT ZOA để được phản hồi sớm nhất.
+Trước
+Công cụ gửi tin theo chiến dịch
+Kế tiếp
+Thiết lập Mini Call Center (MCC)
+✅ Với đối tượng khách hàng đã có tương tác
+✅ Với đối tượng khách hàng chưa có tương tác
+Cho phép người dùng Zalo chặn cuộc gọi

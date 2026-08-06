@@ -1,0 +1,197 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/goi-thoai/su-kien-nguoi-dung-tra-loi-yeu-cau-cap-quyen-goi
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện người dùng trả lời yêu cầu cấp quyền gọi điện | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Sự kiện yêu cầu cấp quyền được gửi và hết hạn.
+Sự kiện người dùng trả lời yêu cầu cấp quyền gọi điện
+Sự kiện kết thúc cuộc gọi
+Extension
+Quản lý
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookGọi thoạiSự kiện người dùng trả lời yêu cầu cấp quyền gọi điện
+Sự kiện người dùng trả lời yêu cầu cấp quyền gọi điện
+
+Khi người dùng nhấn cho phép hoặc từ chối yêu cầu thực hiện cuộc gọi, Zalo sẽ gửi một request HTTP đến Webhook Url đã đăng ký của ứng dụng
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Example request​
+{
+  "event_name": "user_reply_consent",
+  "oa_id": "2352868362652028486",
+  "phone": "84773543888",
+  "user_consent": "ALLOW",
+  "confirmed_time": "1646750552005",
+  "expired_time": "1646923352005",
+  "app_id": "4349311699477619340",
+  "timestamp": "1646657275763"
+}
+
+Mô tả thuộc tính​
+
+Thuộc tính
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+event_name
+
+	
+
+String
+
+	
+
+Thuộc tính xác định loại event.
+
+
+
+
+oa_id
+
+	
+
+String
+
+	
+
+Id của Official Account.
+
+
+
+
+phone
+
+	
+
+String
+
+	
+
+Số điện thoại của User nhận yêu cầu (Trả về nếu api gửi thông báo yêu cầu quyền thực hiện cuộc gọi đến người dùng truyền vào số điện thoại).
+
+
+
+
+user_consent
+
+	
+
+String
+
+	
+
+Trường này có một trong hai giá trị sau:
+
+· ALLOW: Người dùng đồng ý thực hiện cuộc gọi.
+
+· USER_BLOCKED: Người dùng từ chối thực hiện cuộc gọi.
+
+
+
+
+confirmed_time
+
+	
+
+String
+
+	
+
+Thời gian người dùng trả lời yêu cầu, tính bằng milisecond.
+
+
+
+
+expired_time
+
+	
+
+String
+
+	
+
+Thời gian tối đa mà OA có quyền thực hiện cuộc gọi đến user, tính bằng milisecond. Ví dụ:
+
+· 1646923352005(expired_time) – 1646750552005 (confirmed_time) = 172800000 (48h)
+
+· Trường hợp expired_time = 0 thì OA có quyền gọi đến người dùng không giới hạn thời gian
+
+
+
+
+app_id
+
+	
+
+String
+
+	
+
+Id ứng dụng.
+
+
+
+
+timestamp
+
+	
+
+String
+
+	
+
+Thời điểm request được gửi, tính bằng milisecond.
+
+Trước
+Sự kiện yêu cầu cấp quyền được gửi và hết hạn.
+Kế tiếp
+Sự kiện kết thúc cuộc gọi
+Example request
+Mô tả thuộc tính
+©2023 Zalo for Developers

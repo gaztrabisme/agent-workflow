@@ -1,0 +1,323 @@
+# SOURCE: https://zalo.solutions/blog/thiet-lap-muc-dich-gui-khi-tao-mau-zns/erug88djjgrd9r7zzj
+# FETCHED: 2026-07-21
+# TITLE: Thiết lập mục đích gửi khi tạo mẫu tin nhắn ZBS | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Home/Blog/Thiết lập mục đích gửi khi tạo mẫu tin nhắn ZBS
+Thiết lập mục đích gửi khi tạo mẫu tin nhắn ZBS
+15 tháng 01, 2026 15:40
+40 hữu ích
+
+Khi tạo mẫu tin nhắn ZBS, thiết lập Điều kiện gửi tin là bước bạn cung cấp thông tin về mục đích gửi tin đến người nhận thông qua số điện thoại. Đây là điều kiện để Zalo đảm bảo quyền lợi và sự an toàn của người nhận (người dùng) khi giao tiếp với doanh nghiệp qua kênh Zalo Official Account. Lựa chọn mục đích gửi tin phù hợp với nội dung sẽ giúp mẫu tin của bạn được phê duyệt nhanh chóng hơn.
+
+Nội dung gửi Tin được chia thành những loại nội dung sau, với cấp độ tăng dần dựa trên tính chất phức tạp và rủi ro ảnh hưởng đến trải nghiệm của người nhận:
+
+Khái niệm Tag
+
+	
+
+Yêu cầu cơ bản
+
+	
+
+Một số trường hợp sử dụng & quy chuẩn tương ứng
+
+
+
+
+Tag 1 – GIAO DỊCH 
+
+ (TRANSACTION) 
+
+	
+Mục đích cần liên quan đến giao dịch.
+BẮT BUỘC có tên khách hàng và ít nhất 1 tham số định danh / tham số xác định giao dịch.
+VD tham số định danh: mã đăng ký <register_code>, mã đơn hàng <customer_code>, mã hóa đơn <bill_id>, mã khách hàng <customer_code>, ngày mua hàng gần nhất <order_date>....
+Số lượng  tham số định danh / tham số xác định giao dịch yêu cầu cho từng mẫu tin được xác định trên cơ sở làm rõ nội dung, mục đích, nhu cầu và mối quan hệ của doanh nghiệp khi gửi đến user.
+Trường hợp doanh nghiệp vì trường hợp bất khả kháng, không thể cung cấp tham số tên khách hàng, thì số lượng tham số định danh/tham số xác định giao dịch cần có tổng cộng ít nhất 3 tham số phù hợp.
+	
+
+Xác thực   
+
+Xác thực tài khoản  
+Xác thực giao dịch 
+
+Xác nhận 
+
+Xác nhận đặt hàng/đặt lịch hẹn/đặt chỗ  
+Xác nhận thông tin giao dịch  
+Xác nhận đăng ký dịch vụ/sự kiện (Không mời gọi tham gia sự kiện)
+Xác nhận đăng ký tham gia CTKM thành công (có tham số ngày đăng ký) - Bắt buộc cung cấp cách thức user đăng ký tham gia để đánh giá
+Xác nhận giao dịch hoàn thành 
+
+Nhắc hẹn 
+
+Nhắc hẹn cho một sự kiện (Ví dụ: Tái khám, bảo dưỡng định kỳ, thanh toán, tham gia sự kiện). 
+
+KHÔNG bao gồm các trường hợp nhắc tái tục (mục đích nhắc tái tục được định nghĩa theo Tag 3 – HẬU MÃI) 
+
+Thông báo 
+
+Thông báo trạng thái giao dịch (Ví dụ: Trạng thái đơn hàng)  
+Thông báo thời gian thực hiện giao dịch (Ví dụ: Thời gian giao hàng)  
+Thông báo thanh toán thành công  
+Thông báo biến động số dư 
+
+Yêu cầu thanh toán, trả cước, trả phí,..
+
+Mẫu tin nhắn ZBS có mục đích Yêu cầu thanh toán, trả cước, trả phí đến một số tài khoản ngân hàng nhất định bắt buộc sử dụng Mẫu Yêu cầu thanh toán. 
+Xem thêm Cách đăng ký và tổng quan về Mẫu Yêu cầu thanh toán
+Trường hợp Mẫu tin có mục đích Yêu cầu thanh toán, trả cước, trả phí trên một Kênh thanh toán độc lập (khác tài khoản ngân hàng), có thể sử dụng Mẫu Tùy chỉnh nhưng bắt buộc dẫn link CTA về kênh thanh toán tương ứng - thay vì dùng Mẫu Yêu cầu thanh toán.
+Quý khách vui lòng kiểm tra kĩ thông tin thanh toán, Zalo không chịu trách nhiệm nếu thông tin thanh toán không chính xác.
+Trường hợp OA là doanh nghiệp cung cấp kinh doanh điện/nước sinh hoạt và không sử dụng yêu cầu thanh toán đến tài khoản ngân hàng, chỉ cần liệt kê danh sách kênh thanh toán, không bắt buộc dẫn link CTA tới app/kênh/phương thức thanh toán tương ứng
+Lưu ý: Thông tin chuyển khoản bao gồm: Số tài khoản (STK) ngân hàng & chủ tài khoản ngân hàng cần là thông tin của chính doanh nghiệp sở hữu OA
+Xem thêm tại phần 1. Yêu cầu tổng quan > Khác
+
+
+
+Tag 2 – CHĂM SÓC KHÁCH HÀNG 
+
+(CUSTOMER_CARE) 
+
+ 
+
+	
+Cập nhật thông tin doanh nghiệp & thông báo các chương trình chăm sóc khách hàng cho người dùng cuối
+BẮT BUỘC có tên khách hàng và ít nhất 1 tham số định danh / tham số xác định giao dịch.
+VD: mã đăng ký <register_code>, mã đơn hàng <customer_code>, mã hóa đơn <bill_id>, mã khách hàng <customer_code>, ngày mua hàng gần nhất <order_date>....
+Số lượng  tham số định danh / tham số xác định giao dịch yêu cầu cho từng Mẫu được xác định trên cơ sở làm rõ nội dung, mục đích, nhu cầu và mối quan hệ của doanh nghiệp khi gửi đến user.
+Trường hợp doanh nghiệp vì trường hợp bất khả kháng, không thể cung cấp tham số tên khách hàng, thì số lượng tham số định danh/tham số xác định giao dịch cần có tổng cộng ít nhất 3 tham số phù hợp.
+
+ 
+
+	
+
+Thông báo/Cập nhật 
+
+Thông báo tích lũy điểm thưởng (có thể có thông tin đổi điểm khách hàng thân thiết/loyalty) (KHÔNG giới thiệu sản phẩm/dịch vụ khác)  
+Thông báo tình hình học tập 
+
+Thông báo chuyển đổi kênh/website/app thành một kênh/website/app khác với chức năng tương tự đang tồn tại trước đó
+
+Bắt buộc có thông báo chính thức đăng tải trên website/kênh công khai của doanh nghiệp (thể hiện bằng cách gắn link CTA về thông báo này hoặc đính kèm tại phần ghi chú kiểm duyệt)
+Với trường hợp chuyển đổi từ kênh khác sang kênh Zalo OA, không dẫn CTA mời quan tâm OA (tránh gây hiểu lầm với mục đích mời quan tâm OA - Tag Hậu mãi)
+VD hợp lệ:
+TH1: Ngân hàng ra mắt website riêng cho nhóm khách hàng doanh nghiệp (trước đó tất cả nhóm khách hàng đều sử dụng chung 1 website) - CTA dẫn về link thông báo chuyển đổi chính thức tại website hiện tại của ngân hàng
+TH2: Doanh nghiệp chuyển đổi kênh chăm sóc khách hàng từ Hotline sang Zalo OA. - Không dẫn CTA mời quan tâm OA
+
+Yêu cầu 
+
+Cập nhật hoạt động/chính sách của dịch vụ/doanh nghiệp (Ví dụ: Thay đổi chính sách, bảo trì hệ thống,...)  
+Cập nhật thông tin tài khoản/ hạng tài khoản  
+Cập nhật liên quan đến tình trạng tài sản của người dùng cuối (Biến động số dư/hạn mức tài khoản, quyền lợi khách hàng thân thiết/loyalty)
+Đổi/đóng địa điểm kinh doanh 
+
+Hỗ trợ/Hướng dẫn 
+
+Cung cấp hỗ trợ và hướng dẫn sử dụng sản phẩm/dịch vụ khách hàng đã mua/sử dụng (có đủ biến xác định đã sở hữu/sử dụng sản phẩm/dịch vụ đó)
+Cảnh báo rủi ro (cho trường hợp có khả năng xảy ra) 
+
+Khảo sát 
+
+Khảo sát ý kiến của khách hàng về dịch vụ  
+Với trường hợp có quà tặng/voucher cho khách hàng làm khảo sát cần đủ thông tin về thể lệ và cách thức nhận quà tặng/voucher (mức khuyến mãi, điều kiện áp dụng và HSD)
+
+Quyền lợi khách hàng thân thiết 
+
+Chúc mừng sinh nhật khách hàng (bắt buộc kèm hình ảnh và quà tặng hoặc thông báo về quyền lợi khách hàng trong dịp sinh nhật hoặc theo chương trình loyalty của doanh nghiệp - theo chính sách cụ thể được công khai của doanh nghiệp)
+Thông báo quyền lợi tài khoản (có sẵn trong tài khoản của người dùng cuối khi sử dụng dịch vụ của doanh nghiệp được công khai tại trang chính sách của doanh nghiệp) 
+
+
+
+Tag 3 – HẬU MÃI 
+
+(PROMOTION) 
+
+ 
+
+	
+Quảng bá / upsell (bán thêm) / cross sell (bán chéo) sản phẩm/dịch vụ của doanh nghiệp.  
+CTA dẫn về Hotline/ Số điện thoại (SĐT) doanh nghiệp: cần sử dụng SĐT có định dạng tổng đài với đầu số 1800 hoặc 1900
+Trường hợp doanh nghiệp sử dụng số bàn/ số điện thoại cá nhân hoặc đầu số khác: cần cũng cấp thông tin chứng minh là SĐT này là số hotline của doanh nghiệp 
+(VD: SĐT này được đăng tải công khai là số hotline trên website hoặc trên các kênh chính thống của doanh nghiệp và đính kèm link tại mục note khi tạo temp)
+Không viết tắt
+Mục đích: Chúc mừng lễ tết => Bắt buộc áp dụng điều kiện bổ sung (Xem thêm tại phần 3.)
+Với các mục đích khuyến mãi, ưu đãi: nội dung mẫu template cần thể hiện rõ thể lệ, điều kiện áp dụng, hạn sử dụng chương trình khuyến mãi
+Bắt buộc bao gồm tên khách hàng;
+Số lượng  tham số định danh / tham số xác định giao dịch yêu cầu cho từng template được xác định trên cơ sở làm rõ nội dung, mục đích, nhu cầu và mối quan hệ của doanh nghiệp khi gửi đến user.
+	
+
+Hậu mãi 
+
+Giới thiệu sản phẩm/dịch vụ cũ và mới của doanh nghiệp
+Thông báo mã giảm giá và ưu đãi đặc biệt cho người dùng
+Thông báo chương trình khuyến mãi
+Chương trình hậu mãi/khuyến mãi mùa Lễ Tết
+Thông báo mở mới/mở rộng dịch vụ/sản phẩm
+Quảng bá kênh mới (chỉ cho phép quảng bá kênh Zalo OA - kêu gọi quan tâm Zalo OA và Zalo Mini App) 
+
+Mời tái tục, gia hạn dịch vụ
+
+ZNS template có mục đích Yêu cầu thanh toán, trả cước, trả phí (với mục đích tái tục) đến một số tài khoản ngân hàng nhất định bắt buộc sử dụng Mẫu Yêu cầu thanh toán. 
+Xem thêm Cách đăng ký và tổng quan về Mẫu Yêu cầu thanh toán 
+1. Gửi Mã xác thực
+
+Đây là thông báo về quá trình tạo hoặc thay đổi trạng thái tài khoản người dùng. Đối với Tag này, doanh nghiệp sử dụng mẫu OTP mặc định, không sử dụng nút CTA và hình ảnh. Trong trường hợp này, doanh nghiệp có thể ngoại lệ gửi thông báo đến khách hàng chưa phát sinh giao dịch với OA.
+
+Một số trường hợp sử dụng cụ thể:  
+
+Gửi mã xác thực cho khách hàng tạo tài khoản mới  
+
+Xác nhận thay đổi mật khẩu,…   
+
+Xác thực tài khoản 
+
+Xác thực giao dịch 
+
+2. Xác nhận/Cập nhật thông tin giao dịch
+
+Tthích hợp với các tin nhắn cập nhật thông tin giao dịch mua bán giữa doanh nghiệp (OA) và khách hàng hoặc xác nhận yêu cầu từ khách hàng. Bạn có thể lựa chọn lý do này cho các giao dịch có thời gian kéo dài và cần cập nhật trạng thái định kỳ đến khách hàng. 
+
+Một số trường hợp sử dụng cụ thể:  
+
+Xác nhận đặt hàng, đặt lịch thành công/thất bại 
+
+Xác nhận giao dịch, dịch vụ được chấp thuận/bị từ chối 
+
+Xác nhận đăng ký dịch vụ 
+
+Xác nhận đăng ký tham dự sự kiện 
+
+Xác nhận đăng ký dùng thử sản phẩm, dịch vụ 
+
+Nhắc đến lịch thanh toán, lịch hẹn 
+
+Thông báo trễ lịch, trễ thanh toán 
+
+Thông báo đơn hàng đang được giao, bị hủy 
+
+Thông báo thời gian giao hàng 
+
+ 3. Thông báo hoàn tất giao dịch và hỗ trợ có liên quan
+
+Nhóm điều kiện này dành cho các nội dung thông báo xác nhận hoàn tất giao dịch mua bán với khách hàng. Bên cạnh đó, bạn cũng có thể chọn điều kiện này khi gửi thông báo CSKH định kỳ có liên quan đến giao dịch đã thực hiện. 
+
+Một số trường hợp sử dụng cụ thể: 
+
+Xác nhận giao hàng thành công 
+
+Thông báo kích hoạt bảo hành 
+
+Thông báo bảo dưỡng định kỳ 
+
+Mời đánh giá chất lượng dịch vụ 
+
+Cảm ơn khách hàng đã dùng dịch vụ 
+
+Xác nhận giao hàng thành công 
+
+4. Cập nhật thông tin tài khoản
+
+Đây là điều kiện gửi tin chỉ dành cho các thông báo CSKH có liên quan đến tài khoản của khách hàng đang sử dụng sản phẩm, dịch vụ của doanh nghiệp. 
+
+Một số trường hợp sử dụng cụ thể: 
+
+Xác nhận khởi tạo tài khoản 
+
+Thay đổi số sư tài khoản 
+
+Thông báo thăng hạng thành viên 
+
+Cảnh báo bảo mật tài khoản 
+
+Cập nhật thay đổi thông tin của tài khoản 
+
+Xác nhận tạo tài khoản thành công/thất bại 
+
+Xác nhận đổi mật khẩu thành công/thất bại 
+
+Thông báo tích lũy điểm thưởng 
+
+Cảnh báo tài khoản mạo danh 
+
+Cảnh báo rủi ro, sự cố 
+
+5. Cập nhật thay đổi về sản phẩm, dịch vụ
+
+Đây là nhóm điều kiện dành cho các tin nhắn cập nhật thông tin chung về doanh nghiệp và sản phẩm, dịch vụ do doanh nghiệp cung cấp. Các cập nhật hoặc thay đổi này phải có liên quan trực tiếp đến quá trình sử dụng dịch vụ của khách hàng hiện tại. 
+
+Một số trường hợp sử dụng cụ thể: 
+
+Thông báo bảo trì hệ thống 
+
+Thay đổi chính sách dịch vụ 
+
+Thông báo nghỉ lễ, ngưng cung cấp dịch vụ, ngưng hoạt động 
+
+Hướng dẫn sử dụng sản phẩm, hướng dẫn thanh toán 
+
+Thông báo thay đổi trạng thái dịch vụ/sự kiện đã đăng ký 
+
+Thông báo ngưng cung cấp dịch vụ (khách hàng không còn nhu cầu, doanh nghiệp không còn cung cấp dịch vụ) 
+
+Thông báo tình hình học tập 
+
+Gửi tư vấn sản phẩm/dịch vụ (khách có đăng kí nhận tư vấn) 
+
+6. Thông báo hậu mãi đến khách hàng cũ
+
+Đây là nhóm điều kiện gửi thông báo hậu mãi đến khách hàng đã từng tồn tại giao dịch với OA. 
+
+Tuy nhiên, nội dung này vẫn đang trong quá trình thử nghiệm, chỉ hỗ trợ đối với mốt số đối tác/khách hàng. 
+
+Một số trường hợp sử dụng cụ thể:  
+
+Sản phẩm/dịch vụ sắp ra mắt 
+
+Sản phẩm/dịch vụ sắp có lại 
+
+Sản phẩm/dịch vụ ngừng cung cấp
+
+Chúc mừng sinh nhật thành viên/hội viên
+
+Chương trình khuyến mãi 
+
+Tặng voucher
+
+Mời thực hiện khảo sát
+
+ Tìm hiểu thêm về tiêu chuẩn phê duyệt Mẫu tin nhắn ZBS của Zalo tại đây. 
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

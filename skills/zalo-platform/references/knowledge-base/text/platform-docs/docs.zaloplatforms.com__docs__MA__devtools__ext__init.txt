@@ -1,0 +1,72 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/devtools/ext/init
+# FETCHED: 2026-08-06
+# TITLE: Tạo dự án | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Cấu Hình Zalo Mini App
+Zalo Mini App Extension
+Cài đặt
+Tạo dự án
+Khởi động
+Xuất bản
+Zalo Mini App CLI
+Cài đặt
+Đăng nhập
+Tạo dự án
+Khởi động
+Xuất bản
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Tạo dự án
+Cập nhật lần cuối:5/8/2026
+Bạn có thể sử dụng Zalo Mini App Extension để tạo dự án mới hoặc mở các dự án đã có sẵn.
+Tạo dự án mới​
+Tại giao diện màn hình chính của Extension, ấn vào nút Tạo Mới (1).
+Bạn sẽ được yêu cầu cung cấp các thông tin sau:
+Template: khung dự án để khởi tạo ứng dụng của bạn. Nếu như bạn muốn phát triển Mini App từ đầu, bạn có thể chọn các template blank với các tuỳ chọn Vite 2 hoặc Vite 5, JavaScript hoặc TypeScript. Ngoài ra bạn cũng có thể chọn các template do Zalo Mini App platform cung cấp để làm mẫu cho dự án của mình. Các template này sử dụng ZaUI và được thiết kế theo chuẩn Design Guideline để mang lại trải nghiệm tốt nhất cho người dùng.
+Location: vị trí để lưu trữ dự án trên máy tính của bạn.
+Project name: tên của dự án, cũng sẽ là tên của thư mục chứa mã nguồn của dự án sau khi tạo. Vì một thư mục có tên này sẽ được tạo bên trong Location (ii) đã chọn để chứa mã nguồn dự án, bạn vui lòng đảm bảo rằng tên này không bị trùng với tên của các thư mục khác bên trong.
+Sau khi cung cấp đủ thông tin, Extension sẽ khởi tạo mã nguồn cho dự án của bạn trong vài phút. Project mới sẽ tự động được mở bên trong một cửa sổ Visual Studio Code sau khi quá trình khởi tạo hoàn tất.
+Mở các dự án có sẵn​
+Bạn có thể mở các dự án đã được tạo trước đây bằng Zalo Mini App CLI hoặc Zalo Mini App Studio bên trong Zalo Mini App Extension. Bạn chỉ cần nhấn vào nút Mở (2) và chọn thư mục chứa mã nguồn của dự án.
+Bạn cũng có thể sử dụng danh sách Dự Án Gần Đây (3) để nhanh chóng mở lại các dự án Zalo Mini App đã đóng trước đó.
+Trước khi bắt đầu​
+Sau khi khởi tạo mã nguồn, bạn đã có thể bắt đầu quá trình phát triển ứng dụng. Tuy nhiên để có thể đóng gói và xuất bản ứng dụng đến với người dùng, bạn cần phải liên kết với một Zalo Mini App ID hợp lệ. Nhấn vào nút Cấu hình (1) và nhập Zalo Mini App ID cần liên kết.
+Danh sách Chẩn Đoán (2) chứa các thông tin quan trọng liên quan đến dự án của bạn, kèm theo các hành động gợi ý. Đảm bảo tất cả các hành động được đề xuất đều được thực hiện để đảm bảo dự án của bạn trong tình trạng tối ưu nhất.
+Trước
+Cài đặt
+Kế tiếp
+Khởi động
+Tạo dự án mới
+Mở các dự án có sẵn
+Trước khi bắt đầu
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

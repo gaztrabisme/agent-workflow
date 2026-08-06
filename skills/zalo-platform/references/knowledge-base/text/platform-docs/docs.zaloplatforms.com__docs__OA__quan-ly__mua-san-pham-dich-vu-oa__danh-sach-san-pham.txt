@@ -1,0 +1,117 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/quan-ly/mua-san-pham-dich-vu-oa/danh-sach-san-pham
+# FETCHED: 2026-08-06
+# TITLE: Danh sách sản phẩm | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Gắn nhãn người dùng
+Gỡ nhãn người dùng
+Lấy danh sách nhãn
+Xóa nhãn
+Truy xuất danh sách người dùng
+Truy xuất chi tiết người dùng
+Cập nhật chi tiết người dùng
+Xóa thông tin người dùng
+Truy xuất thông tin tùy biến của người dùng
+Cập nhật thông tin tùy biến của người dùng
+Quản lý trường thông tin người dùng
+Lấy danh sách trường thông tin
+Tạo mới trường thông tin tùy biến
+Cập nhật trường thông tin
+Xóa trường thông tin tùy biến
+Quản lý thông tin OA
+Kiểm tra hạn mức tin nhắn OA
+Lấy thông tin Zalo Official Account.
+Quản lý form Zalo Ads
+Lấy nội dung form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Luồng mua sản phẩm / dịch vụ OA
+Tạo đơn hàng
+Xác nhận thanh toán đơn hàng
+Danh sách sản phẩm
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Danh sách sản phẩm
+product_id
+Tên sản phẩm
+Đối tượng khả dụng
+Sản phẩm OA Subscription
+866836109767958135
+Gói OA Nâng cao 6 tháng (Dừng cung cấp từ 01/06/2026)
+OA
+1302963828004138542
+Gói OA Nâng cao 12 tháng (Dừng cung cấp từ 01/06/2026)
+OA
+757295129578622372
+Gói OA Premium 6 tháng (Dừng cung cấp từ 01/06/2026)
+OA
+3071996459978068910
+Gói OA Premium 12 tháng (Dừng cung cấp từ 01/06/2026)
+OA
+2986218846231350366
+Gói OA Tiêu chuẩn 12 tháng
+OA
+432116103399624767
+Gói OA Tăng trưởng 6 tháng
+OA
+3521678227011222721
+Gói OA Tăng trưởng 12 tháng
+OA
+2519724963880150161
+Gói OA Toàn diện 6 tháng
+OA
+3949230607632876067
+Gói OA Toàn diện 12 tháng
+OA
+Sản phẩm Quota khởi tạo GMF
+739448264820568793
+GMF tối đa 10 thành viên
+OA
+2405469629611791306
+GMF tối đa 50 thành viên
+OA
+2275350247265190619
+GMF tối đa 100 thành viên
+OA
+3678557233392100095
+GMF tối đa 1000 thành viên
+OA
+- Tham khảo bảng giá các sản phẩm OA tại đây
+Trước
+Xác nhận thanh toán đơn hàng
+Kế tiếp
+Giới thiệu về Webhook
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

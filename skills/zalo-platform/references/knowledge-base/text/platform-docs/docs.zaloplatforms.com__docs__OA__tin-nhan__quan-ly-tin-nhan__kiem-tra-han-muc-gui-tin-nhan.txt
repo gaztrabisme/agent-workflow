@@ -1,0 +1,154 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/tin-nhan/quan-ly-tin-nhan/kiem-tra-han-muc-gui-tin-nhan
+# FETCHED: 2026-08-06
+# TITLE: Kiểm tra hạn mức gửi tin tới User cụ thể | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Điều kiện gửi tin Tư vấn
+Gửi tin Tư vấn dạng văn bản
+Gửi tin Tư vấn đính kèm ảnh
+Gửi tin Tư vấn đính kèm file
+Gửi tin Tư vấn theo mẫu yêu cầu thông tin người dùng
+Gửi tin tư vấn trích dẫn
+Gửi tin tư vấn kèm Sticker
+Tin Giao dịch
+Điều kiện gửi tin Giao dịch
+Gửi tin giao dịch
+Tin Truyền thông
+Điều kiện gửi tin Truyền thông
+Gửi tin Truyền thông cá nhân
+Các loại tin khác
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Thả biểu tượng cảm xúc vào tin nhắn
+Quản lý tin nhắn
+Kiểm tra hạn mức gửi tin tới User cụ thể
+Lấy thông tin Tin nhắn gần nhất
+Lấy thông tin Tin nhắn trong một hội thoại
+Upload hình ảnh
+Upload file
+Upload ảnh GIF
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Kiểm tra hạn mức gửi tin tới User cụ thể
+mẹo
+API này dùng để kiểm tra các thông tin sau:
+Thời gian tương tác lần cuối của User với OA
+Kiểm tra hạn mức gửi tin nhắn Truyền thông theo ngày/tháng
+Lưu ý
+Quyền cần có: Quyền gửi tin và thông báo qua OA
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/quota/message
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl '<https://openapi.zalo.me/v3.0/oa/quota/message>'
+--header 'access_token: <oa_access_token>'
+--header 'Content-Type: application/json'
+--data '{
+"user_id": "3665924733554159312"
+}'
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+user_id
+string
+yes
+User ID của người dùng cần kiểm tra thông tin.
+Lưu ý: Người dùng không cần quan tâm OA
+Example respond​
+{
+"data": {
+"last_interaction": "1690184100000",
+"cs_reply": {
+"remain": 8,
+"total": 8
+},
+"promotion": {
+"daily_remain": 0,
+"daily_total": 1,
+"monthly_remain": 4,
+"monthly_total": 6
+}
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+last_interaction
+string
+Thời gian tương tác cuối cùng của user với OA (định dạng unix milliseconds)
+cs_reply
+object
+Từ ngày 1/1/2026, đối tác có thể gửi tin Tư vấn miễn phí không giới hạn trong khung 48h
+Lộ trình chuyển đổi:
+- Từ ngày 1/1/2026: luôn trả về giá trị remain = 8
+- Sau ngày 1/3/2026: sẽ dừng trả về thuộc tính này
+promotion
+object
+daily_remain: số lượt gửi tin truyền thông còn lại trong ngày tới User này
+- daily_total: tổng số lượt gửi tin truyền thông trong ngày tới User này
+- monthly_remain: số lượt gửi tin truyền thông còn lại trong tháng tới User này
+- monthly_total: tổng số lượt gửi tin truyền thông trong tháng tới User này
+Trước
+Thả biểu tượng cảm xúc vào tin nhắn
+Kế tiếp
+Lấy thông tin Tin nhắn gần nhất
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+Cấu trúc thuộc tính data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

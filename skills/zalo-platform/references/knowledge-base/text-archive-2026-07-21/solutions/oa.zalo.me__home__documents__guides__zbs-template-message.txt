@@ -1,0 +1,109 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/zbs-template-message
+# FETCHED: 2026-07-21
+# TITLE: ZBS Template Message | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Tổng quan các loại tin nhắn trên Zalo Official Account
+Tin Tư vấn
+Tin Broadcast
+ZBS Template Message
+Câu hỏi thường gặp
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+ZBS Template Message
+Tổng quan​
+
+Zalo Business Solutions (gọi tắt là ZBS): Trung tâm giải pháp Zalo dành cho Doanh nghiệp.
+
+ZBS Template Message là giải pháp tin nhắn cho Doanh nghiệp theo mẫu (template), gửi qua UID và qua số điện thoại (SĐT) trên Zalo.
+
+Lưu ý:
+
+ZBS Template Message là giải pháp tin nhắn trên cơ sở hợp nhất các loại tin UID Giao dịch, tin UID Truyền thông và tin ZNS, được áp dụng từ ngày 01/01/2026.
+Định nghĩa​
+1. Zalo OA​
+
+Zalo Official Account Doanh nghiệp (OA) là tài khoản chính thức của doanh nghiệp trên nền tảng Zalo.
+
+Tài khoản OA cần liên kết với ZBS Account để thanh toán các dịch vụ trả phí. Để liên kết OA với ZBS Account, bạn cần có quyền Quản trị viên của cả 2 tài khoản OA và ZBS Account.
+
+2. ZBS Account​
+
+ZBS Account là công cụ quản lý số dư tiền để sử dụng dịch vụ tính phí của các tài khoản Zalo OA Doanh Nghiệp và các ứng dụng ủy quyền của Doanh Nghiệp (App ID). ZBS Account đang được sử dụng thanh toán cho các dịch vụ sau:
+
+Gói Dịch vụ OA
+Tin nhắn Cơ bản
+ZBS Template Message
+Tiện ích
+
+Ngoài ra, ZBS Account có các tính năng quản lý như:
+
+Quản lý chi tiêu
+Quản lý việc sử dụng các dịch vụ
+Quản lý giao dịch
+Quản lý tài sản
+Quản lý chất lượng gửi tin
+3. App​
+
+Ứng dụng (App) là đơn vị đại diện của OA để thực hiện việc gửi ZBS Template Message đến người dùng Zalo. Một Ứng dụng có thể thay mặt nhiều OA thực hiện gửi tin nhắn đến khách hàng.
+
+Ứng dụng cần liên kết với ZBS Account để sử dụng các dịch vụ trả phí. Để liên kết với ZBS Account, bạn cần có quyền Quản trị viên của App.
+
+4. ZBS Template​
+
+ZBS Template Message cho phép gửi tin nhắn đến khách hàng của doanh nghiệp theo mẫu (template) qua UID hoặc qua SĐT trên Zalo, trong điều kiện đáp ứng đủ các tiêu chuẩn về chính sách dịch vụ được quy định. Chi tiết cách thức gửi tin:
+
+Gửi qua UID trên công cụ OpenAPI: xem chi tiết tại đây.
+Gửi qua SĐT trên công cụ OpenAPI: xem chi tiết tại đây.
+Gửi qua UID và SĐT trên công cụ OAM: xem chi tiết tại đây.
+
+ZBS Template Message có 2 loại chính: Tin Giao dịch và Tin Hậu mãi. Template cần được đăng ký và kiểm duyệt trước khi được sử dụng để gửi tin. Tham khảo các mẫu tin (template) tại đây.
+
+----------------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Tin Broadcast
+Next
+Câu hỏi thường gặp
+Tổng quan
+Định nghĩa
+1. Zalo OA
+2. ZBS Account
+3. App
+4. ZBS Template
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

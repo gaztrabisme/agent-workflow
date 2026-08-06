@@ -1,0 +1,105 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/gui-tin-zns/gui-zns-su-dung-development-mode
+# FETCHED: 2026-07-21
+# TITLE: Gửi ZNS sử dụng development mode | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Gửi ZNS
+Gửi ZNS sử dụng hash phone
+Gửi ZNS sử dụng development mode
+Gửi ZNS với hệ mã hóa RSA
+Gửi ZNS Journey
+Truy xuất thông tin
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Gửi ZNSGửi ZNS sử dụng development mode
+Gửi ZNS sử dụng development mode
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+Khi có nhu cầu gửi thử mẫu ZNS để kiểm tra trước khi gửi chính thức, bạn có thể gọi lệnh ZNS API ở chế độ development (development mode). Lưu ý: Chế độ development chỉ hỗ trợ gửi thử mẫu ZNS đến quản trị viên của ứng dụng hoặc quản trị viên của OA.
+
+HTTP request​
+URL: https://business.openapi.zalo.me/message/template
+Method: POST
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl --location 'https://business.openapi.zalo.me/message/template' \
+--header 'Content-Type: application/json' \
+--header 'access_token: your_access_token' \
+--data '{
+    "phone": "84987654321",
+    "template_id": "7895417a7d3f9461cd2e",
+    "template_data": {
+        "ky": "1",
+        "thang": "4/2020",
+        "start_date": "20/03/2020",
+        "end_date": "20/04/2020",
+        "customer": "Nguyễn Thị Hoàng Anh",
+        "cid": "PE010299485",
+        "address": "VNG Campus, TP.HCM",
+        "amount": "100",
+        "total": "100000",
+     },
+    "tracking_id":"tracking_id"
+}'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Cấu trúc body của request​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+mode	string	yes	Tham số cho biết thông báo sẽ được gửi ở chế độ development. Giá trị nhận vào:
+development
+
+phone	string	yes	SĐT của quản trị viên ứng dụng hoặc quản trị viên OA.
+
+Lưu ý: SĐT phải được liên kết với tài khoản Zalo và được viết ở định dạng chuẩn hóa theo mã quốc gia. VD: SĐT 0987654321 (viết theo định dạng chuẩn hóa của Việt Nam là 84987654321 hoặc +84987654321)
+template_id	string	yes	ID của template muốn sử dụng.
+
+template_id sẽ được phía Zalo cung cấp riêng cho từng đối tác.
+template_data	JSON object	yes	Các thuộc tính của template mà đối tác đã đăng ký với Zalo.
+
+Lưu ý: Cấu trúc template_data được quy định riêng ứng với từng template.
+tracking_id	string	yes	Mã số đánh dấu lần gọi API của đối tác, do đối tác định nghĩa. Đối tác có thể dùng tracking_id để đối soát mà không phụ thuộc vào message_id của Zalo cung cấp.
+
+Lưu ý: Tham số có độ dài tối đa 48 ký tự và không chứa kí tự đặc biệt.
+Example respond​
+{
+  "data": {
+    "sent_time": "1619595918601",
+       "msg_id": "b15f0398cb7a1e264769"
+  },
+  "error": 0,
+  "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+sent_time	string	Thời gian gửi thông báo ZNS (định dạng timestamp).
+msg_id	string	ID của thông báo ZNS.
+Trước
+Gửi ZNS sử dụng hash phone
+Kế tiếp
+Gửi ZNS với hệ mã hóa RSA
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

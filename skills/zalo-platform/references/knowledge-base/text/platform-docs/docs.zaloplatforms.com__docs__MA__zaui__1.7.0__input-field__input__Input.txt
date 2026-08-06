@@ -1,0 +1,364 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.7.0/input-field/input/Input
+# FETCHED: 2026-08-06
+# TITLE: Input | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.7.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Header
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Router
+ZMPRouter
+AnimationRoutes
+Container
+App
+Box
+Page
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Input
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.7.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Guidelines
+Implementation
+Input Field​
+Được sử dụng để nhập, gửi dữ liệu, vì vậy phải ngắn gọn và rõ ràng
+Anatomy​
+Core elements (Required)​
+Luôn xuất hiện trong một input field
+Background
+Border
+Primary text
+Types​
+Sử dụng các loại input field khác nhau để đáp ứng nhu cầu nhập nội dung khác nhau
+Text Field​
+Để nhập nội dung đơn giản, trong 1 dòng
+Password Field​
+Để nhập mật khẩu
+Text Area​
+Để nhập nội dung dài
+Search Field​
+Để nhập nội dung tìm kiếm, trong 1 dòng
+Interaction
+Touch vào trigger action nhập text
+OTP Field​
+Dùng để nhập OTP. Highlight từng số khi nhập
+States​
+Enabled​
+Focus​
+Activated​
+Disabled​
+Không hiển thị:
+Clear icon
+Helper text
+Required label
+Tạo giao diện ô nhập liệu cho phép người dùng nhập văn bản và lấy dữ liệu
+Properties​
+Input​
+Name
+Type
+Default
+Description
+label
+string
+Label hiển thị phía trên của field input.
+status
+string
+Trạng thái của field input. Nhận các giá trị: success | error
+helperText
+string
+Helper text hiển thị phía dưới của field input.
+errorText
+string
+Text hiển thị khi status của field input là error
+clearable
+boolean | Object
+Nếu cho phép sẽ hiển thị clear icon.
+maxLength
+number
+Giới hạn độ dài tối đa được phép nhập
+onChange
+function
+Sự kiện khi giá trị input thay đổi. Nhận về giá trị được nhập
+Input.Password​
+Hỗ trợ tất cả các props của component Input
+Name
+Type
+Default
+Description
+visibilityToggle
+boolean
+Hiển thị icon hiện/ẩn password
+import React from "react";
+import { Page, Input } from "zmp-ui";
+export default function HomePage(props) {
+return (
+);
+}
+Input.Search​
+Hỗ trợ tất cả các props của component Input
+Name
+Type
+Default
+Description
+loading
+boolean
+Hiển thị icon loading khi trạng thái đang search
+onSearch
+function
+Sự kiện khi người dùng search. Nhận về giá trị được nhập
+import React from "react";
+import { Page, Input } from "zmp-ui";
+export default function HomePage(props) {
+return (
+<Input.Search
+label="Label"
+helperText="Helper text"
+loading
+onSearch={(text) => console.log(text)}
+/>
+);
+}
+Input.TextArea​
+Hỗ trợ tất cả các props của component Input
+Name
+Type
+Default
+Description
+showCount
+boolean
+Hiển thị số lượng ký tự
+import React from "react";
+import { Page, Input } from "zmp-ui";
+export default function HomePage(props) {
+return (
+);
+}
+Input.OTP​
+Hỗ trợ tất cả các props của component Input
+Name
+Type
+Default
+Description
+otpLength
+number
+4
+Số lượng ô input cần hiển thị
+show
+boolean
+Nếu là false thì hiển thị ký tự *
+import React from "react";
+import { Page, Input } from "zmp-ui";
+export default function HomePage(props) {
+return (
+);
+}
+Example​
+import React from "react";
+import { Page, Box, Text, Input, Select, DatePicker, Button } from "zmp-ui";
+const { Option, OtpGroup } = Select;
+export default function HomePage(props) {
+const inputPasswordRef = React.useRef(null);
+return (
+<>
+Text Field</Text.Title>
+<Box mt={2}>
+<Text size="xSmall" className="input-desc">
+Để nhập nội dung đơn giản trong 1 dòng
+</Box>
+Password Field</Text.Title>
+<Box mt={2}>
+<Text size="xSmall" className="input-desc">
+Để nhập mật khẩu
+</Box>
+Select Field</Text.Title>
+<Box mt={2}>
+<Text size="xSmall" className="input-desc">
+Để chọn trong các nội dung có sẵn.
+</Box>
+<Text size="xSmall" className="input-desc input-interaction">
+Interaction
+</Text>
+<Text size="xSmall" className="input-desc">
+Bấm chỗ nào cũng trigger chung 1 action, ko cho nhập text
+</Text>
+<Select
+label="Label"
+helperText="Helper text"
+placeholder="Placeholder"
+clearable
+defaultValue="1"
+>
+<OtpGroup label="Group 1">
+</OtpGroup>
+<OtpGroup label="Group 2">
+</OtpGroup>
+</Select>
+<Select
+placeholder="Placeholder"
+clearable
+multiple
+defaultValue={["1"]}
+>
+</Select>
+Search Field</Text.Title>
+<Box mt={2}>
+<Text size="xSmall" className="input-desc">
+Để nhập nội dung tìm kiếm trong 1 dòng
+</Box>
+<Input.Search
+label="Label"
+helperText="Helper text"
+placeholder="Placeholder"
+defaultValue="Filled"
+clearable
+onSearch={(value) => {
+console.log(value);
+}}
+/>
+<Input.Search
+placeholder="Placeholder"
+size="small"
+onSearch={(value) => {
+console.log(value);
+}}
+/>
+DatePicker Field</Text.Title>
+<Box mt={2}>
+<Text size="xSmall" className="input-desc">
+Để chọn nội dung ngày/tháng/năm{" "}
+Bấm chỗ nào cũng trigger chung 1 action, ko cho nhập text
+</Box>
+OTP Field</Text.Title>
+<Box mt={2}>
+<Text size="xSmall" className="input-desc">
+Để nhập OTP. Highlight từng số do string ngắn và mỗi character thì
+quan trọng
+Interaction
+<ul className="input-list-desc">
+<li>
+Bấm xoá: nghĩa là user muốn xoá kí tự được nhập gần nhất
+</li>
+<li>
+Nếu ô đó đã filled, thì chuyển về empty
+</li>
+<li>
+Nếu ô đó empty thì xoá ô trước
+</li>
+<li>
+Không cho chọn từng ô riêng biệt
+</li>
+<li>
+{" "}
+Nếu tất cả ô đều empty thì khi user activate field, focus vào ô empty
+đầu tiên
+</li>
+<li>
+{" "}
+Nếu đã có ít nhất 1 ô đã filled thì khi user activate field, focus
+vào ô filled cuối cùng
+</li>
+</ul>
+</Box>
+<Button
+variant="secondary"
+size="small"
+onClick={() => inputPasswordRef.current.focus()}
+>
+Focus
+</Button>
+TextArea Field</Text.Title>
+<Box mt={2}>
+<Text size="xSmall" className="input-desc">
+Để nhập nội dung nhiều
+</Box>
+</>
+);
+}
+Input Field
+Anatomy
+Core elements (Required)
+Types
+Text Field
+Password Field
+Text Area
+Search Field
+OTP Field
+States
+Enabled
+Focus
+Activated
+Disabled
+Properties
+Input
+Input.Password
+Input.Search
+Input.TextArea
+Input.OTP
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

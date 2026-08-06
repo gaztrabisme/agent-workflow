@@ -1,0 +1,101 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/social-api/tai-lieu/thong-tin-ten-anh-dai-dien
+# FETCHED: 2026-07-21
+# TITLE: Thông tin tên, ảnh đại diện | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Chính sách nền tảng của Zalo
+Demonstrating Proof-of-Possession
+Tài liệuThông tin tên, ảnh đại diện
+Thông tin tên, ảnh đại diện
+
+Dùng để truy xuất thông tin cơ bản của người dùng Zalo đã cấp quyền cho ứng dụng. Endpoint /me sẽ gửi về thông tin của người dùng ứng với access_token truyền vào.
+
+Giới hạn truy xuất: Không giới hạn.
+URL: https://graph.zalo.me/v2.0/me
+Method: GET
+Reponse Type: text/json
+Ví dụ​
+curl \
+-X GET \
+-H 'access_token: <your_access_token>' \
+"https://graph.zalo.me/v2.0/me?fields=id,name,picture"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Xem hướng dẫn lấy access_token ở đây.
+Tham số​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+fields	string	yes	Các trường thông tin muốn lấy, viết liền cách nhau bởi dấu phẩy.
+
+VD: id, name, picture
+Kết quả​
+
+Nếu request thành công json trả về có định dạng như sau:
+
+{
+    "error": 0,
+    "message": "Success",
+    "id": "UserId",
+    "name": "User Name",
+    "picture": {
+        "data": {
+            "url": "User avatar url"
+        }
+    }
+}
+
+Thuộc tính	Mô tả
+error
+Integer	Mã lỗi
+message
+String	Mô tả cho mã lỗi
+id
+String	Mã người dùng. Chuỗi này là duy nhất cho mỗi người dùng trên mỗi ứng dụng. Các ứng dụng khác nhau sẽ không dùng được mã người dùng của nhau.
+picture
+String	Ảnh đại diện người dùng. Mặc định kích thước ảnh trả về trong URL sẽ là ảnh nhỏ nhất.
+Ứng dụng của bạn có thể request ảnh lớn hơn bằng cách thêm vào field picture node type (small, normal, large).
+Ví dụ: picture.type(large)
+name
+String	Tên hiển thị của người dùng.
+is_sensitive
+boolean	
+
+Có 2 giá trị:
+
+true: tài khoản này thuộc nhóm người dùng cần nhà phát triển ứng dụng xác minh và áp dụng các cơ chế xử lý dữ liệu phù hợp theo quy định Pháp luật, có thể bao gồm nhưng không giới hạn người đã chết hoặc mất tích, người không biết chữ, người khuyết tật, trẻ em,…
+false: tài khoản này thuộc nhóm người dùng bình thường
+Lỗi thường gặp​
+Mã lỗi	Mô tả lỗi
+210	User not visible
+
+Tham khảo mã lỗi đầy đủ tại đây.
+
+Trước
+Tổng quan
+Kế tiếp
+Cơ chế hết hạn của User Refresh Token
+Ví dụ
+Tham số header
+Tham số
+Kết quả
+Lỗi thường gặp
+©2023 Zalo for Developers

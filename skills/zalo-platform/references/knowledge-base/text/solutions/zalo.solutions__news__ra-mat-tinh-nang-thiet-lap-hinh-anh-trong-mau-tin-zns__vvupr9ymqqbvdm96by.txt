@@ -1,0 +1,56 @@
+# SOURCE: https://zalo.solutions/news/ra-mat-tinh-nang-thiet-lap-hinh-anh-trong-mau-tin-zns/vvupr9ymqqbvdm96by
+# FETCHED: 2026-08-06
+# TITLE: Ra Mắt Tính Năng Thiết Lập Hình Ảnh Trong Mẫu Thông Báo ZNS | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Tin tức/Ra Mắt Tính Năng Thiết Lập Hình Ảnh Trong Mẫu Thông Báo ZNS
+Ra Mắt Tính Năng Thiết Lập Hình Ảnh Trong Mẫu Thông Báo ZNS
+26 tháng 11, 2025 17:39
+Đội ngũ phát triển sản phẩm Zalo Notification Service (ZNS) sẽ chính thức ra mắt tính năng mới giúp người dùng thiết lập hình ảnh trong các mẫu thông báo. Tính năng này hứa hẹn mang lại trải nghiệm thông báo đa dạng và thu hút hơn đối với người dùng từ ngày 27/02/2024 (dự kiến).
+Tính năng này cho phép Quý khách thiết lập hình ảnh kèm theo các mẫu thông báo ZNS mà quý khách gửi đến người dùng trên ứng dụng Zalo, bằng cách này, doanh nghiệp có thể tạo ra những thông điệp sinh động hơn và gần gũi hơn với khách hàng của mình.
+Hình ảnh trong mẫu thông báo không chỉ là một cách để làm cho thông điệp trở nên sinh động hơn mà còn giúp thu hút sự chú ý của người nhận thông báo. Điều này có thể tăng khả năng tương tác và tạo ra ấn tượng tích cực với khách hàng.
+Thời gian dự kiến ra mắt 27/02/2024
+Một số mẫu ZNS có thiết lập hình ảnh
+Hướng dẫn cách thiết lập module hình ảnh
+Tính năng mới này hiện sẽ có sẵn cho tất cả các doanh nghiệp sử dụng dịch vụ ZNS tại bản cập nhật này. Để biết thêm thông tin và bắt đầu sử dụng tính năng này, doanh nghiệp có thể tham khảo các bước dưới đây
+Bước 1: Tạo mẫu ZNS
+Tại phần “Tạo mẫu ZNS”, nhập đủ “Thông tin chung” => Chọn “Tiếp tục”
+Vì các mẫu ZNS đã được duyệt sẽ không thể chỉnh sửa, quý khách cần tạo mẫu ZNS mới nếu có nhu cầu sử dụng hình ảnh dù sử dụng nội dung tương đồng với các mẫu thông báo đã được duyệt.
+Bước 2: Khai báo nội dung
+Ở phần “Khai báo nội dung” , chọn phân loại “ZNS Tùy chỉnh” cho phép tùy chọn để thiết lập và sử dụng Logo hoặc Hình ảnh
+Tại đây, chọn nút “Hình ảnh” để bắt đầu đăng tải và tùy chỉnh hình ảnh
+Lưu ý:
+Phân loại ZNS Xác thực và ZNS đánh giá dịch vụ hiện chưa hỗ trợ thiết lập hình ảnh.
+Bước 3: Đăng tải và tùy chỉnh hình ảnh
+Kéo và thả ảnh vào khung xám hoặc chọn Tải ảnh lên để đăng tải ảnh
+Khi đăng tải hình ảnh, hệ thống sẽ cho phép khách hàng cắt hình ảnh để đúng với tỉ lệ (16:9) theo yêu cầu của hệ thống
+Khi hài lòng với vùng chọn, chọn “Hoàn tất”
+Sau khi đã hoàn tất cắt hình ảnh, để chỉnh sửa hình ảnh vui lòng chọn “Tải ảnh mới” hoặc “Xóa” tương ứng với nhu cầu.
+Lưu ý:
+Xem thêm Quy định xét duyệt Template ZNS chứa module hình ảnh
+Một mẫu thông báo ZNS có thể chứa tối đa 3 hình ảnh
+Nếu có hơn 1 hình ảnh được gắn, hình ảnh sẽ được tự động trượt tuần hoàn.
+Mẫu tin ZNS chỉ có thể chọn sử dụng Logo HOẶC Hình ảnh
+Bước 4: Mối liên kết giữa Hình ảnh với Nút thao tác (CTA)
+Khi thiết lập mẫu ZNS có hình ảnh, hệ thống sẽ tự động kích hoạt Nút chính (CTA 1)
+Người dùng cuối (end-user) nhấn vào hình ảnh trong mẫu ZNS, sẽ tự động chuyển hướng theo link/số điện thoại được cấu hình tại nút chính
+Lưu ý:
+Không thể xóa nút chính khi thiết lập ZNS có hình ảnh
+Nếu có bất kì yêu cầu hỗ trợ, khách hàng có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud. Đội ngũ CSKH Zalo Cloud sẽ phản hồi cho khách hàng trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

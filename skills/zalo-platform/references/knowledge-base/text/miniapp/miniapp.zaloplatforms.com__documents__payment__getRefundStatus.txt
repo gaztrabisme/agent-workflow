@@ -1,0 +1,74 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/getRefundStatus/
+# FETCHED: 2026-07-21
+# TITLE: getRefundStatus | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+createRefund
+getRefundStatus
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+getRefundStatus
+Trước
+Kế tiếp
+Cập nhật lần cuối: 16/6/2025
+
+API cho phép đối tác gọi để truy vấn tình trạng hoàn tiền của 1 giao dịch hoàn tiền.
+
+API specification​
+Method	Headers	Endpoint
+GET		https://payment-mini.zalo.me/api/refund
+Parameters​
+Object object​
+Property	Type	Required	Description
+appId	string	true	Id định danh của mini app
+refundId	string	true	Id của yêu cầu hoàn tiền
+mac	string	true	Thông tin chứng thực, xem cách tạo thông tin chứng thực ở dưới
+Tạo thông tin chứng thực​
+data = "appId={appId}&refundId={refundId}&privateKey={privateKey}";
+mac = HMAC("HmacSHA256", privateKey, data);
+
+Return Values​
+Promise <Object data>​
+Property	Type	Description
+returnCode	int	
+1 : Hoàn tiền giao dịch thành công
+!= 1 : Hoàn tiền không thành công
+
+returnMessage	string	Mô tả thông tin returnCode
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

@@ -1,0 +1,219 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/devtools/app-config
+# FETCHED: 2026-08-06
+# TITLE: Cấu Hình Zalo Mini App | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Cấu Hình Zalo Mini App
+Zalo Mini App Extension
+Cài đặt
+Tạo dự án
+Khởi động
+Xuất bản
+Zalo Mini App CLI
+Cài đặt
+Đăng nhập
+Tạo dự án
+Khởi động
+Xuất bản
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Cấu Hình Zalo Mini App
+Cập nhật lần cuối:5/8/2026
+File app-config.json được dùng để cấu hình chung cho Zalo Mini App. File này phải được tạo ở thư mục gốc của dự án. Nội dung của file là một JSON object với các properties như sau:
+Cấu hình​
+Property
+Type
+Required
+Description
+Minimum Version
+app
+Object
+yes
+Cấu hình giao diện ban đầu của Zalo Mini App
+listCSS
+string[]
+Danh sách css cần cho mini app
+listSyncJS
+string[]
+Các script trong danh sách này sẽ được tải song song quá trình phân tích trang và thực thi đồng bộ theo thứ tự trong danh sách
+listAsyncJS
+string[]
+Các script trong danh sách này sẽ được tải song song quá trình phân tích trang và thực thi bất đồng bộ theo thứ tự tải (Script được tải xong trước sẽ thực thi trước)
+App​
+Cấu hình giao diện ban đầu của Zalo Mini App, bao gồm cấu hình thanh trạng thái, thanh điều hướng,... của ứng dụng.
+Property
+Type
+Required
+Default Value
+Description
+Minimum Version
+title
+string
+yes
+Tên của ứng dụng. Đây là trường bắt buộc phải có.
+headerTitle
+string
+Tên sẽ hiển thị trên thanh điều hướng mặc định của Zalo Mini App
+headerColor
+string
+Màu của thanh trạng thái và thanh điều hướng (trường hợp "statusBar": "normal") (Hex code - ví dụ: #ffffff).
+leftButton
+string
+back
+Cấu hình bộ nút bên trái trên thanh điều hướng mặc định. Nhận 1 trong các giá trị sau:
+none: không hiển thị
+back: hiển thị nút trở lại. Nút này sẽ không hiển thị nếu người dùng đang ở trang đầu tiên của ứng dụng
+textColor
+string
+Màu chữ và biểu tượng trên thanh điều hướng và thanh trạng thái mặc định. Nhận giá trị hợp lệ là:
+white: chữ và các biểu tượng sẽ có màu trắng
+black: chữ và các biểu tượng sẽ có màu đen
+statusBar
+string
+'normal'
+Kiểu hiển thị của thanh trạng thái. Nhận các giá trị:
+normal: mặc định
+hidden: ẩn thanh trạng thái
+transparent: thanh trạng thái sẽ có màu transparent, các biểu tượng vẫn sẽ hiển thị và nằm trên ứng dụng của bạn
+API: 2.25.0
+Zalo: 23.02.01.r2
+actionBarHidden
+boolean
+false
+Ẩn thanh điều hướng mặc định của Zalo Mini App
+API: 2.25.0
+Zalo: 23.02.01.r2
+hideAndroidBottomNavigationBar
+boolean
+false
+Ẩn thanh điều hướng bên dưới của các thiết bị Android android
+API: 2.25.0
+Zalo: 23.02.01.r2
+hideIOSSafeAreaBottom
+boolean
+false
+Ẩn phần "Safe Area Inset Bottom" (nếu có) trên các thiết bị iOS
+API: 2.25.0
+Zalo: 23.02.01.r2
+selfControlLoading
+boolean
+false
+Nếu giá trị là true thì màn hình Splash Loading lúc mở ứng dụng sẽ không tự động tắt, thay vào đó nhà phát triển phải gọi api closeLoading để tắt khi cần
+API: 2.17.0
+Ví dụ file app-config.json cấu hình Zalo Mini App:
+{
+"app": {
+"title": "My App",
+"headerColor": "#1843EF",
+"headerTitle": "Videos",
+"textColor": "white",
+"leftButton": "back",
+"statusBar": "normal",
+"actionBarHidden": false,
+"hideAndroidBottomNavigationBar": true,
+"hideIOSSafeAreaBottom": true
+}
+}
+Mẹo
+Để có thể gắn các tương tác đặc biệt trên thanh điều hướng, ta có thể set "actionBarHidden": true để làm trong suốt thanh điều hướng mặc định của Zalo, sau đó custom lại header của ứng dụng cho phù hợp với nhu cầu:
+Header mặc định của Zalo
+Header tuỳ biến của ứng dụng
+Zalo Theme​
+Bắt đầu hỗ trợ:
+IOS: 22.03.01.r2
+Android: 21.09.01
+Để thay đổi màu của navigation bar, title, status bar icon theo theme của ứng dụng Zalo bạn có thể cấu hình headerColor, textColor như sau:
+Property
+Type
+Description
+light
+string
+Màu ứng với theme light
+dark
+string
+Màu ứng với theme dark
+Lưu ý: nếu phiên bản Zalo chưa hỗ trợ cấu hình theo theme thì giá trị của light sẽ được sử dụng.
+Ví dụ file app-config.json cấu hình Zalo Mini App theo theme:
+{
+...
+"app": {
+"title": "My App",
+"headerColor": {
+"light": "#ffffff",
+"dark": "#000000"
+},
+"textColor": {
+"light": "black",
+"dark": "white"
+},
+},
+...
+}
+Zalo Language​
+Bắt đầu hỗ trợ:
+IOS: 22.03.01.r2
+Android: 21.09.01
+Để thay đổi ngôn ngữ của title theo ngôn ngữ của ứng dụng Zalo bạn có thể cấu hình headerTitle như sau:
+Property
+Type
+Description
+en
+string
+Ngôn ngữ ứng với tiếng Anh
+vi
+string
+Ngôn ngữ ứng với tiếng Việt
+my
+string
+Ngôn ngữ ứng với tiếng Myanmar (Chỉ hỗ trợ trên android )
+Lưu ý: nếu phiên bản Zalo chưa hỗ trợ cấu hình theo ngôn ngữ thì giá trị của vi sẽ được sử dụng.
+Ví dụ file app-config.json cấu hình Zalo Mini App theo ngôn ngữ:
+{
+...
+"app": {
+"title": "My App",
+"headerTitle": {
+"en": "My App Title",
+"vi": "App Thử Nghiệm"
+}
+},
+...
+}
+Trước
+SnackbarProvider
+Kế tiếp
+Cài đặt
+Cấu hình
+App
+Zalo Theme
+Zalo Language
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

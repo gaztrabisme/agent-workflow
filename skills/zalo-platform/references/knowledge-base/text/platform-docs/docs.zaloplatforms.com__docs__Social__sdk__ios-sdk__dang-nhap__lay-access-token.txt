@@ -1,0 +1,104 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/sdk/ios-sdk/dang-nhap/lay-access-token
+# FETCHED: 2026-08-06
+# TITLE: Lấy Access Token | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+iOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Social Plugin
+Trên trang này
+Lấy Access Token
+Lấy AccessToken và RefreshToken bằng OauthCode​
+ZaloSDK.sharedInstance().getAccessToken(withOAuthCode: oauthCode, codeVerifier: Constant.CODE_VERIFIER) { (tokenResponse) in
+if let tokenResponse = tokenResponse,
+tokenResponse.isSucess {
+// Get AccessToken thành công
+} else {
+// Get AccessToken lỗi
+}
+}
+Các param:
+oauthCode: OauthCode lấy được sau khi đăng nhập.
+codeVerifier: Code Verifier đi kèm với Code Challenge ở bước đăng nhập.
+ZOTokenResponseObject chứa các thông tin
+Integer errorCode // mã lỗi trả về, thành công khi >= 0
+String errorMessage // câu thông báo lỗi
+String accessToken // dùng để gọi các Official Account API.
+String refreshToken // lưu lại RefreshToken ở phía app để tạo lại AccessToken khi AccessToken hết hiệu lực.Hiệu lực: 3 tháng
+TimeInterval expriedTime // thời gian AccessToken hết hiệu lực.
+Lưu ý: cần lưu lại Refresh Token để lấy lại AccessToken sau khi AccessToken hết hạn.
+Lấy AccessToken và RefreshToken mới bằng RefreshToken​
+ZaloSDK.sharedInstance().getAccessToken(withRefreshToken: refreshToken) { (tokenResponse) in
+if let tokenResponse = tokenResponse,
+tokenResponse.isSucess {
+// Get AccessToken thành công
+} else {
+// Get AccessToken lỗi
+}
+}
+ZOTokenResponseObject chứa các thông tin
+Integer errorCode // mã lỗi trả về, thành công khi >= 0
+String errorMessage // câu thông báo lỗi
+String accessToken // dùng để gọi các Official Account API.
+String refreshToken // lưu lại RefreshToken ở phía app để tạo lại AccessToken khi AccessToken hết hiệu lực.Hiệu lực: 3 tháng
+TimeInterval expriedTime // thời gian AccessToken hết hiệu lực.
+Lưu ý: RefreshToken chỉ sử dụng để lấy AccessToken được một lần duy nhất. Sau khi lấy AccessToken xong thì cần lưu lại RefreshToken mới được trả về kèm với AccessToken.
+Trước
+Đăng nhập
+Kế tiếp
+Xác minh lại RefreshToken
+Lấy AccessToken và RefreshToken bằng OauthCode
+Lấy AccessToken và RefreshToken mới bằng RefreshToken
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

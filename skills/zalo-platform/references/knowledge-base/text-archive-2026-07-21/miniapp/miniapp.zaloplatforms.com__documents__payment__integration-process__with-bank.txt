@@ -1,0 +1,74 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/integration-process/with-bank/
+# FETCHED: 2026-07-21
+# TITLE: Nhận dữ liệu kết quả thanh toán và hiển thị cho người dùng với chuyển khoản ngân hàng | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Nhận dữ liệu kết quả thanh toán và hiển thị cho người dùng với chuyển khoản ngân hàng
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Đối với riêng phương thức chuyển khoản ngân hàng, lắng nghe sự kiện OnDataCallback và kiểm tra kết quả từ hệ thống thanh toán để xử lý.
+
+import { events, EventName } from "zmp-sdk/apis"; // Require: zmp-sdk >= 2.25.3
+import { Payment } from "zmp-sdk/apis";
+
+events.on(EventName.OnDataCallback, (resp) => {
+  const { eventType, data } = resp;
+  if (eventType === "PAY_BY_BANK") {
+    if (data.appTransID) {
+      // gọi api checkTransaction để lấy thông tin giao dịch
+      Payment.checkTransaction({
+        data,
+        success: (rs) => {
+          // Kết quả giao dịch khi gọi api thành công
+          const { id, resultCode, msg, transTime, createdAt } = rs;
+        },
+        fail: (err) => {
+          // Kết quả giao dịch khi gọi api thất bại
+          console.log(err);
+        },
+      });
+    }
+  }
+});
+
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

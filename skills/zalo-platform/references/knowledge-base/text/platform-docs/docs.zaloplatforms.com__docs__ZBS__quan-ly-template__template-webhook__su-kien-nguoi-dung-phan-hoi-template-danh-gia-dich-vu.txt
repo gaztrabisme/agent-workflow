@@ -1,0 +1,142 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/quan-ly-template/template-webhook/su-kien-nguoi-dung-phan-hoi-template-danh-gia-dich-vu
+# FETCHED: 2026-08-06
+# TITLE: Sự kiện người dùng phản hồi template đánh giá dịch vụ | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Bắt đầu
+Giới thiệu chung về Template
+Danh sách Components
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+API Lấy thông tin phản hồi nhanh của khách hàng
+Template Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi trạng thái Template
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Sự kiện người dùng phản hồi template phản hồi nhanh
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Khi có sự kiện người dùng phản hồi (feedback) qua template đánh giá dịch vụ, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau.
+Lưu ý
+Quyền cần có: Nhận sự kiện quản lý Message Template
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+"event_name": "user_feedback",
+"message": {
+"rating_type": "csat",
+"option": "five_emotions",
+"note": "Tôi rất hài lòng.",
+"rate": 5,
+"submit_time": "1616673095659",
+"msg_id": "7e4c33cfc20b05575c18",
+"feedbacks": [
+"Nhân viên vui vẻ",
+"Quy trình đơn giản, hiệu quả",
+"Xử lý nhanh nhẹn",
+"Tác phong chuyên nghiệp",
+"Hướng dẫn tận tình"
+],
+"tracking_id": "1956"
+},
+"app_id": "2074138120372622546",
+"oa_id": "2074138120372622547",
+"timestamp": "1602560967477"
+}
+Mô tả thuộc tính​
+Thuộc tính
+Mô tả
+event_name
+String
+Tên sự kiện
+Giá trị nhận về: user_feedback
+app_id
+String
+ID của App
+oa_id
+String
+ID của OA
+message
+Json
+Thông tin đánh giá của người dùng
+timestamp
+String
+Thời gian hệ thống gửi thông báo
+Cấu trúc thuộc tính message​
+Thuộc tính
+Mô tả
+rating_type
+String
+Loại đánh giá. Bao gồm 1 trong các giá trị sau:
+csat (Default)
+option
+String
+Các loại thang đo:
+three_emotions
+five_emotions
+five_stars
+note
+String
+Ghi chú của người dùng
+rate
+Integer
+Mức đánh giá của người dùng
+submit_time
+String
+Thời điểm người dùng gửi đánh giá
+Note: tính theo timestamp
+msg_id
+String
+ID của thông báo
+feedbacks
+List<String>
+Danh sách phần nhận xét từ người dùng
+trackingId
+String
+Tracking ID do đối tác truyền vào khi gửi tin
+Trước
+API Lấy thông tin phản hồi nhanh của khách hàng
+Kế tiếp
+Sự kiện thay đổi trạng thái Template
+Ví dụ:
+Mô tả thuộc tính
+Cấu trúc thuộc tính message
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

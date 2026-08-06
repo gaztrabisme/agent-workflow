@@ -1,0 +1,102 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/webhook/su-kien-nguoi-dung-phan-hoi-template-danh-gia-dich-vu
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện người dùng phản hồi template đánh giá dịch vụ | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi về hạn mức gửi ZNS
+Sự kiện thay đổi về loại nội dung ZNS có thể gửi
+Sự kiện thay đổi về chất lượng gửi của mẫu tin ZNS
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận thông báo ZNS
+Sự kiện thay đổi trạng thái Template ZNS
+Phụ lục
+Ngừng hỗ trợ
+WebhookSự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+Khi có sự kiện người dùng phản hồi (feedback) qua template đánh giá dịch vụ, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau.
+
+LƯU Ý
+
+Quyền cần có: Sử dụng Zalo Notification Service
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+  "event_name": "user_feedback",
+  "message": {
+    "note": "Tôi rất hài lòng.",
+    "rate": 5,
+    "submit_time": "1616673095659",
+    "msg_id": "7e4c33cfc20b05575c18",
+    "feedbacks": [
+            "Nhân viên vui vẻ",
+            "Quy trình đơn giản, hiệu quả",
+            "Xử lý nhanh nhẹn",
+            "Tác phong chuyên nghiệp",
+            "Hướng dẫn tận tình"
+    ],
+    "tracking_id": "1956"
+  },
+  "app_id": "2074138120372622546",
+  "oa_id": "2074138120372622547",
+  "timestamp": "1602560967477"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Mô tả
+event_name
+String	Tên sự kiện
+Giá trị nhận về: user_feedback
+app_id
+String	ID của App
+oa_id
+String	ID của OA
+message
+Json	Thông tin đánh giá của người dùng
+timestamp
+String	Thời gian hệ thống gửi thông báo
+Cấu trúc thuộc tính message​
+Thuộc tính	Mô tả
+note
+String	Ghi chú của người dùng
+rate
+Integer	Số sao đánh giá của người dùng
+submit_time
+String	Thời điểm người dùng gửi đánh giá Note: tính theo timestamp
+msg_id
+String	ID của thông báo
+feedbacks
+List<String>	Danh sách phần nhận xét từ người dùng
+trackingId
+String	Tracking ID do đối tác truyền vào khi gửi ZNS
+Trước
+Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+Kế tiếp
+Sự kiện thay đổi về hạn mức gửi ZNS
+Ví dụ:
+Mô tả thuộc tính
+Cấu trúc thuộc tính message
+©2023 Zalo for Developers

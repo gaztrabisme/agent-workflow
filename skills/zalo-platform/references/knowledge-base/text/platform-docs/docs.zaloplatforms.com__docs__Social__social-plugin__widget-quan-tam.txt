@@ -1,0 +1,76 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/social-plugin/widget-quan-tam
+# FETCHED: 2026-08-06
+# TITLE: Widget Quan tâm | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Social Plugin
+Widget cấp tương tác
+Tổng quan
+Cài đặt Widget cấp tương tác
+Widget Quan tâm
+Nút Quan tâm
+Widget Chat
+Trên trang này
+Widget Quan tâm
+Widget Quan tâm cho phép nhà phát triển nhúng Official Account vào website để gợi ý người dùng quan tâm OA đang quản lý.
+Cài đặt​
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+<div class="zalo-follow-button"
+data-oaid="OA_ID"
+data-cover="no"
+data-article="3"
+data-width="500"
+data-height="628">
+</div>
+Cấu hình​
+Attribute
+Required
+Description
+data-oaid
+Có
+Zalo Official Account ID.
+data-cover
+Không
+yes để hiển thị ảnh bìa OA, no để ẩn ảnh bìa.
+data-article
+Không
+Số lượng bài viết hiển thị. Mặc định 3, min 0, max 5.
+data-width
+Không
+Chiều rộng widget. Mặc định 500px, khoảng hợp lệ từ 195px đến 500px.
+data-height
+Không
+Chiều cao widget. Mặc định 628px, khoảng hợp lệ từ 365px đến 628px.
+Dùng ZaloSocialSDK.reload() để init lại widget khi cấu hình được thay đổi động trên trang.
+Trước
+Cài đặt Widget cấp tương tác
+Kế tiếp
+Nút Quan tâm
+Cài đặt
+Cấu hình
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

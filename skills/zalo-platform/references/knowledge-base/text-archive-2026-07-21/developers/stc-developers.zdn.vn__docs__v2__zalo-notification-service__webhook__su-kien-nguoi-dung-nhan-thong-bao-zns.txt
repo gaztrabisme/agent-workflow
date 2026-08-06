@@ -1,0 +1,85 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/webhook/su-kien-nguoi-dung-nhan-thong-bao-zns
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện người dùng nhận thông báo ZNS | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi về hạn mức gửi ZNS
+Sự kiện thay đổi về loại nội dung ZNS có thể gửi
+Sự kiện thay đổi về chất lượng gửi của mẫu tin ZNS
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận thông báo ZNS
+Sự kiện thay đổi trạng thái Template ZNS
+Phụ lục
+Ngừng hỗ trợ
+WebhookSự kiện người dùng nhận thông báo ZNS
+Sự kiện người dùng nhận thông báo ZNS
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+Khi Official Account gửi tin nhắn cho người dùng và tin nhắn đã đến thiết bị người dùng, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau
+
+LƯU Ý
+
+Thời điểm user nhận tin nhắn là giá trị của trường delivery_time, không phải thời điểm webhook nhận event hay giá trị của trường timestamp
+
+URL: webhook URL của ứng dụng
+Method: POST
+Content Type: application/json
+Header X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Header X-ZEvent-Server: ZNS
+Example request​
+{
+  "sender": {
+    "id": "2893352839501541173"
+  },
+  "recipient": {
+    "id": "84123456789"
+  },
+  "event_name": "user_received_message",
+  "message": {
+    "delivery_time": "1602960467432",
+    "msg_id": "15a0cc0bbb13bd4ce403",
+    "tracking_id": "tracking_id"
+  },
+  "app_id": "2074138120372622546",
+  "timestamp": "1602560967477"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+sender.id	string	ID của Official Account gửi thông báo
+recipient.id	string	Số điện thoại người dùng nhận thông báo
+
+Lưu ý: Số điện thoại sẽ có dạng mã hóa SHA-256 nếu đối tác gửi ZNS sử dụng hash phone.
+event_name	string	Tên sự kiện
+
+Giá trị nhận về: user_received_message
+message.delivery_time	string	Thời gian thiết bị của người dùng nhận được thông báo ZNS
+message.msg_id	string	ID của thông báo
+message.tracking_id	string	Mã số đánh dấu lần gọi API của đối tác, do đối tác định nghĩa.
+app_id	string	ID của ứng dụng gửi tin (ứng dụng mà OA đã cấp quyền)
+timestamp	string	Thời điểm gửi sự kiện
+Trước
+Sự kiện journey được tính phí
+Kế tiếp
+Sự kiện thay đổi trạng thái Template ZNS
+Example request
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

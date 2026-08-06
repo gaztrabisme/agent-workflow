@@ -1,0 +1,68 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/quan-ly-template/bat-dau/danh-sach-components
+# FETCHED: 2026-07-21
+# TITLE: Danh sách Components | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Giới thiệu chung về Template
+Danh sách Components
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Quản lý TemplateBắt đầuDanh sách Components
+Danh sách Components
+
+Các components của template, được sử dụng trong API tạo template và API chỉnh sửa template.
+
+Thứ tự và số lượng các components của mỗi template phụ thuộc vào loại template được chọn khởi tạo hoặc chỉnh sửa
+
+Danh sách components​
+1. Tiêu đề (Title)
+2. Đoạn văn bản (Paragraph)
+3. OTP
+4. Bảng (Table)
+5. Tệp đính kèm (Attachment)
+6. Logo
+7. Image
+8. Button
+9. Payment
+10. Voucher
+11. Rating
+Syntax
+{ 
+  "TITLE": {"value": "<value>"} 
+}
+
+Tham số
+Field	Tính bắt buộc	Kiểu dữ liệu	Mô tả
+value	yes	string	
+Bao gồm text cố định hoặc param. Số lượng param ở component TITLE không được vượt quá 4.
+Tối thiểu 9 ký tự và tối đa 65 ký tự.
+Trước
+Giới thiệu chung về Template
+Kế tiếp
+API Upload Ảnh
+Danh sách components
+©2023 Zalo for Developers

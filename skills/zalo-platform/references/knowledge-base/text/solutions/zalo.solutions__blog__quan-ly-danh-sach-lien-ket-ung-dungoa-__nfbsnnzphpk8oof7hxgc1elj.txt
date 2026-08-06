@@ -1,0 +1,44 @@
+# SOURCE: https://zalo.solutions/blog/quan-ly-danh-sach-lien-ket-ung-dungoa-/nfbsnnzphpk8oof7hxgc1elj
+# FETCHED: 2026-08-06
+# TITLE: Quản lý danh sách liên kết Ứng dụng/OA  | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Quản lý danh sách liên kết Ứng dụng/OA
+Quản lý danh sách liên kết Ứng dụng/OA
+26 tháng 11, 2025 17:38
+Zalo Cloud Account (ZCA) là tài khoản giúp doanh nghiệp sử dụng tính năng tính phí của các tài khoản Zalo Official Account - Doanh Nghiệp (OA) và dịch vụ Zalo Notification Service (ZNS). Trong bài viết này, đội ngũ Chăm sóc khách hàng của Zalo Cloud sẽ hướng dẫn Quý khách cách quản lý danh sách liên kết OA/Ứng dụng trên tài khoản ZCA.
+1. Hướng dẫn xem Danh sách ứng dụng (AppID) đã liên kết với tài khoản ZCA
+Quý khách có thể kiểm tra Danh sách các ứng dụng (AppID) đã liên kết với tài khoản ZCA theo hướng dẫn chi tiết như sau:
+Bước 1: Truy cập vào trang tài khoản Zalo Cloud Account
+Bước 2: Chọn mục “Quản lý tài sản”
+Tại đây, Quý khách sẽ xem được danh sách các ứng dụng đang liên kết với tài khoản ZCA ở thời điểm hiện tại.
+Nếu Quý khách muốn liên kết thêm ứng dụng khác vào tài khoản ZCA, vui lòng tham khảo tài liệu Hướng dẫn liên kết App ID vào tài khoản Zalo Cloud Account (ZCA)
+Lưu ý: một tài khoản Zalo Cloud Account (ZCA) có thể liên kết với nhiều ứng dụng (App ID) để tối ưu hóa việc quản lý.
+Ngoài ra, Quý khách có thể chủ động hủy liên kết AppID với tài khoản ZCA bằng cách nhấn “Hủy liên kết” và Xác nhận.
+2. Hướng dẫn xem Danh sách OA đã liên kết với tài khoản ZCA
+Tương tự, Quý khách có thể xem danh sách OA đang liên kết với ZCA bằng cách chọn “Liên kết OA” tại trang Quản lý tài sản.
+Để liên kết OA khác vào tài khoản ZCA, Quý khách vui lòng tham khảo tài liệu Zalo OA xác thực là gì? Hướng dẫn liên kết Zalo OA vào tài khoản ZCA
+Lưu ý:
+Quý khách có thể liên kết nhiều OA ID vào ZCA để tối ưu hóa việc quản lý.
+Danh sách này chỉ bao gồm các OA ID được liên kết trực tiếp vào ZCA
+Danh sách OA ID đang cấp quyền thông qua App ID xem tại LINK
+(Quản lý ứng dụng > Official Account > Quản lý Official Account > Danh sách OA đã cấp quyền)
+Bên cạnh đó, Quý khách có thể chủ động hủy liên kết OA với tài khoản ZCA bằng cách nhấn “Hủy liên kết” và Xác nhận.
+Nếu có bất kì yêu cầu hỗ trợ, khách hàng có thể liên hệ với đội ngũ Chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud. Đội ngũ CSKH Zalo Cloud sẽ phản hồi cho khách hàng trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

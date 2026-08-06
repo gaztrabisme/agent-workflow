@@ -1,0 +1,125 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/nhom-chat-gmf/quan-ly/getlistpendingmember
+# FETCHED: 2026-07-21
+# TITLE: Lấy danh sách thành viên chờ duyệt | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Quản lý nhóm
+Tạo nhóm mới
+Lấy thông tin nhóm
+Cập nhật nhóm
+Cập nhật dịch vụ cho Nhóm chat
+Mời tham gia nhóm
+Lấy danh sách thành viên chờ duyệt
+Đồng ý duyệt thành viên mới vào nhóm
+Từ chối duyệt thành viên mới vào nhóm
+Lấy danh sách thành viên nhóm
+Thêm phó nhóm
+Xóa phó nhóm
+Xóa thành viên khỏi nhóm
+OA Giải tán nhóm
+Lấy danh sách nhóm OA đang quản lý
+Kiểm tra hạn mức nhóm
+Lấy danh sách tin nhắn nhóm gần nhất
+Lấy thông tin tin nhắn trong một nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Nhóm chat - GMFQuản lý nhómLấy danh sách thành viên chờ duyệt
+Lấy danh sách thành viên chờ duyệt
+LƯU Ý
+
+Ứng dụng cần được cấp quyền quản lý thông tin nhóm.
+
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/group/listpendinginvite
+Method: GET
+Response Type: text/json
+Example request​
+curl --request GET 'https://openapi.zalo.me/v3.0/oa/group/listpendinginvite?group_id=f414c8f76fa586fbdfb4&offset=0&count=5' \
+--header 'access_token: <your_access_token>'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token  tại đây.
+Tham số​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+group_id	string	yes	ID của nhóm
+offset	integer	optional	
+Offset muốn query.
+Mặc định: 0
+
+count	integer	optional	
+Số lượng mong muốn query.
+Mặc định: 5
+Example respond​
+{
+    "data": {
+        "offset": 0,
+        "count": 5,
+        "total": 1,
+        "member_count": 1,
+        "members": [
+            {
+                "name": "Hoàng Trường Phước",
+                "user_id": "8756287263669629130"
+            }
+        ]
+    },
+    "error": 0,
+    "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+Tham số	Kiểu dữ liệu	Mô tả
+offset	integer	offset muốn query
+count	integer	Số lượng muốn query
+total	integer	Tổng số lượng các thành viên chờ duyệt
+members	array	Thông tin các thành viên chờ duyệt
+member_count	integer	Số lượng các thành viên chờ duyệt được trả về
+Cấu trúc thuộc tính members​
+Tham số	Kiểu dữ liệu	Mô tả
+name	string	Tên thành viên chờ tham gia nhóm
+user_id	string	ID thành viên chờ tham gia nhóm
+​
+Trước
+Mời tham gia nhóm
+Kế tiếp
+Đồng ý duyệt thành viên mới vào nhóm
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính members
+©2023 Zalo for Developers

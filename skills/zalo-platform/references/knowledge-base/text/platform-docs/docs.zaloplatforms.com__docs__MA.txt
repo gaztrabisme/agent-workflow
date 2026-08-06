@@ -1,0 +1,134 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA
+# FETCHED: 2026-08-06
+# TITLE: Giới thiệu Mini App Platform | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Giới thiệu Mini App Platform
+Xây dựng ứng dụng nhẹ, mạnh mẽ chạy mượt mà bên trong Zalo, tiếp cận hàng triệu người dùng ngay lập tức mà không cần tải xuống riêng.
+Mini App là gì?​
+Mini App là các ứng dụng nhẹ chạy bên trong hệ sinh thái Zalo. Chúng mang lại trải nghiệm như ứng dụng native mà không yêu cầu người dùng tải và cài đặt ứng dụng riêng. Mini App tận dụng các API mạnh mẽ của Zalo để truy cập thông tin người dùng, hệ thống thanh toán, tính năng xã hội và nhiều hơn nữa.
+Lợi ích chính
+Truy cập ngay, không cần cài đặt
+Tích hợp liền mạch với tính năng Zalo
+Tiếp cận 80M+ người dùng Zalo tại Việt Nam
+Xác thực và thanh toán tích hợp sẵn
+Các trường hợp sử dụng phổ biến​
+Mini App phù hợp với nhiều tình huống kinh doanh:
+Thương mại điện tử: Cửa hàng trực tuyến, flash sale, danh mục sản phẩm
+Dịch vụ: Hệ thống đặt lịch, cuộc hẹn, đặt phòng
+Ẩm thực: Giao đồ ăn, menu nhà hàng, đặt bàn
+Giải trí: Game nhẹ, quiz, trải nghiệm tương tác
+Tiện ích: Máy tính, công cụ chuyển đổi, năng suất
+Nội dung: Tin tức, blog, phát trực tuyến
+Tổng quan kiến trúc​
+Mini App được xây dựng bằng các công nghệ web chuẩn (HTML, CSS, JavaScript) với các khả năng của nền tảng Zalo được tích hợp bên trên để mang lại trải nghiệm như native bên trong ứng dụng.
+View Layer
+React, zmp-ui và CSS cho giao diện Mini App
+Logic Layer
+JavaScript runtime với Zalo APIs
+Native Layer
+Khả năng native của Zalo
+Ví dụ nhanh​
+Đây là ví dụ Mini App React đơn giản để bắt đầu:
+src/pages/home.tsx
+import { showToast } from "zmp-sdk";
+import { Box, Button, Page, Text } from "zmp-ui";
+export default function HomePage() {
+const handleStart = async () => {
+await showToast({
+message: "Chào mừng đến với Zalo Mini App!",
+});
+};
+return (
+<Page>
+<Box p={4}>
+<Text>Xin chào Zalo Mini App</Text>
+<Button className="mt-4" onClick={handleStart}>
+Bắt đầu
+</Button>
+</Box>
+</Page>
+);
+}
+src/app.tsx
+import { App, ZMPRouter } from "zmp-ui";
+import HomePage from "./pages/home";
+export default function MyApp() {
+return (
+<App>
+<ZMPRouter>
+<HomePage />
+</ZMPRouter>
+</App>
+);
+}
+Tính năng cốt lõi​
+Xác thực người dùng​
+Xác thực người dùng liền mạch bằng tài khoản Zalo. Không cần luồng đăng nhập riêng cho các tình huống onboarding phổ biến nhất.
+getUserInfo({ autoRequestPermission: true });
+Tích hợp thanh toán​
+Nhận thanh toán trực tiếp trong Mini App bằng ZaloPay hoặc các phương thức thanh toán tích hợp khác.
+Tính năng xã hội​
+Cho phép người dùng chia sẻ nội dung, mời bạn bè và tương tác với danh bạ Zalo của họ.
+Dịch vụ vị trí​
+Truy cập vị trí thiết bị cho các dịch vụ và tính năng dựa trên vị trí.
+Media & Camera​
+Chụp ảnh, video hoặc chọn từ thư viện thiết bị.
+Lưu ý quan trọng
+Một số API yêu cầu quyền truy cập từ người dùng.
+Luôn xử lý yêu cầu quyền một cách khéo léo và cung cấp giải thích rõ ràng về lý do cần quyền truy cập.
+Bước tiếp theo​
+Sẵn sàng triển khai Mini App đầu tiên? Bắt đầu từ quy trình tạo Mini App, thiết lập công cụ phát triển, tham khảo API và xem các dự án mẫu chính thức:
+Quy trình triển khai
+Tạo Mini App, xác thực, xây dựng, kiểm thử và phát hành
+Hướng dẫn Quick Start
+Tạo dự án Mini App bằng Zalo Mini App Extension
+API Reference
+Khám phá tất cả API có sẵn
+Dự án mẫu
+Học từ các ví dụ thực tế
+Kế tiếp
+1. Vấn đề của Native App và Web
+Mini App là gì?
+Các trường hợp sử dụng phổ biến
+Tổng quan kiến trúc
+Ví dụ nhanh
+Tính năng cốt lõi
+Bước tiếp theo
+Cần hỗ trợ?
+Tham gia cộng đồng nhà phát triển để nhận hỗ trợ và thảo luận.
+Tham gia cộng đồng
+Mẹo hay
+Dùng Zalo Mini App Extension để preview với Simulator/Chrome Debugger; các flow cần môi trường Zalo thật nên kiểm thử qua bản Development sau khi deploy.
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,9 @@
+# SOURCE: https://oa.zalo.me/manager
+# FETCHED: 2026-07-21
+# TITLE: Error 404 Not Found
+
+HTTP ERROR: 404
+
+Problem accessing /manager. Reason:
+
+    Not Found

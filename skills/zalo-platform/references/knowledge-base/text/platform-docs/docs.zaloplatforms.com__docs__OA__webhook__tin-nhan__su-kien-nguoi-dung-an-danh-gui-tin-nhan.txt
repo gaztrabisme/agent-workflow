@@ -1,0 +1,235 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/webhook/tin-nhan/su-kien-nguoi-dung-an-danh-gui-tin-nhan
+# FETCHED: 2026-08-06
+# TITLE: Sự kiện người dùng ẩn danh gửi tin nhắn | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Sự kiện người dùng gửi tin nhắn
+Sự kiện người dùng click nút “Nhắn tin” trên Official Account
+Sự kiện người dùng thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện OA thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện Official Account gửi tin nhắn cho người dùng
+Sự kiện Official Account gửi tin nhắn cho người dùng ẩn danh
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Sự kiện người dùng nhận tin nhắn từ Official Account
+Nhóm chat - GMF
+Sự kiện tạo nhóm OA
+Sự kiện thành viên mới tham gia nhóm
+Sự kiện thành viên mới yêu cầu tham gia nhóm
+Sự kiện duyệt thành viên
+Sự kiện từ chối duyệt thành viên
+Sự kiện thêm phó nhóm
+Sự kiện xóa phó nhóm
+Sự kiện cập nhật thông tin nhóm
+Sự kiện thành viên rời nhóm
+Sự kiện xóa nhóm
+Sự kiện tin nhắn được gửi tới nhóm
+Gọi thoại
+Sự kiện yêu cầu cấp quyền được gửi và hết hạn.
+Sự kiện người dùng trả lời yêu cầu cấp quyền gọi điện
+Sự kiện kết thúc cuộc gọi
+Extension
+Sự kiện mua Tiện ích
+Quản lý
+Sự kiện người dùng đồng ý chia sẻ thông tin
+Sự kiện người dùng quan tâm hay bỏ quan tâm OA
+Sự kiện gắn nhãn cho người dùng
+Sự kiện gỡ nhãn khỏi người dùng
+Sự kiện tạo nhãn
+Sự kiện xóa nhãn
+Sự kiện người dùng đồng ý cấp quyền tương tác
+Sự kiện Đồng bộ user_external_id thất bại
+Sự kiện người dùng Zalo thực hiện quyền chủ thể dữ liệu
+Sự kiện cập nhật thông tin người dùng
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Khi người dùng gửi tin nhắn đến Official Account, hệ thống Zalo sẽ gửi một request HTTP đến Webhook Url đã đăng ký của ứng dụng.
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Example​
+{
+"event_name":"anonymous_send_text",
+"app_id":"4591324301967398637",
+"sender": {
+"id":"1ffedc467f179649cf06"
+},
+"recipient":{
+"id":"4587655845403518947"
+},
+"message":{
+"conversation_id":"fa8f3f8701c2e89cb1d3",
+"text":"hello",
+"msg_id":"76eef2edcba822f67bb9"
+},
+"timestamp":"1648018958278",
+"user_id_by_app":"260530994348645621"
+}
+Mô tả thuộc tính​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+app_id
+String
+Id của ứng dụng đang nhận sự kiện.
+sender
+Json Object
+{
+"id": "1ffedc467f179649cf06"
+}
+recipient
+Json Object
+{
+"id": "4587655845403518947"
+}
+event_name
+String
+Thuộc tính xác định loại event, gồm các giá trị sau:
+event_name = “anonymous_send_text”: Người dùng gửi tin nhắn văn bản.
+event_name = “anonymous_send_image”: Người dùng gửi tin nhắn hình ảnh.
+event_name = “anonymous_send_file” : Người dùng gửi file.
+event_name = “anonymous_send_sticker”: Người dùng gửi tin nhắn sticker.
+message
+Json Object
+Tùy theo event_name mà message sẽ có định dạng khác nhau, chi tiết sẽ được định nghĩa bên dưới bảng này.
+Ví dụ:
+{
+"conversation_id":"fa8f3f8701c2e89cb1d3",
+"text":"hello",
+"msg_id":"76eef2edcba822f67bb9"
+}
+Trong đó:
+“text”: Nội dung tin nhắn.
+“msg_id”: Id của tin nhắn.
+"conversation_id": Id của cuộc hội thoại.
+Ngoài ra:
+Nếu tin được gửi là tin nhắn đa phương tiện ( Hình ảnh, file, sticker,...) thì có thêm thuộc tính attachments.
+timestamp
+String
+Thời điểm request được gửi, tính bằng milisecond
+Cấu trúc thuộc tính attachments​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+attachments
+Json Array
+Các dạng tin nhắn đa phương tiện (Hình ảnh, sticker,...) sẽ có phần attachments chứa các thông tin chi tiết kèm theo tin nhắn đó.
+Cấu trúc attachments đối với từng loại tin nhắn:​
+1. Tin nhắn hình ảnh​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+attachments
+Json Array
+Ví dụ:
+[
+{
+"payload": {
+"thumbnail":"https://photo-chat-widget.zdn.vn/a77bf286cec3279d7ed2",
+"url":"https://photo-chat.widget.zdn.vn/w160/a77bf286cec3279d7ed2"
+},
+"type":"image"
+}
+]
+Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện.
+thumbnail: thumbnail của ảnh.
+url: đường dẫn đến hình ảnh gốc.
+type: Loại tin nhắn.
+2. Tin nhắn sticker​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+attachments
+Json Array
+Ví dụ:
+[
+{
+"payload": {
+"id":"0",
+"url":"https://zalo-api.zadn.vn/api/emoticon/sticker/webpc?eid=892&amp;size=130&amp;version=3"
+},
+"type":"sticker"
+}
+]
+Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện.
+url: đường dẫn đến sticker.
+id: id của sticker.
+type: Loại tin nhắn.
+3. Tin nhắn đính kèm file​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+attachments
+Json Array
+Ví dụ:
+[
+{
+"payload": {
+"size": "233947",
+"name": "developer.docx",
+"checksum": "db8f0a790d28e3d8658a0ff0846189",
+"type": "docx",
+"url": "https://f7-group-zf.zdn.vn/xxx484bd4258d6a/xxx52598708747"
+},
+"type": "file"
+}
+]
+Trong đó:
+payload: Chứa thông tin chi tiết của tin nhắn đa phương tiện.
+size: kích thước của file.
+name: Tên file.
+checksum: kết quả nhận được khi hash MD5 file, dùng để check tính toàn vẹn của file.
+type: Loại file.
+url: Đường dẫn để download file.
+type: Loại tin nhắn.
+Trước
+Sự kiện Official Account gửi tin nhắn cho người dùng ẩn danh
+Kế tiếp
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Example
+Mô tả thuộc tính
+Cấu trúc thuộc tính attachments
+Cấu trúc attachments đối với từng loại tin nhắn:
+1. Tin nhắn hình ảnh
+2. Tin nhắn sticker
+3. Tin nhắn đính kèm file
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

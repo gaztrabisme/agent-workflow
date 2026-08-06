@@ -1,0 +1,436 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/zalo/openShareSheet
+# FETCHED: 2026-08-06
+# TITLE: openShareSheet | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+openShareSheet
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.5.3
+import { openShareSheet } from "zmp-sdk";
+API cho phép ứng dụng mở giao diện chia sẻ để người dùng chia sẻ thông tin với bạn bè Zalo.
+Ví dụ​
+Chia sẻ văn bản​
+const data = await openShareSheet({
+type: "text",
+data: {
+text: "My Zalo Mini App - HomePage",
+},
+});
+console.log(data);
+ShareData​
+Property
+Type
+Required
+Description
+text
+string
+Yes
+Nội dung văn bản cần chia sẻ
+description
+string
+No
+Mô tả thêm cho nội dung cần chia sẻ
+autoParseLink
+boolean
+No
+Với giá trị true url trong text sẽ được hiển thị dưới dạng thumbnail (default: false)
+Chia sẻ hình ảnh​
+const data = await openShareSheet({
+type: "image",
+data: {
+imageUrls: ["http://dev.org.zads.zdn.vn/2a16c7fefbbb12e54baa"],
+},
+});
+console.log(data);
+ShareData​
+Property
+Type
+Required
+Description
+imageUrls
+string[]
+Yes
+Url của các hình ảnh cần chia sẻ
+Chia sẻ liên kết​
+const data = await openShareSheet({
+type: "link",
+data: {
+link: "http://news.zing.vn/Trung-uong-quyet-dinh-phuong-an-nhan-su-cap-cao-post632739.html",
+chatOnly: false,
+},
+});
+console.log(data);
+ShareData​
+Property
+Type
+Required
+Description
+link
+string
+Yes
+Liên kết cần chia sẻ
+chatOnly
+boolean
+No
+Chỉ chia sẻ qua cửa sổ chat (default: true)
+Chia sẻ Official Account​
+const data = await openShareSheet({
+type: "oa",
+data: {
+id: "765465772305886642",
+},
+});
+console.log(data);
+ShareData​
+Property
+Type
+Required
+Description
+id
+string
+Yes
+Id của official account
+Chia sẻ GIF​
+const data = await openShareSheet({
+type: "gif",
+data: {
+imageUrl: "http://dev.org.zads.zdn.vn/2a16c7fefbbb12e54baa",
+gifUrl: "http://dev.org.zads.zdn.vn/fc88fe60c2252b7b7234",
+width: 480,
+height: 270,
+},
+});
+console.log(data);
+ShareData​
+Property
+Type
+Required
+Description
+gifUrl
+string
+Yes
+Url ảnh động cần chia sẻ
+imageUrl
+string
+No
+Url hình ảnh đại diện
+width
+number
+No
+Chiều rộng
+height
+number
+No
+Chiều cao
+Chia sẻ video​
+const data = await openShareSheet({
+type: "video",
+data: {
+videoThumb: "http://dev.org.zads.zdn.vn/fc88fe60c2252b7b7234",
+videoUrl: "http://dev.org.zads.zdn.vn/fc88fe60c2252b7b7234",
+width: 480,
+height: 270,
+},
+});
+console.log(data);
+ShareData​
+Property
+Type
+Required
+Description
+videoThumb
+string
+Yes
+Url thumbnail cho video
+videoUrl
+string
+Yes
+Url video
+width
+number
+No
+Chiều rộng
+height
+number
+No
+Chiều cao
+Chia sẻ page hiện tại của Zalo Mini App​
+const data = await openShareSheet({
+type: "zmp",
+data: {
+title: "My Zalo Mini App - HomePage",
+description: "Home page",
+thumbnail: "https://sample-videos.com/img/Sample-jpg-image-50kb.jpg",
+},
+});
+console.log(data);
+ShareData​
+Property
+Type
+Required
+Description
+title
+string
+Yes
+Tiêu đề cần chia sẻ
+description
+string
+No
+Mô tả
+thumbnail
+string
+Yes
+Url thumbnail cho Zalo Mini App
+path
+string
+Yes
+Đường dẫn cần chia sẻ
+Chia sẻ page hiện tại của Zalo Mini App thông qua deep link​
+const data = await openShareSheet({
+type: "zmp_deep_link",
+data: {
+title: "My Zalo Mini App - HomePage",
+description: "Home page",
+thumbnail: "https://sample-videos.com/img/Sample-jpg-image-50kb.jpg",
+},
+});
+console.log(data);
+ShareData​
+Property
+Type
+Required
+Description
+title
+string
+Yes
+Tiêu đề cần chia sẻ. Tối đa 100 ký tự
+thumbnail
+string
+Yes
+Url thumbnail cho Zalo Mini App
+description
+string
+No
+Mô tả. Tối đa 400 ký tự
+path
+string
+No
+Đường dẫn cần chia sẻ, mặc định sẽ lấy theo đường dẫn hiện tại
+Xem hướng dẫn xử lý lỗi và bảng mô tả chi tiết mã lỗi tại đây.
+Tham số​
+Truyền tham số vào API dưới dạng object chứa các thuộc tính:
+Property
+Type
+Required
+Description
+type
+"text" | "image" | "link" | "oa" | "gif" | "video" | "zmp" | "zmp_deep_link"
+Yes
+Nhận các giá trị sau:
+- text: Chia sẻ văn bản.
+- image: Chia sẻ hình ảnh.
+- link: Chia sẻ liên kết.
+- oa: Chia sẻ Official Account.
+- gif: Chia sẻ ảnh động.
+- video: Chia sẻ video.
+- zmp: Chia sẻ page hiện tại của Zalo Mini App.
+- zmp_deep_link: Chia sẻ page hiện tại của Zalo Mini App thông qua deep link (hỗ trợ từ API 2.25.7).
+data
+ShareData
+Yes
+Nội dung cần chia sẻ, tùy thuộc vào type.
+Kết quả trả về​
+API trả về Promise chứa Promise chứa thông tin kết quả chia sẻ.
+OpenShareSheetReturns​
+Property
+Type
+Required
+Description
+status
+'0' | '2' | '1'
+No
+Trạng thái chia sẻ:
+- 0: User nhấn hủy/cancel bài viết.
+- 1: Đăng bài viết thành công lên nhật ký.
+- 2: Đăng bài viết thành công qua cửa sổ chat.
+shareType
+'0' | '2' | '1'
+No
+Trạng thái bài chia sẻ:
+- 0: Công khai.
+- 1: Chỉ mình tôi.
+- 2: Chia sẻ cho danh sách bạn.
+numberOfUser
+number
+No
+Số lượng user nhận được bài chia sẻ trong trường hợp shareType=2.
+Trước
+openProfilePicker
+Kế tiếp
+requestUpdateZalo
+Ví dụ
+Chia sẻ văn bản
+Chia sẻ hình ảnh
+Chia sẻ liên kết
+Chia sẻ Official Account
+Chia sẻ GIF
+Chia sẻ video
+Chia sẻ page hiện tại của Zalo Mini App
+Chia sẻ page hiện tại của Zalo Mini App thông qua deep link
+Tham số
+Kết quả trả về
+OpenShareSheetReturns
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

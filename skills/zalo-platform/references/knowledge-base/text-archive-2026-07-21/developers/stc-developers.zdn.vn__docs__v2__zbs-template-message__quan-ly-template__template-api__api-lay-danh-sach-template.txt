@@ -1,0 +1,135 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/quan-ly-template/template-api/api-lay-danh-sach-template
+# FETCHED: 2026-07-21
+# TITLE: API Lấy danh sách Template | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Quản lý TemplateTemplate APIAPI Lấy danh sách Template
+API Lấy danh sách Template
+LƯU Ý
+
+Quyền cần có: Quản lý Message Template
+
+HTTP request​
+URL: https://business.openapi.zalo.me/template/all
+Method: GET
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" "https://business.openapi.zalo.me/template/all?offset=0&limit=100&status=2&filterPreset=1"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+offset	int	yes	Thứ tự của template đầu tiên trong danh sách trả về.
+Lưu ý: Template được tạo gần nhất sẽ có thứ tự là 0.
+limit	int	yes	Số lượng template muốn lấy.
+Lưu ý: Mỗi request được lấy tối đa 100 template.
+status	int	no	Trạng thái của template muốn lấy.
+
+Các giá trị nhận vào:
+
+status = 1: Lấy các template có trạng thái Enable.
+status = 2: Lấy các template có trạng thái Pending review.
+status = 3: Lấy các template có trạng thái Reject.
+status = 4: Lấy các template có trạng thái Disable.
+
+Lưu ý: Trường hợp không truyền vào tham số status, API sẽ trả về danh sách template thuộc mọi trạng thái.
+filterPreset	int	no	Tham số để chọn bộ lọc mẫu có sẵn khi truy vấn danh sách Template của OA.
+
+Các giá trị nhận vào:
+
+filterPreset = 0: Trả về toàn bộ template thuộc OA.
+filterPreset = 1: Chỉ trả về template được tạo bởi App tương ứng với access_token đang gọi API.
+
+Lưu ý: Trường hợp không truyền vào tham số filterPreset, trả về toàn bộ template thuộc OA.
+Example respond​
+{
+   "error": 0,
+   "message": "Success",
+   "data": [
+       {
+           "templateId": 900025,
+           "templateName": "Template_1",
+           "createdTime": 0
+           "status": "PENDING_REVIEW"
+           "templateQuality": "UNDEFINED"
+       }
+   ],
+    "metadata": {
+            "total": 300
+    }
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+templateId	string	ID của template
+templateName	string	Tên của template
+createdTime	long	Thời gian tạo template
+status	string	Trạng thái của template. Các giá trị trả về:
+PENDING_REVIEW
+DISABLE
+ENABLE
+REJECT
+
+templateQuality	string	Chất lượng gửi tin hiện tại của template.
+
+Các giá trị trả về:
+
+HIGH
+MEDIUM
+LOW
+UNDEFINED
+Lưu ý: Trường hợp chất lượng gửi tin hiện tại của template là Low thì template có khả năng bị khóa. Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi Template tại đây.
+Cấu trúc thuộc tính metadata​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+total	int	Tổng số lượng template ứng với trạng thái đã truyền vào ở request.
+Lưu ý: Trường hợp không truyền vào tham số status, API sẽ trả về tổng số lượng template thuộc mọi trạng thái của OA.
+Trước
+API Upload Ảnh
+Kế tiếp
+API Lấy thông tin chi tiết Template
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính metadata
+©2023 Zalo for Developers

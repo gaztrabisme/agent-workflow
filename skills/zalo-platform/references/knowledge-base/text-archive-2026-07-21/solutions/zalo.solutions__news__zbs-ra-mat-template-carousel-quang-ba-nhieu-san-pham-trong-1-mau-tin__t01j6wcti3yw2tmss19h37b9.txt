@@ -1,0 +1,95 @@
+# SOURCE: https://zalo.solutions/news/zbs-ra-mat-template-carousel-quang-ba-nhieu-san-pham-trong-1-mau-tin/t01j6wcti3yw2tmss19h37b9
+# FETCHED: 2026-07-21
+# TITLE: ZBS ra mắt Template Carousel: Quảng bá nhiều sản phẩm trong 1 mẫu tin | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Home/Tin tức/ZBS ra mắt Template Carousel: Quảng bá nhiều sản phẩm trong 1 mẫu tin
+ZBS ra mắt Template Carousel: Quảng bá nhiều sản phẩm trong 1 mẫu tin
+15 tháng 07, 2026 10:55
+
+Bài toán của doanh nghiệp có nhiều sản phẩm/dịch vụ
+
+Khi cần truyền thông, chăm sóc hậu mãi cho khách hàng cũ về nhiều sản phẩm hoặc dịch vụ khác nhau, doanh nghiệp thường gặp một giới hạn quen thuộc: template tin nhắn cơ bản chỉ cho phép một lượng hình ảnh, nội dung và nút CTA cố định. Muốn quảng bá 3-4 sản phẩm cùng lúc, doanh nghiệp buộc phải chọn giữa hai phương án - nhồi tất cả vào một tin nhắn khiến nội dung dài dòng, thiếu tập trung, hoặc gửi nhiều tin nhắn riêng lẻ cho từng sản phẩm, làm loãng trải nghiệm của khách hàng.
+
+Để giải quyết bài toán này, Zalo Business Solutions (ZBS) ra mắt Template Carousel - mẫu tin nhắn dạng thẻ trượt mới trong hệ sinh thái Business Message.
+ 
+
+Template Carousel là gì?
+
+Template Carousel cho phép doanh nghiệp trình bày nhiều sản phẩm/dịch vụ dưới dạng các thẻ (card) trượt ngang trong cùng một tin nhắn. Mỗi thẻ mang hình ảnh, tiêu đề, nội dung và nút CTA độc lập, giúp khách hàng tự do lướt qua, so sánh và khám phá nhiều lựa chọn chỉ trong một lần tương tác - thay vì phải đọc nhiều tin nhắn tách biệt.
+
+So với template cơ bản, Template Carousel mang lại một số lợi ích nổi bật:
+
+Linh hoạt và trực quan: tổng hợp key selling point của nhiều sản phẩm/dịch vụ một cách trực quan, có hệ thống.
+Giao diện hấp dẫn: hình ảnh minh họa dễ thu hút ánh nhìn, nâng cao nhận diện cho từng sản phẩm/dịch vụ.
+Tối ưu trải nghiệm khám phá: giao diện thanh trượt giữ chân người dùng khám phá và so sánh nhiều sản phẩm/dịch vụ ngay trong một tin nhắn.
+Gia tăng điểm chạm: tối đa 15 CTA cho toàn bộ template (tối đa 3 CTA/thẻ), tạo nhiều điểm chạm phù hợp với từng sản phẩm/dịch vụ.
+Tối ưu tin nhắn: thay vì gửi nhiều tin nhắn riêng cho từng sản phẩm/dịch vụ, doanh nghiệp chỉ cần một tin nhắn dạng carousel để khách hàng tiếp cận toàn bộ thông tin.
+ 
+
+Cấu trúc và yêu cầu kỹ thuật
+
+Một Template Carousel gồm hai phần chính:
+
+Nội dung chính (dùng chung cho toàn bộ template): logo, tiêu đề chính và đoạn văn chính - đều là thành phần bắt buộc, hỗ trợ text kèm tham số cá nhân hóa.
+
+Thẻ trượt (Card Carousel): tối đa 5 thẻ/template. Mỗi thẻ sở hữu hình ảnh, tiêu đề và nội dung độc lập, gồm:
+
+Hình ảnh trong thẻ: bắt buộc, tối đa 1 hình/thẻ, có thể khác nhau giữa các thẻ.
+Tiêu đề thẻ: tùy chọn, có thể khác nhau giữa các thẻ.
+Đoạn văn thẻ: bắt buộc, tối đa 5 đoạn văn, có thể khác nhau giữa các thẻ.
+CTA trong thẻ: tối đa 3 CTA/thẻ. Số lượng, vị trí, tên và phân loại nút CTA phải đồng bộ giữa các thẻ, riêng đường link của từng CTA có thể khác nhau.
+ 
+
+Ứng dụng theo ngành hàng
+
+Nhờ khả năng trình bày nhiều sản phẩm/dịch vụ trong một tin nhắn, Template Carousel phù hợp với nhiều ngành hàng:
+
+Ngân hàng: mời mở nhiều loại thẻ tín dụng khác nhau, với CTA như hotline tư vấn, link mở thẻ, xem chi tiết thông tin thẻ.
+Bán lẻ: giới thiệu các dòng sản phẩm mới ra mắt, với CTA xem thêm bộ sưu tập hoặc mua hàng ngay.
+Y tế: quảng bá các gói tiêm chủng, với CTA đặt lịch tiêm, tra cứu thông tin vaccine, hotline tư vấn.
+F&B: quảng bá các dòng sản phẩm mới, với CTA mua ngay.
+ 
+
+Lưu ý khi triển khai
+
+Ở giai đoạn hiện tại, Template Carousel được hỗ trợ tạo thủ công bởi đội ngũ CSKH của ZBS, với thời gian tạo template khoảng 2-3 ngày làm việc sau khi doanh nghiệp gửi nội dung. Template Carousel hiện chỉ hỗ trợ gửi qua luồng ZBS Template Message theo số điện thoại.
+
+Với khả năng gói gọn nhiều sản phẩm/dịch vụ trong một tin nhắn duy nhất, Template Carousel giúp doanh nghiệp truyền thông hiệu quả hơn tới khách hàng cũ, đồng thời mang lại trải nghiệm trực quan và liền mạch hơn cho người nhận.
+
+Quý Khách hàng vui lòng liên hệ Đối tác phân phối của ZBS để được hỗ trợ triển khai tính năng này.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

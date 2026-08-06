@@ -1,0 +1,92 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/eKYC/encryption
+# FETCHED: 2026-08-06
+# TITLE: Encryption | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Introduction
+APIs
+Generate Session ID
+Image Upload
+Image Sanity Check
+Fraud Checking Result
+Logic Status Checking Result
+OCR Result
+Face Matching Result
+Selfie Face Matching Result
+Face Retrieval Result
+Face Search Upload
+Face Search Result
+Get Status Info
+Encryption
+Credentials
+IP Whitelist Policy
+Signature
+Appendix
+Checkout SDK
+Trên trang này
+Encryption
+Cập nhật lần cuối:5/8/2026
+Mechanism​
+Server
+decrypt (request_data, server_private_key)
+encrypt (response_data, client_public_key)
+Algorithm info​
+Algorithm: RSA
+Mode: ECB
+Padding: PKCS1Padding
+Keys​
+Both Server and Client own their key pair: public key & private key
+Public key: provide for the other side to encrypt data
+Private key: keep secretly to decrypt data
+Key size**: 2048 bits**
+Key format: Base64-encoded string
+For development, check the Credentials section
+Do cipher block by block​
+Due to the RSA cipher with 2048 bits key can only encrypt input data at maximum size of 245 bytes (the encrypted result is always 256 bytes), we have to split the data into valid sized blocks and do cipher on each block, then append the output bytes to the final result.
+We recommend:
+For encryption: split input bytes into blocks of any size <= 245 bytes (ex: 200 bytes per block)
+For decryption: split input bytes into blocks of size 256 bytes
+Decrypt response data​
+Decode Base64 the “data” field
+Decrypt the obtained byte array using client’s private key
+Convert the decrypted byte array to UTF-8 String
+Convert the above String to JSON Object
+Trước
+Get Status Info
+Kế tiếp
+Credentials
+Mechanism
+Algorithm info
+Keys
+Do cipher block by block
+Decrypt response data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

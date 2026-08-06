@@ -1,0 +1,40 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/ios-sdk/dang-nhap/dang-xuat
+# FETCHED: 2026-07-21
+# TITLE: Đăng xuất | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+IOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Đăng nhậpĐăng xuất
+Đăng xuất
+
+Khi đăng xuất, các thông tin đăng nhập cơ bản như login channel, displayname sẽ bị xóa: (oauth code, token , và userId app sẽ tự quản lý)
+
+ZaloSDK.sharedInstance().unauthenticate()
+
+Trước
+Xác minh lại RefreshToken
+Kế tiếp
+Lấy thông tin profile
+©2023 Zalo for Developers

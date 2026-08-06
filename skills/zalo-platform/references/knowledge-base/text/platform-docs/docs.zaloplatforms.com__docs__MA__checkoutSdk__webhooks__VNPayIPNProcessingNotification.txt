@@ -1,0 +1,145 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/webhooks/VNPayIPNProcessingNotification
+# FETCHED: 2026-08-06
+# TITLE: VNPay IPN processing notification | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+VNPay IPN processing notification
+Cập nhật lần cuối:5/8/2026
+Lưu ý:
+Mục đích của webhook này là cung cấp cho đối tác đầy đủ thông tin cần thiết để hoàn tất hồ sơ kiểm thử trong môi trường Sandbox (SIT Test) theo yêu cầu của VNPay.
+Để cập nhật trạng thái đơn hàng, đối tác vui lòng sử dụng callback.
+Webhook VNPay IPN processing notification được thiết kế để thông báo cho đối tác về kết xử lý IPN từ VNPay.
+Khi VNPay gửi một IPN đến máy chủ của chúng tôi, chúng tôi sẽ xác thực thông tin giao dịch,
+sau đó kích hoạt webhook này để chuyển tiếp các thông tin sau đến đối tác:
+Kết quả xử lý IPN: Trạng thái thành công hoặc lỗi sau khi xử lý IPN.
+Dữ liệu nhận được từ IPN: Thông tin chi tiết về giao dịch mà VNPay gửi trong IPN.
+Địa chỉ IP của IPN: Địa chỉ IP của máy chủ VNPay gửi yêu cầu IPN.
+Request​
+Endpoint của đối tác phải có thể truy cập được bởi máy chủ Zalo Mini App.
+Phương thức: POST
+Content-Type: application/json
+Cấu trúc dữ liệu:​
+Property
+Type
+Description
+ipnResponseData
+Object
+Dữ liệu trả về cho IPN
+ipnReceivedData
+Object
+Dữ liệu nhận được từ IPN
+ipnRequestIP
+String
+Địa chỉ IP gọi vào IPN
+Ví dụ:​
+{
+"ipnResponseData": {
+"Message": "Confirm Success",
+"RspCode": "00"
+},
+"ipnReceivedData": {
+"vnp_BankCode": "NCB",
+"vnp_PayDate": "20250305143258",
+"vnp_TransactionNo": "14831393",
+"vnp_TmnCode": "LPU8PRXE",
+"vnp_SecureHash": "5702ed898482dc3e78c9fce63dcb41f59645c0c1284a2162a798ec9e9f64e24c6341eef6d4d56e899fd4b708b533f1405e11a12db4b854cbecc12019c7f2f7ee",
+"vnp_OrderInfo": "thanh+toan+don+hang+1+the+cao+++menh+gia+20+000d",
+"vnp_TxnRef": "250305_1432585721468908815683379030181",
+"vnp_Amount": "2000000",
+"vnp_CardType": "ATM",
+"vnp_TransactionStatus": "00",
+"vnp_ResponseCode": "00"
+},
+"ipnRequestIP": "203.205.17.226"
+}
+Response​
+Đối tác nên trả về phản hồi như sau:
+Content-Type: application/json
+Cấu trúc dữ liệu:​
+Property
+Type
+Description
+returnCode
+int
+Có các giá trị sau:
+1 : thành công
+Giá trị khác: thất bại
+returnMessage
+String
+Mô tả chi tiết mã trạng thái
+Ví dụ:​
+{
+"returnCode": 1,
+"returnMessage": "Success"
+}
+Trước
+notify
+Kế tiếp
+Mã phương thức thanh toán
+Request
+Cấu trúc dữ liệu:
+Ví dụ:
+Response
+Cấu trúc dữ liệu:
+Ví dụ:
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

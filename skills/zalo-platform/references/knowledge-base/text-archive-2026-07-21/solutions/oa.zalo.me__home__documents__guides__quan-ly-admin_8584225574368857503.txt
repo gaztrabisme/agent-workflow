@@ -1,0 +1,79 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/quan-ly-admin_8584225574368857503
+# FETCHED: 2026-07-21
+# TITLE: Quản lý Admin ZBS Account | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Quản lý ZBS Account
+ZBS Account là gì?
+Hướng dẫn tạo ZBS Account
+Hướng dẫn liên kết OA ID vào ZBS Account
+Hướng dẫn liên kết App ID vào ZBS Account
+Hướng dẫn nạp tiền vào ZBS Account
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+Xuất hóa đơn Doanh nghiệp
+Quản lý Admin ZBS Account
+Quản lý chi tiêu
+Quản lý gói Zalo OA
+Chi phí vận hành tài khoản Zalo OA doanh nghiệp xác thực
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Quản lý Admin ZBS Account
+
+⚠ Lưu ý: Kể từ ngày 01/01/2026, Zalo Cloud Account (ZCA) chính thức đổi tên thành Zalo Business Solutions Account (ZBS Account).
+
+ZBS Account có thể được truy cập/ quản lý bởi nhiều người dùng khác nhau. Để thêm/ thay đổi admin (thành viên), vui lòng tham khảo các bước sau đây:
+
+Bước 1: Truy cập vào link tại đây
+
+Chọn Cài đặt → Quản lý thành viên → Thêm thành viên
+
+Bước 2: Nhập thông tin số điện thoại muốn cấp quyền Admin → Chọn Tìm kiếm → Chọn vai trò → chọn Thêm thành viên
+
+⚠ Lưu ý: Số điện thoại muốn cấp quyền Admin phải là số Việt Nam (+84) và đã có tài khoản Zalo cá nhân.
+
+Bước 3: Xem lại và kiểm tra danh sách Admin đã được thêm vào tại mục Cài đặt → Quản lý thành viên
+
+⚠ Lưu ý: Trong trường hợp Quý khách cần thay đổi Quản trị viên cấp cao của ZBS Account vì bất kì lý do nào, Quý khách vui lòng tham khảo tài liệu Hướng dẫn thay đổi quyền quản trị viên cấp cao của tài khoản ZBS.
+
+------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Xuất hóa đơn Doanh nghiệp
+Next
+Quản lý chi tiêu
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

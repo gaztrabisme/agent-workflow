@@ -1,0 +1,93 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/sandbox
+# FETCHED: 2026-07-21
+# TITLE: Kiểm thử Extension trên OA test | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuKiểm thử Extension trên OA test
+Kiểm thử Extension trên OA test
+
+Sau khi hoàn thành phát triển và triển khai Extension như được mô tả trong Khởi tạo và Phát triển Dự án, bước tiếp theo là kiểm thử Extension trên OA test. Dưới đây là quy trình kiểm thử:
+
+1. Truy cập Trang Quản lý Phiên bản​
+
+Sau khi triển khai bằng lệnh zoa deploy, truy cập trang quản lý phiên bản tại:
+
+https://developers.zalo.me/app/your_app_id/extension/versions
+
+Tại đây, bạn có thể theo dõi các phiên bản đã triển khai và quản lý trạng thái của từng phiên bản.
+
+2. Kiểm thử qua OA test​
+2.1. Chọn OA để kiểm thử​
+
+Truy cập vào trang sau để chọn OA test cho việc kiểm thử:
+
+https://developers.zalo.me/app/your_app_id/extension/sandbox
+
+2.2. Thực hiện kiểm thử​
+Sau khi đã chọn OA test, truy cập vào trang giao diện của OA đã chọn.
+Tiến hành kiểm thử các chức năng và giao diện của Extension trên OA test này.
+Ghi chú lại các vấn đề phát sinh (nếu có) để điều chỉnh và cải thiện Extension.
+3. Các bước tiếp theo​
+
+Sau khi hoàn tất kiểm thử và đảm bảo Extension hoạt động đúng như mong đợi trên OA test, bạn có thể tiến hành:
+
+Tinh chỉnh và tối ưu hóa Extension dựa trên kết quả kiểm thử.
+Chuẩn bị tài liệu hướng dẫn sử dụng cho người dùng cuối.
+Lên kế hoạch triển khai rộng rãi trên các OA thực tế.
+LƯU Ý:
+
+Đảm bảo tuân thủ các hướng dẫn và quy định của Zalo khi phát triển và kiểm thử Extension. Việc này giúp đảm bảo tính nhất quán và an toàn cho người dùng cuối.
+
+Trước
+Khởi tạo và Phát triển ZOA Extension
+Kế tiếp
+Tổng quan
+1. Truy cập Trang Quản lý Phiên bản
+2. Kiểm thử qua OA test
+2.1. Chọn OA để kiểm thử
+2.2. Thực hiện kiểm thử
+3. Các bước tiếp theo
+©2023 Zalo for Developers

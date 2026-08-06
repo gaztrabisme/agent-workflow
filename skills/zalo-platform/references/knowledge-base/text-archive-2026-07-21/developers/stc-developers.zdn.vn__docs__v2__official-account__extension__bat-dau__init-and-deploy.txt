@@ -1,0 +1,111 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/init-and-deploy
+# FETCHED: 2026-07-21
+# TITLE: Khởi tạo và Phát triển ZOA Extension | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuKhởi tạo và Phát triển ZOA Extension
+Khởi tạo và Phát triển ZOA Extension
+
+Zalo OA command-line interface (ZOA-CLI) cho phép nhà phát triển (ED) phát triển và triển khai sản phẩm lên Zalo OA Extension Hub. Hướng dẫn này sẽ giúp bạn bắt đầu với ZOA-CLI và phát triển Extension của mình.
+
+Cài đặt ZOA-CLI​
+
+Bạn có thể cài đặt ZOA-CLI bằng npm hoặc yarn:
+
+# Sử dụng npm
+npm i -g zoa-cli
+
+# Hoặc sử dụng yarn
+yarn global add zoa-cli
+
+
+Sau khi cài đặt, kiểm tra phiên bản đã cài đặt:
+
+zoa --version
+
+Khởi tạo Dự án​
+Chuyển vào thư mục bạn muốn tạo dự án.
+Chạy lệnh sau để khởi tạo project:
+zoa init
+
+Nhập Zalo App ID của bạn khi được yêu cầu.
+Chọn Login via QR code with Zalo App để xác thực tài khoản và lấy access token.
+Chọn Create a new ZOA Extension project và điền thông tin liên quan để tạo project mới.
+Phát triển Dự án​
+Mở project bằng IDE và tiến hành coding.
+Lưu lại thông tin thay đổi.
+Chạy lệnh sau để build dự án:
+zoa build
+
+Triển khai (Deploy)​
+
+Để triển khai dự án của bạn:
+
+Chạy lệnh sau để sync code lên hệ thống quản lý phiên bản:
+zoa deploy
+
+Kiểm tra kết quả tại trang quản lý phiên bản.
+THÔNG TIN
+
+Lệnh zoa deploy sẽ đẩy code lên trang quản lý phiên bản. Sau khi deploy thành công, bạn cần truy cập Trang quản lý phiên bản để tiến hành các bước tiếp theo.
+
+Tài liệu tham khảo​
+NPM Package ZOA-CLI
+Mẫu dự án đơn giản
+LƯU Ý:
+
+Trong giai đoạn POC, chỉ có Zalo APP_ID được cấp quyền mới có thể truy cập trang quản lý phiên bản của Extension.
+
+Trước
+Đăng ký phát triển Extension
+Kế tiếp
+Kiểm thử Extension trên OA test
+Cài đặt ZOA-CLI
+Khởi tạo Dự án
+Phát triển Dự án
+Triển khai (Deploy)
+Tài liệu tham khảo
+©2023 Zalo for Developers

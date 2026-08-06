@@ -1,0 +1,122 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/extension/bat-dau/extension-zone/admin-profile-config-action
+# FETCHED: 2026-08-06
+# TITLE: admin-profile-config-action | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk tích hợp sẵn trong zoa-cli
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+admin-profile-config-action
+Tổng quan​
+Zone admin-profile-config-action cho phép OA Admin chọn và cấu hình các tiện ích hiển thị trên trang hồ sơ OA. Thích hợp cho việc:
+Quản lý và cấu hình các tiện ích hiển thị trên trang hồ sơ OA.
+Lựa chọn Extension để xuất hiện trên OA Profile.
+Thông tin:
+Zone này chỉ hiển thị trong giao diện quản lý của OA Admin.
+OA Admin chỉ có thể chọn 1 Extension để xuất hiện trên OA Profile.
+Các Extension đã cài đặt sẽ được hiển thị trong dropdown của Section "Tiện ích".
+Cấu hình​
+app-config.json​
+{
+"zones": {
+"admin-profile-config-action": {
+"roles": ["MANAGER"]
+}
+}
+}
+zoaSDK.getSessionInfo(data)​
+Các thông tin được cung cấp:
+admin_id: ID của admin đang đăng nhập
+oaid: ID của Official Account
+Chi tiết hiển thị​
+Vị trí: Thiết lập Trang thông tin OA (oa.zalo.me/manage/profile-setting)
+Hiển thị: Extension đã cài đặt sẽ được hiển thị tại dropdown của Section "Tiện ích"
+Hình ảnh minh họa​
+Cơ chế Action ở "Thiết lập Trang thông tin"
+Hướng dẫn sử dụng​
+Truy cập vào trang Thiết lập Trang thông tin OA (oa.zalo.me/manage/profile-setting).
+Tìm đến Section "Tiện ích" trong giao diện.
+Sử dụng dropdown để chọn Extension mong muốn hiển thị trên OA Profile.
+Lưu các thay đổi sau khi đã chọn Extension.
+Ứng dụng​
+Quản lý tiện ích hiển thị:
+OA Admin có thể dễ dàng chọn và thay đổi tiện ích hiển thị trên trang hồ sơ OA.
+Tùy chỉnh trải nghiệm người dùng bằng cách chọn tiện ích phù hợp nhất với chiến lược marketing hiện tại.
+Tối ưu hóa tương tác người dùng:
+Chọn các Extension phù hợp để tăng cường tương tác và thu hút người dùng.
+Thử nghiệm các tiện ích khác nhau để xác định loại nào hiệu quả nhất đối với đối tượng mục tiêu.
+Tích hợp các chiến dịch marketing:
+Dễ dàng thay đổi tiện ích hiển thị để phù hợp với các chiến dịch marketing theo mùa hoặc sự kiện đặc biệt.
+Nhanh chóng triển khai các chương trình khuyến mãi hoặc mini-game mới thông qua việc chọn Extension phù hợp.
+Phân tích hiệu quả:
+Theo dõi hiệu quả của các Extension khác nhau thông qua việc thay đổi và quan sát tương tác của người dùng.
+Sử dụng thông tin này để tối ưu hóa chiến lược nội dung và tương tác trên trang hồ sơ OA.
+Lưu ý​
+OA Chỉ có thể chọn một Extension để hiển thị tại một thời điểm.
+Đảm bảo rằng Extension được chọn phù hợp với mục tiêu marketing và trải nghiệm người dùng mong muốn.
+Cập nhật lần cuối: 2024-08-21
+Trước
+user-profile-config-block
+Kế tiếp
+admin-chat-message-profile-block
+Tổng quan
+Cấu hình
+app-config.json
+zoaSDK.getSessionInfo(data)
+Chi tiết hiển thị
+Hình ảnh minh họa
+Hướng dẫn sử dụng
+Ứng dụng
+Lưu ý
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

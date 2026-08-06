@@ -1,0 +1,72 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/integration-setting/vnpay-setting/
+# FETCHED: 2026-07-21
+# TITLE: Cấu hình thanh toán VNPay | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Đăng ký với đối tác thanh toán
+Cấu hình thanh toán cho Mini App
+Cài Đặt Chung
+Cấu hình ZaloPay
+Cấu hình Momo
+Cấu hình VNPay
+Cấu hình Payme
+Thanh toán khi nhận hàng (COD)
+Chuyển khoản ngân hàng
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Cấu hình thanh toán VNPay
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Giao diện cấu hình thanh toán cho Mini App với VNPay
+
+Terminal ID (vnp_TmnCode): Thông tin để định danh tài khoản doanh nghiệp.
+Version (vnp_Version): Phiên bản api mà doanh nghiệp kết nối với VNPay.
+Secret Key (vnp_HashSecret): Dùng để tạo checksum chứng thực.
+Redirect Path: Đường dẫn về lại Zalo Mini App khi thanh toán thành công (Mặc định sẽ về home).
+LƯU Ý:
+
+Khi doanh nghiệp cấu hình địa chỉ IPN (server call server) sử dụng cập nhật tình trạng thanh toán (trạng thái thanh toán) cho giao dịch với VNPay.
+
+Cần cấu hình theo URL sau https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/vnp-ipn
+
+Trong đó {Mini-App-ID} là Mini App ID tương ứng.
+
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

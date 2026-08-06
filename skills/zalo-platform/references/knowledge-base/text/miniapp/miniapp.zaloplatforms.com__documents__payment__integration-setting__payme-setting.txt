@@ -1,0 +1,64 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/integration-setting/payme-setting/
+# FETCHED: 2026-07-21
+# TITLE: Cấu hình thanh toán Payme | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Đăng ký với đối tác thanh toán
+Cấu hình thanh toán cho Mini App
+Cài Đặt Chung
+Cấu hình ZaloPay
+Cấu hình Momo
+Cấu hình VNPay
+Cấu hình Payme
+Thanh toán khi nhận hàng (COD)
+Chuyển khoản ngân hàng
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Cấu hình thanh toán Payme
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Giao diện cấu hình thanh toán cho Mini App với ví điện tử Payme
+
+Merchant ID: Thông tin để định danh tài khoản doanh nghiệp.
+X-Api-Client: Chuỗi định danh được Payme cung cấp cho merchant khi tiến hành kết nối.
+Secret Key: Dùng để mã hoá và kiểm tra tính hợp lệ dữ liệu.
+Redirect Path: Đường dẫn về lại Zalo Mini App khi thanh toán thành công (Mặc định sẽ về home)
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

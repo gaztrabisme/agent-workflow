@@ -1,0 +1,104 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/huong-dan-nap-tien-vao-zbs-account
+# FETCHED: 2026-07-21
+# TITLE: Hướng dẫn nạp tiền vào ZBS Account | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Quản lý ZBS Account
+ZBS Account là gì?
+Hướng dẫn tạo ZBS Account
+Hướng dẫn liên kết OA ID vào ZBS Account
+Hướng dẫn liên kết App ID vào ZBS Account
+Hướng dẫn nạp tiền vào ZBS Account
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+Xuất hóa đơn Doanh nghiệp
+Quản lý Admin ZBS Account
+Quản lý chi tiêu
+Quản lý gói Zalo OA
+Chi phí vận hành tài khoản Zalo OA doanh nghiệp xác thực
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Hướng dẫn nạp tiền vào ZBS Account
+
+⚠ Lưu ý: Kể từ ngày 01/01/2026, Zalo Cloud Account (ZCA) chính thức đổi tên thành Zalo Business Solutions Account (ZBS Account).
+
+Hướng dẫn nạp tiền bằng phương thức nạp trực tuyến​
+
+Dưới đây là các bước nạp tiền trực tuyến vào ZBS Account bằng thẻ quốc tế, thẻ ATM nội địa hoặc ví điện tử.
+
+Bước 1:  Đăng nhập vào ZBS Account ➡ chọn Nạp tiền
+
+Bước 2: Lựa chọn cổng thanh toán phù hợp. Hiện tại, phương thức nạp tiền trực tuyến hỗ trợ 3 cổng thanh toán qua ZaloPay: Thẻ thanh toán quốc tế, thẻ ATM nội địa hoặc ví điện tử.
+
+    Chọn loại thẻ → Tiếp tục
+
+Bước 3: Nếu muốn nhận hóa đơn, anh/chị chọn Xuất hóa đơn tiếp tục điền đầy đủ thông tin (Tên công ty, mã số thuế, họ tên, số điện thoại, email nhận hóa đơn điện tử,v.v) → Lưu thông tin này → Tiếp tục
+
+Bước 4: Nhập thông tin thẻ (Số thẻ, ngày hết hạn, tên in trên thẻ, số CVV) → Thanh toán và hoàn tất giao dịch.
+
+Mức nạp tối thiểu: 50.000 VND/ lần nạp.
+Mức nạp tối đa:
+Với hình thức nạp qua hình thức Chuyển khoản nhanh: Không giới hạn mức nạp tối đa.
+Với hình thức nạp qua cổng ZaloPay, tối đa: 250.000.000đ/ lần nạp.
+⚠ Lưu ý:
+Đối với hình thức Nạp tiền trực tuyến: Tiền sẽ được nạp ngay vào ZBS Account ngay.
+Vui lòng giữ biên lai để đối chứng khi cần thiết.
+Tiền đã nạp vào ZBS Account thành công sẽ không được hoàn trả.
+
+
+
+⚠ Lưu ý khi xuất hóa đơn
+
+Zalo Business Solutions hỗ trợ khách hàng xuất hóa đơn cho số tiền nạp vào ZBS Account.
+
+
+Tất cả hóa đơn sẽ hiển thị trong mục Quản lý hóa đơn trên ZBS Account. Nếu doanh nghiệp có tick chọn "Xuất hóa đơn" thì sẽ được gửi thêm về địa chỉ email.
+
+
+Chỉ hỗ trợ làm biên bản điều chỉnh hoá đơn đối với trường hợp thông tin trên hoá đơn sai tên công ty (Chỉ áp dụng loại hình hóa đơn doanh nghiệp), hoặc địa chỉ xuất hóa đơn.
+
+
+Tham khảo đầy đủ các quy định về xuất hóa đơn tại đây.
+
+----------------------------------------------
+
+Nếu có bất kì yêu cầu hỗ trợ, anh/chị có thể liên hệ với đội ngũ Zalo Business Solutions Support qua mail support@zalo.solutions . Bộ phận hỗ trợ sẽ phản hồi anh/chị trong vòng 24h làm việc tiếp theo.
+
+Previous
+Hướng dẫn liên kết App ID vào ZBS Account
+Next
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+Hướng dẫn nạp tiền bằng phương thức nạp trực tuyến
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

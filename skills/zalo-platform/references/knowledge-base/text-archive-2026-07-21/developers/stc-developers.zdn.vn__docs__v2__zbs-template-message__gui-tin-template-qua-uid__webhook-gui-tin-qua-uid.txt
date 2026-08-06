@@ -1,0 +1,43 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/gui-tin-template-qua-uid/webhook-gui-tin-qua-uid
+# FETCHED: 2026-07-21
+# TITLE: Webhook gửi tin qua UID | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Gửi tin Template UIDWebhook gửi tin qua UID
+Webhook gửi tin qua UID
+
+Các event liên quan đến sự kiện gửi ZBS Template Message qua UID sẽ tương tự các event OA gửi các loại tin khác qua UID.
+
+Webhook liên quan OA và gửi tin qua UID: Tổng quan Webhook
+
+Trước
+API gửi tin qua UID
+Kế tiếp
+Bảng mã lỗi
+©2023 Zalo for Developers

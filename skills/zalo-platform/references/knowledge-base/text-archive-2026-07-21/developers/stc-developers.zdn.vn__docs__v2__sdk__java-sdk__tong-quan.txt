@@ -1,0 +1,29 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/java-sdk/tong-quan
+# FETCHED: 2026-07-21
+# TITLE: Tổng quan | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Java SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tổng quan
+Tổng quan
+
+Zalo Java SDK  là một thư viện mã nguồn mở, hỗ trợ các nhà phát triển dễ dàng tích hợp đăng nhập Zalo và sử dụng các API của Zalo. Tham khảo cách lấy Access Token để sử dụng API của Zalo. Để được hướng dẫn cài đặt và triển khai, truy cập mục Bắt đầu nhanh và xem  một số ví dụ cụ thể, qua đó sẽ giúp bạn dễ dàng hơn trong việc tích hợp.
+
+Kế tiếp
+Bắt đầu nhanh
+©2023 Zalo for Developers

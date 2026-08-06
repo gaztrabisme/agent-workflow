@@ -1,0 +1,58 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/social-api/tham-khao/co-che-het-han-cua-user-refresh-token
+# FETCHED: 2026-08-06
+# TITLE: Cơ chế hết hạn của User Refresh Token | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Demonstrating Proof-of-Possession
+SDK
+Social Plugin
+Trên trang này
+Cơ chế hết hạn của User Refresh Token
+Giới thiệu​
+User Refresh Token là thông tin cần để lấy User Access Token mới trong trường hợp User Access Token đã hết hạn.
+User Refresh Token sẽ có thời gian hiệu lực tối đa là 30 ngày (tức 720 giờ) và Refresh Token mới sẽ kế thừa thời gian hiệu lực của Refresh Token dùng để tạo ra nó. Trong trường hợp Refresh Token hết hạn, bạn phải thực hiện lại bước yêu cầu user cấp quyền cho Ứng dụng
+Khi bạn dùng 1 Refresh Token để lấy 1 bộ Token mới, thời gian hiệu lực của Access Token vẫn là 1 giờ, nhưng thời gian hiệu lực của Refresh Token sẽ là thời gian hiệu lực còn lại của Refresh Token truyền vào. VD:
+Tại thời điểm 0 giờ: OAuth Code được dùng để lấy Access Token 1 (hiệu lực: 1 giờ) và Refresh Token 1 (hiệu lực: 720 giờ)
+Tại thời điểm 1 giờ: Refresh Token 1 được dùng để lấy Access Token 2 (hiệu lực: 1 giờ) và Refresh Token 2 (hiệu lực: 719 giờ)
+Tại thời điểm 2 giờ: Refresh Token 2 được dùng để lấy Access Token 3 (hiệu lực: 1 giờ) và Refresh Token 3 (hiệu lực: 718 giờ)
+....
+Trước
+Thông tin tên, ảnh đại diện
+Kế tiếp
+User Access Token V4
+Giới thiệu
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,117 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/quan-ly-khach-hang_7338600829552313776?utm_source=ZOAwebsite&utm_medium=blog&utm_campaign=releasenewOA&utm_content=Quickannouncement
+# FETCHED: 2026-07-21
+# TITLE: Quản lý Khách hàng | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Quản lý Khách hàng
+Biểu mẫu thu thập thông tin
+Báo cáo thống kê
+Mini App - OA Manager trên điện thoại
+Mở rộng
+Nhà phát triển
+Quản lý Khách hàng
+Quản lý Khách hàng​
+
+Zalo Official Account mở rộng tính năng quản lý người dùng, hỗ trợ Doanh nghiệp tăng cường quản lý thông tin khách hàng trên OA.
+
+Dễ dàng quản lý danh sách khách hàng với thông tin chi tiết như Tên, Số điện thoại, Địa chỉ, Ngày sinh, Giới tính (khi được khách hàng đồng ý chia sẻ).
+Phân loại khách hàng với các bộ lọc tùy chỉnh, giúp doanh nghiệp tiếp cận đúng đối tượng và cá nhân hóa thông điệp.
+Tải lên tệp khách hàng hiện hữu để nhận diện khi khách hàng phát sinh tương tác trên OA.
+
+Admin OA cần có phân quyền “Quản trị viên” hoặc “Soạn nội dung” để truy cập trang "Khách hàng” theo thao tác sau:
+
+Cách 1: Truy cập đường dẫn https://oa.zalo.me/manage/customerlist
+Cách 2: Tại trang OA Manager https://oa.zalo.me/manage/oa → Chọn tài khoản OA → Chọn “Khách hàng”
+Danh sách khách hàng​
+
+Cập nhật tùy biến hiển thị và bộ lọc để hỗ trợ cho việc lọc và hiển thị trường thông tin khách hàng theo nhu cầu của từng admin.
+
+Giao diện mặc định:​
+Thao tác: Mở hội thoại của người dùng; Lấy liên kết hội thoại; Xóa quan tâm.
+Tên người dùng: Tên tài khoản Zalo của người dùng.
+Nhân viên CSKH: Tên admin OA đã được chỉ định.
+Nhãn quy trình: Các nhãn quy trình OA đang sử dụng.
+Bộ lọc: Công cụ hỗ trợ lọc theo Nhãn, Nhân viên và Nhóm khách hàng, Vị trí, Giới tính.​
+“Nhóm khách hàng” dùng lọc nhóm người dùng quan tâm, chưa quan tâm hoặc ưu tiên, hạn chế.
+Nút “Áp dụng cho lần sau” chỉ lưu giao diện theo từng admin OA. Mỗi admin OA sẽ có giao diện khác nhau.
+Nút “Thêm điều kiện” hỗ trợ admin chủ động thêm bộ lọc nâng cao theo các trường thông tin hệ thống hoặc tự tạo mới.
+Dành riêng cho các OA đang sử dụng Gói Dùng thử, Nâng cao, Premium​
+
+Tùy biến hiển thị: Admin OA có thể ẩn/hiện thêm các cột thông tin theo nhu cầu quản lý.
+
+        ●   Các nhãn thuộc Nhóm nhãn thường được hiển thị với tên gọi “Nhãn CSKH”.
+
+Thao tác hàng loạt: Admin OA có thể gắn hoặc tháo nhãn hàng loạt (tối đa 100 người dùng/ lần).
+
+Nhóm Khách hàng tùy biến​
+
+Admin sử dụng tính năng này để tải lên tệp khách hàng hiện hữu dưới dạng số điện thoại, để nhận diện khi khách hàng phát sinh tương tác (Chat, Gọi thoại) trên OA thông qua 2 nhãn hệ thống hiển thị ở hội thoại là “Ưu tiên” và “Hạn chế”.
+
+Trường thông tin khách hàng​
+
+Đây là tính năng cho phép OA quản lý tất cả các trường thông tin của hệ thống và các trường thông tin tùy biến (được admin tạo mới) để sử dụng theo nhu cầu.
+
+Có 2 phân nhóm:
+
+  ●   Hệ thống: Đây là các thông tin do hệ thống tổng hợp và khả dụng với tất cả tài khoản OA Doanh nghiệp.
+
+  ●   Tùy biến: Đây là các trường thông tin được tạo và tùy biến bởi admin. OA cần sử dụng gói Dùng thử/Nâng cao/Premium để có thể tạo trường thông tin tùy biến.
+
+        -   OA có thể tạo đến 10 trường thông tin cho mỗi loại dữ liệu. Riêng đối với loại dữ liệu dạng bảng, số trường thông tin tối đa là 5.
+
+        -   Để tạo được trường thông tin dạng bảng, OA cần sử dụng Gói Premium
+
+💡 Admin OA có thể dùng kết hợp với các tính năng của Chatbot để cá nhân hóa các tin nhắn tự động.
+
+💡 Admin OA cần kết hợp với các bộ API sau để ứng dụng các trường thông tin trong việc cá nhân hóa nội dung tương tác gửi tới khách hàng:
+
+        ●   API quản lý trường thông tin Khách hàng tùy biến. Xem tại đây.
+
+        ●   API truy xuất và cập nhật trường thông tin Khách hàng tùy biến. Xem tại đây.
+
+------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Quản lý nhóm (GMF)
+Next
+Biểu mẫu thu thập thông tin
+Quản lý Khách hàng
+Danh sách khách hàng
+Nhóm Khách hàng tùy biến
+Trường thông tin khách hàng
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

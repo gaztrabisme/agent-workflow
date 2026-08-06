@@ -1,0 +1,70 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/mua-san-pham-dich-vu-oa/danh-sach-san-pham
+# FETCHED: 2026-07-21
+# TITLE: Danh sách sản phẩm | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Luồng mua sản phẩm / dịch vụ OA
+Tạo đơn hàng
+Xác nhận thanh toán đơn hàng
+Danh sách sản phẩm
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýMua sản phẩm dịch vụ OADanh sách sản phẩm
+Danh sách sản phẩm
+product_id	Tên sản phẩm	Đối tượng khả dụng
+Sản phẩm OA Subscription
+866836109767958135	Gói OA Nâng cao 6 tháng (Dừng cung cấp từ 01/06/2026)	OA
+1302963828004138542	Gói OA Nâng cao 12 tháng (Dừng cung cấp từ 01/06/2026)	OA
+757295129578622372	Gói OA Premium 6 tháng (Dừng cung cấp từ 01/06/2026)	OA
+3071996459978068910	Gói OA Premium 12 tháng (Dừng cung cấp từ 01/06/2026)	OA
+2986218846231350366	Gói OA Tiêu chuẩn 12 tháng	OA
+432116103399624767	Gói OA Tăng trưởng 6 tháng	OA
+3521678227011222721	Gói OA Tăng trưởng 12 tháng	OA
+2519724963880150161	Gói OA Toàn diện 6 tháng	OA
+3949230607632876067	Gói OA Toàn diện 12 tháng	OA
+Sản phẩm Quota khởi tạo GMF
+739448264820568793	GMF tối đa 10 thành viên	OA
+2405469629611791306	GMF tối đa 50 thành viên	OA
+2275350247265190619	GMF tối đa 100 thành viên	OA
+3678557233392100095	GMF tối đa 1000 thành viên	OA
+- Tham khảo bảng giá các sản phẩm OA tại đây
+Trước
+Xác nhận thanh toán đơn hàng
+Kế tiếp
+Giới thiệu về Webhook
+©2023 Zalo for Developers

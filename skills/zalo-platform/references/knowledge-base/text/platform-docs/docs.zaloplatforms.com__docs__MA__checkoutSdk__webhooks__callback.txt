@@ -1,0 +1,216 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/webhooks/callback
+# FETCHED: 2026-08-06
+# TITLE: callback | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+callback
+Cập nhật lần cuối:5/8/2026
+API đối tác xây dựng sẽ nhận kết quả thanh toán từ Checkout SDK.
+Khi và chỉ khi hoàn tất quá trình thanh toán thì Checkout SDK mới gọi API này để thông báo kết quả.
+Merchant Server dựa vào kết quả này để thực hiện hoàn thành thanh toán cho người dùng.
+Nếu sau 20 phút mà Merchant Server vẫn không nhận được kết quả, vui lòng gọi
+API getOrderStatus để tra cứu kết quả cuối cùng.
+Đặc tả​
+Khi hoàn tất quá trình thanh toán, Checkout SDK Server callback cho Merchant Server theo CallbackURL . Merchant dùng
+PrivateKey để xác thực data do Checkout SDK Server POST qua.
+Lưu ý:
+Đối tác cần whitelist cho danh sách địa chỉ IP của Checkout SDK Server:
+• 118.102.2.29
+• 49.213.78.2
+Dữ liệu nhận được từ callback​
+Property
+Type
+Description
+data
+Object
+Dữ liệu gởi về cho ứng dụng
+mac
+String
+Thông tin xác thực của dữ liệu giao dịch, dùng PrivateKey được cung cấp để chứng thực dữ liệu giao dịch. Các dữ liệu sau được sử dụng để tạo mã hash cho thông tin:
+appId, orderId, transId, amount, description, resultCode, message
+overallMac
+String
+Thông tin xác thực của toàn bộ dữ liệu, dùng PrivateKey được cung cấp để chứng thực toàn bộ dữ liệu. Các dữ liệu được sắp xếp theo thứ tự từ điển tăng dần để tạo mã hash cho thông tin
+Đối tác vui lòng tham khảo cách tạo mã hash ở ví dụ phía dưới.
+Trường hợp đối tác sử dụng các dữ liệu như "method", "extradata", ..., vui lòng kiểm tra overallMac để đảm bảo tính đúng đắn của dữ liệu
+Lưu ý:
+Đối tác cần kiểm tra tính hợp lệ của mac/overallMac trong callback để đảm bảo kết quả của giao dịch. Lưu ý rằng amount ứng với orderId trong callback cần phải khớp với amount đối tác lưu tại hệ thống của đối tác.
+Dữ liệu của trường data​
+Property
+Type
+Description
+Use to build mac
+appId
+String
+Id định danh của mini app
+true
+orderId
+String
+Id của yêu cầu thanh toán đã tạo ở API createOrder
+true
+transId
+String
+Id của yêu cầu thanh toán từ hệ thống đối tác thanh toán
+true
+method
+String
+Phương thức thanh toán. Tham khảo mã tại đây
+transTime
+Long
+Thời gian giao dịch của đối tác thanh toán
+merchantTransId
+String
+Mã giao dịch của đối tác thanh toán
+amount
+Long
+Số tiền thanh toán
+true
+description
+String
+Thông tin đơn hàng
+true
+resultCode
+Int
+Trạng thái giao dịch của đơn hàng:
+1 : Thành công
+-1 : Thất bại
+true
+message
+String
+Mô tả mã resultCode
+true
+extradata
+String
+Thông tin thêm
+Lưu ý: Dữ liệu này đã được encodeURIComponent
+paymentChannel
+String
+Giá trị bằng với trường method. Nên sử dụng method thay vì paymentChannel để lấy phương thức thanh toán. (Dùng cho mục đích tương thích cũ)
+Kiểm tra tính hợp lệ của dữ liệu​
+Kiểm tra mac​
+dataForMac =
+"appId={appId}&amount={amount}&description={description}&orderId={orderId}&message={message}&resultCode={resultCode}&transId={transId}";
+// Tạo mac từ dữ liệu
+reqMac = HMAC("HmacSHA256", privateKey, dataForMac);
+// Kiểm tra tính hợp lệ của dữ liệu giao dịch
+if (reqMac == mac) {
+// dữ liệu giao dịch hợp lệ
+} else {
+// dữ liệu giao dịch không hợp lệ
+}
+Kiểm tra overallMac​
+/*
+Ví dụ với data nhận được bao gồm các trường sau:
+data = {
+"appId": "123456",
+"orderId": "123456789",
+"transId": "987654321",
+"method": "ZALOPAY",
+"transTime": "1710832784000",
+"merchantTransId": "MT123456789",
+"amount": 10000,
+"description": "Payment_for_goods",
+"resultCode": 1,
+"message": "Payment_successful",
+"extradata": "%7B%22key1%22%3A%22value1%22%2C%22key2%22%3A%22value2%22%7D"
+}
+*/
+// Sắp xếp toàn bộ dữ liệu theo thứ tự từ điển tăng dần
+// Đối với NodeJS
+dataOverallMac = Object.keys(data)
+.sort() // sắp xếp key của Object data theo thứ tự từ điển tăng dần
+.map((key) => `${key}=${data[key]}`) // trả về mảng dữ liệu dạng [{key=value}, ...]
+.join("&"); // chuyển về dạng string kèm theo "&", ví dụ: amount={amount}&appId={appId}&description={description}&extradata={extradata}&merchantTransId={merchantTransId}&message={message}&method={method}&orderId={orderId}&resultCode={resultCode}&transId={transId}&transTime={transTime}
+// Tạo overall mac từ dữ liệu
+reqOveralMac = HMAC("HmacSHA256", privateKey, dataOverallMac);
+// Kiểm tra tính hợp lệ của toàn bộ dữ liệu
+if (reqOveralMac == overallMac) {
+// dữ liệu hợp lệ
+} else {
+// dữ liệu không hợp lệ
+}
+HmacSHA256: Là phương thức bảo mật HmacSHA256
+PrivateKey: Do Checkout SDK cung cấp cho ứng dụng lúc đăng ký ứng dụng
+Thông tin AppServer trả về cho Checkout SDK Server khi nhận callback​
+Đối tác vui lòng trả về cho Checkout SDK Server theo định dạng sau:
+Property
+Type
+Description
+returnCode
+int
+Có các giá trị sau:
+1 : thành công
+2 : trùng mã giao dịch transId (đã cung cấp dịch vụ cho người dùng trước đó)
+!= : thất bại (không callback lại)
+returnMessage
+String
+Mô tả chi tiết mã trạng thái
+Trước
+getRefundStatus
+Kế tiếp
+notify
+Đặc tả
+Dữ liệu nhận được từ callback
+Kiểm tra tính hợp lệ của dữ liệu
+Thông tin AppServer trả về cho Checkout SDK Server khi nhận callback
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

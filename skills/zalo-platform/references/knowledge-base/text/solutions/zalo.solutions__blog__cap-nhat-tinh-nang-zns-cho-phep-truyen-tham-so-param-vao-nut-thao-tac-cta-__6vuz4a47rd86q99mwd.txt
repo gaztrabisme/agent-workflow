@@ -1,0 +1,47 @@
+# SOURCE: https://zalo.solutions/blog/cap-nhat-tinh-nang-zns-cho-phep-truyen-tham-so-param-vao-nut-thao-tac-cta-/6vuz4a47rd86q99mwd
+# FETCHED: 2026-08-06
+# TITLE: Cập Nhật Tính Năng: ZNS Cho Phép Truyền Tham Số (Param) Vào Nút Thao Tác (CTA)  | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Cập Nhật Tính Năng: ZNS Cho Phép Truyền Tham Số (Param) Vào Nút Thao Tác (CTA)
+Cập Nhật Tính Năng: ZNS Cho Phép Truyền Tham Số (Param) Vào Nút Thao Tác (CTA)
+26 tháng 11, 2025 17:40
+Nhằm hỗ trợ khách hàng khai thác tối đa nội dung/mục đích và tối ưu hóa dịch vụ Zalo Notification Service (ZNS), Zalo Cloud thông báo ra mắt tính năng mới: cho phép doanh nghiệp truyền tham số (param) vào nút thao tác (CTA) trong nội dung thông báo ZNS. Bài viết này sẽ hướng dẫn quý khách triển khai tính năng này hiệu quả nhất.
+Giới thiệu tính năng truyền tham số (param) vào nút thao tác (CTA)
+Để có thể hỗ trợ doanh nghiệp cá nhân hóa (customize) đường dẫn gửi cho từng người dùng, Zalo Cloud chính thức mở tích hợp khả năng truyền tham số (param) vào nút thao tác (CTA) khi tạo mẫu ZNS. Tính năng này phù hợp cho nhiều doanh nghiệp thuộc nhiều ngành hàng với các nhu cầu tiêu biểu bao gồm nhưng không giới hạn như:
+Gửi đường dẫn định danh theo dõi đơn hàng/quá trình giao dịch
+Gửi đường dẫn định danh các loại hóa đơn/hợp đồng
+Gửi đường dẫn đăng nhập cho từng tài khoản độc lập
+Xem thêm bài viết Tham số (Param) là gì? Thế nào là một tham số đúng quy chuẩn? tại đây
+Quy trình tạo mẫu thông báo ZNS
+Bước 1: Tạo nút liên kết (CTA) với tham số tương ứng
+Lưu ý: Không được sử dụng tên tham số trùng với tên tham số đã sử dụng trong Tiêu đề hay Nội dung chính của mẫu ZNS.
+Bước 2: Chọn đường dẫn liên kết đã tạo
+Hệ thống sẽ tự động tạo tham số với Cài đặt kĩ thuật loại URL theo thông tin tham số trong đường dẫn liên kết đã nhập.
+Lưu ý: Quý khách sẽ không thể thay đổi hay điều chỉnh loại Cài đặt kỹ thuật này.
+Với mỗi tham số được tạo trong nút thao tác, Quý khách cần đảm bảo dữ liệu truyền về được mã hóa chuẩn UTF-8 trước khi truyền vào.
+Hướng dẫn chi tiết Các định dạng dữ liệu khi truyền vào tham số trên nội dung ZNS có thể xem tại đây.
+Bước 3: Tạo mẫu ZNS thành công
+Sau khi tạo mẫu ZNS thành công, Quý khách vui lòng lưu ý xem mẫu ZNS hiển thị ghi chú yêu cầu đúng định dạng UTF-8.
+Bước 4: Truyền dữ liệu và gửi lệnh ZNS đến người dùng cuối
+Khi gửi thông báo ZNS, hệ thống sẽ kiểm tra tất cả các dữ liệu truyền vào các tham số.
+Với các dữ liệu truyền vào tham số (param) trong nút thao tác (CTA), dữ liệu cần chuẩn định dạng UTF-8. Nếu khách hàng chưa mã hoá hoặc mã hóa sai định dạng, hệ thống sẽ báo lỗi -132 Parameter invalid.
+Tham khảo Bảng mã lỗi khi sử dụng dịch vụ Zalo Notification Service tại đây.
+Nếu có bất kì yêu cầu hỗ trợ, khách hàng có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud. Đội ngũ CSKH Zalo Cloud sẽ phản hồi cho khách hàng trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

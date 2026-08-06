@@ -1,0 +1,97 @@
+# SOURCE: https://oa.zalo.me/home/documents/vie/guides/Quan-ly-goi-zalo-oa_5417812380640953602
+# FETCHED: 2026-08-06
+# TITLE: Quản lý gói Zalo OA | Zalo Official Account
+
+Nhảy tới nội dung
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Quản lý ZBS Account
+Quản lý gói Zalo OA
+Chi phí vận hành tài khoản Zalo OA doanh nghiệp xác thực
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thanh toán
+Quản lý gói Zalo OA
+Trên trang này
+Quản lý gói Zalo OA
+Zalo Official Account mang đến nhiều công cụ hỗ trợ doanh nghiệp giao tiếp hiệu quả với khách hàng. Tuy nhiên, khả năng truy cập và khai thác tối đa lợi ích từ các công cụ này sẽ khác nhau tùy thuộc vào Gói dịch vụ mà OA sử dụng.
+⚠ Lưu ý: Kể từ ngày 01/01/2026, Zalo Cloud Account (ZCA) chính thức đổi tên thành Zalo Business Solutions Account (ZBS Account).
+A. Hướng dẫn mua Gói dịch vụ​
+Để thực hiện mua Gói dịch vụ OA, admin OA vui lòng đảm bảo đáp ứng đầy đủ các điều kiện sau:
+Tài khoản OA xác thực phải được liên kết với tài khoản ZBS (ZBS Account) và tài khoản ZBS này đã được nạp tiền. Chi tiết Hướng dẫn liên kết OA ID với ZBS Account tại đây và Hướng dẫn nạp tiền vào ZBS Account tại đây.
+Người thao tác mua, thay đổi hoặc gia hạn Gói dịch vụ phải có đầy đủ phân quyền của tài khoản OA và tài khoản ZBS như sau: Quản trị viên/ Quản lý gói & Liên kết của OA và phải có quyền Quản trị viên cấp cao/Quản trị viên/Biên tập viên của tài khoản ZBS.
+Các bước thao tác​
+BƯỚC 1: Truy cập mục Quản lý → Quản lý tài khoản → Quản lý gói & DV, hoặc truy cập đường dẫn sau: https://oa.zalo.me/manage/subscription
+BƯỚC 2: Chọn Mua gói và tìm hiểu kỹ tất cả quyền lợi của các Gói dịch vụ. Hoặc xem chi tiết quyền lợi của các Gói dịch vụ tại trang Bảng giá.
+⚠ Lưu ý: Nếu không thể chọn Mua gói, vui lòng kiểm tra lại 2 điều kiện bên trên.
+BƯỚC 3: Chọn Gói dịch vụ & thời gian sử dụng, nhập mã giảm giá (nếu có).
+→ Kiểm tra thông tin thanh toán: Admin OA cần kiểm tra kỹ toàn bộ thông tin, bao gồm thông tin OA, Gói dịch vụ, thời gian sử dụng, tổng số tiền cần thanh toán, và các nội dung khác hiển thị trên màn hình thanh toán.
+→ Chọn Thanh toán ngay. Khi nhấn, admin OA xác nhận rằng:
+Toàn bộ thông tin thanh toán đã được kiểm tra đầy đủ và chính xác.
+Đồng ý với các điều khoản và lưu ý liên quan đến việc sử dụng dịch vụ.
+Ảnh demo: Màn hình thanh toán mua Gói Toàn diện 12 tháng
+Trong trường hợp tài khoản OA hiện đang sử dụng Gói dịch vụ và Gói này vẫn còn thời hạn, hệ thống sẽ hiển thị màn hình thông báo (pop-up). Pop-up sẽ cung cấp thông tin chi tiết về:
+Thông tin Gói hiện đang sử dụng và thời hạn còn lại.
+Thông tin Gói mới đang trong quá trình thanh toán.
+Các điều khoản liên quan.
+Admin OA cần kiểm tra kỹ thông tin hiển thị trên pop-up trước khi tiến hành thanh toán cho Gói dịch vụ mới.
+→ Chọn Thanh toán ngay. Khi nhấn, admin OA xác nhận rằng:
+Toàn bộ thông tin thanh toán đã được kiểm tra đầy đủ và chính xác.
+Đồng ý với các điều khoản và lưu ý liên quan đến việc sử dụng dịch vụ.
+Ảnh demo: Pop-up hiển thị thông tin và yêu cầu xác nhận khi tài khoản OA đang có Gói dịch vụ còn hiệu lực
+⚠ Lưu ý: Chúng tôi sẽ không hỗ trợ hoặc giải quyết bất kỳ khiếu nại nào liên quan đến các thông tin đã được hiển thị và xác nhận tại thời điểm thanh toán.
+BƯỚC 4: Sau khi thanh toán thành công, để xem chi tiết các tính năng và các quyền lợi chính của Gói, quản trị viên truy cập vào OA chọn Quản lý → Quản lý tài khoản → Quản lý gói & DV
+Giao dịch mua Gói thành công cũng sẽ được ghi nhận đồng thời ở tài khoản ZBS liên kết với OA → mục Lịch sử giao dịch → Hoạt động Dịch vụ OA.
+Ảnh demo: Màn hình Lịch sử giao dịch của ZBS Account
+B. Quản lý Gói dịch vụ​
+Tài khoản OA xác thực sau khi mua gói thành công có thể thực hiện các thao tác lựa chọn gia hạn tự động và quản lý gói đang sở hữu tại trang Quản lý OA.
+Tham khảo hướng dẫn tại các bước sau:
+Bước 1: Truy cập trang Quản lý gói tại đây https://oa.zalo.me/manage/subscription
+Bước 2: Tham khảo các thông tin tại mục Quản lý → Quản lý tài khoản → Quản lý gói & DV
+Các thông tin được hiển thị bao gồm 2 phần:
+1. Hạn mức đã dùng:​
+Số tin Tư vấn ngoài khung 48h: Hạn mức tin Tư vấn ngoài khung 48h có sẵn của Gói OA.
+Lượt nhận tin Truyền thông: Hạn mức nhận tin Truyền thông khác nhau phụ thuộc vào loại Gói dịch vụ OA đăng ký.
+Số nội dung xuất bản: Số lượt nội dung (bài viết, video) tối đa mà OA có thể xuất bản.
+Số tổng đài viên: Số tổng đài viên theo gói.
+Nhóm GMF-100: Số nhóm chat có sẵn (miễn phí).
+2. Thông tin gói OA​
+Tên gói
+Thông tin gói: tính năng và số lượng tương tác
+Trạng thái: tình trạng hoạt động và ngày hết hạn.
+Gia hạn tự động: nút Bật/ Tắt.
+Quản trị viên OA sẽ nhận được thông báo từ Zalo Official Account 7 ngày trước ngày gia hạn của Gói.
+Ảnh demo: Màn hình Quản lý gói trang OA manager
+Ngoài ra, Quản trị viên OA có thể thực hiện:​
+1. Quản lý Gia hạn tự động gói
+Nếu Bật gia hạn tự động, hệ thống sẽ tự động gia hạn khi đến hạn và trừ tiền tài khoản ZBS đang liên kết với OA. Trường hợp tại ngày gia hạn mà tài khoản ZBS không đủ tiền, OA sẽ được chuyển về dùng Gói Cơ bản.
+Nếu Tắt gia hạn tự động, sau khi hết hạn gói sẽ không được gia hạn tự động và OA của anh/chị là OA xác thực - Gói Cơ bản.
+2. Quản lý Đổi gói
+Quản trị viên OA có thể thay đổi gói bất cứ khi nào. Khi đó:
+Gói cũ sẽ bị hủy và đồng thời gói mới sẽ được kích hoạt ngay lập tức.
+Hạn mức tính năng của gói cũ chưa sử dụng hết sẽ không được giữ lại.
+⚠ Lưu ý chung:
+Quyền thực hiện thao tác mua, thay đổi hoặc gia hạn gói: Chỉ các Quản trị viên/Quản lý Gói & Liên kết của OA có quyền Quản trị viên cấp cao, Quản trị viên hoặc Biên tập viên trên tài khoản ZBS mới được phép thực hiện.
+Hủy gói dịch vụ: Gói dịch vụ không thể hủy ngay lập tức, nhưng anh/chị có thể tắt chế độ tự động gia hạn. Khi gói hết hạn, OA sẽ tự động chuyển về Gói Cơ bản.
+Chính sách tài khoản ZBS: Tiền đã nạp vào không được hoàn trả lại trong bất kỳ trường hợp nào, chi tiết tại đây. Số tiền đã thanh toán cho Gói dịch vụ sẽ không được hoàn lại.
+Quy định sử dụng Gói: Mỗi gói dịch vụ chỉ được sử dụng cho 01 OA duy nhất và không thể chuyển nhượng sang OA khác.
+---------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT Zalo OA để được phản hồi sớm nhất.
+Trước
+Quản lý chi tiêu
+Kế tiếp
+Chi phí vận hành tài khoản Zalo OA doanh nghiệp xác thực
+A. Hướng dẫn mua Gói dịch vụ
+Các bước thao tác
+B. Quản lý Gói dịch vụ
+1. Hạn mức đã dùng:
+2. Thông tin gói OA

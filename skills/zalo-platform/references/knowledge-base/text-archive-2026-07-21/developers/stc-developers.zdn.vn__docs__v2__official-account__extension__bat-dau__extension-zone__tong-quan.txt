@@ -1,0 +1,116 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/extension-zone/tong-quan
+# FETCHED: 2026-07-21
+# TITLE: Tổng quan | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuExtension zoneTổng quan
+Tổng quan
+
+Zone là các khu vực cụ thể trong giao diện Zalo OA Manager, nơi các Extension có thể tích hợp và hiển thị nội dung hoặc chức năng tùy chỉnh.
+
+Các khái niệm chính​
+1. Cơ chế trigger và hiển thị​
+
+Có hai cơ chế trigger và hiển thị của zone:
+
+Block: Khi người dùng truy cập một trang tính năng cụ thể, giao diện của Extension hiển thị đồng thời cùng giao diện mặc định của Zalo OA.
+Action: Entrypoint của extension hiển thị dưới dạng mục trong danh sách dropdown. Khi người dùng nhấp vào, nội dung tùy biến của extension sẽ được hiển thị trong modal.
+2. Tham số tùy chỉnh​
+
+Một số zone có tích hợp sẵn các tham số đặc thù cho việc tùy biến hiển thị. Ví dụ: Chỉ hiển thị với Admin OA có phân quyền là Manager.
+
+3. Tích hợp nhiều Zone​
+
+Một Extension có thể tích hợp với nhiều zone hiển thị khác nhau.
+
+Ví dụ, trong giao diện chat, Extension có thể tích hợp cả admin-chat-message-toolbar-action và admin-chat-message-profile-block.
+Khi cần hiển thị thêm, extension có thể sử dụng zoaSdk để gọi modal.
+Tổng quan danh sách Zone​
+
+Zalo OA cung cấp nhiều zone khác nhau cho các mục đích khác nhau trong giao diện OA Manager. Mỗi zone có đặc điểm, yêu cầu cấu hình và trường hợp sử dụng riêng.
+
+Xem danh sách đầy đủ các Zone tại đây.
+
+Cơ bản về triển khai​
+
+Cấu hình: Việc sử dụng zone cần được khai báo trong file app-config.json.
+
+Các thực hành tốt nhất​
+Tích hợp có mục đích: Chọn các zone phù hợp với chức năng của Extension và nâng cao trải nghiệm người dùng.
+Thiết kế nhất quán: Đảm bảo giao diện của Extension trong mỗi zone phù hợp với ngôn ngữ thiết kế tổng thể của Zalo OA Manager.
+Tối ưu hiệu suất: Giảm thiểu thời gian tải và sử dụng tài nguyên của Extension trong mỗi zone.
+Tiếp cận lấy người dùng làm trung tâm: Cân nhắc quy trình làm việc của admin và cách Extension có thể tích hợp liền mạch vào các tác vụ của họ.
+THÔNG TIN:
+Mỗi vị trí hiển thị trên Zalo OA sẽ tương ứng với một zone cụ thể.
+Mỗi zone sẽ có thông số và cấu hình riêng về giới hạn hiển thị, data.
+ED cần cân nhắc lựa chọn zone phù hợp cho từng use case của extension.
+Các bước tiếp theo​
+Khám phá danh sách chi tiết các zone có sẵn.
+Tìm hiểu cấu hình zone trong app-config.json.
+Hiểu về tích hợp zoaSdk cho các tương tác nâng cao.
+
+Bằng cách tận dụng hiệu quả các zone, bạn có thể tạo ra các Extension mạnh mẽ, tích hợp tốt, nâng cao trải nghiệm cho cả OA admin và người dùng.
+
+Trước
+Kiểm thử Extension trên OA test
+Kế tiếp
+user-profile-config-block
+Các khái niệm chính
+1. Cơ chế trigger và hiển thị
+2. Tham số tùy chỉnh
+3. Tích hợp nhiều Zone
+Tổng quan danh sách Zone
+Cơ bản về triển khai
+Các thực hành tốt nhất
+Các bước tiếp theo
+©2023 Zalo for Developers

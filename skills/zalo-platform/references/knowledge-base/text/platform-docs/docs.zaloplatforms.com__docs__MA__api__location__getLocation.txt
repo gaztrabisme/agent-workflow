@@ -1,0 +1,213 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/location/getLocation
+# FETCHED: 2026-08-06
+# TITLE: getLocation | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+getLocation
+Cập nhật lần cuối:5/8/2026
+import { getLocation } from "zmp-sdk";
+API truy xuất vị trí hiện tại của người dùng. Khi gọi API, một thông báo xin cấp quyền sẽ được hiển thị. Mini App chỉ lấy được thông tin vị trí nếu người dùng đồng ý cấp quyền chia sẻ vị trí.
+Lưu ý, để giúp các nhà phát triển Mini App sử dụng flow xin quyền một cách hiệu quả, cũng như phù hợp với chính sách của Zalo Mini App điều 3.3.4, Mini App Team đã đưa ra một số gợi ý thiết kế trải nghiệm như thông tin bên dưới. Nhà phát triển cần giải thích rõ ràng và trực quan mục đích xin quyền để người dùng dễ dàng hiểu và đồng ý cung cấp thông tin.
+Nhằm đảm bảo trải nghiệm thoải mái của người dùng Mini App, chúng tôi sẽ từ chối xét duyệt cho những Mini App có luồng xin cấp quyền chưa rõ ràng, không nêu được mục đích xin quyền đến người dùng. Tham khảo một số trường hợp vi phạm như bên dưới:
+Mô tả luồng truy xuất thông tin​
+Ví dụ​
+Ở Zalo Mini App, gọi API này để lấy token vị trí:
+const { token } = await getLocation();
+Dùng fetch hoặc axios để gửi token này lên server. Nếu không, bạn sẽ bị lỗi khi gọi các API Server-Server từ Mini App.
+Server chuyển đổi token thành thông tin vị trí và trả về cho Mini App theo hướng dẫn.
+Xem hướng dẫn xử lý lỗi và bảng mô tả chi tiết mã lỗi tại đây.
+Kết quả trả về​
+API trả về Promise chứa chứa token vị trí.
+GetLocationReturns​
+Property
+Type
+Required
+Description
+token
+string
+No
+Là một chuỗi ký tự dùng để truy xuất thông tin vị trí thông qua server. Mỗi Token được cung cấp, bạn sẽ có thể truy xuất thông tin được 1 lần với thời gian hết hạn sau 2 phút.
+Hướng dẫn chuyển đổi token thành thông tin vị trí người dùng​
+Sử dụng token vừa nhận được để truy xuất thông tin vị trí người dùng từ Server của bạn thông qua Zalo Open API, vui lòng tham khảo code mẫu bên dưới:
+curlNode.js
+curl --location --request GET <https://graph.zalo.me/v2.0/me/info>
+--header access_token: <user_access_token>
+--header **code: <your token>**
+--header **secret_key: <your zalo app secret key>**
+Mô tả các tham số cần sử dụng:
+access_token: truy xuất thông qua API sdk.getAccessToken
+code: giá trị là token bạn nhận được khi gọi API lấy vị trí trên phiên bản Zalo
+secret_key: Khoá bí mật của Zalo App, truy cập https://developers.zalo.me/, phần Quản lý ứng dụng tương ứng để truy xuất thông tin
+Ví dụ kết quả trả về:
+{
+"data": {
+"provider": "gps",
+"latitude": "10.758341",
+"longitude": "106.745863",
+"timestamp": "1666249171003"
+},
+"error": 0,
+"message": "Success"
+}
+Trước
+hideKeyboard
+Kế tiếp
+createCameraContext
+Mô tả luồng truy xuất thông tin
+Ví dụ
+Kết quả trả về
+GetLocationReturns
+Hướng dẫn chuyển đổi token thành thông tin vị trí người dùng
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

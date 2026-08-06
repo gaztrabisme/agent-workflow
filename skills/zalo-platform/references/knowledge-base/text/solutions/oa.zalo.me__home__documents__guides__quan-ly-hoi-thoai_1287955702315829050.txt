@@ -1,0 +1,63 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/quan-ly-hoi-thoai_1287955702315829050
+# FETCHED: 2026-08-06
+# TITLE: Quản lý hội thoại | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Quản lý hội thoại
+Quản lý nhãn
+Công cụ tìm kiếm
+Tin mời đánh giá phiên chăm sóc khách hàng
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Quản lý hội thoại
+Quản lý hội thoại
+On this page
+Quản lý hội thoại
+Zalo Official Account triển khai tính năng chỉ định nhân viên xử lý & đánh dấu spam khách hàng nhằm tối ưu trải nghiệm dịch vụ chăm sóc khách hàng với OA.
+Tính năng chỉ định xử lý hỗ trợ các doanh nghiệp kiểm soát và phân bổ nhân viên phụ trách cụ thể đến từng khách hàng.
+Tính năng đánh dấu spam là tính năng giúp OA phân loại các cuộc hội thoại không cần thiết và ngưng nhận thông báo tin nhắn/cuộc gọi từ phía khách hàng được OA đánh dấu spam.
+⚠ Lưu ý:
+OA admin phải có quyền Quản trị viên, Soạn nội dung, Chăm sóc khách hàng của OA mới có thể sử dụng tính năng.
+Xem thêm Hướng dẫn cách phân quyền quản lý admin OA tại đây.
+Tính năng chỉ định/bỏ chỉ định nhân viên, lọc hội thoại theo nhân viên chỉ khả dụng đối với OA đang sử dụng Gói Tiêu chuẩn/ Tăng trưởng/ Toàn diện.
+A. Hướng dẫn sử dụng tính năng Chỉ định nhân viên xử lý:​
+1. Chỉ định/ Bỏ chỉ định nhân viên:​
+Tại trang màn hình chat: OA chọn Chỉ định nhân viên xử lý để thao tác.
+Sau khi chỉ định:
+Màn hình chat sẽ hiển thị: Được chỉ định cho <Tên nhân viên> và nút chức năng Bỏ chỉ định.
+Danh sách hội thoại sẽ hiển thị Avatar của nhân viên được chỉ định trước tên khách hàng.
+2. Lọc hội thoại theo nhân viên:​
+Tại trang màn hình chat: OA chọn icon Lọc sau đó lọc theo Nhân viên để hiển thị danh sách hội thoại được chỉ định cho nhân viên.
+B. Hướng dẫn sử dụng tính năng Đánh dấu hội thoại spam​
+1. Đánh dấu/Bỏ đánh dấu Spam:​
+Tại trang màn hình chat, danh sách hội thoại: OA chọn biểu tượng bên cạnh hội thoại rồi chọn Đánh dấu spam/ Gỡ spam.
+Sau khi đánh dấu Spam:
+OA sẽ không nhận được thông báo tin nhắn/cuộc gọi từ khách hàng.
+Hội thoại với khách hàng chỉ có thể tìm thấy khi Lọc spam.
+⚠ Lưu ý:
+Khách hàng sẽ được tự động gỡ spam khi: OA chủ động nhắn tin/ gọi thoại cho khách hàng (Gửi tin Broadcast sẽ không tự động gỡ spam).
+2. Lọc hội thoại Spam:​
+Tại trang màn hình chat: OA chọn Bộ lọc tin nhắn chọn Spam để tìm thấy danh sách khách hàng được đánh dấu spam.
+------------------------------------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT ZOA để được phản hồi sớm nhất.
+Previous
+Thiết lập Mini Call Center (MCC)
+Next
+Quản lý nhãn
+A. Hướng dẫn sử dụng tính năng Chỉ định nhân viên xử lý:
+1. Chỉ định/ Bỏ chỉ định nhân viên:
+2. Lọc hội thoại theo nhân viên:
+B. Hướng dẫn sử dụng tính năng Đánh dấu hội thoại spam
+1. Đánh dấu/Bỏ đánh dấu Spam:
+2. Lọc hội thoại Spam:

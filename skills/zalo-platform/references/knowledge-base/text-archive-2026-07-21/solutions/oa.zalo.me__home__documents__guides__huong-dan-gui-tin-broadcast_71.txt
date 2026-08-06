@@ -1,0 +1,112 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/huong-dan-gui-tin-broadcast_71
+# FETCHED: 2026-07-21
+# TITLE: Tin Broadcast | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Tổng quan các loại tin nhắn trên Zalo Official Account
+Tin Tư vấn
+Tin Broadcast
+ZBS Template Message
+Câu hỏi thường gặp
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Gửi tin Broadcast
+
+Tin Broadcast là loại tin nhắn được OA sử dụng để gửi Nội dung Bài viết đến người quan tâm OA, bằng công cụ OA Manager (bản Web).
+
+⚠ Lưu ý: Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+
+1. Tạo và gửi Broadcast​
+
+Bước 1: Truy cập mục Nội dung ➞ Tạo broadcast hoặc truy cập đường dẫn https://oa.zalo.me/manage/broadcast/setup
+
+⚠ Lưu ý: Admin OA được phân quyền Quản trị viên hoặc Soạn nội dung mới có thể tạo, quản lý và gửi tin Broadcast.
+
+Bước 2: Nhấn Chọn các bài viết hoặc video muốn gửi. Có thể chọn tối đa 5 nội dung.
+
+Bước 3: Thao tác tùy chọn: Chọn đối tượng gửi và Đặt lịch
+
+Chọn đối tượng gửi: Cho phép lựa chọn đối tượng người quan tâm nhận tin.
+
+Nhãn: Lựa chọn tệp người quan tâm đã được gắn nhãn phân loại.
+
+Tùy chọn nâng cao: Lựa chọn tệp người quan tâm theo các yếu tố vị trí, độ tuổi, giới tính,…
+
+Đặt lịch: Cho phép lựa chọn thời gian cụ thể để tin được gửi đến khách hàng trong khung giờ 6:00 sáng tới 20:00 tối. Các tin Broadcast đặt lịch phải cách nhau ít nhất 30 phút.
+
+Sau khi đặt lịch gửi, người dùng có thể chỉnh sửa nội dung hoặc hủy thiết lập đặt lịch Broadcast tại mục Quản lý Broadcast.
+
+Hạn mức tiếp cận được tính bằng Số lượng người quan tâm nhân với Số lượng Broadcast khách hàng có thể nhận hằng tháng.
+
+Ví dụ: OA có 1,000 người quan tâm và đang sử dụng gói Nâng cao với hạn mức 4 Broadcast khách hàng có thể nhận/tháng, thì sẽ có tổng hạn mức tiếp cận là: 1000*4 = 4,000/tháng.
+
+Bước 4: Lưu nháp và Xem trước
+
+Lưu nháp: Chọn để lưu nháp broadcast.
+
+Xem trước: Chọn admin nhận tin Broadcast để kiểm tra nội dung trước khi gửi. Admin OA nên xem trước để đảm bảo hình ảnh và nội dung được trình bày chính xác, đầy đủ và chuyên nghiệp trước khi gửi đến người quan tâm OA.
+
+Bước 5: Nhấn nút Tiếp tục và chọn Gửi broadcast
+
+⚠ Lưu ý: Thời gian xử lý và gửi Broadcast có thể thay đổi tùy theo số lượng khách hàng mà OA tiếp cận và tải hệ thống tại thời điểm đó. Thời gian gửi mỗi tin Broadcast phải cách nhau ít nhất 30 phút.
+
+⚠ Lưu ý: Kích thước ảnh bìa của Broadcast là 16:9 và vùng hiển thị tối ưu (vị trí chứa tất cả các nội dung chữ hình ảnh) là 14:9. Quản trị viên vui lòng tham khảo kích thước quy định như hình bên dưới để tránh trường hợp ảnh bìa bị mất khi gửi tin.
+
+Sau khi gửi tin thành công, người quan tâm sẽ nhận được tin broadcast thông qua tài khoản OA của Doanh nghiệp.
+
+2. Quản lý Broadcast​
+
+Quản lý danh sách các broadcast đã tạo và trạng thái tương ứng tại mục Nội dung ➞ Quản lý broadcast hoặc truy cập đường dẫn https://oa.zalo.me/manage/broadcast/compose
+
+⚠ Lưu ý: Admin OA được phân quyền Quản trị viên hoặc Soạn nội dung mới có thể tạo, quản lý và gửi tin Broadcast.
+
+Các Broadcast được gửi thành công sẽ hiển thị trạng thái Thành công đồng thời số lượng người quan tâm đã nhận tin và đã xem tin cũng sẽ được hiển thị tại trang này.
+
+Các Broadcast chưa được gửi thành công sẽ có trạng thái là Không gửi được, hệ thống sẽ hiển thị kèm lý do theo từng trường hợp.
+
+Đối với trạng thái Nháp và Đặt lịch, anh/chị có thể điều chỉnh các thiết lập gửi broadcast theo nhu cầu.
+
+-----------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Tin Tư vấn
+Next
+ZBS Template Message
+1. Tạo và gửi Broadcast
+2. Quản lý Broadcast
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

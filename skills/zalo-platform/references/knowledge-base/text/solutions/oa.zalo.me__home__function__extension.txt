@@ -1,0 +1,64 @@
+# SOURCE: https://oa.zalo.me/home/function/extension
+# FETCHED: 2026-08-06
+# TITLE: Tính năng mở rộng | Zalo Official Account
+
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+Tính năng
+Mở rộng
+Zalo OA OpenAPI
+TÍNH NĂNG Tương tác
+Tin nhắn
+Gọi thoại
+Menu, chatbot
+Nội dung
+Quản lý nhóm
+TÍNH NĂNG Quản lý
+Quản lý vận hành
+Báo cáo thống kê
+TÍNH NĂNG Mở rộng
+Zalo OA Open API
+Tiện ích OA
+Zalo Mini App
+Zalo OA OpenAPI
+Zalo OA OpenAPI là bộ công cụ hỗ trợ vận hành tài khoản Zalo OA doanh nghiệp thông qua tích hợp Zalo OA với hệ thống nội bộ của doanh nghiệp hoặc hệ thống của bên thứ ba. OpenAPI giúp doanh nghiệp vận hành nhiều OA một cách tự động, đồng thời giúp đồng bộ thông tin và dữ liệu để doanh nghiệp chủ động lưu trữ và sử dụng.
+Các nhóm quyền của hệ thống OA OpenAPI
+Nhắn tin UID.
+Gọi thoại.
+Tạo và xuất bản Nội dung.
+Quản lý thông tin OA.
+Quản lý thông tin người dùng
+Tương ứng sẽ có các webhook giúp doanh nghiệp chủ động trong vận hành.
+Zalo OA OpenAPI phù hợp với
+Doanh nghiệp sở hữu nhiều OA (chuỗi bán lẻ, hệ thống nhà hàng,...).
+Doanh nghiệp có nhu cầu đồng bộ Zalo OA với hệ thống nội bộ (CDP, CRM, POS, ERP, Omni channel, Chat bot,...).
+Doanh nghiệp có đội ngũ kỹ thuật (developer) để chủ động thực hiện tích hợp.
+Zalo OA OpenAPI có thể được tích hợp sẵn bởi các nền tảng bên thứ ba
+Đơn vị cung cấp các nền tảng liên quan (quản lý bán hàng, call center, CDP, CRM, POS, chat bot,...).
+Đơn vị cung cấp các giải pháp, dịch vụ liên quan (thiết kế website, thiết kế ứng dụng, quảng cáo digital, SMS marketing,...).
+Tìm hiểu thêm
+Tạo Zalo Official Account và kết nối với
+người dùng Zalo ngay!
+Tạo Official Account ngay
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+Nhấn vào đây để được tư vấn
+©2024 Zalo Official Account

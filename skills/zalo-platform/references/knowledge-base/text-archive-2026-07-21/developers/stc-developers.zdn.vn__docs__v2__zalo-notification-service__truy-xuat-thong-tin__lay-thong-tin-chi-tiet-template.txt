@@ -1,0 +1,166 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/truy-xuat-thong-tin/lay-thong-tin-chi-tiet-template
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin chi tiết template ZNS | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Lấy thông tin trạng thái ZNS
+Lấy thông tin quota ZNS
+Lấy thông tin loại nội dung ZNS được phép gửi
+Lấy danh sách template
+Lấy thông tin chi tiết template ZNS
+Lấy dữ liệu mẫu của template
+Lấy thông tin đánh giá của khách hàng
+Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Truy xuất thông tinLấy thông tin chi tiết template ZNS
+Lấy thông tin chi tiết template ZNS
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+HTTP request​
+URL: https://business.openapi.zalo.me/template/info/v2
+Method: GET
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json"
+"https://business.openapi.zalo.me/template/info/v2?template_id=12345"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+template_id	string	yes	ID của template cần lấy thông tin.
+Example respond​
+{
+    "error": 0,
+    "message": "Success",
+    "data": {
+        "templateId": "12345",
+        "templateName": "Test tạo mẫu tin từ trang admin - dạng bảng",
+        "status": "ENABLE",
+        "listParams": [
+            {
+                "name": "payment_link",
+                "require": true,
+                "type": "STRING",
+                "maxLength": 30,
+                "minLength": 0,
+                "acceptNull": false
+            }
+        ],
+        "listButtons": [
+            {
+                "type": 1,
+                "title": "Truy cập website",
+                "content": "https://zalo.cloud/zns"
+            },
+            {
+                "type": 2,
+                "title": "Gọi CSKH",
+                "content": "0858808xxxx"
+            }
+        ],
+        "timeout": 7200000,
+        "previewUrl": "https://account.zalo.cloud/znspreview/c1t6Wk43sxXTiLPyC__hXQ==",
+        "templateQuality": "HIGH",
+        "templateTag": "IN_TRANSACTION",
+        "price_sdt": "800",
+        "price_uid": "560",
+        "price": "800"
+    }
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+templateId	String	ID của template.
+templateName	string	Tên của template.
+status	string	Trạng thái template.
+Các trạng thái bao gồm:
+ENABLE: Trạng thái template được kích hoạt, có thể sử dụng để gửi thông báo ZNS
+PENDING_REVIEW: Trạng thái template chờ kiểm duyệt
+DELETE: Trạng thái template bịxóa
+REJECT: Trạng thái template bị từ chối
+DISABLE: Trạng thái template bị hủy kích hoạt
+
+reason	string	Lý do template có trạng thái hiện tại
+Status	Chi tiết lý do của trạng thái hiện tại
+DISABLE	** Chi tiết lý do khi template ở trạng thái Disable hoặc Reject
+REJECT
+ENABLE	Template đã được duyệt
+DELETE	Template đã bị xóa
+PENDING_REVIEW	Template đang được kiểm duyệt
+
+listParams	object array	Danh sách các thuộc tính của template.
+listButtons	object array	Danh sách các buttons/CTAs của template
+Chỉ áp dụng với 2 loại CTA: primary và secondary. Không hiển thị các CTA từ image module và response button.
+timeout	long	Thời gian timeout của template.
+previewUrl	string	Đường dẫn đến bản xem trước của template.
+templateQuality	string	Trả về giá trị “Null” cho trường thông tinnày (Dự kiến từ 10/12)
+templateTag	string	Loại nội dung của template. Các giá trị trả về:
+TRANSACTION: Giao dịch
+CUSTOMER_CARE: Chăm sóc khách hàng
+PROMOTION: Hậu mãi
+
+price_sdt	string	Đơn giá gửi tin qua SĐT.
+price_uid	string	Đơn giá gửi tin qua UID.
+price	string	[DEPRECATED] Đơn giá gửi tin qua SĐT.
+Cấu trúc thuộc tính data.listParams​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+name	string	Tên thuộc tính.
+require	boolean	Tính bắt buộc của thuộc tính.
+type	string	Định dạng validate của thuộc tính.
+maxLength	int	Số kí tự tối đa được truyền vào thuộc tính.
+minLength	int	Số kí tự tối thiểu được truyền vào thuộc tính.
+acceptNull	boolean	Thông tin cho biết thuộc tính có thể nhận giá trị rỗng hay không.
+Cấu trúc thuộc tính data.listButtons​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+type	integer	Button type. Danh sách button:
+value	Loại Button
+1	Đến trang của doanh nghiệp hoặc trang tra cứu hoá đơn điện tử
+2	Gọi điện
+3	Đến trang thông tin OA
+4	Đến ứng dụng Zalo Mini App của doanh nghiệp
+5	Đến trang tải ứng dụng
+6	Đến trang phân phối sản phẩm
+7	Đến trang web/Zalo Mini App khác
+8	Đến ứng dụng khác
+9	Đến bài viết của OA
+10	Sao chép
+11	Thanh toán ngay
+12	Xem chi tiết
+
+title	string	Nội dung Button
+content	string	Đường dẫn liên kết/số điện thoại
+Trước
+Lấy danh sách template
+Kế tiếp
+Lấy dữ liệu mẫu của template
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính data.listParams
+Cấu trúc thuộc tính data.listButtons
+©2023 Zalo for Developers

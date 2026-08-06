@@ -1,0 +1,356 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-thong-tin-nguoi-dung/cap-nhat-thong-tin-tuy-bien-nguoi-dung
+# FETCHED: 2026-07-21
+# TITLE: Cập nhật thông tin tùy biến của người dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Gắn nhãn người dùng
+Gỡ nhãn người dùng
+Lấy danh sách nhãn
+Xóa nhãn
+Truy xuất danh sách người dùng
+Truy xuất chi tiết người dùng
+Cập nhật chi tiết người dùng
+Xóa thông tin người dùng
+Truy xuất thông tin tùy biến của người dùng
+Cập nhật thông tin tùy biến của người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý thông tin người dùngCập nhật thông tin tùy biến của người dùng
+Cập nhật thông tin tùy biến của người dùng
+LƯU Ý
+
+Ứng dụng cần được OA cấp quyền "Cập nhật thông tin tùy biến của người dùng" thuộc nhóm quyền "Quản lý thông tin tùy biến của người dùng" để sử dụng API này.
+
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/user/update/custominfo
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl --location --request POST 'https://openapi.zalo.me/v3.0/oa/user/update/custominfo' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "user_id": "4572947693969771653",
+    "name": "Name Example",
+    "phone": "84912345678",
+    "user_dob": "30/10/1999",
+    "gender": "Nam",
+    "full_address": {
+        "user_city_id": "79",
+        "user_ward_id": "27343",
+        "user_address": "123 Trần Hưng Đạo"
+    },
+    "user_external_id": "Id của người dùng trong hệ thống của Doanh nghiệp",
+    "custom_info":
+    {
+        "isActiveUser_boolean": "true",
+        "loyaltyPoints_number": "2500",
+        "lastPurchaseAmount_number": "1500000.50",
+        "userSegment_text": "VIPRO",
+        "lastInteractionNote_text": "Customer inquired about new product line",
+        "accountStatus_text": "active",
+        "userId_text": "USER12345",
+        "registrationDate_datetime": "31/07/2023 10:15:59",
+        "orderInfo_table":
+        {
+            "orderId": "ORD123456789",
+            "amount": "100000",
+            "orderDate": "05/07/2023 10:15:59",
+            "status": "completed",
+            "isPaid": "true"
+        },
+        "userEmail_email": "user@example.com",
+        "phoneNumber_phone": "84912345678",
+        "websiteUrl_url": "https://www.example.com"
+    }
+}
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+ID của người dùng cần thay đổi thông tin.
+
+
+
+
+name
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Tên người dùng cần cập nhật.
+
+
+
+
+phone
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Số điện thoại người dùng cần cập nhật.
+
+
+
+
+user_dob
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Ngày sinh cần cập nhật.
+
+Theo định dạng định dạng dd/MM/yyyy. Hiện tại chỉ hỗ trợ nhập các giá trị từ 1/1/1970.
+
+
+
+
+gender
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Giới tính người dùng cần cập nhật. Chỉ chấp nhận các giá trị:
+
+Nam
+Nữ
+Khác
+
+
+
+full_address
+
+	
+
+json
+
+	
+
+no
+
+	
+
+Nhóm thông tin địa chỉ theo cấu trúc địa chính mới
+
+{
+  "full_address": {
+    "user_city_id": "79",
+    "user_ward_id": "27343",
+    "user_address": "123 Trần Hưng Đạo"
+  }
+}
+
+
+Trong đó:
+
+user_city_id và user_ward_id là mã số Tỉnh/Thành - Phường/Xã theo Mã số các đơn vị hành chính Việt Nam
+user_address là địa chỉ chi tiết của người dùng (Số nhà, tên đường, thôn/ấp/khu,...)
+
+
+
+user_external_id
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Mã liên kết do OA tùy biến. Mỗi mã chỉ được gắn cho 1 khách hàng.
+
+
+
+
+custom_info
+
+	
+
+json
+
+	
+
+no
+
+	
+
+Nhóm thông tin tùy biến cần cập nhật
+
+Cấu trúc và kiểu dữ liệu phụ thuộc vào thiết lập của OA tại trang quản lý trường thông tin người dùng.
+
+Các loại dữ liệu được hỗ trợ:
+
+1. Boolean:
+- Cho phép nhận giá trị true/false hoặc "true"/"false"
+- Ví dụ: "isActiveUser": true hoặc "isActiveUser": "true"
+
+
+2. Number:
+- Cho phép nhận giá trị số hoặc string
+- Ví dụ: "loyaltyPoints": 2500 hoặc "loyaltyPoints": "2500"
+- Ví dụ: "lastPurchaseAmount": 1500000.50 hoặc "lastPurchaseAmount": "1500000.50"
+
+
+3. Phone:
+- Cho phép nhận giá trị số hoặc string
+- Format: countrycode + số điện thoại
+- Ví dụ hợp lệ: "phoneNumber": "84912345678"
+
+
+4. URL:
+- Bắt buộc bắt đầu bằng http:// hoặc https://
+- Ví dụ hợp lệ:
++ "websiteUrl": "https://example.com"
++ "websiteUrl": "http://example.com"
+
+
+5. Datetime:
+
+Cách 1: Theo định dạng hiển thị đã khai báo
+
+Giá trị DATE nhập vào bắt buộc phải đúng với định dạng hiển thị đã được thiết lập
+
+
+Ví dụ 1: OA đang thiết lập định dạng dd/MM/yyyy HH:mm:ss
+Chấp nhận các giá trị:
++ 31/12/2099
++ 31/12/2099 13:21
++ 31/12/2099 13:59:23
+
+
+Không chấp nhận các giá trị:
++ 2099-12-31
+
+
+Note:
++ Nếu TIME không có thì TIME mặc định là 00:00:00
++ Nếu TIME không có giây, thì giây mặc định là 00 (VD: 23:59 → 23:59:00)
++ Nếu không có TIMEZONE, mặc định là UTC+7 (giờ Việt Nam)
+
+
+Ví dụ 2: OA đang thiết lập định dạng dd/MM/yyyy
+Chấp nhận giá trị:
++ 31/12/2099
++ 31/12/2099 10:10:10
++ 31/12/2099 10:10
+
+
+Không chấp nhận các giá trị:
++ 2099-12-31
+
+
+
+Cách 2: Theo timestamp
+
++ Định dạng: Số nguyên
++ Đơn vị: giây
+Example respond​
+{
+  "error": 0,
+  "message": "Success"
+}
+
+Trước
+Truy xuất thông tin tùy biến của người dùng
+Kế tiếp
+Lấy danh sách trường thông tin
+HTTP request
+Example request
+Cấu trúc body của request
+Example respond
+©2023 Zalo for Developers

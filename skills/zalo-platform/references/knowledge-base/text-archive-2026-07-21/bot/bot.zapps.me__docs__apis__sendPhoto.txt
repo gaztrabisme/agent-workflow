@@ -1,0 +1,82 @@
+# SOURCE: https://bot.zapps.me/docs/apis/sendPhoto/
+# FETCHED: 2026-07-21
+# TITLE: sendPhoto | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Bắt đầu
+Tài liệu
+Giá gói
+Giải pháp
+FAQ
+⌘
+K
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+sendPhoto
+Trước
+Kế tiếp
+Cập nhật lần cuối: 10/12/2025
+
+API cho phép Bot của bạn gửi tin nhắn hình ảnh đến người dùng hoặc các cuộc trò chuyện.
+
+URL: https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/sendPhoto
+Method: POST
+Response Type: application/json
+Sample code​
+Nodejs
+cURL
+const axios = require("axios");
+
+const entrypoint = `https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/sendPhoto`;
+const response = await axios.post(entrypoint, {
+  chat_id: "abc.xyz",
+  caption: "My photo",
+  photo: "https://placehold.co/600x400"
+});
+
+Parameters​
+Trường	Kiểu dữ liệu	Bắt buộc	Mô tả
+chat_id	String	true	ID của người nhận hoặc cuộc trò chuyện
+photo	String	true	Đường dẫn hình ảnh sẽ được gửi
+caption	String	false	Nội dung văn bản của tin nhắn sẽ được gửi kèm, với độ dài từ 1 đến 2000 ký tự
+Sample response​
+{
+  "ok": true,
+  "result": {
+    "message_id": "82599fa32f56d00e8941",
+    "date": 1749632637199
+  }
+}
+
+Trước
+Kế tiếp
+EN
+
+Zalo Bot Platform
+
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+
+Công Ty TNHH Zalo Platforms
+
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+
+© 2025 Zalo Platforms. All Rights Reserved.

@@ -1,0 +1,136 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/extension-zone/admin-profile-config-action
+# FETCHED: 2026-07-21
+# TITLE: admin-profile-config-action | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuExtension zoneadmin-profile-config-action
+admin-profile-config-action
+Tổng quan​
+
+Zone admin-profile-config-action cho phép OA Admin chọn và cấu hình các tiện ích hiển thị trên trang hồ sơ OA. Thích hợp cho việc:
+
+Quản lý và cấu hình các tiện ích hiển thị trên trang hồ sơ OA.
+Lựa chọn Extension để xuất hiện trên OA Profile.
+THÔNG TIN:
+Zone này chỉ hiển thị trong giao diện quản lý của OA Admin.
+OA Admin chỉ có thể chọn 1 Extension để xuất hiện trên OA Profile.
+Các Extension đã cài đặt sẽ được hiển thị trong dropdown của Section "Tiện ích".
+Cấu hình​
+app-config.json​
+{
+  "zones": {
+    "admin-profile-config-action": {
+      "roles": ["MANAGER"]
+    }
+  }
+}
+
+zoaSDK.getSessionInfo(data)​
+
+Các thông tin được cung cấp:
+
+admin_id: ID của admin đang đăng nhập
+oaid: ID của Official Account
+Chi tiết hiển thị​
+Vị trí: Thiết lập Trang thông tin OA (oa.zalo.me/manage/profile-setting)
+Hiển thị: Extension đã cài đặt sẽ được hiển thị tại dropdown của Section "Tiện ích"
+Hình ảnh minh họa​
+
+Cơ chế Action ở "Thiết lập Trang thông tin"
+
+Hướng dẫn sử dụng​
+Truy cập vào trang Thiết lập Trang thông tin OA (oa.zalo.me/manage/profile-setting).
+Tìm đến Section "Tiện ích" trong giao diện.
+Sử dụng dropdown để chọn Extension mong muốn hiển thị trên OA Profile.
+Lưu các thay đổi sau khi đã chọn Extension.
+Ứng dụng​
+
+Quản lý tiện ích hiển thị:
+
+OA Admin có thể dễ dàng chọn và thay đổi tiện ích hiển thị trên trang hồ sơ OA.
+Tùy chỉnh trải nghiệm người dùng bằng cách chọn tiện ích phù hợp nhất với chiến lược marketing hiện tại.
+
+Tối ưu hóa tương tác người dùng:
+
+Chọn các Extension phù hợp để tăng cường tương tác và thu hút người dùng.
+Thử nghiệm các tiện ích khác nhau để xác định loại nào hiệu quả nhất đối với đối tượng mục tiêu.
+
+Tích hợp các chiến dịch marketing:
+
+Dễ dàng thay đổi tiện ích hiển thị để phù hợp với các chiến dịch marketing theo mùa hoặc sự kiện đặc biệt.
+Nhanh chóng triển khai các chương trình khuyến mãi hoặc mini-game mới thông qua việc chọn Extension phù hợp.
+
+Phân tích hiệu quả:
+
+Theo dõi hiệu quả của các Extension khác nhau thông qua việc thay đổi và quan sát tương tác của người dùng.
+Sử dụng thông tin này để tối ưu hóa chiến lược nội dung và tương tác trên trang hồ sơ OA.
+Lưu ý​
+OA Chỉ có thể chọn một Extension để hiển thị tại một thời điểm.
+Đảm bảo rằng Extension được chọn phù hợp với mục tiêu marketing và trải nghiệm người dùng mong muốn.
+
+Cập nhật lần cuối: 2024-08-21
+
+Trước
+user-profile-config-block
+Kế tiếp
+admin-chat-message-profile-block
+Tổng quan
+Cấu hình
+app-config.json
+zoaSDK.getSessionInfo(data)
+Chi tiết hiển thị
+Hình ảnh minh họa
+Hướng dẫn sử dụng
+Ứng dụng
+Lưu ý
+©2023 Zalo for Developers

@@ -1,0 +1,400 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/quan-ly-template/template-api/api-tao-template
+# FETCHED: 2026-07-21
+# TITLE: API Tạo Template | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Quản lý TemplateTemplate APIAPI Tạo Template
+API Tạo Template
+
+Template cần được khởi tạo và kiểm duyệt bởi đội ngũ Zalo trước khi có thể sử dụng để gửi tin đến người dùng Zalo.
+
+Doanh nghiệp muốn gửi tin qua SĐT, cần tạo template theo một trong hai phương thức: API tạo template hoặc công cụ tạo template trên ZBS Account (Chi tiết xem tại đây). API tạo template phù hợp với các Agency hoặc doanh nghiệp có nhu cầu gửi tin đa dạng, cần khởi tạo số lượng template lớn và tích hợp vào các hệ thống của doanh nghiệp.
+
+Sau khi gửi request tạo template thành công, đội ngũ Zalo sẽ kiểm duyệt. Sau khi kiểm duyệt xong, một event webhook thay đổi trạng thái template sẽ được gửi về webhook URL đã được thiết lập trước đó của doanh nghiệp. Trạng thái của template sẽ thay đổi từ PENDING_REVIEW sang REJECT nếu bị Zalo từ chối hoặc chuyển sang ENABLE nếu được duyệt.
+
+THÔNG BÁO
+
+API này đang được đánh giá lại và có thể có điều chỉnh trong thời gian sắp tới.
+
+→ Khuyến nghị: Ưu tiên tạo và chỉnh sửa Template qua giao diện ZBS Account.
+
+LƯU Ý
+
+Quyền cần có: Quản lý Message Template
+
+Prequisite​
+Mã truy cập (Access Token) được doanh nghiệp (OA) ủy quyền cho App. Lưu ý: Template khởi tạo sẽ thuộc sở hữu của OA.
+Quyền cần có để sử dụng API: Quản lý tài sản.
+Giới hạn​
+Daily quota của API tạo template: 100 requests/ngày
+Các mẫu tin được phép khởi tạo bao gồm:
+Template Xác thực
+Template Tùy chỉnh
+Template yêu cầu thanh toán
+Template voucher
+Template đánh giá dịch vụ
+
+Mỗi loại mẫu tin sẽ có các quy định cần phải tuân theo khác nhau về các trường thông tin.
+
+HTTP request​
+URL: https://business.openapi.zalo.me/template/create
+Method: POST
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl --location 'https://business.openapi.zalo.me/template/create' \
+--header 'Content-Type: application/json' \
+--header 'access_token: your_access_token' \
+--data '{
+    "template_name": "mẫu chăm sóc khách hàng",
+    "template_type": "1",
+    "tag": "1",
+    "layout": {
+        "header": {
+            "components": [
+                {
+                    "IMAGES": {
+                        "items": [
+                            {
+                                "type": "IMAGE",
+                                "media_id": "1ashjkdbkj"
+                            },
+                            {
+                                "type": "IMAGE",
+                                "media_id": "1ashjkdbkj"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "LOGO": {
+                        "light": {
+                            "type": "IMAGE",
+                            "media_id": "1ashjkdbkj"
+                        },
+                        "dark": {
+                            "type": "IMAGE",
+                            "media_id": "1ashjkdbkj"
+                        }
+                    }
+                }
+            ]
+        },
+        "body": {
+            "components": [
+                {
+                    "TITLE": {
+                        "value": "Xác nhận đơn hàng"
+                    }
+                },
+                {
+                    "PARAGRAPH": {
+                        "value": "Cảm ơn <name> đã mua hàng tại cửa hàng. Đơn hàng của bạn đã được xác nhận với chi tiết như sau:"
+                    }
+                },
+                {
+                    "OTP": {
+                        "value": "<otp>"
+                    }
+                },
+                {
+                    "TABLE": {
+                        "rows": [
+                            {
+                                "value": "<order_code>",
+                                "title": "Mã đơn",
+                                "row_type": 1
+                            },
+                            {
+                                "value": "<phone_number>",
+                                "title": "Điện thoại"
+                            },
+                            {
+                                "value": "<price>",
+                                "title": "Giá tiền"
+                            },
+                            {
+                                "value": "<status>",
+                                "title": "Trạng thái"
+                            },
+                            {
+                                "value": "<date>",
+                                "title": "Ngày đặt hàng"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "VOUCHER": {
+                        "name": "Giảm 70.000đ",
+                        "condition": "Cho đơn hàng trên 200K",
+                        "voucher_code": "<voucher_code>",
+                        "start_date": "<start_date>", 
+            "end_date": "<end_date>"
+                    }
+                },
+                {
+                    "PAYMENT": {
+                        "bank_code": "970416",
+                        "account_name": "CÔNG TY OA NAME",
+                        "account_number": "0123456789",
+                        "amount": "1000000",
+                        "note": "sample note"
+                    }
+                }
+            ]
+        },
+        "footer": {
+            "components": [
+                {
+                    "BUTTONS": {
+                        "items": [
+                            {
+                                "content": "https://zalo.solutions/",
+                                "type": 1,
+                                "title": "Xem đơn hàng đã đặt"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "params": [
+        {
+            "type": "1",
+            "name": "name",
+            "sample_value": "nguyen van A"
+        },
+        {
+            "type": "11",
+            "name": "order_code",
+            "sample_value": "ABC123"
+        },
+        {
+            "type": "15",
+            "name": "phone_number",
+            "sample_value": "0123456789"
+        },
+        {
+            "type": "18",
+            "name": "price",
+            "sample_value": "100000"
+        },
+        {
+            "type": "14",
+            "name": "status",
+            "sample_value": "DONE"
+        },
+        {
+            "type": "19",
+            "name": "date",
+            "sample_value": "19/01/1999"
+        }
+    ],
+    "note": "ghi chú kiểm duyệt",
+    "tracking_id": "abc123"
+}'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số body của request​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+template_name	string	yes	
+Tên mẫu tin
+Tối thiểu 10 ký tự, tối đa 60 ký tự
+
+template_type	integer	yes	
+Loại mẫu tin. Mỗi template_type sẽ quy định tag và các components được chọn.
+Cần truyền vào giá trị value cho trường thông tin template_type
+Danh sách template_type
+Value	Loại mẫu tin
+1	Template tùy chỉnh
+2	Template xác thực
+3	Template yêu cầu thanh toán
+4	Template voucher
+5	Template đánh giá dịch vụ
+
+tag	string	yes	
+Tag mẫu tin
+Cần truyền vào giá trị value cho trường thông tin tag
+Value	Tag name
+1	Transaction
+2	Customer care
+3	Promotion
+Note: Để tạo được template tag 3, OA cần có quyền gửi template tag 3. Chi tiết cơ chế quyền gửi template tag 3, xem thêm tại đây
+Với template_type được chọn, tag cần có giá trị tương ứng cho phép:
+template_type	tag
+1 - Template tùy chỉnh	1,2,3
+2 - Template xác thực	1
+3 - Template yêu cầu thanh toán	1,3
+4 - Template voucher	1,2,3
+5 - Template đánh giá dịch vụ	2
+
+layout	JSON Array	yes	
+Gồm 3 thành phần: header, body và footer. Trong mỗi thành phần sẽ có các components khác nhau. Tùy thuộc vào template_type và tag đã chọn, sẽ có các quy định khác nhau với từng loại components ở các thành phần. Chi tiết về các loại components, xem tại mục Template components
+Quy định về số lượng và thứ tự các components theo từng loại template_type
+Template tùy chỉnh
+Template xác thực
+Template yêu cầu thanh toán
+Template voucher
+Template đánh giá dịch vụ
+thành phần	Component	Mô tả
+header	Logo
+Min: 1
+Max: 1
+Image
+Min: 1
+Max: 1
+	Chỉ chứa 1 trong 2, Logo hoặc Image.
+body	Tiêu đề
+Min: 1
+Max: 1
+	
+Paragraph
+Min: 0
+Max: 4
+Table
+Min: 0
+Max: 1
+	Có thể bao gồm cả 2 components, Paragraph và Table.
+
+Các components Table và Paragraph có thể thay đổi vị trí.
+Voucher
+Min: 1
+Max: 1
+	
+footer	Button
+Min: 1
+Max: 3
+	
+
+Mặc định Button 1: Xem chi tiết (Mã ưu đãi).
+
+Nếu Template chứa component Images, thì cần bổ sung thêm ít nhất 1 button.
+
+Link Image là link của Button đầu tiên của template, không bao gồm button mặc định - Xem chi tiết (Mã ưu đãi).
+
+
+params	JSON Array	No	
+Thông tin về param. Khi khai báo bất kỳ param nào trong field layout, cần khai báo param tại đây.
+Mỗi Object đại diện cho thông tin của 1 param, bao gồm các fields sau:
+Field	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+name	string	yes	Tên của param
+type	string	yes	Loại param. Xem danh sách param type bên dưới.
+sample_value	string	yes	Dữ liệu mẫu của param, phục vụ cho mục đích kiểm duyệt. Độ dài phụ thuộc vào type.
+Danh sách param type
+value	Param type
+1	Tên khách hàng (30)
+2	Số điện thoại (15)
+3	Địa chỉ (200)
+4	Mã số (30)
+5	Nhãn tùy chỉnh (30)
+6	Trạng thái giao dịch (30)
+7	Thông tin liên hệ (50)
+8	Giới tính / Danh xưng (5)
+9	Tên sản phẩm / Thương hiệu (200)
+10	Số lượng / Số tiền (20)
+11	Thời gian (20)
+12	OTP (10)
+13	URL (200)
+14	Tiền tệ (VNĐ) (12)
+15	Bank transfer note (90)
+
+note	string	no	
+Ghi chú kiểm duyệt
+Tối thiếu 1 ký tự, tối đa 400 ký tự
+
+tracking_id	string	yes	
+Mã tracking, do đối tác tự định nghĩa
+response​
+{
+    "error": 0,
+    "message": "Success",
+    "data": {
+        "template_id": "31239",
+        "template_name": "Xác nhận giao dịch",
+        "template_type": 1,
+        "status": "PENDING_REVIEW",
+        "tag": 1,
+        "app_id": "21391239109232390",
+        "oa_id": "19319231302193091",
+        "price_sdt": "200",
+        "price_uid":  "140",
+        "price": "200",
+        "timeout": 7200000,
+        "preview_url": "https://account.zalo.solutions/znspreview/c1t6Wk43sxXTiLPyC__hXQ=="
+    }
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+template_id	string	Template ID
+template_name	string	Tên của template
+template_type	string	Loại template. Bao gồm 1 trong các giá trị:
+1: Template tùy chỉnh
+2: Template xác thực
+3: Template yêu cầu thanh toán
+4: Template voucher
+5: Template đánh giá dịch vụ
+
+status	string	Trạng thái của template sau khi submit: PENDING_REVIEW
+tag	string	Template tag. Bao gồm 1 trong các giá trị:
+1: TRANSACTION
+2: CUSTOMER CARE
+3: PROMOTION
+
+app_id	string	App ID của template
+oa_id	string	OA ID của template
+price_sdt	string	Đơn giá gửi tin qua SĐT.
+price_uid	string	Đơn giá gửi tin qua UID.
+price	string	[DEPRECATED] Đơn giá gửi tin qua SĐT. Trường price đã được thay thế bằng price_sdt và price_uid. Trường này sẽ bị loại bỏ trong các bản cập nhật tiếp theo.
+timeout	long	Timeout của template
+preview_url	string	Link preview template
+Trước
+API Lấy thông tin đánh giá của khách hàng
+Kế tiếp
+API Chỉnh sửa Template
+Prequisite
+Giới hạn
+HTTP request
+Example request
+Tham số header
+Tham số body của request
+response
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

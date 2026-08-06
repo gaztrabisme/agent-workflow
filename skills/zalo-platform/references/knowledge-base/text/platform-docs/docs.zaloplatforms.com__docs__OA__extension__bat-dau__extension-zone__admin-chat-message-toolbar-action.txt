@@ -1,0 +1,123 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/extension/bat-dau/extension-zone/admin-chat-message-toolbar-action
+# FETCHED: 2026-08-06
+# TITLE: admin-chat-message-toolbar-action | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk tích hợp sẵn trong zoa-cli
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+admin-chat-message-toolbar-action
+Tổng quan​
+Zone admin-chat-message-toolbar-action là một công cụ linh hoạt và mạnh mẽ cho phép tùy chỉnh thanh công cụ trong giao diện chat của admin, nâng cao hiệu suất làm việc và cải thiện trải nghiệm quản lý. Zone này cho phép thêm các hành động tùy chỉnh vào thanh công cụ, mở rộng khả năng tương tác và xử lý thông tin của admin. Các tính năng có thể bao gồm:
+Truy cập nhanh đến các công cụ bổ sung và tài nguyên quan trọng.
+Tạo các shortcut để gửi các mẫu tin nhắn hoặc thông tin được định sẵn.
+Kích hoạt các workflow tự động hóa phức tạp.
+Tích hợp với các hệ thống bên ngoài để xử lý dữ liệu và thông tin.
+Zone này đóng vai trò quan trọng trong việc tối ưu hóa quy trình làm việc của admin, giúp họ phản hồi nhanh chóng và chính xác hơn trong các tương tác với khách hàng.
+Thông tin:
+Zone chỉ hiển thị trong giao diện chat của admin.
+Các hành động có thể được tùy chỉnh theo nhu cầu cụ thể của OA và vai trò của admin.
+Cấu hình​
+app-config.json​
+{
+"zones": {
+"admin-chat-message-toolbar-action": {
+"roles": ["admin", "agent"]
+}
+}
+}
+zoaSDK.getSessionInfo(data)​
+Các thông tin được cung cấp:
+oaid: ID của Official Account
+admin_id: ID của admin đang đăng nhập
+user_id: ID của người dùng trong cuộc trò chuyện hiện tại
+Chi tiết hiển thị​
+Vị trí: Thanh công cụ trong trang chat (oa.zalo.me/chatv2)
+Kích thước: Tùy thuộc vào số lượng và kích thước của các hành động được thêm vào
+Hình ảnh minh họa​
+Hướng dẫn sử dụng​
+Thiết kế các hành động phù hợp với nhu cầu quản lý và tương tác của admin.
+Sử dụng thông tin từ zoaSDK.getSessionInfo(data) để xác định quyền truy cập và tùy chỉnh hành động.
+Tạo các biểu tượng và nhãn rõ ràng cho mỗi hành động để dễ sử dụng.
+Đảm bảo các hành động được thêm vào không gây rối cho giao diện người dùng hiện có.
+Ứng dụng​
+Gửi nhanh mẫu tin nhắn:
+Tạo các nút để gửi nhanh các mẫu tin nhắn được định sẵn như chào hỏi, cảm ơn, hoặc hướng dẫn.
+Cho phép admin tùy chỉnh và lưu các mẫu tin nhắn cá nhân.
+Tích hợp hệ thống quản lý đơn hàng:
+Thêm nút để nhanh chóng kiểm tra trạng thái đơn hàng của khách hàng.
+Tạo hành động để cập nhật trạng thái đơn hàng trực tiếp từ giao diện chat.
+Công cụ phân tích nhanh:
+Tạo nút để hiển thị dashboard mini với các chỉ số quan trọng của cuộc hội thoại hiện tại.
+Thêm tùy chọn để xuất nhanh báo cáo phân tích cuộc hội thoại.
+Tích hợp công cụ quản lý nội dung:
+Thêm nút để truy cập nhanh vào kho lưu trữ hình ảnh, video, hoặc tài liệu.
+Tạo shortcut để chèn nhanh các nội dung marketing hoặc thông tin sản phẩm vào cuộc hội thoại.
+Kích hoạt workflow tự động:
+Tạo nút để kích hoạt các quy trình tự động như gửi email xác nhận, tạo ticket hỗ trợ, hoặc lên lịch cuộc gọi follow-up.
+Thêm tùy chọn để áp dụng các kịch bản xử lý tự động dựa trên nội dung cuộc hội thoại.
+Cập nhật lần cuối: 2024-08-19
+Trước
+admin-chat-message-profile-block
+Kế tiếp
+admin-dashboard-primary-area-block
+Tổng quan
+Cấu hình
+app-config.json
+zoaSDK.getSessionInfo(data)
+Chi tiết hiển thị
+Hình ảnh minh họa
+Hướng dẫn sử dụng
+Ứng dụng
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

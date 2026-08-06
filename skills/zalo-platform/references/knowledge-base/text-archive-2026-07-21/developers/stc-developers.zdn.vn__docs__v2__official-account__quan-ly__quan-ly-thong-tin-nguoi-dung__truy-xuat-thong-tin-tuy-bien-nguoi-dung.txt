@@ -1,0 +1,332 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-thong-tin-nguoi-dung/truy-xuat-thong-tin-tuy-bien-nguoi-dung
+# FETCHED: 2026-07-21
+# TITLE: Truy xuất thông tin tùy biến của người dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Gắn nhãn người dùng
+Gỡ nhãn người dùng
+Lấy danh sách nhãn
+Xóa nhãn
+Truy xuất danh sách người dùng
+Truy xuất chi tiết người dùng
+Cập nhật chi tiết người dùng
+Xóa thông tin người dùng
+Truy xuất thông tin tùy biến của người dùng
+Cập nhật thông tin tùy biến của người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý thông tin người dùngTruy xuất thông tin tùy biến của người dùng
+Truy xuất thông tin tùy biến của người dùng
+LƯU Ý
+Tất cả các giá trị trong response.data.custom_info đều được trả về dưới dạng string để đảm bảo tính nhất quán của API.
+Ứng dụng cần được OA cấp quyền "Lấy thông tin tùy biến của người dùng" thuộc nhóm quyền "Quản lý thông tin tùy biến của người dùng" để sử dụng API này.
+HTTP request​
+URL :https://openapi.zalo.me/v3.0/oa/user/detail/custominfo
+Method: GET
+Response Type:text/json
+Example request​
+curl --location --globoff 
+--request GET 'https://openapi.zalo.me/v3.0/oa/user/detail/custominfo?data={ "user_id": "4572947693969771653", "fields_to_export": ["first_name", "email"]}' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json'
+
+Cấu trúc tham số data​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+ID của người cần lấy thông tin
+
+
+
+
+fields_to_export
+
+	
+
+array
+
+	
+
+no
+
+	
+
+Danh sách các trường thông tin tùy biến cần truy xuất.
+
+Nếu không được chỉ định, API sẽ trả về tất cả các thông tin tùy biến có sẵn.
+
+Đối với field có data_type là table thì chỉ chấp nhận field cha và data trả về sẽ bao gồm tất cả field con tương ứng.
+
+Example response​
+{
+  "data": {
+    "user_id": "4572947693969771653",
+    "name": "Name Example",
+    "phone": "84914254818",
+    "user_dob": "30/10/1999",
+    "gender": "Nam",
+    "full_address": {
+      "user_city": "Thành phố Hồ Chí Minh",
+      "user_ward": "Phường Phú Thạnh",
+      "user_address": "123 Trần Hưng Đạo"
+    },
+    "user_external_id": "Id của người dùng trong hệ thống của Doanh nghiệp",
+    "dynamic_param": "value",
+    "custom_info": {
+      "isActiveUser_boolean": "true",
+      "loyaltyPoints_number": "2500",
+      "lastPurchaseAmount_number": "1500000.50",
+      "userSegment_text": "VIPRO",
+      "lastInteractionNote_text": "Customer inquired about new product line",
+      "accountStatus_text": "active",
+      "userId_text": "USER12345",
+      "registrationDate_datetime": "31/07/2023 10:15:59",
+      "orderInfo_table": {
+        "orderId": "ORD123456789",
+        "amount": "100000",
+        "orderDate": "05/07/2023 10:15:59",
+        "status": "completed",
+        "isPaid": "true"
+      },
+      "userEmail_email": "user@example.com",
+      "phoneNumber_phone": "84912345678",
+      "websiteUrl_url": "https://www.example.com"
+    }
+  },
+  "error": "0",
+  "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+string
+
+	
+
+ID của người dùng.
+
+
+
+
+name
+
+	
+
+string
+
+	
+
+Tên người dùng. Được người dùng chia sẻ qua biểu mẫu hoặc được OA truyền vào.
+
+Nếu không có thông tin, data sẽ trả về giá trị rỗng.
+
+
+
+
+phone
+
+	
+
+string
+
+	
+
+Số điện thoại của người dùng. Được người dùng chia sẻ qua biểu mẫu hoặc được OA truyền vào.
+
+Nếu không có thông tin, data sẽ trả về giá trị rỗng.
+
+
+
+
+user_dob
+
+	
+
+string
+
+	
+
+Ngày sinh của người dùng. Được người dùng chia sẻ qua biểu mẫu hoặc được OA truyền vào.
+
+Định dạng dd/MM/yyyy
+
+
+
+
+gender
+
+	
+
+string
+
+	
+
+Giới tính của người dùng. Được người dùng chia sẻ qua biểu mẫu hoặc được OA truyền vào.
+
+
+
+
+full_address
+
+	
+
+json
+
+	
+
+Địa chỉ của người dùng. Được người dùng chia sẻ qua biểu mẫu hoặc được OA truyền vào.
+
+{
+  "full_address": {
+    "user_city": "Thành phố Hồ Chí Minh",
+    "user_ward": "Phường Phú Thạnh",
+    "user_address": "123 Trần Hưng Đạo"
+  }
+}
+
+
+
+
+user_external_id
+
+	
+
+string
+
+	
+
+user_id của người dùng trong hệ thống của Doanh nghiệp. Kết quả sẽ trả về "" nếu user chưa tồn tại
+
+
+
+
+dynamic_param
+
+	
+
+string
+
+	
+
+Thông tin về dynamic_param cuối cùng mà người dùng truy cập thông qua Dynamic URL của OA
+
+
+
+
+custom_info
+
+	
+
+json
+
+	
+
+Thuộc tính trả về các thông tin thuộc trường thông tin tùy biến.
+
+Mọi giá trị đều được trả về dưới dạng string. Được người dùng chia sẻ qua biểu mẫu hoặc được OA truyền vào, bao gồm:
+
+- boolean: "true" hoặc "false"
+
+- number: giữ nguyên số chữ số thập phân có nghĩa. Ví dụ 10.50 thì data trả về sẽ là "10.50", 10.0 thì sẽ trả về là "10".
+
+- text: giá trị text thông thường
+
+- datetime: trả về giá trị theo định dạng theo đã khai báo của biến
+
+- phone: countrycode + số điện thoại (vd: "84912345678")
+
+- url: bắt đầu bằng http:// hoặc https://
+
+- email: định dạng email chuẩn
+
+- table: json
+
+Trước
+Xóa thông tin người dùng
+Kế tiếp
+Cập nhật thông tin tùy biến của người dùng
+HTTP request
+Example request
+Cấu trúc tham số data
+Example response
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

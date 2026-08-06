@@ -1,0 +1,217 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/form/Slider
+# FETCHED: 2026-08-06
+# TITLE: Slider | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Slider
+Cập nhật lần cuối:5/8/2026
+import { Slider } from "zmp-ui";
+Dùng để cho phép người dùng lựa chọn giá trị, hoặc khoảng giá trị trong một giới hạn
+Ví dụ​
+Bảng thuộc tính​
+SliderProps​
+Property
+Type
+Required
+Description
+min
+number
+No
+Giá trị bắt đầu của slider. (default: 0)
+max
+number
+No
+Giá trị kết thúc của slider. (default: 100)
+step
+number
+No
+Bước nhảy của slider. Có thể là một số nguyên hoặc số thập phân. (default: 1)
+minRange
+number
+No
+Khoảng cách tối thiểu giữa 2 giá trị được chọn của slider. Chỉ có tác dụng khi sử dụng với range slider (`value` là một mảng 2 phần tử).
+name
+string
+No
+Tên định danh của slider trong form.
+label
+string
+No
+Nhãn của slider, được hiển thị phía trên slider.
+showValue
+boolean
+No
+Hiển thị giá trị hiện tại của slider ở góc trên bên phải, ngang hàng với `label`.
+Có thể sử dụng cùng với `renderValue` nếu cần bổ sung cơ chế tính toán hoặc tuỳ chỉnh nội dung cho giá trị hiển thị. (default: false)
+marks
+boolean | number[]
+No
+Các điểm cần đánh dấu trên slider. Thiết lập `true` sẽ đánh dấu ứng với mỗi `step` trên slider. Nếu chỉ cần đánh dấu một vài giá trị tuỳ ý, truyền vào một mảng các giá trị cần được dánh dấu. (default: false)
+renderValue
+(value: number | Tuple | undefined) => React.ReactNode
+No
+Hàm dùng để định dạng giá trị hiển thị khi `showValue` được bật. Hàm này nhận vào (các) giá trị được chọn của slider và trả về một ReactNode để hiển thị.
+prefix
+React.ReactNode
+No
+Phần tử được hiển thị ở bên trái slider.
+suffix
+React.ReactNode
+No
+Phần tử được hiển thị ở bên phải slider.
+value
+number | Tuple
+No
+Giá trị được chọn hiện tại của slider (đối với slider một con trỏ) và mảng chứa 2 giá trị được chọn (đối với slider 2 con trỏ, còn gọi là range slider).
+Cần được sử dụng cùng với `onChange` để cập nhật giá trị khi người dùng thay đổi.
+defaultValue
+number | Tuple
+No
+Tương tự như `value`, nhưng giá trị này chỉ được sử dụng để khởi tạo giá trị cho slider khi nó được render lần đầu tiên. Thay đổi giá trị này sau khi render sẽ không có tác dụng.
+onChange
+(value: number | Tuple) => void
+No
+Callback được gọi khi giá trị của slider thay đổi. Tham số truyền vào là giá trị hoặc cặp giá trị mới của slider.
+SliderMarkProps​
+Property
+Type
+Required
+Description
+position
+number
+No
+Vị trí của điểm cần đánh dấu trên slider, theo đơn vị phần trăm.
+filled
+boolean
+No
+Điểm đánh dấu có nằm trong ngưỡng được chọn hay không. (default: false)
+SliderTrackProps​
+Property
+Type
+Required
+Description
+offset
+number
+No
+Thụt lề của slider, theo đơn vị phần trăm.
+width
+number
+No
+Độ dày của thanh slider, theo đơn vị phần trăm.
+marks
+SliderMarks
+No
+Các điểm cần đánh dấu trên slider. Thiết lập `true` sẽ đánh dấu ứng với mỗi `step` trên slider. Nếu chỉ cần đánh dấu một vài giá trị tuỳ ý, truyền vào một mảng các giá trị cần được dánh dấu.
+onMouseEnter
+React.MouseEventHandler
+No
+onMouseLeave
+React.MouseEventHandler
+No
+children
+React.ReactNode
+No
+SliderThumbProps​
+Property
+Type
+Required
+Description
+position
+number
+No
+Vị trí của con trỏ trên slider, theo đơn vị phần trăm.
+Trước
+Radio
+Kế tiếp
+Modal
+Ví dụ
+Bảng thuộc tính
+SliderProps
+SliderMarkProps
+SliderTrackProps
+SliderThumbProps
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

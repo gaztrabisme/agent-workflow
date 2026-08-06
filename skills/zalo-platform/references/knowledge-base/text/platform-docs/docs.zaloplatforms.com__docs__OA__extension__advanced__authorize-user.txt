@@ -1,0 +1,120 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/extension/advanced/authorize-user
+# FETCHED: 2026-08-06
+# TITLE: Phương thức xác thực user | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk tích hợp sẵn trong zoa-cli
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Phương thức xác thực user
+Việc xác thực user được thực hiện thông qua việc gọi getSessionInfo. Khi đó, hệ thống trả về response như sau:
+{
+"data": {
+"admin_id": "2610657154291697119",
+"oa_id": "937065556130162365",
+"timestamp": 1726111886460,
+"user_id": "2610657154291697119"
+},
+"hmac": "53d2db4972303a9a92e2632f329dc5afc8cae0835f360010e1311665b7171366"
+}
+Trong đó:
+data: Đây là dữ liệu chính mà hệ thống trả về, bao gồm các thông tin như oa_id, admin_id, timestamp...
+hmac: Đây là chuỗi hash mà hệ thống tạo ra dựa trên data và thông tin secretKey của extension. hmac được sử dụng để đảm bảo rằng dữ liệu không bị thay đổi trong quá trình truyền tải.
+Phương thức xác thực dữ liệu​
+Hệ thống tạo ra hmac theo công thức:
+hmac = sha256(extensionId + data + secretKey)
+Trong đó:
+extensionId: ID của ứng dụng.
+data: Dữ liệu data hệ thống trả về. Lưu ý: data cần được sắp xếp theo thứ tự tên trường tăng dần trước khi đưa vào hàm hash.
+secretKey: Khóa bí mật chỉ của ứng dụng.
+Hướng dẫn xác thực dữ liệu​
+Các bước thực hiện​
+Sắp xếp các trường trong data
+Tạo HMAC, sử dụng công thức sau:
+hmac = sha256(extensionId + jsonData + secretKey)
+So sánh hmac
+Sau khi tạo ra hmac, so sánh nó với giá trị hmac mà hệ thống trả về. Nếu hai giá trị này khớp nhau, dữ liệu là hợp lệ và không bị chỉnh sửa.
+Code ví dụ (Java)​
+public class HMACValidator {
+public static String sortJsonByField(String jsonData) throws JsonProcessingException {
+ObjectMapper mapper = new ObjectMapper();
+mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
+JsonNode objectNode = mapper.readTree(jsonData);
+TreeMap<String, Object> sortedMap = new TreeMap<>();
+objectNode.fields().forEachRemaining(entry -> sortedMap.put(entry.getKey(), entry.getValue()));
+return mapper.writeValueAsString(sortedMap);
+}
+public static String calculateHMAC(String extensionId, String jsonData, String secretKey) throws Exception {
+jsonData = sortJsonByField(jsonData);
+String message = extensionId + jsonData + secretKey;
+MessageDigest digest = MessageDigest.getInstance("SHA-256");
+byte[] hash = digest.digest(message.getBytes(StandardCharsets.UTF_8));
+StringBuilder hexString = new StringBuilder();
+for (byte b : hash) {
+String hex = Integer.toHexString(0xff & b);
+if (hex.length() == 1) hexString.append('0');
+hexString.append(hex);
+}
+return hexString.toString();
+}
+}
+Trước
+app-config.json
+Kế tiếp
+Lấy danh sách admin
+Phương thức xác thực dữ liệu
+Hướng dẫn xác thực dữ liệu
+Các bước thực hiện
+Code ví dụ (Java)
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

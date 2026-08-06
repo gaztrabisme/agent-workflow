@@ -1,0 +1,92 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/nhom-chat-gmf/general
+# FETCHED: 2026-08-06
+# TITLE: Tổng quan | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Điều kiện gửi tin nhắn nhóm
+Gửi tin nhắn nhóm dạng Text
+Gửi tin nhắn nhóm dạng File
+Gửi tin nhắn nhóm dạng Hình ảnh
+Gửi tin nhắn nhóm dạng Sticker
+Gửi tin nhắn Mention tới nhóm
+Quản lý nhóm
+Tạo nhóm mới
+Lấy thông tin nhóm
+Cập nhật nhóm
+Cập nhật dịch vụ cho Nhóm chat
+Mời tham gia nhóm
+Lấy danh sách thành viên chờ duyệt
+Đồng ý duyệt thành viên mới vào nhóm
+Từ chối duyệt thành viên mới vào nhóm
+Lấy danh sách thành viên nhóm
+Thêm phó nhóm
+Xóa phó nhóm
+Xóa thành viên khỏi nhóm
+OA Giải tán nhóm
+Lấy danh sách nhóm OA đang quản lý
+Kiểm tra hạn mức nhóm
+Lấy danh sách tin nhắn nhóm gần nhất
+Lấy thông tin tin nhắn trong một nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tổng quan
+Quản lý nhóm ("Group Management Function” hoặc “GMF”) là tính năng giúp OA tương tác với một nhóm khách hàng.
+Tính năng Quản lý nhóm chỉ dành riêng cho OA xác thực và đang sử dụng Gói Nâng cao hoặc Premium.
+Xem Chính sách GMF tại đây.
+Tin nhắn nhóm
+Mục đích
+Tư vấn cho khách hàng về sản phẩm, dịch vụ
+Đối tượng nhận tin
+Nhóm chat còn hoạt động*
+Điều kiện cần có để gửi tin (Opt-in condition)
+OA có được group_id của nhóm chat
+Công cụ gửi tin
+OA OpenAPI
+OA Manager
+Bản Web
+Bản MiniApp
+Hình thức tin (Format)
+Theo định dạng Tư vấn
+Chi phí
+Xem chi tiết tại đây
+Lưu ý
+Nhóm chat còn hoạt động là nhóm chat cho phép OA truy cập và thực hiện các thao tác quản lý.
+Trước
+Upload ảnh GIF
+Kế tiếp
+Điều kiện gửi tin nhắn nhóm
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

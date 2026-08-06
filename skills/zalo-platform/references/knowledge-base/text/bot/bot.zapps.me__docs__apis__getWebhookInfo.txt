@@ -1,0 +1,59 @@
+# SOURCE: https://bot.zapps.me/docs/apis/getWebhookInfo/
+# FETCHED: 2026-08-06
+# TITLE: getWebhookInfo | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Trang chủ
+Bắt đầuTài liệuGiá góiGiải phápFAQ
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Trên trang này
+getWebhookInfo
+Trước
+Kế tiếp
+Cập nhật lần cuối: 10/12/2025
+API cho phép lấy trạng thái cấu hình hiện tại của webhook
+URL: https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/getWebhookInfo
+Method: POST
+Response Type: application/json
+Sample code​
+Code demo fallback when rendering server side!
+Parameters​
+Không yêu cầu tham số đi kèm.
+Sample response​
+{
+"ok": true,
+"result": {
+"url": "https://your-webhookurl.com",
+"updated_at": 1749633372026
+}
+}
+Trước
+Kế tiếp
+zi-chevron-up
+Parameters
+Sample response
+EN
+Zalo Bot Platform
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+Công Ty TNHH Zalo Platforms
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+© 2025 Zalo Platforms. All Rights Reserved.

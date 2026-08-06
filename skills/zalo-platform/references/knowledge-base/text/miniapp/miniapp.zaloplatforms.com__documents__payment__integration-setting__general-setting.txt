@@ -1,0 +1,65 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/integration-setting/general-setting/
+# FETCHED: 2026-07-21
+# TITLE: Cài Đặt Chung | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Đăng ký với đối tác thanh toán
+Cấu hình thanh toán cho Mini App
+Cài Đặt Chung
+Cấu hình ZaloPay
+Cấu hình Momo
+Cấu hình VNPay
+Cấu hình Payme
+Thanh toán khi nhận hàng (COD)
+Chuyển khoản ngân hàng
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Cài Đặt Chung
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Bao gồm những thông tin sử dụng chung cho toàn bộ phương thức thanh toán.
+
+Callback URL: Đường dẫn nhận callback từ Checkout SDK Server khi trừ tiền user thành công.
+Private key: Dùng để tạo thông tin chứng thực của callback từ Checkout SDK Server.
+Security Method: phương thức bảo mật, mặc định là HmacSHA256.
+App Status: Trạng thái thanh toán của app, mặc định là ACTIVE.
+
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

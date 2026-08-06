@@ -1,0 +1,51 @@
+# SOURCE: https://oa.zalo.me/home/documents/vie/guides/thong-ke_2857394610879415001
+# FETCHED: 2026-08-06
+# TITLE: Báo cáo thống kê | Zalo Official Account
+
+Nhảy tới nội dung
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Quản lý Khách hàng
+Biểu mẫu thu thập thông tin
+Báo cáo thống kê
+Mini App - OA Manager trên điện thoại
+Mở rộng
+Nhà phát triển
+Tối ưu vận hành
+Báo cáo thống kê
+Trên trang này
+Hướng dẫn cách tìm hiểu các chỉ số
+Admin OA cần có phân quyền Quản trị viên, Soạn nội dung, Phân tích viên truy cập theo thao tác sau:
+Cách 1: Truy cập đường dẫn https://oa.zalo.me/manage/analytics/overview
+Cách 2: Tại trang OA Manager https://oa.zalo.me/manage/oa → Chọn tài khoản OA → Chọn mục Thống kê
+→ Chọn bộ thống kê muốn xem.
+⚠ Lưu ý:
+Số liệu thống kê được tính toán vào cuối mỗi ngày.
+"Thống kê cuộc gọi" hiện chỉ thể hiện data từ ngày 01/03/2023
+Các chỉ số chính nổi bật​
+Thống kê “Phiên chat”
+Tổng hợp các chỉ số quan trọng về phiên chat giữa khách hàng và OA, biểu đồ xu hướng được tự động cập nhật mỗi ngày, giúp doanh nghiệp đánh giá hiệu quả chăm sóc khách hàng của kênh Zalo OA.
+Thống kê “Người quan tâm”
+Thống kê các chỉ số về số lượng người quan tâm OA và phân tích nhân khẩu học (giới tính, độ tuổi và vị trí) dưới dạng biểu đồ. Từ đó, quản trị viên OA có thể thiết kế các nội dung Bài viết, tin Broadcast phù hợp với từng nhóm đối tượng hoặc nhóm người quan tâm trọng tâm của OA, giúp tương tác hiệu quả.
+Thống kê “Trang thông tin OA”
+Các chỉ số về số người và số lượt truy cập trang OA cùng biểu đồ chi tiết về các hoạt động tương tác khác nhau: Nhắn tin, Quan tâm,… của người dùng giúp admin OA theo dõi lượng truy cập và thiết kế các thiết lập, nội dung bài viết phù hợp.
+Thống kê “Thanh Menu”
+Giúp doanh nghiệp theo dõi mức độ tương tác của từng loại Menu và đánh giá hiệu quả.
+Thống kê “Tin nhắn mời đánh giá”
+Thống kê các chỉ số đánh giá phiên chăm sóc khách hàng (CSKH) và theo dõi các kết quả đánh giá từ người dùng sau khi nhận được tin nhắn mời đánh giá do OA gửi, nhằm đo lường mức độ hài lòng và chất lượng tương tác trong các phiên CSKH.
+-------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT ZOA để được phản hồi sớm nhất.
+Trước
+Biểu mẫu thu thập thông tin
+Kế tiếp
+Mini App - OA Manager trên điện thoại
+Các chỉ số chính nổi bật

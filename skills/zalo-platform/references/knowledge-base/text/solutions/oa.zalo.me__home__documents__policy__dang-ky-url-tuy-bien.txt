@@ -1,0 +1,70 @@
+# SOURCE: https://oa.zalo.me/home/documents/policy/dang-ky-url-tuy-bien
+# FETCHED: 2026-08-06
+# TITLE: Chính sách đăng ký URL tùy biến | Zalo Official Account
+
+Skip to main content
+CHÍNH SÁCH
+Chính sách về đăng ký và sử dụng tài khoản OA
+Chính sách về đặt tên OA
+Chính sách về thông tin giới thiệu và hình ảnh OA
+Chính sách xác thực tài khoản
+Chính sách về tính năng quản lý nhóm (GMF)
+Chính sách về việc khóa Official Account (gọi tắt là OA)
+Chính sách phát triển Tiện ích (Extension)
+Chính sách kiểm duyệt thông tin Tiện ích (Extension)
+Chính sách sử dụng Tiện ích (Extension)
+Chính sách xử lý tranh chấp thương hiệu
+Chính sách đăng ký URL tùy biến
+Chính sách về tương tác của OA với người dùng
+Chính sách đăng ký URL tùy biến
+Chính sách đăng ký URL tùy biến
+Từ ngày 20/06/2023, doanh nghiệp có thể đăng ký URL tùy biến (hay còn gọi là “đường dẫn Official Account”). Việc thiết lập URL tùy biến sẽ giúp doanh nghiệp:
+Tăng tính tin cậy và mức độ nhận diện thương hiệu
+Tài khoản OA được tìm kiếm dễ dàng hơn trên Zalo
+Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+Cấu trúc URL tùy biến (đường dẫn Oficial Account) được thay đổi từ mặc định https://zalo.me/ + [oaid] sang tùy biến https://zalo.me/ + [URL tùy biến].
+Ví dụ: Từ URL mặc định https://zalo.me/4462152339089565647 sang URL tùy biến là https://zalo.me/officialaccount
+Chính sách khởi tạo URL tùy biến:
+Quy định
+Nội dung
+Yếu tố liên quan OA
+URL tùy biến phải chứa yếu tố liên quan đến OA và có sự thống nhất với các thông tin đã xác thực (danh mục, thông tin giới thiệu, ảnh bìa/ ảnh đại diện).
+Quy định về tên chính của OA xem tại đây.
+Ví dụ: Tên OA: “Cửa hàng Nguyễn Văn Minh”, trong đó tên chính OA là “Nguyễn Văn Minh”
+❌ URL tùy biến không hợp lệ: cuahanglethanhnam, cuahang,...
+✔️ URL tùy biến hợp lệ (dựa trên tên chính OA): nguyenvanminh, cuahangvanminh, minhstore, .v.v
+Tính sở hữu
+URL tùy biến đặt theo tên thương hiệu hoặc nhãn hiệu đã đăng ký và được bảo hộ theo pháp luật Việt Nam hoặc trên thế giới chỉ khi doanh nghiệp sở hữu hoặc được ủy quyền sử dụng tên thương hiệu hoặc nhãn hiệu đó.
+Ví dụ: Tên OA: “Cửa hàng Nguyễn Văn Minh”, trong đó tên chính OA là “Nguyễn Văn Minh”
+❌ URL tùy biến không hợp lệ (vì doanh nghiệp không sở hữu thương hiệu hoặc chưa được ủy quyền sử dụng): minhnguyenvinfast, nguyenminhnovaland,…
+Độ dài
+URL tùy biến chỉ bao gồm chữ thường và số, viết liền không dấu, tối thiểu 6 kí tự, tối đa 20 kí tự và bắt đầu bằng ký tự chữ.
+Không được chứa ký tự đặc biệt
+URL tùy biến không được chứa các ký tự đặc biệt, emoji hoặc biểu tượng.
+Không được chứa yếu tố mạo danh Zalo/ VNG
+URL tùy biến không được chứa các yếu tố mạo danh Zalo/ VNG hoặc gây nhầm lẫn với các sản phẩm do Zalo/ VNG cung cấp.
+Ví dụ: Tên OA: “Cửa hàng Nguyễn Văn Minh”, trong đó tên chính OA là “Nguyễn Văn Minh”.
+❌ URL tùy biến không hợp lệ: minhnguyenzoa, zaloshopminhnguyen, zalostoreminhnguyen, minhnguyenvng,…
+Yếu tố khác không được sử dụng
+URL tùy biến không được chứa hoặc trùng từ ngữ, tên riêng của tổ chức chính trị, tổ chức địa phương và danh nhân lịch sử. Hoặc các từ ngữ liên quan đến hoạt động kinh doanh bị pháp luật cấm (cho vay không giấy phép, cá độ,...).
+Ví dụ: Tên OA: “Cửa hàng Nguyễn Văn Minh”, trong đó tên chính OA là “Nguyễn Văn Minh”.
+❌ URL tùy biến không hợp lệ: hochiminh, cqnnminhnguyen, minhnguyengambling, nguyenminhchovay,…
+Thay đổi URL tùy biến
+Doanh nghiệp không thể chủ động thay đổi URL tùy biến sau khi đã thiết lập thành công trong thời gian Gói còn hiệu lực.
+Điều kiện duy trì URL tùy biến
+Sau khi chuyển đổi gói, URL tùy biến sẽ được duy trì theo quy định như sau:
+• Khi chuyển từ Gói Nâng cao sang Gói Cơ bản / Tiêu chuẩn / Tăng trưởng, URL được giữ trong vòng 7 ngày.
+• Khi chuyển từ Gói Premium sang Gói Cơ bản / Tiêu chuẩn / Tăng trưởng, URL được giữ trong vòng 30 ngày.
+• Khi chuyển từ Gói Nâng cao / Premium sang Gói Toàn diện, URL vẫn được tiếp tục sử dụng bình thường.
+Sau thời gian duy trì nêu trên, nếu Gói mới không hỗ trợ URL tùy biến thì sẽ bị gỡ khỏi đường dẫn Official Account (được thay bằng OA ID).
+Lưu ý: OA có thể tạo URL tùy biến mới hoàn toàn khi mua Gói mới sau thời hạn duy trì.
+Lưu ý:
+BQT Zalo OA chỉ kiểm duyệt dựa trên các quy định trên, không hỗ trợ kiểm tra chính tả của URL tùy biến. Vì thế, OA vui lòng kiểm tra kỹ trước khi gửi duyệt.
+Trong trường hợp OA đang sở hữu URL tùy biến nhưng không duy trì Gói dịch vụ OA, hệ thống sẽ tiến hành cập nhật URL về mặc định.
+Trường hợp gặp vấn đề về tranh chấp, vui lòng tham khảo bài viết Chính sách xử lý tranh chấp thương hiệu và thực hiện theo hướng dẫn để được hỗ trợ.
+------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+Previous
+Chính sách xử lý tranh chấp thương hiệu
+Next
+Chính sách về tương tác của OA với người dùng

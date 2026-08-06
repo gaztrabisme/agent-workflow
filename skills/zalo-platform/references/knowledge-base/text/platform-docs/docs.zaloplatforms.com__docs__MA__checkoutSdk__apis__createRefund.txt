@@ -1,0 +1,133 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/apis/createRefund
+# FETCHED: 2026-08-06
+# TITLE: createRefund | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+createRefund
+Cập nhật lần cuối:5/8/2026
+API cho phép đối tác hoàn tiền toàn phần hoặc từng phần của 1 giao dịch thanh toán với ZaloPay hoặc Momo.
+Đối với API này, sẽ không được tích hợp sẵn trong Payment SDK. Đơn vị kinh doanh cần chủ động xây dựng phương án gọi API này để thực hiện hoàn tiền.
+Lưu ý
+Quy tắc hoàn tiền dựa vào các quy tắc hoàn tiền của đối tác thanh toán.
+API specification​
+Method
+Headers
+Endpoint
+POST
+https://payment-mini.zalo.me/api/refund/create
+Parameters​
+Object object​
+Property
+Type
+Required
+Description
+appId
+string
+true
+Id định danh của mini app
+transId
+string
+true
+Mã giao dịch muốn hoàn tiền (mã được trả về khi thanh toán)
+amount
+long
+true
+Số tiền muốn hoàn lại cho khách hàng
+description
+string
+Lý do hoàn tiền
+mac
+string
+true
+Thông tin chứng thực, xem cách tạo thông tin chứng thực ở dưới
+Tạo thông tin chứng thực​
+data =
+"appId={appId}&transId={transId}&amount={amount}&description={description}&privateKey={privateKey}";
+mac = HMAC("HmacSHA256", privateKey, data);
+Return Values​
+Promise <Object data>​
+Property
+Type
+Description
+refundId
+string
+Id của yêu cầu hoàn tiền
+returnCode
+int
+1 : Hoàn tiền giao dịch thành công
+< 1 : Hoàn tiền thất bại, cần thực hiện lại giao dịch
+> 1 : Đang hoàn tiền, gọi getRefundStatus api để lấy trạng thái cuối cùng
+returnMessage
+string
+Mô tả thông tin returnCode
+Error code​
+Tham khảo tại đây.
+Trước
+updateOrderStatus
+Kế tiếp
+getRefundStatus
+API specification
+Parameters
+Tạo thông tin chứng thực
+Return Values
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

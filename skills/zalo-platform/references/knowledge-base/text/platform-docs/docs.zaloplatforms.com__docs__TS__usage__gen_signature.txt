@@ -1,0 +1,143 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/TS/usage/gen_signature
+# FETCHED: 2026-08-06
+# TITLE: Xác thực request | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Cấu hình API
+Thông tin cấu hình
+Xác thực request
+API Reference
+Bảng mã lỗi
+Trên trang này
+Xác thực request
+Hướng dẫn ký request bằng HMAC-SHA256
+I. Tổng quan​
+Tất cả request gửi lên hệ thống phải kèm signature để đảm bảo dữ liệu không bị thay đổi.
+signature = hex_encode(HMAC_SHA256(rawData, secretKey))
+II. Nguyên tắc quan trọng​
+Danh sách field dùng để ký (Signature Fields)​
+Mỗi API sẽ định nghĩa danh sách field dùng để ký signature.
+Khi build signature:
+Phải sử dụng đúng và đủ các field của mỗi API
+Không được thiếu hoặc thêm field ngoài danh sách
+Không include field signature
+Ví dụ – API Khởi tạo giao dịch​
+amount
+app_id
+callback_url
+description
+embed_data
+expire_duration
+merchant_order_id
+merchant_order_time
+timestamp
+Quy tắc bắt buộc​
+Nếu field không có giá trị → set ""
+Không được thêm hoặc bớt field khác ngoài danh sách này
+Không include signature
+Encode UTF-8
+Output dạng HEX lowercase
+III. Quy trình ký
+Bước 1: Chuẩn hóa dữ liệu​
+const signFields = [
+"amount",
+"app_id",
+"callback_url",
+"description",
+"embed_data",
+"expire_duration",
+"merchant_order_id",
+"merchant_order_time",
+"timestamp",
+];
+// đảm bảo đủ field
+signFields.forEach((field) => {
+if (jsonBody[field] == null) {
+jsonBody[field] = "";
+}
+});
+Bước 2: Sắp xếp field theo alphabet​
+const sortedFields = [...signFields].sort((a, b) => a.localeCompare(b));
+Bước 3: Tạo rawData​
+Format:
+key=value&key=value
+const rawData = sortedFields.map((key) => `${key}=${jsonBody[key]}`).join("&");
+Ví dụ:
+Request body
+{
+"merchant_order_id": "260317_000012345",
+"merchant_order_time": 1710000000000,
+"expire_duration": 300,
+"amount": 10000,
+"description": "Thanh toan don hang",
+"callback_url": "https://api.test.com/callback",
+"embed_data": null,
+"app_id": "demo_app",
+"timestamp": 1710000001000
+}
+rawData
+amount=10000&app_id=demo_app&callback_url=https://api.test.com/callback&description=Thanh toan&embed_data=&expire_duration=300&merchant_order_id=260317_000012345&merchant_order_time=1710000000000&timestamp=1710000001000
+Bước 4: Ký HMAC-SHA256​
+const crypto = require("crypto-js");
+const signature = crypto
+.HmacSHA256(rawData, secretKey)
+.toString(crypto.enc.HEX);
+jsonBody.signature = signature;
+Bước 5: Kết quả request​
+{
+"merchant_order_id": "260317_000012345",
+"merchant_order_time": 1710000000000,
+"expire_duration": 300,
+"amount": 10000,
+"description": "Thanh toan don hang",
+"callback_url": "https://api.test.com/callback",
+"embed_data": null,
+"app_id": "demo_app",
+"timestamp": 1710000001000,
+"signature": "xxx"
+}
+⚠️ Lưu ý​
+Body phải là JSON hợp lệ
+Key phải được sort alphabetically
+secretKey được cấp theo application
+Signature phụ thuộc vào danh sách field cố định của API
+Thiếu / thừa field hoặc sai thứ tự → signature sai
+Trước
+Thông tin cấu hình
+Kế tiếp
+Khởi tạo giao dịch
+I. Tổng quan
+II. Nguyên tắc quan trọng
+Danh sách field dùng để ký (Signature Fields)
+Ví dụ – API Khởi tạo giao dịch
+Quy tắc bắt buộc
+Bước 1: Chuẩn hóa dữ liệu
+Bước 2: Sắp xếp field theo alphabet
+Bước 3: Tạo rawData
+Bước 4: Ký HMAC-SHA256
+Bước 5: Kết quả request
+⚠️ Lưu ý
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

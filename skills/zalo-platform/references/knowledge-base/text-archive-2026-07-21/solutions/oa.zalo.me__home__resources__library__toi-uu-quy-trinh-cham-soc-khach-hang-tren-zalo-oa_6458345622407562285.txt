@@ -1,0 +1,104 @@
+# SOURCE: https://oa.zalo.me/home/resources/library/toi-uu-quy-trinh-cham-soc-khach-hang-tren-zalo-oa_6458345622407562285
+# FETCHED: 2026-07-21
+# TITLE: Tối ưu quy trình chăm sóc khách hàng trên Zalo OA | Zalo Official Account
+
+📢 [Chính thức] Quyền lợi và biểu phí các gói dịch vụ Zalo OA mới từ 1/6/2026
+Xem chi tiết
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+Chia sẻ cookie
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ.
+Từ chối
+Đồng ý
+Trang chủ
+Thư viện
+Tối ưu quy trình chăm sóc khách hàng trên Zalo OA
+21/01/2026
+|
+Best practice
+Tối ưu quy trình chăm sóc khách hàng trên Zalo OA
+
+Zalo OA cung cấp cho doanh nghiệp nhiều công cụ giúp doanh nghiệp tối ưu quy trình chăm sóc khách hàng trên Zalo OA. Trong bài viết này, chúng tôi sẽ giúp anh/chị nắm bắt và phối hợp các công cụ trên Zalo OA trong quy trình chăm sóc khách hàng của doanh nghiệp, giúp tăng hiệu quả quản lý và gia tăng mức độ hài lòng của khách hàng. 
+
+1. Các công cụ chăm sóc khách hàng trên OA
+Quản lý nhãn: cho phép OA gắn/ xóa nhãn giúp phân loại nhóm khách hàng​ để quản lý theo các nghiệp vụ khác nhau & gia tăng trải nghiệm dịch vụ chăm sóc khách hàng với OA. Xem thêm hướng dẫn tính năng Quản lý nhãn.
+Chỉ định nhân viên xử lý hội thoại: Cho phép OA chỉ định nhân viên xử lý một hội thoại bất kỳ giúp tối ưu nguồn lực chăm sóc khách hàng. Xem thêm hướng dẫn tính năng Quản lý hội thoại.
+Quản lý Khách hàng: lưu trữ và quản lý thông tin khách hàng trên Zalo Official Account với các dữ liệu chi tiết như Tên, Số điện thoại, Địa chỉ, Ngày sinh, Giới tính (khi được khách hàng đồng ý chia sẻ). Cho phép Doanh nghiệp phân loại khách hàng bằng các bộ lọc tùy chỉnh, tải lên tệp khách hàng hiện hữu để nhận diện khi khách hàng phát sinh tương tác trên OA, từ đó hỗ trợ tiếp cận đúng đối tượng và cá nhân hóa thông điệp. Xem thêm hướng dẫn tính năng Quản lý Khách hàng.
+2. Gợi ý quy trình chăm sóc khách hàng trên Zalo OA
+
+Để tối ưu quy trình chăm sóc khách hàng (CSKH) trên Zalo OA. Doanh nghiệp cần linh hoạt phối hợp các tính năng trên Zalo OA một cách hiệu quả. Doanh nghiệp có thể tham khảo quy trình gợi ý như sau:
+
+Giai đoạn 1: Phân loại hội thoại
+
+Ngay khi khách hàng nhắn tin đến Zalo OA, hội thoại sẽ xuất hiện trên khung chat. Tại bước này nhân viên CSKH có thể vào phân loại xử lý hội thoại hoặc kết hợp với chatbot để phân loại yêu cầu hỗ trợ khách hàng tự động.
+
+Các nghiệp vụ gợi ý:
+
+Gắn nhãn quy trình: dựa trên nội dung yêu cầu hỗ trợ của khách hàng, nhân viên CSKH sẽ gắn nhãn quy trình tương ứng để xử lý hội thoại như: đang xử lý, chờ bổ sung thông tin, xuất hóa đơn, hoàn thành,...
+Chỉ định nhân viên chăm sóc khách hàng: Ngay khi bắt đầu xử lý hội thoại, nhân viên CSKH có thể tự chỉ định cho mình xử lý đoạn hội thoại đó để đánh dấu hội thoại đã có người xử lý, hoặc chỉ định người xử lý khác phù hợp với yêu cầu hỗ trợ của khách hàng.
+Giai đoạn 2: Xử lý yêu cầu hỗ trợ
+
+Đây là giai đoạn chính của quá trình CSKH, nhân viên có thể giải quyết các yêu cầu hỗ trợ trên khung chat đồng thời có thể xin thêm thông tin liên lạc của khách hàng và gắn nhãn phân nhóm khách hàng. 
+
+Các nghiệp vụ gợi ý:
+
+Nhắn tin hỗ trợ khách hàng: Xử lý và phản hồi các yêu cầu cần hỗ trợ của khách hàng. Doanh nghiệp có thể sử dụng tính năng "Gửi biểu mẫu thu thập thông tin" để xin thông tin liên hệ của khách hàng và lưu vào cơ sở dữ liệu khách hàng trên Zalo OA. Từ đây doanh nghiệp có thể tìm kiếm lại, xem thông tin trên giao diện quản lý người dùng hoặc đồng bộ thông tin về cơ sở quản lý thông tin khách hàng của doanh nghiệp.
+Gắn nhãn phân nhóm khách hàng: Trong quá trình chăm sóc khách hàng, nhân viên có thể gắn nhãn phân nhóm phù hợp dựa trên các đặc điểm của khách hàng như: sản phẩm đang quan tâm, khu vực làm việc, nguồn khách hàng,...
+Xem lịch sử tương tác khách hàng: Các thông tin về lịch sử tương tác, thông tin được chia sẻ qua mẫu "Gửi biểu mẫu thu thập thông tin", các nhãn phân nhóm được gắn đều được thể hiện trên khung chat. Nhân viên chăm sóc khách hàng có thể xem lại các thông tin này để chăm sóc khách tốt hơn
+Chuyển nhãn quy trình: sau khi hoàn tất hỗ trợ tại khâu của mình, nhân viên có thể chuyển nhãn quy trình sang bước tiếp theo hoặc chuyển nhãn hoàn thành để kết thúc quy trình hỗ trợ khách hàng. 
+
+Giai đoạn 3: Quản lý tập trung
+
+Sau khi tương tác với khách hàng, tất cả thông tin thu thập được qua Zalo OA sẽ được lưu trữ tại mục Khách hàng. Tại đây, doanh nghiệp có thể xem được tất cả thông tin của khách hàng trên Zalo OA, cho phép doanh nghiệp tìm kiếm, chỉnh sửa thông tin, lọc khách hàng theo nhóm,...  Giao diện “Khách hàng” chỉ có vai trò Quản trị viên mới có thể truy cập tính năng này, vì vậy quản lý doanh nghiệp có thể sử dụng để quản lý thông tin khách hàng và kiểm tra chất lượng CSKH của nhân viên.
+
+Các chức năng quản lý cơ sở dữ liệu khách hàng trên Zalo OA:
+
+Danh sách khách hàng: Tìm kiếm, lọc và thao tác hàng loạt với giao diện trực quan, linh hoạt theo nhu cầu quản lý.
+Nhóm khách hàng tùy biến: Nhận diện và gắn nhãn khách hàng (Ưu tiên, Hạn chế…) giúp doanh nghiệp tập trung chăm sóc đúng đối tượng.
+Trường thông tin khách hàng: Tùy chỉnh trường thông tin khách hàng để tối ưu nội dung tương tác và nâng cao hiệu quả CSKH.
+
+Anh/chị đã tham khảo qua các tính năng chăm sóc và quản lý khách hàng trên Zalo OA. Anh/chị có thể tham khảo thêm cách thiết lập tất cả các tính năng khác tại đây. Và có thể theo dõi các bài viết khác tại mục Thư viện.
+
+ 
+
+Bài viết này có hữu ích với bạn không?
+Không
+Có, nhưng...
+Có
+Search
+Nội dung liên quan
+04/05/2026
+Chăm sóc khách hàng hiệu quả với nhắn tin và gọi thoại
+16/06/2025
+Thiết lập OA thu hút tương tác
+Thể loại
+Tin tức
+13
+Thư viện
+23
+Tài nguyên khác
+0
+Tạo Zalo Official Account và kết nối với
+người dùng Zalo ngay!
+Tạo Official Account ngay
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

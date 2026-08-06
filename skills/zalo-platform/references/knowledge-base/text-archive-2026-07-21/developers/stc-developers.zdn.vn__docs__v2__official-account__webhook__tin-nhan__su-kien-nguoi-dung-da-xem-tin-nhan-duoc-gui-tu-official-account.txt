@@ -1,0 +1,131 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/tin-nhan/su-kien-nguoi-dung-da-xem-tin-nhan-duoc-gui-tu-official-account
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Sự kiện người dùng gửi tin nhắn
+Sự kiện người dùng click nút “Nhắn tin” trên Official Account
+Sự kiện người dùng thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện OA thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện Official Account gửi tin nhắn cho người dùng
+Sự kiện Official Account gửi tin nhắn cho người dùng ẩn danh
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Sự kiện người dùng nhận tin nhắn từ Official Account
+Nhóm chat - GMF
+Gọi thoại
+Extension
+Quản lý
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookTin nhắnSự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+
+Khi tin nhắn gửi từ Official Account được người dùng xem, hệ thống Zalo sẽ gửi đến Webhook Url của Official Account một http post như sau Quyền cần có:
+
+Sự kiện người dùng đã đọc tin nhắn
+
+Lưu ý:  Sự kiện chỉ được gửi nếu
+
+User xem tin nhắn đó trên Zalo Mobile (user xem trên PC/Web sau đó vào Zalo để đọc lại tin nhắn đó thì không có sự kiện).
+Chỉ gửi đến Webhook của App nào đã gửi tin nhắn đó đi.
+
+Thông tin API:
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+    "app_id": "3608465248940903967",
+    "sender": {
+        "id": "388613280879808645"
+    },
+    "recipient": {
+        "id": "246845883529697922"
+    },
+    "event_name": "user_seen_message",
+    "message": {
+        "msg_ids": [
+            "43b59c025aeabfb5e6fa"
+        ]
+    },
+    "timestamp": "1540363714987"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+app_id	String	Id của ứng dụng đang nhận sự kiện.
+sender	Json Object	Ví dụ:
+{
+    "id": "388613280879808645"
+}
+
+
+Trong đó:
+
+"id": Id của Official Account gửi tin nhắn
+
+recipient	Json Object	Ví dụ:
+{
+    "id": "246845883529697922"
+}
+
+
+Trong đó:
+
+"id": Id của User nhận tin nhắn
+
+event_name	String	Giá trị là "user_seen_message".
+message	Json Object	Ví dụ:
+{
+    "msg_ids": [
+        "43b59c025aebfb5e6fa"
+    ]
+}
+
+
+Trong đó:
+
+"msg_ids": Danh sách id của các tin nhắn đã được người dùng xem.
+
+timestamp	String	Thời điểm request được gửi, tính bằng milisecond
+Trước
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Kế tiếp
+Sự kiện người dùng nhận tin nhắn từ Official Account
+Ví dụ:
+Mô tả thuộc tính
+©2023 Zalo for Developers

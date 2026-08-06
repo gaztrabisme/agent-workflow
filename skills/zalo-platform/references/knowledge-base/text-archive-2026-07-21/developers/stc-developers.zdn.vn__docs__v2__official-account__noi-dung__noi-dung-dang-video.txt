@@ -1,0 +1,125 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/noi-dung/noi-dung-dang-video/
+# FETCHED: 2026-07-21
+# TITLE: Nội dung dạng Video | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Tổng quan
+Nội dung dạng bài viết
+Nội dung dạng video
+Nội dung dạng Video
+Chỉnh sửa nội dung dạng video
+Lấy chi tiết nội dung dạng video
+Lấy danh sách nội dung dạng video
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Nội dungNội dung dạng videoNội dung dạng Video
+Nội dung dạng Video
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/article/create
+Method: POST
+Content Type: application/json
+Reponse Type: text/json
+Sample​
+curl \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "access_token: <ACCESS_TOKEN>" \
+ -d '{
+    "title": "News",
+        "description": "This is news",
+        "status": "show",
+    "video_id": "7f8c46bf7bfa94cbeb",
+    "avatar": "url_image",
+        "comment": "show"
+}' \
+ 'https://openapi.zalo.me/v2.0/article/create'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+access_token	String	Yes	Xem hướng dẫn lấy access_token ở đây.
+Cấu trúc body​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+title	String	Yes	Tiêu đề bài viết. Tối đa 150 ký tự.
+description	String	Yes	Mô tả về bài viết. Tối đa 300 ký tự.
+status	String	Yes	Trạng thái của bài viết. Chỉ nhận 1 trong 2 giá trị: “show”, “hide”
+video_id	String	Yes	id của video hiển thị trên bài viết.
+avatar	String	Yes	Đường dẫn url đến hình ảnh muốn dùng làm thumbnail .
+comment	String	Yes	Gồm 2 giá trị:   “hide” (không cho phép comment trên bài viết này), “show”(Cho phép comment trên bài viết này). (Không bắt buộc, mặc định là “show”)
+Respond​
+{
+    "error": 0,
+    "message": "Success",
+    "data": {
+        "token": "9xk090B1ANibkhyg9ke8SZgMg39Pz7bNJvJvKrpA821_XVbaI-Dr9ME5ma44nqGPOw3dKmR2SreHY_yaUiOcMrkWX0XknWH0IOQtEY_N1r9Ahu8xJT9QEIU9paOpwc0QDhhqSmU3So8WmlqcEvDEKb_euG5CbKHp9kJS432-35aKsOzSQva30L2cabKwcZqJNwkvQ63M7Mf7bQml9SK5BZJyZ4O8jmT16OwbFNdmA4iIdQPETiq8EtUkhM0AYMCHDkNmJWs9CLPkgFuBJ9Gm536kw1DQb34I9xF_4qE2BX4fk_uJIOKl6ZIYuH9LdpaMPAxi5mILRn5XgxmNLi8v56VywqLGnJaGDJ4mKWZXC0_G15"
+    }
+}
+
+Trước
+Cập nhật nội dung
+Kế tiếp
+Chỉnh sửa nội dung dạng video
+HTTP request
+Sample
+Tham số header
+Cấu trúc body
+Respond
+©2023 Zalo for Developers

@@ -1,0 +1,153 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/quan-ly-nhom-gmf_1954166378348758227
+# FETCHED: 2026-07-21
+# TITLE: Quản lý nhóm (GMF) | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Quản lý nhóm (GMF)
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Tính năng Quản lý nhóm (GMF) dành cho OA Doanh nghiệp
+
+Quản lý nhóm (GMF) là nhóm chat do OA doanh nghiệp tạo và quản lý với mục đích truyền đạt thông tin chính thức của doanh nghiệp tới các khách hàng mục tiêu là thành viên trong nhóm chat nhằm tăng tính nhận diện thương hiệu. Bên cạnh đó, GMF giúp doanh nghiệp bảo vệ tài sản là nội dung, thông tin khách hàng trong nhóm chat.
+
+📌 Thông tin chung​
+Tính năng Nhóm chat (GMF) là tính năng dành cho các OA đang sử dụng Gói Dịch vụ OA.
+Có 4 loại GMF tương ứng với số lượng thành viên của nhóm: GMF-10, GMF-50, GMF-100, GMF-1000. Tham khảo chi tiết tại đây.
+Khi doanh nghiệp sử dụng Gói Dịch vụ Tăng trưởng/Toàn diện, mỗi gói sẽ có sẵn một số lượng nhóm. Tham khảo chi tiết tại đây.
+📌 Hướng dẫn tạo và mua thêm nhóm chat GMF​
+
+Để tạo & quản lý nhóm chat trên công cụ OA Manager, người thực hiện thao tác cần là admin của OA với vai trò "Quản trị viên".
+
+I. Tạo nhóm chat GMF​
+
+Các bước thực hiện:
+
+Truy cập mục Chat trên OA Manager hoặc tại link https://oa.zalo.me/chatv2
+Chọn biểu tượng Tạo nhóm 
+Chọn loại nhóm muốn tạo, nhấn Chọn hoặc Mua thêm
+Đặt tên nhóm và thêm thành viên (nếu cần). Sau đó chọn Tạo nhóm
+
+II. Mua thêm dịch vụ Nhóm chat GMF​
+
+Bên cạnh các nhóm có sẵn theo Gói Dịch vụ, Quản trị viên có thể mua thêm dịch vụ nhóm chat GMF tùy thuộc vào nhu cầu doanh nghiệp, có 2 công cụ để mua: OA Manager (vui lòng xem phần I tại bài viết này) và OpenAPI tại đây.
+
+⚠ Lưu ý: OA cần liên kết với tài khoản ZBS để có thể mua thêm nhóm GMF. Vui lòng tham khảo:
+
+Hướng dẫn tạo tài khoản ZBS tại đây.
+Hướng dẫn liên kết OA ID với tài khoản ZBS tại đây.
+Hướng dẫn nạp tiền vào tài khoản ZBS tại đây.
+Người thực hiện mua phải là Quản trị viên của OA và là Quản trị viên/Biên tập viên của tài khoản ZBS.
+📌 Quản lý nhóm chat GMF thông qua OA Manager​
+I. Tương tác trong nhóm chat​
+Đối với các nhóm chat có sẵn theo Gói Dịch vụ, OA sẽ không phát sinh thêm chi phí (phí duy trì và phí tin nhắn gửi từ OA vào nhóm chat) trong suốt thời gian Gói dịch vụ còn hiệu lực.
+Đối với các nhóm đang sử dụng dịch vụ GMF mua thêm, đơn giá tin nhắn gửi từ OA đến nhóm chat sẽ được tính theo bảng giá dịch vụ tại đây (xem phần Chi phí nhóm). Tin nhắn gửi từ thành viên nhóm chat (không phải OA) hoàn toàn miễn phí.
+OA là trưởng nhóm nên luôn có quyền gửi tin nhắn vào nhóm chat.
+Tùy theo thiết lập mà thành viên cũng có thể gửi tin nhắn vào nhóm chat.
+II. Quản lý thành viên​
+
+1. Mời tham gia nhóm: Có nhiều cách để mời thành viên vào nhóm:
+
+🔔 Cách 1: Mời bằng link nhóm
+
+Bất cứ người dùng nào có link nhóm đều có thể xin tham gia nhóm.
+Sau khi người dùng truy cập link và xác nhận tham gia thì cần Trưởng nhóm hoặc Phó nhóm phê duyệt.
+
+🔔 Cách 2: Mời qua OA Manager
+
+Chỉ mời được người dùng đã quan tâm OA.
+Người dùng được mời xác nhận tham gia sẽ trực tiếp được tham gia nhóm.
+
+2. Danh sách thành viên: Admin OA có thể Thêm phó nhóm/ Mời rời nhóm cho các thành viên theo nhu cầu quản lý.
+
+III. Quản lý nâng cao​
+
+1. Quản lý nâng cao: Chỉ admin OA được phân quyền Quản trị viên, Soạn nội dung, Chăm sóc khách hàng (CSKH) mới có thể thao tác Hiện/ Ẩn cho từng loại tính năng sau:
+
+Cho phép tất cả thành viên nhắn tin.
+Chế độ phê duyệt thành viên mới.
+Cho phép thành viên mới đọc tin nhắn gần nhất.
+Cho phép dùng link tham gia nhóm.
+
+2. Rời nhóm: OA không thể rời nhóm.
+
+3. Giải tán nhóm: Giải tán nhóm sẽ giống với xóa nhóm, OA sẽ tự động xóa thành viên trong nhóm và xóa toàn bộ lịch sử cuộc trò chuyện trong nhóm (không thể khôi phục). Chỉ có có admin được phân quyền Quản trị viên mới có thể thao tác Giải tán nhóm.
+
+⚠ Lưu ý: OA không thể hoàn tác lại nhóm đã giải tán.
+
+IV. Quản lý dịch vụ​
+
+Để vào mục Quản lý dịch vụ, admin của OA tham khảo các bước thao tác sau:
+
+Bước 1: Truy cập mục Chat trên OA Manager hoặc truy cập tại link https://oa.zalo.me/chatv2 -> Chọn nhóm chat cần gia hạn/nâng cấp.
+Bước 2: Chọn biểu tượng Quản lý nhóm
+Bước 3: Chọn mục Quản lý dịch vụ.
+
+Tại mục Quản lý dịch vụ, doanh nghiệp có thể theo dõi các thông tin về loại dịch vụ GMF hiện tại của nhóm như:
+
+Tên dịch vụ GMF.
+Giới hạn số lượng thành viên.
+Thời hạn sử dụng (ngày hết hạn).
+Thực hiện các thao tác:
+Bật/tắt tính năng gia hạn tự động cho nhóm GMF.
+Thay đổi/cập nhật gói dịch vụ cho nhóm GMF.
+
+⚠ Lưu ý:
+
+Tất cả các nhóm sẽ được tự động giải tán sau 45 ngày kể từ ngày nhóm hết hạn nếu không được gia hạn.
+Trong trường hợp bật gia hạn tự động, dịch vụ GMF của nhóm sẽ được tự động gia hạn ngay khi nhóm hết hạn, chi phí sẽ được trừ vào tài khoản ZBS hiện tại đang liên kết với OA. Doanh nghiệp vui lòng đảm bảo số dư tài khoản ZBS để hệ thống có thể gia hạn thành công dịch vụ nhóm GMF.
+📌 Quản lý nhóm chat GMF thông qua OpenAPI​
+
+Doanh nghiệp có thể tạo và quản lý nhóm chat GMF thông qua OpenAPI. Xem thêm chi tiết tại đây.
+
+----------------------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Tin mời đánh giá phiên chăm sóc khách hàng
+Next
+Quản lý Khách hàng
+📌 Thông tin chung
+📌 Hướng dẫn tạo và mua thêm nhóm chat GMF
+I. Tạo nhóm chat GMF
+II. Mua thêm dịch vụ Nhóm chat GMF
+📌 Quản lý nhóm chat GMF thông qua OA Manager
+I. Tương tác trong nhóm chat
+II. Quản lý thành viên
+III. Quản lý nâng cao
+IV. Quản lý dịch vụ
+📌 Quản lý nhóm chat GMF thông qua OpenAPI
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

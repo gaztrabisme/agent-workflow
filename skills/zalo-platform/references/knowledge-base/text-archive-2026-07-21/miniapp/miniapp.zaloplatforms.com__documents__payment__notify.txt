@@ -1,0 +1,96 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/notify/
+# FETCHED: 2026-07-21
+# TITLE: notify | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+createOrder
+notify
+checkTransaction
+callback
+getOrderStatus
+updateOrderStatus
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+notify
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+API đối tác xây dựng sẽ thông tin phương thức thanh toán từ Checkout SDK.
+
+Khi và chỉ khi người dùng chọn phương thức là thanh toán khi nhận hàng (COD) hoặc chuyển khoản ngân hàng thì Checkout SDK mới gọi API này để thông báo kết quả.
+
+Merchant Server dựa vào kết quả này để ghi nhận thông tin phương thức thanh toán và thực hiện hoàn thành thanh toán cho người dùng.
+
+Đặc tả​
+
+Nếu người dùng chọn phương thức là thanh toán khi nhận hàng (COD) hoặc chuyển khoản ngân hàng, Checkout SDK Server callback cho Merchant Server theo NotifyUrl. Merchant dùng PrivateKey để xác thực data do Checkout SDK Server POST qua.
+
+Dữ liệu nhận được từ request​
+Property	Type	Description
+data	Object	Dữ liệu phương thức thanh toán
+mac	String	Thông tin chứng thực, dùng PrivateKey được cung cấp để chứng thực
+Dữ liệu của trường data​
+Property	Type	Description	Use to build mac
+appId	String	Id của ứng dụng	true
+orderId	String	Id của yêu cầu thanh toán đã tạo ở API createOrder	true
+method	String	Phương thức thanh toán (COD hoặc BANK)	true
+Kiểm tra request hợp lệ​
+data = "appId={appId}&orderId={orderId}&method={method}";
+reqmac = HMAC("HmacSHA256", privateKey, data);
+if (reqmac == mac) {
+  // request hợp lệ
+} else {
+  // request không hợp lệ
+}
+
+HmacSHA256: Là phương thức bảo mật HmacSHA256
+PrivateKey: Do Checkout SDK cung cấp cho ứng dụng lúc đăng ký ứng dụng
+Data: Là dữ liệu do Checkout SDK request tới notify API của Merchant khi người dùng chọn phương thức là thanh toán khi nhận hàng hoặc chuyển khoản ngân hàng.
+Thông tin MerchantServer trả về cho Checkout SDK Server khi nhận callback​
+
+Merchant cần phải ghi nhận thông tin và trả về kết quả thành công cho Checkout SDK Server, khi đó quá trình thanh toán của người dùng mới được tiếp tục hoàn thành.
+
+Property	Type	Description
+returnCode	int	Có các giá trị sau:
+1 : thành công
+Giá trị khác: thất bại
+
+returnMessage	String	Mô tả chi tiết mã trạng thái
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

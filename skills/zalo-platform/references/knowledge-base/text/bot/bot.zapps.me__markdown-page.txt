@@ -1,0 +1,16 @@
+# SOURCE: https://bot.zapps.me/markdown-page/
+# FETCHED: 2026-08-06
+# TITLE: Markdown page example | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Trang chủ
+Bắt đầuTài liệuGiá góiGiải phápFAQ
+Markdown page example
+You don't need React to write simple standalone pages.
+EN
+Zalo Bot Platform
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+Công Ty TNHH Zalo Platforms
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+© 2025 Zalo Platforms. All Rights Reserved.

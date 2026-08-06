@@ -1,0 +1,10 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/gui-tin-template-qua-sdt/api-gui-tin-qua-sdt/api-gui-tin-voi-he-ma-hoa-rsa
+# FETCHED: 2026-08-06
+# TITLE: Zalo For Developers
+
+Nhảy tới nội dung
+Official Account APISocial APIAndroid SDKIOS SDKJava SDKDotnet SDKPHP SDKZNS APIZBS Template Message
+Tell me about it!
+Explore our guide to your suitable solutions by our latest documentation including developers guides, API reference and more
+Bắt đầu ngay
+©2023 Zalo for Developers

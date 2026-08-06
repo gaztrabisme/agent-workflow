@@ -1,0 +1,334 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-truong-thong-tin-nguoi-dung/cap-nhat-truong-thong-tin
+# FETCHED: 2026-07-21
+# TITLE: Cập nhật trường thông tin | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Lấy danh sách trường thông tin
+Tạo mới trường thông tin tùy biến
+Cập nhật trường thông tin
+Xóa trường thông tin tùy biến
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý trường thông tin người dùngCập nhật trường thông tin
+Cập nhật trường thông tin
+LƯU Ý
+Ứng dụng cần được OA cấp quyền "Quản lý trường thông tin người dùng" để sử dụng API này.
+Không thể thay đổi key và data_type của trường thông tin.
+Đối với data_type là table, chỉ có thể thêm key mới, không được xóa key đã có.
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/userfield/update
+Method: POST
+Response Type: text/json
+Example request​
+curl --location --request POST 'https://openapi.zalo.me/v3.0/oa/userfield/update' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "key": "thong_tin_don_hang",
+    "name": "Thông tin đơn hàng (cập nhật)",
+    "description": "Chi tiết cập nhật về đơn hàng của khách hàng",
+    "status": "active",
+    "additional_fields": [
+        {
+            "key": "da_thanh_toan_chua",
+            "data_type": "boolean"
+        }
+    ]
+}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+key
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Khóa của trường thông tin cần cập nhật
+
+
+
+
+name
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Tên mới của trường thông tin (nếu cần thay đổi)
+
+
+
+
+description
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Mô tả mới của trường thông tin (nếu cần thay đổi)
+
+
+
+
+status
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Trạng thái mới của trường thông tin (nếu cần thay đổi). Lưu ý: Không thể thay đổi status của các trường có field_type là system
+
+
+
+
+additional_format
+
+	
+
+string
+
+	
+
+no
+
+	Cài đặt bổ sung cho data_type là datetime (nếu cần thay đổi)
+
+Ví dụ:
+"additional_format": "dd/MM/yyyy"
+
+
+
+
+additional_fields
+
+	
+
+object
+
+	
+
+no
+
+	Cài đặt bổ sung cho data_type là table. Chỉ cho phép:
+- Thêm key mới
+- Tối đa 5 key trong một bảng
+- Không xóa key đã có
+
+Ví dụ table thong_tin_don_hang đã có sẵn 4 key và cần bổ sung thêm key da_thanh_toan_chua:
+
+
+"additional_fields": [
+    {
+        "key": "da_thanh_toan_chua",
+        "data_type": "boolean"
+    }
+]
+
+Example response​
+{
+    "error": 0,
+    "message": "success",
+    "data": {
+        "key": "thong_tin_don_hang",
+        "name": "Thông tin đơn hàng (cập nhật)",
+        "data_type": "table",
+        "description": "Chi tiết cập nhật về đơn hàng của khách hàng",
+        "status": "active",
+        "additional_fields": [
+            {
+                "key": "ma_don_hang",
+                "data_type": "text"
+            },
+            {
+                "key": "ngay_dat_hang",
+                "data_type": "datetime",
+                "additional_format": "dd/MM/yyyy"
+            },
+            {
+                "key": "so_tien",
+                "data_type": "number"
+            },
+            {
+                "key": "trang_thai",
+                "data_type": "text"
+            },
+            {
+                "key": "da_thanh_toan_chua",
+                "data_type": "boolean"
+            }
+        ]
+    }
+}
+
+Cấu trúc response​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+error
+
+	
+
+integer
+
+	
+
+Mã lỗi (0 nếu thành công)
+
+
+
+
+message
+
+	
+
+string
+
+	
+
+Thông báo kết quả
+
+
+
+
+data
+
+	
+
+object
+
+	
+
+Thông tin trường đã cập nhật. Bao gồm toàn bộ thông tin hiện tại của trường.
+
+Trước
+Tạo mới trường thông tin tùy biến
+Kế tiếp
+Xóa trường thông tin tùy biến
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example response
+Cấu trúc response
+©2023 Zalo for Developers

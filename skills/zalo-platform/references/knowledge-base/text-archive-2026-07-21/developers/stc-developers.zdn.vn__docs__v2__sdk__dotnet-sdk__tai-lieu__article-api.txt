@@ -1,0 +1,101 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/dotnet-sdk/tai-lieu/article-api
+# FETCHED: 2026-07-21
+# TITLE: Article API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Dotnet SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Social API
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tích hợpArticle API
+Article API
+
+Thông tin chi tiết về các API vui lòng tham khảo tài liệu Article API. Hướng dẫn gọi Article API sử dụng DotNet SDK. Khai báo sử dụng Zalo DotNet SDK
+
+using ZaloDotNetSDK;
+
+Khởi tạo ZaloClient​
+ZaloClient client = new ZaloClient(access_token);
+
+Tạo bài viết​
+List<Paragraph> body = new List<Paragraph>();
+body.Add(new ParagraphText("content"));
+body.Add(new ParagraphImage("https://stc-developers.zdn.vn/zalo.png", "caption"));
+body.Add(new ParagraphVideo(null, "1cd9ac28936d7a33237c", "https://stc-developers.zdn.vn/zalo.png")); //Chỉ cần 1 trong 2 param url tới video hoặc video id
+//body.Add(new ParagraphProduct("product_id"));
+
+Article article = new Article("title", "description", new CoverVideo(ArticleStatus.SHOW, CoverViewVideoType.HORIZONTAL, "1cd9ac28936d7a33237c"), "hienhh", body, new List<RelatedMedia>(), "", ArticleStatus.SHOW, ArticleStatus.SHOW);
+
+JObject result = client.createArticle(article);
+
+Cập nhật bài viết​
+List<Paragraph> body = new List<Paragraph>();
+body.Add(new ParagraphText("content"));
+body.Add(new ParagraphImage("https://stc-developers.zdn.vn/zalo.png", "caption"));
+body.Add(new ParagraphVideo(null, "1cd9ac28936d7a33237c", "https://stc-developers.zdn.vn/zalo.png")); //Chỉ cần 1 trong 2 param url tới video hoặc video id
+//body.Add(new ParagraphProduct("product_id"));
+
+Article article = new Article("hienhh", "hienhh", new CoverVideo(ArticleStatus.SHOW, CoverViewVideoType.HORIZONTAL, "1cd9ac28936d7a33237c"), "hienhh", body, new List<RelatedMedia>(), "", ArticleStatus.SHOW, ArticleStatus.SHOW);
+
+JObject result = client.createArticle(article);
+
+Tải lên video​
+ZaloFile file = new ZaloFile("C:\\\\Users\\\\CPU10932-local\\\\Desktop\\\\SampleVideo_1280x720_1mb.mp4");
+JObject result = client.prepareUploadVideoForArticle(file);
+
+Lấy video id từ token​
+JObject result = client.verifyUploadVideoForArticle(token);
+
+Tạo bài viết video​
+VideoArticle article = new VideoArticle("title", "description", "1cd9ac28936d7a33237c", "https://stc-developers.zdn.vn/zalo.png", ArticleStatus.SHOW);
+JObject result = client.createVideoArticle(article);
+
+Cập nhật bài viết video​
+VideoArticle article = new VideoArticle("the new title", "description", "1cd9ac28936d7a33237c", "https://stc-developers.zdn.vn/zalo.png", ArticleStatus.SHOW);
+JObject result = client.updateVideoArticle(article, "102ae115e4500d0e5441");
+
+Lấy danh sách bài viết​
+JObject result = client.getsliceArticle(0, 5, "normal");
+
+Lấy thông tin bài viết​
+JObject result = client.getdetailArticle("5a9002bb07feeea0b7ef");
+
+Lấy article id từ token​
+JObject result = client.verifyArticle(token);
+
+Xóa bài viết​
+JObject result = client.deleteArticle("a9acb693b3d65a8803c7");
+
+Broadcast bài viết​
+JObject result = client.broadcastArticle("606ad5f5deb037ee6ea1", TargetBroadcastGender.ALL);
+
+Trước
+Official Account API
+Kế tiếp
+Các hàm mã hóa thường dùng
+Khởi tạo ZaloClient
+Tạo bài viết
+Cập nhật bài viết
+Tải lên video
+Lấy video id từ token
+Tạo bài viết video
+Cập nhật bài viết video
+Lấy danh sách bài viết
+Lấy thông tin bài viết
+Lấy article id từ token
+Xóa bài viết
+Broadcast bài viết
+©2023 Zalo for Developers

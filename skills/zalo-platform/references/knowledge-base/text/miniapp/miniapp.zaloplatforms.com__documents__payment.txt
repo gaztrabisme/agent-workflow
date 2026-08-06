@@ -1,0 +1,73 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/
+# FETCHED: 2026-07-21
+# TITLE: Giới Thiệu | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Giới Thiệu
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Checkout SDK (V1) cung cấp các phương thức giúp các đơn vị kinh doanh dễ dàng tích hợp các đối tác thanh toán như Zalopay, Momo, VNPay, PayME hoặc với các phương thức như thanh toán khi nhận hàng (COD), chuyển khoản ngân hàng.
+
+LƯU Ý
+
+Đơn vị cần đăng ký tài khoản Merchant (Doanh nghiệp) với các đối tác thanh toán khi có nhu cầu phân phối ứng dụng đã tích hợp thanh toán tới người dùng.
+
+Lựa chọn phương thức Mobile Web to App đối với Zalopay, All in One đối với Momo.
+
+Quá trình thanh toán của một Zalo Mini App​
+
+Trước khi vào phần khai báo thông tin cấu hình và tích hợp thanh toán. Thông tin này sẽ giúp bạn có cái nhìn tổng quát về một quá trình thanh toán của Zalo Mini App.
+
+Sơ đồ quy trình thanh toán​
+
+Sơ đồ này phân tích chi tiết về một quy trình thanh toán, bao gồm các bước từ khi khách hàng đặt hàng cho đến khi thanh toán được xác nhận. 
+
+CHI TIẾT
+
+Đối tác chủ động tạo đơn hàng tại hệ thống của đối tác, sử dụng PrivateKey để tạo mã mac với các dữ liệu thông tin đơn hàng và đưa thông tin (dữ liệu đơn hàng, mac) vào API createOrder.
+Gọi API createOrder để thực hiện thanh toán. Checkout SDK sẽ điều hướng người dùng tới trang lựa chọn phương thức thanh toán.
+Sau khi người dùng chấp nhận thanh toán, Checkout SDK sẽ thực hiện quá trình thanh toán với đối tác thanh toán mà người dùng lựa chọn.
+Sau khi người dùng hoàn tất quá trình thanh toán, hệ thống sẽ điều hướng người dùng về lại Mini App. Mini App chủ động gọi API checkTransaction để kiểm tra trạng thái thanh toán và hiển thị kết quả với người dùng.
+Sau khi nhận thông tin kết quả từ đối tác thanh toán, Checkout SDK sẽ xác thực lại thông tin và gửi kết quả về cho Merchant Server.
+Merchant Server dùng kết quả này để xác thực lại giao dịch và cập nhật thông tin đơn hàng tại hệ thống của đối tác.
+
+Tham khảo​
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

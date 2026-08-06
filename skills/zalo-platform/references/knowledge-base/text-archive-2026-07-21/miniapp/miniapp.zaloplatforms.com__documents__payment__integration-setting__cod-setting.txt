@@ -1,0 +1,62 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/integration-setting/cod-setting/
+# FETCHED: 2026-07-21
+# TITLE: Cấu hình thanh toán khi nhận hàng (COD) | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Đăng ký với đối tác thanh toán
+Cấu hình thanh toán cho Mini App
+Cài Đặt Chung
+Cấu hình ZaloPay
+Cấu hình Momo
+Cấu hình VNPay
+Cấu hình Payme
+Thanh toán khi nhận hàng (COD)
+Chuyển khoản ngân hàng
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Cấu hình thanh toán khi nhận hàng (COD)
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Giao diện cấu hình thanh toán cho Mini App với COD
+
+Notify Url: Đường dẫn nhận thông báo của nền tảng khi người dùng chọn thanh toán COD.
+Redirect Path: Đường dẫn về lại Zalo Mini App khi thanh toán thành công (Mặc định sẽ về home).
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

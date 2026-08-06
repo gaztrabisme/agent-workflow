@@ -1,0 +1,130 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/openApis/partner/webhook/eventReviewMiniApp
+# FETCHED: 2026-08-06
+# TITLE: Sự kiện xét duyệt app | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+Tổng quan
+Tài liệu Open API
+Giới thiệu
+Cấu hình Open API
+Tài liệu API tích hợp
+Cài đặt client
+Thống kê
+Webhook
+Thiết lập webhook URL
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Hướng dẫn verify signature
+Tài liệu tích hợp cho đối tác giải pháp
+Giới thiệu
+Thông tin cấu hình
+Tài liệu API tích hợp
+Cài đặt client
+Lấy danh sách danh mục
+Tạo mini app
+Lấy thông tin Mini App
+Cập nhật loại hình
+Deploy mini app
+Lấy danh sách mini app
+Lấy danh sách phiên bản
+Publish mini app
+Gửi yêu cầu xét duyệt
+Tạo short link QR code
+Thống kê
+Cấu hình API Domain
+Checkout SDK
+Quản lý Quyền Mini App
+KYB - Giấy tờ doanh nghiệp
+Tổng quan
+Lấy danh sách loại giấy tờ cần thiết
+Nộp giấy tờ chủ sở hữu
+Tải lên tệp giấy tờ
+Nộp giấy tờ kinh doanh
+Lấy danh sách giấy tờ đã nộp
+Webhook
+Sự kiện xét duyệt app
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Hướng dẫn verify signature
+Gửi thông báo cho người dùng
+Mã lỗi
+eKYC APIs
+Checkout SDK
+Sự kiện xét duyệt app
+Cập nhật lần cuối:5/8/2026
+Zalo sẽ gửi các Request HTTP POST đến Webhook URL của ứng dụng khi có các thay đổi liên quan tới việc phiên bản của ứng dụng được duyệt hay bị từ chối.
+URL: Webhook URL của ứng dụng
+Method: POST
+Headers: X-ZEvent-Signature (xem hướng dẫn verify signature bên dưới)
+Content-Type: application/json
+Parameters:
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Giá trị
+Mô tả
+event
+String
+Yes
+versions.review.done
+Tên của sự kiện
+appId
+String
+Yes
+Mini App ID
+versionId
+Integer
+Yes
+ID của phiên bản
+status
+Integer
+Yes
+0 hoặc -1
+0 - phiên bản được duyệt, -1 phiên bản bị reject
+description
+String
+Optional
+Mô tả lý do phiên bản bị từ chối
+timestamp
+Long
+Thời gian của sự kiện
+Ví dụ
+{
+"event": "versions.review.done",
+"appId": "2646373759294038927"
+"versionId": 101,
+"status": 0,
+"description": "".
+"timestamp": 1670553442564
+}
+Trước
+Lấy danh sách giấy tờ đã nộp
+Kế tiếp
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

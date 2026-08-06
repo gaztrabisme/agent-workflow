@@ -1,0 +1,88 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/phu-luc/gioi-han-toc-do-api
+# FETCHED: 2026-07-21
+# TITLE: Giới hạn tốc độ gọi API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Phụ lụcGiới hạn tốc độ gọi API
+Giới hạn tốc độ gọi API
+Giới hạn tốc độ​
+
+Giới hạn tốc độ xác định giới hạn về số lệnh gọi API có thể thực hiện trong một khoảng thời gian cụ thể. Giới hạn tốc độ được đặt ra cho từng ứng dụng.
+
+Giới hạn tốc độ cấp ứng dụng​
+
+Mọi lệnh gọi API từ ứng dụng khi đã vượt quá giới hạn tốc độ đều không được thực thi và sẽ trả về error code = -32. Các giới hạn này sẽ được tính dựa theo phút. Các giới hạn này sẽ được làm mới ở phút tiếp theo.
+
+Giới hạn​
+
+Giới hạn tốc độ gọi được tính trên ứng dụng theo từng loại API khác nhau:
+
+Official Account API: 4.000 requests/phút
+Article API: 4.000 requests/phút
+Social API: 4.000 requests/phút và 20 requests/user/phút
+
+Giới hạn tốc độ gọi được tính trên Official Account theo từng loại gói OA khác nhau. Xem thông tin tại đây.
+
+LƯU Ý
+
+Giới hạn tốc độ gọi tính trên Official Account không bao gồm API gửi tin ZBS Template Message.
+
+Cách tránh giới hạn tốc độ​
+Trải đều truy vấn giữa 2 khoảng thời gian để tránh lưu lượng gọi API tăng vọt trong một thời điểm. Đặc biệt là các thao tác nhập dữ liệu
+Có phần xử lý lỗi khi gọi API trả về error code = -32.
+Header giới hạn tốc độ​
+
+Tất cả phản hồi cho lệnh gọi với API đều bao gồm Header HTTP X-RateLimit-Limit và X-RateLimit-Remain. Trong đó X-RateLimit-Limit là tổng số lệnh ứng dụng được gọi API tính theo phút, X-RateLimit-Remain là số lệnh gọi còn lại mà ứng dụng được gọi API tính theo phút, khi số này bằng 0 có nghĩa là ứng dụng của bạn đã đạt tới giới hạn gọi API.
+
+Trước
+Các tương tác của người dùng với OA
+Kế tiếp
+Cấu trúc tham số buttons
+Giới hạn tốc độ
+Giới hạn tốc độ cấp ứng dụng
+Giới hạn
+Cách tránh giới hạn tốc độ
+Header giới hạn tốc độ
+©2023 Zalo for Developers

@@ -1,0 +1,93 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/bat-dau/gioi-thieu-official-account-api-va-cac-nhom-quyen
+# FETCHED: 2026-08-06
+# TITLE: Giới thiệu Official Account API và các nhóm Quyền | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Giới thiệu Official Account API và các nhóm Quyền
+Để tương tác và quản lý người quan tâm tài khoản OA của mình, người dùng OA có thể sử dụng công cụ quản lý OA manager hoặc hệ thống OA API.
+Khi sử dụng hệ thống OA API, bạn có thể tương tác với người quan tâm sử dụng các mẫu thông báo được Zalo thiết lập sẵn.
+Các nhóm quyền của hệ thống OA API:
+Gửi tin Tư vấn dạng văn bản
+Quyền
+API hỗ trợ
+Quyền gửi tin nhắn
+Gửi tin Tư vấn dạng văn bản
+Gửi tin Tư vấn đính kèm ảnh
+Gửi tin Tư vấn đính kèm file
+Gửi tin Tư vấn theo mẫu yêu cầu thông tin người dùng
+Gửi tin Tư vấn trích dẫn
+Gửi tin Tư vấn kèm Sticker
+Gửi tin Giao dịch
+Gửi tin Truyền thông cá nhân
+Gửi tin Truyền thông Broadcast
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Thả biểu tượng cảm xúc vào tin nhắn
+Upload hình ảnh
+Upload ảnh GIF
+Upload tập tin
+Kiểm tra hạn mức gửi tin
+Quyền quản lý tin nhắn người dùng
+Lấy thông tin Tin nhắn gần nhất
+Lấy thông tin Tin nhắn trong một hội thoại
+Quyền quản lý thông tin OA
+Lấy thông tin Zalo Official Account
+Truy xuất danh sách người dùng
+Truy xuất chi tiết người dùng
+Cập nhật chi tiết người dùng
+Xóa thông tin người dùng
+Gắn nhãn người dùng
+Gỡ nhãn người dùng
+Lấy danh sách nhãn
+Xoá nhãn
+Quyền quản lý Ads
+Lấy nội dung form Zalo Ads
+Quyền quản lý bài viết
+Quản lý các bài viết của Official Account
+Quản lý cửa hàng và đơn hàng
+Trước
+Xác thực và ủy quyền cho Ứng dụng
+Kế tiếp
+Tổng quan
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

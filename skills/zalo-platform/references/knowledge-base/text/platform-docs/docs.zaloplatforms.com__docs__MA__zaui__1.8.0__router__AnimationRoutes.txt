@@ -1,0 +1,158 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.8.0/router/AnimationRoutes
+# FETCHED: 2026-08-06
+# TITLE: AnimationRoutes | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.8.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+AnimationRoutes
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.8.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+AnimationRoutes component: Wrapper thay thế cho Routes của react-router, component này thêm hiệu ứng khi chuyển trang
+Properties​
+AnimationRoutes​
+Name
+Type
+Default
+Description
+children
+ReactNode
+Các Route page
+Example​
+import React from "react";
+import { Route } from "react-router-dom";
+import { AnimationRoutes, App, ZMPRouter } from "zmp-ui";
+export default function MyApp(props) {
+return (
+<ZMPRouter>
+<AnimationRoutes>
+} />
+} />
+</AnimationRoutes>
+</ZMPRouter>
+);
+}
+import React from "react";
+import { Page, Text, Box, Button, useNavigate } from "zmp-ui";
+export default function Page1(props) {
+const navigate = useNavigate();
+return (
+<Text.Title style={{ textAlign: "center" }}>Page 1</Text.Title>
+<Box mt={6}>
+<Button
+fullWidth
+variant="secondary"
+onClick={() => {
+navigate("/", {
+replace: true,
+animate: true,
+direction: "backward",
+});
+}}
+>
+Go To Home
+</Button>
+</Box>
+);
+}
+import React from "react";
+import { Page, Text, Box, Button, useNavigate } from "zmp-ui";
+export default function HomePage(props) {
+const navigate = useNavigate();
+return (
+<Text.Title style={{ textAlign: "center" }}>Home Page</Text.Title>
+<Box mt={6}>
+<Button
+fullWidth
+variant="secondary"
+onClick={() => {
+navigate("/page1");
+}}
+>
+Go To Page 1
+</Button>
+</Box>
+);
+}
+Properties
+AnimationRoutes
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

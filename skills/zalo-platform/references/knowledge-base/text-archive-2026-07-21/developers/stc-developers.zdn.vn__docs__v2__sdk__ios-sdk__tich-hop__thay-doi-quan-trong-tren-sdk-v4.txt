@@ -1,0 +1,41 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/ios-sdk/tich-hop/thay-doi-quan-trong-tren-sdk-v4
+# FETCHED: 2026-07-21
+# TITLE: Thay đổi quan trọng trên SDK V4 | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+IOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Tích hợpThay đổi quan trọng trên SDK V4
+Thay đổi quan trọng trên SDK V4
+
+Thay đổi quan trọng trên SDK V4:
+
+Các thông tin như uid,OauthCode, AccessToken sẽ không được lưu bởi SDK mà sẽ trả về app. App sẽ quản lý các thông tin này sau khi login/logout.
+App cung cấp code_challenge để thực hiện login, code_verifier để lấy access token truy cập api . Cách lấy tham khảo tại: Đăng nhập
+OauthCode được trả sau khi login chỉ có giá trị sau 10 phút, và chỉ được dùng một lần để gọi lấy access token. Các lần sau sẽ dùng refresh token để lấy lại access token mới. Chi tiết tham khảo tại: Lấy AccessToken
+Trước
+Tổng quan
+Kế tiếp
+XCode
+©2023 Zalo for Developers

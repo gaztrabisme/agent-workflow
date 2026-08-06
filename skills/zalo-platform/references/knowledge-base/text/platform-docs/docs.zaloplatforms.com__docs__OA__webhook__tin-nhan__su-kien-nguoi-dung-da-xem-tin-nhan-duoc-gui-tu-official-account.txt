@@ -1,0 +1,154 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/webhook/tin-nhan/su-kien-nguoi-dung-da-xem-tin-nhan-duoc-gui-tu-official-account
+# FETCHED: 2026-08-06
+# TITLE: Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Sự kiện người dùng gửi tin nhắn
+Sự kiện người dùng click nút “Nhắn tin” trên Official Account
+Sự kiện người dùng thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện OA thả biểu tượng cảm xúc lên tin nhắn
+Sự kiện Official Account gửi tin nhắn cho người dùng
+Sự kiện Official Account gửi tin nhắn cho người dùng ẩn danh
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Sự kiện người dùng nhận tin nhắn từ Official Account
+Nhóm chat - GMF
+Sự kiện tạo nhóm OA
+Sự kiện thành viên mới tham gia nhóm
+Sự kiện thành viên mới yêu cầu tham gia nhóm
+Sự kiện duyệt thành viên
+Sự kiện từ chối duyệt thành viên
+Sự kiện thêm phó nhóm
+Sự kiện xóa phó nhóm
+Sự kiện cập nhật thông tin nhóm
+Sự kiện thành viên rời nhóm
+Sự kiện xóa nhóm
+Sự kiện tin nhắn được gửi tới nhóm
+Gọi thoại
+Sự kiện yêu cầu cấp quyền được gửi và hết hạn.
+Sự kiện người dùng trả lời yêu cầu cấp quyền gọi điện
+Sự kiện kết thúc cuộc gọi
+Extension
+Sự kiện mua Tiện ích
+Quản lý
+Sự kiện người dùng đồng ý chia sẻ thông tin
+Sự kiện người dùng quan tâm hay bỏ quan tâm OA
+Sự kiện gắn nhãn cho người dùng
+Sự kiện gỡ nhãn khỏi người dùng
+Sự kiện tạo nhãn
+Sự kiện xóa nhãn
+Sự kiện người dùng đồng ý cấp quyền tương tác
+Sự kiện Đồng bộ user_external_id thất bại
+Sự kiện người dùng Zalo thực hiện quyền chủ thể dữ liệu
+Sự kiện cập nhật thông tin người dùng
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Sự kiện người dùng đã xem tin nhắn được gửi từ Official Account
+Khi tin nhắn gửi từ Official Account được người dùng xem, hệ thống Zalo sẽ gửi đến Webhook Url của Official Account một http post như sau Quyền cần có:
+Sự kiện người dùng đã đọc tin nhắn
+Lưu ý: Sự kiện chỉ được gửi nếu
+User xem tin nhắn đó trên Zalo Mobile (user xem trên PC/Web sau đó vào Zalo để đọc lại tin nhắn đó thì không có sự kiện).
+Chỉ gửi đến Webhook của App nào đã gửi tin nhắn đó đi.
+Thông tin API:
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+"app_id": "3608465248940903967",
+"sender": {
+"id": "388613280879808645"
+},
+"recipient": {
+"id": "246845883529697922"
+},
+"event_name": "user_seen_message",
+"message": {
+"msg_ids": [
+"43b59c025aeabfb5e6fa"
+]
+},
+"timestamp": "1540363714987"
+}
+Mô tả thuộc tính​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+app_id
+String
+Id của ứng dụng đang nhận sự kiện.
+sender
+Json Object
+Ví dụ:
+{
+"id": "388613280879808645"
+}
+Trong đó:
+"id": Id của Official Account gửi tin nhắn
+recipient
+Json Object
+Ví dụ:
+{
+"id": "246845883529697922"
+}
+Trong đó:
+"id": Id của User nhận tin nhắn
+event_name
+String
+Giá trị là "user_seen_message".
+message
+Json Object
+Ví dụ:
+{
+"msg_ids": [
+"43b59c025aebfb5e6fa"
+]
+}
+Trong đó:
+"msg_ids": Danh sách id của các tin nhắn đã được người dùng xem.
+timestamp
+String
+Thời điểm request được gửi, tính bằng milisecond
+Trước
+Sự kiện người dùng ẩn danh gửi tin nhắn
+Kế tiếp
+Sự kiện người dùng nhận tin nhắn từ Official Account
+Ví dụ:
+Mô tả thuộc tính
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

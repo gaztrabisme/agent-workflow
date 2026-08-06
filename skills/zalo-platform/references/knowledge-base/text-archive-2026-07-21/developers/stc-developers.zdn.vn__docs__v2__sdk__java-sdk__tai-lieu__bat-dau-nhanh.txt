@@ -1,0 +1,64 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/java-sdk/tai-lieu/bat-dau-nhanh
+# FETCHED: 2026-07-21
+# TITLE: Bắt đầu nhanh | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Java SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tích hợpBắt đầu nhanh
+Bắt đầu nhanh
+GitHub​
+
+zaloplatform/zalo-java-sdk
+
+Khởi tạo​
+ZaloOaClient client = new ZaloOaClient();
+String access_token = "your_access_token";
+
+Hàm gọi API Zalo​
+client.excuteRequest(String url, String method, Map<String, Object> params, JsonObject body, Map<String, String> headers, Map<String, File> files)
+
+
+Trong đó:
+
+Tham số	Mô tả
+url
+String	url tương ứng với api muốn gọi.
+method
+String	method tương ứng với api muốn gọi.
+params
+Map<String, Object>	các parameter phụ thuộc vào api muốn gọi
+body
+Json Object	Chứa dữ liệu của body, tùy vào api mà dữ liệu của body sẽ khác nhau.
+headers
+Map<String, String>	Luôn có biến "access_token".
+
+các header còn lại phụ thuộc vào api muốn gọi
+files
+Map<String, File>	Các phần tử phụ thuộc vào api muốn gọi
+Tham khảo ví dụ:​
+Official Account API
+Article API
+Trước
+Tổng quan
+Kế tiếp
+Official Account API V3
+GitHub
+Khởi tạo
+Hàm gọi API Zalo
+Tham khảo ví dụ:
+©2023 Zalo for Developers

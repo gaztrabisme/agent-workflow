@@ -1,0 +1,160 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/quan-ly-template/bat-dau/gioi-thieu-chung-ve-template
+# FETCHED: 2026-07-21
+# TITLE: Giới thiệu chung về Template | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Giới thiệu chung về Template
+Danh sách Components
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Quản lý TemplateBắt đầuGiới thiệu chung về Template
+Giới thiệu chung về Template
+1. Template là gì?​
+
+Template là mẫu nội dung tin nhắn có cấu trúc được định nghĩa trước, đăng ký và kiểm duyệt bởi Zalo Business Solutions, dùng để gửi tin nhắn doanh nghiệp đến người dùng Zalo.
+
+Template được dùng chung cho cả luồng gửi tin nhắn qua Số điện thoại (SDT) và UID.
+
+2. Cấu trúc cơ bản của một Template​
+
+Về mặt kỹ thuật, một Template ZBS được cấu thành từ components và parameters, trong đó hai khái niệm này độc lập với nhau nhưng được sử dụng kết hợp khi hiển thị nội dung tin nhắn.
+
+Components định nghĩa cấu trúc và cách hiển thị của Template (ví dụ: tiêu đề, đoạn văn bản, bảng, nút hành động…).
+Parameters định nghĩa dữ liệu động được truyền vào khi gửi tin và có thể được sử dụng bên trong các components.
+
+Nói cách khác, components là khung, còn parameters là dữ liệu được inject vào khung đó tại thời điểm gửi.
+
+2.1. Tham số​
+
+Tham số là các biến động được định nghĩa sẵn trong Template và được map dữ liệu khi gọi API gửi tin.
+
+
+
+
+Mỗi parameter tương ứng với một placeholder (ví dụ: <customer_name>, <order_code>) và có thể được sử dụng trong nhiều loại component khác nhau, không giới hạn ở content văn bản.
+
+Khi gửi tin, hệ thống ZBS sẽ thay thế các placeholder trong component bằng dữ liệu thực tế được truyền vào từ request API.
+
+2.2. Components​
+
+Components là các khối cấu trúc được sử dụng để xây dựng nội dung Template.
+
+Các components này được khai báo và cấu hình khi sử dụng API tạo template ZBS hoặc API chỉnh sửa template ZBS, và quyết định cách tin nhắn được hiển thị cũng như khả năng tương tác của người dùng.
+
+
+
+
+Mỗi component có:
+
+Cấu trúc dữ liệu (syntax) riêng
+Tập tham số hỗ trợ riêng
+Các ràng buộc kỹ thuật (độ dài, số lượng parameter, điều kiện bắt buộc…)
+
+Danh sách đầy đủ các loại components, cấu trúc dữ liệu, ví dụ syntax và quy tắc sử dụng chi tiết được mô tả trong tài liệu chính thức của Zalo Developers tại:
+
+API tạo Template: https://developers.zalo.me/docs/zbs-template-message/quan-ly-template/template-api/tao-template
+Danh sách components: https://developers.zalo.me/docs/zbs-template-message/quan-ly-template/bat-dau/danh-sach-components
+3. Mục đích gửi của Template (Tag)​
+
+Mỗi Template bắt buộc phải được phân loại theo mục đích nội dung.
+
+Phân loại này ảnh hưởng trực tiếp đến kiểm duyệt, quota và quyền gửi tin.
+
+Tag	Phân loại	Mục đích	Use case thực tế
+Tag 1	TRANSACTION	Tin nhắn giao dịch	OTP, xác nhận đơn hàng, trạng thái thanh toán
+Tag 2	CUSTOMER_CARE	Chăm sóc khách hàng	Nhắc lịch, cập nhật dịch vụ, khảo sát
+Tag 3	PROMOTION	Hậu mãi / khuyến mãi	Voucher, ưu đãi, upsell
+Ví dụ:​
+Tag 1 – TRANSACTION​
+
+Tin nhắn phục vụ mục đích giao dịch hoặc xác thực, thường có tính khẩn cấp và bắt buộc cá nhân hóa.
+
+Xin chào {{customer_name}},
+
+Mã xác thực của bạn là {{otp_code}}.
+
+Mã có hiệu lực trong {{expire_time}} phút.
+
+Tag 2 – CUSTOMER_CARE​
+
+Tin nhắn dùng để chăm sóc, hỗ trợ hoặc thông báo dịch vụ.
+
+Xin chào {{customer_name}},
+
+Bạn có lịch hẹn bảo dưỡng vào ngày {{appointment_date}} tại {{service_location}}.
+
+Vui lòng liên hệ nếu cần hỗ trợ thêm.
+
+Tag 3 – PROMOTION​
+
+Tin nhắn mang tính tiếp thị, hậu mãi hoặc ưu đãi.
+
+Xin chào {{customer_name}},
+
+Ưu đãi {{discount_value}} dành riêng cho bạn khi mua {{product_name}}.
+
+Mã ưu đãi: {{promo_code}}.
+
+Ưu đãi có hiệu lực đến {{expiry_date}}.
+
+4. Trạng thái và chất lượng Template​
+4.1. Trạng thái​
+
+Template có vòng đời và chất lượng riêng, được Zalo theo dõi trong suốt quá trình sử dụng.
+
+Status	Description
+PENDING_REVIEW	Template đang chờ Zalo kiểm duyệt
+ENABLE	Template đã được duyệt và có thể sử dụng để gửi tin
+REJECT	Template bị từ chối do không đạt yêu cầu kiểm duyệt
+DISABLE	Template bị hủy kích hoạt, không thể tiếp tục sử dụng
+DELETE	Template đã bị xóa khỏi hệ thống
+4.2. Chất lượng (Quality)​
+
+Chất lượng Template được Zalo đánh giá dựa trên phản hồi người dùng và hành vi gửi tin sau khi Template được sử dụng.
+
+Quality	Description
+HIGH	Template có chất lượng tốt, tỷ lệ phản hồi tiêu cực thấp
+MEDIUM	Template có chất lượng ở mức bình thường
+LOW	Template có chất lượng thấp, có nguy cơ bị hạn chế hoặc DISABLE
+UNDEFINED	Chưa đủ dữ liệu để đánh giá chất lượng
+Trước
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Kế tiếp
+Danh sách Components
+1. Template là gì?
+2. Cấu trúc cơ bản của một Template
+2.1. Tham số
+2.2. Components
+3. Mục đích gửi của Template (Tag)
+Ví dụ:
+Tag 1 – TRANSACTION
+Tag 2 – CUSTOMER_CARE
+Tag 3 – PROMOTION
+4. Trạng thái và chất lượng Template
+4.1. Trạng thái
+4.2. Chất lượng (Quality)
+©2023 Zalo for Developers

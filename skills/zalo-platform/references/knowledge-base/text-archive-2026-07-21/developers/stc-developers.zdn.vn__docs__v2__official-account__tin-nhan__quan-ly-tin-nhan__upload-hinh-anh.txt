@@ -1,0 +1,102 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/tin-nhan/quan-ly-tin-nhan/upload-hinh-anh
+# FETCHED: 2026-07-21
+# TITLE: Upload hình ảnh | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Kiểm tra hạn mức gửi tin tới User cụ thể
+Lấy thông tin Tin nhắn gần nhất
+Lấy thông tin Tin nhắn trong một hội thoại
+Upload hình ảnh
+Upload file
+Upload ảnh GIF
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tin nhắnQuản lý tin nhắnUpload hình ảnh
+Upload hình ảnh
+MẸO
+
+Bạn có thể sử dụng API upload hình ảnh để phục vụ việc gửi thông báo đính kèm ảnh.
+
+LƯU Ý
+
+Ảnh sau khi được upload và gửi đến người dùng sẽ được lưu trên server tối đa 7 ngày. Trường hợp người dùng xem lại ảnh sau khoảng thời gian trên sẽ được thông báo ảnh không còn tồn tại.
+
+Quota cho API là:
+
+5000 request/ tháng.
+
+Quyền cần có: Quyền gửi tin và thông báo qua OA
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/upload/image
+Method: POST
+Content Type: multipart/form-data
+Response Type: text/json
+Example request​
+curl \
+-H 'access_token: <your_access_token>' \
+-F "file=@/home/test.jpg" \
+https://openapi.zalo.me/v2.0/oa/upload/image
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số	Loại	Tính bắt buộc	Mô tả
+file	binary	yes	Nội dung nhị phân của file ảnh
+
+Các định dạng ảnh hỗ trợ: jpg và png
+
+Dung lượng tối đa: 1MB
+Example respond​
+{
+  "data": {
+    "attachment_id": "wESbL53O_shdvIPILC7iR_JpC552r_fjukKg"
+  },
+  "error": 0,
+  "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+attachment_id	string	ID của ảnh được upload
+Trước
+Lấy thông tin Tin nhắn trong một hội thoại
+Kế tiếp
+Upload file
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

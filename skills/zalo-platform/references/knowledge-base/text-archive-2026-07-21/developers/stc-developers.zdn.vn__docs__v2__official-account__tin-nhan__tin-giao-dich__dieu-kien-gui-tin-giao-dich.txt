@@ -1,0 +1,57 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/tin-nhan/tin-giao-dich/dieu-kien-gui-tin-giao-dich
+# FETCHED: 2026-07-21
+# TITLE: Điều kiện gửi tin Giao dịch | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Điều kiện gửi tin Giao dịch
+Gửi tin giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tin nhắnTin Giao dịchĐiều kiện gửi tin Giao dịch
+Điều kiện gửi tin Giao dịch
+App: đã bật quyền gửi tin và thông báo qua OA
+User (người nhận tin): có tương tác với OA trong vòng 1 năm.
+Xem thêm định nghĩa tương tác ở bài Tổng quan
+Thời gian gửi tin: 24/24
+Notification:
+In-app: 24/24
+Out-app: 6h00 -> 21h59
+Hiển thị tin trên thiết bị của User:
+Mobile: Có
+PC / Web: Coming soon
+Phản ảnh từ user:
+Zalo sẽ dựa vào tỉ lệ báo xấu của User với OA để đánh giá và có các hình thức xử lý đối với các trường hợp OA dùng tin Giao dịch sai mục đích, làm phiền người dùng,...
+Trước
+Gửi tin tư vấn kèm Sticker
+Kế tiếp
+Gửi tin giao dịch
+©2023 Zalo for Developers

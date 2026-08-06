@@ -1,0 +1,68 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/gui-tin-template-qua-uid/quy-dinh-gui-tin-qua-uid
+# FETCHED: 2026-07-21
+# TITLE: Quy định gửi tin qua UID | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Gửi tin Template UIDQuy định gửi tin qua UID
+Quy định gửi tin qua UID
+
+App: đã bật quyền gửi tin và thông báo qua OA
+
+Quy định điều kiện gửi theo loại tin:​
+Tin Giao dịch:​
+ZBS Template Message qua UID sử dụng mẫu tin Tag 1 - TRANSACTION hoặc Tag 2 - CUSTOMER_CARE
+Tham khảo bài viết quy chuẩn kiểm duyệt mẫu ZBS
+Tin Hậu mãi:​
+ZBS Template Message qua UID sử dụng mẫu tin Tag 3 – PROMOTION
+Tham khảo bài viết quy chuẩn kiểm duyệt mẫu ZBS
+Hạn mức nhận tin:​
+
+Hạn mức nhận tin nhắn truyền thông của người quan tâm OA không được vượt quá hạn mức do nền tảng quy định theo chính sách từng thời kỳ.
+
+Hiển thị tin nhắn:​
+
+Công cụ OAM:
+
+OAM bản Web: Có
+OAM bản Mini App: Có
+
+Thiết bị của Người dùng:
+
+Mobile: Có
+PC / Web: Có
+Trước
+Sự kiện người dùng nhận tin qua SĐT
+Kế tiếp
+API gửi tin qua UID
+Quy định điều kiện gửi theo loại tin:
+Tin Giao dịch:
+Tin Hậu mãi:
+Hạn mức nhận tin:
+Hiển thị tin nhắn:
+©2023 Zalo for Developers

@@ -1,0 +1,138 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/extension-zone/admin-dashboard-primary-area-block
+# FETCHED: 2026-07-21
+# TITLE: admin-dashboard-primary-area-block | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuExtension zoneadmin-dashboard-primary-area-block
+admin-dashboard-primary-area-block
+Tổng quan​
+
+Zone admin-dashboard-primary-area-block cho phép các tiện ích tùy biến hiển thị trên trang Dashboard của OA. Thích hợp cho việc hiển thị các thông tin như:
+
+Tổng quan về hiệu suất của OA
+Các chỉ số quan trọng (KPIs) tùy chỉnh
+Biểu đồ và thống kê tương tác
+THÔNG TIN:
+Zone chỉ hiển thị khi admin của OA đăng nhập và truy cập trang Dashboard.
+Tiện ích có thể tận dụng dữ liệu từ zoaSDK.getSessionInfo(data) để hiển thị thông tin phù hợp với từng admin.
+Cấu hình​
+app-config.json​
+{
+  "zones": {
+    "admin-dashboard-primary-area-block": {
+      "enable": true,
+      "roles": ["admin"]
+    }
+  }
+}
+
+zoaSDK.getSessionInfo(data)​
+
+Các thông tin được cung cấp:
+
+admin_id: ID của admin đang đăng nhập
+oaid: ID của Official Account
+Chi tiết hiển thị​
+Vị trí: Trang Dashboard (oa.zalo.me/manage/dashboard)
+Kích thước:
+Chiều cao tối đa: 500px (phần body iframe)
+Chiều rộng: Tự động điều chỉnh theo màn hình, đồng nhất với mục "Thống kê tương tác" hiện có
+Hình ảnh minh họa​
+Hướng dẫn sử dụng​
+Thiết kế nội dung hiển thị phù hợp với chiều cao tối đa 500px và chiều rộng linh hoạt.
+Sử dụng thông tin từ zoaSDK.getSessionInfo(data) để cá nhân hóa nội dung cho từng admin.
+Tạo các biểu đồ và thống kê hữu ích để cung cấp cái nhìn tổng quan về hiệu suất OA.
+Tận dụng không gian để hiển thị các KPIs quan trọng nhất đối với OA.
+Ứng dụng​
+
+Dashboard tổng quan:
+
+Hiển thị các chỉ số quan trọng như số lượng follower, tương tác, conversion rate.
+Tạo biểu đồ so sánh hiệu suất theo thời gian hoặc so với các OA khác trong cùng ngành.
+
+Thống kê tương tác chi tiết:
+
+Phân tích các loại tương tác khác nhau (tin nhắn, bình luận, chia sẻ).
+Hiển thị xu hướng tương tác theo thời gian thực.
+
+Báo cáo hiệu quả chiến dịch:
+
+Tổng hợp kết quả của các chiến dịch marketing đang chạy.
+So sánh hiệu suất giữa các chiến dịch khác nhau.
+
+Cảnh báo và đề xuất:
+
+Hiển thị các cảnh báo về sự sụt giảm đột ngột trong tương tác hoặc follower.
+Đưa ra các đề xuất để cải thiện hiệu suất dựa trên phân tích dữ liệu.
+Lưu ý​
+Đảm bảo tính bảo mật và quyền riêng tư khi hiển thị thông tin nhạy cảm.
+Tối ưu hóa hiệu suất để đảm bảo dashboard load nhanh và mượt mà.
+Cung cấp tùy chọn để admin có thể tùy chỉnh các chỉ số hiển thị theo nhu cầu cụ thể của họ.
+Thường xuyên cập nhật và bổ sung tính năng mới để đảm bảo dashboard luôn hữu ích và phù hợp với nhu cầu của admin.
+
+Cập nhật lần cuối: 2024-07-22
+
+Trước
+admin-chat-message-toolbar-action
+Kế tiếp
+admin-extension-config-block
+Tổng quan
+Cấu hình
+app-config.json
+zoaSDK.getSessionInfo(data)
+Chi tiết hiển thị
+Hình ảnh minh họa
+Hướng dẫn sử dụng
+Ứng dụng
+Lưu ý
+©2023 Zalo for Developers

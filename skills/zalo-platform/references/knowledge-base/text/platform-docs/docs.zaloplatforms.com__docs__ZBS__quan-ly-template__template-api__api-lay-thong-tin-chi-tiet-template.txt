@@ -1,0 +1,266 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/quan-ly-template/template-api/api-lay-thong-tin-chi-tiet-template
+# FETCHED: 2026-08-06
+# TITLE: API Lấy thông tin chi tiết Template | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Bắt đầu
+Giới thiệu chung về Template
+Danh sách Components
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+API Lấy thông tin phản hồi nhanh của khách hàng
+Template Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi trạng thái Template
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Sự kiện người dùng phản hồi template phản hồi nhanh
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+API Lấy thông tin chi tiết Template
+Lưu ý
+Quyền cần có: Quản lý Message Template
+HTTP request​
+URL: https://business.openapi.zalo.me/template/info/v2
+Method: GET
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json"
+"https://business.openapi.zalo.me/template/info/v2?template_id=12345"
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+template_id
+string
+yes
+ID của template cần lấy thông tin.
+Example respond​
+{
+"error": 0,
+"message": "Success",
+"data": {
+"templateId": "12345",
+"templateName": "Test tạo mẫu tin từ trang admin - dạng bảng",
+"status": "ENABLE",
+"listParams": [
+{
+"name": "payment_link",
+"require": true,
+"type": "STRING",
+"maxLength": 30,
+"minLength": 0,
+"acceptNull": false
+}
+],
+"listButtons": [
+{
+"type": 1,
+"title": "Truy cập website",
+"content": "https://zalo.solutions/zns"
+},
+{
+"type": 2,
+"title": "Gọi CSKH",
+"content": "0858808xxxx"
+}
+],
+"timeout": 7200000,
+"previewUrl": "https://account.zalo.solutions/znspreview/c1t6Wk43sxXTiLPyC__hXQ==",
+"templateQuality": "HIGH",
+"templateTag": "IN_TRANSACTION",
+"price_sdt": "800",
+"price_uid": "560",
+"price": "800"
+}
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+templateId
+String
+ID của template.
+templateName
+string
+Tên của template.
+status
+string
+Trạng thái template.
+Các trạng thái bao gồm:
+ENABLE: Trạng thái template được kích hoạt, có thể sử dụng để gửi tin qua SĐT
+PENDING_REVIEW: Trạng thái template chờ kiểm duyệt
+DELETE: Trạng thái template bịxóa
+REJECT: Trạng thái template bị từ chối
+DISABLE: Trạng thái template bị hủy kích hoạt
+reason
+string
+Lý do template có trạng thái hiện tại
+Status
+Chi tiết lý do của trạng thái hiện tại
+DISABLE
+** Chi tiết lý do khi template ở trạng thái Disable hoặc Reject
+REJECT
+ENABLE
+Template đã được duyệt
+DELETE
+Template đã bị xóa
+PENDING_REVIEW
+Template đang được kiểm duyệt
+listParams
+object array
+Danh sách các thuộc tính của template.
+listButtons
+object array
+Danh sách các buttons/CTAs của template
+Chỉ áp dụng với 2 loại CTA: primary và secondary. Không hiển thị các CTA từ image module và response button.
+timeout
+long
+Thời gian timeout của template.
+previewUrl
+string
+Đường dẫn đến bản xem trước của template.
+templateQuality
+string
+Trả về giá trị “Null” cho trường thông tin này (Dự kiến từ 10/12)
+templateTag
+string
+Loại nội dung của template. Các giá trị trả về:
+TRANSACTION: Giao dịch
+CUSTOMER_CARE: Chăm sóc khách hàng
+PROMOTION: Hậu mãi
+price_sdt
+string
+Đơn giá gửi tin qua SĐT.
+price_uid
+string
+Đơn giá gửi tin qua UID.
+price
+string
+[DEPRECATED] Đơn giá gửi tin qua SĐT.
+Cấu trúc thuộc tính data.listParams​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+name
+string
+Tên thuộc tính.
+require
+boolean
+Tính bắt buộc của thuộc tính.
+type
+string
+Định dạng validate của thuộc tính.
+maxLength
+int
+Số kí tự tối đa được truyền vào thuộc tính.
+minLength
+int
+Số kí tự tối thiểu được truyền vào thuộc tính.
+acceptNull
+boolean
+Thông tin cho biết thuộc tính có thể nhận giá trị rỗng hay không.
+Cấu trúc thuộc tính data.listButtons​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+type
+integer
+Danh sách button:
+value
+Loại button
+1
+Đến trang của doanh nghiệp
+2
+Gọi điện
+3
+Đến trang thông tin OA
+4
+Đến ứng dụng Zalo Mini App của doanh nghiệp
+5
+Đến trang ứng dụng của doanh nghiệp
+6
+Đến trang phân phối sản phẩm
+(Ngừng hỗ trợ sau ngày 16/03/2026)
+7
+Đến trang web/Zalo Mini App khác
+8
+Đến trang ứng dụng của doanh nghiệp khác
+9
+Đến bài viết của OA
+10
+Sao chép
+11
+Thanh toán ngay
+12
+Xem chi tiết
+13
+Đến trang tra cứu hoá đơn điện tử
+14
+Đến trang đích kêu gọi hành động tải ứng dụng
+Từ ngày 16/03/2026, loại button “Đến trang phân phối sản phẩm” sẽ ngừng hỗ trợ cho việc tạo mới và chỉnh sửa template. Các template đang sử dụng phân loại này sẽ được tự động chuyển sang phân loại “Đến trang web/Zalo Mini App khác”.
+title
+string
+Nội dung Button
+content
+string
+Đường dẫn liên kết/số điện thoại
+Trước
+API Lấy danh sách Template
+Kế tiếp
+API Lấy dữ liệu mẫu của Template
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính data.listParams
+Cấu trúc thuộc tính data.listButtons
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

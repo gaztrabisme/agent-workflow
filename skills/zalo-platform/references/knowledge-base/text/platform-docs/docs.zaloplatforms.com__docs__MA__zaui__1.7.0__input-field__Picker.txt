@@ -1,0 +1,230 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.7.0/input-field/Picker
+# FETCHED: 2026-08-06
+# TITLE: Picker | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.7.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Header
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Router
+ZMPRouter
+AnimationRoutes
+Container
+App
+Box
+Page
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Picker
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.7.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Cho phép tạo giao diện cho phép người dùng chọn một lựa chọn trên từng cột dữ liệu
+Properties​
+Picker​
+Name
+Type
+Default
+Description
+value
+{ [columnName: string]: string | number }
+Giá trị của Picker
+defaultValue
+{ [columnName: string]: string | number }
+Giá trị mặc định của Picker
+title
+string
+Đặt title cho picker modal
+data
+PickerDataType[]
+Data cho Picker ứng với từng column
+defaultOpen
+boolean
+Mặc định mở picker modal hay không
+disabled
+boolean
+Vô hiệu hoá Picker input
+onChange
+(value: {[name: string]: PickerColumnOption}) => void
+Thêm event handler khi thay đổi lựa chọn
+onVisibilityChange
+(visibilityState: boolean) => void
+Thêm event handler khi picker modal thay đổi trạng thái mở/đóng
+formatPickedValueDisplay
+(value: {[name: string]: PickerColumnOption}) => string
+Format value lựa chọn hiển thị trên Input
+mask
+boolean
+Bật/tắt lớp overlay khi mở picker modal
+maskCloseable
+boolean
+Click ra ngoài lớp overlay để đóng
+action
+PickerActionType
+Thêm action button cho picker modal
+prefix
+ReactNode
+Prefix icon cho Input
+suffix
+ReactNode
+Suffix icon cho Input
+inputClass
+string
+thêm class cho Input
+label
+string
+Thêm Label hiển thị phía trên Input
+helperText
+string
+Helper text hiển thị phía dưới của field input.
+errorText
+string
+Text hiển thị khi status của field input là error
+status
+InputStatus
+Trạng thái của field input. Nhận các giá trị: success | error
+name
+string
+Thêm name cho input field
+placeholder
+string
+Thêm placeholder cho input trong trường hợp không có option nào đã được chọn
+Type​
+PickerDataType​
+Name
+Type
+Default
+Description
+name
+string
+Tên column
+onChange
+(value: PickerColumnOption, name: string) => void
+Thêm event handler khi thay đổi lựa chọn trên column
+options
+PickerColumnOption[]
+các options của column
+PickerColumnOption​
+Name
+Type
+Default
+Description
+key
+string
+unique key
+value
+string|number
+giá trị của option
+displayName
+string
+Phần nội dung hiển thị cho option
+PickerActionType​
+Name
+Type
+Default
+Description
+text
+string
+Action button text
+onClick
+Thêm event handler cho sự kiện click button
+close
+boolean
+Click vào button để đóng picker modal
+Example​
+import React from "react";
+import { Box, Text, Picker, Page } from "zmp-ui";
+function PagePicker() {
+const genTestData = (name, number, prefix = "Option") => {
+const data = [];
+// eslint-disable-next-line no-plusplus
+for (let i = 0; i < number; i++) {
+data.push({
+value: i + 1,
+displayName: `${prefix} ${i + 1}`
+});
+}
+return data;
+};
+return (
+<Text.Title size='small'>Type</Text.Title>
+<Box mt={6}>
+</Box>
+<Box mt={6}>
+</Box>
+);
+}
+export default PagePicker;
+Properties
+Picker
+Type
+PickerDataType
+PickerColumnOption
+PickerActionType
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

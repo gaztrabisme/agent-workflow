@@ -1,0 +1,74 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/social-plugin/widget-chat
+# FETCHED: 2026-08-06
+# TITLE: Widget Chat | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Social Plugin
+Widget cấp tương tác
+Tổng quan
+Cài đặt Widget cấp tương tác
+Widget Quan tâm
+Nút Quan tâm
+Widget Chat
+Trên trang này
+Widget Chat
+Widget Chat cho phép nhà phát triển cá nhân hóa và nhúng cửa sổ chat với Official Account trên website. Người dùng có thể trò chuyện trực tiếp với OA trên chính trang web của bạn.
+Cài đặt​
+<div class="zalo-chat-widget"
+data-oaid="OA_ID"
+data-welcome-message="Rất vui khi được hỗ trợ bạn!"
+data-autopopup="0"
+data-width=""
+data-height="">
+</div>
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+Cấu hình​
+Attribute
+Required
+Description
+data-oaid
+Có
+Zalo Official Account ID.
+data-welcome-message
+Không
+Tin nhắn chào mừng khi khách truy cập vào trang. Trong một ngày, mỗi khách truy cập chỉ nhận một tin nhắn chào.
+data-autopopup
+Không
+Thời gian chờ để tự động mở cửa sổ chat. Mặc định 0 giây.
+data-width
+Không
+Chiều rộng widget. Mặc định 350px, khoảng hợp lệ từ 300px đến 500px.
+data-height
+Không
+Chiều cao widget. Mặc định 420px, khoảng hợp lệ từ 300px đến 500px.
+Dùng ZaloSocialSDK.reload() để init lại widget khi cấu hình được thay đổi động trên trang.
+Trước
+Nút Quan tâm
+Cài đặt
+Cấu hình
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

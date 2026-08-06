@@ -1,0 +1,129 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/extension/advanced/zoasdk-functions
+# FETCHED: 2026-08-06
+# TITLE: zoaSdk tích hợp sẵn trong zoa-cli | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk tích hợp sẵn trong zoa-cli
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+zoaSdk tích hợp sẵn trong zoa-cli
+Các function đã được tích hợp trong zoa-cli
+openModal​
+Thực hiện mở modal.
+zoaSdk?.openModal({
+"title": "name",
+"path": "path",
+"height": 500,
+"width": 500,
+"onClose": () => {
+// callback function
+console.log("callback function");
+}
+});
+closeModal​
+Đóng modal.
+zoaSdk?.closeModal();
+getSessionInfo​
+Lấy thông tin tương ứng với lần hiển thị. Hàm này không thể gọi từ local và cần được trực tiếp nhúng vào trang giao diện trên OA test để kiểm tra.
+(window as any)?.zoaSdk?.getSessionInfo((result, error) => {});
+if (window.zoaSdk !== undefined) {
+window.zoaSdk.getSessionInfo((result, error) => {});
+}
+Minh họa response
+{
+"data": {
+"oa_id": "123",
+"admin_id": "213",
+"user_id": "213213",
+"user_last_interaction_date": "06/07/2023",
+"user_is_follower": false,
+"timestamp": 1726111886460
+},
+"hmac": "53d2db4972303a9a92e2632f329dc5afc8cae0835f360010e1311665b7171366"
+}
+Trong đó:
+data: Đây là dữ liệu chính mà hệ thống trả về, bao gồm các thông tin như oa_id, admin_id, timestamp...
+Nội dung trả về tùy biến theo từng zone.
+Đối với field user_id và admin_id, data sẽ trả về "" nếu zone không có thông tin tương ứng.
+hmac: Đây là chuỗi hash mà hệ thống tạo ra dựa trên data và thông tin secretKey của extension. hmac được sử dụng để đảm bảo rằng dữ liệu không bị thay đổi trong quá trình truyền tải.
+Xem thêm Phương thức xác thực user.
+getViewPort​
+Lấy width height của parent và offset của iframe.
+(window as any)?.zoaSdk?.getViewPort((result, error) => {})
+Minh họa response (data):
+{
+"width": 1920,
+"height": 1080,
+"offsetX": 140,
+"offsetY": 2800
+}
+openPermission​
+Hỗ trợ hiển thị pop-up yêu cầu cấp quyền cho tiện ích tại các Zone
+(window as any)?.zoaSdk?.openPermission()
+Use case:
+Sử dụng khi cần xin quyền OA
+Lưu ý:
+Việc lạm dụng pop-up xin quyền có thể gây khó chịu và tăng khả năng rời bỏ tiện ích
+Nên sử dụng trong những trường hợp thật sự cần thiết, cân nhắc trải nghiệm người dùng
+Minh họa pop-up:
+Trước
+Figma flow demo
+Kế tiếp
+app-config.json
+openModal
+closeModal
+getSessionInfo
+getViewPort
+openPermission
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

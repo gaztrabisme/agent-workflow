@@ -1,0 +1,113 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/gui-tin-template-qua-sdt/api-truy-xuat-thong-tin-gui-tin-qua-sdt/api-lay-thong-tin-chat-luong-gui-tin-qua-sdt-hien-tai-cua-oa
+# FETCHED: 2026-08-06
+# TITLE: API Lấy thông tin chất lượng gửi tin qua SĐT hiện tại của OA | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API Gửi tin
+API Gửi tin sử dụng hash phone
+API Gửi tin sử dụng development mode
+API Gửi tin với hệ mã hóa RSA
+API Gửi tin Journey
+API truy xuất thông tin gửi tin qua SĐT
+API Lấy thông tin trạng thái gửi tin qua SĐT
+API Lấy thông tin quota gửi tin qua SĐT
+API Lấy thông tin chất lượng gửi tin qua SĐT hiện tại của OA
+Webhook gửi tin qua SĐT
+Sự kiện thay đổi về hạn mức gửi tin qua SĐT
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận tin qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+API Lấy thông tin chất lượng gửi tin qua SĐT hiện tại của OA
+API cho phép đối tác truy xuất chất lượng gửi tin qua SĐT trong 48 giờ gần nhất của OA.
+Lưu ý
+Quyền cần có: Gửi tin qua số điện thoại
+HTTP request​
+URL: https://business.openapi.zalo.me/quality
+Method: GET
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" "https://business.openapi.zalo.me/quality"
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Example respond​
+{
+"data": {
+"oaCurrentQuality": "HIGH",
+"oa7dayQuality": "HIGH"
+},
+"error": 0,
+"message": "success"
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+oaCurrentQuality
+string
+Chất lượng gửi tin qua SĐT trong 48 giờ gần nhất của OA.
+Các giá trị trả về:
+HIGH - Mức độ chất lượng tốt
+MEDIUM - Mức độ chất lượng trung bình
+LOW - Mức độ chất lượng kém
+UNDEFINED - Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi tin qua SĐT nào trong khung thời gian đánh giá)
+Lưu ý: Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT tại đây.
+oa7dayQuality
+string
+Chất lượng gửi tin qua SĐT trong 7 ngày gần nhất của OA.
+Các giá trị trả về:
+HIGH - Mức độ chất lượng tốt
+MEDIUM - Mức độ chất lượng trung bình
+LOW - Mức độ chất lượng kém
+UNDEFINED - Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi tin qua SĐT nào trong khung thời gian đánh giá)
+Lưu ý: Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT tại đây.
+Trước
+API Lấy thông tin quota gửi tin qua SĐT
+Kế tiếp
+Sự kiện thay đổi về hạn mức gửi tin qua SĐT
+HTTP request
+Example request
+Tham số header
+Example respond
+Cấu trúc thuộc tính data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

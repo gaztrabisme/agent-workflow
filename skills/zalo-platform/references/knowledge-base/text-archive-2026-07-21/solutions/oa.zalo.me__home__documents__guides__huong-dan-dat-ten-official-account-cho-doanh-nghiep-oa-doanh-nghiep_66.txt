@@ -1,0 +1,208 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/huong-dan-dat-ten-official-account-cho-doanh-nghiep-oa-doanh-nghiep_66
+# FETCHED: 2026-07-21
+# TITLE: Hướng dẫn đặt tên Zalo OA | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Khởi tạo Zalo Official Account
+Lựa chọn danh mục
+Hướng dẫn đặt tên Zalo OA
+Lý do OA bị khóa và cách khắc phục
+Hướng dẫn xác thực
+Các hình thức xác thực
+Hồ sơ xác thực
+Xác thực theo lĩnh vực hoạt động
+Xử lý hồ sơ bị từ chối
+Hỗ trợ tạo, xác thực, cài đặt OA cho chuỗi cửa hàng
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Hướng dẫn đặt tên Zalo OA
+
+Tên OA doanh nghiệp được đặt theo mối liên hệ với doanh nghiệp hoặc hộ kinh doanh và không vi phạm Chính sách của Zalo.
+
+1. Định dạng tên OA​
+
+Tên OA cần được đặt theo định dạng sau: Tên OA = [Tiền tố] + Tên chính + [Hậu tố]
+
+Tên chính bắt buộc phải là 1 trong 3 loại tên sau:
+
+Tên doanh nghiệp hoặc hộ kinh doanh trên Giấy chứng nhận đăng ký kinh doanh (ĐKKD);
+Tên nhãn hiệu/ thương hiệu đã có Giấy chứng nhận từ Cục Sở Hữu Trí Tuệ;
+Tên giao dịch khác là tên của loại hình dịch vụ, sản phẩm, dự án mà doanh nghiệp hoặc HKD đang kinh doanh, và không thuộc 2 cách đặt tên trên.
+
+Tiền tố & hậu tố: Là các từ ngữ bổ sung thêm để làm rõ loại hình doanh nghiệp, ngành nghề, dịch vụ, sản phẩm, chi nhánh.
+
+⚠ Lưu ý:
+
+OA vui lòng đặt tên đúng hướng dẫn trên để thuận tiện cho việc lựa chọn cách xác thực OA theo Hướng dẫn tại đây.
+Trong trường hợp OA được yêu cầu điều chỉnh tên, thông tin giới thiệu hoặc ảnh đại diện/ ảnh bìa, QTV vui lòng truy cập https://oa.zalo.me/manage/profile hoặc chọn mục Quản lý → Chọn Trang thông tin OA → Chọn nút “Chỉnh sửa”.
+2. Quy định khác về tên OA​
+
+Quy định
+
+	
+
+Nội dung
+
+
+
+
+Độ dài tên
+
+	
+
+Tên OA phải bao gồm ký tự chữ, có ít nhất 2 ký tự và không được quá 40 ký tự.
+
+
+
+
+Viết hoa
+
+	
+
+Tên OA chỉ được viết hoa ký tự đầu tiên, tên riêng của doanh nghiệp hoặc địa danh.
+
+
+
+
+Ký tự đặc biệt
+
+	
+
+Tên OA không được chứa các ký tự đặc biệt (@*#?) emoji hoặc biểu tượng.
+
+Lưu ý: Nếu tên OA chứa các ký tự đặc biệt do đặt theo tên doanh nghiệp/ HKD hoặc tên thương hiệu/ nhãn hiệu đã có Giấy chứng nhận từ Cục Sở Hữu Trí Tuệ, vui lòng gửi kèm giấy tờ xác thực để được sử dụng tên OA này.
+
+
+
+
+Chính tả
+
+	
+
+Tên OA là tiếng Việt thì không được viết liền, không dấu, viết tắt, sai chính tả.
+
+
+
+
+Tên có thông tin website
+
+	
+
+Tên OA đặt theo tên website/ tên miền thì cần đặt theo định dạng sau: [tên đầy đủ có dấu] + [tên đầy đủ địa chỉ tên miền viết liền và không gồm ký tự đặc biệt] 
+
+Ví dụ: website là hangtonkho.vn, tên OA hợp lệ: "hangtonkhovn" hoặc "Hàng tồn kho - hangtonkhovn"
+
+
+
+
+Tên có thông tin SĐT
+
+	
+
+Tên OA không được chứa các thông tin số điện thoại
+
+
+
+
+Tên mang ý nghĩa chung
+
+	
+
+Tên OA không được chứa các từ ngữ chung, không có mối liên hệ đến doanh nghiệp hoặc dich vụ/ sản phẩm của doanh nghiệp và dễ gây nhầm lẫn (ví dụ: Sức khỏe là vàng, Giấc ngủ lành mạnh, sức khỏe là vàng, Số 1 Bình Dương, v.v.) hoặc các từ ngữ mang tính giật tít (ví dụ: Cam hết khỏi bệnh)
+
+Lưu ý: Nếu tên doanh nghiệp/hộ kinh doanh có tên đăng ký mang ý nghĩa rộng, ví dụ: Thiết bị miền Nam, vui lòng thêm tiền tố là các từ ngữ như: công ty, doanh nghiệp, hộ kinh doanh/HKD, cửa hàng.
+
+
+
+
+Tên trùng
+
+	
+
+Tên OA đăng ký không được trùng với tên OA đã được đăng ký thành công trước đó từ cùng 1 số điện thoại
+
+
+
+
+Tên chứa yếu tố giả mạo Zalo/ VNG
+
+	
+
+Tên OA không được chứa các yếu tố giả mạo và mạo danh như Zalo/ Zalo Shop/ Zalo Ads, quản trị viên Zalo hay VNG;
+
+
+
+
+Tên OA là tên TPCN
+
+	
+
+Tên OA là TPCN phải thêm hình thức sản phẩm như "viên uống", "TPCN", "viên sủi", v.v (VD: Viên sủi giảm cân detox)
+
+Lưu ý: Các hoạt động kinh doanh không được kiểm duyệt đăng ký OA doanh nghiệp: sản phẩm và dịch vụ tài chính gây nhầm lẫn hoặc lừa đảo, bao gồm nhưng không giới hạn: quyền chọn nhị phân, phát hành tiền ảo ra công chúng, hoặc các vấn đề về đồng tiền ảo nói chung, đấu giá kiểu thầu hoặc các mô hình kinh doanh tương tự khác.
+
+Sau khi đăng ký, OA đã tạo sẽ ở trạng thái “Đang chờ duyệt”. Trong quá trình duyệt, BQT Zalo OA có thể yêu cầu anh/chị bổ sung thêm tiền tố & hậu tố để làm rõ tên OA hoặc yêu cầu cung cấp thêm giấy tờ để xác thực OA.
+
+---------------------
+
+Hướng dẫn cách đặt tên đối với tên OA thuộc lĩnh vực Bất động sản (BĐS)  
+
+1. Tên OA không cần tiền tố “Dự án”
+
+Tên OA là ["Đất nền"+ địa danh]: Ví dụ: “Đất nền Bình Định”;
+Tên OA là 1 BĐS đã hoàn công
+
+2. Tên OA cần có thêm tiền tố “Dự án”
+
+Tên OA là danh từ chung chung chỉ gồm địa danh như tỉnh, thành phố, quận, huyện. Ví dụ: "Dự án đất biển Vũng Tàu"
+Tên OA là 1 dự án BĐS nhất định (có vị trí cụ thể khi tìm kiếm thông tin);
+Tên OA là [Loại hình BĐS + tên thương hiệu (nằm trong danh sách thương hiệu)]. Ví dụ: "Dự án biệt thự Zalo"
+
+Nếu tên OA không kèm thông tin loại hình BĐS cụ thể hoặc chữ "Dự án" và có tên trùng doanh nghiệp/ thương hiệu lớn thì BQT Zalo OA sẽ gửi yêu cầu xác thực OA.
+
+Hướng dẫn khác: 
+
+-------------------------------------
+
+Nếu có thắc mắc, vui lòng Chat với BQT Zalo OA & cung cấp OA ID để được phản hồi sớm nhất.
+
+Previous
+Lựa chọn danh mục
+Next
+Lý do OA bị khóa và cách khắc phục
+1. Định dạng tên OA
+2. Quy định khác về tên OA
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

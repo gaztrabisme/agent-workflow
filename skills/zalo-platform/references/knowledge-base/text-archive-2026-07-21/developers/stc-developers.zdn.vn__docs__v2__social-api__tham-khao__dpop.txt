@@ -1,0 +1,278 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/social-api/tham-khao/dpop
+# FETCHED: 2026-07-21
+# TITLE: Demonstrating Proof-of-Possession | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Chính sách nền tảng của Zalo
+Demonstrating Proof-of-Possession
+Tham khảoDemonstrating Proof-of-Possession
+Demonstrating Proof-of-Possession
+
+Để sử dụng hệ thống Social API, ứng dụng của bạn cần được cấp quyền bằng cách lấy mã Access Token (mã truy cập) từ User. Zalo OAuth đã hỗ trợ các cơ chế bảo mật như PKCE, App Secret Proof để hạn chế attacker dùng oauth code lấy được access token. Tuy nhiên nếu bạn để lộ access token này thì attacker có thể dùng nó để gửi request tương tự như chủ sở hữu.
+
+🛡️ DPoP – Tuyến phòng thủ cho hệ thống OAuth hiện đại​
+
+DPoP (Demonstrating Proof-of-Possession) là cơ chế bắt buộc người gửi request chứng minh họ sở hữu access token đó. Cụ thể: Mỗi request phải được ký bằng private key ứng với public key lấy access token.
+
+Access token chỉ hoạt động nếu đi kèm với DPoP proof đúng → token trở nên vô dụng nếu không đi kèm DPoP được ký bởi private key tương ứng với public key lúc xin token.
+
+⚙️ Cách thức triển khai DPoP​
+1. Cách tạo một JWT-DPoP​
+
+JWT (viết tắt của JSON Web Token) là một chuỗi văn bản dùng để trao đổi thông tin giữa các hệ thống – ví dụ giữa ứng dụng client và server. Trong DPoP (Demonstrating Proof-of-Possession), JWT đóng vai trò như 1 bằng chứng kỹ thuật số, chứng minh bạn là người sở hữu access token.
+
+Cấu trúc JWT gồm 3 phần:
+
+Header – thông tin về cách ký (Giải thuật là gì, public key được tạo ra bằng cách nào)
+Payload – phần dữ liệu chính (url đang gọi đến là gì, method http tương ứng và thời điểm tạo ra JWT)
+Signature – chữ ký số xác minh JWT là thật và không bị chỉnh sửa
+a) Header​
+ES256
+RS256
+
+Ví dụ về 1 header hoàn chỉnh:
+
+{
+  "typ": "dpop+jwt",
+  "alg": "ES256",
+  "jwk": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "l8tFrhx-34tV3hRICRDY9zCkDlpBhF42UQUfWVAWBFs",
+    "y": "9VE4jf_Ok_o64zbTTlcuNJajHmt6v9TDVrU0CdvGRDA"
+  }
+}
+
+
+Trong đó:
+
+typ (loại JWT): Giá trị cố định là "dpop+jwt"
+alg (Giải thuật sử dụng để ký): Trong trường hợp này là "ES256"
+JWK (viết tắt của JSON Web Key) là một cách để mô tả khóa bảo mật bằng văn bản (format JSON). Trong DPoP, JWK đại diện cho khóa công khai (public key), Zalo OAuth sẽ dùng để kiểm tra xem signature trong JWT có đúng là được ký bởi khóa riêng (private key) mà bạn đã giữ hay không. Giải thích các bước để tạo JWK trên
+
+Bước 1: tạo Private Key
+
+private key là một số bí mật duy nhất mà chỉ bạn biết. Ví dụ về 1 private key ở định dạng PEM
+-----BEGIN PRIVATE KEY-----
+MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg...
+-----END PRIVATE KEY-----
+
+
+Bước 2:áp dụng cơ chế bảo mật EC để có thể tính ra public key (tọa độ x, y trên đường cong elliptic)
+
+Bước 3:Từ public key chúng ta sẽ có các thông số của JWK như bảng sau:
+
+Thuộc tính	Bắt buộc	Mô tả
+kty	yes	Giá trị cố định là "EC"
+crv	yes	Giá trị cố định là "P-256". Đây là loại “đường cong toán học” dùng để tạo khóa. Với ES256, đường cong là P-256. Nó đảm bảo tính bảo mật cao với kích thước nhỏ gọn.
+x	yes	Là tọa độ X của một điểm trên đường cong — 1 trong những yếu tố cấu thành public key.
+y	yes	Là tọa độ Y của một điểm trên đường cong — 1 trong những yếu tố cấu thành public key.
+MẸO
+
+👉 Tưởng tượng bạn là Ban tổ chức của 1 cuộc thi truy tìm khó báu, bạn tạo ra khóa riêng (private key) để ký vào các manh mối dẫn đến kho báu và khóa công khai (public key) với tọa độ x, y là tọa độ bắt đầu cuộc đua, sẽ có rất nhiều manh mối được đặt rải rác trong khu vực, nhưng chỉ có các manh mối xác thực thành công bằng tọa độ bắt đầu cuộc đua x, y (public key) mới là manh mối đúng.
+
+b) Payload​
+{
+  "htu": "https://api.example.com/token",
+  "htm": "POST",
+  "iat": 1723551234
+}
+
+Thuộc tính	Bắt buộc	Mô tả
+htu	yes	Full Http Uri đang gọi tới (bao gồm cả path) VD: https://oauth.zaloapp.com/v4/token
+htm	yes	method đang gọi VD: POST
+iat	yes	Thời gian tạo JWT (timestamp Unix), đơn vị: giây
+c) Ký JWT​
+
+Tiền xử lý Header và Payload thành dạng dữ liệu chuẩn hóa để ký signature
+
+Ví dụ 1 Header gốc
+
+{
+    "typ": "dpop+jwt",
+    "alg": "RS256",
+    "jwk": {
+        "alg": "RS256",
+        "kty": "RSA",
+        "n": "wFs8GqrXoKw8wog-D3UlporwN0RpQa5NcPdteJ_fFpZROvPrn3nKrqJut8S6f_W75WozWslmZZCSsqkYNWli87GXZoPLeyEBYqxgIRFNmJQN-dYz6uF95XSPtbn1tdSBYjzgZpBKpYXaOesaL2ZOeh2h_n1fzt8I47PEpLoKafuW8IhYk9WY6y04ZhMWFfDptbGlCJ8QeHaj_Tm1kCSgEvWgt4Z9JRWNsfQjk9atqiRP9ceU_bqk_i3AK5MqFmiXqyiVn-EV2E0O_KxG6389HelpzibIdUSnHKpEfhHyyJy2wrnFVvyu02VoUaixZLuj5nZQOJsdrkOGoxy9ggqtDw",
+        "e": "AQAB"
+    }
+}
+
+
+Header đã chuẩn hóa = Base64UrlWithoutPadding(ASCII(Header gốc)) Ví dụ 1 Header đã chuẩn hóa
+
+eyJ0eXAiOiAiZHBvcCtqd3QiLCJhbGciOiAiUlMyNTYiLCJqd2siOiB7ImFsZyI6ICJSUzI1NiIsImt0eSI6ICJSU0EiLCJuIjogIndGczhHcXJYb0t3OHdvZy1EM1VscG9yd04wUnBRYTVOY1BkdGVKX2ZGcFpST3ZQcm4zbktycUp1dDhTNmZfVzc1V296V3NsbVpaQ1NzcWtZTldsaTg3R1hab1BMZXlFQllxeGdJUkZObUpRTi1kWXo2dUY5NVhTUHRibjF0ZFNCWWp6Z1pwQktwWVhhT2VzYUwyWk9laDJoX24xZnp0OEk0N1BFcExvS2FmdVc4SWhZazlXWTZ5MDRaaE1XRmZEcHRiR2xDSjhRZUhhal9UbTFrQ1NnRXZXZ3Q0WjlKUldOc2ZRams5YXRxaVJQOWNlVV9icWtfaTNBSzVNcUZtaVhxeWlWbi1FVjJFME9fS3hHNjM4OUhlbHB6aWJJZFVTbkhLcEVmaEh5eUp5MndybkZWdnl1MDJWb1VhaXhaTHVqNW5aUU9Kc2Rya09Hb3h5OWdncXREdyIsImUiOiAiQVFBQiJ9fQ
+
+
+Ví dụ 1 Payload gốc
+
+{
+    "htu": "https://oauth.zaloapp.com/v4/access_token",
+    "htm": "POST",
+    "iat": 1751877103
+}
+
+
+Payload đã chuẩn hóa = Base64UrlWithoutPadding(ASCII(Payload gốc)) Ví dụ 1 Payload đã chuẩn hóa
+
+eyJodHUiOiAiaHR0cHM6Ly9vYXV0aC56YWxvYXBwLmNvbS92NC9hY2Nlc3NfdG9rZW4iLCJodG0iOiAiUE9TVCIsImlhdCI6IDE3NTE4NzcxMDN9
+
+
+Dùng private key để ký phần header và payload đã chuẩn hóa
+
+signature = sign(input, private key) . Trong đó:
+sign là thuật toán ký tương ứng với thuật toán mã hóa bạn đã chọn ở Mục 1. a) Header
+input = Header đã chuẩn hóa + "." + Payload đã chuẩn hóa
+private key được tạo ra ở Bước 1, Mục 1. a) Header
+
+Tóm tắt công thức tạo signature
+
+sign(
+  Base64UrlEncodeWithoutPadding(ASCII(Header)) + "." +
+  Base64UrlEncodeWithoutPadding(ASCII(Payload)),
+  private key)
+
+
+Ví dụ về 1 DPoP hoàn chỉnh
+
+eyJ0eXAiOiAiZHBvcCtqd3QiLCJhbGciOiAiUlMyNTYiLCJqd2siOiB7ImFsZyI6ICJSUzI1NiIsImt0eSI6ICJSU0EiLCJuIjogIndGczhHcXJYb0t3OHdvZy1EM1VscG9yd04wUnBRYTVOY1BkdGVKX2ZGcFpST3ZQcm4zbktycUp1dDhTNmZfVzc1V296V3NsbVpaQ1NzcWtZTldsaTg3R1hab1BMZXlFQllxeGdJUkZObUpRTi1kWXo2dUY5NVhTUHRibjF0ZFNCWWp6Z1pwQktwWVhhT2VzYUwyWk9laDJoX24xZnp0OEk0N1BFcExvS2FmdVc4SWhZazlXWTZ5MDRaaE1XRmZEcHRiR2xDSjhRZUhhal9UbTFrQ1NnRXZXZ3Q0WjlKUldOc2ZRams5YXRxaVJQOWNlVV9icWtfaTNBSzVNcUZtaVhxeWlWbi1FVjJFME9fS3hHNjM4OUhlbHB6aWJJZFVTbkhLcEVmaEh5eUp5MndybkZWdnl1MDJWb1VhaXhaTHVqNW5aUU9Kc2Rya09Hb3h5OWdncXREdyIsImUiOiAiQVFBQiJ9fQ.eyJodHUiOiAiaHR0cHM6Ly9vYXV0aC56YWxvYXBwLmNvbS92NC9hY2Nlc3NfdG9rZW4iLCJodG0iOiAiUE9TVCIsImlhdCI6IDE3NTE4NzcxMDN9.E3yg0zXbZg-dJDtGJ3YXsrMlgCbe5CS0s57UoQ-0R7nJTnuX4UZZQS9icW3-ZChFwkf-Njit_lR_LE4TtFZJ441EIAP1QXcRHvHtKmVgFfDWo7k_mJQuEApnasKXA3qS6iPFpztuqgE-lf6JZxt7jJDGig5Q6Q86IflnbuLL1F2DsSEuXOp6qPKGDjYFICtafBDW6ZPeAMBrkMqjUdj1OtBsZZ8mNP-FghfRVn1crtJI0waLcIt2h2_jAo7Xx0rPKY4oU2It5UWCz2lO03vixlHDWx5st56POt4cmn1FLKHdtnfm1Nl548bdvsWzDyGqUyEP87znCyUxv4Xxf1sO3A
+
+2. Cách gửi DPoP khi dùng oauth code lấy access token​
+URL:  https://oauth.zaloapp.com/v4/access_token 
+Method: POST
+Content Type: application/x-www-form-urlencoded
+Response Type:  json
+
+Example request
+
+curl \
+-X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-H "secret_key: <your_secret_key>" \
+-H "DPoP: <your_dpop>" \
+--data-urlencode 'code=<your_oauth_code>' \
+--data-urlencode 'app_id=<your_app_id>' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'code_verifier=your_code_verifier' \
+'https://oauth.zaloapp.com/v4/access_token'
+
+
+Header
+
+HeaderName	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+secret_key	string	yes 	Khóa bí mật của ứng dụng (*). Xem hướng dẫn tại đây
+DPoP	string	no	Tham khảo tính năng Demonstrating Proof-of-Possession
+
+Body x-www-form-urlencoded
+
+Key	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+code	string	yes	Authorization code mà bạn nhận được ở bước 3
+app_id	long	yes	ID của ứng dụng
+grant_type 	string	yes	Thuộc tính cho biết thông tin để tạo access token. Giá trị truyền vào: authorization_codeđại diện cho việc tạo access token từ authorization code.
+code_verifier	string	yes nếu ở bước lấy oauth code có truyền code challenge	Code verifier được dùng để tạo code challenge ở bước 2.
+3. Cách gửi DPoP khi dùng access token gọi social api​
+URL: https://graph.zalo.me/v2.0/me
+Method: GET
+Reponse Type: text/json
+
+Ví dụ
+
+curl \
+-X GET \
+-H 'access_token: <your_access_token>' \
+-H 'DPoP: <your_dpop>' \
+"https://graph.zalo.me/v2.0/me?fields=id,name,picture"
+
+
+Tham số header
+
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Xem hướng dẫn lấy access_token ở đây.
+DPoP	string	no	Tham khảo tính năng Demonstrating Proof-of-Possession
+4. Cách gửi DPoP khi dùng refresh token lấy access token mới​
+
+HTTP request
+
+URL:  https://oauth.zaloapp.com/v4/access_token
+Method: POST
+Content Type: application/x-www-form-urlencoded
+Response Type:  json
+
+Example request
+
+curl \
+-X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-H "secret_key: <your_secret_key>" \
+-H "DPoP: <your_dpop>" \
+--data-urlencode 'refresh_token=<your_refresh_token>' \
+--data-urlencode 'app_id=<your_app_id>' \
+--data-urlencode 'grant_type=refresh_token' \
+'https://oauth.zaloapp.com/v4/access_token'
+
+
+Header
+
+HeaderName	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+secret_key	string	yes	Khóa bí mật của ứng dụng (*). Xem hướng dẫn tại đây
+DPoP	string	no	Tham khảo tính năng Demonstrating Proof-of-Possession.
+Lưu ý: Với trường hợp dùng refresh token, DPoP truyền vào phải dùng cùng cặp key với access token trước đó.
+
+Body x-www-form-urlencode
+
+Key	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+refresh_token	string	yes	Refresh token dùng để tạo access token mới.
+app_id	long	yes	ID của ứng dụng.
+grant_type 	string	yes	Thuộc tính cho biết thông tin để tạo access token. Giá trị nhận vào: refresh_tokenĐại diện cho việc 1tạo access token từ refresh token.
+
+Ví dụ:
+
+Example respond
+
+{
+  "access_token":"E5sPAxHWmF9aYZeZzPczEcNRtdVIPCD3XyGXw1uLBZ3npsF-MUW",
+  "refresh_token": "DCcFKjWctu458dAU2FRbaNRPCcQGZ34zCmUF9aYEcNRtdVIaq",
+  "expires_in": "3600",
+        "refresh_token_expires_in: string
+}
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+access_token	string	Access token dùng để gọi các Official Account APIHiệu lực: 1 giờ
+refresh_token	string	Token được sử dụng để tạo lại access token khi access token hết hiệu lực. Mỗi access token được tạo sẽ có một refresh token đi kèm.Hiệu lực tối đa: 30 ngày
+expires_in	string	Thời hạn của access token (đơn vị tính: giây)
+TỔNG KẾT
+
+DPoP nên là mặc định trong mọi triển khai OAuth hiện đại.
+
+Hướng dẫn lấy app secret key​
+
+Trước
+Chính sách nền tảng của Zalo
+🛡️ DPoP – Tuyến phòng thủ cho hệ thống OAuth hiện đại
+⚙️ Cách thức triển khai DPoP
+1. Cách tạo một JWT-DPoP
+2. Cách gửi DPoP khi dùng oauth code lấy access token
+3. Cách gửi DPoP khi dùng access token gọi social api
+4. Cách gửi DPoP khi dùng refresh token lấy access token mới
+Hướng dẫn lấy app secret key
+©2023 Zalo for Developers

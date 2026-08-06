@@ -1,0 +1,154 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-thong-tin-nguoi-dung/xoa-thong-tin-nguoi-dung
+# FETCHED: 2026-07-21
+# TITLE: Xóa thông tin người dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Gắn nhãn người dùng
+Gỡ nhãn người dùng
+Lấy danh sách nhãn
+Xóa nhãn
+Truy xuất danh sách người dùng
+Truy xuất chi tiết người dùng
+Cập nhật chi tiết người dùng
+Xóa thông tin người dùng
+Truy xuất thông tin tùy biến của người dùng
+Cập nhật thông tin tùy biến của người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý thông tin người dùngXóa thông tin người dùng
+Xóa thông tin người dùng
+LƯU Ý
+
+API hỗ trợ xóa thông tin của người dùng mà OA lưu trữ. Thay đổi chỉ áp dụng với thông tin lưu trữ ở phía OA và không làm thay đổi thông tin tài khoản Zalo của người dùng.
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/deletefollowerinfo
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'access_token: <your_access_token>' \
+-d '{
+    "user_id": "2512523625412515"
+}' "https://openapi.zalo.me/v2.0/oa/deletefollowerinfo"
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+ID của người dùng
+
+Example respond​
+{
+  "error": 0,
+  "message": "Success"
+}
+
+Trước
+Cập nhật chi tiết người dùng
+Kế tiếp
+Truy xuất thông tin tùy biến của người dùng
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+©2023 Zalo for Developers

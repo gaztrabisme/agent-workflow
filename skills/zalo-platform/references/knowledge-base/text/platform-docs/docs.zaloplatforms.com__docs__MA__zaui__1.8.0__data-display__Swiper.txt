@@ -1,0 +1,272 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.8.0/data-display/Swiper
+# FETCHED: 2026-08-06
+# TITLE: Swiper | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.8.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Swiper
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+zmp-ui1.7.0
+Bạn đang xem tài liệu zmp-ui v1.8.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Swiper component: Component giúp tạo giao diện slider, thường sử dụng hiển thị một nhóm nội dung dạng slider như banner,...
+Properties​
+Swiper​
+Name
+Type
+Default
+Description
+autoplay
+boolean
+false
+Tự động chuyển slide
+defaultActive
+number
+0
+Set active mặc định cho slide có index cụ thể
+dots
+boolean
+true
+Ẩn/Hiện thanh indicators mặc định
+loop
+boolean
+true
+Tạo swiper lặp lại các slide/không
+duration
+number
+3000
+Thời gian tự động chuyển slide khi bật (autoplay)
+disableSwipe
+boolean
+false
+Cho phép swipe để chuyển trang
+afterChange
+(currentIndex: number) => void
+callback function fired sau khi chuyển tới slide mới
+ref
+RefObject<SwiperRefObject>
+Chứa swiper ref object
+SwiperRefObject​
+Name
+Type
+Default
+Description
+activeIndex
+number
+Index của slide đang active
+goTo
+(slideIndex: number) => void
+Chuyển tới slide cụ thể
+next
+function
+Chuyển đến slide tiếp theo
+prev
+function
+Chuyển đến slide trước đó
+Swiper.Slide​
+Name
+Type
+Default
+Description
+className
+string
+Thêm class cho slide element
+style
+CSSProperties
+Tuỳ chỉnh style của slide thông qua inline-style
+children
+ReactNode
+Nội dung của slide
+Example​
+Swiper Mặc định
+import React from "react";
+import { Page, Swiper, Box, Text } from "zmp-ui";
+export default function HomePage() {
+return (
+<Text.Title size='small'>Swiper</Text.Title>
+<Box
+mt={6}
+flex
+flexDirection='column'
+justifyContent='center'
+alignItems='center'
+>
+<Swiper>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/0e05d63a7a93a6cdff826.jpg'
+alt='slide-1'
+/>
+</Swiper.Slide>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/0f7c061caab576eb2fa45.jpg'
+alt='slide-2'
+/>
+</Swiper.Slide>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/321fb45f18f6c4a89de78.jpg'
+alt='slide-3'
+/>
+</Swiper.Slide>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/4f417921d58809d650997.jpg'
+alt='slide-4'
+/>
+</Swiper.Slide>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/677fad2e0187ddd984969.jpg'
+alt='slide-5'
+/>
+</Swiper.Slide>
+</Swiper>
+</Box>
+);
+}
+Example​
+Swiper autoplay
+import React from "react";
+import { Page, Swiper, Box, Text } from "zmp-ui";
+export default function HomePage() {
+return (
+<Text.Title size='small'>Swiper</Text.Title>
+<Box
+mt={6}
+flex
+flexDirection='column'
+justifyContent='center'
+alignItems='center'
+>
+<Swiper autoplay duration={2000} loop>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/0e05d63a7a93a6cdff826.jpg'
+alt='slide-1'
+/>
+</Swiper.Slide>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/0f7c061caab576eb2fa45.jpg'
+alt='slide-2'
+/>
+</Swiper.Slide>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/321fb45f18f6c4a89de78.jpg'
+alt='slide-3'
+/>
+</Swiper.Slide>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/4f417921d58809d650997.jpg'
+alt='slide-4'
+/>
+</Swiper.Slide>
+<Swiper.Slide>
+<img
+className='slide-img'
+src='https://stc-zmp.zadn.vn/zmp-zaui/images/677fad2e0187ddd984969.jpg'
+alt='slide-5'
+/>
+</Swiper.Slide>
+</Swiper>
+</Box>
+);
+}
+Properties
+Swiper
+Swiper.Slide
+Example
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

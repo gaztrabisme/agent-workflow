@@ -1,0 +1,179 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/createOrder/
+# FETCHED: 2026-07-21
+# TITLE: createOrder | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+createOrder
+notify
+checkTransaction
+callback
+getOrderStatus
+updateOrderStatus
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+createOrder
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Tạo yêu cầu thanh toán.
+
+LƯU Ý
+
+Để truyền thêm giá trị mac trong API createOrder, vui lòng cập nhật phiên bản ZMP SDK >= 2.37.3 và dữ liệu extradata, method cần chuyển về kiểu dữ liệu string.
+
+Từ phiên bản ZMP SDK 2.45.0, đối tác bắt buộc phải truyền dữ liệu MAC vào API. Checkout SDK sẽ không xử lý những request thiếu giá trị MAC.
+
+Parameters​
+Object object​
+Property	Type	Required	Description
+amount	number	true	Số tiền cần thanh toán
+item	Array<Record<String, String>>	true	Thông tin các items thanh toán
+desc	string	true	Mô tả giao dịch thanh toán
+extradata	JSON String		Thông tin mà đối tác cần gửi thêm
+Toàn bộ dữ liệu sẽ được Checkout SDK chủ động gửi cho đối tác thanh toán:
+Đối với ZaloPay: thông qua tham số embedData
+Đối với MoMo:
+thông qua tham số extraData
+Riêng các thông tin như storeName, storeId, orderGroupId, Checkout SDK sẽ gửi trực tiếp qua các trường storeName, storeId, orderGroupId
+
+method	JSON String		Phương thức thanh toán duy nhất mà đối tác muốn hiển thị cho người dùng.
+Bao gồm:
+id: Mã phương thức thanh toán của Platform, hoặc phương thức thanh toán riêng của đối tác
+isCustom: quy định phương thức có phải là phương thức riêng hay không
+Quy trình chi tiết tham khảo ở dưới đây.
+mac	string	true	Thông tin xác thực của dữ liệu đơn hàng, dùng PrivateKey được cung cấp để chứng thực toàn bộ dữ liệu. Các dữ liệu được sắp xếp theo thứ tự từ điển tăng dần để tạo mã hash cho thông tin. Tham khảo cách tạo mã tại đây
+Lưu ý: Thông tin xác thực này phải được tạo tại Merchant Server khi đối tác tạo đơn hàng tại hệ thống đổi tác và tuyệt đối không lưu trữ PrivateKey tại Mini App
+success	function		Callback function khi gọi api thành công
+fail	function		Callback function khi gọi api thất bại
+Return Values​
+Promise <Object data>​
+Property	Type	Description
+orderId	string	Mã đơn hàng của yêu cầu thanh toán vừa tạo
+Sample Code​
+import { Payment } from "zmp-sdk/apis";
+
+// tạo yêu cầu thanh toán 50.000VNĐ
+Payment.createOrder({
+  desc: "Thanh toán 50.000",
+  item: [
+    { id: "1", amount: 20000 },
+    { id: "2", amount: 30000 },
+  ],
+  amount: 50000,
+  extradata: "{ // toàn bộ extradata sẽ được truyền qua embedData (ZaloPay) hoặc extraData (MoMo)
+    storeName: "Cửa hàng A", // field này sẽ được truyền trực tiếp qua storeName (MoMo)
+    storeId: "123", // field này sẽ được truyền trực tiếp qua storeId (MoMo)
+    orderGroupId: "345" // field này sẽ được truyền trực tiếp qua orderGroupId (MoMo)
+    myTransactionId: "12345678", // transaction id riêng của hệ thống của bạn
+    notes: "Đây là giá trị gửi thêm",
+  }",
+  method: "{
+    id: "ZALOPAY_SANDBOX", // Phương thức thanh toán
+    isCustom: false, // false: Phương thức thanh toán của Platform, true: Phương thức thanh toán riêng của đối tác
+  }",
+  mac: "YOUR MAC",
+  success: (data) => {
+    // Tạo đơn hàng thành công
+    // Hệ thống tự động chuyển sang trang thanh toán.
+    const { orderId } = data;
+    console.log(orderId);
+  },
+  fail: (err) => {
+    // Tạo đơn hàng lỗi
+    console.log(err);
+  },
+});
+
+// hoặc
+const { orderId } = await Payment.createOrder({
+  desc: "Thanh toán 50.000",
+  item: [
+    { id: "1", amount: 20000 },
+    { id: "2", amount: 30000 },
+  ],
+  amount: 50000,
+  mac: "YOUR MAC",
+  fail: (err) => {
+    // Tạo đơn hàng lỗi
+    console.log(err);
+  },
+});
+
+Cách tạo mac tại Merchant Server​
+
+Dữ liệu mà đối tác muốn truyền vào createOrder cần được sắp xếp và tạo mac tại Merchant Server.
+
+LƯU Ý
+
+Đối tác BẮT BUỘC phải thực hiện tạo mac tại Merchant Server khi tạo đơn hàng tại hệ thống của merchant.
+
+Dữ liệu extradata và method phải có kiểu dữ liệu JSON String khi tạo mac và khi truyền vào API createOrder.
+
+Dữ liệu item phải có kiểu dữ liệu String khi tạo mac.
+
+Ví dụ:
+
+// Với dữ liệu muốn truyền vào API createOrder gồm: amount, desc, item, extradata, method
+// Dữ liệu extradata và method phải có kiểu dữ liệu JSON String
+// Dữ liệu item cần chuyển về kiểu dữ liệu String
+const dataMac = Object.keys(params)
+  .sort() // sắp xếp key của Object data theo thứ tự từ điển tăng dần
+  .map(
+    (key) =>
+      `${key}=${
+        typeof params[key] === "object"
+          ? JSON.stringify(params[key])
+          : params[key]
+      }`,
+  ) // trả về mảng dữ liệu dạng [{key=value}, ...]
+  .join("&"); // chuyển về dạng string kèm theo "&", ví dụ: amount={amount}&desc={desc}&extradata={extradata}&item={item}&method={method}
+
+// Tạo overall mac từ dữ liệu
+mac = HMAC("HmacSHA256", privateKey, dataMac);
+
+Quy trình hiển thị phương thức thanh toán cụ thể​
+
+Để hiển thị một phương thức thanh toán cụ thể, đối tác cần truyền vào tham số method với id là mã phương thức thanh toán của Platform hoặc mã phương thức thanh toán riêng của đối tác, và isCustom quy định phương thức có phải là phương thức riêng hay không.
+
+Sau đó Checkout SDK sẽ tự động chuyển người dùng sang trang thanh toán và chỉ trả về duy nhất phương thức mà đối tác đã quy định, người dùng không thể lựa chọn phương thức thanh toán khác.
+
+Ví dụ quy trình
+
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

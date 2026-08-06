@@ -1,0 +1,330 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/sdk/ios-sdk/references/ma-loi
+# FETCHED: 2026-08-06
+# TITLE: Mã lỗi | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+iOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Social Plugin
+Mã lỗi
+Mã lỗi
+Tên
+Ghi chú
+0
+kZaloSDKErrorCodeNoneError
+Không có lỗi
+-5000
+kZaloSDKErrorCodeAppIdInvalid
+App id is invalid
+-5001
+kZaloSDKErrorCodeRequiredLogin
+Invalid callback url
+-5002
+kZaloSDKErrorCodeInvalidSecretKey
+Invalid client secret
+-5003
+kZaloSDKErrorCodeInvalidOauthCode
+Invalid oauthorized code
+-5004
+kZaloSDKErrorCodeInvalidAccessToken
+Invalid access token
+-5005
+kZaloSDKErrorCodeInvalidIOSBundleID
+Invalid ios bundle id
+-5006
+kZaloSDKErrorCodeInvalidAndroidPackageName
+Invalid android package
+-5007
+kZaloSDKErrorCodeInvalidSessionId
+Invalid session
+-5008
+kZaloSDKErrorCodeInvalidAndroidSignKey
+Invalid android sign key
+-5009
+kZaloSDKErrorCodeInvalidCodeChallenge
+Invalid code challenge
+-5010
+kZaloSDKErrorCodeInvalidCodeVerfifier
+Invalid code verifier
+-5011
+kZaloSDKErrorCodeInvalidRefreshToken
+Invalid refresh token
+-5012
+kZaloSDKErrorCodeInvalidOAID
+Invalid oa id
+-5013
+kZaloSDKErrorCodeInvalidBodyData
+Invalid body data
+-5014
+kZaloSDKErrorCodeInvalidParameter
+Invalid required params
+-5015
+kZaloSDKErrorCodeInvalidGrantType
+Invalid grant type
+-5016
+kZaloSDKErrorCodeAuthorizedCodeExpired
+Authorized code expired
+-5017
+kZaloSDKErrorCodeRefreshTokenExpired
+Refresh token expired
+-5018
+kZaloErrorCodeInvalidState
+Invalid state
+-5019
+kZaloErrorCodeRefreshTokenIsNotGuestRefreshToken
+Refresh token is not guest refresh token
+-6000
+kZaloSDKErrorCodeUserIsInvalid
+User is invalid
+-6001
+kZaloSDKErrorCodeInvalidPermission
+Invalid Permission (not in white list)
+-6002
+kZaloSDKErrorCodeDidNotLogin
+User not login
+-6003
+kZaloSDKErrorCodeUserConsentFail
+User not consent
+-6004
+kZaloSDKErrorCodeUserNotOwnOa
+User not own OA
+-6005
+kZaloSDKErrorCodeUserBanned
+User banned
+-7000
+kZaloSDKErrorCodeInvalidCsrfToken
+Invalid csrf token
+-7001
+kZaloSDKErrorCodeCreateAccessTokenFail
+Cannot create access token
+-7002
+kZaloSDKErrorCodeCreateOauthCodeFail
+Could not create Authorized code.
+-7003
+kZaloSDKErrorCodeHadAnErrorWhenVerifySessionUser
+Had an error when verify session user
+-7004
+kZaloSDKErrorCodeYourApplicationMightBeNotApproveOrDisableByAdmin
+Your application might be not approve or disable by admin
+-7005
+kZaloSDKErrorGuestRecoveryFailed
+Process forgot passwd guest account failed
+-7006
+kZaloSDKErrorCodeBuildRedirectUriFailed
+Build redirect uri failed
+-7011
+kZaloSDKErrorCouldNotLoginToGooglePlus
+Could not login to Google Plus
+-7012
+kZaloSDKErrorCouldNotLoginToFacebook
+Could not login to Facebook
+-7013
+kZaloSDKErrorCouldNotLoginToZingMe
+Could not login to ZingMe
+-7014
+kZaloSDKErrorCodeAuthenticationFailed
+Authentication failed
+-7015
+kZaloSDKErrorCodeAuthenticationExceeded
+Authentication exceeded
+-7016
+kZaloSDKErrorCodeAccountInvalid
+Account invalid
+-7017
+kZaloSDKErrorCodeRequestInvalid
+Request invalid
+-7018
+kZaloSDKErrorCodeAccountNotFound
+Account not found
+-7019
+kZaloSDKErrorCodeDataNotFound
+Data not found
+-7020
+kZaloSDKErrorCodePermissionDenied
+Permission denied
+-7021
+kZaloSDKErrorCodeRequestCanceled
+Request canceled
+-7022
+kZaloSDKErrorCodeUnSupportVersion
+UnSupport version
+-7023
+kZaloSDKErrorCodeRequiredZaloInstalled
+Required Zalo installed
+-7024
+kZaloSDKErrorCodeServerConnection
+kZaloSDKErrorCodeServerConnection
+-7025
+kZaloSDKErrorCodeTimeOutRequest
+TimeOut Request
+-7026
+kZaloSDKErrorGuestProtectionFailed
+Guest protection failed
+-7027
+kZaloSDKErrorGuestProtectionSuccess
+Guest protection success
+-7028
+kZaloSDKErrorGuestProtectionEmailPasswordMissing
+Guest protection: Email or Password missing
+-7029
+kZaloSDKErrorGuestRecoverySuccess
+Guest recovery success
+-7030
+kZaloSDKErrorGuestRecoveryEmailPasswordMissing
+Guest recovery: Email or Password missing
+-7031
+kZaloSDKErrorMissingCMND
+Missing CMND
+-7032
+kZaloSDKErrorRegisterCMNDSuccess
+Register CMND success
+-7033
+kZaloSDKErrorAppleIOSNotSupported
+Apple iOS not supported
+-7034
+kZaloSDKErrorAppleIOSLoginError
+Apple iOS login error
+-7035
+kZaloSDKErrorCodeUserCancel
+User cancel
+-8000
+kZaloSDKErrorCodeUnknownException
+There was an unknown error
+-9000
+kZaloSDKErrorCodeGraphAPIInvalidParameter
+Invalid parameter
+-9001
+kZaloSDKErrorCodeGraphAPIInvalidUserId
+Invalid user id
+-9002
+kZaloSDKErrorCodeGraphAPICantResolveToAValidUserId
+Can’t resolve to a valid user ID
+-9003
+kZaloSDKErrorCodeGraphAPIYourAppDontLinkWithAnyOfficialAccount
+Your app don’t link with any Official Account
+-9004
+kZaloSDKErrorCodeGraphAPIUserNotVisible
+User not visible
+-9005
+kZaloSDKErrorCodeGraphAPIAccessingFriendRequestsRequiresTheExtendedPermissionRead_Requests
+Accessing friend requests requires the extended permission read_requests
+-9006
+kZaloSDKErrorCodeGraphAPISessionKeyInvalid
+Session key invalid. This could be because the session key has an incorrect format or because the user has revoked this session
+-9007
+kZaloSDKErrorCodeGraphAPISendingOfRequestsHasBeenTemporarilyDisabledForThisApplication
+Sending of requests has been temporarily disabled for this application
+-9008
+kZaloSDKErrorCodeGraphAPISyntaxError
+Syntax error
+-9009
+kZaloSDKErrorCodeGraphAPICallFail
+Call fail
+-9010
+kZaloSDKErrorCodeGraphAPIMethodIsNotSupportForThisApi
+Method is not support for this api
+-9011
+kZaloSDKErrorCodeGraphAPIUnknownException
+Unkown exception
+-9012
+kZaloSDKErrorCodeGraphAPIItemNotExits
+Item not exits
+-9013
+kZaloSDKErrorCodeGraphAPIAppIdInUseIsDisabledOrBanded
+App Id in use is disabled or banded
+-9014
+kZaloSDKErrorCodeGraphAPIQuotaForYourAppIsLimited
+Quota for your app is limited
+-9015
+kZaloSDKErrorCodeGraphAPILimitOfFriendsListIsTooLarge_MaximumIs50
+Limit of friends list is too large. Maximum: 50
+-9016
+kZaloSDKErrorCodeGraphAPIQuotaDailyForYourAppIsLimited
+Quota daily for your app is limited
+-9017
+kZaloSDKErrorCodeGraphAPIQuotaWeeklyForYourAppIsLimited
+Quota weeky for your app is limited
+-9018
+kZaloSDKErrorCodeGraphAPIQuotaMonthlyForYourAppIsLimited
+Quota monthly for your app is limited
+-9019
+kZaloSDKErrorCodeGraphAPIQuotaMonthlyForYourAppIsLimited2
+Quota monthly for your app is limited
+-9020
+kZaloSDKErrorCodeGraphAPIUserHasNotPlayedGameFor30DaysAgo
+User has not played game for 30 days ago
+-9021
+kZaloSDKErrorCodeGraphAPIDoNotDisturbUserUserHasntTalkedToFriendFor30DaysAgo
+Do not disturb user. User hasn’t talked to friend for 30 days ago
+-9022
+kZaloSDKErrorCodeGraphAPIRecipientWasReachedQuotaMessageReceive_1MessagePer3Days
+Recipient was reached quota message recieve (1 message per 3 days)
+-9023
+kZaloSDKErrorCodeGraphAPISenderAndRecipientIsNotFriend
+Sender and Recipient is not friend
+-9024
+kZaloSDKErrorCodeGraphAPIQuotaDailyPerUserForYourAppIsLimited
+Quota daily per user for your app is limited
+-9025
+kZaloSDKErrorCodeGraphAPIYourFriendIsNotUsingApp
+Your friend is not using app
+-9026
+kZaloSDKErrorCodeGraphAPIYourFriendIsUsingApp
+Your friend is using app
+Trước
+Câu hỏi thường gặp
+Kế tiếp
+Tổng quan
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

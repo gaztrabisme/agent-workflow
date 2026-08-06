@@ -1,0 +1,421 @@
+# SOURCE: https://zalo.solutions/news/thong-bao-hop-nhat-dinh-nghia-tin-uid-va-zns-thanh-zbs-template-message/cp1zx4bq8mzhhszgz0br1ocd
+# FETCHED: 2026-07-21
+# TITLE: Thông báo ra mắt ZBS Template Message - Giải pháp tin nhắn doanh nghiệp theo mẫu | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Home/Tin tức/Thông báo ra mắt ZBS Template Message - Giải pháp tin nhắn doanh nghiệp theo mẫu
+Thông báo ra mắt ZBS Template Message - Giải pháp tin nhắn doanh nghiệp theo mẫu
+22 tháng 01, 2026 17:27
+18 hữu ích
+
+Kính gửi Quý Khách hàng, Đối tác
+
+Zalo Business Solution (ZBS) gửi đến Quý Khách hàng, Đối tác cập nhật quan trọng liên quan đến việc ra mắt ZBS Template Message - Giải pháp tin nhắn Doanh nghiệp theo mẫu, hình thức mới thay thế cho ZNS và UID (giao dịch, truyền thông) trước đây đồng thời Chuyển đổi tự động trang Tài khoản Doanh Nghiệp trên Zalo - ZBS Account (account.zalo.solutions) thay thế cho ZCA. Các thay đổi này nhằm đảm bảo trải nghiệm người dùng tốt hơn, đồng thời giúp doanh nghiệp duy trì hiệu quả khi triển khai các luồng tin nhắn tương tác và chăm sóc Khách hàng (CSKH) trên Zalo.
+
+1. Thông báo ra mắt ZBS Template Message
+
+Từ ngày 01/01/2026, Zalo Business Solutions ra mắt ZBS Template Message – Giải pháp tin nhắn cho Doanh nghiệp theo mẫu, trên cơ sở hợp nhất các loại tin UID Giao dịch, UID Truyền thông và ZNS. Đồng thời Chuyển đổi tự động trang Tài khoản Doanh Nghiệp trên Zalo trước đây là ZCA thành - Zalo Business Solutions Account - ZBS Account (Việc chuyển đổi ZCA thành ZBS Account được tiến hành tự động từ 30/12/2025 (dự kiến), Đối tác không cần thao tác gì thêm)
+
+Mô tả ZBS Template Message 
+
+	
+
+Chi tiết
+
+
+Phân loại 	
+
+Tin Giao dịch:
+
+ZNS Template:
+Tag 1 (Transaction)
+Tag 2 (Customer care)
+Tin UID Giao dịch  
+
+Tin Hậu mãi:
+
+ZNS Template Tag 3 (Promotion)
+Tin UID Truyền thông 
+
+Hình thức gửi 	
+Gửi qua UID  
+Gửi qua Số điện thoại (SĐT) trên Zalo
+
+Lưu ý: Tất cả ZBS Template Message cần được kiểm duyệt bởi Zalo Business Solutions theo quy định kiểm duyệt hiện tại trước khi gửi (không phân biệt hình thức gửi)   
+
+
+Đơn giá	
+Gửi qua SĐT: Áp dụng đơn giá theo luồng gửi qua SĐT (tương tự đơn giá ZNS cũ)  
+Gửi qua UID: Áp dụng mức trợ giá thấp hơn đơn giá gửi qua SĐT.  
+
+Mức trợ giá thay đổi dựa trên phân loại, thành phần (component), CTA,... của ZBS Template Message được tạo.
+
+Thông tin chi tiết vui lòng tham khảo giá trên trang quản lý Template trong Zalo Cloud Account (ZCA) / ZBS Account (*) và website Bảng giá.
+
+Bổ sung các trường thông tin (param) về giá ZBS template message tương ứng cho từng luồng gửi ở các API quản lý, truy xuất liên quan đến thông tin template:
+
+price_sdt: Đơn giá khi gửi qua luồng SĐT [Mới]
+price_uid: Đơn giá khi gửi qua luồng UID [Mới]
+price [Cũ](dự kiến ngưng hỗ trợ từ 01/03/2026): Đơn giá khi gửi qua luồng SĐT
+2. Thông tin chi tiết về cơ chế gửi và nhận của ZBS Template Message
+a. Tổng quan cập nhật liên quan đến cơ chế gửi và nhận 
+
+Topic
+
+	
+
+Thành phần
+
+	
+
+Cũ/Trước cập nhật
+
+	
+
+Cập nhật mới
+
+	
+
+Thời gian cập nhật
+(dự kiến)
+
+
+Cơ chế đánh giá chất lượng và quyền lợi	Số lượng tin tối đa có thể gửi mỗi ngày (Daily quota)	
+
+Các mốc Daily quota:
+
+500
+2,000
+5,000 (Điểm bắt đầu mặc định)
+10,000
+20,000 (Điểm mở quyền gửi tin Hậu mãi)
+50,000
+100,000
+500,000
+	
+
+Điều chỉnh các mốc Daily quota như bên dưới (1):
+
+1,000
+5,000
+20,000 (Điểm bắt đầu mặc định)
+50,000
+Unlimited (mốc mới)
+Xem chi tiết cách chuyển đổi mốc daily quota cũ sang mới tại phần FAQ câu 8
+
+Ở mọi mốc Daily quota, OA đều có thể gửi tin Hậu mãi (2)
+
+	(1) Đã hoàn tất từ 16/01/2026
+(2) Đã hoàn tất từ 15:15 ngày 30/12/2025
+ 
+Điều kiện nhận tin Hậu mãi của User	User cần nhận ít nhất 1 tin Giao dịch/CSKH trong 6 tháng trước khi nhận tin Hậu mãi từ OA. (Mã lỗi -140) 	Không bắt buộc	Đã hoàn tất từ 15:15 ngày 30/12/2025
+Hạn mức gửi tin hậu mãi của OA theo tháng (Monthly Promotion Quota) 	Monthly Promotion Quota = 1/6 * (Tổng số tin Giao dịch và CSKH đã gửi 2 tháng trước) 	Không bắt buộc	Đã hoàn tất từ 15:15 ngày 30/12/2025
+Hạn mức nhận ZNS tin Hậu mãi của User mỗi tháng	
+
+Số lượng tin hậu mãi mỗi user nhận tối đa mỗi tháng từ OA:
+
+Tối đa 4 tin/tháng
+
+	
+
+Số lượng tin hậu mãi mỗi user nhận tối đa mỗi tháng từ OA:
+
+Tối đa 1 tin/ngày (30 tin/tháng)
+
+	Đã hoàn tất từ 15:15 ngày 30/12/2025
+Thời gian nhận tin
+[Điều chỉnh mới]	Quy định về khung giờ nhận tin của user	Giới hạn khung giờ nhận tin với một số loại tin	
+
+User có thể nhận tin nhắn ZBS Template 24/24
+
+Áp dụng cho tất cả template, tag và luồng gửi
+
+	Đã hoàn tất từ ngày 30/12/2025
+Business Box [MỚI] 	Business Box sẽ tổng hợp tất cả những cuộc hội thoại “thread chat” từ các OA mà user chưa có “Tương tác hợp lệ”  	Không có	
+
+Phân luồng hiển thị khi OA gửi tin Hậu mãi:
+
+User đang có “Tương tác hợp lệ”(**) với OA => Nhận tin tại Tab Inbox như hiện tại
+User không tồn tại  “Tương tác hợp lệ” với OA => Nhận tin tại Business Box 
+
+Mô tả chi tiết tại phần c. Phân luồng hiển thị
+	Từ 01/01/2026
+Việc cập nhật có thể kéo dài đến hết tháng 01/2026 phụ thuộc vào phiên bản nền tảng trên thiết bị của user và sự tương thích với các phiên bản hệ điều hành tương ứng
+
+Ghi chú và lưu ý:
+
+Luồng gửi tin hậu mãi vượt hạn mức - Sending mode 3 (luồng gửi thử nghiệm) ngừng hỗ trợ từ 15:15 ngày 30/12/2025
+Các tính năng/cơ chế không nhắc đến trong thông báo này sẽ chưa có kế hoạch thay đổi hoặc cập nhật.
+Thời gian cập nhật chỉ là dự kiến và có thể điều chỉnh/kéo dài tùy tính hình thực tế
+Các cập nhật trên sẽ áp dụng cho tất cả tin thuộc ZBS Template Message (mô tả chi tiết tại phần 1)
+Việc chuyển đổi từ mốc Daily quota của OA và các thông tin bổ sung khác sẽ được cập nhật dần theo thông tin chung tại bài viết này.
+b. Business Box là gì?
+
+Business Box được ra đời với mục đích nâng cao trải nghiệm và giúp user dễ dàng theo dõi các tin nhắn hậu mãi từ doanh nghiệp. Hỗ trợ việc phân luồng hiển thị thread chat, từ đó mở ra không gian tương tác riêng biệt cho user và doanh nghiệp. 
+
+ 
+
+Hình ảnh giao diện có tính chất minh họa, có thể điều chỉnh để đảm bảo trải nghiệm người dùng
+
+c. Phương thức phân luồng hiển thị
+
+Các điều kiện xác định tin nhắn từ OA sẽ xuất hiện tại đâu:
+
+(**) “Tương tác hợp lệ” (Meaningful interactions) trong tin ZBS Template Message Hậu mãi được định nghĩa là hành động như sau:
+
+User đang giữ trạng thái follow OA
+(Có điều chỉnh so với thông báo trước đó)
+
+Lưu ý:  
+
+Việc xác định điều kiện trên và thay đổi vị trí hiển thị của thread chat OA chỉ xảy ra ở các lần phát sinh tin nhắn mới từ OA hoặc user
+Định nghĩa của “Tương tác hợp lệ” có thể được điều chỉnh để đảm bảo chính sách nền tảng, dịch vụ và trải nghiệm của người dùng. 
+
+Các tình huống thường gặp
+
+Trường hợp 1: User A chưa từng quan tâm, biết hay có bất kì tương tác nào với OA Ngân hàng X trước đây. Ngày 20/01 OA gửi user A tin nhắn hậu mãi. Thread chat của OA hiện tại Business box trên giao diện của user
+Câu hỏi: Vào ngày 21/01, user A thực hiện follow OA hay bất kì “Tương tác hợp lệ” nào khác, thì thread chat của OA này có tự động hiển thị tại Tab Inbox ngày thời điểm A thực hiện tương tác không? 
+Trả lời: Vị trí thread chat sẽ không thay đổi đến khi có tin nhắn mới tiếp theo phát sinh. (VD: OA nhắn tin với user hoặc user chủ động nhắn tin với OA)
+Trường hợp 2: User B đã từng quan tâm (follow) sau đó bỏ quan tâm (unfollow) và không hề phát sinh “Tương tác hợp lệ” khác  
+=> Xác định chưa có “Tương tác hợp lệ” được cấu thành => Khi OA gửi tin hậu mãi, thread chat của OA sẽ hiển thị tại Business Box. 
+3. Đối tượng ảnh hưởng và hành động cần thực hiện
+
+Đối tượng ảnh hưởng
+
+	
+
+Hành động đề xuất
+
+
+Luồng gửi Tin UID Truyền thông và Tin UID Giao dịch 	
+
+Bắt buộc chuyển đổi sang ZBS Template Message trước ngày 1/3/2026
+
+(1) Tìm hiểu về khái niệm Template và Quy định kiểm duyệt nội dung mẫu tin  
+
+(2) Tạo Template để được kiểm duyệt:
+
+Cách 1: Tạo qua ZCA cũ / ZBS Account  
+Cách 2: Tạo qua API tạo Template
+
+(3) Tích hợp API gửi tin ZBS Template Message qua UID
+
+ZBS sẽ cung cấp thêm API phục vụ cho các luồng gửi tin ZBS Template qua UID.  
+Nội dung API sẽ cập nhật chi tiết trong thông báo tiếp theo. 
+
+Luồng gửi tin qua SĐT (ZNS)	
+
+Không cần thay đổi. Cách tích hợp (bao gồm API) gửi tin qua SĐT như hiện tại.
+
+Đối tác có thể cân nhắc tích hợp thêm luồng gửi ZBS Template Message qua UID nếu có nhu cầu.  
+
+
+Cơ chế gửi và nhận ZBS Template Message	
+
+Xem chi tiết tại Phần 2. Thông tin chi tiết về cơ chế gửi và nhận của ZBS Template Message
+
+Đối tác chủ động theo dõi và tra cứu theo thông tin mới để nắm được quyền lợi của OA và cơ chế của hệ thống từ đó đưa ra các kế hoạch gửi tin phù hợp cho OA của mình. 
+
+
+Zalo Cloud Account (ZCA) (*)	
+Mỗi template sẽ hiển thị 2 đơn giá độc lập tương ứng với 2 luồng gửi khi tạo và tra cứu template
+ 
+Đổi tên thành Zalo Business Solutions Account (ZBS Account) dự kiến từ ngày 01/01/2026  
+
+Việc chuyển đổi ZCA thành ZBS Account được tiến hành tự động, Đối tác không cần thao tác gì thêm. 
+
+4. Lộ trình chuyển đổi
+
+Đối tác đang sử dụng dịch vụ UID Truyền thông và UID Giao dịch cần thực hiện chuyển đổi theo các giai đoạn sau:
+
+Timeline dự kiến
+
+	
+
+Nội dung chuyển đổi
+
+
+
+
+Giai đoạn 1  
+(Từ nay - 01/01/2026)
+
+Tìm hiểu và chuẩn bị 
+
+	
+
+Đối tác xem các tài liệu để nắm được các thay đổi chính:
+
+Định nghĩa ZBS Template Message và 2 luồng gửi qua UID và SĐT (kèm thông tin đơn giá tương ứng).
+Chuẩn bị nội dung để đăng ký Template sử dụng các công cụ API và ZCA/ZBS Account như đề cập ở mục 3. 
+
+Giai đoạn 1.a.
+(30/12/2025) 	
+Cập nhật cơ chế gửi và nhận của ZBS Template Message (timeline dự kiến cụ thể tại Phần 2)
+Một số giao diện tại ZCA / ZBS Account sẽ được cập nhật sớm để chuẩn bị cho giai đoạn chuyển đổi 
+
+
+
+Giai đoạn 2
+(01/01/26 - 28/02/26)
+
+Tiến hành tích hợp chính thức 
+
+	Tiến hành tích hợp API Gửi ZBS Template Message qua UID. Xem tài liệu tại LINK.
+Lưu ý:  API Gửi ZBS Template Message qua UID sẽ chính thức release (có thể sử dụng) từ ngày 01/01/2026.
+Kết thúc chuyển đổi vào 01/03/2026 	
+
+Từ ngày 01/03/2026, Tin UID Giao dịch và UID Truyền thông với định dạng mẫu tin hiện tại sẽ dừng hỗ trợ dịch vụ.
+
+Sau thời gian này, Tin UID Giao Dịch và UID Truyền thông sẽ chỉ hỗ trợ gửi mẫu tin ZBS Template được kiểm duyệt. 
+
+ 
+
+5. FAQ - Câu hỏi thường gặp
+
+Question
+
+	
+
+Answer
+
+
+1. Template tạo trên ZCA có gửi được cho luồng UID không? 	
+
+Có.  
+
+Từ 01/01/2026, các Template được tạo và được duyệt trên ZCA /ZBS Account sẽ dùng chung cho cả 2 luồng gửi:
+
+Gửi qua Số điện thoại (ZNS)
+Gửi qua UID
+
+Lưu ý rằng: ZCA sẽ chưa hỗ trợ gửi UID, chỉ API gửi được UID 
+
+
+2. Template ZNS đã tạo trước đây có gửi được qua UID không? 	
+
+Chỉ áp dụng cho các template đã được duyệt từ ngày 10/12/2025.
+
+Các Template ZNS được tạo trước thời điểm 10/12/2025:
+
+Chỉ áp dụng cho luồng gửi qua Số điện thoại
+Không tự động dùng được cho luồng UID
+
+👉 Doanh nghiệp cần:
+
+Tạo Template mới theo chuẩn ZBS Template Message
+Thực hiện kiểm duyệt lại để dùng cho luồng UID
+
+Từ 01/01/2026, OA có thể gửi các mẫu tin (template) đã được duyệt từ 10/12/2025, sẽ được gửi thông qua cả 02 phương thức:
+
+Gửi qua SĐT trên Zalo
+Gửi qua UID 
+
+3. Doanh nghiệp đang dùng Tin UID (Giao dịch / Truyền thông) có bắt buộc tạo Template không?	
+
+Có, bắt buộc.
+
+Từ ngày 1/1/2026:
+
+Có thể bắt đầu sử dụng API gửi tin UID bằng ZBS Template được kiểm duyệt
+Duy trì API gửi tin UID Giao Dịch + UID Truyền thông theo API và cơ chế hiện tại (chưa cần tạo template), để hỗ trợ Đối tác chuyển đổi
+
+Hạn cuối hoàn tất chuyển đổi: 28/02/2026
+
+Sau thời điểm này, dịch vụ Tin UID Giao dịch và UID Truyền thông sẽ chỉ hỗ trợ gửi theo các mẫu tin ZBS Template đã được kiểm duyệt 
+
+
+4. Chính sách tạo template và gửi tin sau khi đồng nhất sẽ như thế nào?  	
+
+Về chính sách Template (kiểm duyệt nội dung): Được đồng nhất
+
+Chung quy trình tạo & xét duyệt Template
+Chung quy định nội dung, hình ảnh, CTA…
+
+Về chính sách gửi tin (delivery/policy đầu gửi): Độc lập
+
+Policy gửi qua SĐT và UID vẫn được kiểm soát riêng
+Có thể khác nhau về quota, tần suất gửi, hạn mức tin tháng, etc. 
+
+5. API gửi tin UID sẽ có cấu trúc như thế nào? 	
+
+Dự kiến API gửi Template qua UID sẽ được thiết kế tương đồng với API gửi ZNS hiện tại (tương ứng tin ZBS Template Message gửi theo SĐT), bao gồm:
+
+Endpoint
+Cấu trúc request
+Tham số truyền vào
+Cách mapping dữ liệu vào Template
+
+📌 Tham khảo chi tiết TẠI LINK.
+
+
+6. Có loại template nào (theo các loại hiện tại của ZNS) không được gửi luồng UID hay không? 	
+
+Các loại template chưa hỗ trợ gửi qua luồng UID, chỉ có thể gửi đến SĐT
+
+Template Xác thực (OTP)
+Template có nút Response (sản phẩm thử nghiệm)
+Template Journey (Logistic, Xe khách,…)
+Các template có Đơn giá luồng gửi qua UID = 0
+
+7. Sau ngày 30/12/2025 (khi cập nhật hoàn tất), nếu vẫn sử dụng luồng gửi thử nghiệm - Tin hậu mãi vượt hạn mức (sending mode 3), thì còn gửi được không?	
+
+Không.
+
+Lúc này nếu tiếp tục gửi tin hậu mãi bằng sending mode 3 hoặc các sending mode khác không hợp lệ sẽ trả mã lỗi:
+
+ -161: sending_mode has invalid value
+
+
+8. Các OA đang ở mốc daily quota cũ sẽ được chuyển giao qua mốc daily quota mới như thế nào?	
+
+Mốc daily quota sẽ được chuyển giao từ mốc cũ sang mới như sau:
+
+
+9. Cách tra cứu/phân biệt giá template cho cả 2 luồng gửi qua API?	
+
+Hai (2) trường thông tin (params) về giá ZBS template message tương ứng cho từng luồng gửi đã được bổ sung với thông tin chi tiết như sau:
+
+price_sdt: Đơn giá khi gửi qua luồng SĐT [Mới]
+price_uid: Đơn giá khi gửi qua luồng UID [Mới]
+price (dự kiến ngưng hỗ trợ từ 01/03/2026): Param cũ, thể hiện đơn giá khi gửi qua luồng SĐT
+
+Các API đã được bổ sung 2 params mới:
+
+API tạo template
+API chỉnh sửa template
+API Lấy thông tin chi tiết template
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

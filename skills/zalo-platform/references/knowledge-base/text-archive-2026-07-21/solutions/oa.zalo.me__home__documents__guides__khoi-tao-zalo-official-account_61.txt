@@ -1,0 +1,121 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/khoi-tao-zalo-official-account_61?utm_source=ZOAwebsite&utm_source=%5BZOAwebsite%2CZOAwebsite%5D&utm_medium=blog&utm_medium=%5Bblog%2Cblog%5D&utm_campaign=releasenewOA&utm_campaign=%5BreleasenewOA%2CreleasenewOA%5D&utm_content=Quickannouncement&utm_content=%5BQuickannouncement%2CQuickannouncement%5D
+# FETCHED: 2026-07-21
+# TITLE: Khởi tạo Zalo Official Account | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Khởi tạo Zalo Official Account
+Lựa chọn danh mục
+Hướng dẫn đặt tên Zalo OA
+Lý do OA bị khóa và cách khắc phục
+Hướng dẫn xác thực
+Các hình thức xác thực
+Hồ sơ xác thực
+Xác thực theo lĩnh vực hoạt động
+Xử lý hồ sơ bị từ chối
+Hỗ trợ tạo, xác thực, cài đặt OA cho chuỗi cửa hàng
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Khởi tạo Zalo Official Account
+
+Zalo Official Account doanh nghiệp (OA doanh nghiệp) là tài khoản chính thức của doanh nghiệp trên Zalo, giúp doanh nghiệp và khách hàng/người quan tâm tương tác với nhau dễ dàng hơn thông qua các tính năng.
+
+Hồ sơ quảng cáo: dành riêng cho người dùng chưa có Giấy đăng ký kinh doanh, chỉ hoạt động với mục đích chạy quảng cáo trên Zalo (không áp dụng với các nền tảng khác). Hồ sơ quảng cáo không thể sử dụng các tính năng: Nhắn tin, Broadcast và Bài viết, Chatbot, Gọi thoại. Tuy nhiên, trong quá trình sử dụng người dùng có thể bổ sung Giấy phép kinh doanh để thành OA xác thực và sử dụng đa dạng các tính năng. Đăng ký tài khoản Hồ sơ quảng cáo tại đây.
+
+OA xác thực: dành cho Doanh nghiệp/Hộ kinh doanh có Giấy phép Đăng ký kinh doanh, cung cấp các tính năng giúp phát triển kinh doanh và chăm sóc khách hàng (CSKH) trực tuyến phù hợp với đa dạng quy mô doanh nghiệp. Sau khi xác thực, OA sẽ có tick xác thực và đặc biệt có thể quản lý bởi nhiều tài khoản admin trên nhiều thiết bị. Anh/chị có thể sử dụng các tính năng khác nhau của OA tùy thuộc vào từng loại Gói dịch vụ OA đăng ký. Tham khảo chi tiết tại đây.
+
+Để đăng ký tài khoản Official Account xác thực trên Zalo cho Doanh nghiệp hoặc Hộ kinh doanh, vui lòng thực hiện theo các hướng dẫn sau:
+
+Bước 1: Truy cập đường dẫn http://oa.zalo.me và đăng nhập Zalo cá nhân ➞ Chọn “Tạo Official Account” như hình bên dưới. ​
+
+Bước 2: Đăng nhập tài khoản Zalo (cá nhân) bằng cách quét mã QR Code từ ứng dụng Zalo​
+
+⚠ Lưu ý: Chỉ có SĐT Việt Nam (+84) đã xác thực Zalo cá nhân thành công mới được hỗ trợ tạo và quản lý OA.
+
+Bước 3: Tiến hành tạo tài khoản OA Doanh nghiệp bằng cách điền các thông tin​
+
+Danh mục hoạt động: Chọn một trong các danh mục phù hợp với lĩnh vực đã đăng ký kinh doanh của doanh nghiệp/ hộ kinh doanh.  Tham khảo cách chọn Danh mục phù hợp tại đây.
+
+Tên Official Account: Tham khảo chính sách tại đây.
+
+Tên OA cần được đặt theo 1 trong 3 loại tên sau:
+
+- Tên doanh nghiệp hoặc hộ kinh doanh trên Giấy chứng nhận đăng ký kinh doanh (Giấy ĐKKD);
+
+- Tên nhãn hiệu/ thương hiệu đã được đăng ký với Cục Sở Hữu Trí Tuệ;
+
+- Tên giao dịch khác là tên của loại hình dịch vụ, sản phẩm, dự án mà doanh nghiệp hoặc HKD đang kinh doanh, và không thuộc 2 cách đặt tên trên.
+
+Thông tin giới thiệu: Cung cấp thông tin giới thiệu về doanh nghiệp/HKD một cách minh bạch, dễ hiểu và không gây nhầm lẫn cho người xem.
+Ảnh đại diện: Là logo chính thức, bảng hiệu, sản phẩm hoặc dịch vụ mà doanh nghiệp đang kinh doanh.
+Ảnh bìa: Là hình ảnh liên quan đến sản phẩm, dịch vụ của tài khoản OA.
+
+Tham khảo chính sách về thông tin giới thiệu và hình ảnh OA tại đây.
+
+➞ Nhấn Tạo tài khoản OA
+
+Bước 4: Xác thực tài khoản​
+
+Sau khi tạo thành công tài khoản OA xác thực, vui lòng thực hiện xác thực trong vòng 14 ngày để hoàn thành quá trình đăng ký. OA xác thực được sử dụng tối ưu các tính năng của OA Doanh nghiệp. So sánh các tính năng tại đây.
+
+Hướng dẫn chi tiết cho từng cách xác thực:
+
+Cách 1: Xác thực theo tên doanh nghiệp, hoặc tên gian hàng/ cửa hàng/ địa điểm kinh doanh của doanh nghiệp
+
+Cách 2: Xác thực theo tên thương hiệu/ nhãn hiệu đã được cấp văn bằng bảo hộ bởi Cục Sở hữu trí tuệ
+
+Cách 3: Xác thực theo tên khác, hoặc doanh nghiệp thuộc ngành nghề kinh doanh có điều kiện
+
+Để nộp giấy phép xác thực, tham khảo hướng dẫn xác thực tại đây
+
+👉 Sau khi tạo OA và nộp giấy phép xác thực, Quản trị viên sẽ nhận được thông báo thời gian chờ duyệt & kết quả từ OA Zalo Official Account. BQT Zalo OA thường sẽ phản hồi kết quả trong vòng 2-3 ngày làm việc, có 1 số trường hợp thời gian sẽ có thể mất nhiều thời gian hơn.
+
+Lưu ý:
+
+Để đăng ký OA thành công, doanh nghiệp phải đang hoạt động trong các ngành nghề được quy định rõ ràng bởi Pháp luật Việt Nam.
+Các hoạt động kinh doanh không được kiểm duyệt đăng ký OA doanh nghiệp: sản phẩm và dịch vụ tài chính gây nhầm lẫn hoặc lừa đảo, bao gồm nhưng không giới hạn: quyền chọn nhị phân, phát hành tiền ảo ra công chúng, hoặc các vấn đề về đồng tiền ảo nói chung, đấu giá kiểu thầu hoặc các mô hình kinh doanh tương tự khác.
+Đối với các doanh nghiệp hoạt động lĩnh vực tài chính - ngân hàng - bảo hiểm (dựa theo quy định của Pháp Luật Việt Nam) cần thực hiện xác thực tài khoản để sử dụng OA. Bao gồm nhưng không giới hạn các hoạt động kinh doanh, đầu tư sau: tín dụng, tiền gửi, chứng khoán, ví điện tử, dịch vụ trung gian thanh toán, bảo hiểm, đại lý bảo hiểm, dịch vụ thuế, v.v.;
+
+------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Next
+Lựa chọn danh mục
+Bước 1: Truy cập đường dẫn http://oa.zalo.me và đăng nhập Zalo cá nhân ➞ Chọn “Tạo Official Account” như hình bên dưới. 
+Bước 2: Đăng nhập tài khoản Zalo (cá nhân) bằng cách quét mã QR Code từ ứng dụng Zalo
+Bước 3: Tiến hành tạo tài khoản OA Doanh nghiệp bằng cách điền các thông tin
+Bước 4: Xác thực tài khoản
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

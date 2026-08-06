@@ -1,0 +1,83 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/sdk/android-sdk/open-api/lay-thong-tin-profile
+# FETCHED: 2026-08-06
+# TITLE: Lấy thông tin profile | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+iOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Social Plugin
+Lấy thông tin profile
+SDK cung cấp API để lấy thông tin người dùng sau khi đăng nhập thành công:
+ZaloSDK.Instance.getProfile(
+Context ctx,String access_token, ZaloOpenAPICallback callback, String[] fields)
+Tham số:
+ctx: application context
+access_token: được lấy ở mục (link)
+callback: override method onResult để nhận json trả về từ open api. Ví dụ:
+{
+"id": "UserId",
+"name": "User Name",
+"picture": {
+"data": {
+"url": "User avatar url"
+}
+}
+}
+fields : id, picture, name
+Trước
+Đăng xuất
+Kế tiếp
+Câu hỏi thường gặp
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

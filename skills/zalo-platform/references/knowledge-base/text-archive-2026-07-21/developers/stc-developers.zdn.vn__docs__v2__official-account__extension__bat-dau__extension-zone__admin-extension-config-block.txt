@@ -1,0 +1,149 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/extension-zone/admin-extension-config-block
+# FETCHED: 2026-07-21
+# TITLE: admin-extension-config-block | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuExtension zoneadmin-extension-config-block
+admin-extension-config-block
+Tổng quan​
+
+Zone admin-extension-config-block cho phép Nhà phát triển Extension (ED) cung cấp các tính năng cấu hình và quản lý phức tạp cho Official Account (OA) admin. Phù hợp cho việc hiển thị và quản lý:
+
+Dashboard chi tiết
+Tùy chỉnh mẫu tin
+Thiết lập quy tắc tự động
+Các tác vụ phức tạp khác cần không gian hiển thị lớn
+THÔNG TIN
+Zone này không hạn chế chiều cao hiển thị, cho phép ED cung cấp đến OA các tác vụ phức tạp cần nhiều không gian.
+Chỉ có OA admin với phân quyền Quản trị viên và Soạn nội dung mới có thể truy cập và tương tác với zone này.
+Cấu hình​
+app-config.json​
+{
+  "zones": {
+    "admin-extension-config-block": {
+      "enable": true
+    }
+  }
+}
+
+zoaSDK.getSessionInfo(data)​
+
+Các thông tin được cung cấp:
+
+admin_id: ID của admin đang đăng nhập
+oaid: ID của Official Account
+Chi tiết hiển thị​
+Vị trí: Trang Thiết lập sử dụng Extension đã cài đặt (oa.zalo.me/manage/extension/ext_id/config)
+Kích thước:
+Chiều cao tối đa: Không giới hạn
+Chiều rộng: Tự động điều chỉnh theo màn hình
+Hình ảnh minh họa​
+
+Mô tả header của trang:
+
+Logo và tên Tiện ích: hiển thị thông tin của Tiện ích
+Nút "Hỗ trợ": OA Admin click để chat với OA của Nhà phát triển Tiện ích (Lưu ý: Trong giai đoạn POC, nút "Hỗ trợ" đang được ẩn)
+Hướng dẫn sử dụng​
+Thiết kế giao diện quản lý phù hợp với tính năng của Extension, tận dụng không gian hiển thị không giới hạn.
+Sử dụng thông tin từ zoaSDK.getSessionInfo(data) để cá nhân hóa nội dung và quyền truy cập cho từng admin.
+Tạo các phần cấu hình chi tiết, dashboard, và công cụ quản lý phù hợp với nhu cầu của OA.
+Đảm bảo tính năng phân quyền giữa Quản trị viên và Soạn nội dung khi cần thiết.
+Ứng dụng​
+
+Dashboard quản lý Extension:
+
+Hiển thị các chỉ số hiệu suất chính của Extension
+Cung cấp tổng quan về việc sử dụng và tác động của Extension đối với OA
+
+Cấu hình chi tiết:
+
+Tạo giao diện để OA admin có thể tùy chỉnh các tham số và quy tắc hoạt động của Extension
+Cung cấp các mẫu cấu hình sẵn có và tùy chỉnh nâng cao
+
+Quản lý mẫu tin và nội dung:
+
+Xây dựng trình soạn thảo để tạo và quản lý các mẫu tin tùy chỉnh
+Tích hợp công cụ quản lý nội dung đa phương tiện
+
+Thiết lập quy tắc tự động:
+
+Tạo giao diện drag-and-drop để xây dựng luồng tự động hóa phức tạp
+Cung cấp công cụ kiểm tra và debug quy tắc tự động
+
+Báo cáo và phân tích:
+
+Tích hợp công cụ tạo báo cáo tùy chỉnh
+Hiển thị biểu đồ và thống kê chi tiết về hiệu suất của Extension
+Lưu ý​
+Tối ưu hóa hiệu suất để đảm bảo trang load nhanh và mượt mà, đặc biệt khi có nhiều dữ liệu và tính năng phức tạp.
+Thiết kế giao diện responsive để đảm bảo trải nghiệm tốt trên các kích thước màn hình khác nhau.
+Cung cấp hướng dẫn sử dụng chi tiết và tooltips để giúp admin dễ dàng sử dụng các tính năng phức tạp.
+Đảm bảo tính bảo mật và quyền riêng tư khi xử lý dữ liệu nhạy cảm của OA.
+Cung cấp tùy chọn sao lưu và khôi phục cấu hình để tránh mất dữ liệu quan trọng.
+
+Cập nhật lần cuối: 2024-09-19
+
+Trước
+admin-dashboard-primary-area-block
+Kế tiếp
+Figma flow demo
+Tổng quan
+Cấu hình
+app-config.json
+zoaSDK.getSessionInfo(data)
+Chi tiết hiển thị
+Hình ảnh minh họa
+Hướng dẫn sử dụng
+Ứng dụng
+Lưu ý
+©2023 Zalo for Developers

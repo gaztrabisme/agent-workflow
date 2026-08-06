@@ -1,0 +1,77 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/gui-tin-template-qua-sdt/webhook-gui-tin-qua-sdt/su-kien-journey-het-han
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện journey hết hạn | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Sự kiện thay đổi về hạn mức gửi tin qua SĐT
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Gửi tin Template qua SĐTWebhook gửi tin qua SĐTSự kiện journey hết hạn
+Sự kiện journey hết hạn
+
+Khi có sự kiện một journey hết hạn và chưa từng được sử dụng, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau.
+
+LƯU Ý
+
+Quyền cần có: Nhận sự kiện gửi tin qua SĐT
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+    "event_name": "event_journey_time_out",
+    "journey_id": "928185612043968512",
+    "app_id": "4349311699477619340",
+    "oa_id": "3886651700907664415",
+    "timestamp": "1641367274777"
+}
+
+Mô tả thuộc tính:​
+Thuộc tính	Mô tả
+event_name
+String	Tên sự kiện
+Giá trị nhận về: event_journey_time_out
+journey_id
+String	ID của journey
+app_id
+String	ID của ứng dụng
+oa_id
+String	ID của OA
+timestamp
+String	Thời gian hệ thống ghi nhận journey timeout
+Trước
+Sự kiện thay đổi về hạn mức gửi tin qua SĐT
+Kế tiếp
+Sự kiện journey được tính phí
+Ví dụ:
+Mô tả thuộc tính:
+©2023 Zalo for Developers

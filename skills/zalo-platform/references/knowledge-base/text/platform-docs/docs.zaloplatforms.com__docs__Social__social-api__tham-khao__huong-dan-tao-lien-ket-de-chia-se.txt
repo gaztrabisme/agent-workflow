@@ -1,0 +1,73 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/social-api/tham-khao/huong-dan-tao-lien-ket-de-chia-se
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn tạo liên kết để chia sẻ | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Demonstrating Proof-of-Possession
+SDK
+Social Plugin
+Trên trang này
+Hướng dẫn tạo liên kết để chia sẻ
+Chia sẻ liên kết là cách đơn giản nhất để đưa nội dung từ ứng dụng của bạn lên tường người dùng. Bằng cách chia sẻ liên kết, bạn có thể kiểm soát hình thức của nội dung ứng dụng xuất hiện trên Zalo cũng như hành vi khi mọi người nhấp vào liên kết trên nội dung đó.
+Tạo liên kết để chia sẻ​
+Để chia sẻ nội dung qua chia sẻ liên kết, bạn cần tạo các liên kết khả dụng ở những URL công khai. Để đảm bảo liên kết của bạn trông ổn trên tường người dùng, bạn cần đánh dấu trang web bằng thẻ Open Graph để kiểm soát nội dung của mình xuất hiện trên Zalo.
+Thẻ cơ bản​
+Thẻ
+Mô tả
+og:url
+URL trang của bạn
+og:title
+Tiêu đề của bài viết
+og:description
+Mô tả ngắn về nội dung, thường từ 2 đến 4 câu
+og:image
+URL của hình ảnh xuất hiện khi ai đó chia sẻ nội dung lên Zalo
+Ví dụ về thẻ đánh dấu​
+Ví dụ dưới đây là cách đánh dấu trang web bằng thẻ Open Graph
+<meta property="og:url" content="https://developers.zalo.me/" />
+<meta property="og:title" content="Zalo For Developers" />
+<meta property="og:image" content="https://developers.zalo.me/web/static/prodution/zalo.png" />
+<meta property="og:description" content="Trang thông tin về Zalo dành cho cộng đồng lập trình viên" />
+Thuộc tính bao gồm dữ liệu meta mô tả về trang web mà chúng tôi thực sự muốn hiển thị khi ai đó chia sẻ liên kết.
+Trước
+Cấu hình App Callback Url
+Kế tiếp
+Mã lỗi
+Tạo liên kết để chia sẻ
+Thẻ cơ bản
+Ví dụ về thẻ đánh dấu
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

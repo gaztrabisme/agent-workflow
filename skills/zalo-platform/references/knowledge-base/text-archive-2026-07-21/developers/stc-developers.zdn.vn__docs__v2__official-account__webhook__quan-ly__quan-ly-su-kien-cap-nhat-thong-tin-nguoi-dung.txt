@@ -1,0 +1,93 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/quan-ly/quan-ly-su-kien-cap-nhat-thong-tin-nguoi-dung
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện cập nhật thông tin người dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Extension
+Quản lý
+Sự kiện người dùng đồng ý chia sẻ thông tin
+Sự kiện người dùng quan tâm hay bỏ quan tâm OA
+Sự kiện gắn nhãn cho người dùng
+Sự kiện gỡ nhãn khỏi người dùng
+Sự kiện tạo nhãn
+Sự kiện xóa nhãn
+Sự kiện người dùng đồng ý cấp quyền tương tác
+Sự kiện Đồng bộ user_external_id thất bại
+Sự kiện người dùng Zalo thực hiện quyền chủ thể dữ liệu
+Sự kiện cập nhật thông tin người dùng
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookQuản lýSự kiện cập nhật thông tin người dùng
+Sự kiện cập nhật thông tin người dùng
+
+Khi thực hiện cập nhật thông tin cho người dùng hệ thống Zalo gửi đến webhook URL đã đăng ký của ứng dụng.
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature: mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Example request​
+{
+    "app_id": "360846524840903967",
+    "oa_id": "388613280879880645",
+    "user_id_by_app":"4840903967328087",
+    "user_id":"",
+    "event_name": "update_user_info",
+    "data": {
+        "method":"dynamic_url",
+}
+    "timestamp": "15503500848",
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+event_name	String	Giá trị là: update_user_info
+oa_id	String	Id của Official Account
+app_id	String	Id ứng dụng đang nhận sự kiện
+user_id_by_app	String	Trường này chỉ có khi app_id và oa_id trên đang liên kết với nhau.
+data	json Object	Trong đó
+method: là phương thức cập nhật thông tin
+dynamic_url: cấp tương tác từ OA URL. Các thông tin về Dynamic url sẽ được lưu lại trong Thông tin người dùng, sử dụng API truy xuất chi tiết người dùng tại đây
+
+timestamp	String	Thời điểm request được gửi, tính bằng millisecond
+​
+Trước
+Sự kiện người dùng Zalo thực hiện quyền chủ thể dữ liệu
+Kế tiếp
+Giới thiệu
+Example request
+Mô tả thuộc tính
+©2023 Zalo for Developers

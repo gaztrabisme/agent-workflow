@@ -1,0 +1,149 @@
+# SOURCE: https://zalo.solutions/blog/cach-su-dung-va-ung-dung-cua-mau-xac-thuc/g8yv8lcpvmj0c0wonqbpibgj
+# FETCHED: 2026-07-21
+# TITLE: Cách sử dụng và ứng dụng của Mẫu Xác thực | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Home/Blog/Cách sử dụng và ứng dụng của Mẫu Xác thực
+Cách sử dụng và ứng dụng của Mẫu Xác thực
+2 tháng 04, 2026 17:27
+
+     1. Mẫu Xác thực là gì? Cách ứng dụng Mẫu Xác thực:
+
+Mẫu Xác thực là mã xác thực một lần được gửi đến người dùng Zalo thông qua dịch vụ Tin nhắn ZBS Template. Với mục đích xác nhận đăng nhập các ứng dụng online, thông báo về quá trình tạo hoặc thay đổi trạng thái người dùng (gửi mã xác thực cho khách hàng tạo tài khoản mới, xác nhận đổi mật khẩu, xác thực tài khoản, xác thực giao dịch,…)
+
+     
+
+     2. Cấu trúc của một Mẫu Xác thực: 
+
+Doanh nghiệp sử dụng Mẫu Xác thực mặc định trên tài khoản ZBS và cấu trúc mặc định của 1 Mẫu Xác thực bao gồm:
+
+Logo OA
+Thông tin “Mã xác thực của bạn là <otp>”
+
+Doanh nghiệp có thể sao chép mã xác thực từ tin nhắn ZBS Template. Thông tin chi tiết về tính năng sao chép mã xác thực, xem tại ĐÂY
+
+Bên cạnh những nội dung mặc định, doanh nghiệp cũng có thể chỉnh sửa nội dung gửi kèm mã xác thực.
+
+ 
+
+	
+
+Phần cố định của hệ thống 
+
+	
+
+Phần có thể chỉnh sửa theo nhu cầu sử dụng 
+
+
+
+
+Logo đăng ký 
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+Nội dung: 
+
+Mã xác thực của bạn là 
+
+<otp> 
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+Nội dung gửi kèm mã xác thực: 
+
+ 
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+Lưu ý: Mẫu Xác thực không hỗ trợ sử dụng nút CTA. Trong trường hợp xác thực tài khoản, doanh nghiệp có thể ngoại lệ gửi thông báo đến khách hàng chưa phát sinh giao dịch với OA.  
+
+ 
+
+(Hình ảnh minh hoạ mẫu tin ZNS Xác thực ở cả 2 giao diện sáng và tối) 
+
+ 
+
+     3. Hướng dẫn tạo Mẫu Xác thực trên trang tài khoản ZBS
+
+Xem thêm: Các bước thiết lập ban đầu để gửi Tin nhắn ZBS Template
+
+Bước 1: Truy cập vào trang tài khoản ZBS và chọn “Dịch vụ gửi tin” 
+
+Bước 2: Tại trang “Dịch vụ gửi tin”, chọn “Tạo Template”
+
+Bước 3: Thiết lập các thông tin chung 
+
+Nhập tên mẫu, chọn OA và Ứng dụng (AppID) để
+
+Bước 4: Tại trang “Khai báo nội dung”, chọn loại Template “Mẫu Xác thực”. Sau đó, thao tác tải logo lên và điều chỉnh “Nội dung gửi kèm mã OTP” phù hợp với nhu cầu sử dụng rồi nhấn “Tiếp tục”. 
+
+Bước 5: Nhập nội dung truyền vào tham số, tick vào mục “đồng ý với Điều khoản và Chính sách sử dụng của Zalo Business Solutions” rồi nhấn “Hoàn thành”. 
+
+ 
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

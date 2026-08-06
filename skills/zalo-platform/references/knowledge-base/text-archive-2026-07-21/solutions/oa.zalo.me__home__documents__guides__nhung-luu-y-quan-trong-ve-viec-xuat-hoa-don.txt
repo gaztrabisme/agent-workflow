@@ -1,0 +1,136 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/nhung-luu-y-quan-trong-ve-viec-xuat-hoa-don
+# FETCHED: 2026-07-21
+# TITLE: Xuất hóa đơn Doanh nghiệp | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Quản lý ZBS Account
+ZBS Account là gì?
+Hướng dẫn tạo ZBS Account
+Hướng dẫn liên kết OA ID vào ZBS Account
+Hướng dẫn liên kết App ID vào ZBS Account
+Hướng dẫn nạp tiền vào ZBS Account
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+Xuất hóa đơn Doanh nghiệp
+Quản lý Admin ZBS Account
+Quản lý chi tiêu
+Quản lý gói Zalo OA
+Chi phí vận hành tài khoản Zalo OA doanh nghiệp xác thực
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Xuất hóa đơn Doanh nghiệp
+
+⚠ Lưu ý: Kể từ ngày 01/01/2026, Zalo Cloud Account (ZCA) chính thức đổi tên thành Zalo Business Solutions Account (ZBS Account).
+
+Zalo Business Solutions hỗ trợ khách hàng xuất hóa đơn cho số tiền nạp vào ZBS Account. Khách hàng vui lòng xem kỹ các quy định xuất hóa đơn như theo thông tin bên dưới.
+
+1. Đối với tất cả các hình thức nạp tiền, quý khách hàng cần lưu ý về thông tin xuất hóa đơn: Nạp tiền trực tuyến, Chuyển khoản nhanh​
+
+Từ ngày 19/07/2025, hệ thống sẽ tiến hành áp dụng xuất hóa đơn tự động cho tất cả khoản nạp thành công vào ZBS Account theo thông tin như sau:
+
+Xuất hóa đơn	
+
+Thao tác
+
+	
+
+Thông tin xuất hóa đơn
+
+
+Xuất hóa đơn tự động cho tất cả trường hợp	Bấm chọn "Xuất hóa đơn" VÀ có điền cụm "HDDN" trong nội dung chuyển khoản/nạp tiền	Lấy thông tin xuất hoá đơn được chọn tại phần Yêu cầu xuất hoá đơn trước khi nạp tiền thành công
+Bấm chọn "Xuất hóa đơn" nhưng không điền cụm  "HDDN" trong nội dung chuyển khoản/nạp tiền	Lấy thông tin xuất hóa đơn theo Thông tin tài khoản ZBS hiện tại
+Không chọn "Xuất hóa đơn"
+
+Vui lòng đảm bảo thông tin xuất hóa đơn và thông tin tài khoản chính xác trước khi tiến hành nạp tiền để hóa đơn được xuất đúng theo nhu cầu của quý khách.
+
+Tên công ty
+Mã số thuế
+Địa chỉ công ty (sử dụng để xuất hóa đơn)
+Email nhận hóa đơn
+
+Cách cập nhật Thông tin ZBS Account:
+
+Truy cập và đăng nhập ZBS Account cần sử dụng → Chọn Thông tin tài khoản tại thanh menu bên trái → Chọn Chỉnh sửa.
+Kiểm tra và điều chỉnh thông tin nếu có → Chọn Điều chỉnh thông tin để lưu lại.
+
+2. Khách hàng vui lòng tham khảo với kế toán doanh nghiệp trước khi nạp tiền trực tuyến/chuyển khoản bằng tài khoản cá nhân​
+
+Tùy mỗi doanh nghiệp sẽ có quy định về việc sử dụng tài khoản cá nhân trong các giao dịch công việc riêng, vui lòng tham vấn bộ phận kế toán của doanh nghiệp trước khi tiến hành nạp tiền bằng tài khoản cá nhân. Zalo Business Solutions không can thiệp hay bắt buộc về loại hình tài khoản (cá nhân hay công ty) cho các giao dịch nạp tiền.
+
+3. Số tiền trên hoá đơn sẽ được xuất tương ứng với mỗi giao dịch nạp tiền thành công​
+
+Dự kiến từ ngày 19/07/2025, hóa đơn sẽ được xuất tự động theo từng giao dịch, căn cứ vào thao tác để lấy thông tin xuất hóa đơn tương ứng, xem tại phần 1.
+
+4. Hỗ trợ điều chỉnh thông tin hóa đơn sau khi xuất hóa đơn​
+
+Zalo Business Solutions chỉ hỗ trợ điều chỉnh thông tin hóa đơn sau khi xuất với một số trường hợp.
+
+Xem thêm tại Trường hợp nào được hỗ trợ điều chỉnh hoá đơn doanh nghiệp?
+
+5. Hiện tại, Zalo Business Solutions chưa hỗ trợ hủy/điều chỉnh/xuất lại hóa đơn trong những trường hợp sau:​
+Khách hàng cung cấp sai thông tin sai mã số thuế.
+Khách hàng thay đổi thông tin pháp nhân (doanh nghiệp) thành doanh nghiệp khác, hoặc chuyển hóa đơn sang thông tin sang chi nhánh.
+Hóa đơn cá nhân muốn đổi thành hóa đơn doanh nghiệp.
+Khách hàng thay đổi nội dung xuất hóa đơn, số tiền xuất hóa đơn mà không có thông báo với bộ phận Chăm sóc khách hàng Zalo Business Solutions qua email: support@zalo.solutions
+Zalo Business Solutions chỉ cho phép điều chỉnh với nội dung địa chỉ xuất hóa đơn và tên doanh nghiệp (không thay đổi pháp nhân khác). Nội dung còn lại là nội dung mặc định (tên hàng hóa/sản phẩm, đơn vị tính, số lượng,...) và Zalo Business Solutions không cho phép thay đổi nội dung.
+6. Tra cứu hóa đơn​
+Hoá đơn sẽ được gửi về địa chỉ email nhận hoá đơn trong trường hợp người nhận chọn nhận hoá đơn khi nạp tiền vào ngày làm việc kế tiếp kể từ ngày giao dịch được ghi nhận thành công.
+Trong trường hợp người nhận chọn không nhận hoá đơn khi nạp tiền, hoá đơn chỉ xuất hiện trên mục Quản lý hoá đơn trên ZBS Account.
+Quý khách có thể tra cứu hoá đơn trực tiếp trên ZBS Account tại mục "Quản lý hoá đơn" vào ngày làm việc kế sau đó xem thêm tại bài viết: Tra cứu hóa đơn nạp tiền dễ dàng hơn bao giờ hết cùng ZBS.
+
+CÁC LƯU Ý CHUNG:
+
+Đối với khách hàng có nhu cầu xuất hóa đơn, vui lòng chọn mục "Xuất hóa đơn", điền đầy đủ thông tin xuất hóa đơn trước khi tiến hành nạp tiền.
+Zalo Business Solutions sẽ KHÔNG chịu trách nhiệm cho bất kỳ mất mát nào có thể xảy ra đối với trường hợp Khách hàng chuyển khoản sai Số tài khoản thụ hưởng và Tên tài khoản thụ hưởng mà Zalo Business Solutions cung cấp.
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+⚠️ Lưu ý: Từ 06/08/2025, Zalo Cloud chính thức đổi tên thành Zalo Business Solutions. Việc ra mắt thương hiệu Zalo Business Solutions (ZBS) là sự thay đổi về mặt nhận diện thương hiệu, không làm thay đổi về mặt pháp lý đối với các hoạt động, giao dịch và cam kết đã có trước đây dưới tên gọi Zalo Cloud.
+
+----------------------------
+
+Nếu có bất kì thắc mắc nào, khách hàng có thể liên hệ với đội ngũ Chăm sóc khách hàng của Zalo Business Solutions qua email: support@zalo.solutions
+
+Previous
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+Next
+Quản lý Admin ZBS Account
+1. Đối với tất cả các hình thức nạp tiền, quý khách hàng cần lưu ý về thông tin xuất hóa đơn: Nạp tiền trực tuyến, Chuyển khoản nhanh
+2. Khách hàng vui lòng tham khảo với kế toán doanh nghiệp trước khi nạp tiền trực tuyến/chuyển khoản bằng tài khoản cá nhân
+3. Số tiền trên hoá đơn sẽ được xuất tương ứng với mỗi giao dịch nạp tiền thành công
+4. Hỗ trợ điều chỉnh thông tin hóa đơn sau khi xuất hóa đơn
+5. Hiện tại, Zalo Business Solutions chưa hỗ trợ hủy/điều chỉnh/xuất lại hóa đơn trong những trường hợp sau:
+6. Tra cứu hóa đơn
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

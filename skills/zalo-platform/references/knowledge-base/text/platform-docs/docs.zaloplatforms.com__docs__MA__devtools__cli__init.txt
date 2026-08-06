@@ -1,0 +1,85 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/devtools/cli/init
+# FETCHED: 2026-08-06
+# TITLE: Tạo dự án | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Cấu Hình Zalo Mini App
+Zalo Mini App Extension
+Cài đặt
+Tạo dự án
+Khởi động
+Xuất bản
+Zalo Mini App CLI
+Cài đặt
+Đăng nhập
+Tạo dự án
+Khởi động
+Xuất bản
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Tạo dự án
+Cập nhật lần cuối:5/8/2026
+zmp init
+Để tạo Zalo Mini App, bạn có thể lựa chọn một trong hai cách sau:
+Create a new ZMP project (Tạo mới): Zalo Mini App CLI sẽ tạo ra cấu trúc thư mục cho dự án mới và cài đặt các dependencies cần thiết vào thư mục hiện hành đang sử dụng (working directory).
+Use ZMP to deploy only (Chuyển đổi ứng dụng Web có sẵn thành Zalo Mini App): Zalo Mini App CLI sẽ bổ sung các file thiết lập cần thiết để bạn có thể đưa dự án có sẵn lên Zalo Mini App. Chi tiết bạn có thể tham khảo bài viết Hướng dẫn chuyển đổi Web App thành Zalo Mini App trong 30 phút
+Các tuỳ chọn khi tạo dự án​
+Thiết lập
+Tạo mới
+Chuyển đổi ứng dụng có sẵn
+Mô tả
+Zalo Mini App ID
+✓
+✓
+ID của Zalo Mini App mà bạn đã đăng ký. Nếu chưa có, bạn có thể tạo ID cho mini app của mình ở mini.zalo.me.
+Name
+✓
+✓
+Tên của Zalo Mini App, được dùng để hiển thị trên thanh điều hướng.
+Template
+✓
+CLI sẽ tạo ra các trang mẫu theo template bạn chọn để bắt đầu phát triển Mini App. Nếu bạn không cần các trang mẫu này, bạn có thể chọn "blank".
+JavaScript/TypeScript
+✓
+CLI có thể tự động tích hợp TypeScript vào dự án của bạn nếu bạn chọn tùy chọn này. Nếu bạn cần một mã nguồn đơn giản hơn, bạn có thể chọn JavaScript.
+CSS Preprocessor
+✓
+Bạn có thể chọn giữa CSS (không sử dụng preprocessor) hoặc các preprocessor phổ biến như Less, SASS / SCSS và Stylus.
+More Options
+✓
+Ngoài ra, bạn có thể chọn bổ sung các thư viện/công cụ hỗ trợ phát triển Mini App nhanh hơn như TailwindCSS và Recoil,...
+Trước
+Đăng nhập
+Kế tiếp
+Khởi động
+Các tuỳ chọn khi tạo dự án
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

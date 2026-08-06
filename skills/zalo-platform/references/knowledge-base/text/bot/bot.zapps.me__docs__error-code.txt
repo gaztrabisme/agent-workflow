@@ -1,0 +1,54 @@
+# SOURCE: https://bot.zapps.me/docs/error-code/
+# FETCHED: 2026-08-06
+# TITLE: Bảng mã lỗi | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Trang chủ
+Bắt đầuTài liệuGiá góiGiải phápFAQ
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Bảng mã lỗi
+Trước
+Kế tiếp
+Cập nhật lần cuối: 6/8/2025
+Bảng mô tả mã lỗi có thể phát sinh khi sử dụng các APIs của hệ thống. Với các trường hợp lỗi, vui lòng tham khảo thông tin trong trường description trong dữ liệu nhận được để biết thêm chi tiết.
+Mã lỗi
+Ý nghĩa
+400
+Bad request - sai đường dẫn hoặc API Name không hợp lệ
+401
+Unauthorized - Token đã hết hạn hoặc không hợp lệ
+403
+Internal server error
+404
+Not found - Yêu cầu truy cập không lệ
+408
+Request timeout - Quá thời gian xử lý cho phép
+429
+Quota exceeded - Vượt quá giới hạn sử dụng API cho phép
+Trước
+Kế tiếp
+EN
+Zalo Bot Platform
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+Công Ty TNHH Zalo Platforms
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+© 2025 Zalo Platforms. All Rights Reserved.

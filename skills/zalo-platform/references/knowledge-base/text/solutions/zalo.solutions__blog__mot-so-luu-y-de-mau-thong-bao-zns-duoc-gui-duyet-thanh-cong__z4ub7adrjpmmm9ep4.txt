@@ -1,0 +1,42 @@
+# SOURCE: https://zalo.solutions/blog/mot-so-luu-y-de-mau-thong-bao-zns-duoc-gui-duyet-thanh-cong/z4ub7adrjpmmm9ep4
+# FETCHED: 2026-08-06
+# TITLE: Một số lưu ý để mẫu thông báo ZNS được gửi duyệt thành công | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Một số lưu ý để mẫu thông báo ZNS được gửi duyệt thành công
+Một số lưu ý để mẫu thông báo ZNS được gửi duyệt thành công
+26 tháng 11, 2025 17:41
+Cho dù mẫu thông báo ZNS được gửi với hình thức qua API hay không thông qua API thì bước đầu tiên để bắt đầu sử dụng, quý khách cần phải tạo và gửi duyệt mẫu ZNS (ZNS Template) để bộ phận phụ trách có thể kiểm tra toàn diện, đảm bảo đúng mục đích đăng ký cũng như mang lại hình ảnh doanh nghiệp chỉnh chu nhất trong mắt người dùng cuối.
+Xem thêm hướng dẫn tạo mẫu ZNS
+Xem thêm hướng dẫn sử dụng tính năng gửi ZNS không cần thông qua API
+Hướng dẫn kiểm tra tình trạng duyệt mẫu thông báo ZNS
+Sau khi tạo và gửi duyệt mẫu ZNS, hệ thống sẽ tự động gửi thông báo ZNS thông báo liên quan đến trạng thái duyệt/từ chối tới Zalo cá nhân của Admin đã đăng ký mẫu ZNS
+Thông báo ZNS gửi đến Admin đăng ký mẫu
+Trong trường hợp mẫu thông báo ZNS của Quý khách bị từ chối, Quý khách vui lòng truy cập lại vào tài khoản Zalo Cloud Account (ZCA) → Dịch vụ ZNS → Quản lý mẫu ZNS và tra cứu ID mẫu ZNS (Template ID) đang ở tình trạng “Bị từ chối”. Quý khách có thể nhấn vào "Xem chi tiết" đọc thêm về lý do mẫu ZNS bị từ chối → "Chỉnh sửa" để tạo và gửi duyệt lại mẫu ZNS phù hợp.
+Đồng thời, Quý khách cũng có thể bổ sung thêm thông tin trong mục "Ghi chú" để bộ phận phê duyệt ZNS hiểu hơn về nội dung, mục đích gửi ZNS.
+Một số lưu ý để mẫu ZNS được gửi duyệt thành công
+Nội dung mẫu ZNS phải chứa các tham số định danh khách hàng và liên quan đến giao dịch vừa mới xảy ra (tham số mã đơn hàng, mã giao dịch, mã hóa đơn, hợp đồng,…). Xem thêm thế nào là một tham số đúng chuẩn tại đây.
+Nội dung trong mẫu ZNS phải trùng khớp với mục đích gửi Quý khách đã đăng ký. Xem cách thiết lập mục đích gửi tại đây.
+Đường dẫn liên kết phải đúng với nội dung điều hướng. Xem thêm hướng dẫn thêm nút thao tác (CTA) trong mẫu ZNS tại đây.
+Đảm bảo yêu cầu về logo. Xem thêm những lưu ý về logo khi tạo mẫu thông báo ZNS tại đây.
+Tuyệt đối không mắc các lỗi liên quan đến dấu câu, chính tả,…
+Không chứa nội dung spam.
+Mô tả rõ ràng hơn tình huống sử dụng mẫu ZNS hoặc nội dung doanh nghiệp sẽ truyền vào biến đặc biệt như biến ghi chú, lưu ý,… (nếu có) để đội ngũ kiểm duyệt hiểu rõ mục đích sử dụng của mẫu thông báo ZNS.
+Nếu có bất kì yêu cầu hỗ trợ, khách hàng có thể liên hệ với đội ngũ Chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud. Đội ngũ CSKH Zalo Cloud sẽ phản hồi cho khách hàng trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản
