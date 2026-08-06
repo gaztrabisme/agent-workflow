@@ -206,6 +206,35 @@ Every mode, at minimum, appends a `log.md` entry (what happened, dated) and upda
 - [ ] Decisions *and* rejected approaches recorded where one was made
 - [ ] Breadcrumbs are specific findings, not "looked at X"
 - [ ] Any **roll-up** of this work (a parent/console page summarizing several projects) updated in the same session — see below
+- [ ] **The thing that produced the deliverable lives somewhere durable** — not only the deliverable itself
+
+### A deliverable whose toolchain is in temp is not complete
+
+**Completion is gated by the artifact *and by its means of reproduction*.** A generated deliverable — a
+workbook, a diagram export, a rendered video — carries an implicit claim that it can be regenerated. If the
+only copy of the script that built it sits in a session-scoped scratch directory, that claim is false and
+nobody finds out until the day it matters.
+
+The failure is invisible at the time, because **the output is fine.** It gets written somewhere real: a
+downloads folder, an email, a client's inbox. Only the generator is transient, and nothing about the
+finished artifact reveals that.
+
+> *Observed twice on one engagement, five weeks apart, and the second was worse than the first.*
+> **(a)** Two workbook generators were recovered from session temp during a reorganisation. The record notes
+> that without them the workbook would have been rebuilt by hand.
+> **(b)** An entire video pipeline — driver, encoder settings, and the verification harness that decoded the
+> output back to check it — lived only under a **session-scoped UUID path**. The MP4 had shipped and was
+> embedded in a client deck. A new session would not merely have missed the folder; it would have had a
+> *different* scratch root and no way to name the old one.
+
+**The rule: when a session produces a generator, the generator is part of the deliverable.** Move it into the
+project before reporting done, index it, and record the two things a future reader cannot recover from the
+code — the **inputs it expects** and the **verification that proved its output correct**. Both examples above
+survived only because someone happened to look.
+
+**Hardcoded absolute paths are the tell.** A script written in scratch reaches out to wherever its author's
+tools happened to sit. It runs today and breaks on the next machine or version bump, so repoint them to
+resolved or repo-relative paths as part of the move — not later.
 
 ---
 

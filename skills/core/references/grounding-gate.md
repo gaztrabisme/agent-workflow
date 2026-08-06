@@ -42,6 +42,30 @@ The corollary above is a prose rule, and prose rules fail silently at scale. Whe
 
 **Why this exists.** On a real engagement, values reported by research subagents were written into artifacts using the word *"measured"* — the underlying files had never been downloaded. The prose rule *"a claim you cannot ground, you do not make"* was present, correct, and did not fire. The schema-level version was then authored in-project as the fix, and is stronger than the rule it repairs.
 
+## Scope the check until its output is all signal
+
+Turning a prose rule into a script is only half the move. **A check whose output is mostly noise is worse
+than no check**, because it does not sit neutral — it trains everyone to skip the category. One gate that
+cries wolf discredits the five beside it that don't.
+
+> *Observed.* A quotation-provenance check, run across a whole workspace, returned **217 candidates** — Teams
+> chat, mail threads, standards text, our own prose, all of it correctly matching "a quoted string of 8+
+> words". Unusable, and shipping it as a gate would have taught the team that gate failures are noise.
+> Filtered to *quotations attributed to a **named external speaker***, it returned a workable set and found
+> **two real defects**, one of them a fabricated client quotation in the file every session is told to read
+> first.
+
+**The predicate is what makes it a gate.** Write it down beside the check, and be explicit that it is
+usually **engagement configuration** — here, a list of the client's names — while the *shape* of the check is
+portable. Two consequences follow, and the second is the one that bites:
+
+- **A check that is tuned but not run is a tool, not a gate.** Say which it is in the register that lists it,
+  so nobody assumes coverage that isn't wired in.
+- **A scoping predicate can go stale into a silent pass.** A name list that no longer matches the cast
+  produces zero findings and a green tick — indistinguishable from a clean artifact. Any predicate narrow
+  enough to be useful needs a **non-empty-corpus assertion**: fail loudly when the check matched nothing to
+  examine, rather than reporting success.
+
 ## For anything attributed to another party: record the speaker
 
 A citation to a *source* is not attribution. Transcripts, threads and meeting notes record **everyone in the room in the same voice** — the client, the broker, and your own colleagues — so "it's in the call transcript" does not establish who said it. Where a claim constrains you (a date, a volume, an accuracy bar, a budget, a requirement), the provenance you need is **the mouth it came out of**.
@@ -62,6 +86,36 @@ digit search is what let (c) live through a round.
 Both are the same mechanism and neither is dishonest: a colleague's helpful clarification hardens into a client requirement because the record captures both in one voice. The defence is not more caution — it is **reading the primary source rather than the summary**, and writing the speaker down beside the claim. Where the substrate is tabular, carry it as a column (`stated_by`), per the schema rule above; a speaker you remembered is a hope.
 
 **Corollary for anything you are asked to "refresh" from memory.** A request to restate what a number or date means is the moment to re-read the source, not to recall the summary. Both defects above were found that way, and (b) had already been re-summarised several times without anyone re-opening the transcript.
+
+### Quotation marks are themselves a claim
+
+The three defects above were **unquoted assertions** — a figure, a date, a quantity, absorbed into our own
+prose. The fourth wore the opposite costume, and it is worse.
+
+> *Observed, same engagement, a week later.* The orientation document every fresh session is told to read
+> first presented a sentence **inside quotation marks, attributed to the client partner by name, and tagged
+> `(Confirmed)`**. It was a colleague's Teams summary of what the client had said. The underlying meaning was
+> defensible; the sentence was never spoken by the person it named. It had survived because it read *more*
+> sourced than the paragraphs around it — quotation marks are the typographic signal of verbatimness, and
+> nobody re-checks a string that is already presented as a direct quote.
+
+**The rule: quotation marks assert that the enclosed characters exist, in that order, in a source of record.
+If you cannot produce them, remove the marks — not the sentence.** A paraphrase openly marked as one is
+honest and usually just as useful. A composite of several real sentences, punctuated as a quotation, is a
+fabrication regardless of how accurate its gist is.
+
+**And the same rule binds anything you write down as a guard or a defect description.**
+
+> *Observed, same week.* A sentence was recorded in three files as the **guard** protecting a vocabulary
+> change — *quote this exactly, and the change is safe*. The recorded sentence was a composite that appeared
+> **on no page of the artifact**. So the guard failed by the exact method it invited: anyone verifying it by
+> searching for the string found nothing, and had no way to tell whether the artifact had broken or the guard
+> was fiction.
+
+A guard, a sentinel, an acceptance string, a defect quotation — each is a claim about what a source contains,
+and each is one search away from being verified. **Run that search at the moment you write it down**, not
+at the moment you rely on it, because the moment you rely on it is the moment you cannot tell the two failure
+modes apart.
 
 ## A limitation is a claim, and it needs grounding too
 
@@ -96,3 +150,42 @@ Three habits that follow:
 
 The symmetry is the point: *a claim you cannot ground, you do not make* — **including a claim about what you
 cannot do.**
+
+## A tool's default target is part of its claim
+
+A verification tool that names its own inputs — a default file path, a default branch, a default dataset —
+is making a claim every time it runs without arguments. **A stale default is worse than no default**, because
+the run still succeeds and still prints a verdict; it just describes the wrong artifact.
+
+Observed: a deck-audit gate defaulted to the previous version of the deck and a superseded plan. Run bare, it
+reported eight hard defects — all of them true of last week's files and none of them of this week's. It had
+been giving that answer for a day. The green result quoted in a status update had come from an explicit
+`--deck` flag that nobody else knew to pass.
+
+Two rules:
+
+- **Point defaults at the current artifact, and move them when the artifact moves.** If that is impractical
+  because the target changes often, make the argument required rather than defaulting it — a tool that
+  refuses to run is safe; one that runs against the wrong thing is not.
+- **Echo the resolved inputs in the output**, above the verdict. `deck <name> · wbs <name> · map <n> entries`
+  costs one line and makes a stale target visible in every transcript, including the ones pasted into a
+  status report.
+
+The general form: **any check that resolves its own inputs must state what it resolved.** A verdict without
+its subject is not grounded, however green it is.
+
+## Two adversarial reviews on different models beat one review twice
+
+For a judgement that will be tested — a number going to a client, an estimate, a claim of coverage — a single
+cold review is one opinion. Running two on **different models**, each given the same facts and none of the
+first's conclusions, produces a materially stronger instrument:
+
+- **Where they converge, act.** Independent agreement on the same defect, reached by different routes, is
+  about as close to evidence as review gets. In one case both independently demanded the same cheap
+  measurement (a day's work on data already held), which was then run and changed a design decision.
+- **Where they diverge, look harder.** Divergence marks where the judgement is genuinely soft, which is
+  precisely what you want located before a client finds it.
+
+Cost is low and the failure mode it guards against — a confident single reviewer confirming your own framing
+back to you — is common. **Brief them cold**: give the architecture, the constraints and the open questions,
+and withhold your conclusions and the other reviewer's. A review told what to find will find it.
