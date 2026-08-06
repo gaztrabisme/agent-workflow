@@ -28,7 +28,9 @@ These are already resolved by the siblings. Conductor applies their rule; it doe
 
 1. **`dev`/Design vs `solution-architect`** — decide on **artifact + audience**. Internal spec, data model, success criteria for code → `dev`. Client-facing solution, proposal, tech selection to win a deal → `solution-architect`.
 2. **`solution-architect` vs `delivery`** — decide on **tense**. Criteria being *negotiated* → SA. Criteria being *tracked to sign-off* → delivery. Estimate being *derived* → SA. Estimate being *measured against* → delivery. (One exception, SA's own: pre-signature effort numbers are authored by delivery, because whoever will be held to an estimate owns writing it.)
-3. **`dev` vs `harness-operator`** — decide on **board**. If the project's `CLAUDE.md` declares `HARNESS_DB`, multi-ticket build work runs through the harness and `dev` is the judgment *inside* each ticket. No board → `dev` directly. Never run both spines over the same work.
+3. **`dev` vs `harness-operator`** — decide on **board**. If the project's `CLAUDE.md` declares `HARNESS_DB`, multi-ticket build work runs through the harness and `dev` is the judgment *inside* each ticket. Never run both spines over the same work.
+
+   **No board is not an answer — it is a question.** Substantial build work (multi-ticket, or a spec heading into a build phase) on a boardless project → **propose onboarding in the Plan Block**, don't fall through to `dev` and never mention it again. Falling through silently is how a project runs its whole build outside the spine by default. The onboarding is three steps (`harness-operator` → Project onboarding) and the qualifying question is whether the mutation gate will be real: a Python/Rust project with a test runner gets a genuine gate; a JS/TS-only diff gets an honest skip, so the oracle carries the whole load and onboarding buys less. One-off fixes and single-file work stay on `dev` — the board is for work that has tickets.
 
 **When genuinely ambiguous, name both in the Plan Block and pick one with a reason.** Silent choice between two siblings is how the wrong artifact gets built well.
 

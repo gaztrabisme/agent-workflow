@@ -40,10 +40,11 @@ Three rules follow, and they are the spine of this skill:
 | **Build** | feature list, bug, refactor, "add X" | `dev` (mode by trigger) · `harness-operator` if the project has a board |
 | **Frame** | an idea, a brief, "should we", "how would we" | `dev`/Design *or* `solution-architect` — decide on **audience**: engineers → dev; client/buyer → SA |
 | **Ground** | "is this true", "validate", "what does it cost", "who else does this" | task-force fan-out (`references/task-force-protocol.md`) |
+| **Design** | a solution spanning disciplines — architecture *and* delivery shape *and* backend *and* UI | design cell (`references/design-cell.md`) |
 | **Contest** | "pressure-test", "what breaks", "will this survive" | persona fan-out (`references/persona-fanout.md`) + adversarial briefs |
 | **Run** | signed work, status, acceptance, change | `delivery` |
 
-Shapes **compose**. The common real request is *Frame → Ground → Contest → Build*, and that composition is the whole point of this skill. Name every shape present; don't collapse to one.
+Shapes **compose**. The common real request is *Ground → Design → Contest → Build*, and that composition is the whole point of this skill. Name every shape present; don't collapse to one.
 
 ### 2. Ground — read the project before planning it
 
@@ -127,6 +128,7 @@ Not done until: artifacts on disk · `wiki/log.md` entry with the run ledger · 
 ## References
 
 - `references/routing-table.md` — intent → skill/mode, the disambiguation rules that resolve trigger collisions, and the compose-order for multi-shape requests.
-- `references/task-force-protocol.md` — the N-streams + M-verifiers → VERIFY → synthesis pattern, codified from two runs that worked.
-- `references/persona-fanout.md` — the brief for POV agents: casting, what each is asked to break, and why a persona is not a research agent.
-- `references/convergence.md` — the meeting point: contradiction handling, the synthesis contract, and what lands in the wiki.
+- `references/task-force-protocol.md` — fan-out that finds **facts**: N streams + M adversarial verifiers → VERIFY → synthesis. Codified from two runs that worked.
+- `references/design-cell.md` — fan-out that produces **decisions**: N roles author under exclusive mandates, reconcile on interface contracts, converge to one coherent spec. Carries the user-narrative brief and its grounding tiers.
+- `references/persona-fanout.md` — fan-out that collects **reactions**: stakeholders react cold to a finished artifact → ranked objection register. Why a persona is not a research agent.
+- `references/convergence.md` — the meeting point: contradiction handling, the interaction pass, and what lands in the wiki.
