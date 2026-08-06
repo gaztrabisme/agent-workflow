@@ -13,6 +13,8 @@ Intent → skill → mode. Conductor's only original judgment. Everything downst
 | "I have an idea", "how would we", "spec this" — **for engineers** | Frame | `dev` → Design |
 | "proposal", "RFP", "what do we pitch", "architecture for the client" | Frame | `solution-architect` |
 | "scope the AI use cases with them" (Microsoft-shaped) | Frame | `ms-ai-discovery` → hands to `solution-architect` |
+| a solution spanning disciplines — architecture *and* delivery shape *and* backend *and* UI | Design | design cell — `design-cell.md` |
+| the same, but one discipline could hold the whole design | Design | `dev` → Design directly. **No cell** — see `design-cell.md` §When it fires |
 | "who is this client", "competitors", "will they buy", "build the case" | Ground | `business-intelligence` |
 | "validate", "is this true", "what does it actually cost", "check my numbers" | Ground | task-force fan-out — `task-force-protocol.md` |
 | "pressure-test", "what breaks", "red team", "will this survive the room" | Contest | persona fan-out — `persona-fanout.md` |
@@ -77,13 +79,20 @@ These are already resolved by the siblings. Conductor applies their rule; it doe
 
 Most real intents carry several shapes. Order them by what constrains what — a later stage should never be re-run because an earlier one changed the premise.
 
+**This is the canonical shape order. It is stated here and nowhere else** — a second copy is how the two files drift apart, which is the anti-pattern this skill inherits from `delivery` ("two numbering systems") turned on itself.
+
 ```
-Ground ──▶ Frame ──▶ Contest ──▶ Build ──▶ Run
- facts     decision   stress      code    engagement
+Ground ──▶ Frame ──▶ Design ──▶ Contest ──▶ Build ──▶ Run
+ facts     what/      how, across   stress      code    engagement
+           whether    disciplines
 ```
 
+Most requests carry three or four of these, not six. Name the ones present; skip the rest out loud.
+
 - **Ground before Frame.** Deciding on unverified numbers means re-deciding. If the frame rests on a cost, a quota, a regulation, or a competitor claim, ground it first.
-- **Contest after Frame, before Build.** A persona pass over a *decision* is cheap; over shipped code it is a rewrite. Contest the frame while it is still prose.
+- **Frame before Design.** Frame settles *what and whether*; Design works out *how*. A cell that starts before the frame is settled designs a solution to a moving problem.
+- **Design collapses to `dev`/Design when one discipline could hold it.** The cell is for work that would produce incompatible halves. Single-discipline work that runs a cell gets ceremony, not coverage.
+- **Contest after Design, before Build.** A persona pass over a *spec* is cheap; over shipped code it is a rewrite. Contest it while it is still prose.
 - **Build last, and only what Contest survived.**
 - **Run wraps everything** on a signed engagement — `delivery` is concurrent, not sequential.
 

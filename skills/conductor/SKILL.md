@@ -44,7 +44,7 @@ Three rules follow, and they are the spine of this skill:
 | **Contest** | "pressure-test", "what breaks", "will this survive" | persona fan-out (`references/persona-fanout.md`) + adversarial briefs |
 | **Run** | signed work, status, acceptance, change | `delivery` |
 
-Shapes **compose**. The common real request is *Ground → Design → Contest → Build*, and that composition is the whole point of this skill. Name every shape present; don't collapse to one.
+Shapes **compose**, and that composition is the whole point of this skill. Name every shape present; don't collapse to one. The canonical order they run in — and the rules for which ones collapse — live in `references/routing-table.md` §Compose-order, stated there and nowhere else.
 
 ### 2. Ground — read the project before planning it
 
