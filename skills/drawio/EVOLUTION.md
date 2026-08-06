@@ -188,3 +188,112 @@ diagnosis rather than independently confirming the cure.
 | Closed lane gaps | **PASS.** The pipeline rendered correctly inside the deck, on a non-white backdrop — the exact condition that produced the black bars. Second use → **`KEEP` candidate** |
 | Grow-height-never-move-origin | **PASS.** No waypoint drift survived into the embedded export |
 | Transparency re-runs the full loop | **PASS, and extended.** The loop caught nothing this time because the defect that mattered was *content* (the count), not rendering — a useful reminder that the transparency loop is a rendering gate and does not read the words |
+
+## Evolution 4 — 2026-08-04 — A successful export that produced nothing
+
+### Harvest scope
+One engagement, two diagrams (an architecture view and an L0–L8 pipeline swimlane) taken through five export
+cycles each in a day, under review pressure before a client session. Both were embedded in a deck, so every
+export was checked in situ as well as standalone.
+
+### Patterns found
+
+**P1 — Dangling `parent` exports a stub, silently. `Impact: H, Effort: L`.**
+Cutting a container listed its four content cells by hand and missed the four *icon* cells that shared the
+same parent. The CLI exported a **108×108 image and returned 0**. Nothing in the toolchain objected. Caught
+only because the export step asserts on output dimensions. Had it not, a blank slide would have reached a
+client walkthrough where solution architecture was a named agenda item.
+
+**P2 — Fixing a connector by changing its exit point moved the problem. `Impact: M, Effort: L`.**
+A dashed edge terminating *on* a container's outline was rerouted to exit from the source box's top — and
+then crossed straight through that box and its text. The real cause was geometric: the source sat 16 units
+from its container's edge, so any sideways exit lands on the border. Sourcing the edge from the **container**
+rather than the box resolved it. Generalises: when an edge fouls a container, re-source it to the container.
+
+**P3 — Raising caption type overflows boxes, and the fix is text not geometry. `Impact: M, Effort: L`.**
+A 36% type rise to make captions legible at slide size overflowed three boxes. Growing them risks collisions
+with peers on a shared band grid; shortening the captions does not. Two of the three were shortened by
+dropping clauses already stated elsewhere in the destination deck.
+
+**P4 — Transparency produces phantom review findings. `Impact: M, Effort: L`.**
+Reviewers reported decorative template curves crossing the diagram on multiple slides. They were the slide
+template showing through a transparent PNG, not diagram defects.
+
+### Hypotheses applied
+
+| # | Pattern | Edit |
+|---|---|---|
+| H1 | P1 | `references/quality-conventions.md` → **"Deleting a container: derive its children, never list them"** — the silent-stub mechanism, iterate-until-stable child derivation, and *assert on dimensions, not exit code* |
+| H2 | P2, P3 | Same file → **"Height is the binding constraint on a slide, not width"** — including the worked aspect-ratio gain, and shorten-text-over-grow-box |
+| H3 | P4 | Same file → **"Export transparent, embed composited"**, with the compositing snippet and the on-disk/embedded parity rule |
+
+### Validation results
+All **`PENDING`**. P1 is the one to watch — it is a property of the tool rather than of this diagram, so it
+should recur and be caught, or never recur at all. P2's generalisation ("re-source to the container") rests on
+a single instance and may be over-stated; a second occurrence should confirm whether it holds or whether the
+real rule is narrower.
+
+**Updated 6 Aug (Evolution 5): P1 exercised and held.** The next re-export carried *assert on dimensions, not
+exit code* as a standing instruction and shipped no stub. Weak evidence — the failure was avoided by someone
+who had just read about it — but it is the right direction. Still `PENDING`.
+
+---
+
+## Evolution 5 — 2026-08-06 — The convention held; the project's copy of it did not
+
+### Harvest scope
+
+One re-export of an already-shipped architecture diagram, the day after Evolution 4's conventions were
+applied. A client-facing vocabulary rename reached **two strings baked into the diagram**, so the `.drawio`
+had to be edited, re-exported, composited, and re-embedded into a deck whose gate requires the on-disk file
+and the embedded blob to be **byte-identical**.
+
+Small and narrow — but it is the first trace where this skill's guidance was already in place while the work
+happened, which makes it a validation harvest rather than a discovery one.
+
+### Patterns found
+
+**P1 — VALIDATION: the export convention was correct and complete. `Impact: —`.**
+The re-export could have shipped a transparent-background diagram into a client deck. It did not, because
+*Export transparent, embed composited* already carried the `alpha_composite` snippet **and** the on-disk /
+embedded parity rule — both of which were exactly what the situation needed. **Nothing in this skill required
+changing for the defect that nearly occurred.**
+
+**⚠ The near-miss came from somewhere else, and that is the transferable part.** The *project* had recorded
+its own copy of the export recipe — a bare CLI line, `-x -f png -e -t -b 10 -s 2`, with **no compositing
+step**. Anyone following the project's record would have shipped RGBA onto a slide, where it looks correct
+locally on a white background and fails wherever the background is not white. So the failure mode is not a
+missing convention; it is **a local restatement of a convention drifting from it**, in the document a
+practitioner is far more likely to read. Honest caveat on the timing: Evolution 4's guidance had been applied
+only the previous morning, so this is one day of coexistence, not a long soak.
+
+**P2 — The pixel diff used to verify a re-export can manufacture a catastrophic false positive.
+`Impact: M, Effort: L`.**
+Confirming that only the intended region changed means diffing old against new. `.convert("RGB")` on a
+**transparent** original is not a neutral normalisation — it paints every transparent pixel black, so
+comparing it against a composited-on-white export reports **~35% of pixels differing**. That reads precisely
+like a total render failure. The real diff for the actual change was **5,249 px of 7.5M — 0.07%, in two
+horizontal bands**.
+
+### Hypotheses applied
+
+| # | Pattern | Edit |
+|---|---|---|
+| H1 | P2 | `references/quality-conventions.md` → **"Verifying a re-export by pixel diff — do not flatten the transparent original first"**, appended to *Export transparent, embed composited*. Composite both sides onto the same background; carries the reference figure and the diagnostic shape — **a real localised edit produces a small, spatially clustered diff; large-and-diffuse means the comparison is wrong, not the render** |
+| H2 | P1 | *No edit.* The convention is correct as written. Recording the near-miss here rather than adding a paragraph that would restate what line 389 already says |
+
+### Validation results
+
+**H1 `PENDING`** — one occurrence, though the mechanism is a property of PIL and transparency rather than of
+this diagram, so it should generalise cleanly.
+
+**P1's verdict is the interesting one, and it is not a skill change.** It says a skill can be right and still
+be routed around, because practitioners read the project's local notes before the skill's reference. The
+tempting fix — restate the convention more forcefully here — would not have helped; the project's record was
+authored independently and never consulted this file.
+
+**The candidate rule, deliberately not written yet:** *a local restatement of a skill convention is a fork,
+and should cite rather than restate.* That belongs in `core` if anywhere, and it rests on **one** observation.
+Park it. If a second engagement produces a local recipe that has drifted from a skill's, that is the second
+trace and it should be written up then — with the caveat that the honest fix may be procedural (link, don't
+copy) rather than another paragraph.

@@ -354,3 +354,65 @@ Feedback from an actual architecture-diagram review round (Jul 2026) that genera
 ## Pairing With the drawio MCP
 
 The MCP tools (`open_drawio_xml`, `search_shapes`) open diagrams in the app for interactive viewing/shape lookup. They do not replace the loop: the CLI export + PNG-read is the only channel that shows you what the client will see. Author XML → (optionally) open via MCP for a live look → **always** gate on the exported PNG.
+
+## Deleting a container: derive its children, never list them
+
+Removing a grouped element means removing the container **and everything whose `parent` points at it**. A
+hand-written list of children is the failure mode, because containers accumulate cells nobody remembers —
+icons, badges, labels added later.
+
+**A cell left pointing at a deleted parent does not raise an error. The CLI exports a ~108×108 stub and
+returns exit code 0.** The build "succeeds", the file is written, and the only symptom is that the diagram is
+gone. In one session this passed unnoticed until the output's dimensions were checked.
+
+Two rules follow:
+
+- **Derive the child set from the parent reference and repeat until stable** — a dropped child can orphan its
+  own children. Then re-scan for any dangling `parent`, `source` or `target` before writing.
+- **Assert on the exported image's dimensions, not the return code.** Compare against the previous export; a
+  collapse to a few hundred pixels means a structural break, and a large unexplained change in aspect means a
+  cell moved outside the expected bounds.
+
+## Height is the binding constraint on a slide, not width
+
+A diagram placed on a slide that also carries an eyebrow and a title usually has ~5.8in of vertical room on a
+7.5in slide. Width is then a *consequence* of the aspect ratio, not a free choice — so a diagram that reads
+too small is almost never fixed by repositioning it.
+
+**Make the diagram shorter and the width arrives on its own.** In one case cutting a band that consumed a
+fifth of the height to say four things stated elsewhere in the deck moved the aspect from 1.66 to 2.04, which
+turned the same 5.8in of height into 11.85in of width instead of 9.64in — a 23% linear gain, on top of a
+caption type rise, with no change to the placement.
+
+Look for: bands of cross-cutting concerns, generous inter-band gaps (one was 80 units where every other was
+30–40), and an internal title that duplicates the slide's own title.
+
+## Export transparent, embed composited
+
+`-t` produces a transparent background, which lets the destination template's decorative artwork show through
+the diagram. Composite onto white before embedding:
+
+```python
+bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
+out = Image.alpha_composite(bg, im.convert("RGBA")).convert("RGB")
+```
+
+This also removes a whole class of false review findings — "background curves cross the diagram" — that are
+artifacts of the transparency rather than defects in either artifact.
+
+**And keep the on-disk export identical to what is embedded.** Embedding a composited copy while leaving the
+transparent original in the repo means the two silently diverge, and any check comparing them fires.
+
+### Verifying a re-export by pixel diff — do not flatten the transparent original first
+
+The natural check after a small edit is to diff the old export against the new one and confirm that only the
+intended region moved. If either image is transparent, **`.convert("RGB")` is not a neutral normalisation** —
+it discards the alpha channel and paints every transparent pixel **black**. Diff a flattened original against
+a composited-on-white new export and roughly **a third of all pixels** report as differing, which reads
+exactly like a catastrophic render failure and is not one.
+
+**Composite both onto the same background before comparing**, never convert. For reference, the correct diff
+for a two-word text change inside a 3854×1960 diagram was **5,249 pixels of 7.5M — 0.07%, in two horizontal
+bands**. That is the shape a real localised edit produces: a tiny percentage, spatially clustered where the
+change was. A diff that is both large and *diffuse* is almost always a comparison artifact rather than a
+rendering one.
