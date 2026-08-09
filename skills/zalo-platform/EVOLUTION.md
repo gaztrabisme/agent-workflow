@@ -1,7 +1,7 @@
-# EVOLUTION — zalo-platform
+# Evolution Log — zalo-platform
 
 The ledger. Every re-research round and every refinement lands here, with the
-verdict kept honest. Shape defined in `../core/references/evolution-loop.md`.
+verdict kept honest. Shape defined in `../evolution/references/loop.md`.
 
 **Classification: distilled + authored.** Distilled from Zalo's own documentation
 (borrowed confidence — the digests are only as good as the corpus and the reading),
