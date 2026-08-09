@@ -1,6 +1,6 @@
 # Evolution Log — core
 
-The kernel's own loop. Mechanism: `references/evolution-loop.md`. Harvest source: how the role-skills that inherit core actually consume it — where inheritance reduces duplication, where a gate is too abstract to apply, where drift creeps in.
+The kernel's own loop. Mechanism: `../evolution/references/loop.md`. Harvest source: how the role-skills that inherit core actually consume it — where inheritance reduces duplication, where a gate is too abstract to apply, where drift creeps in.
 
 ---
 
@@ -19,7 +19,7 @@ The kernel's own loop. Mechanism: `references/evolution-loop.md`. Harvest source
 1. `SKILL.md` — the 9-point spine, "how a role-skill consumes core," provenance note. (Pattern 1.)
 2. `references/wiki-protocol.md` + `pushback-and-teach.md` (canonical copies) + provenance note flagging the dev duplication. (Patterns 1, 2.)
 3. `references/grounding-gate.md` — substrate-by-role + honesty corollary. (Pattern 3.)
-4. `references/evolution-loop.md` — role-agnostic loop + PENDING discipline.
+4. `../evolution/references/loop.md` — role-agnostic loop (moved out of core 2026-08-09) + PENDING discipline.
 5. This `EVOLUTION.md`. (Pattern 4.)
 
 ### Open items / validation (fill after the constellation runs on real work)
@@ -298,7 +298,7 @@ cannot inspect*.
 
 **H3 ships `KEEP`, not `PENDING`** — two independent traces five weeks apart, different artifact classes
 (workbook generators, a video pipeline), same mechanism, and the second occurred *after* the first had been
-written up in the project's own index. That is the bar `evolution-loop.md` sets, and this is the first kernel
+written up in the project's own index. That is the bar the evolution loop sets, and this is the first kernel
 change to clear it on evidence rather than by inheritance.
 
 **H1, H2, H4 `PENDING`.** All from one engagement.
