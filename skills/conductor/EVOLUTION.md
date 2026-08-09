@@ -1,8 +1,8 @@
-# EVOLUTION — conductor
+# Evolution Log — conductor
 
 The ledger. Every change: the trace that motivated it, the edit, and the verdict.
 Verdicts are `PENDING` until **≥2 independent real uses** confirm `KEEP`.
-Protocol: `../core/references/evolution-loop.md`.
+Protocol: `../evolution/references/loop.md`.
 
 ---
 

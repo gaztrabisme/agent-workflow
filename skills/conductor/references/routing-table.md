@@ -19,6 +19,8 @@ Intent → skill → mode. Conductor's only original judgment. Everything downst
 | "validate", "is this true", "what does it actually cost", "check my numbers" | Ground | task-force fan-out — `task-force-protocol.md` |
 | "pressure-test", "what breaks", "red team", "will this survive the room" | Contest | persona fan-out — `persona-fanout.md` |
 | "status", "are we on track", "they want a change", "get it accepted" | Run | `delivery` |
+| "evolve my skills", "meta session", "improve the skill", "what have we learned" | Meta | `evolution` — triages the whole constellation and runs the loop on what has traces. Target-less by design; don't pre-pick the skill for it. |
+| "build me a skill", "split this skill", "publish it" | Meta | `skill-builder` — birth and shape. Evidence-driven change to a working skill is `evolution` instead. |
 
 Everything above routes on **work shape**. The table below routes on something else entirely.
 

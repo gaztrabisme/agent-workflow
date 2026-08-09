@@ -120,7 +120,7 @@ Not done until: artifacts on disk · `wiki/log.md` entry with the run ledger · 
 
 ## Composition
 
-- **Invokes:** `dev` (build/design/sprint/assess/train) · `solution-architect` (client-facing architecture, proposals) · `delivery` (signed engagements) · `business-intelligence` (client/market intel) · `ms-ai-discovery` (MS workshop scoping) · `harness-operator` (board-driven build) · execution-layer (`omlx`, `media-gen`, `zalo-platform`, `gsheets`, doc skills).
+- **Invokes:** `dev` (build/design/sprint/assess/train) · `solution-architect` (client-facing architecture, proposals) · `delivery` (signed engagements) · `business-intelligence` (client/market intel) · `ms-ai-discovery` (MS workshop scoping) · `harness-operator` (board-driven build) · `evolution` (meta: evolve the skills from their traces) · `skill-builder` (meta: author/shape a skill) · execution-layer (`omlx`, `media-gen`, `zalo-platform`, `gsheets`, doc skills).
 - **Inherits:** `core` — integrity constraints, gate-by-artifact, wiki protocol, grounding gate, pushback-and-teach, the evolution loop.
 - **Defers to:** any sibling invoked directly by name. If the user says `/dev`, conductor stays out of the way.
 - **Owns, because nothing else did:** the routing decision, the task-force protocol, persona fan-out, and the convergence contract.
