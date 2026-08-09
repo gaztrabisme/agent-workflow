@@ -255,7 +255,7 @@ Two hard signals, both from practitioners rather than self-assessment:
    consumer (`dev`). The rejected workbook was Summary · Scope-In · Scope-Out · WBS · Capacity ·
    Assumptions · Obligations · Risks — **three sheets about the work, five about defending the number.**
    Correct for a client evaluator; noise to a PM distributing tasks to discipline leads.
-   *Not a wrongness result — a selector result (`evolution-loop.md` §non-adoption).*
+   *Not a wrongness result — a selector result (`../evolution/references/loop.md` §non-adoption).*
 2. **The instrument/argument distinction — H/M.** The adopted artifact's effort column is **empty: 0
    numeric cells across 234 task rows**, yellow-highlighted, with a fill legend and a calibration anchor.
    Ours pre-filled it, pre-derived capacity, collapsed releases to one and pre-decided the cut order. An

@@ -72,6 +72,6 @@ SA deliberately **reuses the `core` kernel by reference** rather than copying it
 - `../../core/references/wiki-protocol.md` — project memory & Output Contract.
 - `../../core/references/pushback-and-teach.md` — the challenge-before-execute gate.
 - `../../core/references/grounding-gate.md` — the grounding gate (KB is SA's tech-layer substrate).
-- `../../core/references/evolution-loop.md` — the harvest→apply→validate loop behind SA's `EVOLUTION.md`.
+- `../../evolution/references/loop.md` — the harvest→apply→validate loop behind SA's `EVOLUTION.md`.
 
 If a piece of guidance belongs to *all* skills, it lives in `core` and the others point at it. Keep SA focused on what's unique: client-facing solution architecture and the winning response. (`dev` is the *build* stage SA hands off to — a peer consumer of `core`, not SA's kernel.)

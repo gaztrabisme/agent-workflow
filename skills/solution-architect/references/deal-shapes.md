@@ -45,7 +45,7 @@ to a PM distributing tasks to discipline leads. His verdict: *"this is governanc
 implementation."* He then rebuilt it himself, with five times the rows and a third of the words per cell.
 
 The machinery was not wrong. It was aimed at the wrong reader — which is a selector problem, not a
-retraction (`../../core/references/evolution-loop.md`).
+retraction (`../../evolution/references/loop.md`).
 
 ## What both shapes share
 
