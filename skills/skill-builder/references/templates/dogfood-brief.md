@@ -17,7 +17,7 @@ The fresh-context dogfood is a **hard gate** (SKILL.md; checklist step 6). A wea
 > **Deliverable:** (1) Evidence — terse, what you produced by using it; (2) Findings — ranked most-severe-first, each `[high/med/low] <defect> — <why it bit you> — <specific fix>`, 5–12 of them, including the single most important MISSING thing; (3) What genuinely worked — 2–4 bullets, only things that actually helped.
 
 ## Pass condition (state it before running)
-The skill **passes** when: it fired on the right task without a sibling collision, every mandated gate was actionable, all cross-refs resolved, and no `high`-severity finding survives after fixes. `PENDING → KEEP` still needs ≥2 independent real uses (per `../core/references/evolution-loop.md`).
+The skill **passes** when: it fired on the right task without a sibling collision, every mandated gate was actionable, all cross-refs resolved, and no `high`-severity finding survives after fixes. `PENDING → KEEP` still needs ≥2 independent real uses (per `../../../evolution/references/loop.md`).
 
 ## After the run
 Fold findings back into the skill; record the pass as an Evolution entry (verdict `PENDING`); re-run if any `high` finding required a structural change.

@@ -44,9 +44,10 @@ Run top to bottom for a new skill; jump to the relevant steps for a refine. Each
 
 ## 8. Ship + record
 - [ ] `git init` (each skill is its own repo); `.gitignore` (`.DS_Store`).
-- [ ] `EVOLUTION.md` with birth + the dogfood pass, from `references/templates/EVOLUTION.md.skeleton` (shape defined in `../core/references/evolution-loop.md`); **verdict `PENDING`** until ≥2 independent real uses → `KEEP`.
+- [ ] `EVOLUTION.md` with birth + the dogfood pass, from `../../evolution/references/templates/EVOLUTION.md.skeleton` (shape and loop defined in `../../evolution/references/loop.md`); **verdict `PENDING`** until ≥2 independent real uses → `KEEP`.
 - [ ] Commit with a clear message.
 
 ## Refine (existing skill) — minimal path
 - Steps 2 (ground), 6 (dogfood), 8 (record the evolution entry, keep verdict honest). Never let a refine skip the EVOLUTION entry — that's the shared-memory Output Contract for skills.
+- **Which skill owns this refine?** If the change is *structural* — new references, split/merge, frontmatter, wiring, publishing — it's this checklist. If the change is driven by *evidence from real traces* — a gate that keeps getting skipped, a claim the substrate contradicted, an unsettled `PENDING` — hand it to **`evolution`** (`../../evolution/SKILL.md`), which harvests the traces and owns the ledger step. A refine that needs both starts here and finishes there.
 - **Substitution rule:** a real-use trace may stand in for a fresh-context dogfood **only when the change is reversible and fails loud** (core gate 3 — a planned gate skipped silently is an integrity miss). Irreversible or silent-when-wrong changes (a new gate, a trigger change, a distilled skill) require the full dogfood.

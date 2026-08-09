@@ -1,6 +1,6 @@
 ---
 name: skill-builder
-description: "Author or refine an agent skill so it inherits the shared spine and earns its place in the constellation. USE WHEN creating a new skill, splitting/merging skills, distilling a methodology or documents into a skill, or hardening an existing skill (frontmatter, references, templates, gates, EVOLUTION loop). Bakes in the core kernel so every skill built is disciplined by construction. Not `core` — that's the kernel a skill *references*; this is the authoring *workflow* that produces skills. Keywords: skill, agent skill, build a skill, author skill, meta, skill design, SKILL.md, frontmatter, distill, dogfood, evolution loop, compose skills."
+description: "Author or refine an agent skill so it inherits the shared spine and earns its place in the constellation. USE WHEN creating a new skill, splitting/merging skills, distilling a methodology or documents into a skill, or fixing an existing one's structure (frontmatter, references, templates, gates, wiring, publishing). Bakes in the core kernel so every skill built is disciplined by construction. Not `core` — that's the kernel a skill *references*; this is the authoring *workflow* that produces skills. Not `evolution` — that changes a working skill from evidence in its real traces; this shapes and ships it. Keywords: skill, agent skill, build a skill, author skill, skill design, SKILL.md, frontmatter, distill, dogfood, publish skill, scrub, compose skills, split skill."
 ---
 
 # Skill-builder
@@ -77,7 +77,7 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 ## References
 - `references/authoring-checklist.md` — the step-by-step build/refine checklist, including the fresh-context dogfood.
 - `references/templates/SKILL.md.skeleton` — canonical section headers to fill (keeps the constellation greppable by section).
-- `references/templates/EVOLUTION.md.skeleton` — the evolution-ledger shape (mirrors `../core/references/evolution-loop.md`).
+- `../evolution/references/templates/EVOLUTION.md.skeleton` — the evolution-ledger a new skill ships with. Lives in the `evolution` skill, which owns the ledger's shape and the loop behind it.
 - `references/templates/dogfood-brief.md` — the fresh-context critic brief + pass condition + evidence location.
 - `references/publishing.md` — the gate between "the skill works" and "the skill is public": generalization, the no-linkage rule, denylist construction, orphan-branch history, verify-from-a-clean-clone.
 - `scripts/scrub_check.py` — the denylist gate itself; reads a per-skill `.scrub-denylist`, scans the working tree and (with `--history`) every blob in git history.

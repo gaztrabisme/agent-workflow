@@ -1,6 +1,6 @@
 # Evolution Log — skill-builder
 
-The loop that turns real skill-authoring into improvements to this meta-skill. Mechanism: `../core/references/evolution-loop.md`. Harvest source: skills authored/refined with it + their later EVOLUTION verdicts + dogfood runs.
+The loop that turns real skill-authoring into improvements to this meta-skill. Mechanism: `../evolution/references/loop.md`. Harvest source: skills authored/refined with it + their later EVOLUTION verdicts + dogfood runs.
 
 ---
 
@@ -16,7 +16,7 @@ Ranked, with the proof each bit:
 2. **No disambiguation vs `core`, despite an identical trigger** — Impact: H, Effort: L. core's description said `USE WHEN authoring or refining a skill` — byte-identical to skill-builder — and skill-builder's own frontmatter contract *requires* a disambiguation line for sibling overlaps. Both would fire on "make me a skill."
 3. **No SKILL.md skeleton to fill (the biggest gap)** — Impact: H, Effort: L. Step 4 listed 8 section names in prose but shipped no template; the agent reverse-engineered structure from an existing skill, and every skill invents its own headers (not greppable).
 4. **The dogfood gate under-briefed the briefer** — Impact: M, Effort: L. Step 6 said what the critic does, not how to brief it (fresh-context how, artifacts to hand it, evidence location, pass condition). The brief the agent received was ~5× richer than step 6.
-5. **skill-builder never linked `../core/references/evolution-loop.md`** — Impact: M, Effort: L. It mandated EVOLUTION.md but never pointed at the file defining its shape.
+5. **skill-builder never linked `../evolution/references/loop.md`** — Impact: M, Effort: L. It mandated EVOLUTION.md but never pointed at the file defining its shape.
 6. **Checklist step 5 linked 3 core gates, silently dropped the 4th (Approach)** — Impact: M, Effort: L. Correct-but-suspicious asymmetry (approach has no separate reference).
 7. **"Reference, don't duplicate" had no checkable test** — Impact: M, Effort: L. The "cardinal sin" with no detector — and `dev` already duplicates the two spine files with nothing flagging it.
 8. **Refine path softens "non-negotiable" dogfood to "or a real-use trace" with no rule for when** — Impact: L, Effort: L.
@@ -28,7 +28,7 @@ Ranked, with the proof each bit:
 2. Added a **`vs core` disambiguation** to skill-builder's description and **narrowed core's `USE WHEN`** to drop "authoring or refining a skill." (Pattern 2.)
 3. Added **`references/templates/SKILL.md.skeleton`** with canonical headers; checklist step 4 points at it. (Pattern 3.)
 4. Added **`references/templates/dogfood-brief.md`** with pass condition + evidence location; step 6 and the SKILL.md dogfood bullet point at it. (Pattern 4.)
-5. Cited **`../core/references/evolution-loop.md`** in step 8 + References; added **`EVOLUTION.md.skeleton`**. (Pattern 5.)
+5. Cited **`../evolution/references/loop.md`** in step 8 + References; added **`EVOLUTION.md.skeleton`**. (Pattern 5.)
 6. Step 5 now annotates Approach as "(core SKILL.md §7 — no separate reference)." (Pattern 6.)
 7. Added a checklist test: **grep the new skill for canonical gate prose; assert links, not copies.** (Pattern 7.)
 8. Refine path now states the substitution rule: real-use trace may replace a fresh dogfood **only when the change is reversible and fails loud** (core gate 3). (Pattern 8.)
