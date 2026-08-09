@@ -1,6 +1,6 @@
 # Evolution Log — drawio
 
-Section convention per `../core/references/evolution-loop.md`. A change from a single trace ships with
+Section convention per `../evolution/references/loop.md`. A change from a single trace ships with
 verdict **`PENDING`** and earns `KEEP` only after ≥2 independent real uses exercise it without new friction.
 
 **Why this file starts at Evolution 1 rather than 0.** `references/quality-conventions.md` was already
