@@ -143,7 +143,7 @@ acceptance, the silent client — in `acceptance-execution.md`.
 - **Close the obligations tracker** with a written record of which client dependencies slipped and by how
   much. This is the evidence base for any commercial conversation, and for pricing the next engagement with
   this client realistically.
-- **Harvest.** Run the retrospective into the evolution loop (`../../core/references/evolution-loop.md`):
+- **Harvest.** Run the retrospective into the evolution loop (`../../evolution/references/loop.md`):
   - **Estimate vs actual, per phase** → back to `../../solution-architect/references/estimation-and-costing.md`.
     This is the single most valuable output of the whole engagement for future bids.
   - **Which acceptance criteria were contested, and why** → back to SA's `acceptance-and-contract.md`. A

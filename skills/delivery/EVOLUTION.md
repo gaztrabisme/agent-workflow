@@ -1,6 +1,6 @@
-# EVOLUTION — delivery
+# Evolution Log — delivery
 
-The ledger for this skill's own improvement. Protocol: `../core/references/evolution-loop.md`.
+The ledger for this skill's own improvement. Protocol: `../evolution/references/loop.md`.
 Harvest source for this skill: **completed engagements** — estimate vs actual, which criteria were contested,
 which client obligations slipped, where the trackers failed to catch a problem in time.
 
