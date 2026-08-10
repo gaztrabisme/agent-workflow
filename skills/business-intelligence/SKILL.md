@@ -370,7 +370,7 @@ After a deal decision, run a structured debrief. See `references/win-loss.md` fo
 - Deal health scoring
 - Pattern tracking across deals
 
-**Close the loop — deal-learning → skill-learning.** A debrief that ends in `win-loss.md` teaches you about *that deal*. After each one, ask "does this contradict or extend the skill?" — and when a pattern recurs, promote it into `EVOLUTION.md` so it changes BI's frameworks, positioning, or gates. That is the difference between a skill that learns about deals and one that learns about itself. See `EVOLUTION.md` (loop: `../core/references/evolution-loop.md`).
+**Close the loop — deal-learning → skill-learning.** A debrief that ends in `win-loss.md` teaches you about *that deal*. After each one, ask "does this contradict or extend the skill?" — and when a pattern recurs, promote it into `EVOLUTION.md` so it changes BI's frameworks, positioning, or gates. That is the difference between a skill that learns about deals and one that learns about itself. See `EVOLUTION.md` (loop: `../evolution/references/loop.md`).
 
 ### Intelligence handoff (presale → delivery)
 

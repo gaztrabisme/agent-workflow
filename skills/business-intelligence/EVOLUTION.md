@@ -1,6 +1,6 @@
 # Evolution Log — business-intelligence
 
-The loop that turns real presale outcomes into skill improvements. Mechanism: `../core/references/evolution-loop.md`. Harvest source: win/loss debriefs (`references/win-loss.md`), deal outcomes, discovery-call retros.
+The loop that turns real presale outcomes into skill improvements. Mechanism: `../evolution/references/loop.md`. Harvest source: win/loss debriefs (`references/win-loss.md`), deal outcomes, discovery-call retros.
 
 **The distinction that makes this matter:** `references/win-loss.md` learns about *deals* (why this one was won/lost). **This file learns about *the skill*** — after each debrief, ask "does this change BI's frameworks, positioning heuristics, or gates?" If a loss pattern recurs, it becomes a hypothesis here, not just a note in a deal file. Without this file, BI's per-deal learning evaporated and the skill stayed frozen at its authoring instinct.
 
