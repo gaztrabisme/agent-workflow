@@ -40,7 +40,7 @@ The user is not a producer and not a persona. Their document is a **derivation o
 
 A fabricated portrait is worse than a missing one: it is confident, plausible, and the whole cell designs to it. Per `../../core/references/grounding-gate.md` — a claim you can't ground, you don't make.
 
-**Cast the users who genuinely conflict, not one composite.** A workflow usually has a buyer, a doer, and someone downstream who inherits the result; their ideal outcomes are incompatible, and **that conflict is the product decision**. Averaging them into one "intended user" produces a Tuesday nobody actually wants. (Microsoft's own discovery methodology carries the same rule as an anti-pattern — map submitter / reviewer / approver / finance, or the human-in-the-loop design is broken.)
+**Cast the users who genuinely conflict, not one composite.** A workflow usually has a buyer, a doer, and someone downstream who inherits the result; their ideal outcomes are incompatible, and **that conflict is the product decision**. Averaging them into one "intended user" produces a Tuesday nobody actually wants. (The discovery methodology in `ai-discovery-workshop` carries the same rule as an anti-pattern — map submitter / reviewer / approver / finance, or the human-in-the-loop design is broken.)
 
 ### The narrative brief — two sections, no feature list
 

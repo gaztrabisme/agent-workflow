@@ -12,7 +12,7 @@ Intent → skill → mode. Conductor's only original judgment. Everything downst
 | "train", "finetune", "run the experiment", "evaluate the model" | Build | `dev` → Train |
 | "I have an idea", "how would we", "spec this" — **for engineers** | Frame | `dev` → Design |
 | "proposal", "RFP", "what do we pitch", "architecture for the client" | Frame | `solution-architect` |
-| "scope the AI use cases with them" (Microsoft-shaped) | Frame | `ms-ai-discovery` → hands to `solution-architect` |
+| "scope the AI use cases with them", "run a discovery workshop" | Frame | `ai-discovery-workshop` → hands to `solution-architect` |
 | a solution spanning disciplines — architecture *and* delivery shape *and* backend *and* UI | Design | design cell — `design-cell.md` |
 | the same, but one discipline could hold the whole design | Design | `dev` → Design directly. **No cell** — see `design-cell.md` §When it fires |
 | "who is this client", "competitors", "will they buy", "build the case" | Ground | `business-intelligence` |
