@@ -65,7 +65,7 @@ skill still works, but those cross-references won't open.
 ## Composes with
 
 ```
-business-intelligence → ms-ai-discovery → [ solution-architect ] → dev
+business-intelligence → ai-discovery-workshop → [ solution-architect ] → dev
   (know the client)     (scope use cases)   (architect + respond)   (build it)
 ```
 

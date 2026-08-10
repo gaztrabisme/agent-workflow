@@ -3,7 +3,7 @@
 The four presale/build skills form a pipeline. Each is narrow and well-triggered on purpose; they compose by hand-off, not by merger.
 
 ```
-business-intelligence → ms-ai-discovery → solution-architect → dev
+business-intelligence → ai-discovery-workshop → solution-architect → dev
  (know the client)      (scope use cases)   (architect + respond)  (build)
 ```
 
@@ -16,12 +16,12 @@ What it produces that SA consumes:
 
 When to switch *to* BI mid-SA: you hit a research gap — you need to *know* something about the client/market/competitor you can't answer. Get the intel there, return to architect with it.
 
-## ← From `ms-ai-discovery` (inputs, Microsoft-specific)
+## ← From `ai-discovery-workshop` (workshop inputs)
 What it produces that SA consumes:
 - BXT-scored use cases, agentic journey map, ROI baseline → SA Phase 2–3.
-- When the deal **positions Microsoft**: use its `references/commercial_framing.md` (Azure Accelerate tiers, partner path) and stack guidance instead of re-deriving in SA.
+- When the deal **came through a discovery workshop**: use its `references/commercial_framing.md` (vendor funding shape, partner path) and stack guidance instead of re-deriving in SA.
 
-Boundary: ms-ai-discovery is *Microsoft-flavored and workshop-scoped*. SA is *vendor-neutral and covers the no-workshop path* (straight from an RFI/RFP). If there's no workshop, SA does its own framing/clarify (Phases 1–2) without it.
+Boundary: ai-discovery-workshop is *workshop-scoped*. SA is *vendor-neutral and covers the no-workshop path* (straight from an RFI/RFP). If there's no workshop, SA does its own framing/clarify (Phases 1–2) without it.
 
 ## → Downstream: four consumers, not one
 

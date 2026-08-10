@@ -18,7 +18,7 @@ Engagement details are summarised by *shape*, not identity — the pattern is th
 The skill was authored in response to a live enterprise engagement: a response to an **RFI for an
 enterprise AI chatbot in regulated financial services**. The framing question — "where does SA work live:
 fold it into discovery/client-research/dev, or unify it?" — resolved to a standalone skill composing with
-all three (`business-intelligence → ms-ai-discovery → solution-architect → dev`).
+all three (`business-intelligence → ai-discovery-workshop → solution-architect → dev`).
 
 Same-day dogfood: a fresh-context critic agent used the v1 skill end-to-end on that RFI and reported as a
 harsh critic (~103k tokens, 19 tool uses). It ran Frame + Clarify for real, honored the KB gate with a live

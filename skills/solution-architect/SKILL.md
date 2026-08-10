@@ -1,6 +1,6 @@
 ---
 name: solution-architect
-description: "Vendor-neutral Solution Architect lifecycle for presale — turn client requirements (an RFI/RFP, a discovery output, a brief) into a defensible solution architecture and a winning response. USE WHEN scoping or architecting a client solution, writing/reviewing an RFI/RFP/proposal/tender response, doing tech-stack options analysis and tradeoffs, defining non-functional requirements, building a requirements-traceability matrix, or phasing/sizing/risk-assessing a deal. Composes with business-intelligence (client intel), ms-ai-discovery (MS workshop scoping), and dev (the build). Keywords: solution architect, SA, RFI, RFP, proposal, tender, bid, solution architecture, reference architecture, tech stack selection, options analysis, tradeoff, NFR, non-functional, traceability matrix, presale, phasing, roadmap, sizing, estimation, win theme."
+description: "Vendor-neutral Solution Architect lifecycle for presale — turn client requirements (an RFI/RFP, a discovery output, a brief) into a defensible solution architecture and a winning response. USE WHEN scoping or architecting a client solution, writing/reviewing an RFI/RFP/proposal/tender response, doing tech-stack options analysis and tradeoffs, defining non-functional requirements, building a requirements-traceability matrix, or phasing/sizing/risk-assessing a deal. Composes with business-intelligence (client intel), ai-discovery-workshop (workshop-based use-case scoping), and dev (the build). Keywords: solution architect, SA, RFI, RFP, proposal, tender, bid, solution architecture, reference architecture, tech stack selection, options analysis, tradeoff, NFR, non-functional, traceability matrix, presale, phasing, roadmap, sizing, estimation, win theme."
 license: MIT
 ---
 
@@ -11,18 +11,18 @@ Turn a client's stated need — an RFI, an RFP, a workshop output, a one-line br
 This is the connective tissue of the presale lifecycle. It sits *after* you know the client and *before* anyone writes code:
 
 ```
-business-intelligence → ms-ai-discovery → [ SOLUTION-ARCHITECT ] ──signed──┬─→ delivery (run the engagement)
+business-intelligence → ai-discovery-workshop → [ SOLUTION-ARCHITECT ] ──signed──┬─→ delivery (run the engagement)
  (know the client)      (scope use cases,   (architect the solution        └─→ dev      (build it)
-                         Microsoft-specific) + write the response)
+                         workshop-scoped)  + write the response)
 ```
 
-It **consumes** client intel (from `business-intelligence`) and scoped use cases (from `ms-ai-discovery`, or directly from an RFI/RFP when there is no workshop), and **hands off** decisions to `dev` for the build.
+It **consumes** client intel (from `business-intelligence`) and scoped use cases (from `ai-discovery-workshop`, or directly from an RFI/RFP when there is no workshop), and **hands off** decisions to `dev` for the build.
 
 ## When this fires — and when a sibling owns it
 
 - **This skill:** client-facing presale. RFI/RFP/proposal/tender response, solution & reference architecture, tech-stack options analysis, NFRs, traceability, phasing, sizing, risk, win themes. **Vendor-neutral by default.**
 - **`business-intelligence` instead:** you need to *research* the client, competitors, stakeholders, or build the business case — the *inputs* to architecture, not the architecture.
-- **`ms-ai-discovery` instead:** you're running a *Microsoft discovery/envisioning workshop* (BXT, Five Golden Questions, Discovery Cards) to scope use cases. SA consumes its output; when the deal positions Microsoft, SA *invokes* it for the MS lens rather than duplicating it.
+- **`ai-discovery-workshop` instead:** you're running a *discovery/envisioning workshop* (BXT, Five Golden Questions, Discovery Cards) to scope use cases. SA consumes its output; when the deal came through such a workshop, SA *invokes* it for the workshop lens rather than duplicating it.
 - **`dev` (Design mode) instead:** the audience is the *engineering team*, not the client — implementation specs, data models, contracts, success criteria for code. SA stops at the architecture and the response; dev takes it into the build.
 - **`delivery` instead:** the deal is **signed** and the work is now being run — baselining the estimate, tracking acceptance criteria to sign-off, chasing client obligations, pricing change requests, reporting status. SA *produces* the acceptance annex, obligations register, estimate, and ID spine; `delivery` baselines and tracks them. Decide on **tense**: criteria being *negotiated* → SA; criteria being *tracked to sign-off* → delivery.
 
@@ -30,8 +30,8 @@ It **consumes** client intel (from `business-intelligence`) and scoped use cases
 
 ## Anchoring principles
 
-1. **Problem before solution — always.** The dominant failure mode (Microsoft's own data: ~80% of AI projects) is architecting the wrong thing well. Nail the business outcome, the decision criteria, and the constraints *before* drawing a box. A diagram produced before the problem is understood is a liability.
-2. **Vendor-neutral first; positioning is a separate, explicit step.** Architect to the requirement, then position a stack against it with tradeoffs shown. Never let the preferred vendor pick the architecture. (When Microsoft is being positioned, pull the MS lens from `ms-ai-discovery`.)
+1. **Problem before solution — always.** The dominant failure mode (industry data: ~80% of AI projects) is architecting the wrong thing well. Nail the business outcome, the decision criteria, and the constraints *before* drawing a box. A diagram produced before the problem is understood is a liability.
+2. **Vendor-neutral first; positioning is a separate, explicit step.** Architect to the requirement, then position a stack against it with tradeoffs shown. Never let the preferred vendor pick the architecture. (When a specific platform is being positioned, pull the workshop lens from `ai-discovery-workshop`.)
 3. **Show the tradeoff, then recommend.** Single-option architecture is not architecture — it's a guess with confidence. Present 2–3 viable options on the axes that matter to *this* client, then recommend one and say why the others lost.
 4. **NFRs kill more deals than features.** Security, scale, data residency, compliance, availability, cost-at-scale — these are where credibility is won or lost in regulated/enterprise deals. Treat them as first-class, early.
 5. **Trace everything.** Every client requirement maps to a solution element and a delivery phase. A requirements-traceability matrix is the proof of coverage; gaps you find are clarification questions, not silent omissions.
@@ -82,7 +82,7 @@ These are inherited from the `core` kernel so the discipline is consistent acros
 ## Composition with sibling skills
 
 - **From `business-intelligence`:** client profile, decision-makers & political layer, competitor context, capability map, verified claims → feed Phase 1 (Frame) and Phase 5 win themes. Full handoff in `references/composition.md`.
-- **From `ms-ai-discovery`:** BXT-scored use cases, agentic journey map, ROI baseline → feed Phase 2–3. When positioning Microsoft, use its stack/commercial-framing references instead of re-deriving them.
+- **From `ai-discovery-workshop`:** BXT-scored use cases, agentic journey map, ROI baseline → feed Phase 2–3. When positioning a specific platform, use its stack/commercial-framing references instead of re-deriving them.
 - **To `dev`:** accepted architecture + decision records + NFRs + traceability → become the Design-mode input and the project `AGENTS.md`/`wiki/` for the build.
 - **To `delivery` (on signature):** the estimate, phased roadmap, acceptance annex, client-obligation register, risk register, and the declared **ID spine** → become the delivery baseline and its trackers. `delivery` runs for the whole engagement with `dev` cycling inside it.
 - **Back from `delivery` (at close-out):** estimate vs actual per phase, which criteria were contested and why, which client obligations slipped. This is the highest-value correction signal `references/estimation-and-costing.md` and `references/acceptance-and-contract.md` will ever receive — a criterion that caused a dispute was written ambiguously here.
@@ -119,7 +119,7 @@ Every SA engagement, at minimum, writes its result to the project wiki (`wiki/` 
 - `references/tech-selection.md` — options-analysis method, tradeoff-table template, decision records, neutral-then-position.
 - `references/nfr-checklist.md` — the non-functional requirements catalog with forcing questions (security, scale, performance, residency, compliance, availability, observability, cost).
 - `references/rfi-rfp-response.md` — response anatomy, clarification-question discipline, assumptions register, win themes, traceability.
-- `references/composition.md` — exact hand-offs to/from `business-intelligence`, `ms-ai-discovery`, `dev`, and the SA-vs-dev/Design disambiguation.
+- `references/composition.md` — exact hand-offs to/from `business-intelligence`, `ai-discovery-workshop`, `dev`, and the SA-vs-dev/Design disambiguation.
 - `references/templates/rfi-rfp-response-template.md` — fill-in skeleton for a full RFI/RFP/proposal response (generalised from a real enterprise AI RFI), with traceability matrix, options table, and assumptions register built in.
 - `references/templates/engagement-frame.md` — the Phase-0 fill-in: frame slots with tiers, negative space, candidate-project promotion test, sensitive-inference handling, and the four-part handback.
 - `references/templates/clarification-questions.md` — two-bucket question template (ask-the-client vs resolve-internally) with paired working-assumption, **impact-if-wrong**, and **serves-criterion** columns.

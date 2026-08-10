@@ -43,7 +43,7 @@ The **Rejected** line is the highest-value part — it stops a future session (o
 
 - Phase 3 (Architect) is **vendor-neutral**: capabilities and patterns, no product names in the reference architecture's logic.
 - Positioning is a **separate, explicit** step: map capabilities → a named stack, with the tradeoff table as justification.
-- When the deal positions **Microsoft**, pull the stack and commercial framing from `ms-ai-discovery` (its `references/commercial_framing.md`) rather than re-deriving — and keep the neutral comparison visible so the choice stays defensible.
+- When the deal came through a discovery workshop, pull the stack and commercial framing from `ai-discovery-workshop` (its `references/commercial_framing.md`) rather than re-deriving — and keep the neutral comparison visible so the choice stays defensible.
 
 ## Anti-patterns
 
