@@ -7,7 +7,7 @@ The kernel's own loop. Mechanism: `../evolution/references/loop.md`. Harvest sou
 ## Evolution 1 — 2026-07-01 — Extraction from dev; constellation wired to the kernel
 
 ### Harvest scope
-- Not a usage harvest — the **extraction event**. The general spine (integrity, gate-by-artifact, Output Contract, grounding, pushback, approach, evolution loop, Wu Wei) was lifted out of `dev` (where it was fire-tested but coupled) once three non-dev consumers (BI, SA, ms-ai-discovery) needed it. `skill-builder` was then built on top. Classify: authored, from dev's proven practice — but core *as a standalone kernel* is unproven.
+- Not a usage harvest — the **extraction event**. The general spine (integrity, gate-by-artifact, Output Contract, grounding, pushback, approach, evolution loop, Wu Wei) was lifted out of `dev` (where it was fire-tested but coupled) once three non-dev consumers (BI, SA, ai-discovery-workshop) needed it. `skill-builder` was then built on top. Classify: authored, from dev's proven practice — but core *as a standalone kernel* is unproven.
 
 ### Patterns found
 1. **General discipline was trapped inside `dev`** — Impact: H, Effort: M. BI/SA/MS reached into `../dev/references/` for non-engineering rules; the third consumer was the measured trigger to extract. (Fixed: core created; non-dev skills repointed.)

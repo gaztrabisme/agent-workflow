@@ -19,7 +19,7 @@ The point is cheap, honest grounding — one consult, one line — not ceremony.
 | `dev` | Knowledge Base MCP (46 books) | ML, RAG, databases, security, distributed systems, cryptography |
 | `business-intelligence` | External sources, graded by the Admiralty Code | any factual claim about a client, market, competitor, or person |
 | `solution-architect` | Internal/client docs + KB for the tech layer | the RFI/RFP itself, architecture patterns, NFRs, the client's stated constraints |
-| `ms-ai-discovery` | The Microsoft partner-training source + internal docs | BXT, discovery methods, Azure Accelerate, the stack |
+| `ai-discovery-workshop` | The workshop method + the client's own answers in the room | BXT scores, discovery methods, the candidate stack |
 | `skill-builder` | Existing skills + this `core` kernel | conventions, the spine, prior skills' patterns |
 
 ## The honesty corollary (why this is also an integrity gate)

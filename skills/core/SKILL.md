@@ -1,12 +1,12 @@
 ---
 name: core
-description: "The shared operating spine every role-skill inherits — integrity constraints, gate-by-artifact, shared memory (wiki), grounding gate, pushback-and-teach, and approach declaration. Rarely invoked directly; it is the kernel that dev, business-intelligence, solution-architect, ms-ai-discovery, and skill-builder reference so discipline is defined once, not copy-pasted. USE WHEN you need the canonical statement of a cross-cutting gate, or the shared spine a skill should reference. To *author or refine* a skill, use `skill-builder` (which references this kernel). To *evolve* one from its traces, use `evolution` — this kernel declares that gate but no longer carries its mechanism. Keywords: spine, kernel, integrity, gate by artifact, output contract, wiki memory, grounding gate, pushback, approach declaration, skill discipline."
+description: "The shared operating spine every role-skill inherits — integrity constraints, gate-by-artifact, shared memory (wiki), grounding gate, pushback-and-teach, and approach declaration. Rarely invoked directly; it is the kernel that dev, business-intelligence, solution-architect, ai-discovery-workshop, and skill-builder reference so discipline is defined once, not copy-pasted. USE WHEN you need the canonical statement of a cross-cutting gate, or the shared spine a skill should reference. To *author or refine* a skill, use `skill-builder` (which references this kernel). To *evolve* one from its traces, use `evolution` — this kernel declares that gate but no longer carries its mechanism. Keywords: spine, kernel, integrity, gate by artifact, output contract, wiki memory, grounding gate, pushback, approach declaration, skill discipline."
 license: MIT
 ---
 
 # Core — the shared spine
 
-The operating discipline that makes any role trustworthy — whether the artifact is code, a client dossier, a proposal, a delivery baseline, or a workshop plan. It lives here once so the role-skills (`dev`, `business-intelligence`, `solution-architect`, `delivery`, `ms-ai-discovery`, `skill-builder`) and the execution-layer skills (`omlx`, `media-gen`) can **reference it, not re-derive it**.
+The operating discipline that makes any role trustworthy — whether the artifact is code, a client dossier, a proposal, a delivery baseline, or a workshop plan. It lives here once so the role-skills (`dev`, `business-intelligence`, `solution-architect`, `delivery`, `ai-discovery-workshop`, `skill-builder`) and the execution-layer skills (`omlx`, `media-gen`) can **reference it, not re-derive it**.
 
 This is a *kernel*, not a workflow. It has no modes of its own. A role-skill consumes it by (a) obeying the Integrity Constraints, (b) declaring the gates in its own flow, and (c) pointing at the canonical references below.
 
