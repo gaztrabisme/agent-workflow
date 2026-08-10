@@ -91,7 +91,7 @@ When a research track stalls (pain-point research returns platitudes, competitiv
 
 See `references/frameworks_vocabulary.md` for 1-line descriptions of each. Purpose is vocabulary, not education — these are named anchors to get you unstuck, not methodologies to adopt wholesale.
 
-For enterprise AI engagements specifically, the **BXT framework** (Business viability / Experience desirability / Technology feasibility) is the scoring lens. See the `ms-ai-discovery` skill for the full framework and its Five Golden Questions.
+For enterprise AI engagements specifically, the **BXT framework** (Business viability / Experience desirability / Technology feasibility) is the scoring lens. See the `ai-discovery-workshop` skill for the full framework and its Five Golden Questions.
 
 ---
 

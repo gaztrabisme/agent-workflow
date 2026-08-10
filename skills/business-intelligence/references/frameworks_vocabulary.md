@@ -20,10 +20,10 @@ Enterprise deal qualification gold standard. Created at PTC (1996), grew revenue
 
 ### BXT (Business × Experience × Technology)
 
-Microsoft's partner-training screening framework. Every candidate AI use case scored on three pillars: *Is it viable?* (Business), *Is it desirable?* (Experience), *Is it feasible?* (Technology). ~5 probing questions per pillar — the **Five Golden Questions**.
+A screening framework for enterprise AI scoping. Every candidate AI use case scored on three pillars: *Is it viable?* (Business), *Is it desirable?* (Experience), *Is it feasible?* (Technology). ~5 probing questions per pillar — the **Five Golden Questions**.
 
 **Use for:** enterprise AI engagement scoring.
-**Full reference:** `ms-ai-discovery` skill (Microsoft partner training; successful projects can unlock MS funding).
+**Full reference:** the `ai-discovery-workshop` skill.
 
 ---
 

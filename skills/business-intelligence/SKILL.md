@@ -32,7 +32,7 @@ These five principles govern the skill. If a downstream pattern conflicts with t
 - **Pain points** ranked by relevance to your offering, with evidence.
 - **Executives** risk-scored H/M/L with rationale, including the political layer (see executive-profiling.md).
 - **Capabilities** classified Gap / Overlap / Competition / Complement (see defensive-positioning.md — Capability Map).
-- For enterprise AI engagements specifically, use the **BXT framework** (Business viability / Experience desirability / Technology feasibility) as the scoring lens — see the `ms-ai-discovery` skill.
+- For enterprise AI engagements specifically, use the **BXT framework** (Business viability / Experience desirability / Technology feasibility) as the scoring lens — see the `ai-discovery-workshop` skill.
 
 ### 4. Know the negative space.
 
@@ -467,7 +467,7 @@ Before declaring the intel ready:
 - **`core`** — the shared spine BI inherits: integrity constraints, gate-by-artifact, the Grounding Gate (posture #2), the Output Contract, and the evolution loop behind `EVOLUTION.md`. Reference `../core/references/…`, don't re-derive. See `../core/SKILL.md`.
 
 **Other skills:**
-- **`ms-ai-discovery`** — for enterprise AI engagements specifically. That skill runs the Microsoft AI Discovery & Envisioning workshop and uses BXT scoring. Run BI skill as prework (executive profiles + competitive context) before Day 1.
+- **`ai-discovery-workshop`** — for enterprise AI engagements specifically. That skill runs the AI Discovery & Envisioning workshop and uses BXT scoring. Run BI skill as prework (executive profiles + competitive context) before Day 1.
 - **`solution-architect`** — the next step after intel. BI tells you *what you know about the client*; `solution-architect` turns that (plus any scoped use cases) into a defensible solution architecture and a winning RFI/RFP/proposal response. Feed BI's profiles, competitor context, and capability map into its Frame phase and win themes.
 
 **Core references (existing):**
