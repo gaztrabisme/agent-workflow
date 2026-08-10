@@ -15,7 +15,7 @@ Build skills that are **disciplined by construction** and **compose** rather tha
 
 **Don't build one when:** it's a one-off, it duplicates an existing skill's trigger, or it's really a *reference* inside an existing skill. Prefer adding a reference to an existing skill over spawning a near-synonym. Skills earn existence by being referenced (Wu Wei).
 
-**Distill vs author:** a skill *distilled from documents/methodology* (like `ms-ai-discovery`, `solution-architect`) carries borrowed confidence — it ships at verdict `PENDING` and must be fire-tested. A skill *authored from your own fire-tested practice* (like `dev`) is stronger but still runs the loop.
+**Distill vs author:** a skill *distilled from documents/methodology* (like `ai-discovery-workshop`, `solution-architect`) carries borrowed confidence — it ships at verdict `PENDING` and must be fire-tested. A skill *authored from your own fire-tested practice* (like `dev`) is stronger but still runs the loop.
 
 ## Anatomy of a good skill
 
@@ -71,7 +71,7 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 
 ## Composition
 - **Inherits:** `core` (spine, gates, evolution loop, wiki protocol).
-- **Peers it builds/refines:** `dev`, `business-intelligence`, `solution-architect`, `ms-ai-discovery`, and future role-skills.
+- **Peers it builds/refines:** `dev`, `business-intelligence`, `solution-architect`, `ai-discovery-workshop`, and future role-skills.
 - **Its harvest:** the skills it authored + their later EVOLUTION verdicts → convention/checklist edits here.
 
 ## References
