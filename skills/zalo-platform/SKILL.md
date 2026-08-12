@@ -8,7 +8,9 @@ license: MIT
 
 The in-house specialist on Vietnam's Zalo platform. It answers questions about
 **Official Account, Mini App, Bot Platform, ZBS Template Message, GMF groups and
-the unofficial group-chat leg** from a **1,300-page documentation corpus**,
+the unofficial group-chat leg** from a **1,376-page searchable documentation
+corpus** (1,968 including superseded snapshots; `kb_search.py --stale` is the
+live count),
 with a citation on every claim — and it **re-researches itself** by crawl and
 browser navigation when the answer has to be current.
 

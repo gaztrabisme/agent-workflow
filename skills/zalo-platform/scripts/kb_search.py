@@ -83,7 +83,26 @@ def search(
 ) -> int:
     manifest = _load_manifest()
     flags = re.IGNORECASE
-    rx = re.compile(pattern if regex else re.escape(_fold(pattern)), flags)
+
+    # Plain queries AND their terms rather than matching the phrase literally.
+    # The old behaviour was `re.escape(_fold(pattern))` -- one literal substring,
+    # on one line -- so any query whose word order or spacing differed from the
+    # page missed silently. In the only real consultation this skill has had,
+    # 4 of 5 content queries came back empty that way, and one of the misses
+    # ("phí duyệt") was written up as a fact not existing. Vietnamese docs
+    # interleave these words constantly: the page says "phí" in the price
+    # sentence and "duyệt template" in the workflow sentence.
+    if regex:
+        _rx = re.compile(pattern, flags)
+        def matches(ln: str) -> bool:
+            return _rx.search(ln) is not None
+    else:
+        terms = [re.compile(re.escape(_fold(t)), flags) for t in pattern.split()]
+        if not terms:                       # whitespace-only query
+            terms = [re.compile(re.escape(_fold(pattern)), flags)]
+        def matches(ln: str) -> bool:
+            folded = _fold(ln)
+            return all(t.search(folded) for t in terms)
 
     hits = 0
     for rec, path in _iter_files(sources, manifest):
@@ -94,11 +113,7 @@ def search(
         # Lines 1-3 of every text file are the SOURCE/FETCHED/TITLE header the
         # crawler writes. Skip them so a search for a URL fragment doesn't match
         # every file's own header and drown the real hits.
-        matched = [
-            i
-            for i, ln in list(enumerate(lines))[3:]
-            if rx.search(ln if regex else _fold(ln))
-        ]
+        matched = [i for i, ln in list(enumerate(lines))[3:] if matches(ln)]
         if not matched:
             continue
         if files_only:
@@ -170,7 +185,12 @@ def main() -> int:
         dates = sorted({r["fetched"] for r in manifest.values()})
         newest = _dt.date.fromisoformat(dates[-1])
         age = (_dt.date.today() - newest).days
-        print(f"corpus: {len(manifest)} pages · fetched {dates[0]}..{dates[-1]} · {age} days old")
+        # Report what a search actually reaches. The old line printed the whole
+        # manifest, archives included, which is neither the searchable set nor
+        # the number SKILL.md quotes -- three different figures for one corpus.
+        live = sum(1 for r in manifest.values() if not r["source"].startswith("archive-"))
+        print(f"corpus: {live} searchable pages ({len(manifest)} incl. archived "
+              f"snapshots) · fetched {dates[0]}..{dates[-1]} · {age} days old")
         if age > 90:
             print("STALE (>90d) — re-crawl before quoting anything commercial. "
                   "See references/re-research-protocol.md")
