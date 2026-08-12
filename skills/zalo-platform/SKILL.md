@@ -52,9 +52,21 @@ out of date. Getting this wrong puts a wrong number in a client contract.
    the day it was built.
 3. **Age is part of the answer.** State the fetch date on anything commercial or
    policy-bound. Run `kb_search.py --stale` first; >30 days plus a pricing
-   question means verify live before quoting.
+   question means verify live before quoting. **This rule can only add a reason
+   to check — it never supplies a reason to skip.** A fresh corpus is not a
+   substitute for rule 4; freshness says the page has not moved *since we
+   fetched it*, which is not the same as knowing what it says today.
 4. **Never let an unverified number reach a client.** Quote, proposal, contract →
-   re-read the live page, whatever the corpus says. Non-negotiable.
+   re-read the live page, whatever the corpus says. Non-negotiable, and it
+   **overrides rule 3** — a corpus 0 days old still does not clear a number for
+   a client document.
+
+   This has already failed once, in the only real consultation the skill has
+   had. Both agents ran `--stale`, saw `0 days old`, read rule 3 as permission
+   to skip, and never navigated. Round 1's `[NAV · 2026-08-06]` readings were
+   then restated in `D-zalo-cogs.md` as *"official price page, read live
+   2026-08-06"* — a first-hand reading nobody performed, in a document that
+   fed an investor proposal.
 5. **Two gates, not one.** The single most-confused thing on the platform:
    **7 days = permission, 48 hours = free.** Anyone stating one number is telling
    you half the rule.
@@ -135,6 +147,12 @@ with a named owner — never as "submit some documents".
   destroys the evidence for the edits still owed.
 - Presenting a `[NAV]` reading as a corpus citation. The next crawl won't
   reproduce it and the mismatch will read as corruption.
+- **The reverse, which is worse: presenting a corpus citation as a live
+  reading.** *"Read live on <date>"* means someone opened the page that day.
+  Inheriting a `[NAV]` from an earlier round, or restating a fetch date as a
+  reading date, manufactures verification that never happened — and it is
+  invisible downstream, because the sentence says exactly what a real check
+  would have said.
 - Letting `open-questions.md` rot: a closed question left open causes repeat
   work; an open one quietly answered is a fabrication.
 
