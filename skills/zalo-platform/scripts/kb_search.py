@@ -124,9 +124,20 @@ def search(
         print(
             f"NO HITS for {pattern!r}"
             + (f" in source(s) {sources}" if sources else "")
-            + "\nNot in the corpus is a real answer: either the page was never "
-            "crawled (check coverage gaps in references/re-research-protocol.md) "
-            "or the fact does not exist. Do NOT fill the gap from memory."
+            + "\n\nThis is a retrieval result, not an answer. Before you report the "
+            "fact absent, run a second query form:\n"
+            "  1. fewer terms, or the one most distinctive term\n"
+            "  2. regex, to span wording you did not guess:  -e \"duyệt.{0,40}template\"\n"
+            "  3. page level rather than line level:  -l \"<term>\"\n"
+            "\nOnly after a second form also comes back empty may you write \"not in "
+            "the corpus\" — and then say which queries you ran, so the next reader can "
+            "tell a coverage gap from a phrasing miss.\n"
+            "\nThis matters because it has already gone wrong: on 2026-08-06 a literal "
+            "miss on \"phí duyệt\" was written up as \"Template approval fees — None "
+            "found\" and carried into a client cost model. The page was in the corpus; "
+            "the query was not the way to reach it.\n"
+            "\nCoverage gaps: references/re-research-protocol.md. Never fill the gap "
+            "from memory."
         )
         return 1
     return 0
