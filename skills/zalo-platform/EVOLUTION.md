@@ -101,6 +101,95 @@ independent use.
 
 ---
 
+## Evolution 2 — 2026-08-12 — the corpus was right and the way in was broken
+
+First harvest by the `evolution` loop. Window: since Round 1 (2026-08-06).
+
+### Harvest scope
+
+Every trace of this skill in existence: `grep -rl '"skill":"zalo-platform"'` across
+`~/.claude/projects` returns exactly two transcripts, and they are **one consultation** —
+a parent in massrec `1b6125a6` at `08:09:36Z` and its own workflow child at `08:16:34Z`.
+Plus the downstream artifacts that consultation produced (`massrec/docs/market-research/
+cost-validation-2026-08/{D-zalo-cogs.md, VERIFY.md}`, `docs/investment-proposal.md`,
+`wiki/log.md`), the read-once log, the prompt history, and ten live `kb_search.py` runs
+reproducing the queries the consultation actually ran.
+
+**Correction to the triage table that commissioned this harvest:** there is no 2026-08-12
+invocation and there are not two consultations. Both artefacts were `triage.py` bugs
+(mtime dating, subagent counting), fixed in `evolution@7feda94` and `evolution@9f918f9`.
+
+### Patterns found
+
+1. **`kb_search.py` matched a literal phrase on a single line, and its no-hit message
+   converted that into a statement of fact** — Impact: H, Effort: L. 4 of 5 content queries
+   in the real consultation returned nothing. One of them became
+   *"Template approval fees — None found"* at MED confidence in `D-zalo-cogs.md:36`, a
+   document that fed an investor cost model. The page was in the corpus. Reproduced
+   2026-08-12: `kb_search.py "phí duyệt"` → NO HITS; `-e "duyệt template"` → the ZBS
+   billing page.
+2. **Anchoring rules 3 and 4 pulled opposite ways and the cheaper one won** — Impact: H,
+   Effort: L. Both agents ran `--stale`, saw `0 days old`, read rule 3 as permission to
+   skip, never navigated. Round 1's `[NAV · 2026-08-06]` readings were then restated as
+   *"official price page, read live 2026-08-06"* — verification that never happened.
+3. **The corpus had three sizes on screen at once** — Impact: L, Effort: L. `SKILL.md`
+   1,300 / `EVOLUTION.md` 1,396 / `--stale` 1,968 / manifest 2,091.
+4. **317 hollowed-out placeholder pages sit in the default search set** — Impact: M,
+   Effort: L. `developers-legacy` is not prefixed `archive-`, so the tripwire Round 1
+   deliberately kept is indistinguishable from real content in a citation line.
+5. **Digests carry our fetch date, not the platform's effective date** — Impact: M,
+   Effort: L. The adversarial verifier had to supply *"ZBS prices effective 16/03/2026"*.
+   For a price that changed twice in 2026, the client-facing question is when Zalo's number
+   took effect, which a fetch date cannot answer.
+6. **The skill is shaped as a whole-platform reference and 100% of its use is pricing** —
+   Impact: M, Effort: M. Both query strings are cost lookups; one of eight digests read.
+
+### Hypotheses applied
+
+- **H2** — the `NO HITS` text now requires a second query form before absence may be
+  reported, and requires the queries run to be named beside the claim (`scripts/kb_search.py`).
+  Closes 1.
+- **H3** — plain queries AND their whitespace-separated terms instead of matching the phrase
+  literally; regex mode and single-term behaviour unchanged. `--stale` now reports searchable
+  vs archived, and `SKILL.md` says the same number (`scripts/kb_search.py`, `SKILL.md`).
+  Closes 1's mechanism and 3.
+- **H9** — rule 4 is stated as overriding rule 3; rule 3 is marked as able only to add a
+  reason to check, never to supply one to skip; and the inverse of the existing
+  `[NAV]`-as-corpus anti-pattern is added — corpus-as-live, which is worse because it
+  manufactures verification invisibly (`SKILL.md`). Closes 2.
+
+**Not applied:** patterns 4, 5 and 6. Named here so they are not lost. 4 and 5 are cheap and
+real but nothing has yet been *wrong* because of them; 6 is a shape question that one
+consultation cannot settle — a skill used once for pricing is not evidence that pricing is
+all it is for.
+
+### Validation results (settling Round 1's list)
+
+- **Two independent real consultations** → **PENDING** (1 of 2, and the apparent second was
+  a child of the first — same session, same task, same day). What the one achieved is real:
+  its output was cross-checked by a separate adversarial verifier and marked CONFIRMED.
+- **Validate the distilled claims against real use** → **REVISED**. True for exactly one
+  file: `messaging-and-cost.md` is the only digest ever consulted, and its figures held
+  against independent verification. The other seven inherit `PENDING`. "The digests are
+  unvalidated" was too broad — it is false for one and untested for seven.
+- **A fresh-context dogfood** → **PENDING** (none run; the 2026-08-09 critic that mentions
+  this skill 33 times was auditing `evolution`, never asked a Zalo question).
+- **A re-research round by someone other than the author** → **PENDING** (never attempted;
+  `crawl_zalo.py` and `staleness_check.py` have never been executed in any session).
+- **Confirm 55đ and the 500/2.000 allowances against an invoice or sales quote** →
+  **PENDING**, and now blocked on a phone call rather than on research: the three exact
+  Vietnamese questions are drafted in `D-zalo-cogs.md:71–73` and the item is on massrec's
+  call list. No call made.
+
+New, for a later run:
+
+- [ ] Count NO HITS in the next consultation — the 4-of-5 rate should not recur.
+- [ ] Any absence claim names the queries that produced it.
+- [ ] A client-facing Zalo number is accompanied by a `[NAV]` performed *in that run*.
+
+**Verdict: PENDING.** Still one real consultation. Two script changes and one rule change,
+all measured against a reproduction of the original failure, none validated by later use.
+
 ## Validation list (what must happen before `KEEP`)
 
 - [ ] **Two independent real consultations** where the skill answers a live Zalo
