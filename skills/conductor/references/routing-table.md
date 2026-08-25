@@ -60,6 +60,7 @@ One workflow skill **plus** one direction. Loading two directions produces a hyb
 | the LLM call is **local** (MLX / oMLX / Apple Silicon) | `omlx` — owns the request contract, schema enforcement, thinking control |
 | the LLM is **Anthropic**, or the task is LLM-shaped with the provider unstated | `claude-api` — read before opening the file. **Stands down** the moment another provider is named (OpenAI, Gemini, Deepseek, Llama, Mistral, Ollama) |
 | Zalo OA / Mini App / ZNS / quota / pricing facts | `zalo-platform` — grounds the facts; `dev` builds against them |
+| the artifact is **in Vietnamese**, at any level of formality | `vietnamese-copywriter` — owns register, calques and the cold-read gate; the carrier skill still owns the file |
 | third-party API docs needed | `get-api-docs` |
 | authoring or hardening a skill | `skill-builder` |
 
