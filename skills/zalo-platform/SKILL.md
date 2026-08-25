@@ -163,6 +163,8 @@ with a named owner — never as "submit some documents".
   (channel options, unit costs, phasing risks), `delivery` (verification and
   client-action prerequisites that gate a schedule).
 - **Consumes:** its own corpus, and the live Zalo sites via crawl + navigation.
+- **Hands off to:** `vietnamese-copywriter` — this skill supplies the template class,
+  character limits and what is permitted; that one writes the Vietnamese words that go inside.
 
 ## References
 
