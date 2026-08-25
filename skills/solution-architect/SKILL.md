@@ -86,6 +86,7 @@ These are inherited from the `core` kernel so the discipline is consistent acros
 - **To `dev`:** accepted architecture + decision records + NFRs + traceability → become the Design-mode input and the project `AGENTS.md`/`wiki/` for the build.
 - **To `delivery` (on signature):** the estimate, phased roadmap, acceptance annex, client-obligation register, risk register, and the declared **ID spine** → become the delivery baseline and its trackers. `delivery` runs for the whole engagement with `dev` cycling inside it.
 - **Back from `delivery` (at close-out):** estimate vs actual per phase, which criteria were contested and why, which client obligations slipped. This is the highest-value correction signal `references/estimation-and-costing.md` and `references/acceptance-and-contract.md` will ever receive — a criterion that caused a dispute was written ambiguously here.
+- **With `vietnamese-copywriter`:** on a Vietnamese engagement, **language parity and which language governs stay here** (`references/artifact-integrity.md` C5/C6 — scope divergence between versions is this skill's finding to make). Hand it the register and the prose: a proposal in the wrong Vietnamese register loses the room before the architecture is read.
 
 ## Artifacts & Output Contract
 
