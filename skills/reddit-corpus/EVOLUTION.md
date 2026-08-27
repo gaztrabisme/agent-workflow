@@ -41,7 +41,9 @@ Not modified (validated as already-sound): the confidence-tag ladder (`[official
 - [ ] The gap audit runs on a pass whose delta was written *with* the standing mandate already in the verifier brief — does it still recover material, or did the mandate absorb its job? (If the audit comes back empty, the mandate works and the audit can be downgraded to optional.)
 - [ ] The rate-limit protocol is exercised against Reddit's current headers — the contract may have changed since 2026-08.
 - [ ] Every measured number in the references comes from one topic domain. Confirm or correct against a second.
-- **Verdict: PENDING** — one project, one topic domain, one practitioner. Numbers are real but not yet shown to generalise, which is precisely what this skill claims to do.
+- [ ] **Run two genuinely unprimed streams and check the leak gate holds.** The headline shape has never been executed as specified — dogfood found the measured run achieved one. Until a pass dispatches two briefs that survive the pre-dispatch leak check, "2 unprimed" is a recommendation with `n=1` behind it.
+- [ ] `templates/gap-audit.md` is used by two independent audits and their outputs actually diff — the defect it was written to fix was two incompatible artifacts.
+- **Verdict: PENDING** — one project, one topic domain, one practitioner. Numbers are real but not yet shown to generalise, which is precisely what this skill claims to do. One central mechanism is additionally unproven at the strength stated.
 
 ### Dogfood — 2026-08-27
 
@@ -62,4 +64,19 @@ Fresh-context agent, briefed per `../skill-builder/references/templates/dogfood-
 
 Finding 1 also revealed a claim the skill was making that its own evidence did not support: the streams share a `BRIEF.md`, and all four digests carried an **identical wrong corpus size (536 vs 556)** — the same error in four separately-written files means it was copied from the brief, not counted. So the fan-out is less independent than the shape implies. Recorded as a caveat in `reading.md` rather than quietly dropped.
 
-No sibling collision reported. Cross-refs resolved. Separately, the authoring-time collision check surfaced `conductor/references/task-force-protocol.md` as a near-neighbour; boundary drawn in both files and a **Mine** row added to conductor's routing table.
+**Second round — the report itself, folded back.** The agent's full critique landed after the first six fixes and was sharper than them. Six more, including one that falsified a claim the skill was built on:
+
+| # | Defect | Fix |
+|---|---|---|
+| 7 | **The headline shape was never actually run.** SKILL.md/`reading.md` specify *2 unprimed discovery streams*; the real briefs show **one**. `BRIEF_E2_displacement.md` handed its "discovery" stream the full use case — clip length, camera setup, 16 GB GPU, downstream detector purpose — plus a named model list. It was a verification stream wearing a discovery label. **Verified independently against the brief files, not taken on the agent's word.** | `reading.md` §3 — evidence restated as `n=1`, with 2 kept as the recommendation; `agent-brief.md` §A — mandatory pre-dispatch leak check on the *composed* text, because the label is not the control |
+| 8 | **Phase 5 shipped a prompt and no output shape** — the only phase without one. Two runs produced artifacts that could not be diffed, so neither could check whether the prior audit's items survived | new `templates/gap-audit.md`, with the two decision axes (`reachable today`, `changes output at fixed seed`), a mandatory "checked and NOT a gap" list (both auditors invented it unprompted), and a prior-audit survival table |
+| 9 | **The gap audit's own output gets dropped.** Of 22 items one audit recovered, the synthesis carried 19 and silently dropped 3 — including the one where three streams had converged. The audit is filtered by the same bias it exists to correct, one level up | `reading.md` §5 — close-the-loop rule: account for every prior item, carried/merged/rejected-with-reason; `delta.md` §N+3 note |
+| 10 | §D fenced the auditor out of *the project's own configs*, not just the corpus — which is what separates a concrete finding from an abstract one | `agent-brief.md` §D — corpus off-limits, project files explicitly in scope |
+| 11 | `media-gen` is the sibling this actually collides with ("picking or license-vetting a generation model") and was unnamed | SKILL.md — boundary row, with the hand-off in both directions |
+| 12 | Overclaims: the gap audit called "free" twice (true of network only — it read ~4,000 lines) and "the single highest-yield step of the entire exercise" (unquantified superlative, untrue of the dogfood run); numbers in SKILL.md read as laws with the `PENDING` scoping one file away | `reading.md` §5 rewritten with the real cost and a context-overflow fallback; scope note added at the head of SKILL.md's principles |
+
+Also fixed: a duplicate `N+2` section number I introduced in `delta.md` during round one — which mattered, because the defect the audit ranked hardest in the *audited* delta was ambiguous section numbering, and a template that ships it reproduces it in every document written from it.
+
+No sibling collision was reported by the agent for `business-intelligence`/`get-api-docs`; it found the `media-gen` one I missed. Cross-refs all resolve. Separately, the authoring-time collision check surfaced `conductor/references/task-force-protocol.md` as a near-neighbour; boundary drawn in both files and a **Mine** row added to conductor's routing table.
+
+**Known-open, carried to Evolution 2:** phase 6 has a flow-table row but no reference file or template; `get-api-docs` has no `USE WHEN`, so the boundary against it is asserted unilaterally and unenforceable from its side.

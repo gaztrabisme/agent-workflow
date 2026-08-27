@@ -18,7 +18,9 @@ Your final text IS the deliverable — no preamble, no "here is my analysis".
 
 ## A · Discovery (unprimed) — run 2
 
-**Withhold:** repo context, the project's question list, prior deltas, the names of any hypotheses under test. This is the whole point of the role. An agent that knows what you're hoping to hear will find it.
+**Withhold:** repo context, the project's question list, prior deltas, the names of any hypotheses under test, your hardware, and any list of candidate models or tools. This is the whole point of the role. An agent that knows what you're hoping to hear will find it.
+
+> **Pre-dispatch leak check — run it, don't assume it.** Read the *composed* brief back, the exact text the agent will receive, and confirm it contains: no use case, no clip/output spec, no hardware, no hypothesis, no named candidates. A list of models "to look for" is a question list in disguise. Measured in dogfood: a stream labelled `discovery` in its own filename had been handed the full use case and a named model list, and the pass reported two unprimed streams when it had one. The label is not the control; the composed text is.
 
 ```
 <preamble>
@@ -136,7 +138,16 @@ then omission is only half the job. Re-read it against ITSELF and report:
   - a queue item derived from a figure that a rewrite changed
 A rewritten document acquires contradictions exactly where it was improved.
 
-Do not re-verify the corpus. Do not crawl. This is a comparison of local files.
+The CORPUS is off-limits — do not re-verify it, do not crawl. The PROJECT'S OWN
+files are not: open the configs, status files and decision records, and ground
+every claim about our setup in the file rather than in what a digest assumed
+about it. "Our config mixes frame-relative and performer-relative direction"
+is only useful if you read the sentence and can quote it.
+
+If the delta already carries a recovered-items section from a PRIOR audit, take
+that list and account for every item against the final document: carried,
+merged, or dropped. Report the drops. An item recovered once and dropped again
+outranks anything you find fresh.
 ```
 
 > **Why the second pass exists.** In dogfood, two of the audit's sharpest findings were contradictions *created by* the earlier recovery pass — a queue that still said "read the LICENSE" after a rewritten section established it had been read, and a profiling run justified by a number the same document twice calls retracted. An audit that only asks "what was dropped?" is structurally blind to this class, and it is the class a twice-written document is richest in.

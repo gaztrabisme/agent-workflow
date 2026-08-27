@@ -49,9 +49,12 @@ reports anything unflattering about itself was not audited.>
 ## N+3 · Recovered by gap audit
 <Items the synthesis dropped and the audit put back. Kept separate on purpose —
 that they were dropped says something about the brief, and the next pass should
-see it.>
+see it.
 
-## N+2 · Test queue
+If a PRIOR audit's items were dropped again here, say so explicitly — an item
+recovered once and dropped twice is the strongest signal in the pass.>
+
+## N+4 · Test queue
 | # | Hypothesis | How we'd settle it | Cost |
 |---|---|---|---|
 | 1 | <claim> | <the measurement that discriminates> | <time/compute> |
