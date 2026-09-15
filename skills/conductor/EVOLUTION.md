@@ -116,3 +116,81 @@ is convergence — which is the argument for running the dogfood gate rather tha
   about the work instead of routing it. Watch for it doing research inline rather than dispatching.
 - **Does the persona register's presentation/substance/fact split hold?** If most objections land
   in one bucket, the typing is not earning its column.
+
+---
+
+## Evolution 2 — 2026-09-15 — remake: lanes, goal file, CERIC gates
+
+### Why it exists
+
+Harvest scope: the 2026-09-15 session that built `ceric` and remade this skill. Two failures
+from that session are the spine of this entry: the coordinator doing unit work itself, and a
+Claude workflow burning the session budget. The skill that survived that session routed well
+and then violated its own identity — which is the strongest kind of trace a skill can harvest.
+
+### Traces it was built from
+
+**T1 — the coordinator did unit work.** The run's orchestrator wrote analysis content instead
+of briefing a lane. The existing anti-pattern ("Doing the work") was too vague to catch it: it
+named the domain-reasoning case, not the drafting case. → H1.
+
+**T2 — a Claude workflow burned the session.** A Workflow fan-out of 12 graders plus 2
+verifiers per finding reached 154 agents and 1.8 M tokens before the session limit killed the
+run with 7 agents done. The cost was unbudgeted because subagent lanes were unplanned. → H2, H3.
+
+**T3 — lanes refused with no fallback discipline.** DeepSeek returned "Insufficient Balance";
+Codex's quota turned out to be per account (all three models, one limit, reset reported for
+20 Sep). Nothing written said what to do when a lane refuses. → H2.
+
+**T4 — criteria were not the audit.** Success criteria existed (`GOAL-2026-09-15.md`, rows
+1.x/2.x) but nothing bound Close to them; `/goal` sets a session stop condition and leaves no
+durable record unless a file is written. → H4.
+
+**T5 — inputs were skimmed and the synthesis carried unevidenced claims.** `ceric`, built in
+the same session, is the instrument for both: hunt on read, claim audit on merge. → H5.
+
+### What shipped
+
+| # | Trace | Edit |
+|---|---|---|
+| H1 | T1 | `SKILL.md` — identity narrowed to orchestration + administrative paperwork (briefs, goal file, Plan Blocks, AGENTS.md/wiki entries, run ledger); anti-pattern renamed to the violation itself: "conductor wrote the report itself" |
+| H2 | T2, T3 | `references/lane-plan.md` (new) + `LANE PLAN` row in the Plan Block — the machine's lanes with command shapes, models, quotas; the brief contract (Target · Change · Acceptance, acceptance run by the coordinator); lane-selection table; quota fallback (next model → next lane → record in ledger → stop and report) |
+| H3 | T2 | `references/lane-plan.md` — Claude fan-outs ≤ 8 agents, never verifier layers at scale; the 154-agent run recorded as the reason |
+| H4 | T4 | `references/goal-file.md` (new) + `GOAL FILE` row + the Goal step between Plan Block and Run — file first, then `/goal`; Close audits the goal file's UAT column and nothing else; failed criteria reported, never re-worded |
+| H5 | T5 | `references/ceric-gates.md` (new) — CERIC wired as three gates: ground hunts every input (missing register → `DECIDE NOW`), converge audits the synthesis as a claim table, close runs the UAT; `ceric` added to Composition |
+
+### Verdict: `PENDING`
+
+Authored from one session's traces; nothing here has been fire-tested on a run that is not the
+one that produced them.
+
+**Validation list — what would move this to KEEP:**
+- A multi-lane run fills the `LANE PLAN` per unit before dispatch, and the coordinator runs
+  each acceptance command itself.
+- A lane refusal produces a ledger line and a reroute; the coordinator absorbs no unit.
+- Close reports a failed criterion as failed, at least once, without re-wording it.
+- The converge claim table appears in a real synthesis and catches at least one claim.
+- The ≤ 8 Claude cap and the per-account Codex quota are re-measured on the next run before
+  the numbers are trusted; DeepSeek balance and Codex quota are live facts, not constants.
+
+**What to watch:** whether the Goal step earns its place on small runs or degrades into
+ceremony (core spine #9 — cut it if a small run's goal file never gets audited against);
+whether `lane-plan.md`'s numbers survive first contact with live quotas.
+
+### Dogfood findings and their disposition
+
+The dogfood gate has now run: the critic was a fresh-context GLM agent that used the skill on a
+real planning intent and stopped at the Plan Block as designed. Eleven findings, all applied,
+each with the file it changed. This entry's verdict stays `PENDING`.
+
+1. The one stop had no protocol for stopping — `SKILL.md` §4: end the turn after the Plan Block; the run fires only on an explicit go from the requester; silence is not go. Run opens with the same condition.
+2. A structural insert silently breaks constellation-wide numbering — `references/lane-plan.md`: Target names the anchors other files cite, and a unit touching numbered structure carries the `grep -rn "spine #\|SKILL.md §"` sweep and the repointing, proven by its Acceptance command.
+3. Deliverable content could be smuggled in through the brief — `references/lane-plan.md`: Change names its upstream source ("exactly as given in <file> §<n> row <m>") instead of containing it; `SKILL.md` gains the anti-pattern "Smuggling content through the brief".
+4. The LANE PLAN row and `lane-plan.md` disagreed about where the table lives — `SKILL.md`: the row reads `<table per references/lane-plan.md, appended directly below this block>`.
+5. The ceremony threshold had no counter-trigger — `SKILL.md`: more than two units, two units on one file, or any edit to numbered structure gets the Plan Block even when each unit is one file.
+6. Lane selection routed onto lanes the file itself recorded dead — `references/lane-plan.md`: dead lanes struck from the selection table at run start with a status line for which lanes were open when last checked, and a unit whose primary lane is closed is planned with a primary and a fallback lane.
+7. Gate 2 had no audited object on a build run — `references/ceric-gates.md`: research → the synthesis, personas → the objection register, build → the run report and the ledger's claims, never the code; this resolves `convergence.md`'s "conductor does not re-judge" build-unit rule.
+8. Gate 1 mandated the hunt but gave the output no home — `references/ceric-gates.md`: the artifact is `grounded.md` beside the Plan Block, per input document Claim / Evidence / Reasoning / Context / Implications / MISSING plus the `Grounded:` line; `SKILL.md` §2 points at it.
+9. The domain-reasoning anti-pattern overclaimed against Ground — `SKILL.md`: reading and auditing inputs is conductor's own work; producing deliverable content from them is not.
+10. `/goal` is environment-bound — `references/goal-file.md`: or the harness's equivalent session-stop mechanism; failing that, the UAT column is the stop condition and Close runs it.
+11. The flow diagram ended at "product" before Close — `SKILL.md`: the arrow ends at CLOSE, with product after it.
