@@ -1,7 +1,7 @@
 ---
 name: conductor
 license: MIT
-description: "Turn a raw intent into a finished product by composing the skills that already exist — classify the work, route it, plan the lanes, fan out research and persona threads, converge them, write the artifacts. Orchestrates only: it writes briefs, the goal file, Plan Blocks and wiki entries; never deliverable content. USE WHEN a request is substantive and multi-step and nobody has said which skill to use: a feature list to build, a business idea to pressure-test, a document that must survive scrutiny, an engagement spanning research → decision → build. Fires FIRST on unrouted intent and delegates — it never does the work itself. Not `dev` / `solution-architect` / `delivery` / `harness-operator`: those are what it invokes; go direct when you already know which one you want. Keywords: orchestrate, route, workflow, fan out, task force, persona, red team, converge, end to end, just do it, run this, build me, pressure test, swarm, multi-agent, driver, intent to product, lane plan, goal file, UAT, CERIC gates."
+description: "Turn a raw intent into a finished product by composing the skills that already exist — classify the work, route it, plan the lanes, fan out research and persona threads, converge them, write the artifacts. Orchestrates only: briefs, the goal file, Plan Blocks, wiki entries; never deliverable content. Any agent harness: Claude Code, Codex, Gemini CLI, opencode, Copilot, Grok. USE WHEN a request is substantive and multi-step and nobody has said which skill to use: a feature list to build, a business idea to pressure-test, a document that must survive scrutiny, an engagement spanning research → decision → build. Fires FIRST on unrouted intent and delegates — it never does the work itself. Not `dev` / `solution-architect` / `delivery` / `harness-operator`: those are what it invokes; go direct when you already know which one. Keywords: orchestrate, dynamic workflow, harness map, fan out, task force, persona, red team, converge, just do it, multi-agent, intent to product, lane plan, goal file, UAT, CERIC gates."
 ---
 
 # Conductor
@@ -55,6 +55,7 @@ Before composing, read what already exists — **this is a gate, not a courtesy*
 - `wiki/index.md` → `active-work.md` → `decisions.md` — what's live, what's already locked, what was rejected
 - `agent board` — if the project declares `HARNESS_DB`
 - The sibling skill's own grounding substrate (KB for tech, graded sources for research)
+- The harness row you are running in (`references/harness-map.md`) — the instruction file, the subagent primitive, the session stop or none
 
 Read every input document — the brief, the RFP, the prior wiki, a subagent's report — as a **CERIC hunt**: what it claims, on what evidence, by what reasoning, what came before, what it expects next, and what is MISSING. The missing register becomes the `DECIDE NOW` list and the questions for the lanes. Gate: `references/ceric-gates.md`.
 
@@ -67,13 +68,13 @@ Pick the engine per unit of work. **Declare which and why in one line** — this
 | Engine | When |
 |---|---|
 | **inline** | ≤2 units, mechanical or unambiguous. The default that must be *chosen*, not fallen into. |
-| **Agent fan-out** | 3–8 independent units you want to watch live; personas; research streams. Single message, parallel calls. |
-| **Workflow script** | >8 units, or genuinely multi-stage (streams → adversarial verify → synthesis). Deterministic, schema-validated, resumable, pipelines without barriers. |
+| **subagent fan-out** | 3–8 independent units you want to watch live; personas; research streams. Single message, parallel calls. |
+| **dynamic workflow** | >8 units, or genuinely multi-stage (streams → adversarial verify → synthesis). The binding is per harness — only Claude Code ships a scripted pipeline (the Workflow tool); everywhere else the coordinator pipelines in its own turn. Patterns: `references/workflow-patterns.md`; the facts per harness: `references/harness-map.md`. |
 | **harness-operator** | Build work on a board project. Tickets, worktrees, mutation gate — and align/land stay human keystones. |
 
-> **Workflow opt-in:** the Workflow tool requires explicit user opt-in, and *"the user invoked a skill whose instructions tell you to call Workflow"* is one of the valid forms. **This skill is that instruction** — when composition selects the Workflow engine, calling it is authorized. Say so in the Plan Block so the choice is visible.
+> **Workflow opt-in (Claude Code's binding):** the Workflow tool requires explicit user opt-in, and *"the user invoked a skill whose instructions tell you to call Workflow"* is one of the valid forms. When composition selects the dynamic-workflow engine on Claude Code, **this skill is that instruction** — calling it is authorized. Say so in the Plan Block so the choice is visible.
 
-Engine and lane are chosen together: the Workflow engine's agent budget obeys the Claude fan-out cap in `references/lane-plan.md`, and any unit the engines can't hold goes to a lane there.
+Engine and lane are chosen together: the dynamic-workflow engine's agent budget obeys the cap in `references/lane-plan.md` (the 154-agent lesson), and any unit the engines can't hold goes to a lane there.
 
 Then decide **convergence** before dispatch, not after: where threads land, who reconciles them, what the artifact is. See `references/convergence.md`. A fan-out without a declared meeting point produces six files nobody merges.
 
@@ -87,7 +88,7 @@ SHAPE       <shapes present, in order>
 GROUNDED    <files read → what constrains this>
 ROUTE       <skills invoked, in order, with the mode>
 LANE PLAN   <table per references/lane-plan.md, appended directly below this block>
-GOAL FILE   <wiki/goals/YYYY-MM-DD-<slug>.md — written next; /goal fired with its criteria>
+GOAL FILE   <wiki/goals/YYYY-MM-DD-<slug>.md — written next; session stop fired with its criteria>
 FAN-OUT     <engine> · <N agents> · <what each covers>
 PERSONAS    <who> — <what each is asked to break>
 CONVERGE    <meeting point> → <artifacts on disk>
@@ -102,7 +103,7 @@ End the turn here. The run fires only on an explicit go from the requester; sile
 
 ### 5. Goal — the stop condition, on disk
 
-Before any agent fires: write the goal file, then invoke `/goal` with its criteria. The file — `wiki/goals/<YYYY-MM-DD>-<slug>.md` in the project, beside the primary artifact when there is no wiki — carries one row per success criterion, each with a **UAT**: a concrete command or check that proves it. `/goal` sets the session's stop condition; the file is the durable audit record. Both happen, file first. This is paperwork, not a second checkpoint — nothing here waits on a human. Template, worked example, and the no-edit-after-dispatch rule: `references/goal-file.md`.
+Before any agent fires: write the goal file, then fire the **session stop** with its criteria. Session stop is the generic term for whatever keeps the agent working until the stated criteria hold: `/goal` is Claude Code's form; Copilot's autopilot is the nearest elsewhere; where the harness has none, the goal file's UAT column is the stop and Close runs it (the facts per harness: `references/harness-map.md`). The file — `wiki/goals/<YYYY-MM-DD>-<slug>.md` in the project, beside the primary artifact when there is no wiki — carries one row per success criterion, each with a **UAT**: a concrete command or check that proves it. The session stop is set from the file's criteria; the file is the durable audit record. Both happen, file first. This is paperwork, not a second checkpoint — nothing here waits on a human. Template, worked example, and the no-edit-after-dispatch rule: `references/goal-file.md`.
 
 ### 6. Run — to completion
 
@@ -153,5 +154,7 @@ Audit the artifacts against the goal file's UAT column and **nothing else**: run
 - `references/persona-fanout.md` — fan-out that collects **reactions**: stakeholders react cold to a finished artifact → ranked objection register. Why a persona is not a research agent.
 - `references/convergence.md` — the meeting point: contradiction handling, the interaction pass, and what lands in the wiki.
 - `references/lane-plan.md` — the lanes on this machine (Codex, DeepSeek, GLM, Claude agent/workflow), the brief contract, lane selection by unit shape, and the quota-fallback rule.
-- `references/goal-file.md` — the goal file convention and template; file first, then `/goal`; Close audits its UAT column and nothing else.
+- `references/goal-file.md` — the goal file convention and template; file first, then the session stop; Close audits its UAT column and nothing else.
+- `references/harness-map.md` — one row per harness (Claude Code, Codex, Gemini CLI, opencode, Copilot, Grok Build): instruction file, skill trigger, subagent primitive, scripted pipeline, session stop; every cell sourced, MISSING stays MISSING. Read your row at Ground.
+- `references/workflow-patterns.md` — "dynamic workflow" defined harness-neutral (pipeline vs barrier, verify layer sized to the cap, converge, resume) with the binding per harness and the coordinator-as-pipeline rule where no scripted pipeline exists.
 - `references/ceric-gates.md` — CERIC wired as the three gates: ground as a hunt, converge as a claim audit, close as the UAT audit.

@@ -194,3 +194,46 @@ each with the file it changed. This entry's verdict stays `PENDING`.
 9. The domain-reasoning anti-pattern overclaimed against Ground — `SKILL.md`: reading and auditing inputs is conductor's own work; producing deliverable content from them is not.
 10. `/goal` is environment-bound — `references/goal-file.md`: or the harness's equivalent session-stop mechanism; failing that, the UAT column is the stop condition and Close runs it.
 11. The flow diagram ended at "product" before Close — `SKILL.md`: the arrow ends at CLOSE, with product after it.
+
+---
+
+## Evolution 3 — 2026-09-16 — harness map and dynamic-workflow binding
+
+### Why it exists
+
+Harvest scope: the 2026-09-16 harness research (`~/Documents/Work/lab/ceric/harness-research.md` — six harnesses, every cell carrying an official-doc URL fetched live that day, gaps kept as MISSING) and Gary's statement that the skill runs across agents ("find equivalents for other agents; go"). The goal file for this run: `GOAL-2026-09-16-harness-map.md`.
+
+The skill's machinery assumed Claude Code in two load-bearing places. The Compose engine table named "Workflow script" as if every harness had one, and the Goal step invoked `/goal` as if every harness had it. Both assumptions fail on five of the six harnesses the research covers, at the two steps that do the heavy lifting: the engine that fans out, and the mechanism that keeps the run going.
+
+### Traces it was built from
+
+**T1 — the scripted pipeline is Claude Code's alone.** The research found exactly one documented multi-stage workflow primitive across the six harnesses: Claude Code's dynamic workflows, a JavaScript script orchestrating subagents through the Workflow tool, opted in by the "Ultracode" keyword or a session toggle, scripts saved under `.claude/workflows/`. The other five: MISSING. A skill that offers the Workflow script as an engine breaks at compose time on every harness without one. → H1, H4.
+
+**T2 — the goal loop is Claude Code's alone, with one bounded cousin.** `/goal` keeps starting turns until a small model judges the criteria met. Copilot CLI's autopilot stops at a continuation limit (default 5), not at a stated criterion. The other four: MISSING. The fallback was already half-built: Close audits the UAT column, and Evolution 2's dogfood finding 10 made goal-file.md name "the harness's equivalent session-stop mechanism". What was missing was the generic term itself and the map saying which harness has what. → H3, H5.
+
+**T3 — the universal facts are the ones the skill already assumed silently.** Every harness loads a Markdown instruction file at session start (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `.github/copilot-instructions.md`), and five of six tie skill triggering to the `SKILL.md` frontmatter `description` (Copilot CLI: MISSING on fetched pages). The skill's Ground step and its description assume both; the map records them as established per harness, with sources. → H2.
+
+**T4 — the subagent primitive exists everywhere; the caps mostly do not.** All six spawn subagents in some form (Agent tool, multi-agent tools, named tools, `@` mention, custom agents, child sessions), but only Claude Code documents a concurrency cap (1–256 for workflow fan-out) and Gemini CLI a per-subagent `maxTurns`; the rest MISSING. A verify layer sized without a known cap is sized blind, which is how the 154-agent run happened. → H1.
+
+### What shipped
+
+| # | Trace | Edit |
+|---|---|---|
+| H1 | T1, T4 | `references/workflow-patterns.md` (new) — "dynamic workflow" defined harness-neutral: units → lanes/subagents, pipeline vs barrier, a verify layer that refutes and is sized to stakes and to the documented cap, converge as the meeting point (`convergence.md`), resume from a run id where the harness offers it (run ledger as the resume state where it does not), caps and cost (`lane-plan.md`, the 154-agent lesson); the binding table per harness; the coordinator-as-pipeline rule declared in the Plan Block |
+| H2 | T1, T3, T4 | `references/harness-map.md` (new) — the four things every run needs in harness-neutral prose (instruction file, skill folder and trigger, dynamic-workflow primitive, session stop); one table row per harness exactly as researched, every cell carrying its source, MISSING kept MISSING; shared ground; the three facts to establish before a first run on an unlisted harness |
+| H3 | T2 | `SKILL.md` §5 — "session stop" is the generic term; `/goal` named as Claude Code's form, Copilot's autopilot the nearest elsewhere, the UAT column the stop where the harness has none |
+| H4 | T1 | `SKILL.md` §3 — engine rows renamed inline · subagent fan-out · dynamic workflow · harness-operator, the dynamic-workflow row binding per harness via the two new references; the Workflow opt-in note kept and stated as Claude Code's binding |
+| H5 | T2 | `SKILL.md` §2 — Ground's reading list gains the harness row you are running in; References list gains both new files with one-line purposes |
+
+### Verdict: `PENDING`
+
+Authored from one research pass; no run outside Claude Code has used the map yet.
+
+**Validation list — what would move this to KEEP:**
+- First real run in a non-Claude harness exercises the map without new friction.
+- A coordinator-pipelined run states the fact in its Plan Block and the stages hold: dispatch, await, acceptance, next stage.
+- Every harness fact used in a run comes from the map or from a fresh sourced fetch; no MISSING cell gets filled by guesswork.
+- An unlisted harness gets its three facts established before the first run, and the run composes without editing this skill.
+- A Copilot autopilot run ends at the UAT column rather than at the continuation limit, or the limit is raised knowingly in the Plan Block.
+
+**What to watch:** the map's rows carry a fetch date of 2026-09-16 and harness docs move; re-fetch before trusting a MISSING verdict as still-MISSING. Whether "the coordinator is the pipeline" holds past three stages or degrades into the coordinator doing units inline (Evolution 2's H1 failure mode).
