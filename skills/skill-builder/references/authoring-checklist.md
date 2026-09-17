@@ -8,9 +8,9 @@ Run top to bottom for a new skill; jump to the relevant steps for a refine. Each
 - [ ] Classify: **authored** (from your fire-tested practice) or **distilled** (from docs/methodology). Consequence: a **distilled** skill ships `PENDING` *and* its EVOLUTION validation list must include "validate the distilled claims against real use" — it cannot reach `KEEP` on internal consistency alone (borrowed confidence ≠ evidence).
 
 ## 2. Ground in what exists
-- [ ] Read `../core/SKILL.md` + the sibling skills the new one touches.
+- [ ] Read `../../core/SKILL.md` + the sibling skills the new one touches.
 - [ ] Record `Grounded: read core + <siblings> → <conventions/refs reused>`.
-- [ ] Confirm you're **referencing** the spine (`../core/references/…`), not about to copy it.
+- [ ] Confirm you're **referencing** the spine (`../../core/references/…`), not about to copy it.
 
 ## 3. Write the frontmatter (trigger contract)
 - [ ] `name` matches the directory.
@@ -25,9 +25,9 @@ Run top to bottom for a new skill; jump to the relevant steps for a refine. Each
 - [ ] Each reference/template you list actually exists and is pointed at (no orphans).
 
 ## 5. Declare the gates in the skill's terms
-- [ ] Grounding gate (name the skill's substrate) → `../core/references/grounding-gate.md`.
-- [ ] Output Contract / primary artifacts → `../core/references/wiki-protocol.md`.
-- [ ] Pushback-and-teach → `../core/references/pushback-and-teach.md`.
+- [ ] Grounding gate (name the skill's substrate) → `../../core/references/grounding-gate.md`.
+- [ ] Output Contract / primary artifacts → `../../core/references/wiki-protocol.md`.
+- [ ] Pushback-and-teach → `../../core/references/pushback-and-teach.md`.
 - [ ] Approach declaration (mark skippable for single-actor work if apt). (core SKILL.md §7 — no separate reference file; this is intentional, not a missing link.)
 - [ ] **Reference-don't-duplicate test:** grep the new skill for canonical gate prose (e.g. body text of `wiki-protocol`/`pushback-and-teach`/`grounding-gate`). Present as prose = you copied; assert *links*, not copies. (The cardinal sin. The standing exception used to be `dev`, said to duplicate two spine files — **no longer true**: `dev/references/` holds only `subagent-briefs`, the ML judgment files having moved to `applied-ml-problem-solver` on 2026-09-17. There is no exception now.) ⚠ Two things about running this test: nobody has ever run it in an authoring trace, and `claude-skills-used-2026-07-31/` is an untracked snapshot copy of the whole constellation sitting in the Skills root — a naive grep returns roughly double, every second hit a snapshot path. Exclude it.
 
