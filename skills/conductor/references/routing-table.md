@@ -108,3 +108,13 @@ Two legitimate reorderings:
 - **A one-line fix, a question, a lookup.** No Plan Block, no fan-out. Answer it.
 - **Work the user routed themselves.** `/dev`, `/solution-architect` typed explicitly → stay out of the way.
 - **Anything a sibling's gate reserves for a human.** `harness-operator`'s align / land / close are keystones; conductor announces them in the Plan Block and returns for them. That is not a mid-run stop — it was on the plan.
+
+
+## ML / model work
+
+| Intent | Route |
+|---|---|
+| "what metric should this use", "is this the right problem", "which architecture", "design the eval", "what baseline must we beat", "why does it score well but behave badly", chunking/reranking/retrieval design, inference budget or VRAM sizing | **`applied-ml-problem-solver`** |
+| "write the Dataset class", "build the training script", "wrap it in an API", "add tests" | **`dev`** (Build) |
+
+**Precedence when both match.** An ML task usually matches both. `applied-ml-problem-solver` runs **first** and hands `dev` a framed problem with a pre-registered gate; `dev` does not reframe. The tie-break is the *deliverable of this turn*: a decision, a metric, an eval design or an experiment verdict → ML skill; a file of code → `dev`. If the turn would produce both, split it and run the ML skill first.

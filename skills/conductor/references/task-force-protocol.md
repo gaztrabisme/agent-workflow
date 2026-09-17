@@ -8,6 +8,8 @@ Codified from two runs that worked — an 8-agent market validation and a 10-age
 
 A **load-bearing** claim is unverified: a cost, a quota, a regulation, a price, a competitor's behaviour, a market size — something a decision or a client-facing number rests on. Not for curiosity. The test: *if this is wrong, what breaks?* No answer → don't run a task force.
 
+> **If you cannot name the claim, this is the wrong protocol.** Every stream here is briefed with its question *and the assumption it tests against*, which is what makes it accurate and also what makes it blind: it can only return answers to questions you already had. When the ask is "what's the latest on X" or "what are we missing", use `../../reddit-corpus/SKILL.md` — same adversarial verifier, plus unprimed streams that are denied the question list and a gap audit over the synthesis.
+
 ## Shape
 
 ```

@@ -38,6 +38,7 @@ Three rules follow, and they are the spine of this skill:
 | Shape | Looks like | Routes to |
 |---|---|---|
 | **Build** | feature list, bug, refactor, "add X" | `dev` (mode by trigger) · `harness-operator` if the project has a board |
+| **Model** | an ML/CV/NLP/retrieval question — what metric, which architecture, is this the right problem, what baseline must we beat | `applied-ml-problem-solver` — it frames and gates; `dev` builds what it hands back |
 | **Frame** | an idea, a brief, "should we", "how would we" | `dev`/Design *or* `solution-architect` — decide on **audience**: engineers → dev; client/buyer → SA |
 | **Ground** | "is this true", "validate", "what does it cost", "who else does this" | task-force fan-out (`references/task-force-protocol.md`) |
 | **Mine** | "what's the latest on X", "what are people saying", "crawl r/… ", a delta since the last look | `reddit-corpus` — a community corpus, not a known claim. Task force verifies what you already suspect; this finds what you weren't asking. |
@@ -141,7 +142,7 @@ Audit the artifacts against the goal file's UAT column and **nothing else**: run
 
 ## Composition
 
-- **Invokes:** `dev` (build/design/sprint/assess/train) · `solution-architect` (client-facing architecture, proposals) · `delivery` (signed engagements) · `business-intelligence` (client/market intel) · `ai-discovery-workshop` (workshop-based use-case scoping) · `harness-operator` (board-driven build) · `ceric` (input documents read as hunts; the synthesis audited before it lands — see `references/ceric-gates.md`) · `evolution` (meta: evolve the skills from their traces) · `skill-builder` (meta: author/shape a skill) · execution-layer (`omlx`, `media-gen`, `zalo-platform`, `gsheets`, doc skills). `vietnamese-copywriter` fires alongside whichever of these carries the file, whenever the artifact is Vietnamese.
+- **Invokes:** `dev` (build/design/sprint/assess) · `applied-ml-problem-solver` (ML/CV/NLP/retrieval judgment — framing, metrics, experiment design, RAG, inference budgets; runs *before* dev on an ML task) · `solution-architect` (client-facing architecture, proposals) · `delivery` (signed engagements) · `business-intelligence` (client/market intel) · `ai-discovery-workshop` (workshop-based use-case scoping) · `harness-operator` (board-driven build) · `ceric` (input documents read as hunts; the synthesis audited before it lands — see `references/ceric-gates.md`) · `evolution` (meta: evolve the skills from their traces) · `skill-builder` (meta: author/shape a skill) · execution-layer (`omlx`, `media-gen`, `zalo-platform`, `gsheets`, doc skills). `vietnamese-copywriter` fires alongside whichever of these carries the file, whenever the artifact is Vietnamese.
 - **Inherits:** `core` — integrity constraints, gate-by-artifact, wiki protocol, grounding gate, pushback-and-teach, the evolution loop.
 - **Defers to:** any sibling invoked directly by name. If the user says `/dev`, conductor stays out of the way.
 - **Owns, because nothing else did:** the routing decision, the task-force protocol, persona fan-out, the convergence contract, the lane plan, the goal file.
