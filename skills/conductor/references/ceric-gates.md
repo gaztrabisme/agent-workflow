@@ -18,7 +18,7 @@ The missing register becomes the Plan Block's `DECIDE NOW` list and the question
 
 ## Gate 2 — Converge: audit the synthesis before it lands
 
-The object under audit is named by the run's shape: research → the synthesis; personas → the objection register; build → the run report and the ledger's claims, never the code. That is how this gate squares with `references/convergence.md`'s "each unit's own gates; conductor does not re-judge them": the unit's gates judge the work, Gate 2 audits what the run asserts about it.
+The object under audit is named by the run's shape: research → the synthesis; personas → the objection register; build → the run report and the ledger's claims, never the code. That is how this gate squares with `convergence.md`'s "each unit's own gates; conductor does not re-judge them": the unit's gates judge the work, Gate 2 audits what the run asserts about it.
 
 Before the converged artifact lands, run the `ceric` audit on it. Every claim gets a row:
 
@@ -37,7 +37,7 @@ A claim that fails is not merged. It is listed as open, with what would settle i
 
 ## Gate 3 — Close: the UAT audit
 
-Close audits the artifacts against the goal file's UAT column and nothing else (`references/goal-file.md`). A criterion that fails is reported as failed, never re-worded.
+Close audits the artifacts against the goal file's UAT column and nothing else (`goal-file.md`). A criterion that fails is reported as failed, never re-worded.
 
 ## Scale to stakes
 

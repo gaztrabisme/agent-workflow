@@ -8,7 +8,7 @@ Product names differ; a run needs the same four things everywhere, and conductor
 
 1. **The instruction file.** The Markdown file the harness loads at session start, carrying the project's hard rules and the pointer to this skill. Ground reads it first. Known forms: `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `.github/copilot-instructions.md`.
 2. **The skill folder.** Where `SKILL.md` directories live at user level and project level, and whether the harness reads the frontmatter `description` to decide when a skill auto-triggers. Five of the six harnesses below do; four of the six state in their own docs that they follow the agentskills.io Agent Skills standard (https://agentskills.io). This skill's description is written for that trigger.
-3. **The dynamic workflow primitive.** How the harness spawns subagents, whether they run in parallel, any documented cap, and whether a scripted multi-stage pipeline exists. Only Claude Code documents one: the Workflow tool, opted in by the word "ultracode" or "dynamic workflow" in the prompt or a session toggle. Where no scripted pipeline exists, the coordinator is the pipeline: `references/workflow-patterns.md`.
+3. **The dynamic workflow primitive.** How the harness spawns subagents, whether they run in parallel, any documented cap, and whether a scripted multi-stage pipeline exists. Only Claude Code documents one: the Workflow tool, opted in by the word "ultracode" or "dynamic workflow" in the prompt or a session toggle. Where no scripted pipeline exists, the coordinator is the pipeline: `workflow-patterns.md`.
 4. **The session stop.** Whatever keeps the agent working until stated criteria hold. Claude Code has `/goal`; Copilot's autopilot is the nearest elsewhere and it is bounded by a continuation limit. Where the harness has none, the goal file's UAT column is the stop and Close runs it.
 
 ## The table
@@ -46,7 +46,7 @@ What only some have:
 Before the first run in a harness not in the table, establish three facts from its official docs (URL + fetch date, else MISSING) and write them into the run's `grounded.md`:
 
 1. **The instruction file.** Which file(s) it loads at session start, from which scopes, because that file must carry or point to this skill's install instructions.
-2. **The subagent primitive.** Whether it spawns subagents, from what, in parallel, under what cap, and whether a scripted multi-stage pipeline exists. If none of it is documented, plan the run coordinator-pipelined (`references/workflow-patterns.md`).
+2. **The subagent primitive.** Whether it spawns subagents, from what, in parallel, under what cap, and whether a scripted multi-stage pipeline exists. If none of it is documented, plan the run coordinator-pipelined (`workflow-patterns.md`).
 3. **The stop mechanism, or the fact that there is none.** If none, the goal file's UAT column is the stop and Close runs it.
 
 The research file's full rule adds two more: the skill load path and trigger, and the headless invocation form with its sandbox and working-directory flags. Establish those too before composing. What remained incomplete in the 2026-09-16 pass is recorded in that file's "Incomplete in this pass" section.
