@@ -9,7 +9,7 @@ Intent → skill → mode. Conductor's only original judgment. Everything downst
 | "build X", "add feature", "fix", "implement", "refactor" | Build | `dev` → Build mode. Board project → `harness-operator` instead. |
 | a list of features / a backlog | Build | `dev` → Design → Sprint. >6 items on a board project → `harness-operator`. |
 | "assess", "audit", "code health", "why is this slow" | Build | `dev` → Assess / Analyze |
-| "train", "finetune", "run the experiment", "evaluate the model" | Build | `dev` → Train |
+| "train", "finetune", "run the experiment", "evaluate the model", "which model", "what metric", "design the eval", "why does it score well but behave badly" | **Model** | `applied-ml-problem-solver` (see § ML / model work below — `dev` has no Train mode; it moved here 2026-09-17) |
 | "I have an idea", "how would we", "spec this" — **for engineers** | Frame | `dev` → Design |
 | "proposal", "RFP", "what do we pitch", "architecture for the client" | Frame | `solution-architect` |
 | "scope the AI use cases with them", "run a discovery workshop" | Frame | `ai-discovery-workshop` → hands to `solution-architect` |
@@ -68,7 +68,7 @@ One workflow skill **plus** one direction. Loading two directions produces a hyb
 
 ## Disambiguation — the three collisions that actually happen
 
-These are already resolved by the siblings. Conductor applies their rule; it does not invent a fourth.
+These are already resolved by the siblings. Conductor applies their rule; it does not invent a fifth.
 
 1. **`dev`/Design vs `solution-architect`** — decide on **artifact + audience**. Internal spec, data model, success criteria for code → `dev`. Client-facing solution, proposal, tech selection to win a deal → `solution-architect`.
 2. **`solution-architect` vs `delivery`** — decide on **tense**. Criteria being *negotiated* → SA. Criteria being *tracked to sign-off* → delivery. Estimate being *derived* → SA. Estimate being *measured against* → delivery. (One exception, SA's own: pre-signature effort numbers are authored by delivery, because whoever will be held to an estimate owns writing it.)
@@ -110,7 +110,7 @@ Two legitimate reorderings:
 - **Anything a sibling's gate reserves for a human.** `harness-operator`'s align / land / close are keystones; conductor announces them in the Plan Block and returns for them. That is not a mid-run stop — it was on the plan.
 
 
-## ML / model work
+## ML / model work — the fourth collision
 
 | Intent | Route |
 |---|---|
