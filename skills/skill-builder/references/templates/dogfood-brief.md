@@ -6,7 +6,7 @@ The fresh-context dogfood is a **hard gate** (SKILL.md; checklist step 6). A wea
 
 > You are dogfooding a newly authored skill `<name>` (location: `<path>`). Your job: (a) actually **USE** it on a real task, (b) report as a **harsh, honest critic**. Do not praise it — the point is finding real gaps. You have fresh context; that's the point.
 >
-> **Read first:** `<path>/SKILL.md` + all its `references/`, and the kernel `../core/SKILL.md`.
+> **Read first:** `<path>/SKILL.md` + all its `references/`, and the kernel `../../../core/SKILL.md`.
 >
 > **Use it on a real task** (not a toy): <the concrete task — for a refine, audit a real artifact/skill; for a new skill, run its flow end-to-end on real inputs>. Produce the real artifacts as **evidence** you used it, not just read it.
 >

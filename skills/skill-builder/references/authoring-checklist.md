@@ -32,7 +32,7 @@ Run top to bottom for a new skill; jump to the relevant steps for a refine. Each
 - [ ] **Reference-don't-duplicate test:** grep the new skill for canonical gate prose (e.g. body text of `wiki-protocol`/`pushback-and-teach`/`grounding-gate`). Present as prose = you copied; assert *links*, not copies. (The cardinal sin. The standing exception used to be `dev`, said to duplicate two spine files — **no longer true**: `dev/references/` holds only `subagent-briefs`, the ML judgment files having moved to `applied-ml-problem-solver` on 2026-09-17. There is no exception now.) ⚠ Two things about running this test: nobody has ever run it in an authoring trace, and `claude-skills-used-2026-07-31/` is an untracked snapshot copy of the whole constellation sitting in the Skills root — a naive grep returns roughly double, every second hit a snapshot path. Exclude it.
 
 ## 6. Dogfood with a fresh-context subagent (non-negotiable)
-- [ ] Brief the agent with `references/templates/dogfood-brief.md` (defines fresh-context setup, the real task, what to judge, the **pass condition**, and where evidence is written) — don't improvise the brief; a thin brief yields a thin dogfood.
+- [ ] Brief the agent with `templates/dogfood-brief.md` (defines fresh-context setup, the real task, what to judge, the **pass condition**, and where evidence is written) — don't improvise the brief; a thin brief yields a thin dogfood.
 - [ ] Spawn a fresh agent; tell it to **use** the skill on a *real* task (not read it), producing real artifacts as evidence.
 - [ ] Instruct it to report as a **harsh critic**: gaps, friction, contradictions, trigger ambiguity, broken cross-refs, over-reach — ranked, with the most important *missing* thing called out.
 - [ ] Fold the findings back into the skill.
