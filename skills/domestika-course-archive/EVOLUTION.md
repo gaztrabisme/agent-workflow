@@ -86,6 +86,6 @@ Not modified (validated as already-sound): per-unit folders, captions sharing vi
 - [x] 17 unit tests pass (caption merging, native-language choice, `check` pass and fail cases, cleaning, clause-level removal, empty sections).
 - [x] Course 1140: `check` passes for all 17 included lessons (lesson 1 excluded by the intro rule); the PDF has 299 pages and 432 figures, equal to the figure blocks written; every lesson anchor is in the text; no rule pattern matches the text; `removed.log` (21 entries) was read in full and holds no teaching content; sample pages were inspected visually; the ZIP gained exactly the PDF (59 members) and passed CRC.
 - [x] English prose length is 0.99–1.13× the Spanish transcript's word count per Unit 2 lesson, so the copy is a translation, not a summary.
-- [ ] Gary's review of the full PDF.
+- [x] Gary reviewed the full PDF and approved it (2026-09-26).
 - [ ] A second course, ideally one with English native audio and one with dense screen recordings, run under the updated instructions.
-- **Verdict: PENDING** — one real course end to end; settle after the review and a second course.
+- **Verdict: PENDING** — one real course end to end, approved on review; settle after a second course.
