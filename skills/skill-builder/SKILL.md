@@ -1,6 +1,6 @@
 ---
 name: skill-builder
-description: "Author or refine an agent skill so it inherits the shared spine and earns its place in the constellation. USE WHEN creating a new skill, splitting/merging skills, distilling a methodology or documents into a skill, or fixing an existing one's structure (frontmatter, references, templates, gates, wiring, publishing) — and **before writing a SKILL.md by hand**, which is how a skill ends up with no gates and no ledger. Also fires on turning a project's practice into something reusable, making a skill discoverable, and any publish step for a skill repo (licence, scrub, cross-repo sweep). Not `core` — that's the kernel a skill *references*; this is the authoring *workflow*. Not `evolution` — lessons from *completed work or real traces* go there; distilling *documents/methodology* into structure is here. Keywords: skill, agent skill, build a skill, write a skill, new skill, skill design, SKILL.md, frontmatter, distill, dogfood, publish skill, scrub, licence, compose skills, split skill, make this reusable."
+description: "Author or refine an agent skill so it inherits the shared spine and earns its place in the constellation. USE WHEN creating a new skill, splitting/merging skills, distilling a methodology, course or documents into a skill, or fixing an existing one's structure (frontmatter, references, templates, gates, wiring, publishing) — and **before writing a SKILL.md by hand**, which is how a skill ends up with no gates and no ledger. Also fires on turning a project's practice into something reusable, making a skill discoverable, and any publish step for a skill repo (licence, scrub, cross-repo sweep). Not `core` — that's the kernel a skill *references*; this is the authoring *workflow*. Not `evolution` — lessons from *completed work or real traces* go there; distilling *documents/methodology* into structure is here. Keywords: skill, agent skill, build a skill, write a skill, new skill, skill design, SKILL.md, frontmatter, distill, dogfood, publish skill, scrub, licence, compose skills, split skill, make this reusable."
 ---
 
 # Skill-builder
@@ -14,6 +14,8 @@ Build skills that are **disciplined by construction** and **compose** rather tha
 **Build one when:** a competency recurs, has its own trigger, and is currently either improvised each time or awkwardly wedged into another skill. A third consumer needing the same machinery is the measured trigger to *extract* (as `core` was extracted once dev, BI, SA, MS all needed the spine).
 
 **Don't build one when:** it's a one-off, it duplicates an existing skill's trigger, or it's really a *reference* inside an existing skill. Prefer adding a reference to an existing skill over spawning a near-synonym. Skills earn existence by being referenced (Wu Wei).
+
+**Distilling a course, book or talk series:** follow `references/distill-course.md` inside the checklist. It covers where an existing reference skill goes, anchored method digests, the science crosswalk, measuring outside the course's own tool, and keeping paid material private.
 
 **Distill vs author:** a skill *distilled from documents/methodology* (like `ai-discovery-workshop`, `solution-architect`) carries borrowed confidence — it ships at verdict `PENDING` and must be fire-tested. A skill *authored from your own fire-tested practice* (like `dev`) is stronger but still runs the loop.
 
@@ -79,5 +81,9 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 - `references/templates/SKILL.md.skeleton` — canonical section headers to fill (keeps the constellation greppable by section).
 - `../evolution/references/templates/EVOLUTION.md.skeleton` — the evolution-ledger a new skill ships with. Lives in the `evolution` skill, which owns the ledger's shape and the loop behind it.
 - `references/templates/dogfood-brief.md` — the fresh-context critic brief + pass condition + evidence location.
+- `references/distill-course.md` — distilling a course (or book) into a method skill: layout, anchored digests, crosswalk, measurement, privacy. Worked example: `../color-theory/`.
+- `references/templates/method-digest.md` — one stage of a distilled method, every claim cited to an anchor.
+- `references/templates/science-crosswalk.md` — course claims against a science library: Agrees / Refines / Adds.
+- `scripts/check_refs.py` — fails on a broken link, a missing file or a cited anchor absent from the source files; copy it into any distilled skill.
 - `references/publishing.md` — the gate between "the skill works" and "the skill is public": generalization, the no-linkage rule, denylist construction, orphan-branch history, verify-from-a-clean-clone.
 - `scripts/scrub_check.py` — the denylist gate itself; reads a per-skill `.scrub-denylist`, scans the working tree and (with `--history`) every blob in git history.

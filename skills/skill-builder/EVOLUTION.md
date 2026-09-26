@@ -161,3 +161,29 @@ New, for a later run:
 purpose is to fix the reason everything else here went unmeasured. The honest summary: this
 skill's content is in good shape and its *retrieval* is not, and no amount of content work
 fixes a skill that isn't invoked when a skill is being built.
+
+---
+
+## Evolution 3 — 2026-09-26 — a playbook for distilling a course
+
+### Harvest scope
+- **Classification: authored**, from one real build: `color-theory`, distilled from a Domestika course the same day (`../color-theory/EVOLUTION.md`). A single build, so the playbook is a hypothesis about what generalises.
+- **Grounded:** read this skill's `SKILL.md`, `authoring-checklist.md` and `dogfood-brief.md`; `color-theory` in full; `domestika-course-archive`'s composition section.
+
+### Patterns found
+1. **The course-to-skill steps were worked out by hand and existed only in one session.** Impact H, Effort M. The decisions that made `color-theory` work (classify the existing skill as collection or system; vendor a collection unedited; anchor every claim; crosswalk against the science; private repo) had no home.
+2. **The worst dogfood finding was predictable.** Impact H, Effort L. The course taught inside Photoshop, and the tester could not measure any test without it. Any course taught in one application has the same gap.
+3. **The citation checker was skill-specific.** Impact M, Effort L.
+
+### Hypotheses applied
+1. `references/distill-course.md`: the playbook, run inside the authoring checklist, with `color-theory` as the worked example.
+2. `references/templates/method-digest.md` and `references/templates/science-crosswalk.md`.
+3. `scripts/check_refs.py`: the checker, with the anchor pattern and the file sets as options. On `color-theory` it gives the same result as that skill's own copy (15 files, 267 anchors cited, 0 problems).
+4. `dogfood-brief.md` gains three tasks for course-distilled skills, including running the review checklist without the course's application.
+5. Wired in: `SKILL.md` (a line under "When to build", four references, "course" in the description), `authoring-checklist.md` step 1, and the hand-off line in `domestika-course-archive`.
+
+### Validation results
+- [x] `npx -y skills-ref@latest validate .` passes (description 1023 characters).
+- [ ] A second course distilled with this playbook, recording which steps held and which were skipped or changed.
+- [ ] The measurement step (5) planned before the dogfood rather than found by it.
+- **Verdict: PENDING**: authored from one build, not yet reused.

@@ -6,6 +6,7 @@ Run top to bottom for a new skill; jump to the relevant steps for a refine. Each
 - [ ] The competency recurs, has its own trigger, and isn't already a sibling. (Else: add a reference to an existing skill instead.)
 - [ ] If extracting shared machinery: there are **≥3 consumers** needing it (the measured trigger, per how `core` was extracted).
 - [ ] Classify: **authored** (from your fire-tested practice) or **distilled** (from docs/methodology). Consequence: a **distilled** skill ships `PENDING` *and* its EVOLUTION validation list must include "validate the distilled claims against real use" — it cannot reach `KEEP` on internal consistency alone (borrowed confidence ≠ evidence).
+- [ ] Distilling a course, book or talk series: run `distill-course.md` alongside this checklist.
 
 ## 2. Ground in what exists
 - [ ] Read `../../core/SKILL.md` + the sibling skills the new one touches.

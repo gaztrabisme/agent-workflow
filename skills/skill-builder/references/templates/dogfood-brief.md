@@ -16,6 +16,12 @@ The fresh-context dogfood is a **hard gate** (SKILL.md; checklist step 6). A wea
 >
 > **Deliverable:** (1) Evidence — terse, what you produced by using it; (2) Findings — ranked most-severe-first, each `[high/med/low] <defect> — <why it bit you> — <specific fix>`, 5–12 of them, including the single most important MISSING thing; (3) What genuinely worked — 2–4 bullets, only things that actually helped.
 
+## Tasks for a skill distilled from a course
+Use all three; each exercises a different part of the skill (`../distill-course.md`):
+1. **Plan from a brief.** A realistic brief that pairs two goals the course treats separately. Run the flow end to end and cite anchors.
+2. **Critique real or mocked work.** Build or take an artifact and run every test in the review checklist on it *without the course's own application*. Report which tests could be measured, which were judged by eye, and which could not be run. This is where the color skill's worst gap was found.
+3. **A fact question** that must route into the science library, with a number to compute and verify (for example a contrast ratio).
+
 ## Pass condition (state it before running)
 The skill **passes** when: it fired on the right task without a sibling collision, every mandated gate was actionable, all cross-refs resolved, and no `high`-severity finding survives after fixes. `PENDING → KEEP` still needs ≥2 independent real uses (per `../../../evolution/references/loop.md`).
 
