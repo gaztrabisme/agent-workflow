@@ -51,7 +51,7 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 | **Workflow** | new build → `frontend-design` (or `design-taste-frontend` for landing/portfolio) · existing UI → `redesign-existing-projects` (audit-first) |
 | **Aesthetic direction** | `high-end-visual-design` (agency, expensive-feeling) · `minimalist-ui` (editorial, warm monochrome, flat) |
 
-One workflow skill **plus** one direction. Loading two directions produces a hybrid that reads as neither. `color-expert` fires beneath any of them when the task is genuinely about colour — palettes, ramps, perceptual matching, accessibility.
+One workflow skill **plus** one direction. Loading two directions produces a hybrid that reads as neither. `color-theory` fires beneath any of them when the task is genuinely about colour: planning or critiquing an image's colour with the course method, palettes, ramps, perceptual matching, accessibility. It carries the old `color-expert` library inside it as its science layer.
 
 **Capability skills, fired by substrate not by shape:**
 
