@@ -39,5 +39,23 @@ Not modified (validated as already-sound): per-unit folders, captions sharing vi
 - [x] Fresh-context dogfood used this skill on Unit 1 of course 1049: 3 MP4/VTT pairs, a 3-page annotated PDF, all-page visual review, and ZIP member-set/CRC checks passed. Its four findings were folded above.
 - [x] Second fresh-context dogfood exercised the probe, settings-aware resume, ZIP membership/CRC, media, captions and PDF. It passed, and surfaced the missing MP4 language tag and an orphaned task heading; both fixes were added.
 - [x] Third fresh-context dogfood passed on a clean Unit 1 archive: all 3 MP4/VTT pairs, `eng` audio tags, exact ZIP membership/CRC, PDF text markers, and visual page review succeeded. It surfaced the PDF metadata dash convention, corrected afterward.
-- [ ] A later independent course run exercises generic course selection and the output checks without new friction.
-- **Verdict: PENDING** — three cold runs exercised the skill and the third passed all artifact gates. The metadata convention note from that run is fixed; one later independent course run is still required to validate discoverability and scope.
+- [x] A later independent course run exercised generic course selection and the output checks without new friction (the course 1140 archive and course 1049 English-default check below).
+- **Verdict: SETTLED** — three cold runs passed the original artifact gates, and subsequent runs validated generic course selection and language-specific caption naming. Keep using the gates when page/player structures change.
+
+## Evolution 2 — 2026-09-26 — Preserve captions for default audio
+
+### Harvest scope
+- Follow-up request on a real archive: keep English captions and also retrieve captions in the language of the lesson's default/original audio. Course 1140 exposes Spanish `DEFAULT=YES` audio while English audio is selectable; course 1049 exposes English as its default. Playback URLs remain private.
+- Evidence from course 1140: all 18 lesson playlists expose English and Spanish captions; a complete archive contains 18 `.en.vtt` and 18 `.es.vtt` files, and every PDF video marker names both. All VTTs have cues and the ZIP CRC/member-set checks passed.
+- Evidence from course 1049 Unit 1: the three playlist preflights report English as both requested and default caption language; the ZIP contains one `.en.vtt` per lesson, no duplicate captions, all files have timed cues, and CRC/member checks passed.
+
+### Pattern found
+1. **One caption language misses original-language speech on dubbed courses.** Impact: H; Effort: M. Selecting English audio/captions alone omitted the Spanish text track matching the course's default Spanish audio.
+
+### Hypothesis applied
+1. **`package_domestika.py` reads the HLS master playlist's `DEFAULT=YES` audio language for each lesson and requires captions for that track plus the requested caption language.** Matching languages deduplicate; saved VTTs carry language suffixes; unit PDFs list every suffix. If the playlist has no default audio track, the selected audio language is used as fallback. Missing/ambiguous/invalid default language tags or unavailable captions stop preflight with a clear error.
+
+### Validation results
+- [x] Spanish-default course 1140 completed end-to-end: 4 PDFs, 18 MP4s, 18 English VTTs and 18 Spanish VTTs; every PDF rendered and visually inspected; stream/audio tags, caption cues, exact members, and ZIP CRC passed.
+- [x] English-default course 1049 Unit 1: 1 PDF, 3 MP4s, 3 English VTTs, no duplicates; preflight, cues, exact membership, and ZIP CRC passed.
+- **Verdict: REVISED** — the default-language caption rule is supported by an end-to-end Spanish-default archive and an English-default deduplication run. Retain the behavior and monitor for playlist formats that omit or mislabel `DEFAULT=YES`.

@@ -81,13 +81,17 @@ def duration(seconds: float) -> str:
     return f'{hours}:{minutes:02}:{seconds:02}' if hours else f'{minutes}:{seconds:02}'
 
 
-def unit_html(course: dict, unit: dict, names: dict[int, str]) -> str:
+def unit_html(course: dict, unit: dict, names: dict[int, str],
+              caption_languages_by_lesson: dict[int, list[str]]) -> str:
     e = html.escape
     title = e(unit['title'])
     original = e(unit['url'], quote=True)
     lessons = []
     for lesson in sorted(unit['lessons'], key=lambda item: item['number']):
         basename = names[lesson['id']]
+        caption_rows = ''.join(
+            f'<div class="file"><span>CAPTIONS</span> {e(basename)}.{e(language.replace("-", "_").lower())}.vtt</div>'
+            for language in caption_languages_by_lesson[lesson['id']])
         source = e(lesson['url'], quote=True)
         lessons.append(f'''
           <section class="lesson">
@@ -99,7 +103,7 @@ def unit_html(course: dict, unit: dict, names: dict[int, str]) -> str:
               <div>
                 <strong>Video at this point in the original page</strong>
                 <div class="file"><span>VIDEO</span> {e(basename)}.mp4</div>
-                <div class="file"><span>CAPTIONS</span> {e(basename)}.vtt</div>
+                {caption_rows}
                 <div class="source"><a href="{source}">Open this lesson on Domestika</a></div>
               </div>
             </div>
