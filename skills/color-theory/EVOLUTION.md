@@ -52,3 +52,19 @@ The loop that turns real use into skill improvements. Mechanism: `../evolution/r
 - [ ] Validate the distilled claims against real use. Any principle that fails in practice is revised or marked with its limits.
 - This build is the worked example for `../skill-builder/references/distill-course.md`, which turns its steps into a playbook for further courses. `scripts/check_refs.py` here is a copy of the general `../skill-builder/scripts/check_refs.py`.
 - **Verdict: PENDING**: distilled from one course, and not yet used on a real task.
+
+---
+
+## Evolution 2 — 2026-09-26 — Hand-offs only to owned skills
+
+### Harvest scope
+- **Trigger:** the design-skills programme (run 1, unit 0.1) requires every skill to run with any agent. Hand-offs go only to skills Gary owns, and no text names a tool that exists in one agent only.
+
+### Hypotheses applied
+1. The hand-offs to `dataviz` (built into one vendor's app) and to the third-party `design-taste-frontend`, `minimalist-ui` and `high-end-visual-design`, and the composition line naming `pptx`, `docx` and "the frontend skills", now state the boundary by artifact: interface style and chart choice belong to the skill that builds the deliverable, and this skill supplies the palette, ramps and contrast checks.
+2. `references/course/pdf-index.md` no longer tells the reader to open pages "with the Read tool". The wording was fixed at its source, `domestika-course-archive/scripts/reading_copy.py`, and the course was re-exported; every other exported file came out byte-identical.
+
+### Validation results
+- [x] No match for `dataviz`, `design-taste-frontend`, `minimalist-ui`, `high-end-visual-design` or `Read tool` in `SKILL.md` or `pdf-index.md`.
+- [x] `scripts/check_refs.py`: 267 anchors cited, 0 problems. `skills-ref validate` passes. Description 971 characters.
+- **Verdict: PENDING**, unchanged: the skill has not yet been used on a real task.

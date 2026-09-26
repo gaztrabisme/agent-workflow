@@ -1,6 +1,6 @@
 # Page index: Color Theory - reading copy.pdf
 
-Every section of the reading copy with the PDF page it starts on. Open a page with the Read tool (`pages: "N"`, or a range such as "N-M"); the Markdown lesson files hold the same text and figures.
+Every section of the reading copy with the PDF page it starts on. Open the PDF at that page, or read a page range such as "N-M"; the Markdown lesson files hold the same text and figures.
 
 ## 1140 · U1 · L02 · Influences (page 3, [Markdown](U01-L02-influences.md))
 

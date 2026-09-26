@@ -1,6 +1,6 @@
 ---
 name: color-theory
-description: "A working method for choosing and critiquing color in images, distilled from a complete color course (intent, value plan, light, color over values, harmony bridges, rhythm and balance, texture and variety, palettes, temperature and saturation, six-mistake review), with the color-expert science library inside it for facts, spaces, code and accessibility. USE WHEN planning or fixing the color of an illustration, painting, concept art, poster, brand identity, film or comic sequence, or UI theme; choosing or explaining a palette; critiquing why an image's color does not work; or any color-science question (OKLCH, CSS color, contrast ratios, naming, pigment mixing, color history). Not `batch-photo-retouching` for photo edits, or `design-taste-frontend` and `minimalist-ui` for overall UI style. Keywords: color theory, palette, color scheme, harmony, complementary, value, contrast, saturation, temperature, warm cool, mood, color script, focal point, OKLCH, WCAG, APCA."
+description: "A working method for choosing and critiquing color in images, distilled from a complete color course (intent, value plan, light, color over values, harmony bridges, rhythm and balance, texture and variety, palettes, temperature and saturation, six-mistake review), with the color-expert science library inside it for facts, spaces, code and accessibility. USE WHEN planning or fixing the color of an illustration, painting, concept art, poster, brand identity, film or comic sequence, or UI theme; choosing or explaining a palette; critiquing why an image's color does not work; or any color-science question (OKLCH, CSS color, contrast ratios, naming, pigment mixing, color history). Not for photo edits (`batch-photo-retouching`), an interface's overall visual style, or choosing a chart type. Keywords: color theory, palette, color scheme, harmony, complementary, value, contrast, saturation, temperature, warm cool, mood, color script, focal point, OKLCH, WCAG, APCA."
 license: "Proprietary (private course-derived material, not for redistribution); references/color-science is CC BY 4.0 by meodai"
 ---
 
@@ -17,11 +17,11 @@ The method comes from one course: Domestika 1140, *Color Theory: How to Apply It
   - choosing, planning, explaining or critiquing color for an image, brand, sequence or theme;
   - any color-science question.
 - **`batch-photo-retouching` instead:** editing photographs (relighting, white balance, retouching) where the colors must stay true to the original.
-- **`design-taste-frontend`, `minimalist-ui` or `high-end-visual-design` instead:** the overall visual style of an interface. This skill still answers that interface's palette, ramp and contrast questions.
-- **`dataviz` instead:** choosing a chart type and a data encoding, including sequential and diverging scales for data. This skill answers the color science behind them (perceptual ramps, color-vision deficiency, contrast).
+- **Not this skill:** the overall visual style of an interface (layout, typography, component styling). That belongs to the skill building the interface. This skill still answers the interface's palette, ramp and contrast questions.
+- **Not this skill:** choosing a chart type and which data goes to which visual channel. This skill answers the color side of that choice: perceptual sequential and diverging ramps, color-vision deficiency and contrast.
 - **`domestika-course-archive` instead:** archiving a course. Its `export` command is how another color course gets added here.
 
-> **Disambiguation:** decide on the **artifact**. A color decision or color fact belongs here. Overall style, photo fidelity and course packaging belong to the siblings.
+> **Disambiguation:** decide on the **artifact**. A color decision or color fact belongs here. Photo fidelity and course packaging belong to the siblings above. Overall interface style and chart choice belong to whichever skill builds the deliverable.
 
 ## Principles
 1. **Values before color.** The eye reads light and dark before hue.
@@ -109,7 +109,7 @@ Open `references/color-science/SKILL.md` first, then `references/color-science/r
 - **Inherits:** `core`.
 - **Contains:** `references/color-science/`, the upstream `meodai/skill.color-expert` vendored as a git subtree. It is the secondary source and is not edited here. Update it with `git subtree pull --prefix=references/color-science https://github.com/meodai/skill.color-expert main --squash`.
 - **Fed by:** `domestika-course-archive`. `reading_copy.py export` produces `references/course/`. Another color course goes in the same way, under its own folder, and then its claims are merged into `method/` with their anchors.
-- **Hands off to:** `batch-photo-retouching` for photo edits; `pptx`, `docx` or the frontend skills when the palette goes into a deliverable.
+- **Hands off to:** `batch-photo-retouching` for photo edits. When the palette goes into a deck, document or interface, the skill that builds that deliverable applies it; this skill supplies the palette, the ramps and the contrast checks.
 
 ## References
 - `references/method/intent-and-meaning.md`: feeling to value, color and saturation targets; mood recipes; identity; story payoff.
