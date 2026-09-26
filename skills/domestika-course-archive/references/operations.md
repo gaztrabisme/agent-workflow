@@ -25,7 +25,17 @@ The collector uses the course's visible unit links and same-origin page requests
 - Download one short lesson and confirm the MP4 has audio and video and the VTT has timed cues.
 - Estimate disk space from a representative video or playlist metadata when practical.
 
-The current packager selects English audio and English timed captions. If English is unavailable or the user asked for another language, don't silently substitute: adjust the selector only after checking availability and telling the user what will be used.
+The current packager selects English audio and English timed captions by default. If English is unavailable or the user asked for another language, don't silently substitute: check availability and tell the user what will be used. Audio selection accepts the ISO 639-1 codes listed in `LANGUAGE_TAGS` near the top of `scripts/package_domestika.py`; an optional region suffix such as `_la` is used for track selection. The packager writes and verifies the corresponding ISO 639-2 language tag in the MP4 audio stream.
+
+The packager offers a repeatable preflight. It uses `yt-dlp` metadata with the exact requested video/audio selector, verifies an eligible video height and audio language, checks for the caption language, and stops if selected media is marked protected. It suppresses raw playlist URLs.
+
+```sh
+python3 scripts/package_domestika.py /path/to/domestika-course-<id>-manifest.json \
+  --probe-only --unit 1 --max-height 720 \
+  --audio-language en --caption-language en
+```
+
+Omit `--unit 1` to check every unit. A normal packaging run repeats the preflight automatically before rendering PDFs or downloading media. The preflight confirms that the subtitle track is listed; the downloaded VTT is subsequently checked for timed cues.
 
 ## Package
 
@@ -37,10 +47,12 @@ python3 scripts/package_domestika.py /path/to/domestika-course-<id>-manifest.jso
 Options:
 
 - `--max-height 720` lowers the video resolution limit; the default is 1080p.
+- `--audio-language en` selects the audio language; the default is English.
+- `--caption-language en` selects the VTT caption language; the default is English.
 - `--unit 1` packages one unit as a focused run; repeat `--unit N` to choose several.
 - `--workdir PATH` selects where resumable working files are stored. The default is a `.work` directory beside the ZIP.
 
-The packager checks every video for audio/video streams and plausible duration, checks VTT structure and timed cues, renders each PDF, then creates the ZIP. It stops on missing requested media or captions and leaves working files so the user can resume after addressing the issue.
+The packager checks every video for exactly one video and audio stream, requested height, plausible duration, and the correct MP4 audio language tag. It checks VTT structure and timed cues, renders each PDF, then checks exact ZIP membership and CRC before replacing the destination ZIP. It keeps a private settings note beside each work video and reuses that video only when the requested height, audio language, and caption language match. It stops on missing requested media or captions and leaves working files so the user can resume after addressing the issue.
 
 ## Output layout
 
@@ -63,12 +75,12 @@ Each PDF preserves the unit introduction, lesson order and transcripts, tasks an
 - Confirm there is exactly one MP4 and one same-stem VTT for every included lesson.
 - Compare counts to the selected manifest units; a partial `--unit` run is not a complete-course archive.
 - Check `pdfinfo` page counts and `pdftotext` marker/filename matches; render and visually inspect PDFs with the `pdf:pdf` skill.
-- Run `ZipFile.testzip()` or an equivalent CRC check before delivery.
+- The packager runs exact member-set and `ZipFile.testzip()` CRC checks before reporting completion; if inspecting a ZIP made elsewhere, run the same checks.
 - Report the actual archive path, size, unit/lesson/file counts, selected audio/caption languages, and any limits. Keep playback URLs out of the report.
 
 ## Known limits
 
 - The collector depends on current Domestika page paths and embedded `__INITIAL_PROPS__` metadata. Site changes can break it; fail clearly.
-- The included packager targets HLS playlists on `cdn-videos.domestika.org`, an English audio track, English VTT captions, and Chrome on macOS.
+- The included packager targets HLS playlists on `cdn-videos.domestika.org`, language tracks exposed by `yt-dlp`, and Chrome on macOS. English audio and captions are the defaults; pass other language codes only when the course exposes those tracks and the audio code is supported by `LANGUAGE_TAGS`.
 - The tool archives unit lessons, not a separate final project page or unrelated course resources.
 - Do not attempt alternate endpoints, credentials, decryption, or access workarounds if the expected page data is unavailable.

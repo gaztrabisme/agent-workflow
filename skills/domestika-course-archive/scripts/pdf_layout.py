@@ -111,7 +111,7 @@ def unit_html(course: dict, unit: dict, names: dict[int, str]) -> str:
         extras.append(f'<section class="extras">'
                       f'{safe_fragment(extra.get("html") or "")}</section>')
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
-      <title>Unit {unit['number']:02d} — {title}</title>
+      <title>Unit {unit['number']:02d} - {title}</title>
       <style>
         @page {{ size: A4; margin: 16mm 17mm 16mm; }}
         :root {{ color-scheme: light; }}
@@ -122,11 +122,11 @@ def unit_html(course: dict, unit: dict, names: dict[int, str]) -> str:
         h1 {{ font-size: 25pt; line-height: 1.14; margin: 6px 0 8px; letter-spacing: -.03em; }}
         .course {{ color: #777; font-size: 10pt; }}
         .original {{ margin-top: 7px; font-size: 8pt; }}
-        h2 {{ font-size: 16pt; line-height: 1.2; letter-spacing: -.02em; margin: 4px 0 13px; }}
-        h3 {{ font-size: 11pt; margin: 13px 0 5px; }}
+        h2 {{ font-size: 16pt; line-height: 1.2; letter-spacing: -.02em; margin: 4px 0 13px; break-after: avoid; }}
+        h3 {{ font-size: 11pt; margin: 13px 0 5px; break-after: avoid-page; page-break-after: avoid; }}
         p {{ margin: 0 0 8px; }}
         ul,ol {{ padding-left: 21px; }}
-        li {{ margin: 0 0 3px; }}
+        li {{ margin: 0 0 3px; break-inside: avoid-page; page-break-inside: avoid; }}
         img {{ max-width: 100%; max-height: 95mm; object-fit: contain; }}
         .intro {{ margin-bottom: 22px; }}
         .lesson {{ border-top: 1px solid #d7d7d7; padding-top: 14px; margin-top: 20px; break-inside: auto; }}

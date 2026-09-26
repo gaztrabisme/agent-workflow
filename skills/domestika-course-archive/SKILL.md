@@ -21,10 +21,10 @@ Creates a local ZIP archive of a Domestika course the user can access. Each unit
 
 1. **Use the user's existing access.** Work only on a course page the user is signed into and can view. Fetch same-origin unit pages through that browser session. Do not extract, print, store or transmit browser cookies or account tokens.
 2. **Do not defeat protection.** Use only media streams the signed-in course page exposes for playback. If a lesson is encrypted, DRM-protected, unavailable, or lacks the requested caption language, stop and report the specific gap. Do not decrypt, evade access checks, or use another account's media.
-3. **Probe before the full transfer.** Confirm the course ID/title, unit and lesson totals, one playable lesson, audio/caption language availability across the lesson playlists, and whether streams are encrypted. Tell the user the expected size or duration when it is material.
+3. **Probe before the full transfer.** Confirm the course ID/title, unit and lesson totals, one playable lesson, requested audio/caption availability across selected lesson playlists, and whether streams are encrypted. Use the included `--probe-only` mode before a costly run; the packager repeats the check automatically. Tell the user the expected size or duration when it is material.
 4. **Keep the files cross-referenced.** Use the same stable lesson stem for `.mp4` and `.vtt`. Put an explicit video marker, filename pair, lesson link, duration, and the page transcript at each video's place in the PDF.
 5. **Protect the manifest.** It contains playback URLs. Keep it local, never include it in the archive or a public bundle, and do not paste its contents into chat. Retain it privately when needed for a resumable run.
-6. **Report only checked results.** A command finishing is not proof. Count files against the manifest, verify video/audio streams and timed caption cues, inspect rendered PDFs, and check ZIP integrity before saying the archive is complete.
+6. **Report only checked results.** A command finishing is not proof. Count files against the manifest, verify video/audio streams and the selected audio language tag, check timed caption cues, inspect rendered PDFs, and check ZIP integrity before saying the archive is complete.
 
 ## The flow (at a glance)
 
@@ -38,8 +38,8 @@ Creates a local ZIP archive of a Domestika course the user can access. Each unit
 
 ## Gates (declared, inherited from core)
 
-- **Grounding gate** — use the currently signed-in course pages, their lesson metadata, and actual playlist metadata as the substrate. Record what was checked and any missing language/stream. See `../core/references/grounding-gate.md`.
-- **Output Contract** — completion requires the ZIP itself, one PDF per unit, one MP4 and one matching VTT per lesson, correct manifest counts, visually inspected PDFs, and a successful ZIP CRC check. Keep the generator in this skill. See `../core/references/wiki-protocol.md`.
+- **Grounding gate** — use the currently signed-in course pages, their lesson metadata, and `yt-dlp`'s selected playlist metadata as the substrate. Record the selected audio/caption languages and any missing or protected stream. See `../core/references/grounding-gate.md`.
+- **Output Contract** — completion requires the ZIP itself, one PDF per selected unit, one MP4 and one matching VTT per selected lesson, exact manifest membership, visually inspected PDFs, correct audio stream and language metadata, and successful CRC validation. Keep the generator in this skill. See `../core/references/wiki-protocol.md`.
 - **Pushback & teach** — explain material size, time, language, or access limits before choosing a different quality or track. See `../core/references/pushback-and-teach.md`.
 - **Approach declaration** — state `probe-first` for a new course or changed page/player structure; use `direct` for a known course and unchanged workflow. For single-actor packaging, parallel agents are optional.
 
