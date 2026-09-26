@@ -987,8 +987,8 @@ def write_pdf_index(out: Path, pdf: Path, lessons: list[tuple[str, str, str, lis
     pages = pdf_page_index(target)
     missing = 0
     lines = [f'# Page index: {pdf.name}', '',
-             f'Every section of the reading copy with the PDF page it starts on. Open a page with the Read tool '
-             f'(`pages: "N"`, or a range such as "N-M"); the Markdown lesson files hold the same text and figures.', '']
+             f'Every section of the reading copy with the PDF page it starts on. Open the PDF at that page, or read '
+             f'a page range such as "N-M"; the Markdown lesson files hold the same text and figures.', '']
     for lesson_anchor, title, filename, anchors in lessons:
         known = [pages[a] for a in anchors if a in pages]
         start = min(known) if known else '?'
