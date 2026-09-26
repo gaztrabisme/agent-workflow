@@ -59,3 +59,33 @@ Not modified (validated as already-sound): per-unit folders, captions sharing vi
 - [x] Spanish-default course 1140 completed end-to-end: 4 PDFs, 18 MP4s, 18 English VTTs and 18 Spanish VTTs; every PDF rendered and visually inspected; stream/audio tags, caption cues, exact members, and ZIP CRC passed.
 - [x] English-default course 1049 Unit 1: 1 PDF, 3 MP4s, 3 English VTTs, no duplicates; preflight, cues, exact membership, and ZIP CRC passed.
 - **Verdict: REVISED** — the default-language caption rule is supported by an end-to-end Spanish-default archive and an English-default deduplication run. Retain the behavior and monitor for playlist formats that omit or mislabel `DEFAULT=YES`.
+
+## Evolution 3 — 2026-09-26 — English reading copy from native captions and video frames
+
+### Harvest scope
+- Request: turn an archived course into one English PDF that replaces watching it, written from the teacher's native captions with frames cut where material is shown, learning content only, for use as source material when building skills. Marketing removal must be a mechanical rule set, not agent judgement.
+- Real run: course 1140 (4 units, 18 lessons, 3 h 52 min, Spanish speaker), from its existing archive and work directory. 17 fresh-context subagents each wrote one lesson from `references/reading-copy.md`; one more re-applied the figure density rule to Unit 2. They acted as the dogfood: each reported where the instructions were unclear.
+- Grounded: core and skill-builder guidance, the existing packager/PDF code (reused `basename`, `tidy`, `validate_manifest`, `caption_path`, `inspect_captions`, `render_pdf`, `safe_fragment`), and the real unit HTML of course 1140 for the cleaning rules.
+
+### Patterns found
+1. **Domestika's English captions are not a faithful translation.** Impact: H. Every lesson had passages where the English reverses or invents meaning: "arrastrándoles colores" (stripping colour) became "adding colors"; the Photoshop path Filter > Noise > Dust & Scratches became a vague sentence; lines such as "red can also represent warmth, love, or joy" have no Spanish source.
+2. **The native captions carry speech-recognition errors,** mostly proper nouns and homophones ("oler la banda" for "la lavanda", nine misspelt artist names in lesson 2). On-screen title cards resolve most of them.
+3. **Unit page text is mostly clean; the marketing is concentrated** in a "Follow me!" resource, social "present yourself"/"course board" tasks and per-task "Share on the forum" links. The spoken plugs ("see my other courses on Domestika", "the great Domestika community") surfaced only in the translated prose, and the first rule set missed them.
+4. **Sentence-level removal can take teaching with it** when a plug shares a sentence with content ("Yes, we can, as long as…; for that, I invite you to see my courses").
+5. **Contact sheets make frame choice cheap and complete;** slides that build up produced runs of near-identical figures until a density rule was added (Unit 2: 104 → 94).
+6. **Instruction gaps reported by subagents:** unused frames, text cut off at the frame edge, caption and teacher slips, figures near section boundaries, interface-heavy screens, repeated taglines, signatures and watermarks, promotional screens, transcript truncation in tool output.
+
+### Hypotheses applied
+1. **`scripts/reading_copy.py`** (`prepare`, `frames`, `check`, `status`, `clean`, `build`) does the mechanical work; the agent only chooses frames, translates and writes captions. `check` gates every lesson on time ranges, coverage, frame references, caption lines and a 35% prose-length floor.
+2. **`scripts/package_domestika.py` records each lesson's `default_language`;** older work directories fall back to the last `caption_languages` entry.
+3. **Marketing removal is data** in `scripts/marketing_rules.json`, applied to manifest HTML (item headings, calls to action, link unwrapping), lesson titles (intro lessons) and prose (sentence, then clause). Every removal goes to `removed.log`. Closes patterns 3 and 4.
+4. **`references/reading-copy.md`** holds the loop, the `lesson.md` format, the density rule and the caption conventions. Closes patterns 1, 2, 5 and 6.
+5. **Operations verify step** now requires scanning the prose for plugs the rules missed and extending the rules. Closes the gap in pattern 3.
+
+### Validation results
+- [x] 17 unit tests pass (caption merging, native-language choice, `check` pass and fail cases, cleaning, clause-level removal, empty sections).
+- [x] Course 1140: `check` passes for all 17 included lessons (lesson 1 excluded by the intro rule); the PDF has 299 pages and 432 figures, equal to the figure blocks written; every lesson anchor is in the text; no rule pattern matches the text; `removed.log` (21 entries) was read in full and holds no teaching content; sample pages were inspected visually; the ZIP gained exactly the PDF (59 members) and passed CRC.
+- [x] English prose length is 0.99–1.13× the Spanish transcript's word count per Unit 2 lesson, so the copy is a translation, not a summary.
+- [ ] Gary's review of the full PDF.
+- [ ] A second course, ideally one with English native audio and one with dense screen recordings, run under the updated instructions.
+- **Verdict: PENDING** — one real course end to end; settle after the review and a second course.

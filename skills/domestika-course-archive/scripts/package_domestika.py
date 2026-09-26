@@ -166,7 +166,7 @@ def format_selector(max_height: int, audio_language: str) -> str:
 
 
 def preflight_lesson(lesson: dict, max_height: int, audio_language: str,
-                     caption_language: str, yt_dlp: str) -> tuple[str, list[str]]:
+                     caption_language: str, yt_dlp: str) -> tuple[str, list[str], str]:
     command = [yt_dlp, '--dump-single-json', '--skip-download', '--no-warnings',
                '--no-playlist', '--format', format_selector(max_height, audio_language),
                lesson['media_url']]
@@ -202,19 +202,21 @@ def preflight_lesson(lesson: dict, max_height: int, audio_language: str,
     selected_captions = list(dict.fromkeys(track for track in caption_tracks if track))
     selected_audio_caption = ', '.join(normalize_caption_language(track) for track in selected_captions)
     return (f'{int(video[0]["height"])}p video, {audio_language} audio, '
-            f'default audio {default_language}, captions {selected_audio_caption}', selected_captions)
+            f'default audio {default_language}, captions {selected_audio_caption}', selected_captions,
+            default_language)
 
 
 def preflight_units(units: list[dict], max_height: int, audio_language: str,
-                    caption_language: str, yt_dlp: str) -> dict[int, list[str]]:
-    caption_languages_by_lesson = {}
+                    caption_language: str, yt_dlp: str) -> tuple[dict[int, list[str]], dict[int, str]]:
+    caption_languages_by_lesson, default_languages_by_lesson = {}, {}
     for unit in units:
         for lesson in sorted(unit['lessons'], key=lambda item: item['number']):
-            selected, caption_languages = preflight_lesson(lesson, max_height, audio_language,
-                                                           caption_language, yt_dlp)
+            selected, caption_languages, default_language = preflight_lesson(
+                lesson, max_height, audio_language, caption_language, yt_dlp)
             print(f'Preflight U{unit["number"]} L{lesson["number"]}: {selected}', flush=True)
             caption_languages_by_lesson[lesson['id']] = caption_languages
-    return caption_languages_by_lesson
+            default_languages_by_lesson[lesson['id']] = default_language
+    return caption_languages_by_lesson, default_languages_by_lesson
 
 
 def inspect_captions(path: Path) -> bool:
@@ -225,14 +227,16 @@ def inspect_captions(path: Path) -> bool:
 
 
 def download_lesson(lesson: dict, directory: Path, name: str, max_height: int,
-                    audio_language: str, caption_languages: list[str], yt_dlp: str) -> None:
+                    audio_language: str, caption_languages: list[str], default_language: str,
+                    yt_dlp: str) -> None:
     mp4 = directory / f'{name}.mp4'
     caption_files = {language: caption_path(directory, name, language)
                      for language in caption_languages}
     settings_path = directory / f'{name}.download.json'
     expected_settings = {'max_height': max_height, 'audio_language': audio_language,
                          'caption_languages': [normalize_caption_language(language)
-                                               for language in caption_languages]}
+                                               for language in caption_languages],
+                         'default_language': normalize_caption_language(default_language)}
     try:
         saved_settings = json.loads(settings_path.read_text(encoding='utf-8'))
     except (OSError, json.JSONDecodeError):
@@ -352,7 +356,7 @@ def main() -> int:
         units = [unit for unit in units if unit['number'] in wanted]
         if len(units) != len(wanted):
             parser.error('At least one requested unit is not in this course.')
-    caption_languages_by_lesson = preflight_units(units, args.max_height, args.audio_language,
+    caption_languages_by_lesson, default_languages_by_lesson = preflight_units(units, args.max_height, args.audio_language,
                                                   args.caption_language, yt_dlp)
     if args.probe_only:
         preflight_count = len(caption_languages_by_lesson)
@@ -377,7 +381,8 @@ def main() -> int:
         render_pdf(CHROME, html_path, pdf_path)
         for lesson in sorted(unit['lessons'], key=lambda item: item['number']):
             download_lesson(lesson, folder, names[lesson['id']], args.max_height,
-                            args.audio_language, caption_languages_by_lesson[lesson['id']], yt_dlp)
+                            args.audio_language, caption_languages_by_lesson[lesson['id']],
+                            default_languages_by_lesson[lesson['id']], yt_dlp)
     print('Creating ZIP…', flush=True)
     make_archive(course, units, folders, caption_languages_by_lesson, output)
     print(f'Complete: {output}', flush=True)

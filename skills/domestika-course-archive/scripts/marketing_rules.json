@@ -1,0 +1,62 @@
+{
+  "_about": "Regexes (case-insensitive) that reading_copy.py clean applies. Extend here; no code change needed. {course_id} is replaced with the course's numeric ID.",
+  "item_headings": [
+    "^follow me",
+    "^(present|introduce) yourself",
+    "^add your references to the course board",
+    "social (networks|media)",
+    "newsletter",
+    "^recent projects",
+    "^students",
+    "^recommended",
+    "^you may also like",
+    "^reviews?$",
+    "^certificates?$"
+  ],
+  "cta_text": [
+    "^share on the forum$",
+    "follow me on",
+    "my social networks",
+    "subscribe to my",
+    "my newsletter",
+    "leave (me )?a (review|rating)",
+    "add a picture to your profile",
+    "add a new project you would like to highlight",
+    "domestika plus",
+    "best seller",
+    "\\bget (your|a) certificate",
+    "share (it|them|your (work|images?|projects?|results?|exercises?)) (in|on|with) the (forum|community|project gallery)"
+  ],
+  "link_unwrap": [
+    "/tasks/\\d+/complete",
+    "domestika\\.org/account",
+    "domestika\\.org/[a-z]{2}/projects/new",
+    "/community/forum",
+    "domestika\\.org/[a-z]{2}/courses/{course_id}-[^/]+/units/",
+    "domestika\\.org/[a-z]{2}/courses/(?!{course_id}(?:[-/]|$))",
+    "forms\\.gle/"
+  ],
+  "prose_cta": [
+    "follow me on",
+    "subscribe to my (channel|newsletter)",
+    "my newsletter",
+    "leave (me )?a (review|rating|comment)",
+    "share (it|them|your (work|project|results?|images?)) (on|in) the (forum|community|project gallery)",
+    "upload your (project|work) to",
+    "see you in (my|the) next course",
+    "check out my other courses?",
+    "(see|check out|take|watch|look at) my (other )?courses",
+    "other courses (on|from|at) domestika|other domestika courses|courses domestika offers",
+    "domestika community"
+  ],
+  "intro_lessons": [
+    "^presentation\\b",
+    "who am i",
+    "^presentaci[oó]n\\b"
+  ],
+  "template_forbidden": [
+    "domestika",
+    "best seller",
+    "students"
+  ]
+}
