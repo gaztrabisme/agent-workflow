@@ -50,4 +50,5 @@ The loop that turns real use into skill improvements. Mechanism: `../evolution/r
 - [x] The reading-copy PDF (299 pages, rebuilt with the current rules) is in `references/course/`, with `pdf-index.md` giving the page for all 191 section anchors. One entry was checked against the rendered page (1140 · U3 · L09 · 03:57–05:00 → page 121).
 - [ ] Two real uses on Gary's own images or briefs, with the plan or critique checked against the result.
 - [ ] Validate the distilled claims against real use. Any principle that fails in practice is revised or marked with its limits.
+- This build is the worked example for `../skill-builder/references/distill-course.md`, which turns its steps into a playbook for further courses. `scripts/check_refs.py` here is a copy of the general `../skill-builder/scripts/check_refs.py`.
 - **Verdict: PENDING**: distilled from one course, and not yet used on a real task.
