@@ -211,7 +211,7 @@ def clean_prose(text: str, rules: dict, where: str, log: Removals) -> str:
                 kept.append(sentence)
                 continue
             # Drop only the matching clause, so teaching in the same sentence survives.
-            clauses = re.split(r'(?<=;)\s+', sentence)
+            clauses = re.split(r'(?<=;)\s+|(?<=,)\s+(?=(?:you can|you may) also\b)', sentence)
             survivors = []
             for clause in clauses:
                 rule = first_match(rules['prose_cta'], clause)
@@ -222,7 +222,7 @@ def clean_prose(text: str, rules: dict, where: str, log: Removals) -> str:
             if len(survivors) == len(clauses):
                 log.add(sentence_rule, where, sentence)
             elif survivors:
-                kept.append(re.sub(r';$', '.', ' '.join(survivors).rstrip()))
+                kept.append(re.sub(r'[;,]$', '.', ' '.join(survivors).rstrip()))
         if ' '.join(kept).strip():
             lines.append(prefix + ' '.join(kept))
         elif not line.strip():
@@ -983,7 +983,8 @@ def cmd_export(args) -> int:
         if intro or extras:
             (out / f'U{unit["number"]:02d}-unit.md').write_text(
                 f'# Unit {unit["number"]} · {unit["title"]}\n\nAnchor: {course["course_id"]} · U{unit["number"]}\n\n'
-                + '\n\n'.join(html_to_markdown(part) for part in [intro] + extras if part) + '\n',
+                + '\n\n'.join(clean_prose(html_to_markdown(part), rules, f'U{unit["number"]:02d}/unit', log)
+                                for part in [intro] + extras if part) + '\n',
                 encoding='utf-8')
             unit_files += 1
         for lesson in sorted(unit['lessons'], key=lambda item: item['number']):

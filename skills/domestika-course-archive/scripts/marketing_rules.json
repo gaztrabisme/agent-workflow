@@ -47,7 +47,11 @@
     "check out my other courses?",
     "(see|check out|take|watch|look at) my (other )?courses",
     "other courses (on|from|at) domestika|other domestika courses|courses domestika offers",
-    "domestika community"
+    "domestika community",
+    "\\bforum\\b",
+    "receive (comments|feedback)",
+    "share it with your (colleagues|classmates|peers)",
+    "do not be upset if I"
   ],
   "intro_lessons": [
     "^presentation\\b",

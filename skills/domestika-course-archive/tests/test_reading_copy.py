@@ -174,6 +174,15 @@ class CleanTests(unittest.TestCase):
         text = 'Yes, we can, if the shapes are right; for that, I invite you to see my courses on this.'
         self.assertEqual(rc.clean_prose(text, rules, 'U04/L14', log), 'Yes, we can, if the shapes are right.')
 
+    def test_forum_prompts_are_removed_but_the_task_survives(self):
+        rules = rc.load_rules(7)
+        log = rc.Removals()
+        text = ('Ask people what they see first to check your mission, you can also post them in the forum. '
+                'Share your best copy with your peers on the forum.')
+        self.assertEqual(rc.clean_prose(text, rules, 'U04/unit', log),
+                         'Ask people what they see first to check your mission.')
+        self.assertEqual(len(log.rows), 2)
+
     def test_intro_lessons(self):
         rules = rc.load_rules(7)
         self.assertTrue(rc.is_intro_lesson('Presentation (Who am I)', rules))
