@@ -17,7 +17,7 @@ bin/rk brief page.html --questions questions/slide.md --out-dir out/review --pur
 ## The loop
 
 1. Write the artifact as HTML or SVG, with the markup below.
-2. `bin/rk check <file> [--pdf]`. Fix every `fail`, and re-run until none is left. Read every `skipped` and `incomplete` reason; they are not passes.
+2. `bin/rk check <file> [--pdf]`. Fix every `fail`, and re-run until none is left. Read every `skipped` and `incomplete` reason; they are not passes. `n/a` means the input had nothing for that check (no chart markup, no PDF).
 3. `bin/rk brief <file> --questions <set> --out-dir <dir>`. Give `brief.md` and the PNGs to a reviewer that did not make the artifact and can see images. It fills `answers.json` from the template.
 4. `bin/rk brief --verify <dir>/answers.json`. A `no` is a failure to fix. When no reviewer can see images, the answers are `not-judged` and the report says so; they never count as passes.
 
@@ -41,4 +41,4 @@ Details and exact rules: `SPEC.md` sections 6 and 8.
 - One concern per file, at most 120 lines of logic.
 - Full Chromium in new headless mode only; never the headless shell.
 - No `file://` loading, no open network by default, no model calls.
-- A threshold states where it came from (`SPEC.md` section 6 marks each *kit default*).
+- A threshold states where it came from (the table at the start of `SPEC.md` section 6).
