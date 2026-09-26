@@ -1,0 +1,20 @@
+{
+  "name": "render-kit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Render HTML or SVG to PNG or PDF in headless Chromium and check the output with code.",
+  "bin": { "rk": "bin/rk" },
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsc --noEmit && node --test"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "playwright": "1.63.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}
