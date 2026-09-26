@@ -83,7 +83,7 @@ Inherited from the `core` kernel. On entry, read the referenced files.
 - **Pre-signature, back to `solution-architect`:** the filled effort column, the release split, the cut order, and a capacity verdict. SA enumerates and prices; this skill supplies the numbers. SA's `templates/delivery-wbs-workbook.md` is the instrument that carries them.
 - **To/with `dev`:** deliverables and their due dates flow in; built artifacts and their evidence flow back. `dev` runs its own design/build/sprint cycles inside the envelope this skill maintains.
 - **Back to `solution-architect`:** every engagement's actuals are the correction signal for the next estimate. A delivery that ran 1.6× the estimate is the most valuable input SA's `estimation-and-costing.md` will ever get. Close the loop deliberately — see `references/delivery-lifecycle.md` → Phase 4.
-- **Through `vietnamese-copywriter`:** on a Vietnamese-speaking engagement, every status report, acceptance note and change request that reaches the client passes through it. This skill owns what the report says and when; that one owns the register it says it in.
+- **Through the localization review:** on a Vietnamese-speaking engagement, every status report, acceptance note and change request that reaches the client receives an explicit register and language-parity review. This skill owns what the report says and when; the domain owner owns the language quality.
 
 ## References
 
