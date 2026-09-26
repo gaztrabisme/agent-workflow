@@ -57,7 +57,7 @@ Creates a local ZIP archive of a Domestika course the user can access. Each unit
 ## Composition
 
 - **Inherits:** `core`.
-- **Consumes / hands off to:** `pdf:pdf` for PDF-specific rendering and visual quality; `dev` for changes to the code or for general software beyond this course workflow; `color-theory` for color subject matter rather than archiving; `skill-builder` when a reading copy is distilled into a skill, with `reading_copy.py export` supplying the course as Markdown.
+- **Consumes / hands off to:** `pdf:pdf` for PDF-specific rendering and visual quality; `dev` for changes to the code or for general software beyond this course workflow; `color-theory` for color subject matter rather than archiving; `skill-builder` when a reading copy is distilled into a skill: run `reading_copy.py export --pdf`, then follow `../skill-builder/references/distill-course.md`.
 - **Included tools:** `scripts/collect_domestika.js` collects signed-in page metadata; `scripts/package_domestika.py` renders PDFs, downloads media/captions, and assembles the ZIP; `scripts/pdf_layout.py` produces the annotated unit PDFs; `scripts/reading_copy.py` (with rules in `scripts/marketing_rules.json`) prepares, checks, cleans, builds and exports the English reading copy.
 
 ## References
