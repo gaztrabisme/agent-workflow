@@ -14,19 +14,16 @@ Practice exercise 3\.1
 
 Choose 2 of your images and add different elements to enrich its story, and thus improve its quality. If you don't know what to add, follow the process of defining the story of an image seen in this unit, and describe what your illustration tells, who the protagonists are, what they do, etc ... 
 
- Share your illustrations along with the story they tell on the forum. Comment and receive comments from your colleagues.
 - ### Make 5 abstract compositions in black and white applying the Yin Yang principle 
 Practice exercise 3\.2
 
 Create 5 compositions in black and white, without looking for them to represent something. The goal of this exercise is to train your sensitivity. It's a bit complex, but just ask yourself when you FEEL that the composition works best while making adjustments (either because you moved such a shape or darkened such a part). Trust your instincts! 
 
- Share images of these compositions on the forum to receive feedback.
 - ### Make 5 abstract color compositions applying the Yin Yang principle 
 Practice exercise 3\.3
 
 Trust your instincts and repeat the same exercise but this time using colors instead of black and white. Ask yourself when you FEEL that the composition works best. 
 
- Share what you consider your best image achieved in this forum.
 - ### Get a sad mood, a dramatic one, and a very happy one through color.
 
 Download the attached file that you will find below. Open it in Photoshop and modify the colors and values of the different layers to alter the cheerful feel of the image. 
@@ -60,7 +57,6 @@ Practice exercise 3\.4
 
 Choose 3 images that you consider excellent in terms of balance, rhythm and harmony and copy them with flat colors (hard brush, no gradients). Try to limit the number of colors you use to a maximum of 50\. 
 
- Share the original and the copy in this forum with your classmates and see the images they shared. You can also give and receive feedback.
 
 ## Additional resources
 

@@ -24,19 +24,18 @@ Practice exercise 4\.1
 
 Create a logo for yourself, as if you were a brand and choose no more than three colors to do it. Think that these colors are going to represent you. Then use these elements and this color palette to create a simple poster that represents you as well. 
 
- It doesn't matter that you've never made a logo or poster before, the important thing is the exercise itself and the results you can achieve with what you've learned in this unit. Trust your work and share it with your colleagues.
+ It doesn't matter that you've never made a logo or poster before, the important thing is the exercise itself and the results you can achieve with what you've learned in this unit.
 - ### Solve your image problems 
 Practice exercise 4\.2
 
 Go back to the 5 images that you improved in the second unit. Now, you are going to apply the advice I gave you to solve color problems. Do it with the 5 images. 
 
- First identify which problem we review belongs to, and then apply the technique to solve it. Post the before and after of each one in the forum.
+ First identify which problem we review belongs to, and then apply the technique to solve it.
 - ### Copy 10 images with 15 colors 
 Practice exercise 4\.3
 
 Choose 3 images that you consider excellent in terms of balance, rhythm and harmony and copy them with flat colors (hard brush, no gradients). Try to limit the number of colors you use to a maximum of 10\. 
 
- Share your best copy with your peers on the forum.
 - ### Develop contrasts 
 Practice exercise 4\.4
 
@@ -44,7 +43,7 @@ Open the unit's editable file. For this task, you are going to create 3 differen
 
  The point of the exercise is to see how to move the focus of the image by playing with contrasts. Make a version modifying the contrast of values, another the saturation contrast, and another the color contrast. Decide where you want the attention to go and put the contrasts in this place. Try to make combinations to see how best you manage to direct the attention of your audience. 
 
- Ask the people around you what they see first to check that you achieved your mission, you can also post them in the forum to receive comments from your colleagues and give them your opinion on their images.
+ Ask the people around you what they see first to check that you achieved your mission.
 
 ## Additional resources
 

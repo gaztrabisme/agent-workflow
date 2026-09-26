@@ -272,7 +272,6 @@ Anchor: 1140 · U4 · L18 · 12:20–13:12
 
 At this point, if you did your work (captions: *si sería en mi trabajo*), you should be more than ready to face any challenge color throws at you. But remember, the most important thing is to practice, to turn these theoretical concepts we have seen into a practical language that you will improve every time you apply it to your different projects.
 
-I will be in the forum anyway to see your progress, but please remember that my main activity is making art and learning myself, so that I can teach you tomorrow. So do not be upset if I do not answer very quickly.
 
 ### Key points (derived)
 
