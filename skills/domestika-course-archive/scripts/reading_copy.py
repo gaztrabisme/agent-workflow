@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import sys
+import unicodedata
 import zipfile
 from html.parser import HTMLParser
 from pathlib import Path
@@ -914,6 +915,110 @@ def cmd_build(args) -> int:
     return 0
 
 
+# ---------------------------------------------------------------- export (Markdown)
+
+def slug(text: str) -> str:
+    plain = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
+    return re.sub(r'[^a-z0-9]+', '-', plain.lower()).strip('-')[:60] or 'lesson'
+
+
+def html_to_markdown(fragment: str) -> str:
+    """Manifest HTML as Markdown when markdownify is installed; otherwise the HTML itself."""
+    try:
+        from markdownify import markdownify
+    except ImportError:
+        return fragment
+    text = markdownify(fragment, heading_style='ATX', bullets='-')
+    return re.sub(r'\n{3,}', '\n\n', text).strip()
+
+
+def export_lesson(meta: dict, directory: Path, rules: dict, log: Removals, out: Path) -> tuple[str, int]:
+    """Write one cleaned lesson as Markdown into out/, copying its figures to out/frames/."""
+    _, sections, key_points, _ = parse_lesson((directory / 'lesson.md').read_text(encoding='utf-8'))
+    where = f'U{meta["unit"]:02d}/L{meta["lesson"]:02d}'
+    prefix = f'U{meta["unit"]:02d}L{meta["lesson"]:02d}'
+    lesson_anchor = f'{meta["course_id"]} · U{meta["unit"]} · L{meta["lesson"]:02d}'
+    (out / 'frames').mkdir(parents=True, exist_ok=True)
+    parts = [f'# Lesson {meta["lesson"]:02d} · {meta["title"]}', '',
+             f'Anchor: {lesson_anchor} · {duration(meta["duration_seconds"])} · {meta["url"]}', '']
+    count = 0
+    for section in sections:
+        span = f'{fmt_time(section["start"])}–{fmt_time(section["end"])}'
+        parts += [f'## {section["title"]}', '', f'Anchor: {lesson_anchor} · {span}', '']
+        buffer: list[str] = []
+
+        def flush():
+            text = clean_prose('\n'.join(buffer).strip(), rules, where, log)
+            if text:
+                parts.extend([text, ''])
+            buffer.clear()
+
+        for kind, block in section['blocks']:
+            if kind == 'text':
+                buffer.append(block)
+                continue
+            flush()
+            count += 1
+            name = f'{prefix}-{block["file"]}'
+            shutil.copy2(directory / 'frames' / block['file'], out / 'frames' / name)
+            parts += [f'![{lesson_anchor} · {block["label"]}](frames/{name})', '',
+                      f'On screen: {block["on_screen"]}  ', f'Shows: {block["shows"]}', '']
+        flush()
+    if key_points:
+        parts += [KEY_POINTS, '', clean_prose(key_points, rules, where, log), '']
+    return '\n'.join(parts).rstrip() + '\n', count
+
+
+def cmd_export(args) -> int:
+    course, units = load_course(args.manifest, args.unit)
+    rules = load_rules(course['course_id'])
+    out = args.out.expanduser().resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    cleaned, log = clean_course(course, units, args.workdir, rules)
+    rows, excluded = [], []
+    lessons = figures = unit_files = 0
+    for unit in units:
+        extras = [extra['html'] for extra in cleaned[unit['number']]['extras'] if has_content(extra)]
+        intro = cleaned[unit['number']]['intro'].strip()
+        if intro or extras:
+            (out / f'U{unit["number"]:02d}-unit.md').write_text(
+                f'# Unit {unit["number"]} · {unit["title"]}\n\nAnchor: {course["course_id"]} · U{unit["number"]}\n\n'
+                + '\n\n'.join(html_to_markdown(part) for part in [intro] + extras if part) + '\n',
+                encoding='utf-8')
+            unit_files += 1
+        for lesson in sorted(unit['lessons'], key=lambda item: item['number']):
+            if is_intro_lesson(lesson['title'], rules):
+                excluded.append(lesson)
+                continue
+            directory = lesson_dir(args.workdir, unit, lesson)
+            if not (directory / 'lesson.json').exists():
+                raise RuntimeError(f'Lesson {lesson["number"]} has not been prepared.')
+            errors = check_lesson(directory, rules)
+            if errors:
+                raise RuntimeError(f'Lesson {lesson["number"]} fails check: {errors[0]}')
+            meta = json.loads((directory / 'lesson.json').read_text(encoding='utf-8'))
+            name = f'U{unit["number"]:02d}-L{lesson["number"]:02d}-{slug(lesson["title"])}.md'
+            text, count = export_lesson(meta, directory, rules, log, out)
+            (out / name).write_text(text, encoding='utf-8')
+            lessons += 1
+            figures += count
+            rows.append(f'| {course["course_id"]} · U{unit["number"]} · L{lesson["number"]:02d} '
+                        f'| [{lesson["title"]}]({name}) | {duration(lesson["duration_seconds"])} '
+                        f'| {meta["native_language"]} | {count} |')
+    index = [f'# {course["course_title"]}', '',
+             'Reading copy as Markdown: one file per lesson, translated into English from the native captions. '
+             'Every heading carries an anchor: course · unit · lesson · video time range.', '',
+             '| Anchor | Lesson | Length | Captions | Figures |', '|---|---|---|---|---|', *rows, '']
+    if excluded:
+        index += ['Not included (teacher introduction): '
+                  + '; '.join(f'L{lesson["number"]:02d} {lesson["title"]}' for lesson in excluded), '']
+    (out / 'README.md').write_text('\n'.join(index), encoding='utf-8')
+    log.write(args.workdir / 'reading' / 'removed.log')
+    print(f'Exported {lessons} lesson(s), {unit_files} unit file(s), {figures} figure(s) to {out}; '
+          f'{len(log.rows)} removal(s) logged')
+    return 0
+
+
 # ---------------------------------------------------------------- CLI
 
 def main() -> int:
@@ -936,6 +1041,8 @@ def main() -> int:
     build.add_argument('--output', type=Path, required=True, help='Destination PDF')
     build.add_argument('--zip', type=Path, help='Course ZIP to add the PDF to (whole course only)')
     build.add_argument('--teacher', help='Teacher name for the title page')
+    export = course_command('export', 'Write the reading copy as Markdown files plus frames')
+    export.add_argument('--out', type=Path, required=True, help='Destination directory')
     frames = sub.add_parser('frames', help='Extract kept frames at full resolution')
     frames.add_argument('lesson_dir', type=Path, help='reading/UNN/LNN directory')
     frames.add_argument('--at', action='append', required=True, help='Timestamp mm:ss[.f] (repeatable)')
@@ -943,7 +1050,8 @@ def main() -> int:
     if hasattr(args, 'workdir'):
         args.workdir = args.workdir.expanduser().resolve()
     handlers = {'prepare': cmd_prepare, 'check': cmd_check, 'status': cmd_status,
-                'clean': cmd_clean, 'build': cmd_build, 'frames': cmd_frames}
+                'clean': cmd_clean, 'build': cmd_build, 'export': cmd_export,
+                'frames': cmd_frames}
     return handlers[args.command](args)
 
 

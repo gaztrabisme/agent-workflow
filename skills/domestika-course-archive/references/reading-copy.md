@@ -44,7 +44,7 @@ Run `prepare` for the unit, then for each lesson in `W/reading/UNN/LNN/`:
 5. **Write `lesson.md`** in the lesson directory (format below).
 6. **Run `check`** for the lesson and fix every failure.
 
-After the last unit, run `build` for the whole course with `--zip`.
+After the last unit, run `build` for the whole course with `--zip`. To distill a skill from the course, also run `export` into the skill's `references/course/`; the Markdown is easier to search and cite than the PDF.
 
 ## `lesson.md` format
 

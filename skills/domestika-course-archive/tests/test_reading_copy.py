@@ -181,6 +181,29 @@ class CleanTests(unittest.TestCase):
         self.assertFalse(rc.is_intro_lesson('What will we do in the course?', rules))
 
 
+class ExportTests(unittest.TestCase):
+    def test_lesson_exports_as_cleaned_markdown_with_frames(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            text = VALID_LESSON.replace('in the frame.', 'in the frame. Follow me on Instagram for more.')
+            lesson = LessonFixture(root, text)
+            meta = json.loads((lesson.dir / 'lesson.json').read_text())
+            out = root / 'out'
+            log = rc.Removals()
+            body, count = rc.export_lesson(meta, lesson.dir, rc.load_rules(1), log, out)
+            self.assertEqual(count, 1)
+            self.assertIn('Anchor: 1 · U1 · L02 · 00:05–01:30', body)
+            self.assertIn('![1 · U1 · L02 · 00:40](frames/U01L02-F0040.jpg)', body)
+            self.assertIn('On screen: "CONTRASTE"', body)
+            self.assertIn('### Key points (derived)', body)
+            self.assertNotIn('Follow me', body)
+            self.assertEqual(len(log.rows), 1)
+            self.assertTrue((out / 'frames' / 'U01L02-F0040.jpg').exists())
+
+    def test_slug(self):
+        self.assertEqual(rc.slug('¿Qué es la Presentación?'), 'que-es-la-presentacion')
+
+
 class CandidateTests(unittest.TestCase):
     def test_candidates_take_segment_ends_and_long_segment_samples(self):
         times = rc.candidate_times([10.0, 100.0], [(20.0, 26.0)], 120.0)
