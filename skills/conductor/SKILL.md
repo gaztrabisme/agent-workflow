@@ -1,12 +1,12 @@
 ---
 name: conductor
 license: MIT
-description: "Turn a raw intent into a finished product by composing the skills that already exist — classify the work, route it, plan the lanes, fan out research and persona threads, converge them, write the artifacts. Orchestrates only: briefs, the goal file, Plan Blocks, wiki entries; never deliverable content. Any agent harness: Claude Code, Codex, Gemini CLI, opencode, Copilot, Grok. USE WHEN a request is substantive and multi-step and nobody has said which skill to use: a feature list to build, a business idea to pressure-test, a document that must survive scrutiny, an engagement spanning research → decision → build. Fires FIRST on unrouted intent and delegates — it never does the work itself. Not `dev` / `solution-architect` / `delivery` / `harness-operator`: those are what it invokes; go direct when you already know which one. Keywords: orchestrate, dynamic workflow, harness map, fan out, task force, persona, red team, converge, just do it, multi-agent, intent to product, lane plan, goal file, UAT, CERIC gates."
+description: "Turn a raw intent into a finished product by composing the skills that already exist — classify the work, route it, plan the lanes, fan out research and persona threads, converge them, write the artifacts. Orchestrates only: briefs, the goal file, Plan Blocks, wiki entries; never deliverable content. Any agent harness: Claude Code, Codex, Gemini CLI, opencode, Copilot, Grok. USE WHEN a request is substantive and multi-step and nobody has said which skill to use: a feature list to build, a business idea to pressure-test, a document that must survive scrutiny, an engagement spanning research → decision → build. Fires FIRST on unrouted intent and delegates — it never does the work itself. Not `dev` / `solution-architect` / `delivery`: those are what it invokes; go direct when you already know which one. Keywords: orchestrate, dynamic workflow, harness map, fan out, task force, persona, red team, converge, just do it, multi-agent, intent to product, lane plan, goal file, UAT, CERIC gates."
 ---
 
 # Conductor
 
-The entry point. It takes an unrouted intent — *"build these features"*, *"pressure-test this deal"*, *"is this plan sound"* — and turns it into a **finished product** by composing the constellation: `dev`, `solution-architect`, `delivery`, `business-intelligence`, `ai-discovery-workshop`, `harness-operator`, and the execution-layer skills.
+The entry point. It takes an unrouted intent — *"build these features"*, *"pressure-test this deal"*, *"is this plan sound"* — and turns it into a **finished product** by composing the constellation: `dev`, `solution-architect`, `delivery`, `business-intelligence`, `ai-discovery-workshop`, and the execution-layer skills.
 
 > Inherits the `core` kernel — `../core/SKILL.md`. Obey its Integrity Constraints; declare its gates; reference its files, never copy them.
 
@@ -29,7 +29,7 @@ Three rules follow, and they are the spine of this skill:
 2. **Decide forward.** Once you have go, run to completion. A fork that wasn't pre-decided gets decided *by you*, against the stated intent, and **logged in the run ledger** — never bounced back. Silence on a small fork is correct; the ledger is where it becomes visible.
 3. **Escalate whole.** The rare mid-run stop carries its own context: what ran, what it found, the fork, the options *with consequences*, and your recommendation — answerable without reading anything else. Never *"I hit a problem, advise."*
 
-**Legitimate mid-run stops — only these:** an Integrity Constraint would be violated · the action is irreversible *and* unrecoverable (spend, send, publish, delete) · the plan's **premise** was falsified by a finding, so continuing produces the wrong artifact · a human keystone (`harness-operator`: align / land / close). Anything else: decide forward.
+**Legitimate mid-run stops — only these:** an Integrity Constraint would be violated · the action is irreversible *and* unrecoverable (spend, send, publish, delete) · the plan's **premise** was falsified by a finding, so continuing produces the wrong artifact. Anything else: decide forward.
 
 ## Flow
 
@@ -37,7 +37,7 @@ Three rules follow, and they are the spine of this skill:
 
 | Shape | Looks like | Routes to |
 |---|---|---|
-| **Build** | feature list, bug, refactor, "add X" | `dev` (mode by trigger) · `harness-operator` if the project has a board |
+| **Build** | feature list, bug, refactor, "add X" | `dev` (mode by trigger) |
 | **Model** | an ML/CV/NLP/retrieval question — what metric, which architecture, is this the right problem, what baseline must we beat | `applied-ml-problem-solver` — it frames and gates; `dev` builds what it hands back |
 | **Frame** | an idea, a brief, "should we", "how would we" | `dev`/Design *or* `solution-architect` — decide on **audience**: engineers → dev; client/buyer → SA |
 | **Ground** | "is this true", "validate", "what does it cost", "who else does this" | task-force fan-out (`references/task-force-protocol.md`) |
@@ -71,7 +71,6 @@ Pick the engine per unit of work. **Declare which and why in one line** — this
 | **inline** | ≤2 units, mechanical or unambiguous. The default that must be *chosen*, not fallen into. |
 | **subagent fan-out** | 3–8 independent units you want to watch live; personas; research streams. Single message, parallel calls. |
 | **dynamic workflow** | >8 units, or genuinely multi-stage (streams → adversarial verify → synthesis). The binding is per harness — only Claude Code ships a scripted pipeline (the Workflow tool); everywhere else the coordinator pipelines in its own turn. Patterns: `references/workflow-patterns.md`; the facts per harness: `references/harness-map.md`. |
-| **harness-operator** | Build work on a board project. Tickets, worktrees, mutation gate — and align/land stay human keystones. |
 
 > **Workflow opt-in (Claude Code's binding):** the Workflow tool requires explicit user opt-in, and *"the user invoked a skill whose instructions tell you to call Workflow"* is one of the valid forms. When composition selects the dynamic-workflow engine on Claude Code, **this skill is that instruction** — calling it is authorized. Say so in the Plan Block so the choice is visible.
 
@@ -112,7 +111,7 @@ Runs only on an explicit go from the requester; silence is not go. Dispatch per 
 
 The coordinator runs each unit's acceptance command itself when the report lands; a lane's claim of done is a proxy. A lane that refuses is rerouted per `references/lane-plan.md`; a unit every lane refuses stays blocked and is reported — never absorbed into the coordinator.
 
-The sibling skill's gates are **not** yours to waive. If `dev` says adversarial review fires on this trigger, it fires. If `harness-operator` says land is human, it comes back — that is a keystone, not a mid-run stop, and it was announced in the Plan Block.
+The sibling skill's gates are **not** yours to waive. If `dev` says adversarial review fires on this trigger, it fires, and any repository landing step remains subject to the project's own review policy.
 
 ### 7. Converge — the meeting point
 
@@ -142,7 +141,7 @@ Audit the artifacts against the goal file's UAT column and **nothing else**: run
 
 ## Composition
 
-- **Invokes:** `dev` (build/design/sprint/assess) · `applied-ml-problem-solver` (ML/CV/NLP/retrieval judgment — framing, metrics, experiment design, RAG, inference budgets; runs *before* dev on an ML task) · `solution-architect` (client-facing architecture, proposals) · `delivery` (signed engagements) · `business-intelligence` (client/market intel) · `ai-discovery-workshop` (workshop-based use-case scoping) · `harness-operator` (board-driven build) · `ceric` (input documents read as hunts; the synthesis audited before it lands — see `references/ceric-gates.md`) · `evolution` (meta: evolve the skills from their traces) · `skill-builder` (meta: author/shape a skill) · execution-layer (`omlx`, `media-gen`, `zalo-platform`, `gsheets`, doc skills). `vietnamese-copywriter` fires alongside whichever of these carries the file, whenever the artifact is Vietnamese.
+- **Invokes:** `dev` (build/design/sprint/assess) · `applied-ml-problem-solver` (ML/CV/NLP/retrieval judgment — framing, metrics, experiment design, RAG, inference budgets; runs *before* dev on an ML task) · `solution-architect` (client-facing architecture, proposals) · `delivery` (signed engagements) · `business-intelligence` (client/market intel) · `ai-discovery-workshop` (workshop-based use-case scoping) · `ceric` (input documents read as hunts; the synthesis audited before it lands — see `references/ceric-gates.md`) · `evolution` (meta: evolve the skills from their traces) · `skill-builder` (meta: author/shape a skill) · execution-layer (`omlx`, `zalo-platform`, `drawio`, and the selected media/document workflows).
 - **Inherits:** `core` — integrity constraints, gate-by-artifact, wiki protocol, grounding gate, pushback-and-teach, the evolution loop.
 - **Defers to:** any sibling invoked directly by name. If the user says `/dev`, conductor stays out of the way.
 - **Owns, because nothing else did:** the routing decision, the task-force protocol, persona fan-out, the convergence contract, the lane plan, the goal file.
