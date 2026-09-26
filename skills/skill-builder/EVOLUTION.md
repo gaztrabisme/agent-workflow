@@ -184,6 +184,7 @@ fixes a skill that isn't invoked when a skill is being built.
 
 ### Validation results
 - [x] `npx -y skills-ref@latest validate .` passes (description 1023 characters).
+- [x] Step 5 widened (2026-09-26, design programme run 1) from measurement only to execution and verification for agents: output medium, scripts and templates, the render-and-check loop with code checks before a fresh-context vision review ("not judged" when no vision is available), domain conventions over course taste, and portability (hand-offs only to owned skills, no tool names from one agent). Step 6 and step 7 point to it.
 - [ ] A second course distilled with this playbook, recording which steps held and which were skipped or changed.
 - [ ] The measurement step (5) planned before the dogfood rather than found by it.
 - **Verdict: PENDING**: authored from one build, not yet reused.

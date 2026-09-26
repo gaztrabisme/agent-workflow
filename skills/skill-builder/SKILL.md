@@ -15,7 +15,7 @@ Build skills that are **disciplined by construction** and **compose** rather tha
 
 **Don't build one when:** it's a one-off, it duplicates an existing skill's trigger, or it's really a *reference* inside an existing skill. Prefer adding a reference to an existing skill over spawning a near-synonym. Skills earn existence by being referenced (Wu Wei).
 
-**Distilling a course, book or talk series:** follow `references/distill-course.md` inside the checklist. It covers where an existing reference skill goes, anchored method digests, the science crosswalk, measuring outside the course's own tool, and keeping paid material private.
+**Distilling a course, book or talk series:** follow `references/distill-course.md` inside the checklist. It covers where an existing reference skill goes, anchored method digests, the science crosswalk, how an agent makes and checks the work (output medium, scripts, the render-and-check loop with code checks before vision), portability (hand-offs only to owned skills, no one-agent tool names), and keeping paid material private.
 
 **Distill vs author:** a skill *distilled from documents/methodology* (like `ai-discovery-workshop`, `solution-architect`) carries borrowed confidence — it ships at verdict `PENDING` and must be fire-tested. A skill *authored from your own fire-tested practice* (like `dev`) is stronger but still runs the loop.
 
@@ -81,7 +81,7 @@ Anti-pattern: a vague description → the skill never fires, or fires on the wro
 - `references/templates/SKILL.md.skeleton` — canonical section headers to fill (keeps the constellation greppable by section).
 - `../evolution/references/templates/EVOLUTION.md.skeleton` — the evolution-ledger a new skill ships with. Lives in the `evolution` skill, which owns the ledger's shape and the loop behind it.
 - `references/templates/dogfood-brief.md` — the fresh-context critic brief + pass condition + evidence location.
-- `references/distill-course.md` — distilling a course (or book) into a method skill: layout, anchored digests, crosswalk, measurement, privacy. Worked example: `../color-theory/`.
+- `references/distill-course.md` — distilling a course (or book) into a method skill: layout, anchored digests, crosswalk, execution and verification for agents, portability, privacy. Worked example: `../color-theory/`.
 - `references/templates/method-digest.md` — one stage of a distilled method, every claim cited to an anchor.
 - `references/templates/science-crosswalk.md` — course claims against a science library: Agrees / Refines / Adds.
 - `scripts/check_refs.py` — fails on a broken link, a missing file or a cited anchor absent from the source files; copy it into any distilled skill.

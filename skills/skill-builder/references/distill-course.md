@@ -38,6 +38,7 @@ references/
     science-crosswalk.md     course claims against the science library (templates/science-crosswalk.md)
     measurement.md           formulas and default thresholds for every measurable test
   course/                  the reading copy: lesson .md files, unit tasks, frames/, the PDF, pdf-index.md
+  templates/               fill-in output templates the agent renders and checks (step 5)
   <science-library>/       the vendored collection, unedited
 scripts/
   check_refs.py            copied from ../scripts/check_refs.py, so the skill stands alone
@@ -63,14 +64,33 @@ Check each important course claim against the science library and give it one ve
 
 Record disagreements here; never merge a correction silently into a method digest. The corrections that change how the method is applied also go into `SKILL.md` as a short list.
 
-## 5. Plan measurement outside the course's tool
+## 5. Rebuild execution and verification for agents
 
-Courses teach inside one application (the color course used Photoshop throughout). An agent usually cannot run that application. For every check in the review checklist, give:
+A course teaches a person working inside one application (the color course used Photoshop throughout). Steps 3 and 4 carry the *method* across: what to decide, in what order. They do not carry how an agent *makes* the work or how it *proves* the work is right, because an agent usually cannot run the course's application and cannot look at its screen. A course skill therefore has three layers, and this step builds the last two.
+
+### Execution: how the agent makes the artifact
+- **Output medium.** For each kind of deliverable, name what the agent writes. Shapes, diagrams, charts and icons are SVG. Layouts, slides and pages are HTML that composes the SVG. Raster images are for photographs and textures only. WebGL or WebGPU are for 3D scenes and data too large for SVG. One renderer, headless Chromium, turns any of these into PNG, PDF or video frames, so the check loop below sees exactly what the reader will see.
+- **Templates and scripts.** Ship a script or a template instead of an instruction when a step recurs, must be exact, is something agents do badly, or fails silently (text overflowing its box, a color drifting off its ramp). Everything else stays an instruction. Scripts go in `scripts/`, fill-in templates in `references/templates/`.
+- **Domain conventions win.** Where the reader's domain has conventions (a drilling engineer's depth axis pointing down, a trading desk's red for losses), they override the course's taste; the skill says so. Components specific to one project belong in that project's code, not in the skill.
+
+### Verification: the render-and-check loop
+Render the artifact, check it, fix it, render again. The checks run in a fixed order:
+1. **Code checks first**, because they are exact and cheap: contrast and color-vision deficiency, text overflow and collisions, whether each mark matches its data, value and chroma against the plan. Each is a script subcommand with a default threshold.
+2. **Vision second**, by a reviewer that did not make the artifact (a fresh context), given the rendered image and specific questions taken from the review checklist, such as "is the focal point the brightest area?", never "does this look good?". When no model with vision is available, those checks are reported as **not judged**; they are never passed silently.
+3. **The report** says which checks were measured, judged by vision, not judged, or skipped, and why.
+
+### Measurement outside the course's tool
+For every test in the review checklist, give:
 - the course's own steps in its tool;
-- a tool-independent way to run it: a script subcommand, a formula, or "judged by eye" when no measurement exists;
+- a tool-independent way to run it: a script subcommand, a formula, or a vision question when no measurement exists;
 - a default threshold, marked as the skill's choice where the course gave none.
 
 The color skill shipped without this and its dogfood run failed on it: the tester could not measure a single test. It also found that the course tool's own reading can mislead (HSB saturation reads dark colors as saturated), so check each measure against the science library before adopting it.
+
+### Portability: the skill runs with any agent
+- **Hand off only to owned skills**, meaning skills the owner controls and can run anywhere. Where neighbouring work belongs to a skill you do not own, or to a feature built into one vendor's app, state the boundary by artifact ("choosing a chart type is not this skill") instead of naming it.
+- **Name no tool that exists in one agent only**, such as a particular agent's file-reading, shell or subagent tool. Say what to do ("open the PDF at page 12", "run `scripts/checks.py contrast`"), not which tool to call. Fix generated text at its source: the color skill's page index named one agent's file-reading tool because the archive script wrote that sentence.
+- **Check it before finishing:** search the skill for the names of skills it does not own and for tool names. An empty result is part of the acceptance.
 
 ## 6. SKILL.md
 
@@ -78,14 +98,15 @@ Beyond the skeleton (`templates/SKILL.md.skeleton`):
 - **Principles** each with an anchor.
 - **The flow** as a table: stage · decide · check before moving on · reference.
 - **Scale the flow:** the short path for a quick question, the order for a critique of existing work, what to re-check after a fix.
-- **Output:** cite anchors or PDF pages; say which tests were measured, judged by eye, or skipped and why.
+- **Output:** cite anchors or PDF pages; say which tests were measured, judged by vision, not judged, or skipped and why.
+- **Execution and verification** from step 5: the output medium per deliverable, the scripts and templates, and the render-and-check loop.
 - **When to open the science library**, with the crosswalk's corrections as a list.
 - **Grounding gate:** no method claim without an anchor, no fact without a science-library reference.
 - The anti-pattern "stating a course principle without its anchor, or presenting a derived summary as the teacher's words".
 
 ## 7. Dogfood
 
-Use `templates/dogfood-brief.md` with the course-skill tasks listed there: a plan from a brief, a critique of real or mocked work run through the whole review checklist, and a question that must route into the science library.
+Use `templates/dogfood-brief.md` with the course-skill tasks listed there: a plan from a brief, a critique of real or mocked work run through the whole review checklist, and a question that must route into the science library. At least one task makes an artifact through the skill's execution path and runs the full render-and-check loop on it, including the vision questions.
 
 ## 8. Privacy and install
 
