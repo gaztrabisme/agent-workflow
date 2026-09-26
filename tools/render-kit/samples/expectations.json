@@ -1,0 +1,19 @@
+[
+  { "input": "good/slide.html", "fail": [] },
+  { "input": "good/chart.svg", "fail": [] },
+  { "input": "good/animated.html", "fail": [] },
+  { "input": "good/raf.html", "fail": [] },
+  { "input": "good/print-media.html", "fail": [] },
+  { "input": "good/dense.svg", "fail": [] },
+  { "input": "bad/resources.html", "fail": ["resources"] },
+  { "input": "bad/console.html", "fail": ["console"] },
+  { "input": "bad/fonts.html", "fail": ["fonts"] },
+  { "input": "bad/overflow.html", "fail": ["overflow"] },
+  { "input": "bad/collision.svg", "fail": ["collision"] },
+  { "input": "bad/contrast.html", "fail": ["contrast"] },
+  { "input": "bad/cvd.svg", "fail": ["cvd"] },
+  { "input": "bad/fidelity.svg", "fail": ["fidelity"] },
+  { "input": "bad/a11y.html", "fail": ["a11y"] },
+  { "input": "bad/value.html", "fail": ["value"] },
+  { "input": "bad/pdf-fonts.html", "fail": ["pdf-fonts"] }
+]

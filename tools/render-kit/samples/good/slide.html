@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><title>Quarterly operating performance</title>
+  <style>
+    @page { size: 1920px 1080px; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1920px; height: 1080px; font-family: sans-serif; color: #18212b; background: #fff; }
+    [data-rk-stage] { position: relative; width: 1920px; height: 1080px; padding: 76px 104px; overflow: hidden; }
+    h1 { margin: 0 0 20px; font-size: 48px; line-height: 1.25; }
+    p { margin: 0; font-size: 24px; line-height: 1.4; }
+    .chart-frame { position: absolute; left: 420px; top: 280px; width: 1080px; height: 640px; }
+    svg { display: block; width: 1080px; height: 640px; }
+  </style>
+</head>
+<body>
+  <main data-rk-stage>
+    <h1>Growth is broadening across the portfolio</h1>
+    <p>Revenue rose 12% year over year, with services contributing the fastest growth.</p>
+    <div class="chart-frame">
+      <svg viewBox="0 0 1080 640" role="img" aria-labelledby="chart-title">
+        <title id="chart-title">Revenue by business line, index to prior year</title>
+        <g data-rk-chart data-rk-x-scale="linear" data-rk-x-domain="0,4" data-rk-x-range="100,980" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="540,60">
+          <text x="100" y="40">Revenue index</text>
+          <line x1="100" y1="540" x2="980" y2="540" stroke="#84909b" stroke-width="2" />
+          <line x1="100" y1="60" x2="100" y2="540" stroke="#84909b" stroke-width="2" />
+          <line x1="100" y1="300" x2="980" y2="300" stroke="#d9dfe5" stroke-width="2" />
+          <g data-rk-focal><rect id="bar-services" data-rk-mark data-rk-x="1" data-rk-y="82" data-rk-y0="0" data-rk-series="Services" x="280" y="146.4" width="150" height="393.6" fill="#0072B2" />
+          <rect id="bar-products" data-rk-mark data-rk-x="3" data-rk-y="64" data-rk-y0="0" data-rk-series="Products" x="720" y="232.8" width="150" height="307.2" fill="#E69F00" />
+          <circle id="point-current" data-rk-mark data-rk-x="2" data-rk-y="73" data-rk-series="Services" cx="540" cy="189.6" r="13" fill="#0072B2" />
+          <text x="355" y="190" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#ffffff">82</text>
+          <text x="795" y="280" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#18212b">64</text>
+          <g fill="none" stroke="#ffffff" stroke-width="2" opacity="0.85"><path d="M280 205H430 M720 265H870 M280 250H430 M720 305H870 M280 295H430 M720 345H870 M280 340H430 M720 385H870 M280 385H430 M720 425H870 M280 430H430 M720 465H870 M280 475H430 M720 505H870" /></g></g>
+          <path id="trend" data-rk-mark data-rk-points="0,35 2,73 4,90" d="M100 372 L540 189.6 L980 108" fill="none" stroke="#009E73" stroke-width="5" />
+          <text x="280" y="580">Services</text><text x="720" y="580">Products</text>
+        </g>
+      </svg>
+    </div>
+  </main>
+</body>
+</html>

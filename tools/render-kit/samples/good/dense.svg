@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="t"><title id="t">Dense label grid</title><rect width="1200" height="720" fill="white"/><g fill="#18212b" font-family="sans-serif" font-size="7">
+<script type="application/ecmascript"><![CDATA[
+for(let row=0;row<30;row++)for(let col=0;col<50;col++){const t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x',String(8+col*23));t.setAttribute('y',String(16+row*22));t.textContent=`L${row+1}-${String(col+1).padStart(2,'0')}`;document.currentScript.parentNode.appendChild(t)}
+]]></script></g></svg>

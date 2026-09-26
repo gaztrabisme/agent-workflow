@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Deterministic animation</title>
+<style>html,body{margin:0;width:800px;height:500px;background:#fff;font-family:sans-serif}#css{position:absolute;left:20px;top:20px;width:40px;height:40px;background:#0072b2;animation:move 1000ms linear both}@keyframes move{to{transform:translateX(300px);background:#e69f00}}#wa{position:absolute;left:20px;top:100px;width:40px;height:40px;background:#009e73}svg{position:absolute;left:20px;top:180px}</style></head>
+<body><div id="css"></div><div id="wa"></div><svg width="500" height="100" viewBox="0 0 500 100"><rect id="smil" x="20" y="20" width="40" height="40" fill="#cc79a7"><animate attributeName="x" from="20" to="320" dur="1s" fill="freeze" /></rect></svg>
+<script>window.addEventListener('load',()=>document.querySelector('#wa').animate([{transform:'translateX(0px)'},{transform:'translateX(300px)'}],{duration:1000,fill:'both'}));</script></body></html>
