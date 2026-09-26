@@ -14,7 +14,7 @@ Reader: an agent using warm against cold, and saturated against desaturated, to 
 | Composition | Example | Source |
 |---|---|---|
 | Warm image, cold focal point | A monster's blue-violet mouth in warm sandstone. Shifting the blue to warm removes most of the focal pull. | 1140 · U4 · L17 · 04:32–05:51 |
-| Cold image, warm protagonist | A dark blue landscape with one peach accent | 1140 · U4 · L17 · 07:09–08:00 |
+| Cold image, warm protagonist | Said, not analysed; the slide shows a dark blue landscape with one peach accent (frame) | 1140 · U4 · L17 · 07:09–08:00 |
 | Warm, cold, warm planes for depth | The Croods: warm foreground, cold middle ground, warm background. It works like black, grey and light grey. | 1140 · U4 · L17 · 05:51–07:09 |
 
 - **Temperature is relative.**
@@ -47,7 +47,7 @@ Reader: an agent using warm against cold, and saturated against desaturated, to 
   - A desaturated green next to saturated ochres reads as ochre. So it can repeat the dominant family without being that hue. (1140 · U4 · L17 · 10:19–12:11)
 - **Colorful is an arrangement, not a level.** Images remembered as "super saturated" are often only moderately saturated. Saturation sits in key places against large desaturated areas. (1140 · U4 · L17 · 13:10–14:44)
 - **Saturation should rise toward the protagonist.**
-  - Check it in Photoshop's color picker in S mode.
+  - Check it in Photoshop's color picker in S mode, or measure OKLCH chroma with `scripts/checks.py chroma`. HSB S reads dark colors as saturated, so on night scenes use chroma. See [measurement.md](measurement.md).
   - A saturated shape at the edge is fine if it frames the image and does not touch the focal color.
 
   (1140 · U4 · L16 · 01:56–04:24)

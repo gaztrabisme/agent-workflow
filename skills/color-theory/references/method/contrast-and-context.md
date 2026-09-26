@@ -29,7 +29,7 @@ This is the mechanism behind most focal-color decisions in [palettes.md](palette
 ## Uses in the method
 
 - **Stage 1 (intent):** for a series or a brand system, plan a color script before planning individual images.
-- **Stage 3 (color plan):** decide the focal color by what surrounds it, not by the swatch alone.
+- **Stage 4 (color plan):** decide the focal color by what surrounds it, not by the swatch alone.
 - **Review:** judge colors in place. Never approve a palette from isolated swatches.
 
 Practice the teacher sets:

@@ -8,7 +8,7 @@ license: "Proprietary (private course-derived material, not for redistribution);
 
 This skill gives an ordered method for deciding color in any image: illustration, concept art, poster, brand or sequence. It also covers critiquing color that does not work. Every step is traceable to a course lesson and time.
 
-The method comes from one course: Domestika 1140, *Color Theory: How to Apply It to Your Images*. The full course is in `references/course/` as translated Markdown with 432 video frames. Underneath the method sits `references/color-science/`, the vendored `color-expert` library. It answers questions of fact: color spaces, CSS, contrast numbers, naming, pigments and history.
+The method comes from one course: Domestika 1140, *Color Theory: How to Apply It to Your Images*. The full course is in `references/course/`, both as translated Markdown with 432 video frames and as the single reading-copy PDF, with a page index. Underneath the method sits `references/color-science/`, the vendored `color-expert` library. It answers questions of fact: color spaces, CSS, contrast numbers, naming, pigments and history.
 
 > Inherits the `core` kernel. See `../core/SKILL.md`. Obey its Integrity Constraints, declare its gates, and reference its files rather than copying them.
 
@@ -18,6 +18,7 @@ The method comes from one course: Domestika 1140, *Color Theory: How to Apply It
   - any color-science question.
 - **`batch-photo-retouching` instead:** editing photographs (relighting, white balance, retouching) where the colors must stay true to the original.
 - **`design-taste-frontend`, `minimalist-ui` or `high-end-visual-design` instead:** the overall visual style of an interface. This skill still answers that interface's palette, ramp and contrast questions.
+- **`dataviz` instead:** choosing a chart type and a data encoding, including sequential and diverging scales for data. This skill answers the color science behind them (perceptual ramps, color-vision deficiency, contrast).
 - **`domestika-course-archive` instead:** archiving a course. Its `export` command is how another color course gets added here.
 
 > **Disambiguation:** decide on the **artifact**. A color decision or color fact belongs here. Overall style, photo fidelity and course packaging belong to the siblings.
@@ -53,15 +54,17 @@ The course teaches this in a deliberately reversed order: perception first, theo
 | 9 | Review | The six mistakes | Tests T1–T9 | `method/mistakes-checklist.md` |
 
 Scale the flow to the task:
-- **A quick palette question:** stages 1, 4 and 7.
+- **A quick palette question:** stages 1, 4 and 7, plus a one-line value target from stage 2 (which area is lightest and darkest).
 - **A critique of an existing image:** stage 9 first, then go back to the stage each failed test names.
+- **After any fix:** re-run T1 and T5. A value fix often flattens the chroma gradient, and a chroma fix often moves the value contrast.
+- **Measuring without Photoshop:** `scripts/checks.py` runs T1, T2, T5, T6 and T7 on an image file and computes WCAG contrast. Formulas and thresholds are in `references/method/measurement.md`.
 - **Brand or identity work:**
   1. Fix a color code of 3 colors or fewer.
   2. Tie it to form.
   3. Choose the elegant or fun recipe from `method/intent-and-meaning.md`.
 - **UI or data work:** use the method for the hierarchy (dominant, bridge and accent colors, saturation at the focal point). Use `color-science` for ramps, OKLCH and contrast numbers.
 
-**Output.** For a plan, state each decision with the stage it belongs to. For a critique, report each failure as: test, what was seen, stage to return to, one concrete change. In both, cite the course anchor (for example `1140 · U3 · L09 · 05:00–06:14`) so the reader can open the lesson in `references/course/`.
+**Output.** For a plan, state each decision with the stage it belongs to. For a critique, report each failure as: test, what was seen, stage to return to, one concrete change. In both, cite the course anchor (for example `1140 · U3 · L09 · 05:00–06:14`) so the reader can open the lesson in `references/course/`, or the PDF page listed in `references/course/pdf-index.md`. Say which tests were measured, which were judged by eye, and which were skipped and why. Deliver the plan or critique in the reply, or in a file when the user names one.
 
 ## When to open color-science
 
@@ -87,7 +90,7 @@ Open `references/color-science/SKILL.md` first, then `references/color-science/r
   - the image or brief itself.
 
   Do not state a method claim without an anchor. Do not state a science fact without a `color-science` reference. See `../core/references/grounding-gate.md`.
-- **Output Contract.** A color plan names a decision for stages 1, 2, 4 and 7 at minimum. A critique reports every failed test from `mistakes-checklist.md` with its fix. See `../core/references/wiki-protocol.md`.
+- **Output Contract.** A color plan names a decision for stages 1, 2, 4 and 7 at minimum; a quick palette answer meets stage 2 with a one-line value target. A critique reports every failed test from `mistakes-checklist.md` with its fix. See `../core/references/wiki-protocol.md`.
 - **Pushback and teach.** Push back when a request would break the value plan, for example "make everything more saturated" or "add the brand color everywhere". Explain which principle it breaks and cite the anchor. See `../core/references/pushback-and-teach.md`.
 - **Approach declaration.** This can be skipped for a single palette answer. Declare it for a multi-image system or a brand system. (core SKILL.md §7.)
 
@@ -119,8 +122,13 @@ Open `references/color-science/SKILL.md` first, then `references/color-science/r
 - `references/method/palettes.md`: the wheel, the three ingredients, palette types as amounts of contrast.
 - `references/method/temperature-saturation.md`: warm and cold groups, relative temperature, saturation layouts.
 - `references/method/mistakes-checklist.md`: tests T1–T9 and the six problems, for critique and final review.
+- `references/method/measurement.md`: OKLab and WCAG formulas, Photoshop hue ranges, and default thresholds for the tests.
 - `references/method/photoshop-techniques.md`: the teacher's Photoshop steps, with equivalents in other tools.
 - `references/method/artist-references.md`: artist families and the films analysed, for mood boards.
 - `references/method/science-crosswalk.md`: course claims checked against color science, with links.
 - `references/course/README.md`: index of the 17 lessons and 4 unit files, with anchors.
+- `references/course/Color Theory - reading copy.pdf`: the approved 299-page reading copy, with all figures in place.
+- `references/course/pdf-index.md`: the PDF page for every section anchor, for opening the PDF at a given lesson.
+- `scripts/checks.py`: measures an image for T1, T2, T5, T6 and T7, and computes WCAG contrast.
+- `scripts/check_refs.py`: verifies every relative link and cited course anchor. Run it after editing any method file.
 - `references/color-science/SKILL.md`: the color-science library's entry point.

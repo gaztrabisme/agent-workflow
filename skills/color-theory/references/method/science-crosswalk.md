@@ -34,6 +34,12 @@ Verdicts:
 | Elegant = fewer colors, low saturation, cold with a warm accent; fun = more colors and contrast (1140 · U4 · L14 · 13:00–13:50) | Agrees | Brand positioning: luxury uses restraint (neutral field, reduced chroma, one reserved accent); discount uses maximum-chroma primaries. | [brand-color-luxury-positioning.md](../color-science/references/techniques/brand-color-luxury-positioning.md) |
 | Grayscale check for structure (1140 · U3 · L08 · 03:34–05:03) | Refines | For images the check is sufficient. For text and UI, grayscale is not an accessibility proof: verify WCAG 2 or APCA contrast, and check color-vision deficiency. | [SKILL.md § Accessibility](../color-science/SKILL.md); [apca-myndex-contrast.md](../color-science/references/techniques/apca-myndex-contrast.md) |
 
+## Measuring
+
+The formulas, the Photoshop hue ranges and the default thresholds are in [measurement.md](measurement.md). Two traps to avoid:
+- WCAG 2 contrast needs the piecewise sRGB linearization, not APCA's pure 2.4 gamma.
+- HSB saturation misreads dark colors, so measure OKLCH chroma instead.
+
 ## Where color-science adds what the course does not cover
 
 - **Screens, code and CSS:** color spaces, OKLCH ramps, gamut mapping, CSS Color 4/5 syntax. Go to [SKILL.md § Implementation Guidance](../color-science/SKILL.md).

@@ -78,7 +78,7 @@ The strokes.
 
 ## Equivalents outside Photoshop
 
-These are derived, not from the course:
+These are derived, not from the course. For measured versions of the checks (OKLab value, OKLCH chroma rings, the Hue/Saturation spread, lit and shadow samples, WCAG contrast), run `scripts/checks.py`; see [measurement.md](measurement.md).
 - **GIMP:** Colors > Desaturate for grayscale, Hue-Saturation, Levels per channel, G'MIC or a median filter in place of Dust & Scratches.
 - **Procreate:** a Hue/Saturation/Brightness layer, a saturation-zero layer on top set to Color blend mode for the grayscale check, and Gaussian blur on a copy.
 - **In code:** check value on perceptual lightness (OKLCH L or CIELAB L\*), not HSL lightness. See [science-crosswalk.md](science-crosswalk.md).

@@ -33,8 +33,21 @@ The loop that turns real use into skill improvements. Mechanism: `../evolution/r
 
 ### Validation results
 - [x] `npx -y skills-ref@latest validate .` passes.
-- [x] `scripts/check_refs.py`: 14 files, 262 anchors cited, 0 problems.
-- [ ] Fresh-context dogfood on (a) a color plan from a brief and (b) a science question routed to color-science.
+- [x] `scripts/check_refs.py`: 15 files, 267 anchors cited, 0 problems.
+- [x] Fresh-context dogfood (2026-09-26). The tester (a) planned a "warm but lonely" night-market illustration, built a flat mock and ran the tests on it, (b) critiqued the mock with the checklist, and (c) built a 9-step OKLCH accent ramp with WCAG AA from step 600 up. The method caught a real flaw: the vendor's head sat at the lightness of her lit wall (OKLab L 0.565 against 0.613). Routing into color-science was clean.
+
+  Findings, all folded in:
+  - **[high] No way to measure outside Photoshop.** Added `scripts/checks.py` (T1, T2, T5, T6, T7 and WCAG contrast) and `references/method/measurement.md` (formulas, Photoshop hue ranges, default thresholds). The checklist now has a column for working without Photoshop.
+  - **[high] T5 in HSB S mode inverts on dark scenes.** T5 now measures OKLCH chroma.
+  - **[high] The library's only luminance formula, APCA's pure 2.4 gamma, inflates WCAG ratios by 10–16%.** The WCAG 2 formula is in `measurement.md`, with a warning.
+  - **[high] Trigger collision with `color-expert`.** The local link had already been removed. The remaining copies are Gary's claude.ai account skill (`anthropic-skills:color-expert`) and can only be disabled in claude.ai. A `dataviz` hand-off was added to the "When it fires" section.
+  - **[med] The restrained-palette caveat was missing from T6, and the stage numbering disagreed.** T6 now carries the caveat and the range numbers (30° core, 30° falloff, read from the L18 frames). Stage numbering is fixed. The quick path now includes a one-line value target, matching the Output Contract.
+  - **[med] T3 breaks on flat graphic work.** T3 is now skipped for flat styles.
+  - **[med] No step to re-check after a fix.** Added "re-run T1 and T5 after any fix".
+  - **[med] No recipe for mixed feelings.** Added a "combining two feelings" rule, labelled as derived.
+  - **[low] Other gaps.** T7 now has warm and cool hue bands. A frame-derived example is marked "(frame)". Reports must now say which tests were measured, judged by eye, or skipped.
+  - **Not changed:** a minified JavaScript scrape inside the vendored `colorandcontrast` reference. That is an upstream issue, and the vendored library is not edited here.
+- [x] The reading-copy PDF (299 pages, rebuilt with the current rules) is in `references/course/`, with `pdf-index.md` giving the page for all 191 section anchors. One entry was checked against the rendered page (1140 · U3 · L09 · 03:57–05:00 → page 121).
 - [ ] Two real uses on Gary's own images or briefs, with the plan or critique checked against the result.
 - [ ] Validate the distilled claims against real use. Any principle that fails in practice is revised or marked with its limits.
 - **Verdict: PENDING**: distilled from one course, and not yet used on a real task.

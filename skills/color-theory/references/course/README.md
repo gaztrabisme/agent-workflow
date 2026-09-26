@@ -23,3 +23,5 @@ Reading copy as Markdown: one file per lesson, translated into English from the 
 | 1140 · U4 · L18 | [BONUS: Solving Common Color Problems](U04-L18-bonus-solving-common-color-problems.md) | 13:12 | es | 32 |
 
 Not included (teacher introduction): L01 Presentation (Who am I)
+
+The same content as one PDF: [Color Theory - reading copy.pdf](Color%20Theory%20-%20reading%20copy.pdf), with a page for every section in [pdf-index.md](pdf-index.md).

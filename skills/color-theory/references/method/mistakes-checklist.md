@@ -6,17 +6,21 @@ Run the tests in this order. Each one names the stage of the method to go back t
 
 ## Tests
 
-| # | Test | How | Pass condition | Back to |
-|---|---|---|---|---|
-| T1 | Grayscale | Add a Black & White adjustment layer, or desaturate a copy. Compare it with the value plan. | The focal point carries the strongest value contrast, and the flows lead to it. (1140 · U3 · L08 · 03:34–05:03, 1140 · U3 · L13 · 04:50–05:34) | Value plan |
-| T2 | Fewer levels | Posterize the grayscale to 3 to 5 flat levels. | The protagonists and contrasts are still where planned. (1140 · U3 · L08 · 05:03–06:31) | Value plan |
-| T3 | Dust & Scratches | Filter > Noise > Dust & Scratches on a copy. | The surviving hard edges cluster at the focal point. (1140 · U2 · L07 · 04:54–05:48) | Value plan |
-| T4 | Mood board | Place the image next to references for the target feeling, alongside alternative versions. | The chosen version sits in the references' range. (1140 · U4 · L18 · 07:27–08:56) | Intent |
-| T5 | Saturation map | Photoshop color picker in S mode, sampling from the edges inward. | Saturation rises toward the protagonist. Saturated edges only frame. (1140 · U4 · L16 · 01:56–04:24) | Temperature and saturation |
-| T6 | Hue/Saturation spread | Adjustment layer: select the dominant range (for example Yellows) and move its hue, then try the secondary range (Greens). | Moving the dominant range does not recolor almost everything, and the secondary range responds. (1140 · U4 · L18 · 05:09–07:27) | Texture and variety |
-| T7 | Light coherence | Sample a lit side and a shadow side of the key objects. | Lit sides carry the light's temperature and shadows the ambient temperature. (1140 · U4 · L18 · 10:26–12:20) | Light |
-| T8 | Area clarity | Squint, or look at a thumbnail. | Each large area has one clear dominant color, with only chosen interruptions. (1140 · U4 · L18 · 00:30–01:47) | Harmony |
-| T9 | Counterweight | Temporarily desaturate the strongest color patch. | If the image loses balance, the patch is load-bearing, so keep it and protect it. (1140 · U3 · L11 · 04:32–06:00) | Rhythm and balance |
+| # | Test | In Photoshop | Without Photoshop | Pass condition | Back to |
+|---|---|---|---|---|---|
+| T1 | Grayscale | Black & White adjustment layer | `checks.py value IMG --focal x0,y0,x1,y1` (OKLab L, not HSL) | The focal point carries the strongest value contrast and the flows lead to it. Script default: the focal box holds at least 2× its area share of value edges. (1140 · U3 · L08 · 03:34–05:03, 1140 · U3 · L13 · 04:50–05:34) | Value plan |
+| T2 | Fewer levels | Posterize the grayscale to 3–5 levels | The `-levels4.png` that `checks.py value` writes | The protagonists and contrasts are still where planned. (1140 · U3 · L08 · 05:03–06:31) | Value plan |
+| T3 | Dust & Scratches | Filter > Noise > Dust & Scratches on a copy | A median filter on the grayscale at a radius of about 1% of the image width | The surviving hard edges cluster at the focal point. **Skip for flat or graphic styles**, where every edge is hard; T1's edge share replaces it. (1140 · U2 · L07 · 04:54–05:48) | Value plan |
+| T4 | Mood board | Place the image beside references for the target feeling, with alternative versions | Same; needs reference images | The chosen version sits in the references' range. (1140 · U4 · L18 · 07:27–08:56) | Intent |
+| T5 | Saturation map | Color picker in S mode, sampling from the edges inward (unreliable on dark colors) | `checks.py chroma IMG --focal …` (OKLCH C by ring) | Chroma rises toward the protagonist; saturated edges only frame. An inverted layout is allowed when deliberate, as in the terrifying recipe. (1140 · U4 · L16 · 01:56–04:24, 1140 · U4 · L16 · 05:37–07:21) | Temperature and saturation |
+| T6 | Hue/Saturation spread | Adjustment layer: move the dominant range (for example Yellows), then a secondary range (Greens) | `checks.py spread IMG` (Photoshop's ranges: 30° core, 30° falloff) | The dominant range does not move almost everything, and a secondary range responds. Script default: fails if one range moves more than 80% and no other moves 5%. A deliberately restrained or pastel palette may fail; the teacher allows it. (1140 · U4 · L18 · 05:09–07:27) | Texture and variety |
+| T7 | Light coherence | Sample a lit side and a shadow side of the key objects | `checks.py sample IMG x,y x,y` (warm h 20–100, cool 200–320) | Lit sides carry the light's temperature and shadows the ambient temperature; compare the pair, not absolute bands. (1140 · U4 · L18 · 10:26–12:20) | Light |
+| T8 | Area clarity | Squint, or look at a thumbnail | Downscale to about 64 px wide and view it | Each large area has one clear dominant color, with only chosen interruptions. (1140 · U4 · L18 · 00:30–01:47) | Harmony |
+| T9 | Counterweight | Temporarily desaturate the strongest color patch | Desaturate the patch in a copy and compare side by side | If the image loses balance, the patch is load-bearing: keep it. (1140 · U3 · L11 · 04:32–06:00) | Rhythm and balance |
+
+Formulas, thresholds and when to override them: [measurement.md](measurement.md). T4, T8 and T9 are judged by eye. When reporting, say which tests were measured, which were judged by eye, and which were skipped and why.
+
+**After any fix, re-run T1 and T5.** A value fix often flattens the chroma gradient, and a chroma fix often moves the value contrast.
 
 ## The six problems
 

@@ -41,6 +41,13 @@ The gentle and aggressive versions use the same palette. The feeling changes wit
 
 Darkness frightens because it creates ambiguity: what cannot be seen is unknown. (1140 · U4 · L14 · 05:14–05:49)
 
+## Combining two feelings (derived)
+
+Briefs often pair feelings, such as "warm but lonely". The course demonstrates single targets only, so this rule is the skill's derivation from the course's parts:
+1. Give each feeling its own ingredient or area rather than averaging them. Loneliness can take the value and the space, with a mostly dark or cool field and wide silences (see rhythm in [rhythm-balance-flow.md](rhythm-balance-flow.md)). Warmth can take temperature on the protagonist.
+2. Use a temperature composition to hold both: a cold image with a warm protagonist (1140 · U4 · L17 · 07:09–08:00).
+3. Check each feeling separately against its own mood-board references (T4).
+
 ## No color has a fixed meaning
 
 - Charts of color meanings, such as StudioBinder's film cheat sheet, list common associations, and viewers do expect them. (1140 · U2 · L04 · 03:30–04:17)

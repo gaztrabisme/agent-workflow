@@ -1,3 +1,5 @@
 .DS_Store
 *.pdf
+!references/course/*.pdf
 .claude/
+__pycache__/
