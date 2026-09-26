@@ -969,6 +969,39 @@ def export_lesson(meta: dict, directory: Path, rules: dict, log: Removals, out: 
     return '\n'.join(parts).rstrip() + '\n', count
 
 
+def pdf_page_index(pdf: Path) -> dict[str, int]:
+    """Map each section anchor (course · Uu · Lll · mm:ss–mm:ss) to the first PDF page showing it."""
+    from pypdf import PdfReader
+    found: dict[str, int] = {}
+    pattern = re.compile(r'(\d+)\s*·\s*U(\d+)\s*·\s*L(\d{2})\s*·\s*(\d{1,2}:\d{2}(?::\d{2})?)\s*[–-]\s*(\d{1,2}:\d{2}(?::\d{2})?)')
+    for number, page in enumerate(PdfReader(pdf).pages, start=1):
+        for match in pattern.finditer(page.extract_text() or ''):
+            found.setdefault(f'{match[1]} · U{match[2]} · L{match[3]} · {match[4]}–{match[5]}', number)
+    return found
+
+
+def write_pdf_index(out: Path, pdf: Path, lessons: list[tuple[str, str, str, list[str]]]) -> int:
+    """Copy the reading-copy PDF into out/ and write pdf-index.md; returns anchors not found."""
+    target = out / pdf.name
+    shutil.copy2(pdf, target)
+    pages = pdf_page_index(target)
+    missing = 0
+    lines = [f'# Page index: {pdf.name}', '',
+             f'Every section of the reading copy with the PDF page it starts on. Open a page with the Read tool '
+             f'(`pages: "N"`, or a range such as "N-M"); the Markdown lesson files hold the same text and figures.', '']
+    for lesson_anchor, title, filename, anchors in lessons:
+        known = [pages[a] for a in anchors if a in pages]
+        start = min(known) if known else '?'
+        lines += [f'## {lesson_anchor} · {title} (page {start}, [Markdown]({filename}))', '',
+                  '| Section anchor | Page |', '|---|---|']
+        for anchor in anchors:
+            missing += anchor not in pages
+            lines.append(f'| {anchor} | {pages.get(anchor, "not found")} |')
+        lines.append('')
+    (out / 'pdf-index.md').write_text('\n'.join(lines), encoding='utf-8')
+    return missing
+
+
 def cmd_export(args) -> int:
     course, units = load_course(args.manifest, args.unit)
     rules = load_rules(course['course_id'])
@@ -976,6 +1009,7 @@ def cmd_export(args) -> int:
     out.mkdir(parents=True, exist_ok=True)
     cleaned, log = clean_course(course, units, args.workdir, rules)
     rows, excluded = [], []
+    indexed: list[tuple[str, str, str, list[str]]] = []
     lessons = figures = unit_files = 0
     for unit in units:
         extras = [extra['html'] for extra in cleaned[unit['number']]['extras'] if has_content(extra)]
@@ -1000,6 +1034,8 @@ def cmd_export(args) -> int:
             meta = json.loads((directory / 'lesson.json').read_text(encoding='utf-8'))
             name = f'U{unit["number"]:02d}-L{lesson["number"]:02d}-{slug(lesson["title"])}.md'
             text, count = export_lesson(meta, directory, rules, log, out)
+            indexed.append((f'{course["course_id"]} · U{unit["number"]} · L{lesson["number"]:02d}', lesson['title'], name,
+                            re.findall(r'^Anchor: (\d+ · U\d+ · L\d{2} · [\d:]+–[\d:]+)$', text, re.M)))
             (out / name).write_text(text, encoding='utf-8')
             lessons += 1
             figures += count
@@ -1014,6 +1050,13 @@ def cmd_export(args) -> int:
         index += ['Not included (teacher introduction): '
                   + '; '.join(f'L{lesson["number"]:02d} {lesson["title"]}' for lesson in excluded), '']
     (out / 'README.md').write_text('\n'.join(index), encoding='utf-8')
+    if args.pdf:
+        index += [f'The same content as one PDF: [{args.pdf.name}]({args.pdf.name.replace(" ", "%20")}), '
+                  'with a page for every section in [pdf-index.md](pdf-index.md).', '']
+        (out / 'README.md').write_text('\n'.join(index), encoding='utf-8')
+        missing = write_pdf_index(out, args.pdf.expanduser().resolve(), indexed)
+        if missing:
+            raise RuntimeError(f'{missing} section anchor(s) not found in {args.pdf.name}; rebuild the PDF first.')
     log.write(args.workdir / 'reading' / 'removed.log')
     print(f'Exported {lessons} lesson(s), {unit_files} unit file(s), {figures} figure(s) to {out}; '
           f'{len(log.rows)} removal(s) logged')
@@ -1044,6 +1087,7 @@ def main() -> int:
     build.add_argument('--teacher', help='Teacher name for the title page')
     export = course_command('export', 'Write the reading copy as Markdown files plus frames')
     export.add_argument('--out', type=Path, required=True, help='Destination directory')
+    export.add_argument('--pdf', type=Path, help='Reading-copy PDF from build: copy it in and write pdf-index.md')
     frames = sub.add_parser('frames', help='Extract kept frames at full resolution')
     frames.add_argument('lesson_dir', type=Path, help='reading/UNN/LNN directory')
     frames.add_argument('--at', action='append', required=True, help='Timestamp mm:ss[.f] (repeatable)')
