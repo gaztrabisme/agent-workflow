@@ -18,7 +18,7 @@ bin/rk brief page.html --questions questions/slide.md --out-dir out/review --pur
 
 1. Write the artifact as HTML or SVG, with the markup below.
 2. `bin/rk check <file> [--pdf]`. Fix every `fail`, and re-run until none is left. Read every `skipped` and `incomplete` reason; they are not passes. `n/a` means the input had nothing for that check (no chart markup, no PDF).
-3. `bin/rk brief <file> --questions <set> --out-dir <dir>`. Give `brief.md` and the PNGs to a reviewer that did not make the artifact and can see images. It fills `answers.json` from the template.
+3. `bin/rk brief <file> --questions <set> --out-dir <dir>`. Give `brief.md` and the PNGs to a reviewer that did not make the artifact and can see images. It copies `answers.template.json` (which `rk brief` writes) to `answers.json` and fills it.
 4. `bin/rk brief --verify <dir>/answers.json`. A `no` is a failure to fix. When no reviewer can see images, the answers are `not-judged` and the report says so; they never count as passes.
 
 ## Markup the checks read
@@ -29,7 +29,8 @@ bin/rk brief page.html --questions questions/slide.md --out-dir out/review --pur
 | `data-rk-focal` | The focal area (value and chroma checks) |
 | `data-rk-series="<name>"` | A categorical series (colour-vision check) |
 | `data-rk-chart` + `data-rk-{x,y}-{scale,domain,range}` | A chart root and its scales |
-| `data-rk-mark` + `data-rk-x`, `data-rk-y`, `data-rk-x0`, `data-rk-y0`, `data-rk-points` | A data mark and its values |
+| `data-rk-mark` + `data-rk-x`, `data-rk-y`, `data-rk-x0`, `data-rk-y0`, `data-rk-points` | A data mark and its values. For a bar, `data-rk-y` is the value at the bar's end and `data-rk-y0` its base (a stacked segment's base is the sum below it; the default base is 0). Points and lines use data values, not pixels |
+| reversed `data-rk-{x,y}-range` | Supported: a range such as `"0,500"` on a depth axis with domain `"3900,0"`, or domain `"0,3900"` with range `"500,0"`, draws depth increasing downward |
 | `data-rk-allow-overlap`, `data-rk-allow-truncate`, `data-rk-ignore` | Deliberate exceptions |
 
 Details and exact rules: `SPEC.md` sections 6 and 8.
