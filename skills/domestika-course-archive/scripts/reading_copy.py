@@ -211,7 +211,10 @@ def clean_prose(text: str, rules: dict, where: str, log: Removals) -> str:
                 kept.append(sentence)
                 continue
             # Drop only the matching clause, so teaching in the same sentence survives.
-            clauses = re.split(r'(?<=;)\s+|(?<=,)\s+(?=(?:you can|you may) also\b)', sentence)
+            clauses = re.split(
+                r'(?<=;)\s+|(?<=,)\s+(?=(?:you can|you may) also\b)'
+                r'|\s+(?=and\s+(?:post|share|upload|show|publish)\b)',
+                sentence, flags=re.I)
             survivors = []
             for clause in clauses:
                 rule = first_match(rules['prose_cta'], clause)
@@ -222,7 +225,10 @@ def clean_prose(text: str, rules: dict, where: str, log: Removals) -> str:
             if len(survivors) == len(clauses):
                 log.add(sentence_rule, where, sentence)
             elif survivors:
-                kept.append(re.sub(r'[;,]$', '.', ' '.join(survivors).rstrip()))
+                surviving_text = re.sub(r'[;,]$', '.', ' '.join(survivors).rstrip())
+                if not surviving_text.endswith(('.', '!', '?')):
+                    surviving_text += '.'
+                kept.append(surviving_text)
         if ' '.join(kept).strip():
             lines.append(prefix + ' '.join(kept))
         elif not line.strip():

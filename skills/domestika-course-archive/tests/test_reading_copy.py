@@ -192,20 +192,37 @@ class CleanTests(unittest.TestCase):
                          'Ask people what they see first to check your mission.')
         self.assertEqual(len(log.rows), 2)
 
-    def test_flag_exercise_sentence_is_preserved(self):
+    def test_coordinated_flag_forum_invitation_clause_is_removed(self):
         rules = rc.load_rules(7)
         log = rc.Removals()
-        text = ('Choose five colors that make two complementary pairs, then add yellow to balance the set. '
-                'Viewers are asked to make their own flags and post them in the forum.')
-        self.assertEqual(rc.clean_prose(text, rules, 'U02/L15', log), text)
-        self.assertEqual(log.rows, [])
+        text = 'Viewers are asked to make their own flags and post them in the forum.'
+        self.assertEqual(rc.clean_prose(text, rules, 'U02/L15', log),
+                         'Viewers are asked to make their own flags.')
+        self.assertEqual(len(log.rows), 1)
+        self.assertEqual(log.rows[0][1:], ('U02/L15', 'and post them in the forum.'))
 
-    def test_palette_classification_sentence_is_preserved(self):
+    def test_coordinated_palette_forum_invitation_clause_is_removed(self):
         rules = rc.load_rules(7)
         log = rc.Removals()
         text = ('When finished, classify the palettes as analogous, monochromatic, or complementary '
-                'and share the observations in the forum. The next lesson applies color choices.')
-        self.assertEqual(rc.clean_prose(text, rules, 'U02/L17', log), text)
+                'and share the observations in the forum.')
+        self.assertEqual(rc.clean_prose(text, rules, 'U02/L17', log),
+                         'When finished, classify the palettes as analogous, monochromatic, or complementary.')
+        self.assertEqual(len(log.rows), 1)
+        self.assertEqual(log.rows[0][1:], ('U02/L17', 'and share the observations in the forum.'))
+
+    def test_standalone_forum_invitation_is_removed(self):
+        rules = rc.load_rules(7)
+        log = rc.Removals()
+        self.assertEqual(rc.clean_prose('Share it in the forum.', rules, 'U02/L18', log), '')
+        self.assertEqual(len(log.rows), 1)
+        self.assertEqual(log.rows[0][1:], ('U02/L18', 'Share it in the forum.'))
+
+    def test_forum_as_subject_of_teaching_is_kept(self):
+        rules = rc.load_rules(7)
+        log = rc.Removals()
+        text = 'The forum of ancient Rome used a grid plan.'
+        self.assertEqual(rc.clean_prose(text, rules, 'U02/L19', log), text)
         self.assertEqual(log.rows, [])
 
     def test_recommended_tools_are_kept(self):

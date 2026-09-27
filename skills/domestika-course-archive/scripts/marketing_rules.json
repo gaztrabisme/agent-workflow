@@ -42,6 +42,7 @@
     "my newsletter",
     "leave (me )?a (review|rating|comment)",
     "share (it|them|your (work|project|results?|images?)) (on|in) the (forum|community|project gallery)",
+    "\\b(?:post|share|upload|show|publish)\\b[^.!?;]*\\b(?:in|on|to) the forum\\b",
     "upload your (project|work) to",
     "see you in (my|the) next course",
     "check out my other courses?",
