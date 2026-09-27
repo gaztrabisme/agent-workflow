@@ -8,6 +8,7 @@ Per unit of work, one row:
 |---|---|---|---|---|
 
 - **Brief** — three sections, always the same three: **Target** (what exists, what is wrong with it), **Change** (what the unit must produce), **Acceptance** (a command that proves the work is done). Every brief ends with: *"write the report before running out of steps even if the verdict is FAIL."*
+  - **Every brief names its paths and forbids searching outside them.** The brief names the paths the child may read and write, and forbids listing or searching outside them — no `find`, `grep`, `ls` or `mdfind` on the home folder or `/`. A search of the home folder crosses the owner's cloud drives and triggers macOS privacy prompts.
   - **Target names the anchors.** Where other files cite the numbering of what the unit touches (a spine item, a section number), Target names each anchor at its current number.
   - **Numbered structure carries a sweep.** A unit that edits numbered structure includes the sweep `grep -rn "spine #\|SKILL.md §"` across the constellation and the repointing it finds, and its Acceptance command proves the repointing.
   - **Change names its upstream.** Where upstream content exists, Change points at it — "exactly as given in <file> §<n> row <m>" — rather than containing the content. A brief that authors new deliverable content is coordinator work by another name.
@@ -18,7 +19,7 @@ Per unit of work, one row:
 
 ### Codex — code and adversarial review
 
-`codex exec` in a bash call. Models: `gpt-5.3-codex-spark`, `gpt-6-astra`, `gpt-5.6-luna`. For critical-path multi-file code, long build-and-fix loops, adversarial review.
+`codex exec` in a bash call. Every dispatch uses `gpt-6-luna` at `xhigh` reasoning, passed as `-m gpt-6-luna -c model_reasoning_effort=xhigh`; the other installed models — `gpt-5.3-codex-spark`, `gpt-6-astra`, `gpt-5.6-luna` — are not used unless the owner asks. For critical-path multi-file code, long build-and-fix loops, adversarial review.
 
 - The brief goes on stdin with a trailing `-` as the positional prompt.
 - `--skip-git-repo-check` when the working directory is not a git repo.
