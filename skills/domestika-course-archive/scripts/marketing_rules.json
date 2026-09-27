@@ -54,9 +54,11 @@
     "do not be upset if I"
   ],
   "intro_lessons": [
-    "^presentation\\b",
+    "^presentation(\\s*\\([^)]*\\))?$",
+    "^presentaci[oó]n(\\s*\\([^)]*\\))?$",
     "who am i",
-    "^presentaci[oó]n\\b"
+    "who i am",
+    "about me"
   ],
   "template_forbidden": [
     "domestika",

@@ -189,6 +189,15 @@ class CleanTests(unittest.TestCase):
         self.assertFalse(rc.is_intro_lesson('Influences', rules))
         self.assertFalse(rc.is_intro_lesson('What will we do in the course?', rules))
 
+    def test_intro_rules_exclude_whole_title_introductions_only(self):
+        rules = rc.load_rules(5642)
+        introductions = ['Presentation', 'Presentation (Who am I)', 'Presentación',
+                         'Who am I?', 'Who I am?', 'About me', 'About Me']
+        for title in introductions:
+            self.assertTrue(rc.is_intro_lesson(title, rules), f'{title!r} should be excluded')
+        for title in ['Presentation for screen 1', 'Presentation for screen 2']:
+            self.assertFalse(rc.is_intro_lesson(title, rules), f'{title!r} should be kept')
+
 
 class ExportTests(unittest.TestCase):
     def test_lesson_exports_as_cleaned_markdown_with_frames(self):
