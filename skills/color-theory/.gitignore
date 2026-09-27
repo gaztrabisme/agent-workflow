@@ -1,5 +1,9 @@
 .DS_Store
 *.pdf
 !references/course/*.pdf
+!references/course-1560/*.pdf
+# course-5642 PDF (119 MB) exceeds GitHub's 100 MB file limit; kept locally, not committed
 .claude/
 __pycache__/
+.run2-export-ct-report.md
+references/course-5642/*.pdf
