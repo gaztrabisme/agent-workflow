@@ -18,7 +18,7 @@ import re
 import sys
 from pathlib import Path
 
-DOMESTIKA_ANCHOR = r'\d+ · U\d+ · L\d{2} · \d{2}:\d{2}–\d{2}:\d{2}'
+DOMESTIKA_ANCHOR = r'\d+ · U\d+ · L\d{2,3} · \d{2}:\d{2}–\d{2}:\d{2}'
 LINK = re.compile(r'\]\(([^)#\s]+)(?:#[^)]*)?\)')
 PATH_MENTION = re.compile(r'`((?:references|method)/[\w./ -]+\.md)`')
 
