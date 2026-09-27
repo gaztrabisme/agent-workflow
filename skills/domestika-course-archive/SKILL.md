@@ -14,7 +14,7 @@ Creates a local ZIP archive of a Domestika course the user can access. Each unit
 - **This skill:** the user asks to preserve or organize their own Domestika course pages, lessons and timed captions into a unit-by-unit local archive.
 - **`pdf:pdf` instead:** the user wants a PDF created, inspected or repaired without collecting course media. This skill calls it for PDF rendering and visual QA.
 - **`dev` instead:** the user asks for general software development, a browser automation system, or a downloader for another service.
-- **`color-expert` instead:** the user asks for color theory or palette advice; a course title containing “color” does not make this an archive task.
+- **`color-theory` instead:** the user asks for color theory or palette advice; a course title containing “color” does not make this an archive task.
 > **Disambiguation:** use the artifact and audience — this skill produces a private course archive for the learner; `pdf` produces standalone PDF work; `dev` builds general software.
 
 ## Principles / anchoring rules
