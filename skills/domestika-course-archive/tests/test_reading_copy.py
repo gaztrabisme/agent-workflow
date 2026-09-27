@@ -1,4 +1,6 @@
 import json
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -279,6 +281,89 @@ class ExportTests(unittest.TestCase):
 
     def test_slug(self):
         self.assertEqual(rc.slug('¿Qué es la Presentación?'), 'que-es-la-presentacion')
+
+
+@unittest.skipUnless(shutil.which('ffmpeg'), 'ffmpeg is required for frame extraction')
+class FrameTests(unittest.TestCase):
+    def test_many_subsecond_timestamps_keep_name_time_and_pixels_aligned(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            lesson = root / 'reading' / 'U01' / 'L02'
+            frames = lesson / 'frames'
+            frames.mkdir(parents=True)
+            video = lesson / 'synthetic.mp4'
+            subprocess.run([
+                'ffmpeg', '-v', 'error', '-f', 'lavfi', '-i',
+                'testsrc2=duration=20:size=640x360:rate=25', '-c:v', 'libx264',
+                '-pix_fmt', 'yuv420p', '-an', '-y', str(video),
+            ], check=True, capture_output=True, text=True)
+            (lesson / 'lesson.json').write_text(json.dumps({
+                'mp4': str(video), 'duration_seconds': 20,
+            }), encoding='utf-8')
+
+            # Preserve a pre-existing legacy entry while the command adds precise names.
+            legacy = frames / 'F0003.jpg'
+            rc.grab_frame(video, 3.25, legacy, 1600, 3)
+            (lesson / 'frames.json').write_text(json.dumps({'F0003.jpg': 3.25}), encoding='utf-8')
+
+            earlier = ['00:05.2']
+            batch = ['00:17.4', '00:05.8', '00:02.13', '00:05.2', '00:14.5',
+                     '00:00.4', '00:10.01', '00:01.8', '00:17.4']
+
+            def run_frames(at_values):
+                result = subprocess.run([
+                    sys.executable, str(rc.HERE / 'reading_copy.py'), 'frames', str(lesson),
+                    *sum((['--at', value] for value in at_values), []),
+                ], check=True, capture_output=True, text=True)
+                return [line.split('\t') for line in result.stdout.splitlines()]
+
+            rows = run_frames(earlier) + run_frames(batch)
+            requests = earlier + batch
+            index = json.loads((lesson / 'frames.json').read_text(encoding='utf-8'))
+            problems = []
+            expected_dir = root / 'expected'
+            expected_dir.mkdir()
+
+            for number, (request, row) in enumerate(zip(requests, rows)):
+                seconds = round(rc.parse_time(request), 2)
+                total_centiseconds = round(seconds * 100)
+                minutes, rest = divmod(total_centiseconds, 6000)
+                whole_seconds, centiseconds = divmod(rest, 100)
+                expected_name = f'F{minutes:02d}{whole_seconds:02d}.{centiseconds:02d}.jpg'
+                expected_time = f'{minutes:02d}:{whole_seconds:02d}.{centiseconds:02d}'
+                if len(row) != 2:
+                    problems.append(f'{request}: malformed output row {row!r}')
+                    continue
+                name, printed_time = row
+                frame_path = frames / name
+                if name != expected_name:
+                    problems.append(f'{request}: got ambiguous/noncanonical name {name}, expected {expected_name}')
+                if printed_time != expected_time:
+                    problems.append(f'{request}: printed {printed_time}, expected precise time {expected_time}')
+                printed_seconds = rc.parse_time(printed_time)
+                if not frame_path.exists():
+                    problems.append(f'{request}: printed frame {name} does not exist')
+                    continue
+                if name not in index or abs(index[name] - printed_seconds) > 0.001:
+                    problems.append(f'{request}: frames.json maps {name} to {index.get(name)!r}, expected {printed_seconds}')
+
+                expected_path = expected_dir / f'{number}.jpg'
+                rc.grab_frame(video, printed_seconds, expected_path, 1600, 3)
+                with rc.Image.open(frame_path) as actual, rc.Image.open(expected_path) as expected:
+                    if actual.convert('RGB').tobytes() != expected.convert('RGB').tobytes():
+                        problems.append(f'{request}: frame pixels differ from a direct extraction at {printed_seconds:.2f}s')
+
+            if len(rows) == len(requests) and len(rows) >= 3:
+                first_same_second = frames / rows[0][0]
+                second_same_second = frames / rows[2][0]
+                if first_same_second.exists() and second_same_second.exists() and first_same_second.read_bytes() == second_same_second.read_bytes():
+                    problems.append('the 5.2s and 5.8s samples unexpectedly contain identical image data')
+
+            if len(rows) != len(requests):
+                problems.append(f'got {len(rows)} output rows for {len(requests)} requests')
+            if index.get('F0003.jpg') != 3.25 or not legacy.exists():
+                problems.append('the existing frames.json entry F0003.jpg was not preserved')
+            self.assertFalse(problems, '\n'.join(problems))
 
 
 class CandidateTests(unittest.TestCase):

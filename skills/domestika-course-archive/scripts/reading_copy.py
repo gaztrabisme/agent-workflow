@@ -481,24 +481,32 @@ def cmd_prepare(args) -> int:
 
 # ---------------------------------------------------------------- frames
 
+def frame_name_and_time(seconds: float) -> tuple[str, str]:
+    """Return a filename and printed timestamp precise to the extraction's centisecond."""
+    total_centiseconds = round(seconds * 100)
+    minutes, rest = divmod(total_centiseconds, 6000)
+    whole_seconds, centiseconds = divmod(rest, 100)
+    return (f'F{minutes:02d}{whole_seconds:02d}.{centiseconds:02d}.jpg',
+            f'{minutes:02d}:{whole_seconds:02d}.{centiseconds:02d}')
+
+
 def cmd_frames(args) -> int:
     directory = args.lesson_dir.expanduser().resolve()
     meta = json.loads((directory / 'lesson.json').read_text(encoding='utf-8'))
     index_path = directory / 'frames.json'
     index = json.loads(index_path.read_text(encoding='utf-8')) if index_path.exists() else {}
     for value in args.at:
-        seconds = parse_time(value)
-        if not 0 <= seconds <= meta['duration_seconds']:
+        requested_seconds = parse_time(value)
+        if not 0 <= requested_seconds <= meta['duration_seconds']:
             raise ValueError(f'{value} is outside the video ({duration(meta["duration_seconds"])}).')
-        stem = f'F{int(seconds // 60):02d}{int(seconds % 60):02d}'
-        name = f'{stem}.jpg'
-        suffix = ord('b')
-        while name in index and abs(index[name] - seconds) > 0.05:
-            name = f'{stem}{chr(suffix)}.jpg'
-            suffix += 1
+        # ffmpeg receives centiseconds; encode that same precision in both the name and index.
+        seconds = float(f'{requested_seconds:.2f}')
+        name, printed_time = frame_name_and_time(seconds)
+        if name in index and abs(index[name] - seconds) > 0.005:
+            raise RuntimeError(f'Frame index entry {name} conflicts with requested time {printed_time}.')
         grab_frame(Path(meta['mp4']), seconds, directory / 'frames' / name, 1600, 3)
         index[name] = round(seconds, 2)
-        print(f'{name}\t{fmt_time(seconds)}', flush=True)
+        print(f'{name}\t{printed_time}', flush=True)
     index_path.write_text(json.dumps(dict(sorted(index.items())), indent=2) + '\n', encoding='utf-8')
     return 0
 
