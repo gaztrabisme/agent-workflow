@@ -8,7 +8,7 @@
     "newsletter",
     "^recent projects",
     "^students",
-    "^recommended",
+    "^recommended(?:\\s+courses?)?$",
     "^you may also like",
     "^reviews?$",
     "^certificates?$"
@@ -47,8 +47,10 @@
     "check out my other courses?",
     "(see|check out|take|watch|look at) my (other )?courses",
     "other courses (on|from|at) domestika|other domestika courses|courses domestika offers",
+    "if you post them on instagram, you can tag me",
     "domestika community",
-    "\\bforum\\b",
+    "you can also post them in the forum",
+    "share your best copy with your peers on the forum",
     "receive (comments|feedback)",
     "share it with your (colleagues|classmates|peers)",
     "do not be upset if I"

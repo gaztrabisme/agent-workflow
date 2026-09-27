@@ -168,6 +168,15 @@ class CleanTests(unittest.TestCase):
         self.assertEqual(rc.clean_prose(text, rules, 'U03/L08', log), 'Values set the mood.')
         self.assertEqual(len(log.rows), 2)
 
+    def test_instagram_tagging_plug_is_removed_but_exercise_survives(self):
+        rules = rc.load_rules(7)
+        log = rc.Removals()
+        text = ('Make three photographs with an object of your choice. '
+                'If you post them on Instagram, you can tag me.')
+        self.assertEqual(rc.clean_prose(text, rules, 'U02/L20', log),
+                         'Make three photographs with an object of your choice.')
+        self.assertEqual(len(log.rows), 1)
+
     def test_only_the_promotional_clause_is_removed(self):
         rules = rc.load_rules(7)
         log = rc.Removals()
@@ -182,6 +191,39 @@ class CleanTests(unittest.TestCase):
         self.assertEqual(rc.clean_prose(text, rules, 'U04/unit', log),
                          'Ask people what they see first to check your mission.')
         self.assertEqual(len(log.rows), 2)
+
+    def test_flag_exercise_sentence_is_preserved(self):
+        rules = rc.load_rules(7)
+        log = rc.Removals()
+        text = ('Choose five colors that make two complementary pairs, then add yellow to balance the set. '
+                'Viewers are asked to make their own flags and post them in the forum.')
+        self.assertEqual(rc.clean_prose(text, rules, 'U02/L15', log), text)
+        self.assertEqual(log.rows, [])
+
+    def test_palette_classification_sentence_is_preserved(self):
+        rules = rc.load_rules(7)
+        log = rc.Removals()
+        text = ('When finished, classify the palettes as analogous, monochromatic, or complementary '
+                'and share the observations in the forum. The next lesson applies color choices.')
+        self.assertEqual(rc.clean_prose(text, rules, 'U02/L17', log), text)
+        self.assertEqual(log.rows, [])
+
+    def test_recommended_tools_are_kept(self):
+        rules = rc.load_rules(7)
+        html = ('<h2>Additional resources</h2><ul><li><h3>Recommended tools</h3>'
+                '<p>Figma is free and runs on the web. Canva is a design tool.</p></li></ul>')
+        out = rc.clean_html(html, rules, 'U02/Additional resources', rc.Removals())
+        self.assertIn('Recommended tools', out)
+        self.assertIn('Figma is free', out)
+        self.assertIn('Canva is a design tool', out)
+
+    def test_recommended_books_are_kept(self):
+        rules = rc.load_rules(7)
+        html = ('<h2>Additional resources</h2><ul><li><h3>Recommended books</h3>'
+                '<p>Grid Systems in Graphic Design by Josef Müller-Brockmann.</p></li></ul>')
+        out = rc.clean_html(html, rules, 'U02/Additional resources', rc.Removals())
+        self.assertIn('Recommended books', out)
+        self.assertIn('Grid Systems in Graphic Design', out)
 
     def test_intro_lessons(self):
         rules = rc.load_rules(7)
