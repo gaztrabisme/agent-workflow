@@ -1,6 +1,6 @@
 ---
 name: color-theory
-description: "A working method for choosing and critiquing color in images, distilled from a complete color course (intent, value plan, light, color over values, harmony bridges, rhythm and balance, texture and variety, palettes, temperature and saturation, six-mistake review), with the color-expert science library inside it for facts, spaces, code and accessibility. USE WHEN planning or fixing the color of an illustration, painting, concept art, poster, brand identity, film or comic sequence, or UI theme; choosing or explaining a palette; critiquing why an image's color does not work; or any color-science question (OKLCH, CSS color, contrast ratios, naming, pigment mixing, color history). Not for photo edits (`batch-photo-retouching`), an interface's overall visual style, or choosing a chart type. Keywords: color theory, palette, color scheme, harmony, complementary, value, contrast, saturation, temperature, warm cool, mood, color script, focal point, OKLCH, WCAG, APCA."
+description: "A course-distilled method for choosing and critiquing color in images, lighting and graphic design, with a color-science library for measurement, spaces, code and accessibility. USE WHEN planning or fixing color in illustration, painting, concept art, posters, brands, film, comics or UI themes; choosing or explaining a palette; critiquing an image's color; or answering color-science questions (OKLCH, CSS, contrast, naming, pigments, history). Not for photo edits (`batch-photo-retouching`), an interface's overall style, or choosing a chart type. Keywords: color theory, palette, harmony, complementary, value, contrast, saturation, temperature, mood, color script, focal point, OKLCH, WCAG, APCA."
 license: "Proprietary (private course-derived material, not for redistribution); references/color-science is CC BY 4.0 by meodai"
 ---
 
@@ -8,7 +8,7 @@ license: "Proprietary (private course-derived material, not for redistribution);
 
 This skill gives an ordered method for deciding color in any image: illustration, concept art, poster, brand or sequence. It also covers critiquing color that does not work. Every step is traceable to a course lesson and time.
 
-The method comes from one course: Domestika 1140, *Color Theory: How to Apply It to Your Images*. The full course is in `references/course/`, both as translated Markdown with 432 video frames and as the single reading-copy PDF, with a page index. Underneath the method sits `references/color-science/`, the vendored `color-expert` library. It answers questions of fact: color spaces, CSS, contrast numbers, naming, pigments and history.
+The method combines Domestika 1140, *Color Theory: How to Apply It to Your Images*; 1560, *Lighting Principles for Digital Painting*; and unit 3 of 5642, *Specialization in Graphic Design and Visual Communication*. Their lesson files and frames live in separate folders under `references/course*/`; the approved reading-copy PDF and page index in `references/course/` cover 1140. Underneath the method sits `references/color-science/`, the vendored `color-expert` library. It answers questions of fact: color spaces, CSS, contrast numbers, naming, pigments and history.
 
 > Inherits the `core` kernel. See `../core/SKILL.md`. Obey its Integrity Constraints, declare its gates, and reference its files rather than copying them.
 
@@ -45,13 +45,13 @@ The course teaches this in a deliberately reversed order: perception first, theo
 |---|---|---|---|---|
 | 1 | Intent | The feeling, as keywords; the story and its payoff at the focal point; references | A mood board exists; the value, color and saturation targets are written down | `method/intent-and-meaning.md`, `method/artist-references.md` |
 | 2 | Value plan | Focal hierarchy; value, detail and silhouette contrast; flows | Grayscale, fewer-levels and Dust & Scratches tests pass | `method/value-plan.md` |
-| 3 | Light | Direction; light color; ambient or shadow color; how stylized | Lit sides take the light's temperature and shadows the ambient's | `method/light.md` |
-| 4 | Color plan | Main contrast pair or families; a unique color for the focal point; palette type chosen for the contrast needed; the color script, if the work is a sequence | Every value contrast has a matching color contrast | `method/palettes.md`, `method/contrast-and-context.md` |
+| 3 | Light | Direction, source quality, exposure, light color, ambient or shadow color, and how stylized (1560 · U2 · L05 · 01:04–03:43; 1560 · U2 · L06 · 00:08–01:48) | Lit sides take the light's temperature and shadows the ambient's | `method/light.md` |
+| 4 | Color plan | Main contrast pair or families; each color's role (representation, evocation or code; 5642 · U3 · L26 · 00:55–01:40); the focal color; palette type; a color script for sequences | Every value contrast has a matching color contrast; any semantic target is named before testing | `method/palettes.md`, `method/contrast-and-context.md`, `method/functional-color.md` |
 | 5 | Harmony | Blocks, then bridges (a third hue or desaturation), then spreading colors by bounced light and repetition | Each area is still clearly its own color | `method/harmony-bridges.md` |
 | 6 | Rhythm, balance and flow | Placing colors with sound and silence; color counterweights; color families as paths to the focal point | Removing a key patch shows it is load-bearing | `method/rhythm-balance-flow.md` |
 | 7 | Temperature and saturation | Warm and cold groups; the saturation layout rising toward the protagonist | S-mode saturation map; the focal point holds the strongest temperature and saturation contrast | `method/temperature-saturation.md` |
 | 8 | Variety and finish | Texture, same-value hue shifts, optical gray, story details that carry color; final saturation and tint pass | Hue/Saturation spread test; grayscale unchanged by the texture | `method/texture-and-variety.md`, `method/photoshop-techniques.md` |
-| 9 | Review | The six mistakes | Tests T1–T9 | `method/mistakes-checklist.md` |
+| 9 | Review | The six mistakes, plus a semantic profile for graphic communication when meaning is a brief requirement | Tests T1–T12 | `method/mistakes-checklist.md`, `method/functional-color.md` |
 
 Scale the flow to the task:
 - **A quick palette question:** stages 1, 4 and 7, plus a one-line value target from stage 2 (which area is lightest and darkest).
@@ -62,9 +62,10 @@ Scale the flow to the task:
   1. Fix a color code of 3 colors or fewer.
   2. Tie it to form.
   3. Choose the elegant or fun recipe from `method/intent-and-meaning.md`.
+- **Graphic-communication meaning:** identify whether color represents, evokes, or functions as a sign/code (5642 · U3 · L26 · 00:55–01:40). When the intended audience's reading matters, use T10–T12 to test the semantic profile and compare alternatives (5642 · U3 · L43 · 10:21–11:57).
 - **UI or data work:** use the method for the hierarchy (dominant, bridge and accent colors, saturation at the focal point). Use `color-science` for ramps, OKLCH and contrast numbers.
 
-**Output.** For a plan, state each decision with the stage it belongs to. For a critique, report each failure as: test, what was seen, stage to return to, one concrete change. In both, cite the course anchor (for example `1140 · U3 · L09 · 05:00–06:14`) so the reader can open the lesson in `references/course/`, or the PDF page listed in `references/course/pdf-index.md`. Say which tests were measured, which were judged by eye, and which were skipped and why. Deliver the plan or critique in the reply, or in a file when the user names one.
+**Output.** For a plan, state each decision with the stage it belongs to. For a critique, report each failure as: test, what was seen, stage to return to, one concrete change. Cite lesson anchors, for example `1140 · U3 · L09 · 05:00–06:14`, `1560 · U3 · L13 · 06:30–07:57` or `5642 · U3 · L43 · 10:21–11:57`. Say which tests were measured, which were judged by eye, and which were skipped and why. Deliver the plan or critique in the reply, or in a file when the user names one.
 
 ## When to open color-science
 
@@ -82,11 +83,12 @@ Open `references/color-science/SKILL.md` first, then `references/color-science/r
 - **Measure value as perceptual lightness** (OKLCH L or CIELAB L\*), not HSL or HSB. HSL L is especially misleading.
 - **Wheel distance is approximate.** Equal hue angles are not equal perceptual steps.
 - **Temperature is a joint shift of hue and saturation.** Green and purple sit on the boundary between warm and cool.
+- **Keep the two taught color wheels distinct.** Course 1140's screen complements use RGB/CMY; course 5642's harmony lesson uses a traditional RYB wheel. Follow the crosswalk for the task.
 - **Grayscale does not prove accessibility.** For text and UI, verify WCAG or APCA contrast.
 
 ## Gates (declared, inherited from core)
 - **Grounding gate.** The substrate is:
-  - the course lessons in `references/course/`, cited by anchor;
+  - the course lessons in `references/course/`, `references/course-1560/` and `references/course-5642/`, cited by anchor;
   - the image or brief itself.
 
   Do not state a method claim without an anchor. Do not state a science fact without a `color-science` reference. See `../core/references/grounding-gate.md`.
@@ -108,25 +110,28 @@ Open `references/color-science/SKILL.md` first, then `references/color-science/r
 ## Composition
 - **Inherits:** `core`.
 - **Contains:** `references/color-science/`, the upstream `meodai/skill.color-expert` vendored as a git subtree. It is the secondary source and is not edited here. Update it with `git subtree pull --prefix=references/color-science https://github.com/meodai/skill.color-expert main --squash`.
-- **Fed by:** `domestika-course-archive`. `reading_copy.py export` produces `references/course/`. Another color course goes in the same way, under its own folder, and then its claims are merged into `method/` with their anchors.
+- **Fed by:** course exports in their own folders. Course claims are merged into `method/` with lesson anchors.
 - **Hands off to:** `batch-photo-retouching` for photo edits. When the palette goes into a deck, document or interface, the skill that builds that deliverable applies it; this skill supplies the palette, the ramps and the contrast checks.
 
 ## References
 - `references/method/intent-and-meaning.md`: feeling to value, color and saturation targets; mood recipes; identity; story payoff.
 - `references/method/value-plan.md`: four layers, focal hierarchy, the three black-and-white contrasts, structure checks.
 - `references/method/light.md`: reflection, local color and specularity, direct and indirect light, bounces, stylization, light coherence.
+- `references/method/functional-color.md`: the 5642 functional classification, color-family examples and semantic-differential review.
 - `references/method/contrast-and-context.md`: relativity of perception, making one color stronger, color script, local color.
 - `references/method/harmony-bridges.md`: interaction with clarity, bridge colors, spreading colors, the unique focal color.
 - `references/method/rhythm-balance-flow.md`: sound and silence, color counterweights, color families as paths.
 - `references/method/texture-and-variety.md`: texture as detail, same-value variety, optical gray, Color Dynamics.
 - `references/method/palettes.md`: the wheel, the three ingredients, palette types as amounts of contrast.
 - `references/method/temperature-saturation.md`: warm and cold groups, relative temperature, saturation layouts.
-- `references/method/mistakes-checklist.md`: tests T1–T9 and the six problems, for critique and final review.
-- `references/method/measurement.md`: OKLab and WCAG formulas, Photoshop hue ranges, and default thresholds for the tests.
+- `references/method/mistakes-checklist.md`: tests T1–T12 and the six problems, for critique and final review.
+- `references/method/measurement.md`: OKLab and WCAG formulas, semantic-differential measures, Photoshop hue ranges, and default thresholds for the tests.
 - `references/method/photoshop-techniques.md`: the teacher's Photoshop steps, with equivalents in other tools.
 - `references/method/artist-references.md`: artist families and the films analysed, for mood boards.
 - `references/method/science-crosswalk.md`: course claims checked against color science, with links.
 - `references/course/README.md`: index of the 17 lessons and 4 unit files, with anchors.
+- `references/course-1560/README.md`: source index for *Lighting Principles for Digital Painting*.
+- `references/course-5642/README.md`: source index for unit 3, *Color applied to graphic design*.
 - `references/course/Color Theory - reading copy.pdf`: the approved 299-page reading copy, with all figures in place.
 - `references/course/pdf-index.md`: the PDF page for every section anchor, for opening the PDF at a given lesson.
 - `scripts/checks.py`: measures an image for T1, T2, T5, T6 and T7, and computes WCAG contrast.

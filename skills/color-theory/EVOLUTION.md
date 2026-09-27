@@ -68,3 +68,34 @@ The loop that turns real use into skill improvements. Mechanism: `../evolution/r
 - [x] No match for `dataviz`, `design-taste-frontend`, `minimalist-ui`, `high-end-visual-design` or `Read tool` in `SKILL.md` or `pdf-index.md`.
 - [x] `scripts/check_refs.py`: 267 anchors cited, 0 problems. `skills-ref validate` passes. Description 971 characters.
 - **Verdict: PENDING**, unchanged: the skill has not yet been used on a real task.
+
+---
+
+## Evolution 3 — 2026-09-28 — Merge lighting and functional-colour courses
+
+### Harvest scope
+- **Classification: distilled.** Added two audited exports: Domestika 1560, *Lighting Principles for Digital Painting* (Samuel Smith), and unit 3 of Domestika 5642, *Specialization in Graphic Design and Visual Communication*.
+- **Method claim:** course 1560 sequences exposure, source quality, local-color setup, ambient and secondary light, bounce and material cues (1560 · U2 · L06 · 00:08–01:48, 1560 · U2 · L06 · 01:49–04:41, 1560 · U2 · L07 · 03:25–05:24, 1560 · U3 · L13 · 06:30–07:57, 1560 · U4 · L14 · 05:08–05:58).
+- **Method claim:** course 5642 groups graphic color into denotative, connotative and sign functions, with nine variables (5642 · U3 · L26 · 00:55–01:40, 5642 · U3 · L26 · 01:40–04:06, 5642 · U3 · L26 · 04:06–05:14).
+- **Excluded:** 1560 U3 L08 was removed as blocked and is not cited; see `references/course-1560/BLOCKED.md`.
+
+### Patterns found
+1. **Lighting decisions need a usable order.** The added light pass links exposure and softness decisions to scene demonstrations and the existing 1140 reflection, temperature and light-coherence rules (1560 · U2 · L05 · 01:04–03:43, 1560 · U2 · L06 · 00:08–01:48, 1560 · U2 · L06 · 01:49–04:41, 1140 · U4 · L18 · 10:26–12:20).
+2. **A graphic color's function precedes its hue family.** Course 5642 distinguishes representation, psychological or cultural evocation, and sign/coding functions; the categories can overlap (5642 · U3 · L26 · 00:55–01:40, 5642 · U3 · L26 · 09:10–10:58).
+3. **The courses teach different wheel models.** 1140's screen-complement exercise uses RGB/CMY, while 5642's harmony unit teaches RYB primary, secondary and tertiary colors (1140 · U3 · L08 · 14:13–15:39, 5642 · U3 · L24 · 05:49–06:28). The distinction is explicit in `science-crosswalk.md`.
+4. **Association tables carry a context limit.** Course 5642 calls yellow universally cheerful, then separately says psychological and symbolic readings are not universal; course 1140 also rejects fixed meanings (5642 · U3 · L33 · 11:31–18:00, 5642 · U3 · L31 · 07:34–08:45, 5642 · U3 · L32 · 09:05–10:00, 5642 · U3 · L32 · 10:00–10:52, 1140 · U2 · L04 · 04:17–05:30).
+5. **The semantic differential has a scale but no pass threshold.** Course 5642 uses seven-point scales and audience profiles, but gives no required sample size or acceptance band; these are set by the brief in derived T10–T12 (5642 · U3 · L43 · 02:41–03:16, 5642 · U3 · L43 · 10:21–11:57).
+
+### Hypotheses applied
+1. Merge course 1560's scene-light decisions into `light.md`, with exposure and workflow notes in the related value, temperature and digital-painting digests.
+2. Add `functional-color.md` for the nine-variable classification and family examples, with all meanings treated as hypotheses to test in context.
+3. Add T10–T12 and formulas to measure semantic target fit, audience agreement and variant distinction; project owners set thresholds.
+4. Extend the flow, course provenance, source coverage and science crosswalk while preserving the private-repository notice.
+
+### Validation results
+- [x] `python3 scripts/check_refs.py --sources 'references/course*/*.md'`: 17 files, 414 anchors cited, 616 known, 0 problems.
+- [x] `python3 /Users/GaryT/Documents/Work/lab/design-programme/checks/check_coverage.py .`: 52 lessons, 52 covered (44 cited).
+- [x] Required `grep` restriction check: exit 0, no matches.
+- `npx -y skills-ref@latest validate .` is delegated to the coordinator, which has network access.
+- No real design task was used to dogfood this merged method.
+- **Verdict: PENDING** — the new method is distilled from course material and awaits real use.

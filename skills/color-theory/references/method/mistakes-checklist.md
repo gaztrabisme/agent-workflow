@@ -17,8 +17,11 @@ Run the tests in this order. Each one names the stage of the method to go back t
 | T7 | Light coherence | Sample a lit side and a shadow side of the key objects | `checks.py sample IMG x,y x,y` (warm h 20–100, cool 200–320) | Lit sides carry the light's temperature and shadows the ambient temperature; compare the pair, not absolute bands. (1140 · U4 · L18 · 10:26–12:20) | Light |
 | T8 | Area clarity | Squint, or look at a thumbnail | Downscale to about 64 px wide and view it | Each large area has one clear dominant color, with only chosen interruptions. (1140 · U4 · L18 · 00:30–01:47) | Harmony |
 | T9 | Counterweight | Temporarily desaturate the strongest color patch | Desaturate the patch in a copy and compare side by side | If the image loses balance, the patch is load-bearing: keep it. (1140 · U3 · L11 · 04:32–06:00) | Rhythm and balance |
+| T10 | Semantic target fit | Use a seven-position bipolar rating form for the proposal; choose pairs relevant to the brief | Paper/web form and spreadsheet; the target audience rates the actual proposal | Before collecting ratings, name the required adjective pairs, pole direction and acceptable 1–7 interval. Pass when every brief-critical pair's audience mean falls inside its predeclared interval. (derived from 5642 · U3 · L43 · 02:41–03:16, 5642 · U3 · L43 · 03:44–04:34) | Intent and functional color |
+| T11 | Audience agreement | Collect independent ratings from the intended audience and calculate each pair's spread | Spreadsheet: count, mean and sample standard deviation by pair | Pass when the predeclared minimum response count is met and each critical pair's standard deviation is within the brief's stated limit. Otherwise mark inconclusive and investigate the split before approval. The course supplies no universal sample-size or spread threshold. (derived from 5642 · U3 · L43 · 10:21–11:57, 5642 · U3 · L43 · 11:57–12:55) | Intent and functional color |
+| T12 | Variant distinction | Rate each proposal on the same bipolar pairs and overlay the profiles | Spreadsheet: subtract each pair's means between variants | For each difference named in the brief, the second proposal's mean moves at least the predeclared amount in the intended direction. Skip when there are no alternatives. (derived from 5642 · U3 · L43 · 10:21–11:57) | Intent and functional color |
 
-Formulas, thresholds and when to override them: [measurement.md](measurement.md). T4, T8 and T9 are judged by eye. When reporting, say which tests were measured, which were judged by eye, and which were skipped and why.
+Formulas, thresholds and when to override them: [measurement.md](measurement.md). T4, T8 and T9 are judged by eye. T10–T12 require audience ratings; their target bands, sample count and minimum differences come from the brief, because the course does not set universal numeric thresholds. When reporting, say which tests were measured, which were judged by eye, and which were skipped and why.
 
 **After any fix, re-run T1 and T5.** A value fix often flattens the chroma gradient, and a chroma fix often moves the value contrast.
 
@@ -52,3 +55,5 @@ For each failure, report:
 - one concrete change.
 
 Quote the course anchor so the reader can check the principle. Keep what works: say which contrasts and bridges are already doing their job, so a fix does not destroy them.
+
+For graphic-communication tasks, classify the role before revising the color: representation, psychological or cultural evocation, or a functional sign/code. See [functional-color.md](functional-color.md). (5642 · U3 · L26 · 00:55–01:40)

@@ -8,6 +8,7 @@ Reader: an agent using warm against cold, and saturated against desaturated, to 
 - **Why it is useful.** It is one of the most general contrasts. A whole family of cold colors against a whole family of warm ones works as a **super contrast**. After that, the normal harmony rules apply. (1140 · U4 · L17 · 02:37–04:32)
 - **Keeping harmony inside the contrast.** In a teal forest with red caps, the reds are kept on the cooler side, away from orange, so the contrast works without being blunt. (1140 · U4 · L17 · 02:37–04:32)
 - **Thinking in groups instead of complements.** Warm, cold and warm planes can replace working out "which color is complementary to which". (1140 · U4 · L17 · 05:51–07:09)
+- **Lighting can establish the temperature groups.** In a stylized night scene, course 1560 uses a cool blue ambient field, warmer practical lights and a secondary rim light. Treat this as one scene recipe, not a universal rule for night. (1560 · U3 · L11 · 01:44–02:55, 1560 · U3 · L11 · 03:39–04:58)
 
 ### Classic temperature compositions
 

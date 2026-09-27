@@ -1,6 +1,6 @@
 # Light: where most color in an image comes from
 
-Reader: an agent deciding the light of an image before choosing colors, or checking that the colors obey the light. Sources: [L06](../course/U02-L06-understand-the-light-to-be-able-to-illuminate.md), [L11](../course/U03-L11-rhythm-and-balance.md), [L18](../course/U04-L18-bonus-solving-common-color-problems.md).
+Reader: an agent deciding the light of an image before choosing colors, or checking that the colors obey the light. Sources: [1140 L06](../course/U02-L06-understand-the-light-to-be-able-to-illuminate.md), [1140 L11](../course/U03-L11-rhythm-and-balance.md), [1140 L18](../course/U04-L18-bonus-solving-common-color-problems.md), [1560 L05–L15](../course-1560/U02-L05-soft-light-vs-hard-light.md).
 
 ## Three principles
 
@@ -27,6 +27,27 @@ The teacher's recap states them as three principles. (1140 · U2 · L06 · 17:46
 | Cast shadow | Hard | Blurred |
 
 (1140 · U2 · L06 · 06:42–08:13)
+
+## Build a digital-painting light pass
+
+Course 1560 treats light quality as a continuum from soft ambient illumination to hard direct light. Set the source direction and softness first; overcast light stays diffuse, while direct sun can coexist with sky ambient light. (1560 · U2 · L05 · 01:04–03:43, 1560 · U2 · L05 · 07:27–08:18, 1560 · U2 · L05 · 08:41–09:17)
+
+1. **Set exposure.** Decide how the scene's light and shadow range will fit the painting's available range, and which information must remain visible. (1560 · U2 · L06 · 00:08–01:48, 1560 · U2 · L06 · 01:49–04:41)
+2. **Place the source and choose its quality.** A cloudy scene has broad soft illumination; a sunny scene has a strong directional source and clearer cast shadows. (1560 · U2 · L05 · 03:44–04:46, 1560 · U3 · L09 · 01:40–04:48, 1560 · U3 · L10 · 00:26–01:53, 1560 · U3 · L10 · 01:53–03:39)
+3. **Separate local color from the light pass.** Establish the drawing and base colors on simple forms before adding the scene's light and shadow. (1560 · U2 · L07 · 03:25–05:24)
+4. **Add ambient and secondary sources by priority.** In a night scene, the blue ambient field and warm practical lights can coexist; multiple sources need an order so the dominant one remains legible. (1560 · U3 · L11 · 01:44–02:55, 1560 · U3 · L11 · 03:39–04:58, 1560 · U3 · L12 · 04:00–05:54, 1560 · U3 · L12 · 05:54–07:25)
+5. **Add reflected color, then material cues.** Bounce is strongest on nearby surfaces and falls away with distance; finish with specular reflection or translucency only where the material supports it. (1560 · U3 · L13 · 06:30–07:57, 1560 · U2 · L06 · 13:28–18:26, 1560 · U4 · L14 · 05:08–05:58)
+
+These steps are a **derived** order assembled from the preparation and scene demonstrations, not a quoted fixed sequence. (derived from 1560 · U2 · L06 · 00:08–01:48, 1560 · U2 · L06 · 01:49–04:41, 1560 · U2 · L07 · 03:25–05:24, 1560 · U3 · L09 · 01:40–04:48, 1560 · U3 · L13 · 06:30–07:57)
+
+### Lighting situations used for practice
+
+| Situation | Lighting decision | Source |
+|---|---|---|
+| Sunny exterior | Protect the bright range, keep a directional key, and let nearby surfaces pick up colored bounce. | 1560 · U3 · L09 · 01:40–04:48, 1560 · U3 · L13 · 06:30–07:57 |
+| Cloudy exterior | Use broad, cool-white ambient illumination with soft shadows and restrained directional contrast. | 1560 · U3 · L10 · 00:26–01:53, 1560 · U3 · L10 · 01:53–03:39 |
+| Night | Let cool ambient light carry the scene and warmer lamps act as local sources; keep secondary rim light subordinate. | 1560 · U3 · L11 · 01:44–02:55, 1560 · U3 · L11 · 03:39–04:58 |
+| Colored room | Track each source's direction and strength; nearby surfaces can pick up colored bounce, while small sources fall off quickly. | 1560 · U3 · L12 · 02:23–04:00, 1560 · U3 · L12 · 04:00–05:54, 1560 · U3 · L12 · 05:54–07:25 |
 
 ## How colored light changes a sphere
 
@@ -87,4 +108,4 @@ Practice the teacher sets:
 - Light it from 3 directions and photograph each.
 - Paint each photo, matching the colors and values.
 
-See [U02-unit.md](../course/U02-unit.md).
+See [1140 U02](../course/U02-unit.md) and [1560 U02](../course-1560/U02-unit.md), [U03](../course-1560/U03-unit.md) and [U04](../course-1560/U04-unit.md).

@@ -57,4 +57,8 @@ This single idea runs through the whole method. Contrast means moving things apa
 - Keep the intention of the value plan: which element is the protagonist, and where the contrasts are. The color plan must follow the same rules. (1140 · U3 · L08 · 06:31–09:58)
 - The most frequent serious error is "a value plan that does not follow the same rules as the color plan". Where the value plan has contrast, the color plan must have contrast too. (1140 · U3 · L08 · 06:31–09:58)
 
+### Set the painting's exposure range
+
+Before painting light, decide how the observed scene range maps into the painting's available lights and darks, and which information must survive. This is the exposure decision in course 1560; it supports the value hierarchy rather than replacing it. (1560 · U2 · L06 · 00:08–01:48, 1560 · U2 · L06 · 01:49–04:41)
+
 Practice the teacher sets for this stage: copy 25 images using only 3 values (dark, medium, light). See [U02-unit.md](../course/U02-unit.md).

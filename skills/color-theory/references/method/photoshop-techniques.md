@@ -53,6 +53,12 @@ The strokes.
 
 (1140 · U3 · L12 · 16:03–18:21)
 
+## Digital-painting light pass
+
+Course 1560 demonstrates a tool-specific painting process, but the sequence is portable: establish the local colors and forms, place direct and ambient illumination, then refine reflected light, specular reflection and translucency as separate decisions. (1560 · U2 · L07 · 03:25–05:24, 1560 · U2 · L06 · 13:28–18:26, 1560 · U4 · L14 · 05:08–05:58)
+
+**Derived equivalent:** keep the base-color layer intact, add light and shadow as editable passes in the chosen editor, and finish with material-specific highlights or transmitted light. This preserves the course's order without depending on a particular editor. (derived from 1560 · U2 · L07 · 03:25–05:24, 1560 · U2 · L06 · 13:28–18:26)
+
 ## Global adjustments
 
 **Finishing** (1140 · U3 · L13 · 13:17–16:28):

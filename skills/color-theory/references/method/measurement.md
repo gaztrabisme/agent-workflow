@@ -2,6 +2,26 @@
 
 Reader: an agent running the review tests on an image file, or computing contrast and ramps, without Photoshop. Everything here is derived. The course measures with Photoshop and by eye, and these are the equivalents this skill uses. The script is `scripts/checks.py` (Python 3, numpy, Pillow).
 
+## Semantic-differential checks (T10–T12)
+
+Course 5642 uses seven positions between two bipolar adjectives, groups candidate pairs under aesthetic, indicative-instrumental and symbolic-social dimensions, and averages audience profiles. The worked example uses 24 pairs, but a brief can select only the pairs that matter to its proposal. (5642 · U3 · L43 · 02:41–03:16, 5642 · U3 · L43 · 03:44–04:34, 5642 · U3 · L43 · 10:21–11:57)
+
+Record the left pole as 1, the midpoint as 4 and the right pole as 7. For pair j, with n respondents and rating rᵢⱼ:
+
+- **Mean profile:** μⱼ = (Σ rᵢⱼ) / n.
+- **Audience spread:** sⱼ = √[Σ(rᵢⱼ − μⱼ)² / (n − 1)], for n ≥ 2.
+- **Variant shift:** Δⱼ = μ(B, j) − μ(A, j).
+
+These are this skill's derived measurements of the plotted rating profiles. They are not thresholds supplied by the course. (derived from 5642 · U3 · L43 · 10:21–11:57)
+
+| Test | Pass condition | Set before ratings |
+|---|---|---|
+| T10 — semantic target fit | Every critical pair's mean μⱼ is inside its target interval [aⱼ, bⱼ] on the 1–7 scale. | The relevant pairs, left/right direction and target intervals. |
+| T11 — audience agreement | The respondent count meets nₘᵢₙ, and each critical pair's sⱼ is at or below its maximum sₘₐₓ,ⱼ. If spread exceeds the limit, mark inconclusive and investigate the different readings before acceptance. | nₘᵢₙ and sₘₐₓ,ⱼ, chosen for the project; the course defines neither. |
+| T12 — variant distinction | For each named difference, Δⱼ has the intended sign and magnitude at least δⱼ. | Which profile should move toward which pole and the minimum meaningful δⱼ. |
+
+The method is a way to summarize this audience's perceptions in this context; a mean is not a universal meaning for that color. (5642 · U3 · L43 · 00:26–01:52, 5642 · U3 · L43 · 11:57–12:55)
+
 ## Which quantity stands in for which course term
 
 | Course term | Measure it as | Why |
