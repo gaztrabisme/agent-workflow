@@ -88,7 +88,7 @@ Perfectly white light is rare, so "the local color of objects is almost never in
   5. 3D render.
 
   (1140 · U2 · L06 · 13:51–15:40, 1140 · U2 · L06 · 15:40–17:46)
-- Decide the level of stylization before painting light. The course applies light "in a relatively graphic way", with terminator, specular highlight, bounce light and a glow. (1140 · U2 · L07 · 05:48–07:32)
+- **Derived decision:** decide the level of stylization before painting light (derived: the lesson demonstrates a chosen "relatively graphic" treatment using a terminator, specular highlight, bounce light and a glow; 1140 · U2 · L07 · 05:48–07:32).
 
 ## Check: color coherent with the light
 

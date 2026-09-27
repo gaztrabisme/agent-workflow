@@ -8,7 +8,7 @@ Reader: an agent using warm against cold, and saturated against desaturated, to 
 - **Why it is useful.** It is one of the most general contrasts. A whole family of cold colors against a whole family of warm ones works as a **super contrast**. After that, the normal harmony rules apply. (1140 · U4 · L17 · 02:37–04:32)
 - **Keeping harmony inside the contrast.** In a teal forest with red caps, the reds are kept on the cooler side, away from orange, so the contrast works without being blunt. (1140 · U4 · L17 · 02:37–04:32)
 - **Thinking in groups instead of complements.** Warm, cold and warm planes can replace working out "which color is complementary to which". (1140 · U4 · L17 · 05:51–07:09)
-- **Lighting can establish the temperature groups.** In a stylized night scene, course 1560 uses a cool blue ambient field, warmer practical lights and a secondary rim light. Treat this as one scene recipe, not a universal rule for night. (1560 · U3 · L11 · 01:44–02:55, 1560 · U3 · L11 · 03:39–04:58)
+- **Lighting can establish the temperature groups.** In a stylized night scene, course 1560 uses a cool blue ambient field, a warm lantern light and a secondary rim light. Treat this as one scene recipe, not a universal rule for night. (1560 · U3 · L11 · 00:34–01:43, 1560 · U3 · L11 · 02:56–03:38, 1560 · U3 · L11 · 03:39–04:58)
 
 ### Classic temperature compositions
 
@@ -48,7 +48,7 @@ Reader: an agent using warm against cold, and saturated against desaturated, to 
   - A desaturated green next to saturated ochres reads as ochre. So it can repeat the dominant family without being that hue. (1140 · U4 · L17 · 10:19–12:11)
 - **Colorful is an arrangement, not a level.** Images remembered as "super saturated" are often only moderately saturated. Saturation sits in key places against large desaturated areas. (1140 · U4 · L17 · 13:10–14:44)
 - **Saturation should rise toward the protagonist.**
-  - Check it in Photoshop's color picker in S mode, or measure OKLCH chroma with `scripts/checks.py chroma`. HSB S reads dark colors as saturated, so on night scenes use chroma. See [measurement.md](measurement.md).
+  - Check it in Photoshop's color picker in S mode (1140 · U4 · L16 · 01:56–04:24). Measuring OKLCH chroma with `scripts/checks.py chroma` is this skill's alternative (derived: the science-crosswalk records that HSB S reads dark colors as saturated, so chroma is preferable on night scenes; see [science-crosswalk.md](science-crosswalk.md) and [measurement.md](measurement.md)).
   - A saturated shape at the edge is fine if it frames the image and does not touch the focal color.
 
   (1140 · U4 · L16 · 01:56–04:24)

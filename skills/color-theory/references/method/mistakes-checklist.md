@@ -38,7 +38,7 @@ Formulas, thresholds and when to override them: [measurement.md](measurement.md)
 
 ## Other failures the course names
 
-- **A value plan that does not follow the same rules as the color plan.** The course calls this the most frequent serious error. (1140 · U3 · L08 · 06:31–09:58)
+- **A value plan that does not follow the same rules as the color plan.** The course calls this one of the most frequent and serious errors. (1140 · U3 · L08 · 06:31–09:58)
 - **Two tones merging at the focal point.**
   - The example is the pink body bleeding into the yellow rim.
   - The fix is to push them apart in hue and value until a clear line separates them.

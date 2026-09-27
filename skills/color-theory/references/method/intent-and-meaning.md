@@ -9,7 +9,7 @@ Reader: an agent turning a brief ("make it feel lonely", "an elegant brand") int
 
 ## Start from a feeling, stated as keywords
 
-- Viewers read mood from color by instinct. The teacher's test used four sets of photos: happy, sad, terrifying, mysterious. (1140 · U2 · L04 · 00:00–01:41)
+- Viewers read mood from color by instinct. The teacher asked viewers to choose among four words—happy, sad, terrifying or mysterious—and showed three sets of photos. (1140 · U2 · L04 · 00:00–01:41)
 - Color (values plus colors) gives the **emotional tonality** of an image. The first question is always "how should this image make people feel?" (1140 · U2 · L04 · 06:54–07:47)
 - Write the target as keywords. Studios describe a film's palette with words such as "fun, colorful, aquatic", and the whole palette is planned to deliver them. (1140 · U4 · L14 · 06:47–08:37)
 
@@ -30,7 +30,7 @@ The same mapping shows up in the opening game. Light values and saturated colors
 | Target | Value | Hue | Saturation | Source |
 |---|---|---|---|---|
 | Colorful but gentle | Mostly light where the interest is | Warm-leaning harmony plus complements; neighbouring tones kept close | Rises toward the protagonist | 1140 · U4 · L16 · 01:56–04:24 |
-| Colorful and aggressive | Same range as gentle | Same palette, but complements placed directly against each other, jumping across the hue scale | High | 1140 · U4 · L16 · 04:24–05:37 |
+| Colorful and aggressive | Same range as gentle | Same palette, but complements placed directly against each other, jumping across the hue scale | Not stated | 1140 · U4 · L16 · 04:24–05:37 |
 | Terrifying | Mostly dark, high contrast, points of light | Cool complementary pair (purple-blue and green) with a dark ochre focal point | High at the edges, dropping at the center | 1140 · U4 · L16 · 05:37–07:21 |
 | Mysterious | Light overall, low value contrast in the light areas, dark out-of-focus foreground | Slight complementary accent (cool greens against a yellow) | Very low | 1140 · U4 · L16 · 07:21–08:28 |
 | Elegant, sober | Simplified | Few colors, mostly cold, the odd warm accent | Low | 1140 · U4 · L14 · 13:00–13:50 |

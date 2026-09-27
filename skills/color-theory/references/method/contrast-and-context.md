@@ -7,7 +7,7 @@ Reader: an agent deciding how strong a color will look, or planning a sequence o
 - **Contrast** is the difference between one thing and another. For values, it is a tone light enough to stand out against a dark ground. (1140 · U2 · L05 · 00:28–01:03)
 - **Lightness depends on context.** A lavender-field photo looks light on its own, then dull after a brighter tulip image, then very bright again after a night street. The image never changed. (1140 · U2 · L05 · 01:03–03:13, 1140 · U2 · L05 · 03:13–03:37)
 - **Colorfulness works the same way.** A colorful sunset looks washed out after neon streets and color-powder crowds, and colorful again after near-grey images. (1140 · U2 · L05 · 03:37–05:09)
-- **Temperature and saturation are relative too.** The same teal swatch looks warmer, sadder or colder depending on the landscape around it. "Place it and adjust it until it gives the sensation you want." (1140 · U4 · L17 · 09:13–10:19)
+- **Temperature is relative.** The same teal swatch looks warmer or colder depending on the landscape around it. "Place it and adjust it until it gives the sensation you want." (1140 · U4 · L17 · 09:13–10:19)
 
 ## Making one color stronger without changing it
 

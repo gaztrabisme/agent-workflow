@@ -28,15 +28,15 @@ The skill keeps that stance. Choose a palette type **to deliver the contrast the
 
 | Type | Structure | Color contrast | Colorfulness | Source |
 |---|---|---|---|---|
-| Complementary | A color and its opposite; the pair can sit anywhere on the wheel | Maximum, the equivalent of black and white | Low | 1140 · U4 · L15 · 04:20–05:08 |
-| Monochromatic | One hue in several values | Near zero; value contrast must replace it | Lowest | 1140 · U4 · L15 · 05:08–05:53 |
-| Composite | A color and a color near its opposite; cyan to magenta is the course example | High | Medium | 1140 · U4 · L15 · 07:41–08:57 |
-| Split complementary | A color against two colors near its opposite, often as families | High | Medium | 1140 · U4 · L15 · 08:57–10:23 |
+| Complementary | A color and its opposite; the pair can sit anywhere on the wheel | Maximum, the equivalent of black and white | Low | 1140 · U4 · L15 · 04:20–05:08, 1140 · U4 · L15 · 05:53–07:02 |
+| Monochromatic | One hue in several values | Near zero; value contrast must replace it | Lowest | 1140 · U4 · L15 · 05:08–05:53, 1140 · U4 · L15 · 05:53–07:02 |
+| Composite | A color and a color near its opposite; cyan to magenta is the course example | Not stated | Not stated | 1140 · U4 · L15 · 07:41–08:57 |
+| Split complementary | A color against two colors near its opposite, often as families | Not stated | Not stated | 1140 · U4 · L15 · 08:57–10:23 |
 | Triadic | Three families at roughly equal distance | Lower | High | 1140 · U4 · L15 · 10:23–11:40 |
 
 **The governing rule:** every color added between two opposites reduces the distance between colors. Contrast drops and colorfulness rises. (1140 · U4 · L15 · 05:53–07:02)
 
-**Complementary images still have bridges.** In the example, blue face light against green background light, a thin red is the bridge. (1140 · U4 · L15 · 07:02–07:41) Composite palettes usually have one too: desaturated gold as "a breather". (1140 · U4 · L15 · 07:41–08:57)
+**Complementary images almost always have a bridge.** In the example, blue face light against green background light, a thin red is the bridge. (1140 · U4 · L15 · 07:02–07:41) Composite palettes usually have one too: desaturated gold as "a breather". (1140 · U4 · L15 · 07:41–08:57)
 
 ## Colors support the values
 

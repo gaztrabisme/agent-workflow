@@ -24,16 +24,12 @@ The method combines Domestika 1140, *Color Theory: How to Apply It to Your Image
 > **Disambiguation:** decide on the **artifact**. A color decision or color fact belongs here. Photo fidelity and course packaging belong to the siblings above. Overall interface style and chart choice belong to whichever skill builds the deliverable.
 
 ## Principles
-1. **Values before color.** The eye reads light and dark before hue.
-   - An image is built in four layers: idea, then shape, then value, then color.
-   - Color is the last layer. It can only improve an image whose values already work.
-
-   (1140 · U3 · L08 · 00:31–01:51)
-2. **Color follows the value plan.** Where the grayscale has contrast, the color must have contrast. The course names a color plan that breaks the value plan as the most frequent serious error. (1140 · U3 · L08 · 06:31–09:58)
-3. **Contrast is distance; harmony is closeness.** Value, hue, saturation and temperature are each a scale. Move things apart to attract attention, and bring them together to unify. Every decision trades one against the other. (1140 · U3 · L08 · 14:13–15:39, 1140 · U3 · L10 · 10:21–10:43)
-4. **Harmony is interaction with clarity.** Each area has one dominant color and holds a little of the others. Bridge colors connect the areas. (1140 · U3 · L09 · 01:17–01:59)
+1. **Values before color.** An image is built in four layers: idea, then design, then values, then colors. Color is the last layer; if the earlier layers work, it adds a new dimension. (1140 · U3 · L08 · 00:31–01:51)
+2. **Color follows the value plan.** Where the grayscale has contrast, the color must have contrast. The course names a color plan that breaks the value plan as one of the most frequent and serious errors. (1140 · U3 · L08 · 06:31–09:58)
+3. **Contrast is distance on a scale.** For color, move colors apart to create contrast and bring them together for less contrast. The closer two colors are, the greater the harmony and the smaller the contrast. (1140 · U3 · L08 · 14:13–15:39, 1140 · U3 · L10 · 10:21–10:43)
+4. **Harmony is interaction with clarity.** Inside a large blue shape, blue dominates with a little white, and the white shape contains a little blue. Bridge colors connect contrasting colors. (1140 · U3 · L09 · 01:17–01:59, 1140 · U3 · L09 · 05:00–06:14)
 5. **Color is relative.** Judge every color in place, next to its neighbours and in its sequence, never as a swatch. (1140 · U2 · L05 · 01:03–03:13, 1140 · U4 · L17 · 09:13–10:19)
-6. **Feeling comes from value and saturation more than hue.** No color has a universal meaning; meaning comes from how the color is made and what it is associated with. (1140 · U2 · L04 · 04:17–05:30)
+6. **Value and saturation define an image's emotional tonality.** No color has a universal meaning; meaning depends on how it is made and what it is associated with. (1140 · U2 · L04 · 06:54–07:47, 1140 · U2 · L04 · 04:17–05:30)
 7. **Fewer colors, better decisions.** Limit the palette, then add variety inside each color group at the same value. (1140 · U3 · L08 · 09:58–11:48, 1140 · U3 · L12 · 05:59–06:35)
 8. **The course is the system and the science is the check.** Follow the method for decisions. Open `color-science` for measurement, code and anything the course does not cover. Where they differ, apply the correction in `references/method/science-crosswalk.md`.
 
@@ -45,7 +41,7 @@ The course teaches this in a deliberately reversed order: perception first, theo
 |---|---|---|---|---|
 | 1 | Intent | The feeling, as keywords; the story and its payoff at the focal point; references | A mood board exists; the value, color and saturation targets are written down | `method/intent-and-meaning.md`, `method/artist-references.md` |
 | 2 | Value plan | Focal hierarchy; value, detail and silhouette contrast; flows | Grayscale, fewer-levels and Dust & Scratches tests pass | `method/value-plan.md` |
-| 3 | Light | Direction, source quality, exposure, light color, ambient or shadow color, and how stylized (1560 · U2 · L05 · 01:04–03:43; 1560 · U2 · L06 · 00:08–01:48) | Lit sides take the light's temperature and shadows the ambient's | `method/light.md` |
+| 3 | Light | Direction and source quality (1560 · U2 · L05 · 01:04–03:43); exposure (1560 · U2 · L06 · 00:08–01:48); ambient and light color, including stylized blue night light, warm lantern light and moonlight (1560 · U2 · L05 · 01:04–03:43; 1560 · U3 · L11 · 00:34–01:43, 02:56–03:38, 03:39–04:58) | Lit sides take the light's temperature and shadows the ambient's | `method/light.md` |
 | 4 | Color plan | Main contrast pair or families; each color's role (representation, evocation or code; 5642 · U3 · L26 · 00:55–01:40); the focal color; palette type; a color script for sequences | Every value contrast has a matching color contrast; any semantic target is named before testing | `method/palettes.md`, `method/contrast-and-context.md`, `method/functional-color.md` |
 | 5 | Harmony | Blocks, then bridges (a third hue or desaturation), then spreading colors by bounced light and repetition | Each area is still clearly its own color | `method/harmony-bridges.md` |
 | 6 | Rhythm, balance and flow | Placing colors with sound and silence; color counterweights; color families as paths to the focal point | Removing a key patch shows it is load-bearing | `method/rhythm-balance-flow.md` |

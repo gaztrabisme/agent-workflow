@@ -4,7 +4,7 @@ Reader: an agent running the review tests on an image file, or computing contras
 
 ## Semantic-differential checks (T10–T12)
 
-Course 5642 uses seven positions between two bipolar adjectives, groups candidate pairs under aesthetic, indicative-instrumental and symbolic-social dimensions, and averages audience profiles. The worked example uses 24 pairs, but a brief can select only the pairs that matter to its proposal. (5642 · U3 · L43 · 02:41–03:16, 5642 · U3 · L43 · 03:44–04:34, 5642 · U3 · L43 · 10:21–11:57)
+Course 5642 uses seven positions between two bipolar adjectives, groups candidate pairs under aesthetic, indicative-instrumental and symbolic-social dimensions, and averages audience profiles. The worked example uses 24 pairs. This skill’s adaptation lets a brief select relevant pairs (derived: the course says adjective choices should depend on the piece, communication intentions and audience, and demonstrates a 24-pair profile: 5642 · U3 · L43 · 03:44–04:34; 5642 · U3 · L43 · 10:21–11:57). (5642 · U3 · L43 · 02:41–03:16, 5642 · U3 · L43 · 03:44–04:34, 5642 · U3 · L43 · 10:21–11:57)
 
 Record the left pole as 1, the midpoint as 4 and the right pole as 7. For pair j, with n respondents and rating rᵢⱼ:
 
@@ -29,7 +29,7 @@ The method is a way to summarize this audience's perceptions in this context; a 
 | Value | OKLab L (0 = black, 1 = white) | Perceptual lightness. HSL L and HSB B misrank saturated colors: yellow and blue have the same HSL L but look very different in lightness. |
 | Saturation | OKLCH C (chroma: distance from the grey of the same lightness) | Photoshop's HSB S reads dark colors as highly saturated. A dark navy sky can score S 0.5 while a glowing bulb scores 0.28, which inverts the saturation map on night scenes. |
 | Hue, and warm or cool | OKLCH h, in degrees | Bands used by T7: warm 20–100, cool 200–320. The rest is the green or purple boundary, which can read either way in context. |
-| Photoshop Hue/Saturation ranges | HSB hue, 30° core plus a 30° falloff each side, centred on Reds 0, Yellows 60, Greens 120, Cyans 180, Blues 240, Magentas 300 | Read from the dialog in the course frames at 1140 · U4 · L18 · 05:09–07:27. |
+| Photoshop Hue/Saturation ranges | Red, yellow and green each show a 30° core plus a 30° falloff on each side, centered on 0°, 60° and 120°, respectively | Read from the course frames at 1140 · U4 · L18 · 05:09–07:27. |
 
 ## Formulas
 

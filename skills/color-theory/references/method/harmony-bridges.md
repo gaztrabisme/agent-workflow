@@ -58,14 +58,14 @@ In the course's landscape, purple plus yellow alone is "boring, very literal". A
   - Concentrate the most color variety inside the focal element.
 
   (1140 · U3 · L10 · 08:31–10:21)
-- **Check in grayscale** after every change. The focal flower must stay lighter than the ground, as planned. (1140 · U3 · L10 · 08:31–10:21)
+- **Check in grayscale** after the recoloring in the example. The focal flower remains lighter than the ground, as planned. (1140 · U3 · L10 · 08:31–10:21)
 
 ## The rule of thumb
 
 "The closer two colors are, the greater the harmony between them and the smaller the contrast they will generate." (1140 · U3 · L10 · 10:21–10:43)
 
 - **Contrast is distance and harmony is closeness.** Every palette decision trades one against the other. See [palettes.md](palettes.md).
-- **Inside a warm-cold contrast, harmony comes from the choice of family members.** Choose each family's member nearest the border, for example a cooler red against greens. (1140 · U4 · L17 · 02:37–04:32)
+- **Inside a warm-cold contrast, the course keeps the warm-family reds on the cooler side.** Against the greens, the reds are subtly cooler so the contrast is less strong than it could be. (1140 · U4 · L17 · 02:37–04:32)
 
 ## Failure: harmonizing until the areas dissolve
 
