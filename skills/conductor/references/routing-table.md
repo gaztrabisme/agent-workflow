@@ -53,6 +53,15 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 
 One workflow skill **plus** one direction. Loading two directions produces a hybrid that reads as neither. `color-theory` fires beneath any of them when the task is genuinely about colour: planning or critiquing an image's colour with the course method, palettes, ramps, perceptual matching, accessibility. It carries the old `color-expert` library inside it as its science layer.
 
+`visual-design` fires the same way for form: planning, making or critiquing a graphic, poster, editorial page, presentation, package, campaign or visual identity — composition, visual hierarchy, negative space, Gestalt, balance, grids, typography, identity systems, visual weight.
+
+| The decision is about… | Route |
+|---|---|
+| colour | `color-theory` |
+| composition and form | `visual-design` |
+
+**Boundary by artifact:** colour choices → `color-theory`; composition and form → `visual-design`.
+
 **Capability skills, fired by substrate not by shape:**
 
 | Trigger | Skill |
