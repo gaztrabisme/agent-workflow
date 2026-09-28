@@ -12,7 +12,7 @@ Terms used here:
 
 ## 0. Before starting
 
-- The reading copy has passed its own checks: every lesson approved, marketing removed. Distilling from an unchecked copy bakes errors into every citation.
+- The reading copy has passed its own checks: every lesson approved by the owner, or passed instead by an independent audit loop — an auditor from a different model lane than the writer, against a stated pass condition — and marketing removed. Distilling from an unchecked copy bakes errors into every citation.
 - Read the whole course before writing anything. The method is a synthesis across lessons, and courses often teach in a different order from the working order (the color course taught theory last on purpose).
 
 ## 1. Decide how an existing skill in the area fits
