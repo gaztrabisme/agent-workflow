@@ -97,5 +97,8 @@ The loop that turns real use into skill improvements. Mechanism: `../evolution/r
 - [x] `python3 /Users/GaryT/Documents/Work/lab/design-programme/checks/check_coverage.py .`: 52 lessons, 52 covered (44 cited).
 - [x] Required `grep` restriction check: exit 0, no matches.
 - `npx -y skills-ref@latest validate .` is delegated to the coordinator, which has network access.
-- No real design task was used to dogfood this merged method.
-- **Verdict: PENDING** — the new method is distilled from course material and awaits real use.
+- `skills-ref validate`: valid (coordinator run).
+- Claim audit (GLM, independent of both writers): round 1 found 39 of 351 citations not supported (29 overstated, 6 unsupported, 4 derived but unlabelled). Codex fixed them; round 2 re-audited 50 pairs, all supported. Final table: 362 of 362 supported (`references/method/claim-audit.md`).
+- Dogfood (fresh Codex session, render-kit): a status panel for the fictional drilling well (signal and schematic colour) and a light plan for a described rig-floor night scene. All three artifacts pass `rk check`. Independent Claude vision review: 16 yes, 0 no, 5 not-judged (process claims no image shows); `rk brief --verify` exits 0. Evidence: `lab/design-programme/dogfood/run-2/color/`.
+- Dogfood findings folded in (labelled derived; round-3 audit confirms): signal colour in stateful interfaces takes its thresholds from the domain owner and never relies on hue alone (High); T6 exception for role-limited interface palettes (Medium); a text-only scene route through the mood-board gate (Medium). Renderer findings went to render-kit.
+- **Verdict: PENDING** — one dogfood pass; it earns KEEP after a second real use.
