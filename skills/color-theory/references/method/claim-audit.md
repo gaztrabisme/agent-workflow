@@ -1,7 +1,7 @@
 # Claim audit
-Writer: mixed (course 1140 claims by claude; courses 1560 and 5642 by codex; round-1 fixes by codex)
+Writer: mixed (course 1140 claims by claude; courses 1560 and 5642 by codex; round-1 and dogfood fixes by codex)
 Auditor: glm
-Round: 2
+Round: 3
 
 Merged from the scope tables `references/audit/claim-audit-s*.md`, with re-audit rounds `claim-audit-r*.md` replacing earlier verdicts.
 
@@ -23,7 +23,7 @@ Merged from the scope tables `references/audit/claim-audit-s*.md`, with re-audit
 | 14 | SKILL.md | 1560 · U2 · L06 · 00:08–01:48 | Flow stage 3: exposure | supported |  |
 | 15 | SKILL.md | 1560 · U3 · L11 · 00:34–01:43 | Flow stage 3: ambient and light color, stylized blue night light and warm lantern | supported |  |
 | 16 | SKILL.md | 1560 · U3 · L13 · 06:30–07:57 | Citation-format example in the Output section; no claim attached | supported | Anchor matches a real section of the sunny-room lesson. |
-| 17 | SKILL.md | 5642 · U3 · L26 · 00:55–01:40 | Each color's role: representation, evocation or code | supported | Color acts as signifier "not only as an iconographic signifier, but as a psychological, symbolic and emblematic one", beyond representing things. |
+| 17 | SKILL.md | 5642 · U3 · L26 · 00:55–01:40 | Each color's role: representation, evocation or code | supported | Section "Color as signifier": beyond representing things, color acts as a psychological, symbolic and emblematic signifier — the compresses-to representation/evocation/code reading already accepted in rounds 1–2. The explicit three-function chart is the adjacent 04:06–05:14 section, but 00:55–01:40 alone carries the roles named. The new derived sentence appended to this cell does not lean on the anchor. |
 | 18 | SKILL.md | 5642 · U3 · L43 · 10:21–11:57 | Use T10–T12 to test the semantic profile and compare alternatives | supported | Course basis is here: 24-pair semantic-differential profile, two gin variants rated, profiles overlaid for contrast; T10–T12 are the skill's own labels for it. |
 | 19 | references/method/artist-references.md | 1140 · U1 · L02 · 00:00–00:59 | Teacher files references in three families, a left-to-right gradient | supported |  |
 | 20 | references/method/artist-references.md | 1140 · U1 · L02 · 00:59–01:41 | Muyang Xu: many hues at once, light bounces, harmonious | supported |  |
@@ -225,7 +225,7 @@ Merged from the scope tables `references/audit/claim-audit-s*.md`, with re-audit
 | 216 | references/method/mistakes-checklist.md | 1140 · U4 · L18 · 01:47–03:19 | Contrast in wrong place; put it on the focal point, desaturate rivals | supported |  |
 | 217 | references/method/mistakes-checklist.md | 1140 · U4 · L18 · 03:19–05:09 | Lack of variety: two groups, then hue/saturation variation, then temperature | supported |  |
 | 218 | references/method/mistakes-checklist.md | 1140 · U4 · L18 · 05:09–07:27 | Dominant range moving everything fails; a secondary range must respond; pastel allowed | supported | 80%/5% thresholds are the script's own defaults |
-| 219 | references/method/mistakes-checklist.md | 1140 · U4 · L18 · 07:27–08:56 | Chosen version sits within the references' range | supported |  |
+| 219 | references/method/mistakes-checklist.md | 1140 · U4 · L18 · 07:27–08:56 | The chosen version sits in the references' range | supported | Problem 4: build mood boards, lay versions beside the references so the eye "can tell whether we are within that range", then pick the version that best matches the intended feeling. The appended "mark T4 not run" sentence carries its own derived label and is not attributed to the teacher. |
 | 220 | references/method/mistakes-checklist.md | 1140 · U4 · L18 · 08:56–10:26 | Garish saturation: desaturate secondary areas, saturate focal, raise if grey | supported |  |
 | 221 | references/method/mistakes-checklist.md | 1140 · U4 · L18 · 10:26–12:20 | Lit sides carry the light's temperature, shadows the ambient | supported |  |
 | 222 | references/method/mistakes-checklist.md | 5642 · U3 · L26 · 00:55–01:40 | Classify color's role: representation, evocation, or functional sign/code | supported |  |

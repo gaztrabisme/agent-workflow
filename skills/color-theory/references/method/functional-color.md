@@ -30,6 +30,14 @@ The course says these are not closed drawers: color in one graphic piece can per
 | Sign | Signal | Strong visibility draws attention, while a code within a particular system gives the color a practical meaning. | 5642 · U3 · L39 · 02:06–02:18, 5642 · U3 · L39 · 02:18–02:36, 5642 · U3 · L39 · 02:36–03:20 |
 | Sign | Emblematic | A conventional, culturally established color identifies an organization, place, institution or movement in social use. It may also serve as a signal. | 5642 · U3 · L40 · 00:22–00:50, 5642 · U3 · L40 · 00:50–01:35, 5642 · U3 · L40 · 01:52–02:44 |
 
+### Stateful-interface signal policy
+
+For a stateful interface that uses signal colour for status or alarms, obtain the state-to-threshold policy from the domain owner; show each metric with no policy as unconfigured (derived: run-2 dogfood, dashboard fixture lacked approved tiers and policy in finding 1).
+
+Hue must never be the only carrier of state: place a word, symbol, value, unit, limit and freshness beside the colour (derived: run-2 dogfood, finding 1's dashboard review identified these redundant state cues).
+
+Check the proposed state meanings with the intended audience (derived: run-2 dogfood, finding 1's requirement to validate operational state meanings).
+
 **Derived decision:** name the primary function for the whole design, then mark secondary roles on individual elements. This turns the course's overlapping categories into a practical brief check. (derived from 5642 · U3 · L26 · 09:10–10:58 and 5642 · U3 · L38 · 12:31–13:01)
 
 ## Color families as hypotheses, not fixed meanings

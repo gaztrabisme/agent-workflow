@@ -61,4 +61,8 @@ These are this skill's working defaults, not the teacher's numbers:
 | T5 | The focal box's mean C is at least that of every ring outside it | The image uses an inverted saturation layout on purpose, as in the terrifying recipe (1140 · U4 · L16 · 05:37–07:21) |
 | T6 | Fails if one range moves more than 80% of the image and no other range moves 5% | A restrained or pastel palette is the intent; the teacher allows it (1140 · U4 · L18 · 05:09–07:27) |
 
+For a deliberately small, named set of interface states with assigned state colours, mark T6 not applicable; apply this exception only to the state palette itself, not to other colours in the screen or an image palette (derived: run-2 dogfood, finding 2's four-state status palette and its T6 result).
+
+In place of T6 for that role-limited interface palette, verify separation for each required state pair, text contrast for each label/background pair, and state legibility in colour-vision-deficiency views (derived: run-2 dogfood, finding 2's proposed replacement checks).
+
 For ramps and design tokens, use the ramp guidance in [color-science SKILL.md](../color-science/SKILL.md): flat perceptual steps in OKLCH, and every text pair verified. Check the numbers with `checks.py contrast`.
