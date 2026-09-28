@@ -1,7 +1,7 @@
 # Claim audit
-Writer: mixed (course 1140 claims by claude; courses 1560 and 5642 by codex; round-1 and dogfood fixes by codex)
-Auditor: glm
-Round: 3
+Writer: mixed (course 1140 claims by claude; courses 1560 and 5642 by codex; fixes by codex; install line by glm)
+Auditor: glm (rounds 1-4; round 4 a fresh session)
+Round: 4
 
 Merged from the scope tables `references/audit/claim-audit-s*.md`, with re-audit rounds `claim-audit-r*.md` replacing earlier verdicts.
 
