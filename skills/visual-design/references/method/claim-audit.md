@@ -1,7 +1,7 @@
 # Claim audit
-Writer: codex (round-1 fixes by codex)
-Auditor: claude (round-1 scopes 2, 4) and glm (round-1 scopes 1, 3; round 2)
-Round: 2
+Writer: codex (round-1 and dogfood fixes by codex)
+Auditor: claude (round-1 scopes 2, 4) and glm (round-1 scopes 1, 3; rounds 2, 3)
+Round: 3
 
 Merged from the scope tables `references/audit/claim-audit-s*.md`, with re-audit rounds `claim-audit-r*.md` replacing earlier verdicts.
 
@@ -174,24 +174,24 @@ Merged from the scope tables `references/audit/claim-audit-s*.md`, with re-audit
 | 165 | references/method/measurement.md | 5642 · U2 · L12 · 03:02–04:44 | Do not stretch a typeface to fit; look for a condensed or extended face instead. | supported | Section states both the prohibition and the condensed/extended alternative. |
 | 166 | references/method/measurement.md | 5642 · U2 · L13 · 03:41–05:19 | Inspect type at final size, pairing, spacing, font coverage, collisions. | supported | Letter/line spacing and kerning adjustments, directly on point. |
 | 167 | references/method/measurement.md | 5642 · U2 · L13 · 05:19–06:09 | Inspect type at final size, pairing, spacing, font coverage, collisions. | supported | Checking a typeface's consistency and character/language coverage before use. |
-| 168 | references/method/measurement.md | 5642 · U2 · L14 · 02:56–04:58 | Set heading and body sizes at actual output size. | supported | Cited in T7 and T10; headline size judged on an Instagram-proportioned artboard. |
-| 169 | references/method/measurement.md | 5642 · U2 · L14 · 04:58–06:57 | Set heading and body sizes at actual output size. | supported | Body size set knowing the post will render smaller on a phone. |
+| 168 | references/method/measurement.md | 5642 · U2 · L14 · 02:56–04:58 | Heading sizes set on an Instagram-proportioned artboard, judged at output size. | supported |  |
+| 169 | references/method/measurement.md | 5642 · U2 · L14 · 04:58–06:57 | Body set at 50 pt; canvas size misleads since output is smaller on a phone. | supported |  |
 | 170 | references/method/measurement.md | 5642 · U2 · L19 · 02:16–04:28 | Ask whether a composition falls to one side; balance weight, size and colour. | supported | Heavy element balanced so the composition does not fall to one side; play of weight, size, colour. |
 | 171 | references/method/measurement.md | 5642 · U2 · L19 · 04:28–06:59 | Use a layout grid and align elements to it. | supported | Grid as template giving places to align against; margins, columns, gutter. |
 | 172 | references/method/measurement.md | 5642 · U2 · L21 · 14:00–17:46 | Guides hidden, the finished series is then reviewed as a whole. | supported | Section reviews the nine posts without the grid guides. |
-| 173 | references/method/measurement.md | 5642 · U4 · L49 · 02:06–03:47 | Inspect figure/ground; empty space groups, separates and controls reading pace. | supported | Active, dynamic negative space: separates elements and groups, lends weight and pause. |
-| 174 | references/method/measurement.md | 5642 · U4 · L49 · 03:48–04:52 | Inspect figure/ground; empty space groups, separates and controls reading pace. | supported | The figure-ground principle section. |
-| 175 | references/method/measurement.md | 5642 · U4 · L49 · 04:52–06:43 | Inspect figure/ground; empty space groups, separates and controls reading pace. | supported | Relates or separates, prioritizes, offers a path and paces the reading. |
+| 173 | references/method/measurement.md | 5642 · U4 · L49 · 02:06–03:47 | Negative space is a dynamic component that separates elements and groups. | supported |  |
+| 174 | references/method/measurement.md | 5642 · U4 · L49 · 03:48–04:52 | Figure-ground principle: figures emerge via contour, value contrast or smaller area. | supported |  |
+| 175 | references/method/measurement.md | 5642 · U4 · L49 · 04:52–06:43 | Negative space organizes content, separates or relates elements, paces reading. | supported | Section states it "organizes content… pacing how it's read". |
 | 176 | references/method/measurement.md | 5642 · U4 · L55 · 00:08–01:27 | Identify one dominant figure and subordinate elements. | supported | One dominant figure clarifies; fixations go to the elements of primary interest. |
 | 177 | references/method/measurement.md | 5642 · U4 · L55 · 01:27–02:33 | Examine where contrast directs attention. | supported | Weight from difference in size, contrast, colour; more contrast, more weight. |
 | 178 | references/method/measurement.md | 5642 · U4 · L56 · 00:00–02:00 | Identify one dominant figure and subordinate elements; contrast directs attention. | supported | Contrast makes the mind take one element as dominant and sets the reading order. |
 | 179 | references/method/measurement.md | 5642 · U4 · L56 · 02:00–02:40 | Identify one dominant figure and subordinate elements; contrast directs attention. | supported | Hierarchy as contrast of degree: extreme degrees and intermediate nuances order the content. |
-| 180 | references/method/measurement.md | 5642 · U4 · L60 · 07:58–09:46 | Course builds a type scale from the golden ratio (1.618). | supported | Body size multiplied by 1.618 to start the sequence, after matching x-heights. |
-| 181 | references/method/measurement.md | 5642 · U4 · L60 · 09:46–13:38 | …and extends it by Fibonacci addition. | supported | Section adds each pair of previous sizes to continue the scale. |
-| 182 | references/method/measurement.md | 5642 · U5 · L74 · 01:54–02:45 | Derived: filled and mostly empty designs can both be unified when space is ordered. | supported | Distribution and use of space as the last unifying resource; the leaf divides the space harmoniously. |
-| 183 | references/method/measurement.md | 5642 · U5 · L74 · 02:45–03:00 | Derived: filled and mostly empty designs can both be unified when space is ordered. | supported | The leg divides and orders the compositional space. |
-| 184 | references/method/measurement.md | 5642 · U5 · L74 · 03:00–03:33 | Derived: filled and mostly empty designs can both be unified when space is ordered. | supported | Filled case inside the space-distribution-as-unity sequence; the "derived from" label is present. |
-| 185 | references/method/measurement.md | 5642 · U5 · L74 · 08:00–08:35 | Derived: filled and mostly empty designs can both be unified when space is ordered. | supported | New anchor for the derived label: Chillida gives value to the void, what is not there. |
+| 180 | references/method/measurement.md | 5642 · U4 · L60 · 07:58–09:46 | Course builds a proportional scale from the golden ratio (9 × 1.618). | supported |  |
+| 181 | references/method/measurement.md | 5642 · U4 · L60 · 09:46–13:38 | Course extends the scale by Fibonacci addition (14.5 + 9 = 23.5…). | supported |  |
+| 182 | references/method/measurement.md | 5642 · U5 · L74 · 01:54–02:45 | Space distribution creates compositional unity; sparse design divides the frame. | supported | Labelled "derived from"; section names space use a resource for "compositional unity". |
+| 183 | references/method/measurement.md | 5642 · U5 · L74 · 02:45–03:00 | A leg divides and orders the compositional space. | supported |  |
+| 184 | references/method/measurement.md | 5642 · U5 · L74 · 03:00–03:33 | A filled design leaves space reduced to a minimum. | supported | Supplies the "filled" half of the derived both-extremes claim. |
+| 185 | references/method/measurement.md | 5642 · U5 · L74 · 08:00–08:35 | Chillida gives value to the void, the emptiness enclosed. | supported | Supplies the "mostly empty" half. |
 | 186 | references/method/measurement.md | 5642 · U5 · L75 · 07:37–08:27 | Compare weight by size, position, contrast and internal direction. | supported | Position in space: centred means stability and balance. |
 | 187 | references/method/measurement.md | 5642 · U5 · L75 · 08:27–09:22 | Compare weight by size, position, contrast and internal direction. | supported | Position: low reads heavy, high reads light; sides pull harder. |
 | 188 | references/method/measurement.md | 5642 · U5 · L75 · 09:22–10:34 | Compare weight by size, position, contrast and internal direction. | supported | Three worked examples of the frame's pull and position. |

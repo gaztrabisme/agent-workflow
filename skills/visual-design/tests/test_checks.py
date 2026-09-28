@@ -52,6 +52,11 @@ class PureMeasures(unittest.TestCase):
         self.assertEqual(measure_scale({"font_sizes": [32, 24, 18]})[2], "pass")
         self.assertEqual(measure_scale({"font_sizes": [32, 30, 20]})[2], "fail")
 
+    def test_type_scale_deduplicates_repeated_same_level_text(self):
+        result, _, status = measure_scale({"font_sizes": [32, 24, 24, 18, 18]})
+        self.assertEqual(status, "pass")
+        self.assertEqual(result["font_sizes_px"], [32, 24, 18])
+
     def test_focal_edge_energy_density(self):
         pixels = np.ones((30, 30, 3))
         pixels[9:21, 9:21] = 0

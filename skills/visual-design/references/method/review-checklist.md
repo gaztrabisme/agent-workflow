@@ -2,6 +2,8 @@
 
 Reader: an agent reviewing a finished artifact or an existing design. Run code checks first, then send the rendered artifact and the specific vision questions to a fresh-context reviewer.
 
+When reported beside color-theory checks, prefix this checklist's test IDs as VD-T1 through VD-T12; these local checklist IDs remain T1–T12. (derived: run-2 dogfood, finding row 4's collision between visual-design and color-theory test IDs)
+
 ## Tests
 
 | # | Test | Pass condition | Return to |
@@ -16,7 +18,7 @@ Reader: an agent reviewing a finished artifact or an existing design. Run code c
 | T8 | Focal-area dominance | The measured focal-area contrast-energy share meets the default; a fresh viewer reports the intended focal element first or describes a deliberately different entry point from the brief. | Stage 4: composition and movement |
 | T9 | Movement and reading path | The reviewer traces the intended entry point and endpoint without being diverted by an unrelated element. If a complex or crossing path is intended, its purpose is stated. | Stage 4: composition and movement |
 | T10 | Typography and rendering | Render-kit reports no unresolved applicable failure for overflow, font fallback or text collision; text is correct and readable at its actual size. Any skipped/incomplete relevant check is reported, not passed. | Stage 5: type and system |
-| T11 | System consistency | Every declared constant appears in all required variants; each variable changes only within its stated range; a reviewer can recognize the pieces as one system. | Stage 5: type and system |
+| T11 | System consistency | Every declared constant appears in all required variants; each variable changes only within its stated range; a reviewer can recognize the pieces as one system. Report n/a when no variants are required. (derived: run-2 dogfood, finding row 5's one-off artifact applicability gap) | Stage 5: type and system |
 | T12 | Hardest application | Required elements are legible in the most constrained application at its actual minimum size, and every required format/support is represented. | Stage 6: medium and variants |
 
 ## Course checks behind these tests

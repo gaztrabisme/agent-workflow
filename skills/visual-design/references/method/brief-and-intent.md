@@ -15,6 +15,10 @@ Sources:
 - For an identity, define its use as a whole graphic language across applications, not just a logo. The course includes labels, stationery, networks and even nonvisual touchpoints in that view. (5642 · U7 · L92 · 01:12–01:28; 5642 · U7 · L92 · 01:29–01:36)
 - Record the audience, required message, deliverables, supports, fixed content, viewing distance and production constraints. This checklist is derived from the brief-reading exercises and the lessons that design for a specific support. (derived from 5642 · U6 · L82 · 00:37–00:49; 5642 · U6 · L82 · 00:50–01:02; 5642 · U6 · L82 · 01:03–01:25; 5642 · U6 · L82 · 01:26–01:33; 5642 · U7 · L95 · 05:29–06:22; 5642 · U7 · L103 · 02:24–03:14; 5642 · U7 · L103 · 03:14–04:24; 5642 · U7 · L103 · 04:24–05:43)
 
+## Derived content verification before concept and layout
+
+- Before concept or layout, source every factual claim to its originating record; label it actual, plan or look-ahead; retain its units and dates; and keep chart semantics outside this skill's method. (derived: run-2 dogfood, finding row 1's source-record mismatch and adjacent-log look-ahead)
+
 ## Name the hardest application early
 
 - Design for the application's narrowest constraint first: a publishing mark must work on a spine; a business card may carry the complete identity; an online identity must survive in an avatar. (5642 · U7 · L95 · 00:09–00:29; 5642 · U7 · L96 · 00:00–00:36, 01:48–02:32; 5642 · U7 · L103 · 02:24–03:14)

@@ -1,0 +1,103 @@
+diff --git a/SKILL.md b/SKILL.md
+index 272074c..90d29e2 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -32,7 +32,7 @@ This skill turns a brief into a deliberate visual system: a clear concept, simpl
+ 
+ | Stage | Decide | Check before moving on | Reference |
+ |---|---|---|---|
+-| 1. Brief and intent | Audience, message, real use, constraints and desired reading | The concept and hardest application are named | [brief-and-intent.md](references/method/brief-and-intent.md) |
++| 1. Brief and intent | Audience, message, real use, constraints and desired reading | The concept and hardest application are named; before concept or layout, source every fact, label it actual, plan or look-ahead, preserve units and dates, and keep chart semantics outside this method. (derived: run-2 dogfood, finding row 1's adjacent-log look-ahead and source-record mismatch) | [brief-and-intent.md](references/method/brief-and-intent.md) |
+ | 2. Research and concept | Literal-to-subjective and representative-to-abstract position; story and references | References support the intended register; key content survives abstraction | [research-and-concept.md](references/method/research-and-concept.md) |
+ | 3. Form and unity | Basic shapes, figure-ground, grouping and a recognizable visual vocabulary | The forms read together and their negative spaces are intentional | [form-and-unity.md](references/method/form-and-unity.md) |
+ | 4. Composition and movement | Grid, hierarchy, weight, balance, focal point, space and visual path | Grid, balance, space, focal point and path pass T4–T9 | [composition-and-movement.md](references/method/composition-and-movement.md) |
+diff --git a/references/method/brief-and-intent.md b/references/method/brief-and-intent.md
+index a4d71b6..6125a55 100644
+--- a/references/method/brief-and-intent.md
++++ b/references/method/brief-and-intent.md
+@@ -15,6 +15,10 @@ Sources:
+ - For an identity, define its use as a whole graphic language across applications, not just a logo. The course includes labels, stationery, networks and even nonvisual touchpoints in that view. (5642 · U7 · L92 · 01:12–01:28; 5642 · U7 · L92 · 01:29–01:36)
+ - Record the audience, required message, deliverables, supports, fixed content, viewing distance and production constraints. This checklist is derived from the brief-reading exercises and the lessons that design for a specific support. (derived from 5642 · U6 · L82 · 00:37–00:49; 5642 · U6 · L82 · 00:50–01:02; 5642 · U6 · L82 · 01:03–01:25; 5642 · U6 · L82 · 01:26–01:33; 5642 · U7 · L95 · 05:29–06:22; 5642 · U7 · L103 · 02:24–03:14; 5642 · U7 · L103 · 03:14–04:24; 5642 · U7 · L103 · 04:24–05:43)
+ 
++## Derived content verification before concept and layout
++
++- Before concept or layout, source every factual claim to its originating record; label it actual, plan or look-ahead; retain its units and dates; and keep chart semantics outside this skill's method. (derived: run-2 dogfood, finding row 1's source-record mismatch and adjacent-log look-ahead)
++
+ ## Name the hardest application early
+ 
+ - Design for the application's narrowest constraint first: a publishing mark must work on a spine; a business card may carry the complete identity; an online identity must survive in an avatar. (5642 · U7 · L95 · 00:09–00:29; 5642 · U7 · L96 · 00:00–00:36, 01:48–02:32; 5642 · U7 · L103 · 02:24–03:14)
+diff --git a/references/method/measurement.md b/references/method/measurement.md
+index a2d0155..67cc113 100644
+--- a/references/method/measurement.md
++++ b/references/method/measurement.md
+@@ -24,8 +24,8 @@ Reader: an agent verifying a render-kit render of an SVG or composed HTML artifa
+ |---|---|---|---|
+ | T4 Grid alignment | Use construction guides or a layout grid, align elements, then hide guides to review the design. (5642 · U2 · L19 · 04:28–06:59; 5642 · U2 · L21 · 14:00–17:46) | Run grid on the render-kit render against the declared equal-column grid; both horizontal edges of each `data-vd-grid` box are checked against column boundaries. | Course uses exact alignment guides but sets no pixel tolerance. Skill choice: each edge lands within 1 CSS px or 0.1% of the shorter frame edge, whichever is larger. Declare columns, gutter and margin on `data-rk-stage`; leave free elements unmarked. |
+ | T5 Visual balance | Ask whether a composition falls to one side; compare weight by size, position, contrast and internal direction. (5642 · U2 · L19 · 02:16–04:28; 5642 · U5 · L75 · 07:37–08:27; 5642 · U5 · L75 · 08:27–09:22; 5642 · U5 · L75 · 09:22–10:34; 5642 · U5 · L75 · 10:34–11:56) | Run balance to report the luminance-contrast-weighted centroid and its normalized distance from the frame centre; fresh reviewer answers whether the arrangement reads as balanced for the brief. | Course gives no numeric centroid limit and permits asymmetry. Skill choice: for a declared centred/calm composition, centroid distance is at most 8% of the frame diagonal. For intended asymmetry, report the distance and use the vision judgment; do not fail on distance alone. |
+-| T6 Negative space | Inspect figure/ground and ask whether empty space groups, separates and controls reading pace. Derived from the lesson's examples: both filled and mostly empty designs can be unified when space is deliberately ordered. (5642 · U4 · L49 · 02:06–03:47; 5642 · U4 · L49 · 03:48–04:52; 5642 · U4 · L49 · 04:52–06:43; derived from 5642 · U5 · L74 · 01:54–02:45; 5642 · U5 · L74 · 02:45–03:00; 5642 · U5 · L74 · 03:00–03:33; 5642 · U5 · L74 · 08:00–08:35) | Run space to calculate one minus the union area of explicitly marked visible content boxes divided by usable stage area. Compare with the declared target; fresh reviewer checks its function. | Course gives no universal ratio. Skill choice: ratio must be within ±5 percentage points of the declared target; with no target, report the measure and require a positive vision judgment that the spaces are intentional. Bounding boxes estimate occupied area and can count transparent or irregular content as occupied. |
+-| T7 Type scale | Set heading and body sizes at actual output size; the course also constructs a proportional scale from the golden ratio (1.618) and extends it by Fibonacci addition. (5642 · U2 · L14 · 02:56–04:58; 5642 · U2 · L14 · 04:58–06:57; 5642 · U4 · L60 · 07:58–09:46; 5642 · U4 · L60 · 09:46–13:38) | Run scale on `data-vd-type` levels and calculate adjacent ratios from their rendered CSS font sizes; fresh reviewer confirms level distinction at actual size. | The course demonstrates proportional scales but prescribes no ratio. Skill choice: default adjacent-level ratio is at least 1.25, declared by `data-vd-type-scale` or assumed when omitted. |
++| T6 Negative space | Inspect figure/ground and ask whether empty space groups, separates and controls reading pace. Derived from the lesson's examples: both filled and mostly empty designs can be unified when space is deliberately ordered. (5642 · U4 · L49 · 02:06–03:47; 5642 · U4 · L49 · 03:48–04:52; 5642 · U4 · L49 · 04:52–06:43; derived from 5642 · U5 · L74 · 01:54–02:45; 5642 · U5 · L74 · 02:45–03:00; 5642 · U5 · L74 · 03:00–03:33; 5642 · U5 · L74 · 08:00–08:35) | Run space to calculate one minus the union area of explicitly marked visible content boxes divided by usable stage area. Compare with the declared target; fresh reviewer checks its function. | Course gives no universal ratio. Skill choice: ratio must be within ±5 percentage points of the declared target; with no target, report the measure and require a positive vision judgment that the spaces are intentional. Bounding boxes estimate occupied area and can count transparent or irregular content as occupied. If a card or panel background is itself composed content, include its full box as occupied; if it only contains sparse content, mark the content groups and omit the background. (derived: run-2 dogfood, finding row 3's panel-box mismatch) Set the target from the intended composition before reading the measured result. (derived: run-2 dogfood, finding row 3's target revision) |
++| T7 Type scale | Set heading and body sizes at actual output size; the course also constructs a proportional scale from the golden ratio (1.618) and extends it by Fibonacci addition. (5642 · U2 · L14 · 02:56–04:58; 5642 · U2 · L14 · 04:58–06:57; 5642 · U4 · L60 · 07:58–09:46; 5642 · U4 · L60 · 09:46–13:38) | Run scale on `data-vd-type` levels and calculate adjacent ratios from their rendered CSS font sizes; fresh reviewer confirms level distinction at actual size. | The course demonstrates proportional scales but prescribes no ratio. Skill choice: default adjacent-level ratio is at least 1.25, declared by `data-vd-type-scale` or assumed when omitted. Compare unique rendered font sizes as levels, deduplicating repeated instances at the same size before calculating adjacent ratios. (derived: run-2 dogfood, finding row 2's repeated-instance ratio failure) |
+ | T8 Focal-area dominance | Identify one dominant figure and subordinate elements; examine where contrast directs attention. (5642 · U4 · L55 · 00:08–01:27; 5642 · U4 · L55 · 01:27–02:33; 5642 · U4 · L56 · 00:00–02:00; 5642 · U4 · L56 · 02:00–02:40) | Run focal on the render-kit PNG with `data-rk-focal` marked; compare its share of absolute luminance-gradient energy with its frame-area share. Ask the reviewer what they see first. | Course requires a dominant focal figure but gives no number. Skill choice: the focal region contains at least 1.25 times its area share of luminance-gradient energy, and the reviewer names it first unless another entry point is intentional. |
+ | T9 Movement and path | Move or reorient a form, follow its directional energy and compare one path with a complex/crossing path. (5642 · U5 · L75 · 10:34–11:56; 5642 · U5 · L77 · 09:00–09:22; 5642 · U5 · L77 · 09:22–09:53; 5642 · U5 · L77 · 09:53–11:04; 5642 · U5 · L77 · 11:04–11:25; 5642 · U5 · L77 · 11:25–11:49; 5642 · U5 · L77 · 11:49–12:03; 5642 · U5 · L77 · 12:03–12:34; 5642 · U5 · L77 · 12:34–13:19; 5642 · U5 · L77 · 13:19–13:34; 5642 · U5 · L77 · 13:36–14:24; 5642 · U5 · L77 · 14:24–15:03) | Fresh reviewer traces the eye's entry point and endpoint on the rendered artifact and checks them against the intended path. | Course gives no numeric threshold. Skill choice: the reviewer traces the intended route without first stopping at an unrelated element; otherwise fail or record a deliberately complex route. |
+ 
+@@ -41,6 +41,8 @@ Reader: an agent verifying a render-kit render of an SVG or composed HTML artifa
+ 
+ For every test state one of: **measured**, **vision-judged**, **not judged** or **skipped**. Give the actual reading for numerical checks. If a threshold is overridden, state the brief or domain requirement that replaces it. A visual measure estimates a property; it does not establish that the audience understands a design.
+ 
++When these IDs appear beside color-theory checks in a report, prefix visual-design tests as VD-T1 through VD-T12; the checklist keeps its stable local T1–T12 IDs. (derived: run-2 dogfood, finding row 4's collision between visual-design and color-theory test IDs)
++
+ ## Script inputs and formulas
+ 
+ `checks.py` consumes a render-kit PNG. `measure_boxes.mjs` records the stage, focal box, visible type sizes, grid boxes and occupied boxes by calling render-kit's own prepared Chromium page. Give it the same viewport, scale, animation time and render options used by `rk check`. The helper's JSON uses PNG-pixel boxes, a CSS-pixel stage size and the stage declarations below:
+diff --git a/references/method/review-checklist.md b/references/method/review-checklist.md
+index dfceb12..e02019b 100644
+--- a/references/method/review-checklist.md
++++ b/references/method/review-checklist.md
+@@ -2,6 +2,8 @@
+ 
+ Reader: an agent reviewing a finished artifact or an existing design. Run code checks first, then send the rendered artifact and the specific vision questions to a fresh-context reviewer.
+ 
++When reported beside color-theory checks, prefix this checklist's test IDs as VD-T1 through VD-T12; these local checklist IDs remain T1–T12. (derived: run-2 dogfood, finding row 4's collision between visual-design and color-theory test IDs)
++
+ ## Tests
+ 
+ | # | Test | Pass condition | Return to |
+@@ -16,7 +18,7 @@ Reader: an agent reviewing a finished artifact or an existing design. Run code c
+ | T8 | Focal-area dominance | The measured focal-area contrast-energy share meets the default; a fresh viewer reports the intended focal element first or describes a deliberately different entry point from the brief. | Stage 4: composition and movement |
+ | T9 | Movement and reading path | The reviewer traces the intended entry point and endpoint without being diverted by an unrelated element. If a complex or crossing path is intended, its purpose is stated. | Stage 4: composition and movement |
+ | T10 | Typography and rendering | Render-kit reports no unresolved applicable failure for overflow, font fallback or text collision; text is correct and readable at its actual size. Any skipped/incomplete relevant check is reported, not passed. | Stage 5: type and system |
+-| T11 | System consistency | Every declared constant appears in all required variants; each variable changes only within its stated range; a reviewer can recognize the pieces as one system. | Stage 5: type and system |
++| T11 | System consistency | Every declared constant appears in all required variants; each variable changes only within its stated range; a reviewer can recognize the pieces as one system. Report n/a when no variants are required. (derived: run-2 dogfood, finding row 5's one-off artifact applicability gap) | Stage 5: type and system |
+ | T12 | Hardest application | Required elements are legible in the most constrained application at its actual minimum size, and every required format/support is represented. | Stage 6: medium and variants |
+ 
+ ## Course checks behind these tests
+diff --git a/scripts/measure_scale.py b/scripts/measure_scale.py
+index cb72900..1913b58 100644
+--- a/scripts/measure_scale.py
++++ b/scripts/measure_scale.py
+@@ -4,7 +4,7 @@ from __future__ import annotations
+ 
+ 
+ def measure_scale(boxes: dict) -> tuple[object, object, str]:
+-    sizes = sorted((float(v) for v in boxes.get("font_sizes", []) if float(v) > 0), reverse=True)
++    sizes = sorted({float(v) for v in boxes.get("font_sizes", []) if float(v) > 0}, reverse=True)
+     if len(sizes) < 2:
+         return {"font_sizes_px": sizes, "reason": "need at least two data-vd-type levels"}, "declared scale", "skipped"
+     ratios = [sizes[i] / sizes[i + 1] for i in range(len(sizes) - 1)]
+diff --git a/tests/test_checks.py b/tests/test_checks.py
+index 54090ef..71544f7 100644
+--- a/tests/test_checks.py
++++ b/tests/test_checks.py
+@@ -52,6 +52,11 @@ class PureMeasures(unittest.TestCase):
+         self.assertEqual(measure_scale({"font_sizes": [32, 24, 18]})[2], "pass")
+         self.assertEqual(measure_scale({"font_sizes": [32, 30, 20]})[2], "fail")
+ 
++    def test_type_scale_deduplicates_repeated_same_level_text(self):
++        result, _, status = measure_scale({"font_sizes": [32, 24, 24, 18, 18]})
++        self.assertEqual(status, "pass")
++        self.assertEqual(result["font_sizes_px"], [32, 24, 18])
++
+     def test_focal_edge_energy_density(self):
+         pixels = np.ones((30, 30, 3))
+         pixels[9:21, 9:21] = 0

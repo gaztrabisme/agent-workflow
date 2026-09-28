@@ -32,7 +32,7 @@ This skill turns a brief into a deliberate visual system: a clear concept, simpl
 
 | Stage | Decide | Check before moving on | Reference |
 |---|---|---|---|
-| 1. Brief and intent | Audience, message, real use, constraints and desired reading | The concept and hardest application are named | [brief-and-intent.md](references/method/brief-and-intent.md) |
+| 1. Brief and intent | Audience, message, real use, constraints and desired reading | The concept and hardest application are named; before concept or layout, source every fact, label it actual, plan or look-ahead, preserve units and dates, and keep chart semantics outside this method. (derived: run-2 dogfood, finding row 1's adjacent-log look-ahead and source-record mismatch) | [brief-and-intent.md](references/method/brief-and-intent.md) |
 | 2. Research and concept | Literal-to-subjective and representative-to-abstract position; story and references | References support the intended register; key content survives abstraction | [research-and-concept.md](references/method/research-and-concept.md) |
 | 3. Form and unity | Basic shapes, figure-ground, grouping and a recognizable visual vocabulary | The forms read together and their negative spaces are intentional | [form-and-unity.md](references/method/form-and-unity.md) |
 | 4. Composition and movement | Grid, hierarchy, weight, balance, focal point, space and visual path | Grid, balance, space, focal point and path pass T4–T9 | [composition-and-movement.md](references/method/composition-and-movement.md) |
