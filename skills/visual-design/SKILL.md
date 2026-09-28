@@ -59,13 +59,13 @@ This skill turns a brief into a deliberate visual system: a clear concept, simpl
 
 ### Render-and-check loop
 
-1. Add render-kit markup to the HTML/SVG: mark artifact regions with data-rk-stage and the intended focal region with data-rk-focal. Declare the intended grid and the typographic scale in the artifact so the measures have an explicit target.
+1. Add render-kit markup to the HTML/SVG: mark artifact regions with data-rk-stage and the intended focal region with data-rk-focal. Declare the grid, occupied content (`data-vd-occupies`), type levels (`data-vd-type`) and intended balance on the stage using the attributes documented in [measurement.md](references/method/measurement.md).
 2. Render and run render-kit checks with bin/rk check. Fix every failure and render again. A skipped or incomplete check is not a pass; record why it cannot apply.
-3. Run the visual-design measures on the render-kit output, using the scripts/checks.py subcommands grid, balance, space, scale and focal. These subcommands are reserved for the follow-on implementation; their measurement contracts and chosen defaults are in [measurement.md](references/method/measurement.md).
+3. Get stage-relative boxes from the same Chromium render with `node scripts/measure_boxes.mjs <artifact.html|svg> --render-kit <render-kit-folder> --out boxes.json` (repeat any non-default render options), then run `python3 scripts/checks.py <grid|balance|space|scale|focal> <out-dir>/render.png --boxes boxes.json`. Balance can run without boxes when the frame is the whole PNG. Each command prints JSON with the measure, threshold, status and source; thresholds are skill defaults where the course gives no number.
 4. After code checks, prepare a render-kit review brief from the checklist questions. Give the rendered images and questions to a fresh-context reviewer who did not make the artifact and can see images. Verify the answers. A vision check without such a reviewer is reported as not judged.
 5. Report measured, vision-judged, not-judged and skipped checks separately. Never turn a skipped or not-judged result into a pass.
 
-**Code checks:** render-kit checks resource loading, console errors, font fallback, overflow, text collisions, contrast, colour-vision deficiency, data fidelity, accessibility, value and chroma where applicable. The planned visual-design measures cover grid alignment, visual-weight centre, negative-space ratio, type-scale ratio and focal-area dominance.
+**Code checks:** render-kit checks resource loading, console errors, font fallback, overflow, text collisions, contrast, colour-vision deficiency, data fidelity, accessibility, value and chroma where applicable. The visual-design measures cover grid alignment, visual-weight centre, occupied-box negative-space estimate, type-scale ratio and focal-area luminance-gradient energy.
 
 **Vision checks:** message and motif recognition, figure-ground reading, optical balance, the function of negative space, movement, system coherence and whether a real-world application feels legible and appropriate. Give the reviewer the specific question from each test, not a generic “does it look good?”
 
