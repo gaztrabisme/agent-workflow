@@ -104,6 +104,12 @@ Beyond the skeleton (`templates/SKILL.md.skeleton`):
 - **Grounding gate:** no method claim without an anchor, no fact without a science-library reference.
 - The anti-pattern "stating a course principle without its anchor, or presenting a derived summary as the teacher's words".
 
+### Claim audit (when the owner does not review the method)
+An auditor from a different model lane than the writer reads every anchored claim beside its source section and gives one verdict: `supported`, `overstated` (says more than the teacher did), `unsupported`, or `derived-unlabelled` (the writer's conclusion without the "derived" label). Anything but `supported` goes back to the writer; at most three rounds.
+- **Later rounds replace earlier verdicts** for the same claim, and rows for anchors no longer cited are dropped when the rounds are merged. Otherwise a fixed claim keeps its old verdict and a deleted one keeps failing.
+- **Every edit to the method files needs a later audit,** including the small ones at install (a sibling line in SKILL.md) and dogfood fixes. Make those edits before the final audit round, or audit their diff after; an audit older than the files it covers does not count.
+- **Dogfood fixes are labelled derived** ("derived: dogfood …") and audited on their diff.
+
 ## 7. Dogfood
 
 Use `templates/dogfood-brief.md` with the course-skill tasks listed there: a plan from a brief, a critique of real or mocked work run through the whole review checklist, and a question that must route into the science library. At least one task makes an artifact through the skill's execution path and runs the full render-and-check loop on it, including the vision questions.
