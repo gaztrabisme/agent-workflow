@@ -260,6 +260,33 @@ class CleanTests(unittest.TestCase):
             self.assertFalse(rc.is_intro_lesson(title, rules), f'{title!r} should be kept')
 
 
+class CheckScopeTests(unittest.TestCase):
+    def manifest(self, root: Path) -> Path:
+        def unit(n, lesson_id):
+            return {'number': n, 'url': f'https://www.domestika.org/u{n}', 'lessons': [
+                {'number': 2 if n == 1 else 3, 'id': lesson_id, 'title': 'Contrast',
+                 'media_url': f'https://cdn-videos.domestika.org/{lesson_id}.m3u8'}]}
+        path = root / 'manifest.json'
+        path.write_text(json.dumps({'version': 1, 'course_id': 1, 'course_title': 'T', 'expected_units': 2,
+                                    'expected_lessons': 2, 'units': [unit(1, 42), unit(2, 43)]}))
+        return path
+
+    def run_check(self, root: Path, units: list[int] | None) -> int:
+        import argparse
+        args = argparse.Namespace(manifest=self.manifest(root), workdir=root, unit=units, lesson=None)
+        return rc.cmd_check(args)
+
+    def test_unprepared_unit_is_skipped_when_no_unit_is_named(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            LessonFixture(Path(tmp))
+            self.assertEqual(self.run_check(Path(tmp), None), 0)
+
+    def test_unprepared_unit_fails_when_named(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            LessonFixture(Path(tmp))
+            self.assertEqual(self.run_check(Path(tmp), [2]), 1)
+
+
 class ExportTests(unittest.TestCase):
     def test_lesson_exports_as_cleaned_markdown_with_frames(self):
         with tempfile.TemporaryDirectory() as tmp:

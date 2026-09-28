@@ -658,6 +658,10 @@ def cmd_check(args) -> int:
     progress = load_progress(args.workdir)
     failed = 0
     for unit in units:
+        # A unit left out when packaging has no reading folder. Skip it unless it was named.
+        if not args.unit and not (args.workdir / 'reading' / f'U{unit["number"]:02d}').is_dir():
+            print(f'U{unit["number"]:02d}: skipped, never prepared (name it with --unit to check it)')
+            continue
         for lesson in sorted(unit['lessons'], key=lambda item: item['number']):
             if args.lesson and lesson['number'] not in args.lesson:
                 continue
