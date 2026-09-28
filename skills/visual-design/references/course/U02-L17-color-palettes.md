@@ -103,7 +103,7 @@ Anchor: 5642 · U2 · L17 · 05:28–06:52
 
 For the exercise, observe the palettes in five familiar things: a favorite film or cartoon, clothes in the wardrobe, a favorite dessert, the place where you live, and the cover of a favorite album. The teacher’s examples show how different the results can be. *Monsters, Inc.* uses an analogous set of blues, purples, and greens. Her wardrobe uses the whole color wheel rather than a monochromatic, analogous, or complementary scheme. Cheesecake gives a nearly monochromatic palette of browns in lighter and darker shades. The La Latina neighborhood palette is analogous, moving through nearby ochres, oranges, and some greens. Her favorite album cover pairs blue and gray with accents of orange, a complementary relationship.
 
-Record the colors by painting, cutting out pieces, or making rectangles on a computer; the method does not matter as much as paying close attention and saving what you see. Some apps can identify colors for you, but the teacher asks viewers not to use them for this exercise. The next lesson applies color choices to the Instagram posts.
+Record the colors by painting, cutting out pieces, or making rectangles on a computer; the method does not matter as much as paying close attention and saving what you see. Some apps can identify colors for you, but the teacher asks viewers not to use them for this exercise. When finished, classify the palettes as analogous, monochromatic, or complementary. The next lesson applies color choices to the Instagram posts.
 
 ![5642 · U2 · L17 · 05:50](frames/U02L17-F0550.jpg)
 

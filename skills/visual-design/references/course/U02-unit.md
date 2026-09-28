@@ -37,6 +37,21 @@ I would like to recommend several very interesting books that can complement wha
 ["Gestalttheorie"](https://vimeo.com/244965559)
   
  An animated video about all the laws of perception.
+- ### Recommended tools
+
+Here are links to several graphic design tools and resources that are very accessible and full of possibilities:
+
+ [Figma](https://www.figma.com/)
+  
+ Figma is the most popular digital design tool today. It is also the tool I used to do the course project. It is easy to use and very complete for those who want to go deeper. No download is necessary, it is on the web and it is free!
+
+ [Canva](https://www.canva.com/es_es/)
+  
+ Canva is a design tool designed to create presentations, templates and basic designs in a very simple way. Like Figma, you don't need to download the tool if you don't want to, it's on the web and it's free! You can make your project with this tool if you want.
+
+ Pexels
+  
+ It's a place where you can download images to make collages or anything else you can think of. Downloads are free!
 - ### Magazine
 
 [*De Stijl Magazine*](https://www.ubu.com/historical/de-stijl/index.html)
@@ -160,6 +175,11 @@ Here are a couple of tools you can use to organize your Instagram content ahead 
  [Planoly](https://www.planoly.com/)
   
  [UNUM](https://www.unum.la/)
+- ### Recommended books
+
+[*Grid Systems in Graphic Design: A Visual Communication Manual for Graphic Designers, Typographers and Three Dimensional Designers* \| Josef Müller\-Brockmann](https://www.barnesandnoble.com/w/grid-systems-in-graphic-design-josef-muller-brockmann/1121282349)
+  
+ The most famous book on everything you need to know about grids.
 - ### About the grids
 
 ["Building Generative Grid Layouts With Quadtrees"](https://georgefrancis.dev/writing/generative-grid-layouts-with-quadtrees/)

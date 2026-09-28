@@ -98,7 +98,7 @@ Practice centering the eye, using a diagonal, and applying the rule of thirds. C
 
 I use an eraser. For the eye-catching photo, I choose a dark background so the eraser stands out, then use text with strong contrast to draw the eye further. In the diagonal version, I angle the text too; with few elements, I can let everything have a more chaotic rhythm. For the rule of thirds, I use a vertical composition, place the eraser in the first third and put the text in the second.
 
-Now make the three photographs with an object of your choice, and show them to us if you like. If you post them on Instagram, you can tag me. We are nearly ready to apply these ideas to our project and make the posts work together through composition.
+Now make the three photographs with an object of your choice, and show them to us if you like. We are nearly ready to apply these ideas to our project and make the posts work together through composition.
 
 ![5642 · U2 · L20 · 05:27](frames/U02L20-F0527.jpg)
 

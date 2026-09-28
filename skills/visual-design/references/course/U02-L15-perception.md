@@ -71,7 +71,7 @@ Anchor: 5642 · U2 · L15 · 07:04–09:00
 
 Nautical signal flags send varied messages without text, using color and geometric shapes. The teacher likes how they can communicate a specific warning—such as having a diver submerged—without letters. The exercise is to design six flags for messages used in everyday life, with complementary colors.
 
-For her set, she chooses five colors that make two complementary pairs, blue with orange and green with red, then adds yellow to balance the set and allow more combinations. Her flags encode reminders to take out the rubbish, get up after sitting too long, charge a phone whose battery is running low, and avoid interrupting a video call. Geometric shapes are welcome, but the flags should have a similar level of complexity: each can include lines or circles while keeping comparable detail.
+For her set, she chooses five colors that make two complementary pairs, blue with orange and green with red, then adds yellow to balance the set and allow more combinations. Her flags encode reminders to take out the rubbish, get up after sitting too long, charge a phone whose battery is running low, and avoid interrupting a video call. Geometric shapes are welcome, but the flags should have a similar level of complexity: each can include lines or circles while keeping comparable detail. Viewers are asked to make their own flags.
 
 ![5642 · U2 · L15 · 07:12](frames/U02L15-F0712.jpg)
 
