@@ -90,5 +90,31 @@ Not modified (validated as already-sound): per-unit folders, captions sharing vi
 - [x] `export` added (2026-09-26): the same cleaned content as Markdown plus renamed frames, for distilling skills. Course 1140 exported 17 lessons, 4 unit files and 432 frames; first consumer is the `color-theory` skill. The export also runs sentence-level cleaning over the unit tasks, which caught forum and peer-feedback prompts that element-level rules had to leave inside task paragraphs (12 more removals, 33 total, all read). Four `prose_cta` rules were added (`forum`, `receive comments/feedback`, `share it with your colleagues`, `do not be upset if I`), and clauses now also split before ", you can also". The PDF build still cleans unit HTML at element level only, so its tasks keep those prompts.
 - [x] `pdf-index.md` wording made agent-neutral (2026-09-26): it said to open pages "with the Read tool", a tool name from one agent. Course 1140 re-exported; every other file came out byte-identical.
 - [x] Intro-lesson rule made whole-title only (2026-09-27): `^presentation\b` wrongly excluded the teaching lessons "Presentation for screen 1/2" of course 5642 while course 1560's "About me" escaped. The rules now anchor "Presentation"/"Presentación" (optionally with a parenthesised part) and add "Who I am" and "About me", guarded by a unit test.
-- [ ] A second course, ideally one with English native audio and one with dense screen recordings, run under the updated instructions.
+- [x] A second and third course (1560, English audio; 5642 units 2–7, Spanish, dense screens) run in the design programme's run 2; see Evolution 4.
 - **Verdict: PENDING** — one real course end to end, approved on review; settle after a second course.
+
+## Evolution 4 — 2026-09-28 — Audit loop instead of owner review
+
+### Harvest scope
+- Real run: courses 1560 (15 lessons, English) and 5642 units 2–7 (98 lessons, Spanish), 112 included lessons written by Claude agents and Codex, audited cross-lane with a GLM text pass, up to three rounds. Source: design-programme wiki `log.md`, "Run 2 closed", and the 112 `audit.json` files.
+
+### Patterns found
+1. **Captions, not prose, drove the rounds.** Impact: H. Of 1,733 findings, 1,091 were `figure-text` and 330 `missing-figure`; prose kinds were 285. Only 4 lessons passed at round 1; 30 were blocked at round 3, 29 of them on captions only. Common caption faults: a quoted non-English phrase without its own translation, a shortened label, changed capitalisation, a missing `[rest omitted]`.
+2. **The guide's own example used parentheses for the translation** while its rule said brackets, and auditors flagged parentheses.
+3. **One writer lane condensed instead of translating** (5642 U4: 32 High findings); the unit was rewritten. The 35% prose floor did not catch it.
+4. **`removed.log` is rewritten by every `clean`, `build` and `export`,** so a per-unit run replaced the whole-course log before the required full read.
+5. **`check` with no `--unit` failed on units deliberately left out when packaging.**
+6. **Loop mechanics:** a dispute-only fix never re-triggered the audit; job names without the lane collided when a lesson changed writer.
+
+### Hypotheses applied
+1. `references/audit-loop.md`: roles, severity scale, round rules, the caption-only rule for blocked lessons, loop mechanics and budget. Closes 6 and records the protocol.
+2. `reading-copy.md` caption rules: keep capitalisation, ` / ` for line breaks, a square-bracket translation after every quoted non-English phrase, labels in full; example corrected. Closes 1 and 2.
+3. `reading-copy.md` faithfulness: translate sentence by sentence, not by main points. Closes 3.
+4. `reading-copy.md` commands: which commands rewrite `removed.log` and how to get the full log. Closes 4.
+5. `check` skips units with no `reading/UNN/` folder unless named, with two tests. Closes 5.
+6. Also shipped in the run: marketing rules from the removal review, clause-level forum-invitation removal, frames named to the centisecond.
+
+### Validation results
+- [x] 31 unit tests pass; `check` with no `--unit` exits 0 on both run-2 courses.
+- [ ] Next course run: first-round pass rate and share of `figure-text` findings, against 4 of 112 and 63% here.
+- **Verdict: PENDING** — hypotheses 2–4 are untested until the next course.

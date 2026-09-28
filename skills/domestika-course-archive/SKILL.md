@@ -64,4 +64,5 @@ Creates a local ZIP archive of a Domestika course the user can access. Each unit
 
 - `references/operations.md` — requirements, commands, output layout, and known limits for the included tools.
 - `references/reading-copy.md` — the per-unit agent loop, `lesson.md` format and writing rules for the reading copy.
+- `references/audit-loop.md` — independent audit of every lesson instead of owner review: roles, severity, rounds, what a blocked lesson may still be used for.
 - `EVOLUTION.md` — authoring trace, dogfood findings and unsettled hypotheses.

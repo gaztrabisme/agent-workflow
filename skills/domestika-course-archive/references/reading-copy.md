@@ -19,9 +19,13 @@ python3 $R prepare $M --workdir $W [--unit N]      # transcripts, candidates, co
 python3 $R frames $W/reading/UNN/LNN --at 03:12 --at 05:48.5   # extract kept frames
 python3 $R check $M --workdir $W [--unit N] [--lesson N]       # must pass before build
 python3 $R status $M --workdir $W                  # progress per lesson
-python3 $R clean $M --workdir $W                   # preview removals into reading/removed.log
+python3 $R clean $M --workdir $W                   # removals into reading/removed.log (whole course)
 python3 $R build $M --workdir $W --output <pdf> [--unit N] [--zip <course zip>] [--teacher "<name>"]
 ```
+
+`clean`, `build` and `export` each rewrite `removed.log` for the units they were given, so a run with `--unit` replaces the whole-course log. For the full read the output contract requires, run `clean` with no `--unit` after the last change, then read the log.
+
+`check` with no `--unit` skips units that have no `reading/UNN/` folder (units left out when packaging); name a unit to check it anyway.
 
 `prepare` skips lessons whose title matches an intro rule (for example "Presentation (Who am I)"); they appear only in the sources appendix.
 
@@ -58,7 +62,7 @@ sources: transcript.es.txt (primary), transcript.en.txt (check), frames
 Prose for what the teacher explains in this span.
 
 ::: figure 03:12 F0312.jpg
-On screen: "TÚ YA ERES UN EXPERTO EN COLOR" (You are already a color expert)
+On screen: "TÚ YA ERES UN EXPERTO EN COLOR" [You are already a color expert]
 Shows: Title card for the lesson.
 :::
 
@@ -79,10 +83,10 @@ Shows: Title card for the lesson.
 
 **Translation.** Translate from the native captions. Where they and the English captions disagree, the native captions win. At the first use of a technical term that could translate differently, give the original in brackets: "value (*valor*)".
 
-**Faithfulness.** Follow what was taught, in the teacher's order, edited for clarity: remove filler, false starts and repetition; keep every point, example, number, name, step, warning and piece of advice. Add nothing the teacher did not say or show. Keep the teacher's voice in the first person only where it carries meaning ("I always start with…"). Put your own summary only under Key points (derived).
+**Faithfulness.** Follow what was taught, in the teacher's order, edited for clarity: remove filler, false starts and repetition; keep every point, example, number, name, step, warning and piece of advice. Add nothing the teacher did not say or show. Keep the teacher's voice in the first person only where it carries meaning ("I always start with…"). Put your own summary only under Key points (derived). Translate sentence by sentence rather than condensing a span into its main points: a condensed span drops examples and warnings that the audit counts as omissions, and the 35% prose floor in `check` does not catch it.
 
 **Frame captions.**
-- `On screen:` copies on-screen text exactly as shown, in quotes. If it is not English, follow it with an English translation in brackets. Use `[none]` when there is no text and `[illegible]` for text you cannot read. For dense screens, or text cut off at the frame edge, copy what is readable and relevant and add `[rest omitted]`. When the native captions mis-transcribe a word and the correction changes the meaning, translate what was said and note the caption reading once in brackets, e.g. "smelling the lavender (captions: *oler la banda*)".
+- `On screen:` copies on-screen text exactly as shown, in quotes. Keep the frame's capitalisation and spelling; mark line breaks that separate items with ` / `. Every quoted phrase that is not English gets its own English translation in square brackets right after it, including roles, dates and labels on posters and packaging. Quote labels in full; do not shorten "Flirty Sour" to "Flirty". Use `[none]` when there is no text and `[illegible]` for text you cannot read. For dense screens, or text cut off at the frame edge, copy what is readable and relevant and add `[rest omitted]`. When the native captions mis-transcribe a word and the correction changes the meaning, translate what was said and note the caption reading once in brackets, e.g. "smelling the lavender (captions: *oler la banda*)".
 - Interface screens (Photoshop panels, dialogs): copy only the labels and values the lesson is about, then `[rest omitted]`; a frame whose only text is interface chrome is `[none]`. Text repeated across many frames (a poster tagline, a course title) is quoted in full once per lesson, then `[rest omitted]`. Artist signatures count as on-screen text when they identify the work discussed; site watermarks and the platform logo do not.
 - Promotional screens (the platform's sting, a course advert) are not figures; drop them.
 - A teacher's own slip of the tongue is handled like a caption error: translate what was meant and note the words spoken once in brackets.
@@ -92,4 +96,4 @@ Shows: Title card for the lesson.
 
 ## Resuming and delegation
 
-`W/reading/progress.json` records each lesson as `excluded`, `prepared`, `drafted` or `checked`; `status` prints it. Lessons are independent, so they can be written by parallel subagents. A subagent must be able to view images (it reads contact sheets and frames). The coordinator runs `check` itself and reviews a sample of figures before `build`.
+`W/reading/progress.json` records each lesson as `excluded`, `prepared`, `drafted` or `checked`; `status` prints it. Lessons are independent, so they can be written by parallel subagents. A subagent must be able to view images (it reads contact sheets and frames). The coordinator runs `check` itself and reviews a sample of figures before `build`. When the owner will not review the lessons, run `audit-loop.md` instead.
