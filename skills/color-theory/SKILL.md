@@ -19,6 +19,7 @@ The method combines Domestika 1140, *Color Theory: How to Apply It to Your Image
 - **`batch-photo-retouching` instead:** editing photographs (relighting, white balance, retouching) where the colors must stay true to the original.
 - **Not this skill:** the overall visual style of an interface (layout, typography, component styling). That belongs to the skill building the interface. This skill still answers the interface's palette, ramp and contrast questions.
 - **Not this skill:** choosing a chart type and which data goes to which visual channel. This skill answers the color side of that choice: perceptual sequential and diverging ramps, color-vision deficiency and contrast.
+- **`visual-design` instead:** composition, form and layout — the visual structure of a graphic, page or identity. This skill answers that artifact's colour decisions.
 - **`domestika-course-archive` instead:** archiving a course. Its `export` command is how another color course gets added here.
 
 > **Disambiguation:** decide on the **artifact**. A color decision or color fact belongs here. Photo fidelity and course packaging belong to the siblings above. Overall interface style and chart choice belong to whichever skill builds the deliverable.
