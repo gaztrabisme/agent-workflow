@@ -14,7 +14,7 @@ Use clarity, balance, contrast, unity and salience as prompts, interpreting them
 
 Hide construction guides and view the finished series at thumbnail scale. Check its rhythm, hierarchy and variation as a whole. (5642 · U2 · L21 · 14:00–17:46; 5642 · U4 · L56 · 08:05–10:31)
 
-Check the mark's reading, minimum-size legibility, unintended meaning and whether another person can use it correctly. The course recommends templates and worked examples over an unwieldy written manual. (5642 · U7 · L104 · 00:00–00:31; 5642 · U7 · L104 · 00:31–00:45; 5642 · U7 · L104 · 00:45–01:01; 5642 · U7 · L104 · 01:01–01:17; 5642 · U7 · L104 · 01:17–01:30)
+Check that the mark reads well and does not say something unintended. (5642 · U7 · L104 · 00:00–00:31) Check its minimum-size applications, including the spine and avatar. (5642 · U7 · L96 · 01:48–02:32; 5642 · U7 · L103 · 02:24–03:14; 5642 · U7 · L103 · 03:14–04:24) Make it easy for another person to apply, and give colleagues templates and examples rather than complicated guidelines. (5642 · U7 · L104 · 01:01–01:17; 5642 · U7 · L104 · 01:17–01:30)
 
 ## Run the checklist and return to the right stage
 

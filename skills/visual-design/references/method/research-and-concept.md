@@ -14,12 +14,12 @@ Sources:
 - First list the literal contents of the source; then list less-obvious associations. The brief determines where the outcome sits between literal and subjective. (5642 · U2 · L07 · 03:57–05:07, 06:53–09:36)
 - Separately choose a style from figurative toward abstract. The same subject can be shown in many styles, and symbols rely on what viewers have learned. (5642 · U2 · L08 · 00:00–02:12)
 - The iconicity scale runs from a natural image with much detail to non-figurative representation. Pick a point before choosing the graphic treatment, and identify the minimum information that still lets the audience recognize the subject. (5642 · U6 · L80 · 00:28–00:50, 01:13–01:33, 05:18–06:39)
-- A sign communicates through an established reading; a symbol can carry further cultural or emotional associations. Do not assume an abstraction is understood without checking the intended audience. (5642 · U6 · L79 · 00:30–01:19; 5642 · U6 · L79 · 01:20–01:33; 5642 · U6 · L79 · 01:34–01:55, 02:19–02:47)
+- A sign communicates through an established reading; a symbol can carry further cultural or emotional associations. Do not assume an abstraction is understood without checking the intended audience. (5642 · U6 · L79 · 00:30–01:19; 5642 · U6 · L79 · 01:34–01:55, 02:19–02:47)
 
 ## Research around a story
 
 - For identity work, sort findings into product/audience facts, emotional associations and attention-grabbing material, then condense them into three summary groups. The teacher develops a single differential phrase from those groups into the project story. (5642 · U6 · L82 · 02:49–03:25; 5642 · U6 · L82 · 03:26–04:12, 07:42–08:31; 5642 · U6 · L83 · 01:47–02:42, 04:29–05:20)
-- Gather references from more than literal matches. The course searches by subject, then by a known designer, then for visually similar material. (5642 · U2 · L10 · 03:11–06:57)
+- Gather references from more than literal matches. The course searches by subject, then by a known designer, then for visually similar material. (5642 · U2 · L10 · 03:11–06:57; 5642 · U4 · L48 · 09:03–12:04)
 - For a personal visual universe, look to architecture, photography and clothing, rather than using finished design as the main visual source. Finished graphics may help identify an era or cultural reference, but should not supply the design solution. (5642 · U6 · L84 · 01:44–04:03, 04:59–05:59)
 - Build a mood board before layout, then mine it for primary images, textures/patterns and complementary elements. Extract a shape vocabulary from details in those references. (5642 · U4 · L48 · 09:03–12:04; 5642 · U6 · L84 · 10:58–12:07; 5642 · U6 · L84 · 12:07–14:44)
 - Analyse supplied images as descriptive or narrative, locate the defining motif and decide whether to use their own structure or impose one. (5642 · U4 · L52 · 02:29–03:27, 05:25–08:56)

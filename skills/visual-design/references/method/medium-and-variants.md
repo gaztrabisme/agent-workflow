@@ -12,7 +12,7 @@ Sources:
 - Include the support in the system decision. A design can fail when moved to a material or context it was not made for. (5642 · U6 · L86 · 03:03–04:39)
 - Create the mark for its hardest application and check the reduced result at that size. A publisher's spine and a small online avatar are explicit examples. (5642 · U7 · L96 · 01:48–02:32; 5642 · U7 · L103 · 02:24–03:14)
 - Plan horizontal, square and vertical formats early. Responsive identity adapts the amount of information to the space; it is not a separate fixed logo rule. (5642 · U7 · L103 · 03:14–04:24; 5642 · U7 · L103 · 04:24–05:43)
-- Use supplied photography consistently. The course unifies images through grayscale, reframing or cut-outs, and warns that mismatched photographic treatment and pictograms can create competing visual languages. (5642 · U7 · L94 · 06:49–08:10; 5642 · U7 · L98 · 05:02–05:49; 5642 · U7 · L102 · 00:00–01:31)
+- Use supplied photography consistently. The course unifies images through grayscale, reframing or cut-outs, and warns that mismatched photographic treatment and pictograms can create competing visual languages. (5642 · U7 · L94 · 06:49–08:10; 5642 · U7 · L98 · 05:02–05:49, 08:18–10:27; 5642 · U7 · L102 · 00:00–01:31)
 
 ## Test variants and presentation
 

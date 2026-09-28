@@ -10,7 +10,7 @@ Sources:
 
 ## Start with shape, not decoration
 
-- Circle, square and triangle provide a basic geometric vocabulary. Test repetition, resizing and rotation before adding colour or stretching the forms. (5642 · U2 · L08 · 02:12–03:30, 04:21–05:56)
+- Circle, square and triangle provide a basic geometric vocabulary. In the exercise, do not use colour or stretch the forms; you may repeat, resize or rotate them. (5642 · U2 · L08 · 02:12–03:30, 04:21–05:56)
 - Geometry can organize elements into a coherent whole, but geometry by itself does not supply the concept. (5642 · U6 · L81 · 01:44–02:13; 5642 · U6 · L81 · 02:14–02:38)
 - In a geometric identity project, extract shapes from gathered material, such as windows, doorways or stairs, so the formal language connects to the research. (5642 · U6 · L84 · 12:07–14:44)
 - Set a support as a rough guide while finding the main shape, then test its symmetry and balance before fixing size. The course deliberately begins this part in black and white. (5642 · U6 · L85 · 00:00–00:59, 00:59–02:57, 04:44–05:02)
@@ -19,7 +19,7 @@ Sources:
 
 | Perceptual relationship | Design use | Course anchor |
 |---|---|---|
-| Pregnance / simplicity | Reduce needless parts so the whole is quickly read | 5642 · U2 · L09 · 00:00–01:56 |
+| Pregnance / simplicity | Use fewer, simpler elements to make an image easier to remember | 5642 · U2 · L09 · 00:00–01:56 |
 | Closure | Leave an intentional gap the viewer can complete | 5642 · U2 · L09 · 01:56–02:53 |
 | Proximity | Place parts close enough to be read as a group | 5642 · U2 · L09 · 02:53–03:45 |
 | Figure and ground | Decide which shape leads; check if the negative form also carries meaning | 5642 · U2 · L09 · 03:45–04:50 |
@@ -30,9 +30,9 @@ The whole composition behaves as one larger shape. Use figure-ground, contour, c
 ## Build unity deliberately
 
 - Unity can come from overlap, proximity or similarity, a shared grid/line, a recognizable whole or the ordering of space. A structure can hold together forms that otherwise have little in common. (5642 · U5 · L73 · 03:02–04:10; 5642 · U5 · L73 · 04:10–04:36; 5642 · U5 · L73 · 04:36–05:27; 5642 · U5 · L73 · 05:27–06:04; 5642 · U5 · L73 · 06:04–06:55; 5642 · U5 · L73 · 06:55–07:23; 5642 · U5 · L73 · 07:23–08:26; 5642 · U5 · L74 · 09:30–11:13)
-- Repetition can create nested groups and depth; a progression of forms also introduces movement. (5642 · U5 · L73 · 07:23–08:26, 12:17–13:38)
+- A grid structure can hold unlike elements as one unity and create smaller unities within it; a progression of forms also introduces movement. (5642 · U5 · L73 · 07:23–08:26, 12:17–13:38)
 - A composition can use most of the frame or leave most of it empty. Either can be unified if the space is deliberately ordered. (5642 · U5 · L74 · 01:54–02:45; 5642 · U5 · L74 · 02:45–03:00; 5642 · U5 · L74 · 03:00–03:33, 08:00–08:35)
-- A design can sit near the edge of chaos, but it must still read as a group. (5642 · U5 · L73 · 06:04–06:55)
+- Unity can be almost broken and barely legible, held together by tone. (5642 · U5 · L73 · 06:04–06:55)
 
 These options, in this order, are a **derived working sequence**: extract form from the concept, test the perceptual relationships, then choose the simplest unity device that preserves the required reading. (derived from 5642 · U2 · L08 · 04:21–05:56; 5642 · U2 · L09 · 00:00–01:56; 5642 · U2 · L09 · 01:56–02:53; 5642 · U2 · L09 · 02:53–03:45; 5642 · U2 · L09 · 03:45–04:50; 5642 · U2 · L09 · 04:50–08:17; 5642 · U5 · L73 · 01:52–02:56; 5642 · U5 · L73 · 03:02–04:10; 5642 · U5 · L73 · 04:10–04:36; 5642 · U5 · L73 · 04:36–05:27; 5642 · U5 · L73 · 05:27–06:04; 5642 · U5 · L73 · 06:04–06:55; 5642 · U5 · L73 · 06:55–07:23; 5642 · U5 · L73 · 07:23–08:26)
 
@@ -43,4 +43,4 @@ These options, in this order, are a **derived working sequence**: extract form f
 - If ambiguity is intentional, say what is meant to switch between figure and ground.
 - Run T3. If the visual vocabulary is unclear, return to research and concept; if the parts do not cohere, return to the unity device.
 
-Practice the teacher sets: represent abstract words using only circles, squares and triangles; do not add colour or stretch shapes. See [U02-unit.md](../course/U02-unit.md). The identity project extracts its geometry from the mood board; see [U06-unit.md](../course/U06-unit.md).
+Practice the teacher sets: represent abstract words using only circles, squares and triangles; do not add colour or stretch shapes. (5642 · U2 · L08 · 04:21–05:56) See [U02-unit.md](../course/U02-unit.md). The identity project extracts geometric forms from the mood board. (5642 · U6 · L84 · 12:07–14:44) See [U06-unit.md](../course/U06-unit.md).

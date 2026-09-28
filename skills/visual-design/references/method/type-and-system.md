@@ -14,10 +14,10 @@ Sources:
 - Choose typefaces for their role and character. If pairing two faces, make the difference legible while looking for compatible proportions. (5642 · U2 · L13 · 00:00–02:18; 5642 · U4 · L51 · 06:24–07:56)
 - Set hierarchy before choosing faces. For identity work, the course demonstrates brand name, category and technical information at distinct levels. (5642 · U6 · L89 · 00:07–01:09)
 - Adjust size, tracking and leading at the actual output size. Do not stretch a typeface to fit; use an appropriate family width or a different placement. (5642 · U2 · L12 · 03:02–04:44; 5642 · U2 · L14 · 02:56–04:58; 5642 · U2 · L14 · 04:58–06:57)
-- Counters, letter weight and spacing affect one another. Small counters make a face look heavier and call for tighter spacing; typographic colour changes as letter, word and line spacing change. (5642 · U4 · L51 · 00:00–00:56; 5642 · U4 · L51 · 00:56–01:14; 5642 · U4 · L51 · 01:14–01:37; 5642 · U4 · L51 · 01:37–02:27)
+- Counters, letter weight and spacing affect one another. Small counters make a face look heavier and call for tighter spacing; typographic colour changes as letter, word and line spacing change. (5642 · U4 · L51 · 00:00–00:56; 5642 · U4 · L51 · 01:37–02:27)
 - Keep running text distinct from the display face where small-size readability requires it. The logotype's typeface does not have to serve every brand application. (5642 · U7 · L97 · 09:58–11:10; 5642 · U7 · L100 · 11:49–12:46)
 - Correct the actual text and font before polishing: confirm script coverage, genuine punctuation and small caps, and check for collisions at the final size. (5642 · U7 · L95 · 01:48–02:14; 5642 · U7 · L95 · 02:15–03:07; 5642 · U7 · L96 · 04:03–05:43; 5642 · U7 · L97 · 08:12–09:58; 5642 · U7 · L102 · 02:08–03:13)
-- For type read at a distance, test the display face and tight leading at real size; repair any collision that harms the letterform. Match a row of secondary marks by optical weight, not common width. (5642 · U7 · L101 · 03:59–07:48; 5642 · U7 · L101 · 08:57–10:26)
+- Wood-type letters were made large for reading at a distance and set close together; the course shows tightened leading, sometimes nearly to the spacing between words. Match a row of secondary marks by optical weight, not common width. (5642 · U7 · L101 · 03:59–07:48; 5642 · U7 · L101 · 08:57–10:26)
 
 ## Fix the system's structure
 
@@ -41,4 +41,4 @@ Sources:
 - Named constants survive all versions; each variable has a defined range.
 - Run T7, T10 and T11. If the structure works but the small text does not, return to type selection and scale; if variants drift, return to the constants and variables.
 
-Practice the teacher sets: choose a short word and make its letterforms express its meaning; set a headline and body scale at actual size. See [U02-unit.md](../course/U02-unit.md). The working system exercises continue through [U04-unit.md](../course/U04-unit.md) and [U06-unit.md](../course/U06-unit.md).
+Practice the teacher sets: choose a short word and make its letterforms express its meaning (5642 · U2 · L11 · 06:11–07:57); set a headline and body scale at actual size (5642 · U2 · L14 · 02:56–04:58; 5642 · U2 · L14 · 04:58–06:57). See [U02-unit.md](../course/U02-unit.md) for related resources. Related resources are also listed in [U04-unit.md](../course/U04-unit.md) and [U06-unit.md](../course/U06-unit.md).
