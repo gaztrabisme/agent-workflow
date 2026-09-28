@@ -40,11 +40,11 @@ MCP tools `dsh_delegate` → `dsh_await` (wait_seconds ≥ 1800) → `dsh_contin
 
 ### GLM — mechanical leaves
 
-MCP tools `glm_delegate` → `glm_await` → `glm_continue` → `glm_cancel`. Model `glm-5.3-flash`. For mechanical leaves: one file, a clear port, a report from already-gathered data, a git commit. Same `verification` and workspace rules as DeepSeek.
+MCP tools `glm_delegate` → `glm_await` → `glm_continue` → `glm_cancel`. Model `glm-5.3-flash`. For mechanical leaves: one file, a clear port, a report from already-gathered data, a git commit. Same `verification` and workspace rules as DeepSeek. Its guard refuses paths under `~/.claude` (the skills symlinks, settings): the coordinator does installs there.
 
 ### Claude Agent tool / Workflow tool — small and watchable only
 
-Same model as the coordinator, billed to the coordinator's session: a Claude fan-out spends the session's own budget. Measured on 2026-09-15: a Workflow fan-out of 12 graders plus 2 verifiers per finding reached 154 agents and 1.8 M tokens before the session limit killed the run with 7 agents done. Rule: Claude fan-outs only for small, watchable sets (≤ 8 agents), or when no other lane can do the job; never for verifier layers at scale.
+Same model as the coordinator, billed to the coordinator's session: a Claude fan-out spends the session's own budget. Measured on 2026-09-15: a Workflow fan-out of 12 graders plus 2 verifiers per finding reached 154 agents and 1.8 M tokens before the session limit killed the run with 7 agents done. The cap counts every Claude agent a run starts, not only those alive at once: on 2026-09-28 a per-lesson audit loop ran ≤ 4 Claude agents at a time but about 140 fix jobs in total, and hit the 5-hour usage limit mid-run. Rule: Claude fan-outs only for small, watchable sets (≤ 8 agents), or when no other lane can do the job; never for verifier layers at scale.
 
 ## Lane selection
 
@@ -56,6 +56,8 @@ Same model as the coordinator, billed to the coordinator's session: a Claude fan
 | Personas, graders, anything ≤ 8 agents worth watching live | Claude Agent tool | watchable in-session; billed to the session, so kept small |
 | > 8 mechanical units | GLM / Codex, batched | a Claude Workflow at that scale burns the session (the 154-agent run) |
 | Verifier layer over many findings | DeepSeek or Codex | never Claude at scale |
+| Per-item loops (audit and fix per lesson or claim, many rounds) | Codex / GLM; Claude only when the whole loop stays ≤ 8 agents | the loop multiplies items by rounds; count it at Compose |
+| Translating long transcripts | a lane checked on one sample first | a Codex writer once condensed a unit instead of translating it (32 High findings); a length floor does not catch it |
 
 **Dead lanes are struck at run start.** A lane recorded closed that day comes off this table before composing; the closure notes in the lane sections above stay as history. The table carries a status line saying which lanes were open when last checked — 2026-09-15: DeepSeek closed ("Insufficient Balance"); Codex closed (quota turned out to be per account, all three models at the same limit); GLM and the Claude Agent tool — no closure recorded.
 
