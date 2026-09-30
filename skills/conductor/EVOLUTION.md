@@ -237,3 +237,73 @@ Authored from one research pass; no run outside Claude Code has used the map yet
 - A Copilot autopilot run ends at the UAT column rather than at the continuation limit, or the limit is raised knowingly in the Plan Block.
 
 **What to watch:** the map's rows carry a fetch date of 2026-09-16 and harness docs move; re-fetch before trusting a MISSING verdict as still-MISSING. Whether "the coordinator is the pipeline" holds past three stages or degrades into the coordinator doing units inline (Evolution 2's H1 failure mode).
+
+---
+
+## Evolution 4 — 2026-09-29 — one home for lane rules; lane check before planning
+
+### Why it exists
+
+The lane rules lived in two places, and they had drifted apart. The global `~/.claude/CLAUDE.md` "Subagent lanes" section (updated 2026-09-28) described one `subagent` MCP server with `provider=` codex, deepseek, glm, gemini, bppc and omlx. This file's `references/lane-plan.md` still described separate `dsh_delegate` / `glm_delegate` tools and `codex exec` in bash. It also carried a 2026-09-15 status line recording Codex and DeepSeek as closed.
+
+### Traces it was built from
+
+**T1: a plan built on stale lane status.** On 2026-09-29 conductor planned the knowledge-base v9 intake. The lane table named Codex and DeepSeek as primaries, and it gave fallbacks because of the 2026-09-15 closures, without checking either lane that day. Gary asked which rule set the assignments. The answer was two files that disagreed.
+
+**T2: Gary's rule.** "We should unify the rules into conductor skill only, and add a rule that it should system check to see which cloud lanes are available first before planning them, because each of them could be down or anything."
+
+### What shipped
+
+| # | Trace | Edit |
+|---|---|---|
+| L1 | T1, T2 | `references/lane-plan.md`: the new "Lane check" section. `subagent doctor --prompt --json` and the lane memory file `~/.subagent-mcp/sessions/lane_state.json` run before composing; only providers that pass are planned onto; the result goes in the Plan Block |
+| L2 | T1, T2 | `references/lane-plan.md`: the lanes section rewritten to the `subagent` MCP providers table, invocation rules, tuning and the direct-Codex fallback, taken from the global CLAUDE.md section it replaces. The stored 2026-09-15 status line is removed, because status comes from the check |
+| L3 | T2 | `SKILL.md` §3: the lane check is required before planning onto lanes, and `lane-plan.md` is declared the one home for lane rules. §4: the Plan Block gains a `LANES` row. The References line is updated |
+| L4 | T2 | `~/.claude/CLAUDE.md` "Subagent lanes" section is reduced to a pointer to `references/lane-plan.md` |
+
+### Verdict: `KEEP` (2026-09-30)
+
+Two independent runs meet every item on the validation list below:
+- **KB v9 intake (2026-09-29).** The check closed deepseek (402, balance). Its two units went to Codex at Compose, and no unit was planned onto deepseek. The check also found its own defect: without the key file loaded, keyed lanes read as closed, and that was fixed in the first unit.
+- **KB v9 review fixes (2026-09-30).** The check closed deepseek (balance), bppc (health) and omlx (`copilot_model_unavailable`). The goal file's working pattern planned only codex, glm and gemini. No reroute during the run had a closed lane as its cause.
+- `grep -lE 'gpt-6-luna|dsh_delegate|provider=' */SKILL.md */references/*.md` across the skills finds only `conductor/references/lane-plan.md`, and `~/.claude/CLAUDE.md` holds only the pointer.
+
+**Validation list, what would move this to KEEP:**
+- The next two conductor runs show a `LANES` row taken from a same-day `subagent doctor` run, and no unit is planned onto a lane it reported closed.
+- A lane found closed at check time gets its units rerouted at Compose, with no mid-run reroute for the same cause.
+- No lane rule reappears in `CLAUDE.md` or another skill. A grep for `gpt-6-luna`, `provider=` and `dsh_delegate` outside `lane-plan.md` finds only pointers.
+
+**What to watch:** `doctor --prompt` spends one small turn per provider on every run. If that cost or its latency becomes noticeable, a cached result under a few hours old may be enough.
+
+---
+
+## Evolution 5 — 2026-09-30 — goal rows that can pass, acceptance that reads output
+
+### Why it exists
+
+The KB v9 intake (2026-09-29/30) finished its work, but its goal could never pass. The session's stop hook then blocked for hours, until Gary cleared the goal by hand. The run review found three causes, and a fourth problem on the ML side.
+
+### Traces it was built from
+
+- **T1: a count in a goal row.** Row 6 said "all 28 v9 books". One book was skipped (image-only) and two were added at Gary's request, giving 29, and the row could not be re-worded after dispatch.
+- **T2: a one-branch row.** Row 12 said "only on promotion" and gave no pass for the case where the gate failed and nothing was promoted.
+- **T3: checks that passed on wrong output.** Six rework rounds (three in heading repair, three in ingest) fixed outputs that had passed their acceptance scripts: junk headings, a chapter cut from 19 to 9, a lost 71k-character Chapter 1, and index text left in the body. Each was found by the coordinator reading the output. Codex also edited wiki/ twice against its brief, and one brief asserted a bppc server alias that did not exist.
+- **T4: a gate set nobody reviewed.** The 29-query sanity set was written in one pass, and the gate failed by one query. A blind review on 2026-09-30 changed 4 rows. It also showed that the coordinator's post-result guess ("4 of 6 misses are label problems") was wrong: 5 of the 6 misses were fair queries.
+
+### What shipped
+
+| # | Trace | Edit |
+|---|---|---|
+| G1 | T1, T2 | `references/goal-file.md`: a new "Writing rows" section with **No changeable counts**, **Every branch passes** and **Owner amendments**; an Amendments section in the template; "Who audits" reworded so that an owner's scope change is an appended amendment and not a stop |
+| G2 | T3 | `references/lane-plan.md` Brief contract: **Output sample**, **Wiki untouched**, **Facts checked on the machine** |
+| G3 | T4 | `applied-ml-problem-solver/references/rag-heuristics.md` and `templates/eval-harness.md`: **Review the test set before the gate**, by a different lane or model family, with any post-result review reported beside the pre-set result |
+| G4 | run refusals, 2026-09-30 | `references/lane-plan.md`: verification scripts must sit inside the workspace; the direct-Codex sandbox cannot write `.git`, bind sockets or see the session scratchpad; the `subagent` server refuses its own repo as a workspace; the Codex loop-detector workaround is replaced by a note on subagent-mcp fix `6ae599a` |
+
+### Verdict: `PENDING`
+
+**Validation list, what would move this to KEEP:**
+- Two conductor runs whose goals auto-clear with no row re-worded and no `/goal clear`, including one where the scope changed mid-run and was recorded as an amendment.
+- In two runs, the ledger shows the coordinator reading an output sample for each unit before recording PASS, and at least one wrong output caught that way before the next unit started.
+- The next gate built with `applied-ml-problem-solver` has its test set reviewed before the gate runs.
+
+**What to watch:** the output-sample rule adds reading time to each unit, so watch whether it gets skipped on "mechanical" units. Also watch whether "Every branch passes" produces rows so conditional that they check nothing.

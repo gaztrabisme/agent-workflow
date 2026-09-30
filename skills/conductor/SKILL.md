@@ -76,6 +76,8 @@ Pick the engine per unit of work. **Declare which and why in one line** — this
 
 Engine and lane are chosen together: the dynamic-workflow engine's agent budget obeys the cap in `references/lane-plan.md` (the 154-agent lesson), and any unit the engines can't hold goes to a lane there.
 
+**Check the lanes on the system before planning onto them.** Run the lane check in `references/lane-plan.md` (`subagent doctor --prompt --json` plus the lane memory file) and compose only on the providers it finds open. Any cloud lane can be down on a given day, and a lane plan written from memory breaks mid-run. `references/lane-plan.md` is the one home for lane rules: providers, invocation, tuning, selection, fallback. No other file restates them.
+
 Then decide **convergence** before dispatch, not after: where threads land, who reconciles them, what the artifact is. See `references/convergence.md`. A fan-out without a declared meeting point produces six files nobody merges.
 
 ### 4. Declare — the Plan Block
@@ -87,6 +89,7 @@ INTENT      <restated in one line — if this is wrong, stop here>
 SHAPE       <shapes present, in order>
 GROUNDED    <files read → what constrains this>
 ROUTE       <skills invoked, in order, with the mode>
+LANES       <lane check result: each provider open or closed, with the reason for each closure>
 LANE PLAN   <table per references/lane-plan.md, appended directly below this block>
 GOAL FILE   <wiki/goals/YYYY-MM-DD-<slug>.md — written next; session stop fired with its criteria>
 FAN-OUT     <engine> · <N agents> · <what each covers>
@@ -153,7 +156,7 @@ Audit the artifacts against the goal file's UAT column and **nothing else**: run
 - `references/design-cell.md` — fan-out that produces **decisions**: N roles author under exclusive mandates, reconcile on interface contracts, converge to one coherent spec. Carries the user-narrative brief and its grounding tiers.
 - `references/persona-fanout.md` — fan-out that collects **reactions**: stakeholders react cold to a finished artifact → ranked objection register. Why a persona is not a research agent.
 - `references/convergence.md` — the meeting point: contradiction handling, the interaction pass, and what lands in the wiki.
-- `references/lane-plan.md` — the lanes on this machine (Codex, DeepSeek, GLM, Claude agent/workflow), the brief contract, lane selection by unit shape, and the quota-fallback rule.
+- `references/lane-plan.md` — the one home for lane rules: the lane check run before composing, the `subagent` MCP providers (codex, deepseek, glm, gemini, bppc, omlx) and the Claude agent/workflow lane, invocation and tuning, the brief contract, lane selection by unit shape, and the quota-fallback rule.
 - `references/goal-file.md` — the goal file convention and template; file first, then the session stop; Close audits its UAT column and nothing else.
 - `references/harness-map.md` — one row per harness (Claude Code, Codex, Gemini CLI, opencode, Copilot, Grok Build): instruction file, skill trigger, subagent primitive, scripted pipeline, session stop; every cell sourced, MISSING stays MISSING. Read your row at Ground.
 - `references/workflow-patterns.md` — "dynamic workflow" defined harness-neutral (pipeline vs barrier, verify layer sized to the cap, converge, resume) with the binding per harness and the coordinator-as-pipeline rule where no scripted pipeline exists.
