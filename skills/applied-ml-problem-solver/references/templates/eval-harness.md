@@ -67,6 +67,7 @@ The three lines from `../../SKILL.md` § Baseline-Named Gate:
 | **Contamination control** | how items were moved away from the source they were built from, and the **measured** overlap threshold — never "we paraphrased". The leak is domain-specific: for retrieval it is a query generated from the chunk that should answer it; **for vision it is near-duplicate frames, the same camera, shift, scene or identity spanning the train/eval split**; for tabular it is time. Name the leak *your* domain has, then state how the split prevents it |
 | Strata | |
 | Refresh policy | when it is rebuilt, and what invalidates it |
+| Pre-gate review | A different lane or model family from the author's reviews a gate set against written rules before the gate: on-topic for its source, self-contained without the passage, label answers it, and other answering passages are added; report any post-result review beside, never instead of, the pre-set result |
 
 **Strata table** — one row per archetype, reported per stratum and *never only in aggregate*;
 an aggregate hides the stratum that regressed. Include at least one stratum the system is
