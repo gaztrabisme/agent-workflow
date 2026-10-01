@@ -11,15 +11,13 @@ Use this reference to negotiate the presignature consulting agreement, acceptanc
 ## Acceptance criteria and evidence
 
 - Apply acceptance and contract guidance to fixed-price delivery and to any enterprise bid that is won.
+- Give every acceptance criterion an ID and use those IDs as the engagement's ID spine.
 - Write acceptance tests for criteria before development, with testers involved in requirement shaping [book:continuous-delivery], Chapter 4: Implementing a Testing Strategy.
 
 ## Client obligations and dependencies
 
-- Give each acceptance criterion an ID and use it as the engagement's ID spine.
-
 ## Commercial risk and client obligations
 
-- Give every acceptance criterion an ID in the engagement’s spine.
 - The book links each acceptance test to a story or requirement; the rule adds a separate capability field to each criterion [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
 - The book requires user value and testability; it does not require the one-sentence format or witness role [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
 

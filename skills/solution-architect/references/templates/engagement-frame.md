@@ -51,7 +51,7 @@
 - Map people and groups with positive or adverse impacts, then prioritize engagement by influence and importance [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
 - Reality check the assumptions behind the framing against current conditions and constraints [book:facilitating-software-architecture], Questions That Improve Judgment Around Framing.
 - Ask what the enthusiastic sponsor does not control.
-- Promote a candidate project only if all four beneficiary, outcome, access-path, and definition-of-done tests pass.
+- Promote a candidate project only if all four beneficiary, outcome, access-path, and definition-of-done tests pass. For factory or OT work, the first access path uses instrumentation already available; phase hardware the client still needs to build after a pilot on what exists. (derived: dogfood 2026-10-01)
 - For each candidate project, record beneficiary, observable outcome, access path, done definition, and rank.
 - For each parked lead, record the failed test and one named promoting dependency and owner.
 - Apply the sensitive-inference disclosure test and handling rule when a frame includes damaging inferences.

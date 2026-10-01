@@ -643,5 +643,6 @@ C3a run as a content comparison or quietly reduced to another set difference?
 - Kept field and disputed rules source-free in the skill body; stated disputed material only as field guidance.
 
 ### Validation
+- Dogfood 2026-10-01: presale response pack; findings 2 high, 5 med, 1 low; fixed 8, rejected 0. Verdict remains PENDING.
 - [ ] Two independent real uses confirm the rebuilt structure and additions.
 - **Verdict: PENDING** — the rebuild is source-grounded and mechanically validated; it has not yet been exercised twice in real work.

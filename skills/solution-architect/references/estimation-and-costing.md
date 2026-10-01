@@ -53,8 +53,8 @@ For a delivery-shaped proposal, send the planner a task inventory with effort bl
 
 - Flag the dominant billing meter so the client can see what drives the bill. The book recommends correlating infrastructure consumption with tenant activity to reveal cost drivers, but does not prescribe a single dominant meter [book:building-multi-tenant-saas], The SaaS Mindset.
 - Keep non-production rows aligned with production rows by zeroing inapplicable costs with a reason instead of deleting them.
-- Offer Bronze, Silver, and Gold support tiers with their listed service levels, and recommend Silver content operations for AI quality sustainability.
-- Define support-tier coverage for Bronze, Silver, and Gold, including the listed service additions at each tier.
+- Offer Bronze, Silver, and Gold support tiers only when recurring support is in scope; define coverage and service levels from this engagement's operating needs. Do not recommend a default tier or AI content-operations package. (derived: dogfood 2026-10-01)
+- Define the actual included work and service additions for each support tier offered.
 - Price discrete project work separately from retainer access, and state the access boundaries and expectations in the retainer terms [book:value-based-fees], ORGANIZING THE SCOPE AND MANAGING PROJECTS CONCURRENT WITH THE RETAINER.
 - State a minimum monthly retainer floor and how effort above it is billed.
 - Name the on-site escalation trigger and mark its commercial treatment TBC rather than silently absorbing it.
@@ -62,6 +62,7 @@ For a delivery-shaped proposal, send the planner a task inventory with effort bl
 - For on-premise, edge, and manufacturing work, include hardware in the price as a bill of materials.
 - For each hardware item, record group, specification, quantity, unit price, tax, totals, source, and notes.
 - Cite a procurement-verifiable source for every hardware price line.
+- If no supplier quote is available, show a separate line labelled **Indicative range**, with its range, source, and date; identify the quote that will replace it before signature. (derived: dogfood 2026-10-01)
 - Show pre-tax and tax-inclusive amounts separately.
 - Add a numeric hardware contingency line and state whether subgroups also carry contingency.
 - Price installation and mechanical work as explicit line items.

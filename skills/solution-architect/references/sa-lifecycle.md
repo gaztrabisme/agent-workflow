@@ -13,7 +13,7 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 - Let the human finish the full informal dump before asking structured questions [book:articulating-design-decisions], Chapter 4. Listen to Understand.
 - Fill the engagement frame slots for outcome, baseline, stakeholders, trigger, decision process, constraints, relationship, and personal success.
 - Name the negative space, including what could cause a loss, what was not requested, and who loses if the work succeeds.
-- Promote an opportunity only when it has a named beneficiary, observable outcome, access path, and definition of done; park the rest with one named dependency.
+- Promote an opportunity only when it has a named beneficiary, observable outcome, access path, and definition of done; park the rest with one named dependency. For factory or OT opportunities, start with instrumentation already available; phase work that needs client-built hardware after a pilot on what exists. (derived: dogfood 2026-10-01)
 - Keep damaging sensitive inferences internal with a named holder; never share them or use them as stated justification.
 - Declare the deal shape and ID spine during intake.
 - The book says to define the specific audience, the action they should take, and the communication medium before creating the message [book:storytelling-with-data], Chapter 1: the importance of context.
@@ -33,7 +33,7 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 ## Phase 2 — Clarify
 
 - Restate the problem in the client's business outcome terms before architecting; if unable, continue framing [book:fundamentals-enterprise-architecture], Align on the Why.
-- Extract requirements and distinguish functional from non-functional requirements using the NFR checklist. Requirement discovery must also uncover unstated context, assumptions, and dependencies beyond an explicit checklist [book:software-architect-elevator], Architects Deal with Nonrequirements.
+- Extract requirements and distinguish functional from non-functional requirements using the NFR checklist. Requirement discovery must also uncover unstated context, assumptions, and dependencies beyond an explicit checklist [book:software-architect-elevator], Architects Deal with Nonrequirements. Inventory fields on client-supplied forms and mockups, then trace each to the requirements matrix or the exclusions. (derived: dogfood 2026-10-01)
 - Separate questions only the client can answer from decisions that can be resolved or routed internally.
 - Order clarification questions with business and domain matters first; put logistics last or route them internally.
 - Surface and verify outside-in assumptions on the first call. Record an unanswered matter as a correctable assumption when needed to proceed, rather than turning every unresolved matter into a working assumption by default [book:meddicc], DISCOVERY.
@@ -57,7 +57,8 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 ## Phase 4 — Plan and estimate
 
 - Phase delivery for value and risk, leading with the lowest-risk, fastest-value slice and ensuring each phase stands alone and de-risks the next. Head First PMP frames adaptive increments around stakeholder value; it does not make this ordering a universal rule for every phase [book:head-first-pmp], Adaptive.
-- Size work with a WBS, roles, effort ranges, and assumptions; state uncertainty drivers and a declared distribution multiplier, and include per-environment cloud costs and AMS tiers with a retainer floor.
+- Size work with a WBS, roles, effort ranges, and assumptions; state uncertainty drivers and a declared distribution multiplier. The architect supplies scope and technical cost drivers; the delivery planner owns and returns effort ranges. Include per-environment cloud costs for proposed environments, and AMS tiers with a retainer floor when recurring support is in scope.
+- Before Phase 5, send the WBS with effort blank to the delivery planner and wait for the estimate when the client asks for price or payment terms. If one person serves in both roles, run the planner's presignature estimate as the delivery planner, label that role, and name the estimate owner. Do not mark the response ready while an explicit client pricing ask is unanswered. (derived: dogfood 2026-10-01)
 - Maintain a risk register covering technical, integration, data, compliance, and adoption risks, with likelihood, impact, owner, and mitigation. Score failure criticality from probability and impact [book:fundamentals-enterprise-architecture], Chapter 5. Enable and Enforce.
 - Reclassify risky demanded capabilities into separately priced readiness tracks or defer an unresolved implementation approach with the decision framed for the client.
 
@@ -71,6 +72,7 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 - Include a traceability matrix mapping each requirement to its solution element, technology, and phase. The book requires forward traceability to satisfying design entities; technology and phase columns extend that matrix [book:swebok], Requirements Tracing.
 - Map each win theme to customer pain and its supporting metric before connecting it to Phase 1 decision criteria [book:meddicc], COMPETITION.
 - Fold every unconfirmed item into the assumptions register and expose important assumptions in a correctable, client-facing dependencies section when useful.
+- Do not mark the response ready while an explicit client pricing or payment ask is unanswered; include a supported amount or a clearly labelled priced attachment with its owner and delivery date. (derived: dogfood 2026-10-01)
 - Run the complete Final QA pass on every client-bound deliverable and export, using a reviewer who did not author it when possible.
 - Run artifact-integrity checks as well as Final QA because they detect different defect classes.
 

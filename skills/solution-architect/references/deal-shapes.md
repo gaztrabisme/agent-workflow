@@ -8,6 +8,7 @@ Choose the response and commercial instrument from the deal’s solicitation, ac
 - Declare the deal shape in Phase 0 before choosing the spine, carrier, pricing method, and definition of done.
 - Choose an enterprise bid when there is a scored document, client-authored acceptance requirements, or a submission receipt.
 - Otherwise select fixed-price delivery.
+- Treat that choice as the response and contract route; choose pricing instruments to fit the commercial arrangement within it. A direct SME pilot is a distinct pattern for a bounded first slice: state the one-time fee, itemize recurring client-paid costs, list implementer-fronted reimbursables, any approval cap, and handover settlement timing, and define the warranty term. Keep scale-out separate. (derived: dogfood 2026-10-01)
 
 ## Sizing and estimate basis
 
