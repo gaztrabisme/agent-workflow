@@ -15,7 +15,7 @@ Classify each item by how it should be executed:
 
 Treat work as mechanical only when each exact edit is predictable. Read two or three representative files, record the pattern and its exceptions, then create a structured edit list before applying changes. If a file requires a context-dependent choice, use constructive work for that item instead. [book:software-engineering-at-google], Heterogeneity; [book:software-engineering-at-google], What Is a Large-Scale Change?
 
-Before authorizing fan-out, explain the change to an engineer unfamiliar with it in a concise FAQ and proposed change description. Then apply safe replacements and verify them with the appropriate build or lint check. If changes require per-file reasoning, have an implementation worker handle that work rather than forcing it into a replacement list. [book:software-engineering-at-google], Authorization; [book:software-engineering-at-google], Change Creation
+Before authorizing fan-out, explain the change to an engineer unfamiliar with it in a concise FAQ and proposed change description. Then apply safe replacements and run each resulting shard through the project's CI before submission. A local build or lint may catch an early problem, but it does not replace the CI checks that prove the shard in its actual integration environment. If changes require per-file reasoning, have an implementation worker handle that work rather than forcing it into a replacement list. [book:software-engineering-at-google], Authorization; [book:software-engineering-at-google], Change Creation; [book:software-engineering-at-google], Sharding and Submitting
 
 Shard multi-file work around project boundaries and ownership so each resulting change can be submitted atomically. Represent dependencies in a directed acyclic graph, identify which units unblock others, and schedule the compatible shards in waves; do not bundle unrelated ownership areas merely because they are sequential. [book:software-engineering-at-google], Sharding and Submitting; [book:continuous-delivery], Managing Dependency Graphs
 
@@ -33,7 +33,7 @@ Run every gate planned for an item. If one cannot run, state the reason before m
 
 Track useful, measurable milestones that show delivered value, not only that a wave ended. Report progress at wave milestones, a contradiction, or another decision point. [book:software-engineering-at-google], Milestones
 
-## Close the sprint
+### Close the sprint
 
 Before completion, write a batch summary to the project log and reconcile every item in active work as done, deferred or blocked. Name the remaining gates and the evidence for any item that did not pass.
 

@@ -20,13 +20,15 @@ Run scripts/analyze.py in summary mode first; use the full report only when a fi
 
 When proposing an API or system removal, trace actual callers and unexpected uses, then revisit the removal decision if that evidence changes. Deprecation is appropriate when the system is demonstrably obsolete and a comparable replacement exists; define the removal conditions and process before retiring it. [book:software-engineering-at-google], Deprecation Tooling; [book:software-engineering-at-google], Why Deprecate?
 
+### Complete Assess
+
+Complete Assess only when the page exists and the index and log point to it.
+
 ### Present and act
 
 Order findings by severity, evidence, dependencies and the user's goal. Use impact-versus-effort to choose where testing should start, not as a universal ranking formula for every assessment finding. Give each finding a location, evidence, likely consequence and a concrete next step. [book:site-reliability-engineering], Creating a Test and Build Environment
 
-Write the durable assessment page in the project's wiki, link it from the index and append a log entry. Save scratch analysis separately. Complete Assess only when the page exists and the index and log point to it. Shared wiki mechanics are in ../core/references/wiki-protocol.md.
-
-If the user chooses to act, make one change at a time and verify it before moving to the next. The user controls whether to continue.
+Write the durable assessment page in the project's wiki, link it from the index and append a log entry. Save scratch analysis separately. Shared wiki mechanics are in ../core/references/wiki-protocol.md.
 
 ## Analyze results
 
@@ -46,5 +48,7 @@ The first plausible cause is not enough: a past analysis anchored on its leading
 Save the working analysis and any before/after results under the project's scratch logs. Promote the conclusions into a durable wiki analysis page, link it from the index, add a log entry, and record any conclusion that changes direction in the decision record. Complete Analyze only after those records exist. See ../core/references/wiki-protocol.md.
 
 ## Harden findings
+
+If the user chooses to act, make one change at a time and verify it before moving to the next. The user controls whether to continue.
 
 When assessment findings need code changes, group them by severity and make phased success criteria. Use the Build mode test-first process for each phase; run the full regression suite after each severity tier. The failing-test phase is the source-backed TDD practice; grouping and tiered regression are dev's hardening workflow. [book:learning-test-driven-development], Red-Green-Refactor: The Building Blocks of TDD

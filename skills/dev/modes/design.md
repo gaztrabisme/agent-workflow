@@ -18,6 +18,8 @@ Calibrate research to the situation: use a light check for clear, familiar requi
 
 For a covered domain, search the whole project Knowledge Base before deciding and write one result line in Key Decisions. Use a second query or generated passage only when the first search missed because it used different vocabulary. For uncovered areas, inspect the code and official documentation. The project's version-controlled guidance should point to canonical sources rather than duplicating their content. [book:software-engineering-at-google], Guidance; [book:software-engineering-at-google], Considerations When Importing
 
+Do not leave Design Phase 1 until the decision owner approves a design document and every key decision records its trade-offs and covered alternatives. [book:software-engineering-at-google], Design Docs
+
 When research finds a direction-changing alternative, a major constraint, or scope larger than expected, stop and present it to the user before proceeding. Keep the useful finding and the source in the project decision record.
 
 For qualifying designs, apply the Invariant Gate from SKILL.md before build: multi-tenant data, authorization, external or irreversible effects, and crash/restart recovery. Add one Key Decisions line per applicable class, with a test that proves the guarantee is reachable. This five-class gate is dev field practice.
