@@ -64,3 +64,34 @@ Critic: a fresh-context GLM agent, briefed with `skill-builder`'s dogfood brief,
 - F7 low — several documents in one turn unowned → one line in SKILL.md.
 - F8 low — grading without a key unspecified → clause in `grading.md`.
 - F9 low — freeform globbed reports and READMEs → skipped, files picked are printed.
+
+## Evolution 2 — stage B rebuild (2026-10-01)
+
+### Sources read
+- Approved stage A `skill-set.md`, the CERIC, conductor, and skill-builder ledgers and crosswalks, and the CERIC practitioner review.
+- The rebuilt `core` skill and its grounding, output-contract, wiki-protocol, and pushback references; `skill-builder` and its authoring checklist and skeleton.
+- Formal chapters from continuous delivery; facilitating software architecture; learning systems thinking; site reliability engineering; SWEBOK; critical thinking about research; HBR Guide to Better Business Writing; How to Read a Paper; The New Ethics of Journalism; Research Ethics and Integrity for Social Scientists; and Research Methods in Psychology.
+- The evolution-entry skeleton. No course sources were routed to this skill.
+
+### Patterns found
+1. **Rules had no clear artifact flow** — the old skill put triggers, read steps, audit, grading, and gates side by side; a new reader could not tell which sequence to follow.
+2. **Quote verification could accept a near-match or adjacent page** — the checker used chunk similarity and a page window instead of an exact cited-page comparison.
+3. **A total could conceal a failed element** — the 4.0 workshop threshold needed a per-element floor and an explicit statement that its ordinal marks are not interval measurements.
+4. **The audit lacked study-design checks** — a claim could have named evidence and reasoning while leaving measurement, sampling, uncertainty, or rival explanations unexamined.
+5. **The skill had no shared glossary, descriptive outline, design-specific prompts, or correction path** — these practices were adopted where the formal sources fit CERIC's reading and review artifacts.
+
+### Hypotheses applied
+1. Reorganized `SKILL.md` around read, audit, grade, dependencies, and core gate references; split usable detail across `elements.md`, `hunt.md`, and `grading.md`.
+2. Changed `check_quotes.py` to require exact normalized text on explicitly cited pages; math-sensitive exact matches remain visible-review items.
+3. Added a per-element minimum mark to the workshop threshold and clarified that totals are not averaged across readers or runs.
+4. Added claim-type classification, the four validity dimensions, design-specific reporting prompts, and post-hoc hypothesis checks to the audit and hunt.
+5. Added a stable shared glossary, pre-draft descriptive outline, reasoning-quality check, advice-seeking guidance, blameless review, and a correction workflow.
+
+### Counts and structure
+- Routed rules: 129 total — 92 field rules, 27 book-agrees, 8 book-refines, and 2 disputed.
+- Crosswalk candidates adopted: 17. Candidate additions cover review selection, glossary, scoring scale, reasoning quality, study validity, design-specific checklists, descriptive outline, blameless grading, and corrections.
+- Structure now follows the artifact's flow: skill trigger and handoffs; five-element definitions; source grounding and depth; hunt and note capture; CCERI narrative; claim audit; grading and corrections.
+
+### Validation results
+- [ ] Two real uses have exercised the rebuilt skill and the revised quote checker.
+- **Verdict: PENDING** — this rebuild is a source-based revision; the new workflow and checker need two real uses before the change can be settled.
