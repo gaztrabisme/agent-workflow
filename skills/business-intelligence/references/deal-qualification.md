@@ -1,113 +1,83 @@
 # Deal Qualification
 
-Score every deal before committing research time. Missing elements = deal risk. Unknown elements = intelligence targets.
+Qualification separates a demonstrated lack of fit from an unresolved question. In the old score matrix, five strong elements could say “pursue” while two missing elements said “pause”; keep scores at the element level and let conflicting signals drive targeted discovery.
 
----
+## Qualification conflict example
 
-## MEDDPICC Scoring
+If evidence does not yet establish pain, mark it unresolved and investigate. If the evidence shows insufficient pain or willingness to change, consider qualifying out. Do not turn a low confidence score into an automatic no-go.
 
-Run this at Scope phase. Each element scored: **Strong** (evidence exists) / **Weak** (partial, unverified) / **Missing** (unknown). Two or more Missing = pause and gather before proceeding.
+## Buying process and timing
 
-| Element | What to find | How to find it | Red flag if missing |
-|---------|-------------|----------------|---------------------|
-| **Metrics** | What quantified outcome does the buyer need? What KPIs will they measure success on? | Earnings calls, annual reports, executive interviews, discovery conversations | No way to build a business case — deal floats on vibes |
-| **Economic Buyer** | Who can say yes when everyone says no? Who controls the budget at this level? | Org chart research, ask "who approves spend at this level without escalation?" | You're selling to someone who can't buy |
-| **Decision Criteria** | What will they evaluate on? Technical fit? Price? References? Cultural fit? | RFP documents, procurement patterns, ask "what matters most in this decision?" | You can't position — you're guessing what they care about |
-| **Decision Process** | How does the decision get made? Committee? Sequential approvals? Timeline? | Ask "what would need to happen between now and a decision?" | You can't forecast — deal timeline is fiction |
-| **Paper Process** | What does procurement/legal/security require? Contract terms, security questionnaires, compliance reviews? | Ask "have you done something like this before? What did procurement require?" Past RFP patterns. | Late-stage death — procurement kills more deals than feature gaps |
-| **Implicate the Pain** | Can you quantify the cost of doing nothing? Not just "they have a problem" but "it costs $X/year" | SPIN Implication questions, financial analysis, industry benchmarks | Champion can't justify spend internally — deal stalls at "no decision" |
-| **Champion** | Who is actively selling internally on your behalf? Not a friendly contact — someone spending political capital | Test: assign them a task (call a reference, share internal data, draft a problem statement). If they follow through, they're real. | No one advocating when you're not in the room — deal dies quietly |
-| **Competition** | Who else is being evaluated? Including "do nothing" — the most dangerous competitor | Ask "who else are you talking to?" Research analyst reports, RFP patterns, job postings for competing tech | You can't differentiate — positioning is generic |
+- Establish how the Decision Process works, including committee, approvals, and timeline. [book:meddicc], ## DECISION PROCESS
+- Gather Paper Process requirements from procurement, legal, and security early.
+- Gather the Decision Process before committing if it is unknown. [book:meddicc], ## DECISION PROCESS
+- Map the buyer’s paper process with its stages, stakeholders, legal and procurement requirements, dependencies, and timing before commercial discussions. [book:meddicc], PAPER PROCESS
 
-### Go / No-Go Matrix
+## Evidence, scoring, and qualification gaps
 
-| Condition | Decision |
-|-----------|----------|
-| No identified pain (Metrics + Pain both Missing) | **Walk away** — no problem to solve |
-| No access to Economic Buyer after 2 attempts | **High risk** — escalate or walk |
-| No Champion identified | **Stall likely** — invest in champion development or walk |
-| Active incumbent + no differentiation | **Column fodder** — you're validating someone else's choice |
-| Unknown Decision Process | **Cannot forecast** — gather before committing |
-| 5+ elements Strong | **Pursue** — high-quality opportunity |
-| 3-4 elements Strong, rest Weak | **Pursue with caution** — Weak elements are your intelligence targets |
-| 2+ elements Missing | **Pause** — gather intelligence before committing research resources |
+- Apply MEDDICC and qualify out whenever any concern about the deal's qualification remains, rather than gating pursuit on a five-Strong threshold. [book:meddicc], QUALIFICATION
+- Do not qualify a well-known, deeply related, low-risk client; an internal project without a buying committee; or intelligence work for already contracted delivery.
+- For a quick check, use stage-specific MEDDICC and investigate the elements that need closer attention rather than limiting every screen to those three. [book:meddicc], ## QUALIFICATION
+- Increase an element's score only when new deal evidence raises confidence; keep assumptions or partial evidence at a lower level. [book:meddicc], ## MEDDICC SCORING
+- Introduce MEDDICC as early as possible and keep it in use as the deal evolves; the book names no skip cases. [book:meddicc], ## What is MEDDICC?
+- Keep the MEDDPICC score current when qualifying. [book:meddicc], ## MEDDICC SCORING
+- MEDDICC treats power, influence, internal selling, and personal interest as Champion tests; use those behaviors when qualifying a Coach. [book:meddicc], ## HOW TO READ THIS BOOK
+- Pair element-level qualification scoring with next-step actions; the book describes deal review actions rather than a prescribed go/no-go report. [book:meddicc], ## LESSONS LEARNT WHILE IMPLEMENTING MEDDICC
+- Recheck whether the Champion remains active and influential as the deal moves stages, alongside the continuity checks in this rule. [book:meddicc], ## QUALIFICATION
+- Reconsider these elements at the new sales phase, since the book assigns different MEDDICC checks to each stage. [book:meddicc], ## QUALIFICATION
+- Record confidence on the book’s 1–10 scale and use low scores to expose qualification gaps rather than only assigning Strong, Weak, or Missing statuses. [book:meddicc], ## MEDDICC SCORING
+- Require power and influence plus a vested interest, and test actual follow-through; the book distinguishes an untested or merely friendly Coach from a Champion. [book:meddicc], ## CHAMPION
+- Score confidence across the MEDDPICC elements, and treat low Economic Buyer or Champion scores as prompts for further qualification rather than automatic red flags. [book:meddicc], ## MEDDICC SCORING
+- Score confidence for each MEDDICC element on a 1–10 scale, rather than using Strong, Weak, or Missing labels. [book:meddicc], ## MEDDICC SCORING
+- Score confidence from 1 to 10 per MEDDICC element and qualify continuously as deal stages change; the book does not endorse a Scope-only Strong/Weak/Missing cutoff. [book:meddicc], ## MEDDICC SCORING
+- Score confidence in each element out of ten and revisit it ad hoc as the deal develops rather than updating it on re-entry. [book:meddicc], MEDDICC Scoring
+- Score confidence in each MEDDICC element rather than assigning a confidence rating to each buyer role, and record buyer identities separately. [book:meddicc], ## MEDDICC SCORING
+- Score each element 1-10 and welcome a low score as an area requiring further qualification, rather than pursuing with caution below a threshold. [book:meddicc], MEDDICC SCORING
+- Score Economic Buyer access as low confidence while it remains unconfirmed; the book sets no two-attempt cutoff. [book:meddicc], ## MEDDICC SCORING
+- The book evaluates problem fit, success evidence, data readiness, and investment before deployment rather than scoring a deal on MEDDPICC elements. [book:data-science-for-business], ## Be Ready to Evaluate Proposals for Data Science Projects
+- Track missing Economic Buyer access as a deal risk, but the book gives no two-attempt escalation or walk-away threshold. [book:meddicc], ## RISKS
+- Treat an active incumbent with no differentiation as column-fodder risk.
+- Treat low confidence as a prompt for further qualification; the book does not set the two-Missing cutoff or tie qualification to commitment of research resources. [book:meddicc], ## MEDDICC SCORING
+- Treat low confidence as a prompt for further qualification; the book sets no two-Missing pause threshold. [book:meddicc], ## MEDDICC SCORING
+- Use confidence scores for individual elements; the book sets no five-Strong pursuit threshold. [book:meddicc], ## MEDDICC SCORING
+- Use explicit severity flags to monitor and act on deal risks, while adding relevant risks beyond the book’s examples. [book:meddicc], ## RISKS
+- Use flags to distinguish resolved or minor risks from major threats that need urgent action; this passage does not list the broader review indicators. [book:meddicc], ## MEDDICC SCORING
+- Use per-element confidence scoring for enterprise qualification; the book presents a methodology rather than a separate score reserved for new or large deals. [book:meddicc], ## MEDDICC SCORING
+- When there is no Champion, develop one or walk away because a stall is likely. [book:meddicc], ## CHAMPION
 
----
+## Fit, pain, and pursue decisions
 
-## Buying Influence Mapping
+- At prospecting, research fit, intent signals, technology, and organization; at qualification, verify MEDDPICC and decision-makers. [book:selling-to-big-companies], MISTAKES YOU DON'T WANT TO MAKE
+- Combine SPIN discovery with MEDDPICC qualification, Challenger insight with SPIN questions, Miller Heiman stakeholder mapping with MEDDPICC mechanics, and Solution Selling vision with Challenger insight.
+- Develop a Coach only after testing for power and influence, internal selling, and a vested interest in your success; otherwise qualify out. [book:meddicc], ## CHAMPION
+- Distinguish a deal shown to lack enough pain from one whose pain is still unqualified; the latter calls for more discovery. [book:meddicc], ## QUALIFICATION
+- Establish the buyer's Decision Criteria rather than guessing what matters. [book:meddicc], ## DECISION CRITERIA
+- For a new or large enterprise pursuit, qualify at each sales stage and keep the qualification current instead of treating it as a one-time readiness check. [book:meddicc], ## QUALIFICATION
+- Fully qualify a new client's first engagement at Scope.
+- Identify who controls the budget and can approve the purchase as Economic Buyer. [book:storytelling-in-design], ## Using Storytelling as a Way to Get Buy-in
+- List Weak or Missing elements as intelligence targets and state how to gather each one. [book:intelligence-driven-incident-response], ### Using the Intelligence Cycle
+- Maintain and iterate a tailored qualification checklist as deal requirements change; the book does not prescribe a particular Scope-stage deliverable. [book:meddicc], ## MEDDICC CHECKLIST
+- Profile each stakeholder’s functional outcomes, day-to-day concerns, and personal value drivers rather than recording workflow impact alone. [book:challenger-sale], ### Framing the Personal Win
+- Qualify out when discovery finds too little pain or willingness to change, but check whether other stakeholders reveal additional pain before ending the opportunity. [book:meddicc], ## QUALIFICATION
+- Satisfy the Technical Buyer on security, integration, and compliance instead of trying to sell to them.
+- The book asks what each audience member and presenter should get from a presentation, rather than pairing organizational and personal win-results for every buying influence. [book:storytelling-in-design], ##### Exercise: Identifying the “Who” and “Why” of Your Story
+- The book checks actual budget and yes-or-no authority among stakeholders but sets no 95% signing threshold. [book:storytelling-in-design], ## Using Storytelling as a Way to Get Buy-in
+- The book checks stakeholder power and budget, but it does not define a separate Coach role or test follow-through. [book:storytelling-in-design], ## Using Storytelling as a Way to Get Buy-in
+- The book makes the no-action consequence explicit in the story without requiring it to be quantified as a cost. [book:storytelling-with-data], ### The middle
+- The book prioritizes stakeholders by engagement needs rather than assigning Miller Heiman buying-influence roles. [book:storytelling-in-design], ## Identifying the “Who” and “Why” of Your Story
+- The book recommends direct questions to understand stakeholder perspectives, rather than requiring a named personal-win statement before investigating motivation. [book:articulating-design-decisions], # Chapter 2. Stakeholders Are People Too
+- The book ties KPIs to experience goals and follow-up measurement rather than requiring the buyer to define them. [book:storytelling-in-design], ### Using metrics and KPIs to help tell your story
+- The book treats inaction as a consequence to explain and asks you to discuss solution options rather than labeling inaction as a competitor. [book:storytelling-with-data], ### The middle
+- Use BANT as an early-stage screen, then apply MEDDPICC to serious opportunities. [book:meddicc], ## MEDDICC VERSUS OTHER QUALIFICATION METHODOLOGIES
+- Use SCOTSMAN for complex deals above €50K ACV when its richer qualification fits the deal.
+- Watch for buyer-inertia stall signals — no Metrics consensus, unreachable Economic Buyer, undefined criteria or process, no compelling event — and qualify out early. [book:meddicc], COMPETITION
+- Whatever framework you lead with, keep qualifying continuously through the deal instead of treating it as a one-off checklist. [book:meddicc], MEDDICC VERSUS OTHER QUALIFICATION METHODOLOGIES
+- When the solution does not fit the customer's problem, either change its scope substantially or qualify out. [book:meddicc], ## QUALIFICATION
 
-For every stakeholder, assign a buying influence role (Miller Heiman). These are roles, not titles — one person may hold multiple, or a role may be shared.
+## Added practices
 
-| Role | What they do | How to identify | Why it matters |
-|------|-------------|-----------------|----------------|
-| **Economic Buyer** | Final budget authority. Can say yes when everyone says no. | "Who approves spend at this level?" The "95% rule": ask "What % of similar deals have you signed off on?" If <95%, they're not the EB. | Finding them early is the single highest-leverage activity |
-| **User Buyer** | Daily user of the solution. Cares about workflow impact. | Asks "how will this work day-to-day?" questions | Multiple across teams — each needs a win |
-| **Technical Buyer** | Evaluates security, integration, compliance. Cannot say yes but CAN say no. | Sends the technical questionnaire, asks about architecture/protocols | Gatekeeper — must be satisfied, not sold to |
-| **Coach** | Internal advocate with organizational influence who actively supports you. | Volunteers information about internal dynamics, helps you navigate | If your Coach has no real power, you have no Coach |
-
-### Win-Results
-
-Each buying influence needs a personally meaningful win — not just an organizational result.
-
-| Role | Organizational Result (what the company gets) | Personal Win (what THEY get) |
-|------|-----------------------------------------------|------------------------------|
-| Economic Buyer | Reduced OpEx, strategic alignment | Board confidence, career advancement |
-| User Buyer | Better workflow, less manual work | Less frustration, visible improvement |
-| Technical Buyer | Clean architecture, compliance met | Risk mitigated (their reputation protected) |
-| Coach | Successful initiative they championed | Political capital, recognition |
-
-Prepare win-results per person. If you can't articulate someone's personal win, you don't understand their motivation.
-
----
-
-## Deal Qualification Output
-
-Produce this at Scope phase and update throughout the engagement:
-
-```
-DEAL QUALIFICATION: [Client] — [Engagement]
-Date: [Date] | Overall: [Pursue / Pause / Walk]
-
-MEDDPICC Score:
-  M - Metrics:          [Strong/Weak/Missing] — [evidence or gap]
-  E - Economic Buyer:   [Strong/Weak/Missing] — [name or "unidentified"]
-  D - Decision Criteria: [Strong/Weak/Missing] — [known criteria or gap]
-  D - Decision Process:  [Strong/Weak/Missing] — [process or gap]
-  P - Paper Process:     [Strong/Weak/Missing] — [procurement intel or gap]
-  I - Implicate Pain:    [Strong/Weak/Missing] — [quantified COI or gap]
-  C - Champion:          [Strong/Weak/Missing] — [name + test result or gap]
-  C - Competition:       [Strong/Weak/Missing] — [named competitors or gap]
-
-Buying Influences:
-  Economic Buyer: [name] — [confidence level]
-  User Buyers: [names]
-  Technical Buyers: [names]
-  Coach: [name] — [real power? Y/N]
-
-Intelligence Targets (Weak/Missing elements to resolve):
-  1. [element] — [how to gather]
-  2. [element] — [how to gather]
-
-Deal Risk Flags:
-  [ ] Single-threaded (only one contact)
-  [ ] No Economic Buyer access
-  [ ] No Champion or untested Champion
-  [ ] Column fodder risk (invited to validate pre-made decision)
-  [ ] "Do nothing" is the real competitor
-  [ ] Budget/timeline uncertain
-```
-
----
-
-## When to Qualify
-
-- **New client, first engagement:** Full MEDDPICC score at Scope phase
-- **Existing client, new engagement:** Refresh — focus on Decision Process + Champion + Competition (these change between deals)
-- **Re-entry (multi-phase):** Update Champion status (still there? still influential?), check for new Competition, verify Economic Buyer hasn't changed
-- **Quick meeting / conference follow-up:** Lightweight — Pain + Economic Buyer + Competition only
-
-## When NOT to qualify
-
-- Client is well-known, relationship is deep, deal is low-risk
-- Internal project (no buying committee)
-- The engagement is already contracted and you're doing intelligence for delivery
+- Compute each side's BATNA and use it as the objective standard for pursue-or-walk and deal terms. [book:getting-to-yes], 6 What If They Are More Powerful?
+- Map the buyer’s paper process with the champion, including approval steps, stakeholders, dependencies, and timing through signature. [book:meddicc], ## PAPER PROCESS
+- Qualify deals against the Three Whys — why the customer should act at all, why with you, and why now — to expose category and timing risk. [book:meddicc], RISKS
+- Reverse-engineer qualification checklist items from closed-lost engagements. [book:meddicc], MEDDICC CHECKLIST
+- Score confidence in each MEDDICC element out of ten with written scoring definitions [book:meddicc], MEDDICC Scoring

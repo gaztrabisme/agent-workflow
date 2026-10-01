@@ -34,3 +34,28 @@ Not modified (validated as already-strong): the 5-principle Posture, MEDDPICC qu
 - [ ] The `Grounded:` line + grade actually appears in intel outputs (gate is used, not just documented).
 - [ ] A long-standing heuristic gets win/loss-*validated* (moves from instinct to evidence) — or *revised* by a loss pattern.
 - **Verdict: PENDING** — structural changes from a single audit; needs real debrief cycles to confirm the loop compounds rather than sits idle.
+
+## Evolution 2 — stage B rebuild (2026-10-01)
+
+### Harvest scope
+- Distilled the approved stage A proposal, routed ledgers and crosswalks, the business-intelligence practitioner review, the live shared `core` kernel, and the skill-builder authoring guidance.
+- Validated the crosswalk-based wording against cited chapter anchors and source passages in the named book files before final verification; no book quotations were copied into the skill. Sources: articulating-design-decisions, bargaining-for-advantage, challenger-sale, continuous-api-management, critical-thinking-about-research, data-science-for-business, designing-llm-applications, designing-ml-systems-huyen, excel-for-accountants, flawless-consulting, fundamentals-data-engineering, fundamentals-enterprise-architecture, getting-to-yes, hbr-guide-business-writing, head-first-pmp, how-to-read-a-paper, intelligence-driven-incident-response, key-account-management, machinelearningforalgorithmictradingsecondedition, mastering-api-architecture, meddicc, modernnetworkobservability, new-ethics-of-journalism, privacy-in-context, research-methods-psychology, selling-to-big-companies, software-architect-elevator, software-engineering-at-google, storytelling-in-design, storytelling-with-data, think-like-ux-researcher, training-data-for-machine-learning, value-based-fees.
+- Classified as distilled practice. Fresh-context dogfood is deferred because this stage prohibits subagent use; the verdict remains PENDING until two real uses.
+
+### Counts
+- Routed rules: 556 total — 83 agrees, 385 refines, 87 field-rule, 1 disputed.
+- Candidates adopted: 68 total — 65 from the business-intelligence crosswalk and 3 from the solution-architect crosswalk where they fit this artifact and audience.
+
+### Structure change
+- Reframed the entry skill around the presale intelligence dossier and meeting brief: qualify, scope, research, synthesize, prepare, and learn.
+- Rebuilt the retained references as thematic practice guides; routed rules are grouped by qualification, research, account/stakeholder context, positioning, value, discovery, and learning. Kept concise teaching examples for unresolved pain, overlapping score signals, source limits, bounded Q&A, political hypotheses, business-case structure, and balanced synthesis.
+- Removed raw research-sprint working notes after moving in-scope practices into the retained reference files.
+
+### Hypotheses applied
+1. Corrected rules should follow the approved crosswalk text and source citations; out-of-scope and dropped rules should not survive merely because they appeared in the old skill.
+2. The dossier and meeting brief should lead the flow; architecture response work and argument-audit ownership should remain explicit handoffs.
+
+### Validation results
+- [ ] Two real uses validate the distilled methods and make corrections visible.
+- [ ] Confirm the dossier distinguishes unsupported, unresolved, and disproven claims in actual presale work.
+- **Verdict: PENDING** — structural rebuild and acceptance checks are complete; real use is still required.

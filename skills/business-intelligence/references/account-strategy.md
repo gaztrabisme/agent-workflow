@@ -1,199 +1,59 @@
 # Account Strategy
 
-Turn one-shot engagement prep into compounding account intelligence. Every engagement adds to a growing knowledge base per account.
+A persistent account view helps each meeting start from current relationship context rather than a cold list of contacts. Refresh it when roles, priorities, or buying conditions change.
 
----
+## Map account position and relationships
 
-## Account Plan (for strategic accounts)
+- Advance accounts by demonstrated relationship maturity rather than assuming one stage per year, and check for overstatement before treating a customer as a strategic partner. [book:key-account-management], ## 3.2 Stages in key relationships
+- Assess the Economic Buyer as a potential reference after delivering the promised outcome; the book does not generalize this request to every successful engagement. [book:meddicc], ## ECONOMIC BUYER
+- Avoid attacks and redirect the discussion to your suitability for the buyer’s needs; the passage does not prescribe asking what changed. [book:meddicc], ## DON’T KNOCK THE COMPETITION
+- Brief both the reference and the prospect on what the other side cares about.
+- Build account-specific commercial insights that challenge status-quo assumptions instead of merely confirming them. [book:challenger-sale], ### Commercial Teaching Rule #2: Challenge Customers’ Assumptions
+- Clarify relevant background and the specific audience or decision maker first; the book scopes communication context rather than the full presales checklist. [book:storytelling-with-data], ## Consulting for context: questions to ask
+- Define a retained customer by share of wallet or relevant spend — same or better share means retained, declining share means lost — instead of net dollars. [book:key-account-management], 9.3 Performance measurement and monitoring
+- During scoping, clarify the existing relationship and prior engagements. [book:storytelling-with-data], ### Your audience
+- Enrich company facts with the customer’s stated issues, achievements, objectives, strategy and financial indicators from annual reports or comparable sources. [book:key-account-management], ## 7.2 Key account analysis
+- Include authorized internal reports and newsletters when public reporting is absent; the book does not restrict account research to public sources. [book:key-account-management], ## 7.2 Key account analysis
+- Involve delivery partners early and keep the intelligence team engaged through deployment to preserve context at handoff. [book:data-science-for-business], ## Implications for Managing the Data Science Team
+- Keep the account plan's history as annual sales, margin and wallet-share figures by product with a narrative of the events behind the numbers, not a log of each engagement. [book:key-account-management], 8.3 Developing a strategic marketing plan for key accounts
+- Make reference requests specific, such as a 15-minute call with a prospect facing similar challenges.
+- Map contact importance and relationship strength separately, and track coverage gaps rather than treating multi-threading as a single composite score. [book:key-account-management], ## 4.2 Developing relationships
+- Organize client references by vertical.
+- Position as a logical number two before pursuing the whole account.
+- Prepare a strategic plan for a key account when building a relationship over time; the book gives no fixed multi-phase trigger. [book:key-account-management], ## Introduction
+- Research partnership history when the relationship affects positioning. [book:key-account-management], ## 7.2 Key account analysis
+- Reserve strategic account planning for higher-potential or stronger accounts; low-potential, low-strength accounts may need only short-term forecasts, budgets and action plans. [book:key-account-management], ## 8.3 Developing a strategic marketing plan for key accounts
+- Set three 12-month expansion opportunities with estimated values, stakeholder access needs, and sequencing.
+- The book contrasts formal reporting/control structures with informal collaboration and data flow; it motivates an overlay but does not prescribe the artifact. [book:software-architect-elevator], # Organizational Architecture: The Dynamic View
+- Tie each watched event to a resulting need or opening, and add the book’s earnings, restructuring, ownership, personnel, and technology signals to the watchlist. [book:selling-to-big-companies], ## WATCH FOR TRIGGER EVENTS
+- Track reference usage to avoid overusing the strongest references.
+- Track whether each competitor can access your important assets or obtain comparable value given its strategy. [book:data-science-for-business], ## Sustaining Competitive Advantage with Data Science
+- Update the contact map as a regular and frequent exercise driven by constant personnel change, rather than a quarterly plan cycle plus refreshes after significant interactions. [book:key-account-management], 4.2 Developing relationships
+- Use an identified gap in the incumbent’s offering to enter with a small piece of work; the book does not require a change trigger, quantified cost of inaction, or set decision path. [book:selling-to-big-companies], ## BRUSH OFF YOUR PROSPECT’S BRUSH-OFFS
+- Use the annual report to extract customer issues, achievements, objectives, and strategies; the book also accepts internal reports when no published report exists, but does not mention earnings calls. [book:key-account-management], ## 7.2 Key account analysis
 
-Maintain one per key client. Update quarterly, refresh relationship map after every significant interaction.
+## Monitor relationship health and account progress
 
-```
-ACCOUNT PLAN: [Client Name]
-Updated: [Date] | Owner: [Account Lead] | Review: Quarterly
+- Evaluate each key account’s profit-growth potential and project risk-adjusted cash flows over a three- or five-year horizon. [book:key-account-management], 6.5 Valuing key accounts
+- Keep one shared plan updated in real time as the work progresses instead of revising the strategy only after each engagement. [book:meddicc], The Go-Live Plan
+- Review relationship coverage across functions and levels and update the contact map regularly; the book does not set a quarterly schedule. [book:key-account-management], ## 4.2 Developing relationships
+- Schedule joint strategic-planning reviews with the customer at least annually instead of reviewing the strategy on request or at engagement boundaries. [book:key-account-management], 4.3 Managing relationships
+- Set account investment priority by account attractiveness and supplier strength, then account for expected returns and risk rather than multiplying whitespace by relationship access. [book:key-account-management], ## 8.2 Key account planning
+- Split the account plan's risk section into external risks and internal dependencies instead of scoring named risk categories. [book:key-account-management], 8.3 Developing a strategic marketing plan for key accounts
+- Tie each key action to an account strategy and track owner, departments involved, resource demand, progress measure, metric target, due date and completion date. [book:key-account-management], 8.3 Developing a strategic marketing plan for key accounts
+- Track retention as the percentage of retained business from one period to the next and judge it by its profit impact. [book:key-account-management], 6.2 Customer retention and profitability
+- Treat the account plan as a living plan with account-specific objectives, monitored through sales, share of wallet and relationship quality. [book:key-account-management], ## 8.2 Key account planning
+- Use news and leadership changes as trigger events when they create a credible opening; the book does not prescribe snapshot fields for IT budgets or digital-transformation status. [book:selling-to-big-companies], ## WATCH FOR TRIGGER EVENTS
+- Use pilots to reduce perceived switching risk when challenging an incumbent.
+- Use the LAMP Gold Sheet to record account selection, Buy-Sell hierarchy, strategic players, strengths and vulnerabilities, mutual goals, revenue targets, and 90-day reviews.
 
-1. ACCOUNT SNAPSHOT
-   Industry / Revenue / Employees / HQ / Key subsidiaries
-   Strategic priorities (from annual report, earnings calls)
-   IT budget trends, digital transformation status
-   Recent news, leadership changes
+## Set account priorities and growth
 
-2. RELATIONSHIP MAP
-   Org chart overlay: champion / supporter / neutral / blocker
-   Relationship strength: green / yellow / red per contact
-   Coverage gaps: divisions or levels with no relationship
-   Multi-threading score: [contacts engaged] / [roles covered]
+- Use a small entry project, prove results, and then expand; the book does not prescribe the $10K–$50K range or a 30–90-day proof window. [book:selling-to-big-companies], ## REMEMBER WHAT’S IMPORTANT
+- Use successful initial work to expand into other parts of the company; the book does not enumerate all the listed expansion dimensions. [book:selling-to-big-companies], ## REMEMBER WHAT’S IMPORTANT
 
-3. ENGAGEMENT HISTORY
-   | Engagement | Date | Scope | Outcome | Satisfaction | Revenue | Lessons |
-   |------------|------|-------|---------|-------------|---------|---------|
+## Added practices
 
-4. WHITE SPACE ANALYSIS
-   | Business Unit / Geo | Our Capabilities | Current Penetration | Opportunity Size | Competitive Presence |
-   |---------------------|-----------------|--------------------|-----------------|--------------------|
-   Priority: opportunity size × relationship access
-
-5. COMPETITIVE LANDSCAPE (in this account)
-   Who else is in? What do they provide?
-   Where is our differentiation strongest?
-   Incumbent vulnerabilities, trigger events
-
-6. GROWTH STRATEGY (12-month)
-   3 specific expansion opportunities with estimated value
-   Required stakeholder access to unlock each
-   Sequencing: what must happen first
-
-7. RISK ASSESSMENT
-   - Single-threading risk
-   - Delivery risk from current engagements
-   - Competitive threats
-   - Client organizational changes
-
-8. 90-DAY ACTION PLAN
-   | Action | Owner | Deadline | Status |
-   |--------|-------|----------|--------|
-```
-
----
-
-## Land and Expand
-
-### The Beachhead
-
-Land a small, low-risk engagement ($10K-$50K) that a mid-level manager can approve without procurement scrutiny. Prove value in 30-90 days. Then expand.
-
-**Why this works:** Reduces buyer risk, builds internal credibility, creates reference-able success, and gives you intelligence for the larger play.
-
-### Expansion Vectors
-
-| Vector | Example | Intelligence needed |
-|--------|---------|-------------------|
-| Same department, bigger scope | POC to production | Delivery satisfaction, budget availability |
-| Adjacent departments | IT to business units | Who else has similar pain? Warm introductions. |
-| New geographies / subsidiaries | Germany to UK | Local decision-making authority, local competitive landscape |
-| New capability areas | Dev to cloud to AI | Their technology roadmap, planned initiatives |
-| Higher value chain | Staff aug to managed services to consulting | Trust level, strategic alignment, exec relationships |
-
-### North Star Metric
-
-**Net Dollar Retention (NDR):** Revenue from existing clients this year / revenue from same clients last year. Best-in-class B2B: 120-150%. Track per account.
-
----
-
-## Multi-Year Arc
-
-Trust and value develop in stages. Don't try to be a strategic partner on day one.
-
-### Year 1 — Establish Credibility (Tactical Value)
-
-| Goal | Intelligence need |
-|------|-----------------|
-| Land beachhead, deliver flawlessly | Client business model, org structure, decision process |
-| Build 3-5 stakeholder relationships | Executive profiles, buying influences |
-| Demonstrate deep understanding of their business | Industry drivers, pain points, competitive context |
-
-**You are proving:** We can deliver. We understand your world. We're reliable.
-
-### Year 2 — Expand Scope (Strategic Value)
-
-| Goal | Intelligence need |
-|------|-----------------|
-| Cross-sell adjacent departments/capabilities | White space map, new stakeholder profiles |
-| Provide unsolicited insights (industry trends, competitive intel) | Continuous CI, signal monitoring |
-| Get invited to planning discussions | Executive relationship depth, strategic alignment |
-| Multi-thread to 8-12+ stakeholders | Relationship map, coverage gap analysis |
-
-**You are proving:** We add value beyond the project. We see things you don't.
-
-### Year 3 — Strategic Partnership (Transformational Value)
-
-| Goal | Intelligence need |
-|------|-----------------|
-| Joint innovation initiatives | Their technology roadmap, industry disruption patterns |
-| Embedded in strategic planning cycles | M&A implications, competitive dynamics |
-| Treated as extension of their team | Deep cultural understanding, institutional knowledge |
-
-**You are proving:** Our success is your success. We're thinking about your business as much as you are.
-
----
-
-## Relationship Mapping
-
-Beyond stakeholder profiles — the influence web.
-
-### Two views to maintain
-
-**Stakeholder Matrix (for pipeline reviews):**
-
-| Name | Influence (H/M/L) | Support (-5 to +5) | Relationship (R/Y/G) | Last Contact | Our Owner |
-|------|--------------------|--------------------|-----------------------|-------------|-----------|
-
-**Org Chart Overlay (for strategy):** Boxes with reporting lines PLUS informal influence lines, color-coded by relationship quality.
-
-### Gap analysis questions
-
-Run at every quarterly review:
-- Where do we have no contact above director level?
-- Which business units have zero relationship coverage?
-- Is our champion the only thread? (If they leave, we start from zero.)
-- Who is the economic buyer and have we met them?
-- Are there stakeholders we've never interacted with who could influence the next deal?
-
----
-
-## Competitive Displacement
-
-When you're the challenger trying to unseat an incumbent.
-
-### Four-Part Framework
-
-1. **Change Trigger** — What has changed in their business/market/technology that makes the status quo insufficient? (Never attack the incumbent directly. Shift from "who is better" to "what has changed.")
-2. **Gap Evidence** — Concrete proof the incumbent can't meet new requirements
-3. **Risk of Inaction** — What it costs to stay with the current vendor
-4. **Decision Architecture** — Make the switching decision feel structured and low-risk
-
-### Vulnerability Windows
-
-Incumbents lose when they grow complacent. Watch for:
-- Contract renewal dates
-- Leadership changes at the client
-- Failed projects by the incumbent
-- New strategic initiatives the incumbent can't support
-- Technology shifts that obsolete the incumbent's approach
-
-### Challenger Positioning (for IT services)
-
-- Position as logical "number two" first — don't go after the whole account
-- Find what the incumbent isn't addressing (AI, speed, cost on specific workstreams)
-- Use pilots to reduce perceived switching risk
-- Lead with innovation gap (McKinsey: "greater innovation was a desired goal on both sides but often was lacking")
-
----
-
-## Reference Selling
-
-Successful clients become your most powerful sales tool.
-
-**Key stats:**
-- 84% of B2B buyers start with a referral (HBR)
-- 83% trust peer experiences more than vendor statements
-- 73% say case studies significantly influence purchasing
-
-### Building the reference ecosystem
-
-1. After every successful engagement, assess: is this client referenceable?
-2. Structure the ask: "Would you take a 15-minute call with a prospect facing similar challenges?"
-3. Brief both sides: tell reference what prospect cares about, tell prospect the reference's story
-4. Track usage: don't burn out best references
-5. Organize by vertical: energy, O&G, construction, fintech — each feeds its own pipeline
-
-### Intelligence handoff
-
-When presale intelligence transitions to delivery, carry forward:
-- Stakeholder map (relationships, political dynamics)
-- Business drivers (why they bought, what success looks like)
-- Competitive context (who else was considered, what was promised)
-- Risk factors (what could go wrong, sensitive topics)
-- Decision criteria (what they'll measure you against)
-
-This almost never happens in practice. It should.
+- Classify key accounts by attractiveness and supplier strength, then set selective investment, maintenance or cash-management objectives. [book:key-account-management], ## 8.2 Key account planning
+- Maintain a trigger-event watch list per target account — earnings drops, M&A, reorganizations, new management, key departures — as timing signals for outreach. [book:selling-to-big-companies], Watch for Trigger Events
+- Monitor account-plan progress as review-and-respond, with deviation limits set in advance that trigger corrective action when breached. [book:key-account-management], 9.3 Performance measurement and monitoring

@@ -1,195 +1,53 @@
-# Win/Loss Analysis & Post-Engagement Learning
+# Win-Loss and Learning
 
-Turn deal outcomes into institutional knowledge. 60% of sellers are partially or completely wrong about why they lost (Anova data). Systematic debriefs fix this.
+A debrief should explain the deal without assigning blame. The useful output is what was learned, what evidence supports it, and what change in the account record or practice follows.
 
----
+## Learning loop
 
-## Building the Practice from Zero
+After each debrief, ask whether it contradicts or extends a working method. Record the pattern while fresh; review repeated patterns and promote only those supported by outcomes. See `../evolution/references/loop.md` for the shared mechanism.
 
-### Phase 1 — Start Simple (Months 1-3)
+## Presale handoff
 
-1. Pick 5 recent deals (mix of wins and losses)
-2. Run internal debriefs first (30 min each with the deal lead)
-3. Attempt 2-3 external client interviews (on losses — winners are less illuminating)
-4. Document findings in the template below
-5. Present patterns to leadership
+- Carry the agreed customer success Metrics into a thorough post-sales handover; the book does not specify the rule’s implementation-risk or onboarding fields. [book:meddicc], METRICS
+- Include customer-agreed Metrics in the handoff and align the post-sales team around the outcomes that define success. [book:meddicc], ## METRICS
+- Make the agreed Metrics the core content of a thorough handover to the post-sales team. [book:meddicc], METRICS
+- Make the desired action and information hierarchy explicit so the deliverable author can make the handoff clear to its reader. [book:storytelling-in-design], The Visual Aspect of Your Story
+- Make the post-sales handover thorough and include clearly defined customer Metrics; the book does not enumerate stakeholder, business-driver or competitor intelligence fields. [book:meddicc], ## METRICS
 
-### Phase 2 — Standardize (Months 4-6)
+## Promote repeated learning into the skill
 
-1. Every deal above a threshold gets a debrief
-2. Train a neutral interviewer (NOT the deal rep — they rationalize)
-3. Build a standard question bank
-4. Start quarterly pattern reports
+- After every debrief, record whether it contradicts or extends the skill; if it does, draft a pattern. [book:software-engineering-at-google], Blameless Postmortem Culture
+- After ten or more debriefs, track common loss and win reasons, competitor, deal stage, entry method, and cultural-fit patterns.
+- After the next roughly ten win/loss debriefs, complete the evolution validation review.
+- As the practice standardizes, debrief every deal above its threshold, train a neutral interviewer rather than the deal representative, and report patterns quarterly.
+- Record outcome, deal value, interview participants, timeline, competitors, client-ranked decision factors, what worked, shortfalls, turning point, intelligence, pattern flags, and actions in the debrief.
+- Standardize win/loss debriefs for every deal above the chosen threshold, use a neutral interviewer, and issue quarterly pattern reports.
+- Start a win/loss practice by selecting five recent mixed wins and losses, holding internal debriefs, attempting two or three client interviews, documenting findings, and presenting patterns to leadership.
+- Validate that at least one debrief pattern is promoted into an Evolution entry and changes a framework, battle card, or gate. [book:software-engineering-at-google], Blameless Postmortem Culture
 
-### Phase 3 — Mature (Months 7-12)
+## Run useful debriefs and interviews
 
-1. Target 20+ interviews/year for statistical validity
-2. Segment by deal type, region, competitor
-3. Feed findings into training, positioning, pricing
-4. Consider third-party interviewer for candid external feedback (50-60% response rate vs much lower internal)
+- Ask all ten core win/loss questions about trigger, shortlist, decision criteria, team perception, near-misses, price, references, sales process, cultural fit, and recommendation.
+- Ask the client to report the results of your work six months after you leave rather than validating a heuristic against internal win/loss outcomes. [book:flawless-consulting], Elements of a Contract
+- Build a win/loss practice from five recent mixed deals, internal debriefs, client interviews, documented findings, and leadership review.
+- Capture unexpected goals and motivations in the post-call debrief so they can inform the next account interaction. [book:challenger-sale], ## TAILOR
+- Check that the Grounded claim-and-grade record appears in actual intelligence outputs. [book:critical-thinking-about-research], 2 Research Questions and Hypotheses
+- Choose interviewees so the group represents the population of interest; how the sample is selected matters more than hitting an interview quota. [book:research-methods-psychology], Chapter 8: Bivariate Correlational Research
+- Debrief after a meeting, deal decision, or explicit debrief request. [book:articulating-design-decisions], Chapter 9. Follow Up Afterward
+- Debrief each client interaction with specific reflection on what worked, resistance, and what to change, instead of waiting only for a deal decision. [book:selling-to-big-companies], # 22. THE MINDSET OF SUCCESS
+- For losses, ask when the decision shifted, what the winner did differently, whether credibility was damaged, and whether the client would consider a future project.
+- Interview as soon as possible because recall accuracy decays with time while confidence stays high, so weigh vivid, confident accounts skeptically. [book:research-methods-psychology], Construct Validity of Surveys and Polls
+- Prevent relationship disintegration by forging multilevel links and engaging with the customer's vision rather than selling goods and services transactionally. [book:key-account-management], 3.2 Stages in key relationships
+- Quantify business impact in the debrief where possible. [book:meddicc], Discovery
+- Record the buyer's exact words for pain points in the debrief. [book:meddicc], Implicate the Pain
+- Schedule the interview close to the decision because distant memories decline in accuracy even while confidence in them stays high. [book:research-methods-psychology], Construct Validity of Surveys and Polls
+- Speak with participants privately to uncover withheld concerns instead of inferring all political dynamics from the group discussion. [book:articulating-design-decisions], The Meeting After the Meeting
+- The book assigns Green, Amber, or Red flags to individual risks and calls for urgent action on a major red flag, rather than counting general health indicators. [book:meddicc], ## MEDDICC SCORING
+- The book offers element-level confidence scoring ad hoc or in a CRM, so set a regular review cadence as an implementation choice rather than a stated requirement. [book:meddicc], ## MEDDICC SCORING
+- The book prefers a one-hour follow-up but allows up to a day, making one hour an ideal rather than an absolute limit. [book:articulating-design-decisions], Follow Up Fast
+- Treat long-standing heuristics that have not been validated through win/loss outcomes as PENDING rather than established truth.
+- Use win/loss debriefs, deal outcomes, and discovery-call retrospectives as sources for skill learning.
 
----
+## Added practices
 
-## Win/Loss Interview Questions (IT Services)
-
-**Timing:** Within 2 weeks of decision. Memories fade. For wins, before implementation pain overwrites sales experience.
-
-**Who interviews:** Neutral party — marketing, a different account manager, product. Never the deal rep.
-
-### Core questions
-
-| # | Question | What it reveals |
-|---|---------|-----------------|
-| 1 | What triggered the evaluation? What problem were you solving? | Real motivation, not stated requirement |
-| 2 | Who else did you consider? How did you build the shortlist? | Competitive landscape, selection criteria |
-| 3 | What were your top 3 decision criteria? | What actually mattered (often differs from RFP) |
-| 4 | How did you perceive our team vs alternatives? | Positioning effectiveness, differentiation |
-| 5 | What almost made you choose differently? | Vulnerabilities, near-misses |
-| 6 | How did price factor into the decision? | Price sensitivity, value perception |
-| 7 | Did reference customers or case studies influence you? | Reference selling effectiveness |
-| 8 | What could we have done better in the sales process? | Process improvements |
-| 9 | How did cultural fit / communication factor in? | Critical for cross-cultural engagements (offshore delivery → European/US/Gulf buyers) |
-| 10 | Would you recommend us? Why or why not? | NPS-level advocacy signal |
-
-### For losses specifically
-
-| # | Additional question | What it reveals |
-|---|-------------------|-----------------|
-| 11 | At what point did the decision shift away from us? | Where the deal broke |
-| 12 | Was there something the winning vendor did that we didn't? | Competitive gap |
-| 13 | Was there a moment where our credibility was damaged? | Claims or positioning failures |
-| 14 | Would you consider us for a future project? | Relationship salvageability |
-
----
-
-## Win/Loss Debrief Template
-
-```
-WIN/LOSS DEBRIEF: [Client] — [Engagement]
-Date: [Date] | Outcome: [Win / Loss / No Decision] | Deal Value: [$X]
-Interviewer: [Name] | Interviewee: [Name, Role]
-
-DEAL SUMMARY
-  Client: [Company]
-  Engagement: [Scope]
-  Timeline: [First contact] → [Decision date] = [N days]
-  Competitors: [Named competitors in the evaluation]
-
-DECISION FACTORS (ranked by client)
-  1. [Factor] — [How we scored on it]
-  2. [Factor] — [How we scored on it]
-  3. [Factor] — [How we scored on it]
-
-WHAT WORKED (for wins) / WHAT THE WINNER DID (for losses)
-  -
-  -
-
-WHAT DIDN'T WORK / WHERE WE FELL SHORT
-  -
-  -
-
-TURNING POINT
-  [The moment the decision shifted — when, what happened, who was involved]
-
-INTELLIGENCE HARVESTED
-  - About the client: [what we learned about their buying process, priorities, politics]
-  - About competitors: [what we learned about competitor positioning, pricing, tactics]
-  - About ourselves: [what we learned about our strengths/weaknesses in this context]
-
-PATTERN FLAGS (check if applies)
-  [ ] Price was the primary factor
-  [ ] Incumbent advantage decided it
-  [ ] Single-threading (lost access when key contact changed)
-  [ ] "No decision" — deal died to status quo
-  [ ] Cultural/communication gap
-  [ ] Overclaim or credibility damage
-  [ ] Champion left or lost influence
-  [ ] Procurement process we didn't navigate well
-  [ ] Technical evaluation we failed
-  [ ] Reference/case study gap
-
-ACTION ITEMS
-  - [What to change for next similar deal]
-  - [What to add to positioning/battle cards]
-  - [What to feed back to product/delivery]
-```
-
----
-
-## Deal Health Scoring
-
-Run this at every deal review to catch dying deals while there's time to recover.
-
-| Indicator | Healthy | Warning | Critical |
-|-----------|---------|---------|----------|
-| **Champion status** | Active, doing homework | Responsive but passive | Silent, unresponsive |
-| **Stakeholder engagement** | New stakeholders joining | Same contacts, stable | Contacts dropping off |
-| **Meeting cadence** | Regular, on schedule | Occasional reschedule | Cancelled, hard to book |
-| **Decision process** | Clear timeline, named stages | Vague but acknowledged | "We'll get back to you" |
-| **Next steps** | Specific, with owners and dates | Agreed but vague | None defined |
-| **Competitive signals** | We're the front-runner | Multiple vendors active | Late entrant (price leverage) |
-| **Budget** | Confirmed and allocated | Discussed, not confirmed | "We need to review budget" |
-| **Technical evaluation** | Passed or in progress | Delayed | Requirements expanding |
-
-**Scoring:**
-- 6-8 Healthy = Strong pipeline (80%+ likely)
-- 4-5 Healthy, rest Warning = At risk (50-60%)
-- 3+ Critical = Deal is dying — escalate or walk
-
----
-
-## Why IT Services Deals Get Won
-
-| Factor | What it looks like |
-|--------|-------------------|
-| **Demonstrated capability** in specific tech/domain | Not "we can do anything" — "we've done THIS, here's proof" |
-| **Reference customers** in same industry | Peer validation, similar problem solved |
-| **Team quality** | The actual people proposed, not the company brand |
-| **Cultural fit** | Communication style, timezone awareness, work ethic alignment |
-| **Credible delivery plan** | Realistic timelines, honest about complexity |
-| **Relationship trust** from prior engagements | The beachhead pays off |
-
-## Why IT Services Deals Get Lost
-
-| Factor | What it looks like |
-|--------|-------------------|
-| **Capability gaps** (more often than price) | They needed X, we couldn't demonstrate X |
-| **Broken promises** | Sales said one thing, delivery showed another |
-| **Governance failures** | 40-70% of outsourcing relationships fail on governance |
-| **High personnel attrition** | Using client as training ground destroys trust |
-| **Communication breakdowns** | Timezone, language, cultural misalignment |
-| **Incumbent advantage** | Switching costs + status quo bias |
-| **Sales/procurement misalignment** | What sales sold vs what procurement bought |
-
----
-
-## Pattern Tracking
-
-After 10+ debriefs, look for patterns across deals:
-
-| Pattern to track | What it tells you |
-|-----------------|-------------------|
-| Most common loss reason | Where to invest (capability, positioning, process) |
-| Most common win reason | What to double down on, what to lead with |
-| Loss by competitor | Which competitors beat you and how — feeds battle cards |
-| Loss by deal stage | Where deals die (early = qualification, late = procurement/technical) |
-| Win by entry method | What entry strategy works (referral, conference, RFP, beachhead) |
-| Cultural fit mentions | How big a factor for cross-cultural sales (offshore-delivery-specific) |
-
----
-
-## Intelligence Handoff (Presale → Delivery)
-
-When a deal is won, transfer:
-
-| Intelligence | Why delivery needs it |
-|-------------|---------------------|
-| Stakeholder map with attitudes | Know who's supportive, who's skeptical, who to manage |
-| Decision criteria | What they'll measure success on — this IS the success criteria |
-| Competitive context | Who else was considered, what was promised (sets expectations) |
-| Business drivers | Why they bought — keeps the team aligned to business value |
-| Risk factors | What could go wrong, sensitive topics, political landmines |
-| Champion identity | Who advocated — protect this relationship during delivery |
-| Honest Q&A Table | What was said in the room — delivery must not contradict it |
-
-This handoff almost never happens. The presale intelligence dies at contract signature, and the delivery team re-discovers everything from scratch. Fix this.
+- Run blameless postmortems with a required structure and owned action items [book:software-engineering-at-google], Blameless Postmortem Culture

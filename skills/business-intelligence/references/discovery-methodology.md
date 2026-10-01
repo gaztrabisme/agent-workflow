@@ -1,224 +1,96 @@
-# Discovery & Live Meeting Methodology
-
-How to run the meeting, not just prepare for it. The intelligence outputs from other phases feed INTO discovery; discovery feeds BACK into updated intelligence.
-
-```
-Pre-Call Intel → Discovery Call → Post-Call Debrief → Updated Intel → Next Interaction
-```
-
----
-
-## Pre-Call Planning
-
-Do this in 10-15 minutes with your AE/team before every significant call.
-
-| Element | Fill in | Why |
-|---------|---------|-----|
-| **Objective** | "As a result of this call, the buyer will [specific action]" | Forces specificity — "learn about us" is not an objective |
-| **Minimum acceptable outcome** | "At minimum, we get [X]" | Sets the floor if the call goes sideways |
-| **Top 3 questions** | Must-answer questions for this call | Prevents rambling — you know what you NEED |
-| **Likely objections (top 2)** | With prepared responses | Not caught off-guard |
-| **Role assignment** | Who leads opening? Who handles technical? Who takes notes? Who drives next steps? | Prevents talking over each other |
-| **Relevant evidence** | Which case study / data point matches this buyer? | Ready to deploy, not scrambling |
-| **Landmines** | What could go wrong? Competitive FUD? Budget freeze? Internal politics? | Prepared, not surprised |
-
----
-
-## Discovery Call Structure
-
-### T-Shaped Model
-
-Go broad first (horizontal bar), then deep on 2-3 areas (vertical bar).
-
-| Phase | Time (45-min call) | Activity |
-|-------|-------------------|----------|
-| **Opening** | 2-3 min | Upfront contract: "Here's what I was hoping to cover, does that work? We have 45 minutes — I want to make sure we leave time for your questions." |
-| **Broad Mapping** | 5-8 min | Context questions — current state, initiatives, stakeholders. Use research to skip basics. |
-| **Deep Dive** | 20-25 min | Pain funnel on 2-3 areas. SPIN Implication questions. This is where deals are won. |
-| **Summary** | 5 min | "Let me make sure I have this right — your three main priorities are..." |
-| **Next Steps** | 3-5 min | Specific actions, owners, dates. No vague "let's circle back." |
-
-**The 80/20 rule:** Prospect talks 80%. If you're talking more than 40%, you're pitching, not discovering.
-
----
-
-## SPIN in Practice
-
-### Situation Questions (3-5 max — do homework first)
-
-- "Walk me through how your team currently handles [process]."
-- "What systems are involved in [workflow]?"
-
-Every situation question you ask is one you could have answered with research. Excessive situation questions signal inexperience.
-
-### Problem Questions (the opener)
-
-- "Where does that process break down?"
-- "What's the most frustrating part of [current approach]?"
-- "What happens when [system] doesn't perform as expected?"
-
-Let the buyer describe their own frustrations. Pointing out flaws triggers defensiveness.
-
-### Implication Questions (where deals are won or lost)
-
-Top performers ask 4x more implication questions than average.
-
-The **implication ladder** — each answer feeds the next question:
-1. "How does that 10-week onboarding ramp affect your quarterly targets?"
-2. "When you miss targets, how does that affect the board's willingness to fund the next round?"
-3. "If hiring stalls, what happens to projects already committed to customers?"
-
-**Why most people fail here:** They hear a problem and immediately jump to the solution. The problem stays a "nice to have" because they never built the cost of inaction.
-
-### Need-Payoff Questions (buyer sells themselves)
-
-- "If you could cut that time in half, what would that mean for Q3?"
-- "How would your team's output change if [problem] went away?"
-
-**Pivot signal:** When the prospect says "Yeah, this is really costing us" — stop expanding pain, start asking what solving it would mean.
-
----
-
-## Sandler Pain Funnel
-
-Three levels, each deeper. Use when SPIN Implication questions surface something worth drilling into.
-
-**Level 1 — Surface Pain:** "Tell me more about that." / "Can you give me an example?" / "How long has that been a problem?"
-
-**Level 2 — Business Pain:** "What have you tried to fix it?" / "And did that work?" / "How does that affect [revenue/throughput/satisfaction]?"
-
-**Level 3 — Personal Pain:** "How does that affect you specifically?" / "Have you given up trying to solve this?" — This is the decision driver. Business cases close on paper; personal pain closes in reality.
-
-**Pain-o-Mometer:** "On a scale of 1-10, how severe?" Then: "What would make it a 10?" Quantifies urgency and reveals action triggers.
-
-**Reversing:** When a prospect asks you a question, respond with a question to understand intent. "How much does it cost?" → "That's a fair question. To give you a relevant answer — what kind of budget are you working with for this initiative?" This is not evasion — it's understanding context before responding.
-
----
-
-## Active Listening
-
-### Three signal types to listen for
-
-| Signal type | Examples | What it means |
-|------------|---------|---------------|
-| **Buying signals** | Asking about pricing, timelines, specific features, "Can we do a POC?" | Interest — lean in, don't deflect |
-| **Objection signals** | "That might be difficult," "We'd need to think about that" | Invitation to dig deeper, not a rejection |
-| **Political signals** | "That might be challenging internally," "The last time we tried..." | Organizational power map — record carefully |
-
-### What they're NOT saying
-
-Tone changes, hesitation, vague phrasing, topic avoidance, inconsistencies between what different stakeholders say, the gap between what they say they want and what they're actually doing about it.
-
-### Techniques
-
-- **Paraphrase:** "So what I'm hearing is..." (confirms understanding)
-- **Summarize:** "Let me make sure I have this right — your three challenges are..."
-- **Label:** "It sounds like that's really frustrating for your team" (names the emotion)
-- **Soft hypothesis:** "I'm getting the sense that [X] might be the bigger issue — am I reading that right?"
-
----
-
-## Meeting Type Playbooks
-
-| Type | Your Role | Question Approach | Prep Focus |
-|------|-----------|------------------|------------|
-| **Initial Discovery** | Curious diagnostician | Broad then deep, SPIN | 5-7 core questions, research their business |
-| **Technical Deep-Dive** | Peer architect | Architecture probing, constraint mapping | Know their stack, prepare integration scenarios |
-| **Demo + Q&A** | Storyteller | "Does this match what you described?" | Great Demo!: Do Last Thing First. Show result, then explain how. |
-| **Executive Briefing** | Strategic advisor | ROI-focused, Challenger teaching | 6-minute chunks, business outcomes, not features |
-| **POC Scoping** | Collaborative designer | "What would prove this works for you?" | Success criteria, evaluation timeline, resources |
-| **Negotiation** | Problem-solver | Sandler reversing, LAER for objections | BATNA, walk-away points, concession strategy |
-
----
-
-## Objection Handling
-
-### LAER Framework (most versatile for B2B)
-
-1. **Listen** — Let them finish. Don't interrupt.
-2. **Acknowledge** — "I appreciate you raising that."
-3. **Explore** — "What specifically concerns you about [X]?"
-4. **Respond** — Address with evidence, then confirm: "Does that address your concern?"
-
-### Reframing
-
-Turn objections into opportunities:
-- **Price:** Don't defend price. "The question isn't whether you can afford the solution — it's whether you can afford another year of [quantified problem]."
-- **Competitor:** "That's a solid product. Where specifically are they falling short for you?" (They raised the competitor for a reason.)
-
-### Real objections vs smokescreens
-
-**Test:** "If we could resolve [objection], would you be ready to move forward?"
-- Real objection → "Yes" → Address it
-- Smokescreen → Another objection appears → The stated objection isn't the real issue. Dig deeper.
-
-### When to concede vs push back
-
-- **Concede** when they're right and it doesn't kill the deal
-- **Push back** when the objection is based on a misunderstanding
-- **Always push back** on scope creep disguised as objections
-
----
-
-## Handling Difficult Moments
-
-| Situation | Response |
-|-----------|----------|
-| **Don't know the answer** | "Great question — I want to give you an accurate answer. Let me get back to you by [specific time]." Never bluff. |
-| **Demo breaks** | Turn it into discovery: "While I pull this up, tell me more about how your team handles this today." Have backup resources. |
-| **Room goes hostile** | Identify what the detractor wants. Find 1-2 ways to help their objectives. Ask champion how that person is measured. |
-| **Trap question** | Don't answer directly. "That's an interesting angle — what's driving that question?" Reveals if it's curiosity or competitive positioning. |
-| **Off-track conversation** | "I want to respect everyone's time. Can we park that for follow-up and come back to [topic]?" |
-| **Your prep was wrong** | "I came in thinking your main challenge was X, but Y sounds like the priority. Tell me more about Y." Builds more trust than pretending. |
-
-**Core principle:** Your prospect bases their reaction on yours. Calm and professional = minor incident. Flustered = major problem.
-
----
-
-## Post-Meeting Intelligence Extraction
-
-### Capture during the meeting (5 things)
-
-1. Pain points — in their exact words
-2. Business impact — quantified where possible
-3. Decision process — who, when, how
-4. Technical constraints and requirements
-5. Political dynamics — who championed, who resisted, who was silent
-
-### Post-meeting (within 1 hour)
-
-- Structure raw notes into: confirmed facts / assumptions to verify / signals to investigate
-- Update stakeholder map: attitudes shifted? New stakeholders surfaced? Champion status?
-- Update MEDDPICC score: any elements moved from Missing to Weak/Strong?
-
-### Follow-up (within 24 hours)
-
-Summary email with: pain points paraphrased (in their words), proposed next steps, specific actions with owners.
-
-"Based on our conversation, here's what I heard as your top priorities: [1, 2, 3]. Please let me know if I missed anything."
-
-**The follow-up email IS your first deliverable.** It proves you listened.
-
-### How meeting intelligence feeds back
-
-| What you learned | What it updates |
-|-----------------|-----------------|
-| Pain points (their words) | Intelligence Report, Business Case "Current State" |
-| Quantified impact | Business Case, ROI model |
-| Technical constraints | Solution architecture, Capability Map |
-| Political dynamics | Stakeholder Map, engagement strategy |
-| Objections raised | Honest Q&A Table, risk mitigation |
-| Buying process intel | MEDDPICC score, deal timeline |
-
----
-
-## Engineers-Turned-Presale: Watch List
-
-1. **Solutioning too early** — hear problem, immediately architect fix. Resist. You haven't earned the right to prescribe.
-2. **Jargon overload** — technical language to business audience. Match language to audience.
-3. **Feature-walking** — demo every feature instead of the 3 that map to pain.
-4. **Free consultancy** — detailed architecture advice for months without commercial commitment.
-5. **Secondhand discovery** — accepting IT's version of what marketing needs. Talk to marketing directly.
-6. **Discovery as interrogation** — rapid-fire questions without context or reciprocity.
-7. **Ignoring non-technical stakeholders** — the CIO cares about vendor risk, not your Kubernetes architecture.
-8. **No upfront contract** — diving in without setting meeting expectations.
+# Discovery and Meeting Preparation
+
+Use research to free live meeting time for the questions that require the client’s context. Prepare for likely concerns without assuming hostility; record the answer, decision, owner, and next step while the conversation is fresh.
+
+## Handle concerns and close the loop
+
+- Begin with the shared goal, prior decisions, current process, and needed feedback, rather than relying on earlier-phase intelligence alone. [book:articulating-design-decisions], Set the Context
+- Capture anticipated objections in a pre-call Deal Sheet so you can handle them, rather than scripting Listen-Acknowledge-Explore-Respond responses. [book:meddicc], DISCOVERY
+- For a 45-minute call, allocate 2–3 minutes to opening, 5–8 to broad mapping, 20–25 to deep dive, 5 to summary, and 3–5 to next steps.
+- Identify resistance, name it neutrally, then let the client respond before moving to a solution. [book:flawless-consulting], ### Three Steps for Handling Resistance
+- Investigate the reason behind the objection and determine which resistance factor is active before testing commitment. [book:value-based-fees], ## THE FOUR FUNDAMENTAL AREAS OF RESISTANCE
+- Park off-track discussion for follow-up and return to the meeting topic. [book:articulating-design-decisions], # Chapter 6. Form a Response
+- Prepare the two likely objections and responses using LAER. [book:articulating-design-decisions], Anticipate Reactions
+- Set clear roles before meetings; the book does not prescribe assignments for opening, technical questions, notes and next steps. [book:selling-to-big-companies], ## MISTAKES YOU DON’T WANT TO MAKE
+- The book marks decisions, open questions, actions, and future topics, while the BI rule calls for a post-meeting fact, assumption, and signal classification. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- The book organizes notes around named suggestions, decisions, and follow-up; it does not specify quantified pain, constraints, or political fields. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- The book recommends rehearsing likely questions, but does not require exactly three questions and two objections. [book:articulating-design-decisions], # Chapter 3. Design the Meeting
+- Within 24 hours, send a summary email with paraphrased pain, proposed next steps, and named actions and owners. [book:articulating-design-decisions], # Chapter 9. Follow Up Afterward
+
+## Prepare the meeting
+
+- Apply shared meeting-design principles while tailoring the goal and context, rather than selecting a separate playbook solely by meeting type. [book:articulating-design-decisions], Chapter 3. Design the Meeting
+- Do not jump in with your solution the moment the prospect expresses a difficulty or dissatisfaction; the passage names premature solutioning, not the other discovery mistakes. [book:selling-to-big-companies], ENGAGE IN QUESTIONABLE PRACTICES
+- Do not jump to a solution before establishing the cost of inaction. [book:think-like-ux-researcher], ## Conducting an Effective Stakeholder Interview
+- Fix in the contract what you will and will not examine before research starts, rather than stopping tracks that drift mid-work. [book:flawless-consulting], Elements of a Contract
+- Keep the discussion on client outcomes and value, agreeing measures before fees instead of comparing price to a quantified problem cost. [book:value-based-fees], ## MAINTAINING THE FOCUS ON VALUE
+- Let buyers identify their own problems instead of naming your product or pointing out their flaws. [book:think-like-ux-researcher], Conducting an Effective Stakeholder Interview
+- Let the prospect speak about 80%; if you speak over 40%, you are pitching rather than discovering.
+- Make the meeting role assignment clear. [book:selling-to-big-companies], ## MISTAKES YOU DON’T WANT TO MAKE
+- Measure problem impact and the value of the difference; the book does not define the prospect's acknowledgment as the stop-and-pivot trigger. [book:think-like-ux-researcher], ## Conducting an Effective Stakeholder Interview
+- Pair the meeting's content with process observations — how the client managed the discussion, your supporting and confronting statements, nonverbal data — reviewed right afterward. [book:flawless-consulting], Chapter 13: Get the Picture
+- Run discovery preparation for an upcoming live meeting, either after synthesis or as a standalone call-prep request. [book:articulating-design-decisions], Chapter 3. Design the Meeting
+- Select matching evidence and identify meeting landmines during pre-call planning.
+- Select the relevant case study or data point for the meeting. [book:storytelling-with-data], Consulting for context: questions to ask
+- Set a specific buyer action as the discovery call objective. [book:storytelling-with-data], Action
+- The book advises asking resistant stakeholders about the project’s effect on their work and priorities, while leaving Champion-led measurement outside the method. [book:articulating-design-decisions], # Chapter 2. Stakeholders Are People Too
+- The book asks for a clear audience action, but does not specify a buyer action or minimum acceptable outcome. [book:storytelling-with-data], ### Action
+- The book bases concessions on trust and which battles affect project goals, rather than whether the buyer is objectively right or the issue kills the deal. [book:articulating-design-decisions], # Chapter 10. Dealing with Changes
+- The book classifies evidence as none, soft, presumed, or hard rather than labeling findings as confirmed fact, assumption, or signal. [book:think-like-ux-researcher], Conducting an Effective Stakeholder Interview
+- The book focuses on inferring stakeholder subtext and meeting politics, with note-taking, rather than categorizing those cues as buying signals. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- The book recommends a brief agenda and rehearsal, without setting a 10–15 minute team-planning block. [book:articulating-design-decisions], # Chapter 3. Design the Meeting
+- The book recommends restating the goal to surface whether it changed, rather than explaining a mistaken preparation and asking what is newly important. [book:articulating-design-decisions], # Chapter 3. Design the Meeting
+- The book starts with user motivations, activities, and problems in context but does not specify process, data, integration, or change-management mapping. [book:think-like-ux-researcher], Structuring the Ethnographic Interview
+- Tie valuable client insight to a capability you can provide and a commercial path so the work does not become free consulting for a competitor. [book:challenger-sale], ## NOT JUST ANY TEACHING. *COMMERCIAL* TEACHING
+- Use a broad-first, deep-on-two-or-three-areas T-shaped structure for discovery.
+- Use a T-shaped discovery model: map broadly first, then go deep on two or three areas.
+- Use the book’s individual planning guide to prepare for the meeting; it does not prescribe a 30-minute session with an AE. [book:selling-to-big-companies], COMPLETE THE SALES CALL PLANNING GUIDE
+- Use the book’s one-hour structure: 5–10 minutes to open, 40–45 for discussion, and 5–10 to advance the process; it does not give 45-minute-call ranges. [book:selling-to-big-companies], COMPLETE THE SALES CALL PLANNING GUIDE
+- Verify needs with the relevant stakeholder directly instead of relying on secondhand reports. [book:think-like-ux-researcher], Conducting an Effective Stakeholder Interview
+- Volunteer negative information about shortfalls yourself rather than hiding it — honest disclosure wins more credibility than the shortfall costs. [book:meddicc], CHAMPION
+
+## Question, listen, and test assumptions
+
+- Anchor pre-call research in near-term strategic objectives and their relevance to the contact; the passage does not require checking every listed source. [book:challenger-sale], ### Challenger Coaching Exercise
+- Ask Need-Payoff questions that let buyers state the value of solving their problem in their own words.
+- Assign who leads, handles technical questions, and takes notes.
+- Do the homework before the call so you never ask about information readily accessible to the public; the passage sets no three-to-five limit on Situation questions. [book:selling-to-big-companies], GUIDELINES FOR GOOD QUESTIONING
+- For a 30-minute discovery call, prepare about 10–15 well-chosen questions. [book:selling-to-big-companies], ENGAGE IN QUESTIONABLE PRACTICES
+- Label predicted needs and interests as research-informed hypotheses, then test them with the customer before treating them as facts. [book:challenger-sale], ### Step 1: The Warmer
+- Notice tone shifts, hesitation, vagueness, avoided topics, stakeholder inconsistency, and gaps between stated wants and actions. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- Once a problem surfaces, spend the time digging into negatives to implicate the pain rather than collecting more situation facts. [book:meddicc], DISCOVERY
+- Open the situation part with one broad question about how the work flows and let the rest emerge in conversation instead of running a series of situation questions. [book:selling-to-big-companies], GUIDELINES FOR GOOD QUESTIONING
+- Prepare implication-heavy questions that quantify customer pain and its business impact, using customer Metrics to check the inference. [book:meddicc], ## METRICS
+- Prepare the three must-answer questions using SPIN, emphasizing Problem and Implication over Situation.
+- Reserve teaching for an underappreciated need and make the insight new; when the buyer already values the benefit, the book says teaching may be unnecessary. [book:challenger-sale], DEVELOPING A PURPOSEFUL CHOREOGRAPHY
+- Select interviewees to represent the segment of accounts being learned about instead of chasing a yearly interview quota. [book:research-methods-psychology], Chapter 8: Bivariate Correlational Research
+- The book asks clients to describe the problems behind a requested solution, without framing this as a sales-specific frustration prompt. [book:think-like-ux-researcher], ## Conducting an Effective Stakeholder Interview
+- The book asks for the underlying problem behind a stakeholder’s suggestion rather than treating the question as a trap. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- The book directs you to identify the underlying problem behind the requested change, while leaving audience jargon and demo scope outside this passage. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- The book gives stakeholders room to speak, then uses clarifying questions and paraphrases before the presenter responds; it does not set out reciprocal self-disclosure. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- The book measures the problem and value of solving it, but does not require stopping pain questions at a specified point. [book:think-like-ux-researcher], ## Conducting an Effective Stakeholder Interview
+- The book prepares by setting the goal, project stage, and useful feedback for that meeting; it does not vary question style across sales meeting types. [book:articulating-design-decisions], # Chapter 3. Design the Meeting
+- The book recommends a brief story-eliciting discussion guide instead of a fixed three-to-five-question Situation checklist. [book:think-like-ux-researcher], ## Structuring the Ethnographic Interview
+- The book recommends rephrasing the concern and asking a question to confirm shared understanding, without prescribing emotion labels or soft hypotheses. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- The book says to ask more questions when the client problem is not understood, rather than specifying a question-first response to every prospect question. [book:think-like-ux-researcher], ## Going Beyond Technical Skills: What Makes a Great UX Researcher
+- The book uses repeated why questions to reach root causes and surface assumptions rather than explicitly probing a buyer’s solution preference. [book:software-architect-elevator], Five Whys
+- Use Implication questions to build the cost of inaction before moving to a solution. [book:think-like-ux-researcher], Conducting an Effective Stakeholder Interview
+- Use the pain sequence to uncover and quantify impact and identify affected stakeholders rather than only stacking consequence questions. [book:meddicc], ## IMPLICATE THE PAIN
+- Use the Sandler pain funnel from surface pain through business pain to personal pain when an implication merits deeper exploration.
+
+## Added practices
+
+- Adapt the amount of detail to whether the deliverable is presented live or sent for independent reading. [book:storytelling-in-design], The Visual Aspect of Your Story
+- Add audience-bias questions to communication scoping [book:storytelling-with-data], ## Consulting for context: questions to ask
+- Apply qualitative-interview technique: build rapport, ask how-not-why, normalize answers, and allow silence. [book:research-methods-psychology], Conducting Interviews and Focus Groups
+- Before negotiation, map each side’s underlying interests behind its stated positions. [book:getting-to-yes], # 3 Focus on Interests, Not Positions
+- Close analytical stories with a clear recommendation or action for the audience. [book:storytelling-with-data], # chapter seven lessons in storytelling
+- Distill an executive synthesis into a three-minute story and a single-sentence Big Idea. [book:storytelling-with-data], Big Idea
+- Handle resistance by naming it as a statement and then staying silent through the tension. [book:flawless-consulting], Three Steps for Handling Resistance
+- Keep discovery questions open-ended using the TED prompts (Tell me, Explain, Describe). [book:meddicc], DISCOVERY
+- Mark undecided items in meeting notes so they can be assigned and followed up after the discussion. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- Open a meeting by restating its goal, prior decisions, current process stage, and requested feedback. [book:articulating-design-decisions], Set the Context
+- Prepare stakeholder meetings by stating the goal, recapping prior decisions, showing progress, and naming the feedback needed now. [book:articulating-design-decisions], Set the Context
+- Record why a meeting decision was made alongside the decision itself. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- Rehearse a live meeting by role reversal: play the other party yourself while a briefed colleague plays you, then debrief on their reasons. [book:bargaining-for-advantage], Look for Common Ground: How Might It Serve the Other Party's Interests to Help You Achieve Your Goals?
+- Take a written list of ten planned questions into every significant client meeting. [book:selling-to-big-companies], GUIDELINES FOR GOOD QUESTIONING
