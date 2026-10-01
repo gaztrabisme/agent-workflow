@@ -52,7 +52,8 @@ Scale sources to the organization. SEC filings, 10-Ks, earnings calls, analyst c
 - Treat feedback as an exploratory loop and revisit earlier stages when discoveries warrant it, including during evaluation. [book:data-science-for-business], ## The Data Mining Process
 - Use analysis as input to live judgment and combine it with human knowledge for high-level decisions. [book:data-science-for-business], ## What Data Can’t Do: Humans in the Loop, Revisited
 - Use analyst commentary as one input on company psychographics; the passage does not assign it specifically to market-position or forecast estimates. [book:selling-to-big-companies], ## SCOPE OUT THE PSYCHOGRAPHICS
-- For BI prework, use BXT for a provisional internal score of an enterprise AI opportunity before a specific use case is client-validated; keep that score out of the BI dossier and hand client-validated use-case scoring to `ai-discovery-workshop`.
+- Use BXT as the scoring lens for enterprise AI engagements.
+- For BI prework before a specific use case is client-validated, treat the BXT score as provisional and internal; keep that prework score out of the BI dossier, and pass client-validated use-case scoring to `ai-discovery-workshop`. (derived: dogfood 2026-10-01)
 - Use current news and press for company developments and strategic direction; the passage does not prescribe them specifically for quotations. [book:meddicc], ## DISCOVERY
 - Use required outputs as decision scaffolding to keep landmines off stage, not as a mechanical checklist. [book:meddicc], ## MEDDICC CHECKLIST
 - Use trade journals to follow industry changes and context; the cited passage does not prescribe them for competitive analysis. [book:selling-to-big-companies], ## WATCH FOR TRIGGER EVENTS

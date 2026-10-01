@@ -10,7 +10,8 @@ Compare alternatives on criteria that matter to the buyer. Include internal work
 - Refresh battle cards after competitor launches, pricing changes, losses, vertical wins, or analyst ranking updates.
 - Refresh battle cards after launches, pricing changes, positioning shifts, or meaningful losses, and track card usage as a KPI.
 - Require the competitor team to attack your positioning without soft-pedaling.
-- Enterprise-only threshold example: consider a presale war game for a deal above $100K when a named competitor, entrenched vertical, recent competitor win, or incumbent displacement makes rehearsal useful; the amount is not a universal trigger.
+- Run a presale war game for deals above $100K with a named competitor, entry into an entrenched vertical, a recent competitor win, or an incumbent displacement.
+- For smaller deals or markets where $100K is not a useful threshold, use those competitor and market signals to decide whether rehearsal is useful; treat the amount as enterprise-specific guidance. (derived: dogfood 2026-10-01)
 - Treat a senior appointment as a trigger event, but the book sets no 30-day outreach window and does not single out external CIOs or CTOs. [book:selling-to-big-companies], ## WATCH FOR TRIGGER EVENTS
 - Update the battle card, counter-positioning, landmine questions, weak claims, and Honest Q&A entries after the war game.
 - Wait until the contract is near expiry or use a gap-based foothold; the book does not set a six-to-nine-month advance window. [book:selling-to-big-companies], ## BRUSH OFF YOUR PROSPECT’S BRUSH-OFFS

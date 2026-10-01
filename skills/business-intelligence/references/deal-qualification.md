@@ -24,7 +24,8 @@ Qualification separates a demonstrated lack of fit from an unresolved question. 
 
 ## Evidence, scoring, and qualification gaps
 
-- Apply MEDDICC continuously. Qualify out when a material concern remains after the relevant evidence check or is confirmed to be unworkable; an untested low-confidence element is a discovery target, not a resolved negative. Do not let five Strong elements override a confirmed concern. [book:meddicc], QUALIFICATION
+- Apply MEDDICC and qualify out whenever any concern about the deal's qualification remains, rather than gating pursuit on a five-Strong threshold. [book:meddicc], QUALIFICATION
+- During evidence gathering, treat untested low-confidence elements as discovery targets, not resolved negatives. This guidance does not delay qualifying out once a concern about qualification remains after applying MEDDICC. (derived: dogfood 2026-10-01)
 - Do not qualify a well-known, deeply related, low-risk client; an internal project without a buying committee; or intelligence work for already contracted delivery.
 - For a quick check, use stage-specific MEDDICC and investigate the elements that need closer attention rather than limiting every screen to those three. [book:meddicc], ## QUALIFICATION
 - Increase an element's score only when new deal evidence raises confidence; keep assumptions or partial evidence at a lower level. [book:meddicc], ## MEDDICC SCORING
