@@ -22,20 +22,13 @@ Bound the evidence window by the last entry’s date. Record what sources and pe
 
 For each source, record its origin, observed date, task identity, directness, completeness and any known instrumentation limits. A source-quality judgment must be available before its contents support a strong pattern. [evolution-C25]
 
-Classify findings as:
-
-- **Gap:** needed guidance was absent.
-- **Friction:** a step was skipped or challenged; count independent tasks.
-- **Contradiction:** traces show the written guidance was wrong in context.
-- **Falsified claim:** the source contradicts a claim; include a reproducible check where applicable.
-- **Dead weight:** a reference appears unused after discoverability and purpose are checked.
-- **Late catch:** a later reviewer found what the skill’s own process missed.
-
-These are evidence categories, not edits. Do not propose implementation in the harvest report. [R134] [R137]
+Work through the fixed pattern questions in [`../triage.md`](../triage.md) to identify recurring causes and relationships. Report patterns with their evidence and uncertainty; do not require each finding to fit a fixed taxonomy of categories. [R134]
 
 ## Pattern questions
 
-Use the seven questions in `../triage.md` to find repeated causes and relationships before assigning categories. Mark patterns first noticed after examining evidence as exploratory and state what further evidence would strengthen or overturn them. [evolution-C27] [book:critical-thinking-about-research], 9 Inferences, Conclusions, and the Research Report
+Use the seven questions in `../triage.md` to find repeated causes and relationships. Mark patterns first noticed after examining evidence as exploratory and state what further evidence would strengthen or overturn them. [evolution-C27] [book:critical-thinking-about-research], 9 Inferences, Conclusions, and the Research Report
+
+Report findings as advice a separate decision taker may act on; the decision taker retains the choice, and the finding does not itself authorize implementation. [R137] [book:facilitating-software-architecture], Direct Versus Representative Democracy
 
 ## Output
 
@@ -54,4 +47,4 @@ Use the seven questions in `../triage.md` to find repeated causes and relationsh
 <what was checked and not found>
 ```
 
-Each test states its expected result. Document the work clearly enough that another owner can repeat the evidence check. [R127] [R131] [book:swebok], Test Activities
+Each test states its expected result. Document the work clearly enough that another owner can repeat the evidence check. [R127] [book:swebok], Test Activities

@@ -4,7 +4,7 @@ Triage produces a decision record, not an automatic ranking. Use signals togethe
 
 ## Eligibility and assessment
 
-A skill with no evidence of use since its last entry is excluded from a real-use evolution run. A missing ledger is an integrity gap to repair, but it is not evidence that a used skill should be changed. A skill excluded for no trace can re-enter only on evidence created after the exclusion; do not add it back because it seems stale. [R154] [R107]
+A skill with no evidence of use since its last entry is excluded from a real-use evolution run. A missing ledger is an integrity gap to repair, but it is not evidence that a used skill should be changed. A skill excluded for no trace may re-enter only on traces the evolution run itself creates; do not add it back on suspicion. [R154] [R107]
 
 A periodic capability assessment names processes to improve, but first establish which work is in scope. Do not turn age or open-item volume into a standalone reason to select a skill. Prioritize by impact and effort while keeping settleable validation debt visible. [R008] [R014] [R018] [R101] [R104] [R106] [R107] [book:swebok], Software Process Improvement Models; [book:swebok], Prioritization; [book:site-reliability-engineering], Do One Thing Well; [book:continuous-delivery], Metrics
 
@@ -22,7 +22,7 @@ Useful evidence includes post-entry uses, friction or corrections, undigested ch
 
 Use a common measurement window that fits the expected signal. A zero count means zero observed events only inside that window. State the coverage dates and preserve source provenance. [R094] [book:site-reliability-engineering], Choosing an Appropriate Resolution for Measurements
 
-Keep unlike measures separate. Report skill invocations and reference reads in separate columns; do not add them into a synthetic total. Interpret them together against the underlying question. For real-use independence, count distinct task identities, not transcript files or agent sessions: a parent task and its child sessions are one use, and multiple sessions on the same task are also one use. If two measures of the same signal disagree, investigate the disagreement rather than averaging away the difference. [R095] [R096] [R100] [book:software-engineering-at-google], Chapter 7. Measuring Engineering Productivity
+Keep unlike measures separate. Report skill invocations and reference reads in separate columns; do not add them into a synthetic total. Interpret them together against the underlying question. For invocations, count distinct parent sessions, not transcript files or child-agent sessions: a parent session and its child sessions are one use. If two measures of the same signal disagree, investigate the disagreement rather than averaging away the difference. [R095] [R096] [R100] [book:software-engineering-at-google], Chapter 7. Measuring Engineering Productivity
 
 Assess trace quality before a trace can support a pattern: note whether it is direct or inferred, complete, task-independent, and captured by a reliable source. Do not let a weak source carry a strong conclusion. [evolution-C25] [book:critical-thinking-about-research], 10 Research Syntheses and Meta-Analysis
 
@@ -40,7 +40,7 @@ A current session may not yet be present in a stored manifest. Check what you kn
 
 ## Pattern questions
 
-Use these questions to look for relationships before classifying a finding:
+Work through this fixed list of questions to identify recurring relationships and patterns:
 
 1. How does information flow, and how is it transformed?
 2. What events happen, and what follows them?
@@ -50,7 +50,7 @@ Use these questions to look for relationships before classifying a finding:
 6. How are people organized and connected?
 7. How is discourse structured, and are reasons shared across decision makers?
 
-The questions guide inquiry; they do not replace evidence categories. [R134] [evolution-C23] [book:learning-systems-thinking], Seven Pattern Thinking Questions
+Use these seven questions as the fixed frame for pattern finding instead of a fixed taxonomy of finding categories. [R134] [evolution-C23] [book:learning-systems-thinking], Seven Pattern Thinking Questions
 
 Keep key terms unambiguous across the owner, analyst and approver. Maintain a short shared glossary for verdicts, task independence, trace quality and measurement names. [evolution-C24] [book:learning-systems-thinking], Specialized language barriers
 

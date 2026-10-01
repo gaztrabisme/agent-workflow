@@ -34,13 +34,17 @@ A run that only settles old verdicts is complete work. Do not create a new hypot
 
 ## Harvest real use and find causes
 
-Use evidence from actual skill use. A signal may trigger review, but the human decision maker retains judgment over whether it matters. [R042] [book:site-reliability-engineering], Symptoms Versus Causes
+Judge a change by what real user traffic does, not by imagined or simulated use. [R042] [book:site-reliability-engineering], Feature Flag Frameworks
+
+A signal may trigger review, but the human decision maker retains judgment over whether it matters. [R082] [book:site-reliability-engineering], Symptoms Versus Causes
 
 Look for the pattern behind repeated events, not just the event that was easiest to notice. Compare what recurs and what common feature links it; rank the forces that matter most. [R043] [R069] [R086] [book:learning-systems-thinking], Patterns Produce Events; [book:learning-systems-thinking], How Relationships Produce Effect
 
+For commercial skills, analyze closed-lost deals to reverse-engineer missed qualification checks and promote recurring findings into the qualification checklist. [business-intelligence-R138] [book:meddicc], MEDDICC CHECKLIST
+
 Keep role-specific evidence connected to the skill it can improve:
 
-- For skills used in presales account work, review deal outcomes and debriefs; turn recurring lessons into changes to the method, positioning or gates, not only into deal notes. Capture lessons continuously as work proceeds, then consolidate recurring findings into the method. [R071] [business-intelligence-R003] [business-intelligence-R138] [book:selling-to-big-companies], HOLD YOURSELF ACCOUNTABLE; [book:head-first-pmp], Exam Answers; [book:meddicc], MEDDICC CHECKLIST
+- For skills used in presales account work, review deal outcomes and debriefs; turn recurring lessons into changes to the method, positioning or gates, not only into deal notes. Capture lessons continuously as work proceeds, then consolidate recurring findings into the method. [R071] [business-intelligence-R003] [book:selling-to-big-companies], HOLD YOURSELF ACCOUNTABLE; [book:head-first-pmp], Exam Answers; [book:meddicc], MEDDICC CHECKLIST
 - For skills used in signed engagements, compare estimates with actual effort by phase, contested criteria and obligation slippage. Feed ambiguous upstream guidance back to the skill that owns that guidance; record engagement-level learning in its own evolution entry. [R073] [delivery-R075] [book:swebok], 5.2. Closure Activities
 - For skills distilled from workshops or other source methods, let real outcomes update the method and verify claims in the source artifact. Repeated conflicts between decisions and a stated principle signal that the principle may need revision. For authoring practice, use recurring conflicts between advice and later decisions to update reusable conventions and checklists. [R074] [R075] [book:facilitating-software-architecture], Keeping Principles Useful; [book:facilitating-software-architecture], Repeated conflicts between multiple decisions and a principle are a signal to change
 
@@ -57,7 +61,7 @@ A hypothesis names one target file and one change. Do not bundle unrelated edits
 
 Use small, frequent check-ins that preserve behavior and can be reversed. A hypothesis is the review and traceability unit; it need not be exactly one commit. Keep the hypothesis identifier in the change record and check in small pieces to the skill’s mainline as they are ready. [R020] [R112] [R123] [R124] [book:continuous-delivery], Continuous Integration; [book:continuous-delivery], Essential Practices; [book:continuous-delivery], Prerequisites for Continuous Integration
 
-Before applying a change, know the path back to the last known-good revision. [R054] [R115] [book:continuous-delivery], Rolling Back Deployments and Zero-Downtime Releases; [book:continuous-delivery], Essential Practices
+Before applying a change, know the path back to the last known-good revision. [R115] [book:continuous-delivery], Rolling Back Deployments and Zero-Downtime Releases; [book:continuous-delivery], Essential Practices
 
 Treat configuration and workflow changes as auditable state: record what changed, when, why, and how to roll it back, however small. [R128] [book:continuous-delivery], Managing Software Configuration
 
@@ -99,7 +103,7 @@ A second engagement is especially useful for finding which earlier conclusions w
 
 Use replay to test whether a specific change plausibly caused an outcome, while recognizing that production systems often cannot be reproduced exactly. Replay cannot establish discoverability because it already knows where the change is. A canary applies risky or structural changes to one skill or project before expanding them. [R067] [R068] [book:site-reliability-engineering], Effective Troubleshooting; [book:site-reliability-engineering], Production Tests
 
-Assess changes against recurrence, user friction, whether the changed reference was actually opened, and whether the change introduced a new problem. Real traffic may expose effects that a hypothetical or simulated task will miss. [R042] [R069] [book:site-reliability-engineering], Production Tests; [book:site-reliability-engineering], Feature Flag Frameworks
+Assess changes against recurrence, user friction, whether the changed reference was actually opened, and whether the change introduced a new problem. [R069] [book:site-reliability-engineering], Production Tests
 
 ## Retrospective and maintenance
 
@@ -113,6 +117,6 @@ Keep periodic resweeps of prior guidance. Set an owner and revisit date on every
 
 Classify recurring, manual, automatable, tactical work with little lasting value as toil; separate it from overhead and work that creates durable improvements. Use the label to identify automation opportunities, not to dismiss necessary judgment. [evolution-C07] [book:site-reliability-engineering], Toil Defined
 
-Removing a skill component that no longer adds value is useful maintenance; measure the value it provides rather than rewarding line or section count. [R116] [book:site-reliability-engineering], The “Negative Lines of Code” Metric
+Removing a skill component that no longer adds value is useful maintenance; measure the value it provides rather than rewarding line or section count. [book:site-reliability-engineering], The “Negative Lines of Code” Metric
 
 When a skill component no longer serves a purpose, name the replacement, provide a transition path, then remove or mark the obsolete component. Age alone is not a reason to deprecate it. [R089] [R106] [evolution-C34] [book:software-engineering-at-google], Chapter 15. Deprecation

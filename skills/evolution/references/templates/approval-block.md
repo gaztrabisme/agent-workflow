@@ -49,4 +49,4 @@ If there were no rejected candidates, state whether the harvest was thin or the 
 
 ## Decision
 
-Choose: **approve all / approve named subset / defer / reject**. State the responsible authority and rationale. No change has been applied before this decision. [R144]
+For each gate, the named authority records its decision and rationale. Confirm that every required gate has approved its changes before application; no changes have been applied yet. [R144]

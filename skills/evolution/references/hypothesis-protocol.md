@@ -32,7 +32,7 @@ Run the technical and managerial impact analysis before approval: identify affec
 
 Present one complete, self-contained block for the whole run. It must let the reader judge each hypothesis, its alternatives, evidence, target paths, blast radius, predicted result and rollback route without opening another file. Report approval gates and who owns each one; file lists and commit counts do not substitute for naming the decision that is needed. [R119] [R120] [R140] [R143] [R144] [R147] [book:continuous-delivery], Deploying and Promoting Your Application; [book:facilitating-software-architecture], Title
 
-The decision taker receives advice and retains the choice; do not imply that a finding itself authorizes implementation. [R137] [book:facilitating-software-architecture], Direct Versus Representative Democracy
+The decision taker receives advice and retains the choice; do not imply that a finding itself authorizes implementation. [book:facilitating-software-architecture], Direct Versus Representative Democracy
 
 Use [`templates/approval-block.md`](templates/approval-block.md). Merge duplicates across skills into one hypothesis with several target paths. Preserve its essential fields, but revise the template in an approved later change if important sections are repeatedly left empty or half-filled. [R121] [R139] [book:facilitating-software-architecture], Experiment with Your ADR Template
 
@@ -54,4 +54,4 @@ Every applied change begins `PENDING`; include a named owner for each follow-up,
 
 Before harvest, set the evidence floor for each verdict category and keep it fixed while examining the traces. The expected result must be testable. [R127] [evolution-C26]
 
-An approval block may approve all, a named subset, or none. A partial approval does not authorize the unapproved files or changes. The decision record states that no changes were applied before this decision. [R144]
+Each gate owner records that gate’s decision (accept, modify, reject or defer) and rationale. A decision at one gate does not authorize changes assigned to another gate. No changes are applied until the responsible gate owner approves. [R144]
