@@ -1,25 +1,31 @@
 # Evolution Log — <skill-name>
 
-The loop that turns real use into skill improvements. Mechanism: `../evolution/references/loop.md`. Harvest source: <what real traces feed this skill>.
+The loop turns real use into skill improvements. Mechanism: `../evolution/references/loop.md`. Harvest source: <what real traces feed this skill>.
 
 ---
 
-## Evolution 1 — <YYYY-MM-DD> — <one-line theme (usually: birth + first dogfood)>
+## Evolution <n> — <YYYY-MM-DD> — <one-line theme>
 
 ### Harvest scope
-- <what traces / which dogfood, why representative>. Classify: authored (own practice) or distilled (docs → ships PENDING).
+- **Grounded:** <sources and period> → <what changed the review>.
+- **Coverage:** <why the traces are representative; what was unavailable>.
+- **Evidence limits:** <instrument windows, attribution, task independence, source quality>.
+
+### Settled verdicts
+| Prior item | Verdict | Evidence and reason |
+|---|---|---|
+| | | |
 
 ### Patterns found
-Ranked (Impact ÷ Effort), with the proof each bit:
-1. **<pattern>** — Impact: H/M/L, Effort: H/M/L. <the concrete thing that went wrong / was missing>.
-2. …
+Ranked by impact and effort; keep the proof with each pattern.
+1. **<pattern>** — Impact: H/M/L; Effort: H/M/L. Evidence: <trace and mechanism>.
 
 ### Hypotheses applied
-1. **<specific edit: file + change>** — closes pattern <n>.
-2. …
+1. **<change and target file>** — closes <pattern>; approved by <authority>; check-ins: <small reversible changes>.
 
-Not modified (validated as already-sound): <what you deliberately left>.
+### Validation plan
+| Change | Expected result | Evidence floor | Owner | Revisit date | Status |
+|---|---|---|---|---|---|
+| | | | | | PENDING |
 
-### Validation results (settled by a later run's step 0)
-- [ ] <the change is actually exercised in a real trace, no new friction>
-- **Verdict: PENDING** — <why it's not yet KEEP: single trace / distilled / unvalidated>.
+**Verdict: PENDING** — a new or document-derived change remains a hypothesis until later real use reaches its predeclared evidence floor. Do not mark a change `KEEP` on application day.

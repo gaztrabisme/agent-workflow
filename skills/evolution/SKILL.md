@@ -1,84 +1,65 @@
 ---
 name: evolution
-description: "Evolve the skills themselves from their own real traces — pick which ones have earned a change, harvest the evidence, propose specific edits, apply them, and settle the verdicts previous runs left open. USE WHEN you say evolve/meta/improve my skills (with or without naming one), when a gate keeps getting skipped or a correction keeps recurring, after a stretch of real use, or when EVOLUTION.md ledgers have gone stale at PENDING. Not `skill-builder` — that authors and shapes a skill at birth, and distils lessons from *documents*; this upgrades a working skill from lessons in *completed real work*. Not `core` — that states the gate; this is the mechanism. Keywords: evolve, evolution, meta, self-improve, retrospective, harvest, EVOLUTION.md, PENDING, KEEP, REVISED, validate, skill drift, lessons learned, upgrade the skill, what went wrong, improve the skill, triage skills, post-engagement retro."
+description: "A real-use learning loop that produces EVOLUTION entries, testable hypotheses and settled verdicts for a skill owner. USE WHEN repeated real-use evidence, a recurring correction, or an open verdict needs review. Not `skill-builder`, which creates or reshapes the skill; not `core`, which defines shared gates. Keywords: evolve, evolution, retrospective, harvest, EVOLUTION.md, PENDING, KEEP, REVISED, REVERT, improve a skill, lessons learned."
 license: MIT
 ---
 
 # Evolution
 
-Turns the constellation's own traces into skill improvements. You invoke it without naming a target: it reads the evidence, picks the skills that have earned a change, and runs the loop on them — settling what the last run left open before proposing anything new.
+Evolution turns a skill’s real-use evidence into an auditable change proposal and a later, evidence-based verdict. Its artifacts are a dated `EVOLUTION.md` entry, a whole-set approval block, small attributable edits, and settled verdicts for the skill owner.
 
-> Inherits the `core` kernel — see `../core/SKILL.md`. Obey its Integrity Constraints; declare its gates; reference its files, don't copy them.
+> Inherits the shared `core` kernel. Follow its integrity constraints and reference its gates; do not copy their operating text here. See [`../core/SKILL.md`](../core/SKILL.md).
 
 ## When it fires — and when a sibling owns it
 
-- **This skill:** "evolve my skills", "meta session", "improve the skill", "what have we learned" — and the unprompted cases: a gate the user keeps skipping, a correction that has recurred, a ledger stuck at `PENDING` while the skill kept being used.
-- **`skill-builder` instead:** creating a new skill, splitting/merging, distilling a methodology, fixing frontmatter or structure, publishing. Birth and shape.
-- **`core` instead:** you want the canonical statement of an inherited gate. `core` spine #8 declares that skills must evolve; this skill is *how*.
-- **`dev` instead:** the thing being improved is software, not a skill.
+- Use this for repeated real-use evidence, a recurring correction, or an open verdict on a skill that has been used. Explicit requests to evolve skills and repeated skipped gates also trigger review. A stale `PENDING` matters when the skill has seen use since the last entry. [R002] [book:site-reliability-engineering], Google’s Postmortem Philosophy
+- `skill-builder` owns a skill’s initial structure, source distillation and authoring-time ledger entry. Evolution owns later entries grounded in use.
+- `core` owns the shared operating contract and canonical gates; Evolution owns the loop that applies that contract to a skill’s evidence.
 
-> **Disambiguation:** on **artifact**. `skill-builder` produces a skill that didn't exist or a structure that was wrong. `evolution` produces a **diff plus a ledger entry** on a skill that already works, justified by a trace. When a refine needs both — new structure *and* evidence — `skill-builder` shapes it and hands the ledger step here.
-
-## Principles
-
-1. **No trace, no change.** A skill with no use since its last entry is excluded from the run, not deprioritized. An invented pattern applied as a real edit is the exact failure this discipline exists to prevent.
-2. **Settle before you harvest.** Phase 2 resolves the previous entry's open verdicts *before* looking for new patterns. This is the half of the loop that never ran: measured 2026-08-09, **13 of 15 ledgers had never settled a single verdict** — only `dev` and `solution-architect` ever moved anything off `PENDING`. A run that only settles verdicts and finds nothing new is a successful run.
-3. **Non-adoption is a scoping signal before it is a validity signal.** Before `REVERT`, ask in order: scoped too broadly (→ add a selector, verdict `REVISED`) · undiscoverable · too heavy · only then wrong. Collapsing these teaches the loop never to generalize.
-4. **A hypothesis names a file.** "Improve X" is a pattern, not a hypothesis. If you can't predict which future trace changes, it can't be validated and it will sit at `PENDING` forever.
-5. **One approval stop.** Everything up to writing runs unattended; the whole hypothesis set is presented once. Never self-modify without approval — and never weaken an Integrity Constraint or the Wu Wei filter at all.
-6. **Evidence or silence.** Every pattern names the trace that produced it. Every skipped skill gets a one-line skip reason. A skip by omission is an oversight wearing the costume of focus.
+> **Disambiguation:** artifact and audience. `skill-builder` produces or reshapes a skill package for its author. Evolution produces an evidence-backed change record and settled verdict for the owner of a skill already used in real work.
 
 ## The flow (at a glance)
 
 | Phase | Goal | Primary artifact |
 |---|---|---|
-| **1 Triage** | Score every skill on evidence; pick 3–5; state a skip reason for the rest | candidate table (`scripts/triage.py`) |
-| **2 Settle** | *Per selected skill, before harvesting it:* resolve the last entry's open `- [ ]` and `PENDING` → `KEEP` / `REVISED` / `REVERT`, or `PENDING` *with a stated reason*. `KEEP` needs **≥2 independent real uses** | verdict updates in that ledger |
-| **3 Harvest** | Gather that skill's real traces since its last entry | harvest report per skill |
-| **4 Patterns** | Rank recurring gaps/friction by Impact ÷ Effort, each with its proof | ranked pattern list |
-| **5 Hypotheses** | One specific edit per pattern. **Stop for approval — the whole set at once.** | approval block (`references/templates/approval-block.md`) |
-| **6 Apply** | Edit; one commit per hypothesis, in the skill's own repo | diffs |
-| **7 Record** | The entry, verdict `PENDING`, with the checklist a future Phase 2 will settle | `<skill>/EVOLUTION.md` |
+| 1. Triage | Test eligibility, weigh signals, set scope and name exclusions | Evidence table with one reason per pick and skip |
+| 2. Settle | Resolve eligible open verdicts before new pattern work | Updated prior entry or reasoned `PENDING` |
+| 3. Harvest | Read bounded, real-use traces and assess their quality | Trace register and harvest brief |
+| 4. Patterns | Find causes and recurring effects; prioritize by impact and effort | Ranked pattern list, including rejected candidates |
+| 5. Hypotheses | Turn kept patterns into separate, falsifiable edits | One whole-set approval block |
+| 6. Apply | Make approved, small, reversible changes | Attributable changes in the skill repository |
+| 7. Record | Preserve the result and leave new claims unproven | Dated `EVOLUTION.md` entry with future checks |
 
-Phases 2–4 run **inside** one agent per selected skill, in parallel — settling is scoped to the skills triage picked, never to all 15 ledgers. Phase 5 reconciles them into a single block. This numbering is the same in `references/loop.md`; nowhere in this skill does a bare phase number mean two things.
-
-Run it: `python3 evolution/scripts/triage.py` from the Skills root (add `--fast` to skip transcript mining), then dispatch `references/templates/harvest-brief.md` per selected skill.
-
-**Scale to the ask.** "Evolve everything" gets the full run. "That gate was unnecessary" gets phases 5–7 on one skill — the trace already exists, it's the user's own sentence, and the retired `dev` evolve mode's rule was to trim immediately rather than wait for a cycle. Ceremony on a one-line correction is the anti-pattern, not the discipline.
+A requested one-skill trim can use the existing user-provided trace and go directly to the approval and application steps. A full evolution request uses the full loop. Scope effort to impact and review capacity; do not impose a fixed skill-count cap. Detailed rules live in [`references/loop.md`](references/loop.md) and [`references/triage.md`](references/triage.md).
 
 ## Gates (declared, inherited from core)
 
-- **Grounding gate** — substrate is the trace corpus: `<skill>/EVOLUTION.md`, per-skill `git log`, `~/.claude/projects/**/*.jsonl`, `~/.claude/history.jsonl`, `~/.claude/read-once/stats.jsonl`, project `wiki/`. Record `Grounded: <traces read, window> → <what constrains this run>`. See `../core/references/grounding-gate.md`.
-- **Output Contract** — a run is not done until every touched skill has an `## Evolution N` entry on disk with an honest verdict. "I improved it" is a proxy; the ledger is the artifact. See `../core/references/wiki-protocol.md`.
-- **Pushback & teach** — when a requested change would weaken a gate, say so and explain the mechanism rather than applying it quietly. See `../core/references/pushback-and-teach.md`.
-- **Approach declaration** — state the engine before dispatch: inline for a single-skill trim, fan-out for a multi-skill run. (core SKILL.md §7.)
-- **Integrity constraints** — especially: never mark `KEEP` on the same run that applied the change, and never silently drop a skill from the run without naming it.
+- **Grounding gate** — record the traces and period examined, their provenance, and what they changed. See [`../core/references/grounding-gate.md`](../core/references/grounding-gate.md).
+- **Output Contract** — the durable result is the skill’s dated ledger entry and its reviewable evidence. See [`../core/references/output-contract.md`](../core/references/output-contract.md) and [`../core/references/wiki-protocol.md`](../core/references/wiki-protocol.md).
+- **Pushback and teach** — explain the mechanism when a requested edit would weaken a shared constraint. See [`../core/references/pushback-and-teach.md`](../core/references/pushback-and-teach.md).
+- **Approach declaration** — state whether the run is inline or uses parallel evidence gathering; core SKILL.md §7 defines the declaration.
+- **Core reference rule** — link to shared gates instead of restating or duplicating them. [R152] [book:clean-code], Don’t Repeat Yourself
 
-## Anti-patterns (hard no-list)
+## Anti-patterns
 
-- **Evolving a skill with no traces.** The gate is absolute; "it's probably stale" is not evidence.
-- **Skipping step 0** because new patterns are more interesting than old verdicts. This is why the ledgers stalled.
-- **`REVERT` where `REVISED` was right** — throwing away working machinery because it was described too broadly.
-- **A hypothesis with no target file**, or several edits bundled under one so the count looks tidy.
-- **Recording `KEEP` on application day.** Nothing is validated by having just been written.
-- **Reading whole transcripts.** The largest session files exceed 60 MB; stream and filter or the triage costs more than the evolution.
-- **A `PENDING` with no reason.** That is unfinished work, not honesty.
-- **Weakening an Integrity Constraint or the Wu Wei filter.** A self-modifying system's first optimization is always to relax what constrains it.
+- Treating a no-trace skill as stale, or inventing real-use evidence.
+- Settling yesterday’s change on application day, or leaving a `PENDING` verdict without a reason and owner.
+- Treating counts as conclusions, collapsing unlike measures, or letting an instrument choose a verdict.
+- Bundling hypotheses, hiding rejected patterns, or applying edits before the approval stop.
+- Treating non-adoption as proof of invalidity before checking scope, discoverability and weight.
 
 ## Composition
 
-- **Inherits:** `core` — integrity constraints, gate-by-artifact, grounding gate, wiki protocol, pushback-and-teach.
-- **Owns, because it was scattered:** the loop definition (from `core`), the executable cycle (from the retired `dev` evolve mode), the ledger skeleton (from `skill-builder`), and — new — the triage that picks the targets.
-- **Hands off to:** `skill-builder` when a hypothesis turns out to need new structure rather than new content; `dev` when the finding is about software rather than a skill.
-- **Consumed by:** every skill in the constellation. Each ledger's preamble points here for the mechanism.
-- **Origin:** extracted 2026-08-09 from the loop definition then in `core`, the evolve mode then in `dev`, and `skill-builder`'s ledger template — all three removed at their old paths in that day's commits, after the constellation reached 15 skills and 13 ledgers with no way to decide which one to open.
+- **Consumes:** the target skill’s ledger, version history, relevant task traces, and any project records that contain evidence of how the skill was used.
+- **Hands off:** initial structure and source-distillation work to `skill-builder`; shared gate definitions remain in `core`.
+- **Re-entry:** a skill excluded by the no-trace gate can return only when later evidence, including traces generated by a completed evolution run, supports reconsideration. Suspicion alone is not evidence.
 
 ## References
 
-- `references/loop.md` — the canonical loop, the `PENDING/KEEP/REVISED/REVERT` vocabulary, the non-adoption ladder, settle-first, validation approaches, per-role harvest sources.
-- `references/triage.md` — the selection mechanism: signals, the no-trace gate, what the discoverability data can and cannot prove, how to choose and how to record a skip.
-- `references/hypothesis-protocol.md` — hypothesis format, the five rules, what may and may not be modified, the approval gate, commit and record discipline.
-- `references/templates/approval-block.md` — the Phase 5 artifact: settled verdicts, ranked hypotheses, the rejected list, blast radius, the ask. The one thing a human reads.
-- `references/templates/EVOLUTION.md.skeleton` — the ledger shape a new skill starts from.
-- `references/templates/harvest-brief.md` — the per-skill harvest agent brief, including the trace-source table and the required `Nothing-found` section.
-- `scripts/triage.py` — computes the candidate table from ledgers, git logs, read-once stats, prompt history and session transcripts. `--fast` skips transcripts.
+- [`references/loop.md`](references/loop.md) — phase order, verdicts, validation and role-specific evidence.
+- [`references/triage.md`](references/triage.md) — signals, limits, selection and scope.
+- [`references/hypothesis-protocol.md`](references/hypothesis-protocol.md) — hypothesis fields, approval authority and application.
+- [`references/templates/harvest-brief.md`](references/templates/harvest-brief.md) — evidence-gathering brief and pattern questions.
+- [`references/templates/approval-block.md`](references/templates/approval-block.md) — the single whole-set decision record.
+- [`references/templates/EVOLUTION.md.skeleton`](references/templates/EVOLUTION.md.skeleton) — append-only ledger entry shape.
+- [`scripts/triage.py`](scripts/triage.py) — summarizes an explicitly supplied, harness-neutral trace manifest.

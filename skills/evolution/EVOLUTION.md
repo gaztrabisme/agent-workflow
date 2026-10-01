@@ -111,3 +111,46 @@ New, for a later run to settle:
 Two runs now, and both found that the loop's own instrument was misreporting. Evolution 1 found a false statistic in the file arguing against false statistics; Evolution 2 found that the selection table was wrong in three columns while being right in its conclusions. The pattern to watch is not "the numbers are wrong" — it is that **this skill's failures are all in the measuring, and the measuring is what everything else is built on**. Every remaining number in `triage.py`'s output has had exactly as much scrutiny as the three that turned out wrong, which is to say: it was believed until someone checked.
 
 Also worth stating plainly: the harvest agents caught all three bugs, and the parent session caught none of them from the table alone. The table looked completely reasonable. Fan-out is not just parallelism here — it is the only reason these were found.
+
+
+---
+
+## Evolution 3 — stage B rebuild (2026-10-01)
+
+### Harvest scope
+
+**Grounded:** approved `A/skill-set.md`, the four routed ledgers and crosswalks, `A/pov/evolution.md`, the rebuilt `core` skill and its gate references, the `skill-builder` authoring guide/checklist/skeleton, the old evolution package, and cited source chapters in BOOKS.
+
+**Books read:** agentic-design-patterns, clean-architecture, clean-code, continuous-delivery, critical-thinking-about-research, facilitating-software-architecture, hands-on-site-reliability-engineering, head-first-pmp, learning-systems-thinking, meddicc, pmbok-guide-7e, python-for-devops, selling-to-big-companies, site-reliability-engineering, software-engineering-at-google, swebok. No course anchor was used because no routed crosswalk verdict names a course lesson.
+
+### Patterns found
+
+- The old skill mixed role identity, triage signals, harvesting, verdict settlement, hypotheses, and approval in one long body; several decisions were repeated across the body and references.
+- Triage depended on one harness’s private telemetry paths, so evidence could be missed or miscounted outside that environment.
+- A fixed three-to-five selection cap and validation-debt-first ranking conflicted with the approved corrections on value, bottlenecks, review capacity, and severity.
+- Some inherited practices lacked explicit task-level independence, qualitative metric checks, revisit owners, and a way to inspect a quiet skill without treating an exercise as natural-use evidence.
+
+### Hypotheses applied
+
+1. Rebuild the skill as a compact operating contract and phase references; preserve the required reference paths.
+2. Replace the agent-specific telemetry assumptions with an explicit, harness-neutral JSONL manifest; keep invocation and read evidence separate and count independent task identities.
+3. Correct selection, ranking, approval and commit cadence; add selected book practices for retrospective quality, source appraisal, pattern questions, freshness, deprecation, and bounded exercises.
+4. Keep source-backed rules cited at point of use and list all 102 routed rules in the coverage map.
+
+### Counts
+
+- Routed rules: 102 total — 30 agrees, 63 refines, 9 field rules, 0 disputed.
+- Book basis: 93; field basis: 9.
+- Candidates adopted: 18. Other candidates were excluded as outside this artifact/audience, duplicative of a routed rule, dependent on organization-specific infrastructure, or inconsistent with the real-use gate.
+
+### Structure changes
+
+The main `SKILL.md` now defines the artifact, audience, trigger, flow and inherited gates. `references/loop.md` owns the lifecycle and verdicts; `references/triage.md` owns evidence, scope, metrics and pattern questions; the hypothesis and approval templates own the review decision; the EVOLUTION skeleton captures follow-up owners and revisit dates. `scripts/triage.py` reads only a supplied manifest and reports evidence without selecting skills or settling verdicts.
+
+### Validation results
+
+- [ ] Two independent real uses exercise the rebuilt skill without new friction.
+- [ ] The manifest and distinct-task counting work with the user’s available trace sources.
+- [ ] The adopted candidate practices improve review quality without creating excess ceremony.
+
+**Verdict: PENDING** — the skill has been rebuilt from formal sources and field rules, but it has not yet been validated in two independent real uses.

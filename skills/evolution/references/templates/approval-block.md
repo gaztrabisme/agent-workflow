@@ -1,67 +1,52 @@
-# Approval Block — the one artifact a human reads
+# Approval Block — one decision record for the whole run
 
-Phase 5's output. The single human gate in the loop, and the only moment the run is asked to justify itself to someone who was not watching it.
+Write a concise title that tells the reader the gist of the proposed decision without opening this block. [R147] [book:facilitating-software-architecture], Title
 
-It must be judgeable **without opening anything else**: per-hypothesis, so a subset approval is meaningful; blast radius visible before the diff exists; and the discards shown, because a hypothesis list with no rejections means the Wu Wei filter never ran.
+## Run summary
 
-One block for the whole run, not one per skill. Reconcile duplicates across skills before presenting — the same pattern found in three places is one hypothesis with three target files, not three hypotheses.
+<One sentence: what was reviewed, the decision needed, and its expected value.>
 
----
+## Approval gates and owners
 
-## Run scope
+| Gate | What must be true | Accountable approver | Evidence needed |
+|---|---|---|---|
+| <gate> | <decision condition> | <named authority> | <trace or check> |
 
-- **Triaged:** <N skills> · **selected:** <names> · **excluded by the no-trace gate:** <names>
-- **Traces read:** <windows, per skill — "dev: 3 commits + 2 sessions since 2026-07-28">
-- **Settled this run:** <n> verdicts → <k> KEEP, <k> REVISED, <k> REVERT, <k> still PENDING (with reasons)
+Each gate has a named authority before review begins. Put the complete decision record in one place so the approver needs no other file to understand the request. [R140] [R143] [R144] [book:continuous-delivery], Deploying and Promoting Your Application
 
-## Verdicts settled (Phase 2)
+## Settled verdicts
 
-| Skill | Item | Verdict | Evidence that settled it |
+| Skill | Item | Verdict | Evidence and reason |
 |---|---|---|---|
 | | | | |
 
-Settling is the half that historically never ran, so it leads. A run that settles verdicts and proposes nothing is complete and should be presented as such.
+Settled verdicts lead the record. A run that settles prior items and proposes nothing new is complete. [R141]
 
 ## Hypotheses
 
-Ranked by Impact ÷ Effort, across all selected skills. Full format per `../hypothesis-protocol.md`.
+Rank by impact and effort, without replacing judgment with a formula. Merge duplicate findings into one hypothesis with all affected files. [R139]
 
-### H1: <short name> · `<target-skill>`
-**Pattern:** <observation + the trace proving it>
+### H1: <short decision title>
+
+**Pattern and trace:** <evidence and source quality>
 **Root cause:** <mechanism>
-**Proposed change:** <the specific edit>
-**Target file(s):** <exact paths>
-**Predicted effect:** <what changes in future traces, observably>
-**Risk:** <what could get worse>
-**Validation:** <what a future Phase 2 checks>
-**Impact / Effort:** H|M|L / H|M|L
+**Options:** <all considered options, brief pros and cons>
+**Proposed change:** <one reversible edit>
+**Files and blast radius:** <exact paths and affected consumers>
+**Expected result and falsifier:** <observable effect, plus what would disprove it>
+**Risk and rollback:** <known-good state and revert path>
+**Validation owner and date:** <who checks what, by when>
+**Impact / Effort:** <H/M/L / H/M/L>
+**Status:** PENDING after application
 
-### H2: …
+## Rejected patterns and options
 
-## Rejected during pattern-mining
+| Candidate | Evidence considered | Why not selected |
+|---|---|---|
+| | | |
 
-| Candidate | Why rejected |
-|---|---|
-| | |
+If there were no rejected candidates, state whether the harvest was thin or the Wu Wei filter was not applied. [R142]
 
-Empty is a red flag, not a clean sheet. If nothing was discarded, either the harvest was thin or the Wu Wei filter was skipped — say which.
+## Decision
 
-## Blast radius
-
-- **Files touched if all approved:** <list>
-- **Anything in `core`, any frontmatter, any script, any workflow phase:** <call these out explicitly — they are `Approval only` per the protocol, and their blast radius is the constellation>
-- **Commits:** <n> (one per hypothesis) + <k> ledger commits, in each skill's own repo
-- **All ship at verdict `PENDING`.**
-
-## The ask
-
-> Approve **all** / a **subset** (name them) / **none**. Nothing has been applied.
-
----
-
-## Rules for writing it
-
-- **No hypothesis without a target file.** If it isn't there yet, it's a pattern; leave it in the harvest, not here.
-- **Never present a `KEEP` you assigned this run to a change applied this run.** Nothing is validated by having just been written.
-- **Say what you did not look at.** A run that skipped a trace source names it — silent partial coverage reads as full coverage.
-- **Keep it scannable.** If the block needs a second reading to approve a subset, it has failed at its one job.
+Choose: **approve all / approve named subset / defer / reject**. State the responsible authority and rationale. No change has been applied before this decision. [R144]

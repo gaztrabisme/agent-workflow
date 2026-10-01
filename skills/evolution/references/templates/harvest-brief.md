@@ -1,61 +1,57 @@
-# Harvest Brief — one agent, one skill
+# Harvest Brief — one skill, bounded evidence
 
-Fill and dispatch one per selected skill. They run in parallel; each returns a structured report, not prose. The synthesizer reconciles them into a single ranked hypothesis block.
+Use one evidence-gathering worker per selected skill when parallel work is appropriate. The workers examine independent skill scopes concurrently; the accountable lead merges their findings once into a single synthesis. If multiple workers inspect the same traces, compare their extraction and resolve disagreements before using the evidence. [R022] [R129] [evolution-C29] [book:agentic-design-patterns], Create the ParallelAgent (Runs researchers concurrently); [book:critical-thinking-about-research], 10 Research Syntheses and Meta-Analysis
 
 ---
 
-**You are harvesting real traces for the `<SKILL>` skill. Do not edit any file.**
+**You are examining real-use evidence for one selected skill. Do not edit files.**
 
 ## Read first
-- `<SKILL>/SKILL.md` and every file under `<SKILL>/references/`.
-- `<SKILL>/EVOLUTION.md` — in full. The last entry with an unresolved verdict is your first job.
-- `evolution/references/loop.md` — the verdict vocabulary and the non-adoption ladder.
 
-## Step 0 — settle the open verdicts (do this before looking for anything new)
-For each unchecked `- [ ]` and each `PENDING` in the most recent unresolved entry:
-- Did traces since that entry actually exercise the change? **Name the trace** (commit, transcript quote, file, date) or state that none exists.
-- Propose `KEEP` / `REVISED` / `REVERT` per the ladder — scoped-too-broadly → discoverable? → too heavy? → only then wrong.
-- If it stays `PENDING`, say *why it is still unsettled*. A reason-free PENDING is unfinished work.
+- The selected skill’s `SKILL.md`, linked references and `EVOLUTION.md`.
+- The source records named by the triage decision.
+- The loop’s verdict and non-adoption guidance in `../loop.md`.
 
-## Step 1 — harvest
-Trace sources, in order of signal density. Bound the window: since the last entry's date.
+## Settle open items
 
-| Source | Command / path | Extract |
-|---|---|---|
-| Skill's own git log | `git -C <SKILL> log --since=<date> --stat` | Edits made outside the loop — each is an undocumented hypothesis |
-| Session transcripts | `~/.claude/projects/**/*.jsonl` | Where the skill fired, what it was asked, where the user corrected it. **Stream and filter — never read a file whole; the largest are 60 MB+** |
-| Prompt history | `~/.claude/history.jsonl` | Friction lexicon: "too heavy", "unnecessary", "don't", "actually", "no,", "wrong", "just" |
-| Read-once stats | `~/.claude/read-once/stats.jsonl` | Which of this skill's files are actually read; which are never opened |
-| Project wikis | `Work/*/wiki/{log,decisions,gotchas}.md` | Rejected Approaches, revert post-mortems — where dev/BI/SA/delivery traces actually live |
-| Downstream skills | siblings that name this one | Corrections owed upstream (e.g. delivery → solution-architect on an ambiguous criterion) |
+For each unchecked item and `PENDING` verdict in the last unresolved entry, state whether post-entry traces exercised it. Name the evidence, or state that no qualifying trace exists. Recommend `KEEP`, `REVISED`, `REVERT`, or reasoned `PENDING` using the non-adoption sequence. [R131]
 
-## Step 2 — classify what you found
-- **Gaps** — something the skill should have given you and didn't.
-- **Friction** — ceremony that got skipped, or that the user pushed back on. Note *how many times*.
-- **Contradictions** — the skill says X, the traces did Y, and Y was right.
-- **Falsified claims** — a stated fact the substrate contradicted. Include the reproducing command.
-- **Dead weight** — a reference nothing links and nothing reads (Wu Wei).
-- **Late catches** — what a downstream review found that this skill's own gates missed.
+## Harvest
 
-## Output — return exactly this, nothing else
+Bound the evidence window by the last entry’s date. Record what sources and periods were actually read. Stream large records and filter to the question; do not load an entire large transcript when a bounded excerpt answers it. [R035] [book:python-for-devops], Dealing with Large Files
 
-```
-## <SKILL>
+For each source, record its origin, observed date, task identity, directness, completeness and any known instrumentation limits. A source-quality judgment must be available before its contents support a strong pattern. [evolution-C25]
+
+Classify findings as:
+
+- **Gap:** needed guidance was absent.
+- **Friction:** a step was skipped or challenged; count independent tasks.
+- **Contradiction:** traces show the written guidance was wrong in context.
+- **Falsified claim:** the source contradicts a claim; include a reproducible check where applicable.
+- **Dead weight:** a reference appears unused after discoverability and purpose are checked.
+- **Late catch:** a later reviewer found what the skill’s own process missed.
+
+These are evidence categories, not edits. Do not propose implementation in the harvest report. [R134] [R137]
+
+## Pattern questions
+
+Use the seven questions in `../triage.md` to find repeated causes and relationships before assigning categories. Mark patterns first noticed after examining evidence as exploratory and state what further evidence would strengthen or overturn them. [evolution-C27] [book:critical-thinking-about-research], 9 Inferences, Conclusions, and the Research Report
+
+## Output
+
+```markdown
+## <skill>
 ### Settled verdicts
 - <item> → KEEP | REVISED | REVERT | PENDING(<reason>) — evidence: <trace>
 
 ### Patterns found
-1. <pattern> — Impact: H/M/L, Effort: H/M/L — proof: <the trace where it bit>
+1. <pattern> — Impact: H/M/L, Effort: H/M/L — proof: <trace>
 
 ### Traces examined
-<what you actually read, and the window>
+<source, period, task identities, quality and limits>
 
 ### Nothing-found
-<what you looked for and did not find — this is a result, not a blank>
+<what was checked and not found>
 ```
 
-## Rules
-- **Evidence or silence.** Every pattern names the trace that produced it. A pattern you cannot point at does not go in the list.
-- **`Nothing-found` is a required section.** A harvest that reports only hits is a harvest that stopped looking early.
-- Do not propose edits. Patterns only — hypothesis-writing happens at synthesis, where cross-skill duplicates get merged.
-- Do not modify any file.
+Each test states its expected result. Document the work clearly enough that another owner can repeat the evidence check. [R127] [R131] [book:swebok], Test Activities

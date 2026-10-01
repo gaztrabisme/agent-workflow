@@ -1,84 +1,57 @@
-# Hypothesis Protocol
-
-How a harvested pattern becomes an approved edit. Generalized from the retired `dev` evolve mode (removed 2026-08-09, `dev@e2fe315`), Phases 3–4, which scoped this to one skill for reasons that were historical rather than principled.
+# Hypothesis and change protocol
 
 ## From pattern to hypothesis
 
-A pattern is an observation. A hypothesis is a **falsifiable edit**. The gap between them is where most evolution runs go wrong — "improve integration guidance" is a wish; "add an integration-patterns section to `nfr-checklist.md` and point Phase 3 at it" is a change you can later prove worked or didn't.
+A pattern is evidence about a recurring gap. A hypothesis is one specific edit that could be shown wrong. Scientific claims are falsifiable, not provable; preserve that uncertainty in the wording. Do not propose a change without naming its target file, and do not bundle unrelated changes. [R033] [R110] [book:clean-architecture], Science to the Rescue
+
+Use this reader-focused form:
 
 ```markdown
-### H<n>: <short name>  ·  <target-skill>
+### H<n>: <short name>
 
-**Pattern:**        <what was observed, with the trace that proves it>
-**Root cause:**     <why it happens — the mechanism, not the symptom>
-**Proposed change:** <the specific modification>
-**Target file(s):** <exact paths>
-**Predicted effect:** <what should change in future traces, observably>
-**Risk:**           <what could get worse>
-**Validation:**     <what a future Phase 2 should look for to settle this>
-**Impact / Effort:** H|M|L / H|M|L
+**Pattern and trace:** <observation plus source and date>
+**Source quality:** <directness, completeness, task identity and known capture limits>
+**Root cause:** <mechanism, not symptom>
+**Options considered:** <each briefly, with pros and cons>
+**Proposed change:** <one edit>
+**Target file(s):** <exact relative paths>
+**Expected result:** <what should improve and what evidence could disprove it>
+**Risk and rollback:** <failure mode; known-good revision and exact revert path>
+**Validation:** <checkable later trace and predeclared evidence floor>
+**Impact / Effort:** H | M | L / H | M | L
+**Owner and revisit date:** <who will settle it, by when>
 ```
 
-## The five rules
+Write for the decision maker. Include the evidence behind a recommendation; a choice without its reasoning is not useful advice. Describe every considered option with concise pros and cons, including what was rejected. [R102] [R103] [R111] [R142] [book:facilitating-software-architecture], The Centrality of Advice; [book:facilitating-software-architecture], The Structure of an ADR
 
-1. **One change per hypothesis.** No bundles. A bundle cannot be reverted cleanly and cannot be validated at all — when it half-works you learn nothing.
-2. **Specific, not vague.** If the hypothesis doesn't name a file, it isn't one yet.
-3. **Predict the effect.** If you can't state which future trace would change, the hypothesis is too vague to validate — and it will sit at `PENDING` forever, which is how the constellation got 13 ledgers that never settled anything.
-4. **State rollback criteria.** "If the next two runs still show X, revert." Written now, while you still believe in it, not later when you're defending it.
-5. **Wu Wei filter.** Does this pattern cause a failure you can point to, or is it theoretical purity? Structure earns existence by being referenced. A gate nobody trips is cost wearing the costume of rigour.
-
-## What may be changed
-
-| Component | Evolution may change it | Why |
-|---|---|---|
-| Heuristics, reference content, examples, traps | Yes | The substrate the loop exists to refine. |
-| Subagent/brief prompts | Yes | Directly measurable in later traces. |
-| Trigger words, mode detection | Yes | With the sibling-collision check re-run. |
-| Thresholds, process weights | Yes | These are exactly what real use calibrates. |
-| Workflow phases (add / remove / reorder) | **Approval only** | Changes the skill's shape, not its content. |
-| `description` frontmatter | **Approval only** | It is the retrieval surface; a bad edit silently stops the skill firing. |
-| Scripts | **Approval only** | Functional change, not instruction. |
-| Anything in `core` | **Approval only** | Every skill inherits it; blast radius is the constellation. |
-| **Integrity Constraints** | **Never** | Foundational. A loop that can weaken its own honesty rules is not a loop, it is a ratchet in the wrong direction. The human edits these directly. |
-| **The Wu Wei filter** | **Never** | Philosophy doesn't optimize; it guides. |
-
-The two `Never` rows exist because a self-modifying system's first optimization is always to relax whatever constrains it. They are inherited verbatim from that retired mode — the one part of that file that was never scoped to `dev`.
+State what you expect to happen and what future evidence would prove that expectation wrong. A prediction is a testable expectation, not just a promise that a future trace will look different. [R114] [book:facilitating-software-architecture], Experiment with Your ADR Template
 
 ## The approval gate
 
-**STOP.** Present the *entire* hypothesis set — every selected skill's hypotheses in one block, ranked by Impact ÷ Effort, each with its target file and predicted effect. The human approves the set, a subset, or none.
+Run the technical and managerial impact analysis before approval: identify affected files, consumers, risks and the extent of needed changes. The accountable authority then accepts, modifies, rejects or defers each request. [R011] [R119] [R120] [book:swebok], Requesting, Evaluating, and Approving Software Changes
 
-One stop, not one per skill. The whole point of front-loading is that approval is a single interaction: triage, harvest and pattern-mining run unattended, and the human is asked exactly once, at the moment the run is about to write to disk.
+Present one complete, self-contained block for the whole run. It must let the reader judge each hypothesis, its alternatives, evidence, target paths, blast radius, predicted result and rollback route without opening another file. Report approval gates and who owns each one; file lists and commit counts do not substitute for naming the decision that is needed. [R119] [R120] [R140] [R143] [R144] [R147] [book:continuous-delivery], Deploying and Promoting Your Application; [book:facilitating-software-architecture], Title
 
-What the block must make possible without opening anything else:
-- Judging each hypothesis on its own (so a subset approval is meaningful).
-- Seeing which files change, so blast radius is visible before the diff exists.
-- Seeing what was *rejected* during pattern-mining and why — a hypothesis list with no discards means the Wu Wei filter didn't run.
-- Seeing the verdicts this run **settled**, which lead the block: settling is the half that historically never ran.
+The decision taker receives advice and retains the choice; do not imply that a finding itself authorizes implementation. [R137] [book:facilitating-software-architecture], Direct Versus Representative Democracy
 
-**Shape: `templates/approval-block.md`.** Don't improvise it. Every other step in this loop has a template; the one artifact a human actually reads went without one until the first dogfood pointed out that the writer had to invent the format under time pressure at the exact moment precision matters most.
+Use [`templates/approval-block.md`](templates/approval-block.md). Merge duplicates across skills into one hypothesis with several target paths. Preserve its essential fields, but revise the template in an approved later change if important sections are repeatedly left empty or half-filled. [R121] [R139] [book:facilitating-software-architecture], Experiment with Your ADR Template
 
-Never self-modify without approval. A convenient exception is how this stops being a loop and starts being drift.
+Apply the Wu Wei filter: retain patterns tied to an observed failure, not theoretical purity; any new structure must earn its place through use. [R116] [book:site-reliability-engineering], The “Negative Lines of Code” Metric
 
-## Applying
+Do not edit before approval. The same stop applies to changes to workflow phases, trigger description, scripts or shared core. Never alter an integrity constraint or the Wu Wei filter through this loop. [R117] [R122] [R012] [R037]
 
-1. **Edit** — smallest change that closes the pattern. Match the surrounding voice; skills are read by humans and by fresh-context agents, and both notice a section written in a different register.
-2. **Commit, one per hypothesis**, in the *skill's own git repo* (each skill is its own repo; the outer `Skills` repo is not live). Message shape, following the established convention:
-   ```
-   Evolve H2: cover the axis, not an example
-   ```
-   Body carries the hypothesis's pattern and predicted effect.
-3. **Record** — the ledger entry, then a separate commit for it:
-   ```
-   Evolution 9 log: <theme, including the honest limits>
-   ```
-4. **Verdict `PENDING`** on everything applied, with the validation checklist a future Phase 2 will settle. An applied change is a hypothesis until traces say otherwise — including the ones you are confident about, especially those.
+After application, inspect the final change set to confirm that it contains only approved changes. [R122] [book:swebok], Implementing Software Changes
 
-## Anti-patterns
+## Apply small, reversible changes
 
-- A hypothesis with no target file — it's still a pattern.
-- Bundling several edits under one hypothesis to reduce the count.
-- Applying anything before the approval gate.
-- Writing a validation checklist that no future run could actually check ("confirm the skill feels better").
-- Recording `KEEP` on the same run that applied the change. Nothing is validated by having just been written.
-- Skipping the ledger entry because the change was small. That is precisely the change nobody will remember making.
+Make the smallest edit that closes the pattern and match the existing voice. Check in small changes frequently to the skill’s mainline; one hypothesis remains the traceability unit and may require several commits. Each check-in should preserve behavior or have a known-good revert path. [R112] [R123] [R124] [R020] [R115] [book:continuous-delivery], Essential Practices; [book:continuous-delivery], Prerequisites for Continuous Integration
+
+Record every change for audit and rollback. State the expected result for each future check, so a later owner can compare it with evidence rather than a vague impression. [R128] [R127] [book:continuous-delivery], Managing Software Configuration; [book:swebok], Test Activities
+
+## Recording and validation
+
+Every applied change begins `PENDING`; include a named owner for each follow-up, a revisit date and a future checklist that another run can actually check. Never label a new change `KEEP` on application day. [R126] [R049] [R034] [evolution-C28] [book:software-engineering-at-google], Blameless Postmortem Culture
+
+Before harvest, set the evidence floor for each verdict category and keep it fixed while examining the traces. The expected result must be testable. [R127] [evolution-C26]
+
+An approval block may approve all, a named subset, or none. A partial approval does not authorize the unapproved files or changes. The decision record states that no changes were applied before this decision. [R144]

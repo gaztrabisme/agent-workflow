@@ -1,111 +1,118 @@
 # The Evolution Loop
 
-The mechanism that turns a skill from "current instinct / borrowed confidence" into earned, refined judgment. A skill that never ingests its own real traces is frozen at its authoring assumptions; a skill *distilled from documents* is a confident hypothesis until fire-tested. The loop fixes both.
+Evolution converts a used skill’s traces into a durable decision about changing that skill. The skill’s own history and future use form a feedback loop: experience informs the next thinking, and a later run checks whether the change helped. [book:learning-systems-thinking], Feedback Loops Include Learning
 
-> Canonical home. Moved here from `core/references/evolution-loop.md` on 2026-08-09 when the machinery was consolidated into this skill; `core` keeps spine item #8 (the *gate*: ship an `EVOLUTION.md`, keep its verdict honest) and points here for the *mechanism*.
+## Phase sequence
 
-## The loop
+1. **Triage** — establish that there is evidence to examine and size the run.
+2. **Settle** — for each selected skill, answer its eligible open verdicts before searching for new patterns.
+3. **Harvest** — collect actual traces, not imagined use.
+4. **Patterns** — explain repeated events and weigh their causes.
+5. **Hypotheses** — write a specific change that could be shown wrong.
+6. **Apply** — make approved changes in small reversible steps.
+7. **Record** — write what happened, the new status and the next checks.
 
-1. **Triage** — pick which skills have earned a run, from evidence. Skills with no traces since their last entry are excluded, not deprioritized. See `triage.md`.
-2. **Settle** — *per selected skill, before harvesting it:* resolve what its last entry left open. Every `PENDING` verdict and every unchecked `- [ ]` is a question this run is obliged to answer if the traces now exist to answer it. See §Settling first.
-3. **Harvest** — gather real traces of the skill in use. Real traces only — not imagined use. Sources: §Role variants below and `triage.md`.
-4. **Patterns** — extract what recurred: friction, gaps, contradictions, silent-skip near-misses, things you *needed* that the skill didn't give you. Tag each `Impact: H/M/L, Effort: H/M/L`. Prioritize `Impact ÷ Effort`.
-5. **Hypotheses** — turn each kept pattern into a *specific* edit (file + change), not a vibe. "Add an integration-patterns section to nfr-checklist and point its Phase 3 at it," not "improve integration guidance." Format, approval gate and block shape: `hypothesis-protocol.md`.
-6. **Apply** — make the edits. Record which pattern each closes.
-7. **Record** — write the entry. The loop is not done until the ledger says so.
+This is one numbered sequence. Validation is Phase 2 of a later run, not an eighth phase. [R039] A later use feeds experience back into the next evolution pass. [R045] [book:learning-systems-thinking], Feedback Loops Include Learning
 
-**Validation is not an eighth step.** It is step 2 of a *later* run. A loop whose final step is "validate someday" has no trigger and does not fire — which is precisely how this constellation accumulated 13 ledgers that never settled anything.
+## Triage and scope
 
-## The artifact
+A periodic capability assessment should name which parts of the process need improvement; settling yesterday’s edits alone is not a complete assessment. [book:swebok], Software Process Improvement Models
 
-Each skill repo carries an **`EVOLUTION.md`** (projects use `wiki/decisions.md` + `log.md`). Same section convention across all skills so they're greppable and comparable:
+Scale the run to the request, severity and review capacity. A targeted, reversible one-skill trim can use the trace already supplied and proceed to a concise hypothesis and approval. A request to evolve every eligible skill needs the full loop. Prioritize by client value within schedule and resource constraints, then stage the work by review capacity; there is no fixed three-to-five skill limit. [R014] [book:swebok], Prioritization
 
-```
-# Evolution Log — <skill-name>
-<preamble: mechanism pointer + harvest source>
+Rank candidates against common value criteria. Impact divided by effort is a useful comparison, not the only legitimate one. [R018] A scope adaptation may omit activities that do not apply to the request. [R024] [book:swebok], Software Process Adaptation
 
-## Evolution N — <date> — <one-line theme>
-### Harvest scope        (what traces, why representative)
-### Patterns found       (ranked, Impact/Effort, with the proof each bit)
-### Hypotheses applied   (each mapped to file(s) changed + pattern closed)
-### Validation results   (measured in a later harvest; verdict per change)
-```
+For each negotiable change limit, agree an objective measure and use its evidence to govern negotiation reproducibly. A quantified error budget can expose the cost of risk and keep the choice from turning on politics, fear or hope. This does not authorize relaxing an integrity constraint. [R012] [R037] [book:site-reliability-engineering], Forming Your Error Budget
 
-Some ledgers predate this convention and diverge in ways that are *history*, not error — `delivery` starts at Evolution 0 (Birth), `zalo-platform` uses `Birth` / `Round N`. Leave them. Normalizing a ledger's body rewrites the record of what was actually thought at the time. New entries use the canonical shape; `scripts/triage.py` parses both.
+When a request would weaken a shared gate, record the conflict with the constraint, take it to the decision advisers, and explain the mechanism before acting. A proposed change that makes the evidence easier to fake weakens the loop even if it shortens the work. [R027] [book:facilitating-software-architecture], A single decision conflicts with a single principle
 
-## Verdict vocabulary (one set, no synonyms)
+## Settle open records before new patterns
 
-| Verdict | Means | Earned when |
-|---|---|---|
-| `PENDING` | A hypothesis. Applied but unproven. | Default for every new change. |
-| `KEEP` | Proven. | **≥2 independent real uses** exercised it without new friction. |
-| `REVISED` | Correct machinery, wrong scope. Survives with a selector naming when it applies. | Steps 1–3 of the non-adoption ladder below. The new selector inherits `PENDING`. |
-| `REVERT` | Wrong. Removed. | Step 4 of the ladder, **plus a post-mortem recording the mechanism of failure**. |
+After triage selects a skill, read its most recent entry that still has open verdicts. Settle each eligible unchecked item and each `PENDING` verdict before harvesting new patterns. State the trace that exercised the change, or state that no eligible trace exists. [R015] [R031] [R041] [R061] [R062]
 
-The `[keep/revert/refine]` triple used by the retired `dev` evolve mode (removed 2026-08-09, `dev@e2fe315`) does not survive here — `refine` collapsed the scoping case and the wrongness case into one word, which is exactly the mistake §non-adoption exists to prevent.
+A run that only settles old verdicts is complete work. Do not create a new hypothesis just to make the run look productive. The first evolution dogfood found that 13 of 15 ledgers had never settled a verdict; that is why this phase runs before new pattern work. [R141]
 
-## The PENDING discipline (the anti-overconfidence rule)
+## Harvest real use and find causes
 
-- A change from a **single trace**, or **distilled from documents** and never run, ships with verdict **`PENDING`**.
-- It earns **`KEEP`** only after **≥2 independent real uses** exercise it without new friction.
-- A change that fails in the field gets **`REVERT` + a post-mortem** recording the *mechanism* of failure, so nobody re-runs the dead end. A documented negative result is reusable knowledge; an undocumented one gets repeated.
+Use evidence from actual skill use. A signal may trigger review, but the human decision maker retains judgment over whether it matters. [R042] [book:site-reliability-engineering], Symptoms Versus Causes
 
-This is why `solution-architect` and `ai-discovery-workshop` (both document-distilled) must sit at `PENDING` until real engagements validate them — borrowed confidence is not evidence.
+Look for the pattern behind repeated events, not just the event that was easiest to notice. Compare what recurs and what common feature links it; rank the forces that matter most. [R043] [R069] [R086] [book:learning-systems-thinking], Patterns Produce Events; [book:learning-systems-thinking], How Relationships Produce Effect
 
-## Non-adoption is a scoping signal before it is a validity signal
+Keep role-specific evidence connected to the skill it can improve:
 
-When a later engagement **doesn't use** something the skill told it to use, the tempting read is "the hypothesis failed." Usually it didn't. Usually the hypothesis was **described more broadly than the evidence supported** — correct machinery, over-generalized from the one context that produced it.
+- For skills used in presales account work, review deal outcomes and debriefs; turn recurring lessons into changes to the method, positioning or gates, not only into deal notes. Capture lessons continuously as work proceeds, then consolidate recurring findings into the method. [R071] [business-intelligence-R003] [business-intelligence-R138] [book:selling-to-big-companies], HOLD YOURSELF ACCOUNTABLE; [book:head-first-pmp], Exam Answers; [book:meddicc], MEDDICC CHECKLIST
+- For skills used in signed engagements, compare estimates with actual effort by phase, contested criteria and obligation slippage. Feed ambiguous upstream guidance back to the skill that owns that guidance; record engagement-level learning in its own evolution entry. [R073] [delivery-R075] [book:swebok], 5.2. Closure Activities
+- For skills distilled from workshops or other source methods, let real outcomes update the method and verify claims in the source artifact. Repeated conflicts between decisions and a stated principle signal that the principle may need revision. For authoring practice, use recurring conflicts between advice and later decisions to update reusable conventions and checklists. [R074] [R075] [book:facilitating-software-architecture], Keeping Principles Useful; [book:facilitating-software-architecture], Repeated conflicts between multiple decisions and a principle are a signal to change
 
-Before writing `REVERT`, ask in this order:
+For coordination methods, use run records and routing decisions to improve the protocol. Ways of working can change as learning accumulates. [R076] [book:pmbok-guide-7e], 2.5.8. Learning throughout the Project
+- For a significant failure, turn the outcome into a preventive action that reduces recurrence; do not respond to one incident by merely changing triage weights. [R078] [book:site-reliability-engineering], Google’s Postmortem Philosophy
 
-1. **Was it scoped too broadly?** Did the trace that produced it share a context (deal type, project size, domain, team shape) that the skill silently assumed was universal? → the fix is a **selector** that names when it applies, not a retraction.
-2. **Was it discoverable?** Buried in a reference nothing points at is not a validity result. This is now *measurable* — `~/.claude/read-once/stats.jsonl` records every file read; a reference with zero reads since the change landed answers this question empirically instead of by intuition.
-3. **Was it too heavy for the case?** A 15-sheet instrument on a two-week job gets skipped for cost, not correctness. → state a lighter floor.
-4. **Only then: was it wrong?** → `REVERT` + post-mortem.
+## Hypotheses and change size
 
-Record the outcome as **`REVISED`** when 1–3 apply: the change survives, its applicability gets named, and the new selector inherits verdict `PENDING`. Collapsing all of these into `REVERT` throws away machinery that works, and — worse — teaches the loop that the safe move is to never generalize.
+Prioritize improvements by importance, discuss the priorities with the affected owners, and agree a plan. Smaller independent changes reduce overhead and give feedback sooner, so each change can be judged on its own. [R019] [book:site-reliability-engineering], Improvements and Refactoring; [R033] [book:facilitating-software-architecture], Benefits of reducing decision size
 
-The corollary for **harvesting**: the second engagement's greatest value is rarely confirming the first. It's exposing which parts of the first were *context* wearing the costume of *principle*. Go in looking for that.
+A hypothesis names one target file and one change. Do not bundle unrelated edits. Give the applied change a defined real-use incubation before judgment; validation belongs to a later run, never the day of application. [R033] [R034] [book:site-reliability-engineering], Production Tests
 
-## Settling first (Phase 2)
+## Apply and preserve history
 
-The loop's second half is the half that doesn't happen. Measured across this constellation on 2026-08-09: 15 ledgers, 2,698 lines, and **13 of them had never settled a single verdict** — `dev` and `solution-architect` are the only two that ever moved anything off `PENDING`, because "validate in a *later* harvest" named no owner and fired on no trigger. Everything else sits at `PENDING` indefinitely, which reads as humility and functions as amnesia.
+Use small, frequent check-ins that preserve behavior and can be reversed. A hypothesis is the review and traceability unit; it need not be exactly one commit. Keep the hypothesis identifier in the change record and check in small pieces to the skill’s mainline as they are ready. [R020] [R112] [R123] [R124] [book:continuous-delivery], Continuous Integration; [book:continuous-delivery], Essential Practices; [book:continuous-delivery], Prerequisites for Continuous Integration
 
-(An earlier draft of this file claimed "only three changes ever reached `KEEP`". That was wrong — `dev`, `solution-architect` and `drawio` between them carry a dozen. It was caught by this skill's first dogfood, which is the correct outcome and an uncomfortable one for a file whose subject is not trusting unverified claims. The ledger-level count above is countable with one `grep`.)
+Before applying a change, know the path back to the last known-good revision. [R054] [R115] [book:continuous-delivery], Rolling Back Deployments and Zero-Downtime Releases; [book:continuous-delivery], Essential Practices
 
-So **settling runs before harvesting, every time**, and it is the cheapest high-value work in the loop:
+Treat configuration and workflow changes as auditable state: record what changed, when, why, and how to roll it back, however small. [R128] [book:continuous-delivery], Managing Software Configuration
 
-1. Read the skill's most recent entry with an unresolved verdict.
-2. For each unchecked `- [ ]`: did the traces since that entry actually exercise the change? Name the trace or say there is none.
-3. Assign `KEEP` / `REVISED` / `REVERT` per the ladder — or leave `PENDING` **with the reason it is still unsettled** ("two runs since, neither touched this path"). A `PENDING` that carries no reason is unfinished work, not honesty.
-4. Only then harvest for new patterns.
+## EVOLUTION entry and verdicts
 
-A run that settles verdicts and finds nothing new to change is a **successful run**. It closed the loop.
+Do not finish a run until each touched skill has an on-disk `## Evolution N` entry with an honest status. [R026] [book:site-reliability-engineering], Keep a History of Outages
 
-## Validation approaches
+Every skill needs an `EVOLUTION.md` with a consistent section convention for new entries. Use the canonical shape for new entries, but leave older entries in their historical form; the triage reader handles both established forms. This common entry convention is provisional until a later dogfood validates it. [R046] [R047] [book:pmbok-guide-7e], 4.6.2. Logs and Registers
 
-How to get the ≥2 independent uses that a `KEEP` requires:
+The initial ledger entry is part of authoring; later entries record trace-based evolution. A new or distilled skill stays `PENDING` until later real use validates it. [core-R036]
 
-| Approach | When | How |
-|---|---|---|
-| **Next natural use** | Default | Wait for the skill to fire on its own in real work; compare against the harvest baseline at the next run. Cheapest, and the only one that tests discoverability too. |
-| **Replay** | A specific failure pattern | Re-run a previous task against the evolved skill; compare outcomes. Tests correctness, not discoverability — the replay knows where to look. |
-| **Canary** | Risky or structural changes | Apply to one skill/project first, hold the siblings on the previous shape until it proves out. |
+Use only these verdicts:
 
-Comparison signals, generalized (each skill substitutes its own): recurrence of the pattern that motivated the change · friction markers in traces (corrections, gate skips) · whether the changed file is read at all · whether the change introduced a *new* pattern. That last one is the one people forget to look for.
+| Verdict | Meaning and evidence floor |
+|---|---|
+| `PENDING` | Applied or distilled, not yet proven; state why it remains open, name an owner and set a revisit date. |
+| `KEEP` | At least two independent real tasks used the change without new friction. |
+| `REVISED` | The mechanism is useful, but a selector must name the narrower context. The selector is itself `PENDING`. |
+| `REVERT` | Evidence shows the change is wrong after scope, access and cost have been checked; record the failure mechanism and preventive action. |
 
-## Role variants of "harvest"
+Each record’s status must tell its reader where the decision stands. [R048] [R126] [book:facilitating-software-architecture], The ADR Lifecycle; [book:facilitating-software-architecture], Meta-Elements
 
-| Skill | Harvest source | Turns into |
-|-------|----------------|------------|
-| `dev` | build commits, wiki decisions/gotchas | mode + heuristic edits |
-| `business-intelligence` | win/loss debriefs, deal outcomes | framework/positioning/gate edits — learning about *the skill*, not just the deal |
-| `solution-architect` | response outcomes, RFP conversion, dogfood runs | lifecycle/reference/template edits |
-| `delivery` | completed engagements: estimate vs actual, contested criteria, obligation slippage | lifecycle/tracker edits — **and a correction pushed back to `solution-architect`**, since a contested criterion was written ambiguously upstream |
-| `ai-discovery-workshop` | workshop outcomes vs distilled method | method/script edits; validate the PDF's claims |
-| `skill-builder` | skills authored + their later EVOLUTION verdicts | convention/checklist edits |
-| `conductor` | run ledgers in project `wiki/log.md`; forks decided forward | routing-table + protocol edits |
-| execution-layer (`omlx`, `gsheets`, `media-gen`, `zalo-platform`, `drawio`, `pptx`) | sessions that called the substrate; claims contradicted by the tool's actual behaviour | corrected claims **with the reproducing command**, trap/troubleshooting edits |
-| `evolution` (this skill) | its own runs: which selections were right, which hypotheses later reverted | triage-weighting + protocol edits |
+Keep new changes `PENDING` until evidence settles them; never assign `KEEP` on application day. Independently verify critical results against an out-of-band source before trusting the change. [R049] [R034] [book:site-reliability-engineering], Trust but Verify
 
-The discipline is identical; only the substrate changes. Keep the loop cheap (one retro per real engagement) — its value is compounding, not ceremony.
+Before harvesting, set the evidence floor for each verdict class. Do not move it after seeing results. [evolution-C26] [book:critical-thinking-about-research], 4 The Sample
+
+## Validation and non-adoption
+
+Check non-adoption in this order:
+
+1. **Scope:** was the result generalized beyond the context that produced it? If so, retain the useful mechanism and add a selector. For a sound but risky change, gate exposure to a limited context rather than discard it. [R056] [book:site-reliability-engineering], Feature Flag Frameworks
+2. **Discoverability:** was the reference linked and findable? A path problem is not evidence that the practice is wrong. [R057] [R087] [R090] [R091]
+3. **Weight:** did the process cost more than the case justified? State a lighter floor if cost caused the skip. [R058]
+4. **Validity:** only now decide the mechanism was wrong. Revert it and write a postmortem that records the failure mechanism and the preventive action. [R059] [R052] [R054]
+
+Use `REVISED` for the first three causes, with the selector still `PENDING`; reserve `REVERT` for the last. Preserve the old record and layer a new, linked decision on top of it. [R032] [R051] [book:facilitating-software-architecture], The ADR Lifecycle; [book:site-reliability-engineering], Google’s Postmortem Philosophy
+
+A second engagement is especially useful for finding which earlier conclusions were context rather than general principle. Treat earlier conclusions as time-bound agreements that current circumstances may challenge. [R060] [book:facilitating-software-architecture], Repeated conflicts between multiple decisions and a principle are a signal to change
+
+Use replay to test whether a specific change plausibly caused an outcome, while recognizing that production systems often cannot be reproduced exactly. Replay cannot establish discoverability because it already knows where the change is. A canary applies risky or structural changes to one skill or project before expanding them. [R067] [R068] [book:site-reliability-engineering], Effective Troubleshooting; [book:site-reliability-engineering], Production Tests
+
+Assess changes against recurrence, user friction, whether the changed reference was actually opened, and whether the change introduced a new problem. Real traffic may expose effects that a hypothetical or simulated task will miss. [R042] [R069] [book:site-reliability-engineering], Production Tests; [book:site-reliability-engineering], Feature Flag Frameworks
+
+## Retrospective and maintenance
+
+Define objective triggers before a run for a formal postmortem; write one for a significant undesirable event, and keep it blameless. The run review focuses on conditions, causes and preventive action, never on fault. Keep one formal retrospective per engagement. A short closing reflection may accompany every run. [R079] [evolution-C01] [evolution-C02] [evolution-C16] [book:site-reliability-engineering], Google’s Postmortem Philosophy
+
+A significant failure should produce specific preventive actions, with an owner, and the follow-up should remain accessible until completed. [R021] [book:software-engineering-at-google], Blameless Postmortem Culture
+
+Review and share completed learning records; an unreviewed postmortem does not complete the learning loop. Curate useful, settled records so later skill owners can learn from them. [R031] [R062] [evolution-C05] [book:site-reliability-engineering], Introducing a Postmortem Culture; [book:site-reliability-engineering], Disaster Role Playing; [book:facilitating-software-architecture], Introducing Architectural Decision Records
+
+Keep periodic resweeps of prior guidance. Set an owner and revisit date on every open item; adjust the review frequency to how quickly the surrounding practice changes and how often the guidance is used. [evolution-C06] [book:facilitating-software-architecture], Updating Your Blips
+
+Classify recurring, manual, automatable, tactical work with little lasting value as toil; separate it from overhead and work that creates durable improvements. Use the label to identify automation opportunities, not to dismiss necessary judgment. [evolution-C07] [book:site-reliability-engineering], Toil Defined
+
+Removing a skill component that no longer adds value is useful maintenance; measure the value it provides rather than rewarding line or section count. [R116] [book:site-reliability-engineering], The “Negative Lines of Code” Metric
+
+When a skill component no longer serves a purpose, name the replacement, provide a transition path, then remove or mark the obsolete component. Age alone is not a reason to deprecate it. [R089] [R106] [evolution-C34] [book:software-engineering-at-google], Chapter 15. Deprecation
