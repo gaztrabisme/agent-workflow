@@ -140,7 +140,7 @@ Audit the artifacts against the goal file's UAT column and **nothing else**: run
 - **Fan-out with no declared meeting point** — N files, no synthesis, no reconciled contradiction.
 - **Skipping ground** — planning against the prompt instead of against the wiki; re-deciding what `decisions.md` already locked.
 - **Waiving a sibling's gate** to hit the plan. The plan bends; the gate doesn't.
-- **Ceremony on a small ask.** A one-file fix does not get a Plan Block. The counter-trigger: more than two units, two units on one file, or any edit to numbered structure gets the block even when each unit is one file. Wu Wei — see `core` spine #9.
+- **Ceremony on a small ask.** A one-file fix does not get a Plan Block. The counter-trigger: more than two units, two units on one file, or any edit to numbered structure gets the block even when each unit is one file. Wu Wei — see `core` `references/wiki-protocol.md` §Source boundaries and canonical pages.
 
 ## Composition
 
