@@ -188,3 +188,24 @@ fixes a skill that isn't invoked when a skill is being built.
 - [ ] A second course distilled with this playbook, recording which steps held and which were skipped or changed.
 - [ ] The measurement step (5) planned before the dogfood rather than found by it.
 - **Verdict: PENDING**: authored from one build, not yet reused.
+
+---
+
+## Evolution 4 — stage B rebuild (2026-10-01)
+
+### Harvest scope
+- Rebuilt the skill from the approved stage A proposal, routed-rule ledgers, book crosswalks, candidate practices and practitioner review, with the live `core` kernel and skill-authoring skeleton as structural inputs.
+- Read the cited passages for the 16 named books in the proposal, the relevant `CORE` and `SB` files, the named sibling boundaries, and the stage B method, checks, core audit/dogfood artifacts, and work log. The 5907 U6 reading copy was not available at stage B start, so no course anchor is claimed.
+- This was a source-led structural rebuild, not a real-task dogfood. Dogfood evidence remains future work.
+
+### Counts and changes
+- Coverage: 151 routed rules — 40 agrees, 59 refines, 51 field rules, and 1 disputed; 150 route to skill-builder and core-R035 supplies the shared canonical-reference rule.
+- Adopted 16 crosswalk candidates; added no new N rows. No course anchors were added.
+- Reorganized `SKILL.md` as a short trigger, principles, workflow, gates, anti-patterns, composition and reference index. Kept the detailed authoring, course-distillation, publishing and template procedures in linked references, and added `references/rebuild-from-sources.md` for the programme's source-to-swap method.
+- Applied proposal/POV corrections: trust follows staged use across two independent real uses; visualization medium follows interaction, data scale and the reader's editable format; unsupported thresholds are not invented; review stays professional and defers between equally valid approaches.
+
+### Validation results
+- [ ] Run the automated acceptance check and record its result.
+- [ ] Have an independent reader audit every book-based rule row against its source and the rebuilt text.
+- [ ] Dogfood the rebuilt skill on a real past authoring or structural-refine task; record artifacts and fixes.
+- **Verdict: PENDING** — keep pending until at least two independent real uses.
