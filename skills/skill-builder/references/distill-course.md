@@ -12,7 +12,7 @@ Terms:
 
 ## 0. Before starting
 
-- The reading copy has passed its own checks: every lesson was owner-approved or passed an independent audit by a different reviewer lane against a stated pass condition; remove marketing material. An unreviewed copy makes every citation suspect. [book:swebok], Chapter 6: Software Configuration Management
+- The reading copy has passed its own checks: every lesson was owner-approved or passed an independent audit by an auditor from a different model lane against a stated pass condition; remove marketing material. An unreviewed copy makes every citation suspect. [book:swebok], Chapter 6: Software Configuration Management
 - Read the full source before writing. The method is a synthesis across sections, and the source may teach in an order different from the work order. [book:facilitating-software-architecture], Chapter 1. Centralized Architecture Practices in a Decentralized World
 
 ## 1. Decide how an existing skill in the area fits
@@ -42,8 +42,6 @@ scripts/
 ```
 
 Keep the method separate from its source. A reader should be able to follow every claim to an anchor, then from the anchor to the text, figure, and page. Give each stage digest its own trace row so future changes can be checked without relying on inline links alone. [book:swebok], Chapter 1: Software Requirements
-
-Anchor every method claim, and cite the science library for each factual claim. [book:swebok], 7.4. Requirements Tracing
 
 ### Claim traceability matrix
 
@@ -106,6 +104,7 @@ Beyond the canonical skeleton:
 - Give each principle a source anchor; show the method flow in a table with stage, decision, check, and linked reference. (field rule)
 - Scale the flow for a quick question, a critique of existing work, and a recheck after a fix. (field rule)
 - State the output medium, scripts and templates, the render-and-check loop, and when to open the factual library. List application-changing crosswalk corrections. (field rule)
+- Anchor every method claim, and cite the science library for each factual claim. [book:swebok], 7.4. Requirements Tracing
 - Cite anchors or pages in outputs. Report measured, vision-judged, not-judged, and skipped checks with reasons. [book:looks-good-to-me], You are responsible for what passes through your review
 - Do not state an unanchored source principle or present a derived conclusion as if the source said it. (field rule)
 

@@ -195,6 +195,7 @@ fixes a skill that isn't invoked when a skill is being built.
 
 ### Harvest scope
 - Rebuilt the skill from the approved stage A proposal, routed-rule ledgers, book crosswalks, candidate practices and practitioner review, with the live `core` kernel and skill-authoring skeleton as structural inputs.
+- Classification: distilled structural rebuild, drawing on book-backed practices and the approved field-rule ledger; this run does not settle its use in real work.
 - Read the cited passages for the 16 named books in the proposal, the relevant `CORE` and `SB` files, the named sibling boundaries, and the stage B method, checks, core audit/dogfood artifacts, and work log. The 5907 U6 reading copy was not available at stage B start, so no course anchor is claimed.
 - This was a source-led structural rebuild, not a real-task dogfood. Dogfood evidence remains future work.
 
@@ -205,7 +206,7 @@ fixes a skill that isn't invoked when a skill is being built.
 - Applied proposal/POV corrections: trust follows staged use across two independent real uses; visualization medium follows interaction, data scale and the reader's editable format; unsupported thresholds are not invented; review stays professional and defers between equally valid approaches.
 
 ### Validation results
-- [ ] Run the automated acceptance check and record its result.
+- [x] `bash JOB/verify.sh` passes: 151/151 routed rules, 16 additions, no coverage problems, and valid Agent Skills format. The first invocation hit an unrelated permission error in the default npm cache; rerun with a temporary cache under `/private/tmp` passed.
 - [ ] Have an independent reader audit every book-based rule row against its source and the rebuilt text.
 - [ ] Dogfood the rebuilt skill on a real past authoring or structural-refine task; record artifacts and fixes.
 - **Verdict: PENDING** — keep pending until at least two independent real uses.

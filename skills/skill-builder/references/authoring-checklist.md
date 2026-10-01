@@ -20,7 +20,7 @@ Run top to bottom for a new skill; use the refine path for an existing one. Each
 ## 3. Write the frontmatter (trigger contract)
 
 - [ ] Make `name` match the skill directory. (field rule)
-- [ ] Write a retrieval description with what the skill is, concrete `USE WHEN` situations, user-typed `Keywords:`, and a disambiguation line wherever a sibling overlaps. Leave room for retrieval terms instead of marketing prose. (field rule)
+- [ ] Write a retrieval description with what the skill is, concrete `USE WHEN` situations, user-typed `Keywords:`, and a disambiguation line wherever a sibling overlaps. Make it a rich retrieval surface with useful history and highlights, not a keyword field; leave room for retrieval terms instead of marketing prose. [book:facilitating-software-architecture], Your Radar’s Place in an Advice Process
 - [ ] Compare sibling descriptions for overlapping trigger verbs. If two skills could fire on the same turn, disambiguate their artifact and audience. The original `core` and `skill-builder` descriptions once used the same trigger; the collision was found in dogfood. (field rule)
 - [ ] Ask whether the description would retrieve this skill for the right task and exclude neighboring work. (field rule)
 
@@ -46,7 +46,7 @@ Draft the whole section or digest before editing it. Then make separate passes f
 ## 6. Dogfood with a fresh-context reviewer
 
 - [ ] Use `templates/dogfood-brief.md`; do not improvise a thinner brief. It supplies the real task, context, review questions, pass condition, and evidence location. [book:site-reliability-engineering], Chapter 1. Introduction
-- [ ] Have a fresh-context reviewer use the skill on a real task and produce real artifacts. The reviewer should not be the person who built the artifact. [book:looks-good-to-me], Lack of unbiased perspective
+- [ ] Have a fresh-context reviewer use the skill on a real task, not merely read it, and produce real artifacts. Practicing builds the thinking skill; use a reviewer other than the artifact's author. [book:learning-systems-thinking], Systems Thinking Is a Practice; [book:looks-good-to-me], Lack of unbiased perspective
 - [ ] Ask for a blunt, severity-ranked critique of the artifact. Keep it professional: be hard on the work, defer when approaches are equally valid, and suggest alternatives when the approach is deficient. [book:looks-good-to-me], You have the influence; [book:software-engineering-at-google], Code Review Best Practices
 - [ ] Cover triggering, gaps, friction, contradictions, overreach, actionable gates, cross-references, and honesty. Name the most important missing thing. (field rule)
 - [ ] Fold findings back into the skill and verify the repaired cross-references. [book:site-reliability-engineering], Chapter 13. Emergency Response
