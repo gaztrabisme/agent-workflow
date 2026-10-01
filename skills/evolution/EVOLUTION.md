@@ -152,5 +152,6 @@ The main `SKILL.md` now defines the artifact, audience, trigger, flow and inheri
 - [ ] Two independent real uses exercise the rebuilt skill without new friction.
 - [ ] The manifest and distinct-task counting work with the user’s available trace sources.
 - [ ] The adopted candidate practices improve review quality without creating excess ceremony.
+- Dogfood follow-up: fresh-model review of the visual-design run-2 task found 2 high, 6 medium and 2 low issues; 10 fixed, 0 rejected. The comparison copy omitted `EVOLUTION.md`; absence claims now require a completeness check.
 
 **Verdict: PENDING** — the skill has been rebuilt from formal sources and field rules, but it has not yet been validated in two independent real uses.

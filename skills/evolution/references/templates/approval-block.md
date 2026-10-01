@@ -1,6 +1,6 @@
 # Approval Block — one decision record for the whole run
 
-Write a concise title that tells the reader the gist of the proposed decision without opening this block. [R147] [book:facilitating-software-architecture], Title
+Write a concise title that tells the reader the gist of the proposed decision without opening this block. [book:facilitating-software-architecture], Title
 
 ## Run summary
 
@@ -12,7 +12,7 @@ Write a concise title that tells the reader the gist of the proposed decision wi
 |---|---|---|---|
 | <gate> | <decision condition> | <named authority> | <trace or check> |
 
-Each gate has a named authority before review begins. Put the complete decision record in one place so the approver needs no other file to understand the request. [R140] [R143] [R144] [book:continuous-delivery], Deploying and Promoting Your Application
+Each gate has a named authority before review begins. Put the complete decision record in one place so the approver needs no other file to understand the request. [book:continuous-delivery], Deploying and Promoting Your Application
 
 ## Settled verdicts
 
@@ -20,11 +20,11 @@ Each gate has a named authority before review begins. Put the complete decision 
 |---|---|---|---|
 | | | | |
 
-Settled verdicts lead the record. A run that settles prior items and proposes nothing new is complete. [R141]
+Settled verdicts lead the record. A run that settles prior items and proposes nothing new is complete.
 
 ## Hypotheses
 
-Rank by impact and effort, without replacing judgment with a formula. Merge duplicate findings into one hypothesis with all affected files. [R139]
+Rank by impact and effort, without replacing judgment with a formula. Merge duplicate findings into one hypothesis with all affected files.
 
 ### H1: <short decision title>
 
@@ -45,8 +45,8 @@ Rank by impact and effort, without replacing judgment with a formula. Merge dupl
 |---|---|---|
 | | | |
 
-If there were no rejected candidates, state whether the harvest was thin or the Wu Wei filter was not applied. [R142]
+If there were no rejected candidates, state whether the harvest was thin or the Wu Wei filter was not applied.
 
 ## Decision
 
-For each gate, the named authority records its decision and rationale. Confirm that every required gate has approved its changes before application; no changes have been applied yet. [R144]
+For each gate, the named authority records its decision and rationale. Confirm that every required gate has approved its changes before application; no changes have been applied yet.

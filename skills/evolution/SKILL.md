@@ -12,7 +12,7 @@ Evolution turns a skill’s real-use evidence into an auditable change proposal 
 
 ## When it fires — and when a sibling owns it
 
-- Use this for repeated real-use evidence, a recurring correction, or an open verdict on a skill that has been used. Explicit requests to evolve skills and repeated skipped gates also trigger review. A stale `PENDING` matters when the skill has seen use since the last entry. [R002] [book:site-reliability-engineering], Google’s Postmortem Philosophy
+- Use this for repeated real-use evidence, a recurring correction, or an open verdict on a skill that has been used. Explicit requests to evolve skills and repeated skipped gates also trigger review. A stale `PENDING` matters when the skill has seen use since the last entry. [book:site-reliability-engineering], Google’s Postmortem Philosophy
 - `skill-builder` owns a skill’s initial structure, source distillation and authoring-time ledger entry. Evolution owns later entries grounded in use.
 - `core` owns the shared operating contract and canonical gates; Evolution owns the loop that applies that contract to a skill’s evidence.
 
@@ -30,15 +30,15 @@ Evolution turns a skill’s real-use evidence into an auditable change proposal 
 | 6. Apply | Make approved, small, reversible changes | Attributable changes in the skill repository |
 | 7. Record | Preserve the result and leave new claims unproven | Dated `EVOLUTION.md` entry with future checks |
 
-A requested one-skill trim can use the existing user-provided trace and go directly to the approval and application steps. A full evolution request uses the full loop. Scope effort to impact and review capacity; do not impose a fixed skill-count cap. Detailed rules live in [`references/loop.md`](references/loop.md) and [`references/triage.md`](references/triage.md).
+A requested one-skill trim may skip broad triage and full harvest, but must settle prior open verdicts and register its supplied trace before approval; use the trim’s record rules in [`references/loop.md`](references/loop.md). (derived: dogfood 2026-10-01) A full evolution request uses the full loop. Scope effort to impact and review capacity; do not impose a fixed skill-count cap. Detailed rules live in [`references/loop.md`](references/loop.md) and [`references/triage.md`](references/triage.md).
 
-## Gates (declared, inherited from core)
+## Gates
 
 - **Grounding gate** — record the traces and period examined, their provenance, and what they changed. See [`../core/references/grounding-gate.md`](../core/references/grounding-gate.md).
 - **Output Contract** — the durable result is the skill’s dated ledger entry and its reviewable evidence. See [`../core/references/output-contract.md`](../core/references/output-contract.md) and [`../core/references/wiki-protocol.md`](../core/references/wiki-protocol.md).
-- **Pushback and teach** — explain the mechanism when a requested edit would weaken a shared constraint. See [`../core/references/pushback-and-teach.md`](../core/references/pushback-and-teach.md).
-- **Approach declaration** — state whether the run is inline or uses parallel evidence gathering; core SKILL.md §7 defines the declaration.
-- **Core reference rule** — link to shared gates instead of restating or duplicating them. [R152] [book:clean-code], Don’t Repeat Yourself
+- **Pushback and Teach** — explain the mechanism when a requested edit would weaken a shared constraint. See [`../core/references/pushback-and-teach.md`](../core/references/pushback-and-teach.md).
+- **Evolution gate (owned here)** — applied or document-derived changes remain `PENDING` until a later run settles them using qualifying real-use evidence. See [`references/loop.md`](references/loop.md).
+- **Core reference rule** — link to shared gates instead of restating or duplicating them. [book:clean-code], Don’t Repeat Yourself
 
 ## Anti-patterns
 

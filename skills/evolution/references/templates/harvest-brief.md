@@ -1,6 +1,6 @@
 # Harvest Brief — one skill, bounded evidence
 
-Use one evidence-gathering worker per selected skill when parallel work is appropriate. The workers examine independent skill scopes concurrently; the accountable lead merges their findings once into a single synthesis. If multiple workers inspect the same traces, compare their extraction and resolve disagreements before using the evidence. [R022] [R129] [evolution-C29] [book:agentic-design-patterns], Create the ParallelAgent (Runs researchers concurrently); [book:critical-thinking-about-research], 10 Research Syntheses and Meta-Analysis
+Use one evidence-gathering worker per selected skill when parallel work is appropriate. The workers examine independent skill scopes concurrently; the accountable lead merges their findings once into a single synthesis. If multiple workers inspect the same traces, compare their extraction and resolve disagreements before using the evidence. [book:agentic-design-patterns], Create the ParallelAgent (Runs researchers concurrently); [book:critical-thinking-about-research], 10 Research Syntheses and Meta-Analysis
 
 ---
 
@@ -14,21 +14,23 @@ Use one evidence-gathering worker per selected skill when parallel work is appro
 
 ## Settle open items
 
-For each unchecked item and `PENDING` verdict in the last unresolved entry, state whether post-entry traces exercised it. Name the evidence, or state that no qualifying trace exists. Recommend `KEEP`, `REVISED`, `REVERT`, or reasoned `PENDING` using the non-adoption sequence. [R131]
+For each unchecked item and `PENDING` verdict in the last unresolved entry, state whether post-entry traces exercised it. Name the evidence, or state that no qualifying trace exists. Recommend `KEEP`, `REVISED`, `REVERT`, or reasoned `PENDING` using the non-adoption sequence.
 
 ## Harvest
 
-Bound the evidence window by the last entry’s date. Record what sources and periods were actually read. Stream large records and filter to the question; do not load an entire large transcript when a bounded excerpt answers it. [R035] [book:python-for-devops], Dealing with Large Files
+Bound the evidence window by the last entry’s date. Record what sources and periods were actually read. Stream large records and filter to the question; do not load an entire large transcript when a bounded excerpt answers it. [book:python-for-devops], Dealing with Large Files
 
-For each source, record its origin, observed date, task identity, directness, completeness and any known instrumentation limits. A source-quality judgment must be available before its contents support a strong pattern. [evolution-C25]
+For each source, record its origin, observed date, task identity, directness, completeness and any known instrumentation limits. A source-quality judgment must be available before its contents support a strong pattern.
 
-Work through the fixed pattern questions in [`../triage.md`](../triage.md) to identify recurring causes and relationships. Report patterns with their evidence and uncertainty; do not require each finding to fit a fixed taxonomy of categories. [R134]
+Before reporting a count, reconcile it against every in-scope record that states the same quantity over the same scope and period. Resolve disagreements before the number reaches a pattern or approval block; if definitions or scopes differ, state them separately and record any unresolved discrepancy as a finding. (derived: dogfood 2026-10-01)
 
-Report findings as advice a separate decision taker may act on; the decision taker retains the choice, and the finding does not itself authorize implementation. [R137] [book:facilitating-software-architecture], Direct Versus Representative Democracy
+Work through the fixed pattern questions in [`../triage.md`](../triage.md) to identify recurring causes and relationships. Report patterns with their evidence and uncertainty; do not require each finding to fit a fixed taxonomy of categories.
+
+Report findings as advice a separate decision taker may act on; the decision taker retains the choice, and the finding does not itself authorize implementation. [book:facilitating-software-architecture], Direct Versus Representative Democracy
 
 ## Pattern questions
 
-Use the seven questions in `../triage.md` to find repeated causes and relationships. Mark patterns first noticed after examining evidence as exploratory and state what further evidence would strengthen or overturn them. [evolution-C27] [book:critical-thinking-about-research], 9 Inferences, Conclusions, and the Research Report
+Use the seven questions in `../triage.md` to find repeated causes and relationships. Mark patterns first noticed after examining evidence as exploratory and state what further evidence would strengthen or overturn them. [book:critical-thinking-about-research], 9 Inferences, Conclusions, and the Research Report
 
 ## Output
 
@@ -47,4 +49,4 @@ Use the seven questions in `../triage.md` to find repeated causes and relationsh
 <what was checked and not found>
 ```
 
-Each test states its expected result. Document the work clearly enough that another owner can repeat the evidence check. [R127] [book:swebok], Test Activities
+Each test states its expected result. Document the work clearly enough that another owner can repeat the evidence check. [book:swebok], Test Activities
