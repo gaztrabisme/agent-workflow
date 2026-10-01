@@ -42,7 +42,7 @@ For each training run, record its configuration, metric against the pre-register
 
 Do not mark an experiment complete until its log entry and any required direction-changing decision exist. Keep entries terse because they will be reread. [book:software-engineering-at-google], Types of Audiences
 
-When a candidate misses its gate, honor the threshold; do not move it after seeing the result. Revert to the baseline and confirm its score returns. Retain rejected artifacts for a later revisit, and record the failure cause so a dead end is not retried without new evidence. [book:machine-learning-production-systems], Experiment Tracking
+When a candidate misses its gate, honor the threshold; do not move it after seeing the result. [book:research-methods-psychology], Research Transparency and Credibility. Revert to the baseline and confirm its score returns. Retain rejected artifacts for a later revisit, and record the failure cause so a dead end is not retried without new evidence. [book:machine-learning-production-systems], Experiment Tracking
 
 Write a post-mortem explaining why and how a candidate lost. For a rejected direction, add a `wiki/Rejected Approaches` entry. Use a blameless structure: summary, timeline, primary cause, impact, actions with owners, and lessons learned. A negative result is useful when it changes what the next run will do. [book:software-engineering-at-google], Blameless Postmortem Culture
 

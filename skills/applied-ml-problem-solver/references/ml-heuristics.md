@@ -28,7 +28,7 @@ Multitask models can share a representation while using separate heads for diffe
 
 Weight task losses according to the real-world cost of their errors. A false negative with safety impact may warrant a different cost from a mistaken accessory label. [book:designing-ml-systems-huyen], Cost-sensitive learning
 
-Class-balanced loss can use normalized inverse-frequency weights, but class counts alone do not establish the right objective. Inspect label quality, the cost of each error, and performance by class before weighting; aggressive weights can amplify noisy rare labels or distort the operating objective. [book:designing-ml-systems-huyen], Class-balanced loss
+When a class has fewer than about 5% of the examples in the most common class, use normalized inverse-frequency class weights. Class counts alone do not establish the right objective: inspect label quality, the cost of each error, and performance by class; aggressive weights can amplify noisy rare labels or distort the operating objective. [book:designing-ml-systems-huyen], Class-balanced loss
 
 ## Data quantity, splits, and model selection
 

@@ -29,7 +29,7 @@ Use this skill for ML decision questions and hand code construction to `dev`. Wh
 - For a small, direct utility on the ML path, prefer standard-library primitives over a wrapper or framework; leave code construction to `dev`.
 - A proxy is useful only after its relationship to the outcome that matters is checked; evaluate surrogates against that outcome before relying on them. [book:how-to-read-a-paper], Surrogate endpoints
 - Give every reported metric or constant an operational definition: name the procedure and instrument that produced it. [book:research-methods-psychology], Variables
-- Fit a non-RL baseline before choosing reinforcement learning for a retrieval or decision problem.
+- Do not reach for reinforcement learning before fitting and beating a non-RL baseline.
 
 ## The flow (at a glance)
 
