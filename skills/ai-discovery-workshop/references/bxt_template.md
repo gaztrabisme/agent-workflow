@@ -2,7 +2,7 @@
 
 ## AI suitability screen
 
-Before BXT scoring, record `AI needed?` as `yes`, `uncertain`, or `no`, with a short reason and evidence. If the answer is `no`, describe the conventional option, remove it from the AI matrix, and hand it to solution-architect only if the client wants further design. Keep `uncertain` visible as an open question; any related scores stay provisional. (derived: dogfood 2026-10-01)
+Screen every candidate and record `AI needed?` as `yes`, `uncertain`, or `no`, with a short reason and evidence. Complete the BXT assessment for every candidate before routing. If the answer is `no`, describe the conventional option, keep the candidate out of the AI matrix, and hand it to solution-architect only if the client wants further design. Keep `uncertain` visible as an open question; any related scores stay provisional. (derived: dogfood 2026-10-01)
 
 ## BXT dimensions and their evidence
 
@@ -14,7 +14,7 @@ User Desirability captures whether the experience is wanted. [book:art-of-ai-pro
 
 Technical Feasibility captures whether it can be implemented and operated. [book:art-of-ai-product-development], Technical feasibility
 
-Use these four criteria for each candidate with a plausible AI role or an open AI-suitability question:
+Use these four criteria for every candidate; record AI suitability separately from its BXT scores:
 
 | Criterion | Dimension | Questions to record |
 |---|---|---|
@@ -27,7 +27,7 @@ The source's prioritization criteria include user impact, business value, and te
 
 ## Use-case assessment template and criteria
 
-For each candidate that passes the AI suitability screen or remains uncertain, record:
+For every candidate, record:
 
 - Name, business unit, internal or external use, and concise description.
 - Problem in the client's words, affected workflow, and desired business outcome.

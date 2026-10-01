@@ -13,7 +13,7 @@ Use the pillar to frame the opportunity. It does not replace the client's proble
 
 ## Journey map and card use
 
-Map the client's current journey before adding AI. Show the User and AI Discovery lanes. Add the Agentic Workflow lane when a task needs multiple steps or decisions; otherwise mark it `none found`. (derived: dogfood 2026-10-01) Order user tasks in the sequence they happen; a task is an action toward a goal. [book:user-story-mapping], 2. Organize Your Story [book:user-story-mapping], Tasks Are What We Do
+Map the client's current journey before adding AI. Always show the User, AI Discovery, and Agentic Workflow lanes. Add tasks to the Agentic Workflow lane only when a task needs multiple steps or decisions; otherwise mark the lane `none found` and do not invent tasks. (derived: dogfood 2026-10-01) Order user tasks in the sequence they happen; a task is an action toward a goal. [book:user-story-mapping], 2. Organize Your Story [book:user-story-mapping], Tasks Are What We Do
 
 For each stage, estimate where AI might augment or automate work; delimit the substeps that AI could address instead of treating the whole process as one task. [book:art-of-ai-product-development], 10.1 Discovery and user research [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 
@@ -35,7 +35,7 @@ In the 15-minute Develop block:
 3. Ask the client to choose one or two cards that fit the step.
 4. Record the capability and the evidence or question it creates on the map.
 
-If the journey contains a multi-step or decision-heavy task, select a fitting pattern below or from an authorized current Agentic Card deck. Choose for contextual fit rather than maximum capability. [book:agentic-mesh], Finding the Right Agent (derived: dogfood 2026-10-01)
+For solution envisioning, after selecting the top use case, choose one Agentic Card whose attributes match the task's domain, goals, constraints, and policies. Choose the most contextually appropriate card, not the most capable. [book:agentic-mesh], Finding the Right Agent (derived: dogfood 2026-10-01)
 
 | Agentic workflow card | Starter sequence |
 |---|---|
@@ -43,7 +43,7 @@ If the journey contains a multi-step or decision-heavy task, select a fitting pa
 | Investigate an exception | Detect → gather evidence → recommend → escalate |
 | Carry out approved steps | Plan approved steps → execute one step → verify → stop or escalate |
 
-Use the selected card as the workflow lane template and populate it with tasks specific to the client's context. If no pattern fits or no agentic task is found, record `none found`; do not invent a workflow to fill the lane. (derived: dogfood 2026-10-01) User tasks express actions toward goals; the swim lane is this workshop's way to make the workflow concrete. [book:user-story-mapping], Tasks Are What We Do
+Use the selected card as the workflow lane template and populate it with tasks specific to the client's context when a pattern fits a multi-step or decision-heavy task. If no such task is found or no pattern fits, record `none found` in the Agentic Workflow lane; do not invent a workflow to fill it. (derived: dogfood 2026-10-01) User tasks express actions toward goals; the swim lane is this workshop's way to make the workflow concrete. [book:user-story-mapping], Tasks Are What We Do
 
 ## Automation levels
 

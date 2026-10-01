@@ -35,17 +35,21 @@ Opening frame: “You described [workflow or goal]. Today we will map how it wor
 
 Use Discover, Define, Develop, Deliver as a sequence: understand people and their work; frame and assess candidate problems; map the journey and explore AI assistance; then agree evidence, value, and next steps. Spend time empathizing, defining, and ideating before prototyping or testing. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
 
-Before BXT scoring, ask whether AI is needed for the candidate. Route a clear `no` out of the AI matrix and, if the client wants further design, hand it to solution-architect as conventional scope. Score candidates with a plausible AI role across Business, Experience, and Technology; treat the numeric matrix as intelligence gathering. Keep relevant details, evidence gaps, and open questions visible, and remain ready to revise the scores. (derived: dogfood 2026-10-01) [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
+Screen every candidate for AI suitability and record the evidence. Complete a BXT assessment for every candidate across Business, Experience, and Technology before routing; leave unknown scores provisional. After scoring, keep candidates with a plausible or uncertain AI role in the AI matrix. Route a clear `no` out of that matrix and, if the client wants further design, hand it to solution-architect as conventional scope. Treat the numeric matrix as intelligence gathering: keep details, evidence gaps, and open questions visible, and remain ready to revise scores. (derived: dogfood 2026-10-01) [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
 
 For enterprise AI engagements, use BXT to assess the candidate opportunities.
 
-During journey mapping, prioritize a small number of journey steps, likely one, at the stage with the highest payoff. Do not promise a fixed count of agentic cases. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
+Target 3–5 agentic use cases per engagement and narrow them to one PoV-approved case by Day 8. This is a candidate use-case target, not a target count of agentic journey steps.
 
-The Day 1 brief can carry two or three BXT-screened candidates into further discussion. Build an Agentic Journey Map between Day 1 and Day 8 and estimate where AI could augment or automate a step; the map and cards are the workshop method. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
+During journey mapping, prioritize a small number of journey steps, likely one, at the stage with the highest payoff. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation. Do not invent agentic steps where the workflow has none.
 
-Day 8 is a decision point, not a promise that every output is ready. Estimate potential ROI when evidence permits; record a PoV decision only when the client has enough evidence, the relevant decision-makers are present, and follow-up is agreed. Architecture and implementation proceed through the named handoff. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
+The Day 1 brief can carry two or three BXT-screened candidates into further discussion. Build the three-lane Agentic Journey Map between Day 1 and Day 8 and estimate where AI could augment or automate a step; mark the Agentic Workflow lane `none found` when no qualifying task exists, without inventing steps. The map and cards are the workshop method. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 
-Use the references below as working materials. Prepare client-specific variants for the Five Golden Questions, agree translated wording during prework when needed, and record the wording used. Treat all supplied questions as prepared prompts to adapt to the room, and leave time for evidence and discussion. (derived: dogfood 2026-10-01)
+Estimate a feature's potential ROI to validate business value. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
+
+The standard Day 8 close produces the skill's output bundle: an approved PoV use case, ROI baseline, architecture draft, and a small rapid prototype, using ROI analysis, an architecture design session, and rapid prototyping. The PoV approval requires sufficient evidence, the relevant decision-makers, and agreed follow-up; when readiness is missing, mark the approval and dependent outputs pending, name the missing evidence and owner, and do not report them as complete. The architecture draft is a handoff input; solution-architect owns the formal architecture and proposal, and the implementation owner carries the prototype forward after handoff. (derived: dogfood 2026-10-01)
+
+Use the references below as working materials. Prepare client-specific variants for the Five Golden Questions. Use supplied facilitator-script questions literally; for another language, agree the exact translated wording during prework and record it. Ask clarifying follow-ups and skip a prompt already answered, while adapting follow-ups and Golden Question variants to the room. Leave time for evidence and discussion. (derived: dogfood 2026-10-01)
 
 ## References
 

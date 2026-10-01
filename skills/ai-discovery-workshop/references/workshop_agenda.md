@@ -35,7 +35,9 @@ Source candidate use cases from client goals and AI benefit types using an AI op
 
 Shortlist at most six to ten candidates before Day 1 and narrow to three to five for the workshop discussion. These are use-case candidates, not a target number of agentic journey steps. Be willing to remove weak opportunities. [book:user-story-mapping], Be Picky
 
-Prefill known information in each BXT assessment for candidates with a plausible AI role, the journey map, and an industry AI Pattern Scorecard when an authorized, current one is available. Otherwise use the compact client-evidence pattern notes in references/bxt_template.md. Keep observations separate from assumptions, and leave unknown scores open rather than inventing data. [book:art-of-ai-product-development], 2.2.1 Defining your prioritization criteria
+Separately, target 3–5 agentic use cases per engagement and narrow them to one PoV-approved case by Day 8.
+
+Prefill known information in each candidate's BXT assessment, the journey map, and an industry AI Pattern Scorecard when an authorized, current one is available. Otherwise use the compact client-evidence pattern notes in references/bxt_template.md. Keep observations separate from assumptions, and leave unknown scores open rather than inventing data. [book:art-of-ai-product-development], 2.2.1 Defining your prioritization criteria
 
 Review the Golden Questions for each BXT dimension and prepare client-specific variants. If the session will use another language, agree the translated variants with a bilingual client contact during prework and record the wording used. Confirm business and technical decision-maker attendance for a multi-stakeholder Day 8 decision. Arrange a business, technical, and user-experience trio to work together during story mapping where those roles are available. (derived: dogfood 2026-10-01) [book:user-story-mapping], The Three Amigos
 
@@ -48,9 +50,9 @@ For an enterprise, multi-stakeholder engagement, Day 1 Discovery and Day 8 Prior
 Open by stating the workshop objective and the decision the group is working toward. Allocate about five percent of the actual meeting time to the opening and agenda; distribute the remaining steps by proportion to the session length. [book:flawless-consulting], The Meeting for Action, Step by Step
 
 1. **Discover:** explore personas, current workflow, pain, and what already works. Use Five Whys, Rose/Thorn/Bud, and solution-redirection prompts where useful.
-2. **Define:** affinity-cluster observations into themes. Screen whether each candidate needs AI before scoring; fill the BXT assessment for candidates with a plausible AI role using the Golden Questions for each dimension. Route a clear `no` to conventional scope and keep it out of the AI matrix. (derived: dogfood 2026-10-01)
-3. **Develop:** build a journey map with User and AI Discovery lanes. Add an Agentic Workflow lane only when the workflow contains a multi-step or decision-heavy task; otherwise mark `none found` and do not invent one. (derived: dogfood 2026-10-01)
-4. Score AI-suitable candidates from one to five on each criterion, then plot them on the matrix to surface two or three for further discussion. The plotted scores remain provisional and evidence-linked.
+2. **Define:** affinity-cluster observations into themes. Screen each candidate for AI suitability, then fill a BXT Use Case Template for every candidate using the Golden Questions for each pillar. Complete BXT scoring before routing a clear `no` to conventional scope and out of the AI matrix. Keep unknown scores provisional. (derived: dogfood 2026-10-01)
+3. **Develop:** build the Journey Map with User, AI Discovery, and Agentic Workflow lanes. Add workflow tasks only when the journey contains a multi-step or decision-heavy task; otherwise mark the Agentic Workflow lane `none found` and do not invent tasks. (derived: dogfood 2026-10-01)
+4. Score every candidate from one to five across the BXT criteria. Then plot candidates with plausible or uncertain AI roles on the AI matrix to surface two or three for further discussion. The plotted scores remain provisional and evidence-linked.
 
 During pain discovery, use open questions to go beyond the first problem named and understand its impact. Follow up on how often it occurs, who it affects, and what it costs, without pressuring the client toward a predetermined answer. [book:meddicc], DISCOVERY
 
@@ -67,7 +69,9 @@ Before the session, refine scores for the shortlisted cases and prepare an autho
 5. Cover secondary personas and their decisions, workflow RACI, human oversight, and the workflow goals that should ground an agent. Human review is a useful component when an agent's actions need checking. [book:art-of-ai-product-development], 9.1.2 Turning the human into a tool
 6. If the evidence and decision-makers support it, nominate one use case for a small rapid prototype using an AI coding assistant, or for a PoV. The implementation owner builds it after handoff. Before a commitment, validate the concept with users where possible and keep a tight feedback loop. [book:user-story-mapping], Discover a Minimum Viable Solution; [book:art-of-ai-product-development], 10.1.3 Validating AI design concepts.
 
-The client may choose a use case for PoV when the evidence supports that decision. Do not treat an approved PoV, ROI baseline, architecture draft, or prototype as automatic outputs of every Day 8 session.
+Estimate a feature's potential ROI to validate business value. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
+
+For the standard enterprise programme, the planned Day 8 close produces an approved PoV use case, ROI baseline, architecture draft, and small rapid prototype through ROI analysis, an architecture design session, and rapid prototyping. Record a PoV as approved only when evidence, decision-maker attendance, and follow-up support it; if readiness is missing, keep affected outputs pending, name the missing evidence and owner, and do not claim completion. A single-owner or readiness-limited session may use the scoped variant above and carry pending outputs forward. The architecture draft is a handoff input; formal architecture and the proposal go to solution-architect, and the implementation owner carries the prototype forward after handoff. (derived: dogfood 2026-10-01)
 
 ## Schedule and facilitation
 
