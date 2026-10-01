@@ -10,7 +10,7 @@
 
 - Compare totals, relative sizes, changes, relationships and outliers; decide whether a single dataset or connected layers offer a useful direction. (3069 · U2 · L06 · 00:40–01:28; 3069 · U2 · L06 · 01:28–02:44; 3069 · U2 · L06 · 02:44–03:25)
 - Ask who, what, when, where and how much. Compare definitions, overlapping categories, missingness, periods and geographic groups before choosing the main measure. (3601 · U3 · L08 · 00:00–00:47; 3601 · U3 · L08 · 00:47–02:24; 3601 · U3 · L08 · 02:24–04:35; 3601 · U3 · L08 · 04:35–07:26; 3601 · U3 · L08 · 07:26–10:06)
-- For a narrative, list the people, places or objects to represent and the features that could become marks; use the storyline sketch to expose layout needs as well as data questions. (3069 · U3 · L07 · 00:00–03:36; 3069 · U3 · L07 · 03:36–05:02)
+- For a narrative, list the people, places or objects to represent and the features that could become marks. The storyline sketch considers how the marks work together in the layout; the chapter sketch also sets out the question of how many characters appear in each chapter. (3069 · U3 · L07 · 00:00–03:36; 3069 · U3 · L07 · 03:36–05:02; 3069 · U3 · L07 · 05:02–06:55)
 - Separate the main story from context. In the CO₂ example, emissions over time carry the story; population and GDP orient the reader. (2495 · U3 · L09 · 01:08–02:33; 2495 · U3 · L09 · 02:33–03:35)
 - List variables and decide the order the reader meets them. The renewable-energy example introduces region and population before the energy measures. (4217 · U3 · L11 · 00:08–01:14; 4217 · U3 · L11 · 01:14–02:26; 4217 · U3 · L11 · 02:26–02:54; 4217 · U3 · L11 · 02:54–03:47)
 - A view can reveal information in stages to invite exploration; the migration-story example shows routes before the reader discovers the map and supporting data. (4217 · U2 · L06 · 01:08–02:00)
@@ -35,7 +35,7 @@ The process can loop between source, spreadsheet, sketch and design; a working o
 
 **Problem 1: accumulating layers without a reading order.** Multiple datasets may add depth, but they can compete. Name the main view and make secondary layers subordinate or remove them. (4217 · U2 · L05 · 01:48–02:25; 3601 · U3 · L09 · 15:13–17:37)
 
-**Problem 2: metaphor drives the chart.** A metaphor may attract attention but obscure the quantity. Test it against the values and provide a direct key. (4217 · U2 · L07 · 00:00–00:45; 2495 · U4 · L15 · 00:00–01:26)
+**Problem 2: metaphor drives the chart.** Do not force a metaphor; the teacher sometimes uses one to reflect the content. Explain unfamiliar visual forms with a clear key. (4217 · U2 · L07 · 00:00–00:45; 2495 · U4 · L15 · 00:00–01:26)
 
 ## Check before moving on
 

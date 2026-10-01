@@ -22,7 +22,8 @@ These forms also appear as editable starting files in [templates/README.md](../.
 
 ## Assign channels and preserve value meaning
 
-- Make a channel-to-field table before drawing. Courses list position, length, area, angle, intensity, shape, orientation, texture, opacity, colour, line thickness and repeated elements as possible visual variables. (4217 · U2 · L03 · 00:00–01:32; 2495 · U2 · L03 · 01:31–03:02)
+- Make a channel-to-field table before drawing. (derived: this turns the courses' visual-variable lists and chart-to-data examples into an explicit mapping step; 4217 · U2 · L03 · 00:00–01:32; 4217 · U2 · L03 · 02:18–04:02; 2495 · U2 · L03 · 01:31–03:02)
+- Possible visual variables include position, orientation, shape, size, line thickness, texture and repeated elements. (2495 · U2 · L03 · 01:31–03:02) Course 4217 also lists opacity and colour. (4217 · U2 · L03 · 00:00–01:32)
 - Record whether each field is nominal, ordinal, discrete quantitative or continuous quantitative before assigning its scale and mark. (3601 · U2 · L03 · 00:00–02:43)
 - When readers must compare numerical ratios, course 4217 cites a ranking of position, length, area, angle and intensity, in that order. It describes this as typical precision for verbally stating the ratio between two values, not as an all-purpose chart selector. (4217 · U2 · L03 · 02:18–04:02)
 - Course 3601 likewise prefers length for small changes on a finite percentage scale and allows area when the range is broad and exact precision matters less. (3601 · U3 · L09 · 07:00–09:50)
