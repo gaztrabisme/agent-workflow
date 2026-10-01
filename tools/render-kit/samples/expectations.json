@@ -5,6 +5,7 @@
   { "input": "good/raf.html", "fail": [] },
   { "input": "good/print-media.html", "fail": [] },
   { "input": "good/dense.svg", "fail": [] },
+  { "input": "good/cvd-12.svg", "fail": [] },
   { "input": "bad/resources.html", "fail": ["resources"] },
   { "input": "bad/console.html", "fail": ["console"] },
   { "input": "bad/fonts.html", "fail": ["fonts"] },

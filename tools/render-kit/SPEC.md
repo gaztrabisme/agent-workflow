@@ -35,7 +35,7 @@ Out of scope: video encoding and PowerPoint output (the separate `scene-engine`,
 
 ## 4. Command-line interface
 
-`rk <command> [options]`. Every command prints one JSON document to stdout (except `rk text wrap --format svg`, which prints SVG) and progress to stderr.
+`rk <command> [options]`. Normal command output is one JSON document on stdout (except `rk text wrap --format svg`, which prints SVG) and progress on stderr. `rk --help`, `rk help`, a bare `rk`, and `rk <command> --help` print usage to stdout and exit 0; command help lists its flags.
 
 **Exit codes**
 - `0`: success.
@@ -312,6 +312,10 @@ Each test names its sample or setup and its expected result. All run from the re
 | AT25 | `bin/rk check samples/bad/cvd.svg --threshold cvd.min_distance=0.03` | `cvd` passes (0.039 is above 0.03) and the report states the threshold used; exit 0 |
 | AT26 | `time bin/rk check samples/good/dense.svg` (1,500 non-overlapping text labels in a grid) | Exit 0 in under 60 s on the build machine |
 | AT27 | Serve `samples/good/` with `python3 -m http.server` on a free port on 127.0.0.1, then `bin/rk check http://127.0.0.1:<port>/slide.html`; then the same with `--root samples/good` | First: exit 0 with the same check statuses as AT03 without `--pdf`. Second: exit 2 |
+| AT28 | `bin/rk brief samples/good/slide.html --questions questions/slide.md --out-dir /tmp/rk-at28 --simulate protanopia,deuteranopia,tritanopia` | Exit 0; `render.png` is the base image and one `render-<type>.png` exists for each requested type |
+| AT29 | Brief the same slide with `--simulate protanopia`, then compare `render.png` and `render-protanopia.png` | Both files exist and differ; the base render is unsimulated |
+| AT30 | `bin/rk --help`, bare `bin/rk`, `bin/rk help`, and `bin/rk <command> --help` | Each exits 0 and prints usage listing all commands and their flags; command help lists that command's flags |
+| AT31 | `bin/rk check samples/good/cvd-12.svg` | Exit 0; `cvd` passes at its default `cvd.min_distance` of 0.06 for all 12 declared series |
 
 ## 12. Open questions
 

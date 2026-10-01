@@ -23,7 +23,7 @@ export async function briefCommand(input:string|undefined,v:Record<string,any>){
  if(v.verify){const {value,code}=await verifyAnswers(resolve(v.verify),!!v.strict);return {value,code};}
  if(!input||!v.questions||!v['out-dir'])throw new Error('brief requires <input>, --questions and --out-dir');
  const simulations=String(v.simulate??'').split(',').filter(Boolean);for(const t of simulations)if(!visions.includes(t))throw new Error(`Unknown simulation: ${t}`);
- const options=await runOptions(input,v,false);validateChecks(options.checks);const dir=resolve(v['out-dir']);options.outDir=dir;
+ const options=await runOptions(input,v,false);validateChecks(options.checks);const dir=resolve(v['out-dir']);options.outDir=dir;options.simulate=undefined;
  const {report}=await checkInput(options);
  for(const type of simulations){const session=await prepare({...options,simulate:type});try{await capture(session,{...options,simulate:type},join(dir,`render-${type}.png`),'png');}finally{await session.stop();}}
  const written=await writeBrief(dir,resolve(v.questions),String(v.purpose??''),report,simulations);return {value:{out_dir:dir,images:written.images.map(x=>join(dir,x)),questions:written.questions.length},code:0};

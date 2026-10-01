@@ -1,12 +1,17 @@
 import { parseOptions } from './args.ts';
 import { renderCommand, checkCommand, briefCommand, selftestCommand, textCli } from './commands.ts';
+import { helpText } from './help.ts';
 
 const write=(value:unknown)=>process.stdout.write(JSON.stringify(value)+'\n');
 const error=(e:unknown)=>{const message=e instanceof Error?e.message:String(e);process.stderr.write(`${message}\n`);write({error:message});process.exitCode=2;};
 
 async function main(){
  const major=Number(process.versions.node.split('.')[0]);if(major<24)throw new Error('render-kit requires Node 24 or later');
- const [command,...args]=process.argv.slice(2);if(!command)throw new Error('Usage: rk <render|check|text|brief|selftest>');
+ const [command,...args]=process.argv.slice(2);
+ if(!command||command==='--help'||command==='-h'){process.stdout.write(helpText()+'\n');return;}
+ if(command==='help'){const target=args[0],sub=args[1];process.stdout.write(helpText(target,sub)+'\n');return;}
+ const helpIndex=args.findIndex(arg=>arg==='--help'||arg==='-h');
+ if(helpIndex>=0){const sub=command==='text'?args[0]:undefined;process.stdout.write(helpText(command,sub)+'\n');return;}
  const {values,positionals}=parseOptions(args);
  if(command==='render'){
   if(positionals.length!==1)throw new Error('render requires one input');process.stderr.write(`Rendering ${positionals[0]}\n`);const out=await renderCommand(positionals[0],values);write(out.value);process.exitCode=out.code;return;

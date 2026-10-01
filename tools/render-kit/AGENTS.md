@@ -9,10 +9,16 @@ Reader: an agent that renders and checks visual work with this kit, or changes t
 ```bash
 npm ci
 npx playwright install chromium
+python3 -m pip install numpy Pillow
+export RK_COLOR_THEORY=../skills/color-theory
 bin/rk selftest
 bin/rk check page.html --pdf --out-dir out/
 bin/rk brief page.html --questions questions/slide.md --out-dir out/review --purpose "Daily drilling report, slide 3"
 ```
+
+The colour checks use Python 3, `numpy` and `Pillow`, plus `scripts/checks.py` in
+`RK_COLOR_THEORY`. Its default is `../skills/color-theory` from `render-kit`; set
+the variable above when that skill folder is elsewhere.
 
 ## The loop
 
@@ -34,6 +40,19 @@ bin/rk brief page.html --questions questions/slide.md --out-dir out/review --pur
 | `data-rk-allow-overlap`, `data-rk-allow-truncate`, `data-rk-ignore` | Deliberate exceptions |
 
 Details and exact rules: `SPEC.md` sections 6 and 8.
+
+## Categorical palettes
+
+For up to 12 categorical series, the reference palette below passes `cvd` at its
+default minimum OKLab distance of 0.06; `samples/good/cvd-12.svg` is the checked
+example. Keep each colour tied to the same series throughout the chart. Beyond
+12 series, use direct labels, small multiples or grouped categories instead of
+adding more colours.
+
+```text
+#0072B2  #101030  #B83010  #1010A0  #682848  #988078
+#785868  #382010  #285098  #901810  #B87010  #102058
+```
 
 ## Rules for changing the kit
 
