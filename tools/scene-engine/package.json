@@ -6,6 +6,7 @@
   "scripts": {
     "scene-engine": "node src/cli.mjs",
     "test": "node --test --test-reporter=tap tests/acceptance.test.mjs",
+    "selftest": "node src/cli.mjs selftest",
     "samples": "node scripts/samples.mjs"
   },
   "keywords": [],

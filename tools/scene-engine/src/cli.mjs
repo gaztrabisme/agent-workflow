@@ -328,7 +328,7 @@ function simpleSelftest(id) {
   return { status: 'skipped', errors: [diagnostic('CLI_USAGE', `${id} needs a dedicated integration fixture or external application check.`, { severity: 'warning' })] };
 }
 
-function selftestAT36() {
+async function selftestAT36() {
   const directory = path.join(ROOT, 'out', 'tests', 'AT36');
   fs.mkdirSync(directory, { recursive: true });
   const presentation = path.join(directory, 'smoke.pptx');
@@ -339,9 +339,15 @@ function selftestAT36() {
   catch (error) { throw new Error((error.stderr || error.stdout || error.message).toString().trim()); }
   const exportDocument = JSON.parse(exported.trim());
   if (!exportDocument.ok) throw new Error('AT36 could not export its PPTX fixture.');
-  const keynote = exportWithKeynote(presentation, keynotePdf);
-  const libreOffice = renderWithLibreOffice(presentation, libreOfficePdf);
-  return { status: 'pass', errors: [], details: { importRenderSmoke: true, keynote, libreOffice, powerpointBehaviorProven: false } };
+  let keynote; let keynoteError;
+  try { keynote = await exportWithKeynote(presentation, keynotePdf); }
+  catch (error) { keynoteError = error; }
+  let libreOffice; let libreOfficeError;
+  try { libreOffice = renderWithLibreOffice(presentation, libreOfficePdf); }
+  catch (error) { libreOfficeError = error; }
+  const failures = [keynoteError, libreOfficeError].filter(Boolean);
+  if (failures.length) throw new Error(failures.map((error) => error.message).join('; '));
+  return { status: 'pass', errors: [], details: { importRenderSmoke: keynote.status === 'pass', keynote, libreOffice, powerpointBehaviorProven: false } };
 }
 
 async function commandSelftest(positional, options) {
@@ -355,7 +361,7 @@ async function commandSelftest(positional, options) {
       const model = loadStoryboard(file);
       cases.push({ id, status: model.errors.length ? 'fail' : 'pass', errors: model.errors });
     } else if (id === 'AT36') {
-      try { cases.push({ id, ...selftestAT36() }); }
+      try { cases.push({ id, ...await selftestAT36() }); }
       catch (error) { cases.push({ id, status: 'fail', errors: [diagnostic('PPTX_ROUNDTRIP_FAILED', error.message, { severity: 'error' })] }); }
     } else cases.push({ id, ...simpleSelftest(id) });
   }

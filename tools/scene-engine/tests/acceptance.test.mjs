@@ -471,7 +471,7 @@ test('AT32', () => {
   assert.deepEqual(new Set(document.result.poseWarnings.map((item) => item.code)), new Set(['PPTX_POSE_INVISIBLE', 'PPTX_POSE_CLIPPED', 'PPTX_TEXT_REFLOW']));
 });
 
-test('AT33', () => {
+test('AT33', async (t) => {
   const svg = path.join(WORK, 'at33.svg');
   fs.writeFileSync(svg, '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80"><rect width="120" height="80" fill="#2563eb"/><circle cx="60" cy="40" r="20" fill="#ffffff"/></svg>');
   const first = { id: 'morph-start', startMs: 0, durationMs: 1000, layers: [
@@ -495,9 +495,14 @@ test('AT33', () => {
   assert.match(zipText(output, 'ppt/slides/slide1.xml'), /name="svg-mark" descr="Blue mark"/);
   assert.ok(execFileSync('unzip', ['-Z1', output], { encoding: 'utf8' }).split('\n').some((name) => /^ppt\/media\/imageSvg\d+\.svg$/.test(name)));
   const keynotePdf = path.join(OUT, 'tests', 'at33-keynote.pdf');
-  const keynote = exportWithKeynote(output, keynotePdf);
-  assert.equal(keynote.status, 'pass');
-  assert.ok(fs.statSync(keynotePdf).size > 0);
+  const keynote = await exportWithKeynote(output, keynotePdf);
+  if (keynote.status === 'owner-check') {
+    assert.equal(keynote.manualSteps[0], 'owner-check: grant Automation permission (Terminal/Codex → Keynote) and rerun npm run selftest -- --case AT36');
+    t.diagnostic(keynote.manualSteps[0]);
+  } else {
+    assert.equal(keynote.status, 'pass');
+    assert.ok(fs.statSync(keynotePdf).size > 0);
+  }
 });
 
 test('AT34', () => {
@@ -531,15 +536,19 @@ test('AT35', () => {
   const count = execFileSync(path.join(ROOT, '.venv/bin/python'), ['-c', "from pptx import Presentation; p=Presentation('" + output + "'); print(len(p.slides))"], { encoding: 'utf8' });
   assert.equal(Number(count.trim()), 2);
 });
-test('AT36', () => {
+test('AT36', (t) => {
   const document = runCli(['selftest', '--case', 'AT36']);
   const smoke = document.result.cases.find((item) => item.id === 'AT36');
   assert.equal(document.ok, true);
   assert.equal(smoke.status, 'pass');
-  assert.equal(smoke.details.keynote.status, 'pass');
+  assert.ok(['pass', 'owner-check'].includes(smoke.details.keynote.status));
+  assert.equal(smoke.details.importRenderSmoke, smoke.details.keynote.status === 'pass');
   assert.equal(smoke.details.libreOffice.status, 'pass');
   assert.equal(smoke.details.powerpointBehaviorProven, false);
-  assert.ok(fs.statSync(smoke.details.keynote.pdf).size > 0);
+  if (smoke.details.keynote.status === 'owner-check') {
+    assert.equal(smoke.details.keynote.manualSteps[0], 'owner-check: grant Automation permission (Terminal/Codex → Keynote) and rerun npm run selftest -- --case AT36');
+    t.diagnostic(smoke.details.keynote.manualSteps[0]);
+  } else assert.ok(fs.statSync(smoke.details.keynote.pdf).size > 0);
   assert.ok(fs.statSync(smoke.details.libreOffice.pdf).size > 0);
 });
 test('AT37 owner-check: current PowerPoint on Windows and Mac', (t) => {
