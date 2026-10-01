@@ -8,6 +8,7 @@ Per unit of work, one row:
 |---|---|---|---|---|
 
 - **Brief** — three sections, always the same three: **Target** (what exists, what is wrong with it), **Change** (what the unit must produce), **Acceptance** (a command that proves the work is done). Every brief ends with: *"write the report before running out of steps even if the verdict is FAIL."*
+  - When a unit is tasked with resolving an open grounding gap, state that gap as a specific question in the brief's Target or Change section. This carries the grounding question to the lane that can settle it.
   - **Every brief names its paths and forbids searching outside them.** The brief names the paths the child may read and write, and forbids listing or searching outside them — no `find`, `grep`, `ls` or `mdfind` on the home folder or `/`. A search of the home folder crosses the owner's cloud drives and triggers macOS privacy prompts.
   - **Target names the anchors.** Where other files cite the numbering of what the unit touches (a spine item, a section number), Target names each anchor at its current number.
   - **Numbered structure carries a sweep.** A unit that edits numbered structure includes the sweep `grep -rn "spine #\|SKILL.md §"` across the constellation and the repointing it finds, and its Acceptance command proves the repointing. [book:swebok], 7.4. Requirements Tracing.

@@ -14,7 +14,7 @@ Every input document — the brief, the RFP, the prior wiki, a subagent's report
 - What came before it (**context**), and what it expects next (**implications**).
 - What is **MISSING** — an element the document should supply and does not.
 
-Each missing item becomes a Plan Block `DECIDE NOW` question and, while it remains open, an issue-log entry with a responsible owner and follow-up action. A gap noticed while grounding and not written down is a gap the run rediscovers later at full price. [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
+Each missing item becomes a Plan Block `DECIDE NOW` question and a specific question in the brief for the lane or lanes tasked with resolving it; while it remains open, keep an issue-log entry with a responsible owner and follow-up action. A gap noticed while grounding and not written down is a gap the run rediscovers later at full price. [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
 
 ### Look beneath the event
 

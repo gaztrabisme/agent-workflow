@@ -54,7 +54,7 @@ Use `references/routing-table.md` for the complete route table, carrier/capabili
 
 Before composing, read project rules, the wiki index and live state, existing decisions, the declared agent board if present, the relevant skill substrate, and the current harness row. A plan that ignores existing decisions reopens settled questions. [book:agentic-mesh], Agents as Plan Steps; [book:facilitating-software-architecture], Framing the Context.
 
-Read every input document as a CERIC hunt: what it claims, its evidence and reasoning, relevant context, implications, and what is missing. Write `grounded.md` with one section per input and a closing `Grounded:` line. Missing items become both `DECIDE NOW` questions and owned issue-log entries with a responsible person and follow-up. See `references/ceric-gates.md`. [book:learning-systems-thinking], Identify Your Reasons; [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
+Read every input document as a CERIC hunt: what it claims, its evidence and reasoning, relevant context, implications, and what is missing. Write `grounded.md` with one section per input and a closing `Grounded:` line. Missing items become `DECIDE NOW` questions and specific questions in the briefs of lanes tasked with resolving them; while open, they also become owned issue-log entries with a responsible person and follow-up. See `references/ceric-gates.md`. [book:learning-systems-thinking], Identify Your Reasons; [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
 
 ### 3. Compose — build the workflow
 
