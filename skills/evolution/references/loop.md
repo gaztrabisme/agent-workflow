@@ -111,7 +111,7 @@ Assess changes against recurrence, user friction, whether the changed reference 
 
 ## Retrospective and maintenance
 
-Define objective triggers before a run for a formal postmortem; write one for a significant undesirable event, and keep it blameless. The run review focuses on conditions, causes and preventive action, never on fault. Keep one formal retrospective per engagement. A short closing reflection may accompany every run. [book:site-reliability-engineering], Google’s Postmortem Philosophy
+Define objective triggers before a run for a formal postmortem; write one for a significant undesirable event, and keep it blameless. The run review focuses on conditions, causes and preventive action, never on fault. A short closing reflection may accompany every run. [book:site-reliability-engineering], Google’s Postmortem Philosophy
 
 A significant failure should produce specific preventive actions, with an owner, and the follow-up should remain accessible until completed. [book:software-engineering-at-google], Blameless Postmortem Culture
 
