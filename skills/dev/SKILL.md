@@ -166,20 +166,20 @@ The **Knowledge Base is gated** (see Grounding Gate below), not optional, on KB-
 
 | Tool | When | How |
 |------|------|-----|
-| **Knowledge Base** (MCP) | ML, DB, security, distributed systems domain questions | `search("concept")`, `grep_books("exact term")`, `get_chapter(book, ch)` |
+| **Knowledge Base** (MCP) | ML, AI engineering, DB, security, architecture, distributed systems, Rust, systems/ops questions | `search("concept")`, `read_chunk(id)`, `grep_books("exact term")`, `get_chapter(book, ch)` |
 
 ### Knowledge Base Grounding Gate
 
-The Knowledge Base MCP (46 books: ML, databases, security, distributed systems, cryptography, RAG) is the skill's grounding substrate — domain decisions should be grounded in it, not improvised. This is a **gate**, not a suggestion: Design and KB-domain Build both enforce it (each mode points here). `applied-ml-problem-solver` declares the same gate in its own terms over the same corpus.
+The Knowledge Base MCP (126 books: ML, AI engineering, databases, security, cryptography, software architecture and engineering, distributed systems, Rust, systems/ops) is the skill's grounding substrate — domain decisions should be grounded in it, not improvised. This is a **gate**, not a suggestion: Design and KB-domain Build both enforce it (each mode points here). `applied-ml-problem-solver` declares the same gate in its own terms over the same corpus.
 
 **When the task touches a KB-covered domain, BEFORE designing or implementing:**
 
-1. **Search the KB for prior art** — `search("concept")` for theory; `search(..., hyde_passage="...")` when the question vocabulary differs from textbook prose; `extra_queries=[...]` to broaden recall; `grep_books("exact term")` for API/algorithm names; `get_chapter(book, ch)` to read deeper.
+1. **Search the KB for prior art** — `search("concept")` for theory (results are short passages; `read_chunk(chunk_id)` reads around a hit); `grep_books("exact term")` for API/algorithm names; `get_chapter(book, ch)` to read deeper. Search the whole library first rather than picking books. `hyde_passage` and `extra_queries` are fallbacks for a first search that missed on vocabulary, not defaults: the KB's agent benchmark found that pushing agents to write HyDE passages and narrow to books first lost answers. For a question that needs understanding rather than one fact, read in steps as the server's instructions describe: read the strongest hits in context, search again with the terms they use, and check a second book.
 2. **Record the result in Key Decisions, one line** — either:
    - `KB: searched "<query>" → applied <finding> (book/chapter)`, or
    - `KB: searched "<query>" → nothing relevant`
 
-**Skippable only by stating the domain isn't covered** (e.g. frontend, infra, glue code). A silent skip on a covered domain is a gate violation. The point is cheap, honest grounding — one search and one line — not ceremony.
+**Skippable only by stating the domain isn't covered** (e.g. frontend, infra, glue code). A silent skip on a covered domain is a gate violation. The point is honest grounding without ceremony: one search and one line for a single fact, several reads for a question that needs understanding.
 
 ### Invariant Gate
 

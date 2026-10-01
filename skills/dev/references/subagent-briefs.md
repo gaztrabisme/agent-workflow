@@ -23,12 +23,13 @@ If you find multiple viable approaches, compare them in a table.
 ```
 
 **Available knowledge sources:**
-- **Knowledge Base MCP** (46 books: ML, databases, security, distributed systems, cryptography, RAG):
-  - `search("query")` — semantic search, returns ranked chunks with source metadata
-  - `search("query", hyde_passage="...")` — better for conceptual queries with vocabulary gap
-  - `search("query", extra_queries=["alt1", "alt2"])` — broader recall via query expansion
+- **Knowledge Base MCP** (126 books: ML, AI engineering, databases, security, cryptography, software architecture and engineering, distributed systems, Rust, systems/ops):
+  - `search("query")` — hybrid semantic + keyword search over the whole library; returns short passages with chunk ids. Start here, without a book filter.
+  - `read_chunk(chunk_id)` — the passage around a hit
   - `grep_books("exact term")` — literal keyword search across all book markdown
-  - `get_chapter(book, chapter)` — full chapter text when deeper reading needed
+  - `get_chapter(book, chapter)` — full chapter text when deeper reading is needed
+  - `search_book(book, query)`, `list_books()` — when the book is already known
+  - `hyde_passage=` / `extra_queries=[...]` on `search` — fallbacks when a first search misses on vocabulary; not a default
 - **Web search** — for current docs, release notes, and topics not covered by the KB
 
 For parallel research: spawn multiple subagents simultaneously in a single message.
