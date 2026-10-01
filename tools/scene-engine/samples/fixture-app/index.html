@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Signal dashboard demo fixture</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #f2f5f9; font: 15px/1.4 Arial, sans-serif; color: #182230; }
+    header { height: 64px; display: flex; align-items: center; gap: 16px; padding: 0 24px; background: #fff; border-bottom: 1px solid #e4e7ec; }
+    .mark { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; color: #fff; background: #2563eb; font-weight: 700; }
+    header strong { font-size: 16px; } header span { color: #667085; margin-left: auto; font-size: 12px; }
+    main { padding: 24px; } h1 { font-size: 23px; margin: 0 0 6px; } .sub { color: #667085; margin-bottom: 20px; }
+    .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; padding: 12px; background: white; border: 1px solid #e4e7ec; border-radius: 12px; }
+    input { width: 190px; padding: 10px 12px; border: 1px solid #d0d5dd; border-radius: 8px; font: inherit; }
+    button { border: 0; border-radius: 8px; padding: 11px 16px; background: #2563eb; color: white; font-weight: 700; font: 700 14px Arial; cursor: pointer; }
+    .badge { color: #027a48; background: #ecfdf3; border-radius: 999px; padding: 6px 10px; font-size: 12px; margin-left: auto; }
+    .grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; }
+    .card { background: white; border: 1px solid #e4e7ec; border-radius: 12px; padding: 18px; min-height: 190px; }
+    .card h2 { font-size: 14px; color: #475467; margin: 0 0 15px; }
+    .metric { font-size: 32px; font-weight: 700; } .delta { color: #039855; font-size: 12px; margin-top: 5px; }
+    .chart { height: 95px; display: flex; align-items: end; gap: 10px; padding: 4px 12px 0; border-bottom: 1px solid #eaecf0; background: linear-gradient(to bottom,transparent 31%,#eef2f6 32%,transparent 33%,transparent 64%,#eef2f6 65%,transparent 66%); }
+    .bar { flex: 1; border-radius: 5px 5px 0 0; background: #60a5fa; } .bar:nth-child(2n) { background: #2563eb; }
+    .status { margin-top: 13px; font-size: 12px; color: #667085; }
+  </style>
+</head>
+<body>
+  <header><div class="mark">S</div><strong>Signalboard</strong><span>WORKSPACE · PRODUCT ANALYTICS</span></header>
+  <main data-testid="app-ready">
+    <h1>Growth overview</h1><div class="sub">A compact view of your active product signals.</div>
+    <div class="toolbar"><label for="period">Period</label><input id="period" data-testid="period" value="2026 Q1"><button data-testid="compare">Compare periods</button><span class="badge">Live view</span></div>
+    <div class="grid">
+      <section class="card"><h2>Qualified signals</h2><div class="metric">1,284</div><div class="delta">↑ 18.4% vs prior period</div><div class="status" data-testid="status">Showing latest period</div></section>
+      <section class="card"><h2>Weekly engagement</h2><div class="chart"><i class="bar" style="height:42%"></i><i class="bar" style="height:59%"></i><i class="bar" style="height:51%"></i><i class="bar" style="height:76%"></i><i class="bar" style="height:69%"></i><i class="bar" style="height:92%"></i></div><div class="status">Activity stays above the prior baseline.</div></section>
+    </div>
+  </main>
+  <script>
+    document.querySelector('[data-testid=compare]').addEventListener('click', () => {
+      document.querySelector('[data-testid=status]').textContent = `Compared ${document.querySelector('[data-testid=period]').value} with the prior period`;
+    });
+  </script>
+</body>
+</html>

@@ -27,4 +27,23 @@ The revision defines property tracks, group/stagger behavior, text and chart ani
 
 For the PowerPoint objection, the spec requires ECMA-376 validation of hand-written package parts, python-pptx and LibreOffice open/save/reopen checks, LibreOffice PDF renders, and a Keynote import/PDF smoke check through `osascript`. This Mac has Keynote and LibreOffice but no Microsoft PowerPoint. Those checks can catch malformed XML, round-trip loss and alternate-viewer import problems; they do **not** prove that PowerPoint opens without repair, that Edit Data works in its UI, or that Morph, SVG, timing and movie playback behave correctly. AT37 assigns the Windows/Mac PowerPoint check to the release owner.
 
-The coordinator's acceptance command and runtime tests were not run here. This revision report records the specification and objection-register disposition only; it does not claim that the planned XML validator, renderer, round trips or viewer checks have been executed.
+The initial revision report recorded specification work only. Build validation and remaining implementation gaps are now tracked in `BUILD-REPORT.md`.
+
+## Build decisions
+
+| Open environment choice | Decision used in this build |
+|---|---|
+| Node patch version | Node.js 24.16.0; runtime requires Node 24 or later |
+| Python patch version and writer path | Python 3.11.5; writer runs from repository `.venv/bin/python` |
+| Node package pins | `hyperframes@0.8.78`, `playwright@1.63.0`, `ajv@8.17.1`, `gsap@3.13.0`, `typescript@5.9.3`; exact versions are in `package.json` and `package-lock.json`. GSAP supplies HyperFrames' seekable composition timeline. |
+| Python package pin | `python-pptx==1.0.2` installed in `.venv/`; the system Python's 1.0.3 is not used by the writer |
+| Chromium shell | Use the installed Playwright revision 1243 under `~/Library/Caches/ms-playwright/chromium_headless_shell-1243/`, choosing the `mac-arm64` or `mac-x64` executable at runtime |
+| FFmpeg / ffprobe | Use the installed FFmpeg 8.0 and matching `ffprobe` from `/opt/homebrew/bin`; HyperFrames raw output is always normalized with FFmpeg |
+| LibreOffice | Use installed LibreOffice 26.2.4.2 for PPTX PDF render checks |
+| Keynote | Use installed Keynote 13.2 for the import and PDF export smoke check |
+| render-kit | Call the sibling `../render-kit/bin/rk`; do not copy it |
+| HyperFrames telemetry | Set `HYPERFRAMES_NO_TELEMETRY=1` in the renderer and sample process environments |
+| Sample chart CSV | `samples/explainer/chart.csv` is parsed by `npm run samples` into the spec's inline chart data before validation/rendering |
+| Sample narration | Captions use authored text cues; no voice recording is shipped, so MP4 output has the required silent AAC track |
+
+The export patches python-pptx's speaker-notes reference in `presentation.xml`. Without that relationship entry, Keynote 13.2 rejects a notes-bearing deck as an invalid file even though LibreOffice and python-pptx accept it. The build validates package ZIP CRCs and internal relationship targets; an ECMA-376 XSD bundle was not selected or vendored, so full schema validation remains unbuilt and is reported as a gap.

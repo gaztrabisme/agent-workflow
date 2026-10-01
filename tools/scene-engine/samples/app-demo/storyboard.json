@@ -1,0 +1,81 @@
+{
+  "format": "scene-engine/storyboard@1",
+  "title": "App demo: review a signal dashboard",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durationMs": 32000,
+  "language": "en",
+  "background": "#F5F7FA",
+  "scenes": [
+    {
+      "id": "dashboard",
+      "startMs": 0,
+      "durationMs": 8000,
+      "background": "#F5F7FA",
+      "narration": { "text": "Select a period and compare the dashboard." },
+      "captions": [
+        { "startMs": 300, "endMs": 2300, "text": "Select a period, then compare." }
+      ],
+      "layers": [
+        {
+          "id": "dashboard-demo", "type": "appDemo",
+          "x": 140, "y": 160, "width": 960, "height": 540,
+          "startMs": 0, "durationMs": 2400,
+          "url": "http://127.0.0.1:4178/",
+          "appBuildId": "fixture-dashboard-v1",
+          "readySelector": "[data-testid=app-ready]", "readyTimeoutMs": 10000,
+          "locale": "en-US", "timeZoneId": "UTC", "deviceScaleFactor": 2,
+          "viewport": "layer-box-css-pixels",
+          "steps": [
+            { "atMs": 250, "action": "fill", "locator": { "testId": "period" }, "value": "2026 Q2", "timeoutMs": 3000 },
+            { "atMs": 850, "action": "click", "locator": { "role": "button", "name": "Compare periods" }, "timeoutMs": 3000 }
+          ],
+          "fixtures": [],
+          "cursor": [
+            { "atMs": 0, "x": 510, "y": 265 },
+            { "atMs": 700, "x": 380, "y": 345 },
+            { "atMs": 850, "x": 380, "y": 345, "click": true },
+            { "atMs": 1350, "x": 740, "y": 410 }
+          ],
+          "highlights": [
+            { "locator": { "testId": "compare" }, "startMs": 650, "durationMs": 1000, "color": "#F97316" }
+          ],
+          "alt": "A local analytics app with period selection and comparison results"
+        },
+        {
+          "id": "demo-heading", "type": "text", "x": 1190, "y": 205, "width": 570, "height": 230,
+          "startMs": 0, "durationMs": 8000, "text": "A quick look\ninside the app.",
+          "style": { "fontFamily": "Arial", "fontSize": 56, "fontWeight": 700, "color": "#14243A", "lineHeight": 1.12 },
+          "alt": "A quick look inside the app"
+        },
+        {
+          "id": "demo-subtitle", "type": "text", "x": 1190, "y": 390, "width": 570, "height": 110,
+          "startMs": 0, "durationMs": 8000, "text": "Select a reporting period and compare the trend in one step.",
+          "style": { "fontFamily": "Arial", "fontSize": 25, "fontWeight": 400, "color": "#526173", "lineHeight": 1.4 },
+          "alt": "The demo selects a period and compares the trend"
+        }
+      ]
+    },
+    {
+      "id": "wrap-up",
+      "after": "dashboard",
+      "durationMs": 24000,
+      "background": "#14243A",
+      "camera": { "x": 0, "y": 0, "zoom": 1, "tracks": [{ "property": "zoom", "keyframes": [{ "atMs": 0, "value": 1 }, { "atMs": 22000, "value": 1.04 }] }] },
+      "narration": { "text": "A focused workflow turns product data into an easy next step." },
+      "captions": [
+        { "startMs": 3000, "endMs": 6500, "text": "A focused workflow makes\nthe next step easier." }
+      ],
+      "layers": [
+        {
+          "id": "wrap-title", "name": "!!dashboard-title", "type": "text", "x": 190, "y": 350,
+          "width": 1540, "height": 150, "startMs": 0, "durationMs": 24000,
+          "text": "From a clear view\nto a confident next step.",
+          "style": { "fontFamily": "Arial", "fontSize": 66, "fontWeight": 700, "color": "#FFFFFF", "align": "center", "lineHeight": 1.12 },
+          "alt": "From a clear view to a confident next step"
+        }
+      ]
+    }
+  ]
+}
