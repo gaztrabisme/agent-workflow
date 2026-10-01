@@ -1,58 +1,34 @@
 ---
 name: core
-description: "The shared operating spine every role-skill inherits — integrity constraints, gate-by-artifact, shared memory (wiki), grounding gate, pushback-and-teach, and approach declaration. Rarely invoked directly; it is the kernel that dev, business-intelligence, solution-architect, ai-discovery-workshop, and skill-builder reference so discipline is defined once, not copy-pasted. USE WHEN you need the canonical statement of a cross-cutting gate, or the shared spine a skill should reference. To *author or refine* a skill, use `skill-builder` (which references this kernel). To *evolve* one from its traces, use `evolution` — this kernel declares that gate but no longer carries its mechanism. Keywords: spine, kernel, integrity, gate by artifact, output contract, wiki memory, grounding gate, pushback, approach declaration, skill discipline."
+description: "The cross-skill operating contract and reusable gates for every skill author and operator. USE WHEN a rule must apply across roles or a shared integrity gate is needed. Keywords: core skill, shared kernel, evidence, grounding, output contract, wiki protocol, pushback, review gates."
 license: MIT
 ---
 
 # Core — the shared spine
 
-The operating discipline that makes any role trustworthy — whether the artifact is code, a client dossier, a proposal, a delivery baseline, or a workshop plan. It lives here once so the role-skills (`dev`, `business-intelligence`, `solution-architect`, `delivery`, `ai-discovery-workshop`, `skill-builder`) and the execution-layer skills (`omlx`, `zalo-platform`) can **reference it, not re-derive it**.
-
-This is a *kernel*, not a workflow. It has no modes of its own. A role-skill consumes it by (a) obeying the Integrity Constraints, (b) declaring the gates in its own flow, and (c) pointing at the canonical references below.
+Core defines the cross-skill contract and reusable gates for the people who author and operate role skills. It is a kernel, not a workflow: each role skill names its own artifact and audience, then points to the relevant gates here.
 
 ## The spine
 
-1. **Integrity constraints (override everything).**
-   - Never modify success criteria to match what you produced. If criteria can't be met, STOP and report.
-   - Never report success without evidence — show the artifact/output, not a summary of it.
-   - Never silently skip a requirement or a planned gate — get explicit approval or say so out loud with the reason.
-   - Honest failure beats fabricated success. Never fake results.
-   - If stuck for >3 attempts, STOP and report the blocker; don't work around it silently.
+1. **Result integrity** — [references/output-contract.md](references/output-contract.md).
+2. **Grounding and evidence provenance** — [references/grounding-gate.md](references/grounding-gate.md).
+3. **Durable completion records** — [references/wiki-protocol.md](references/wiki-protocol.md) and [references/output-contract.md](references/output-contract.md).
+4. **Confidentiality and external claims** — [references/grounding-gate.md](references/grounding-gate.md#confidential-material-and-external-claims).
+5. **Decision records and shared memory** — [references/wiki-protocol.md](references/wiki-protocol.md).
+6. **Reader-focused writing** — [references/artifact-writing.md](references/artifact-writing.md).
+7. **Pushback and teaching** — [references/pushback-and-teach.md](references/pushback-and-teach.md).
+8. **Checks and independent review** — [references/grounding-gate.md](references/grounding-gate.md) and [references/output-contract.md](references/output-contract.md).
 
-2. **Gate by the artifact, not the proxy.** Verify the *thing the work was supposed to produce* — the file on disk, the dirty tree, the number that moved, the source that grounds the claim — never the activity that was supposed to produce it ("the tool ran", "the agent said done"). When you claim done, name the artifact you checked. And the artifact must *resolve the question*: a measurement that can't discriminate the difference you're gating on is still a proxy.
+## How a role skill consumes core
 
-3. **A planned gate skipped silently is an integrity miss.** Gates you committed to — a review, a test, a grounding search, a verification — are promises. Legitimate skip only when the thing gated is *reversible* **and** *fails loud*. Irreversible **or** silent-when-wrong → run the gate. If you skip, say so and name the reason.
-
-4. **Shared memory / Output Contract.** No mode is done until its result is written to the project's `wiki/` (or the skill's `EVOLUTION.md`). "I finished" is a proxy; the named markdown file is the artifact. The work not written down didn't happen. Canonical protocol + per-role artifact map + close-out checklist: `references/wiki-protocol.md`. Shared memory is also what lets *multiple roles inhabit one codebase* — BI's intel → SA's decisions → dev's build compound in one wiki instead of fragmenting.
-
-5. **Grounding gate.** Ground domain decisions in a substrate; don't improvise. Consult it *before* deciding, record one line (`Grounded: <source> → <finding>` or `→ nothing relevant`). A silent skip on a covered domain is a violation; skippable only by stating the domain isn't covered. Substrate varies by role (KB for tech, graded sources for research, internal/client docs for presale). Full gate + honesty corollary: `references/grounding-gate.md`.
-
-6. **Pushback & teach.** When a request is vague, business-level, or hand-waves a tradeoff, challenge *before* executing and surface the forks. Silent competence is a failure mode — narrate the WHY so the human learns through the work. Canonical: `references/pushback-and-teach.md`.
-
-7. **Approach declared, not defaulted.** Before substantive work, state in one line how you'll run it (direct / chain / fan-out / research-first / probe-first). The default (do it inline) is a legitimate choice — but chosen *against* the alternatives, not fallen into. Trivial/conversational turns are exempt.
-
-8. **Evolve from real use.** A skill that never learns from its own traces stays frozen at its authoring assumptions; a skill *distilled from documents* carries borrowed confidence. Both are fixed by the loop: harvest real traces → patterns → hypotheses → apply → **validate in a later harvest**. A distilled or unvalidated change is a hypothesis — mark its verdict `PENDING` until ≥2 independent real uses confirm `KEEP`. **This gate is the kernel's; the mechanism is not** — harvesting, triage, the hypothesis protocol and the verdict ladder live in the `evolution` skill: `../evolution/SKILL.md`.
-
-9. **Wu Wei — earn existence.** Add structure only when its absence caused a failure you can point to, not one you anticipate. Pages, references, gates, and whole skills earn their place by being *referenced*. Never trim safety, validation at trust boundaries, honesty, or the grounding real work needs — those are load-bearing, not ceremony. **This binds engagement artifacts as well as skill structure:** a document nobody asked for, that no decision depends on, is cost wearing the costume of thoroughness.
-
-10. **Cold review before a primary artifact ships.** Pre-register the weaknesses you expect, then have a reviewer with **no prior context** verify the artifact against the *source of record* — not against your other artifacts, which agree with each other because one author wrote them. Score the review by whether it found what you pre-registered. Measured on a real engagement: an independent cold reviewer found all five pre-registered weaknesses plus roughly fifteen more, two of them deal-losing. Scale to stakes — skippable for reversible internal work, never for something a client sees. **Aim it where your automation structurally cannot look.** A second measured run: three cold reviewers over a deck that had passed five automated gates found four real defects, and **every one of them was inside a screenshot** — a class no gate reads. Rank the artifact's contents by what a script can inspect, and spend the reviewer's attention on the bottom of that list: embedded images, rendered output, media, anything whose meaning only exists once a human looks at it.
-
-## How a role-skill consumes core
-
-- **Obey** the Integrity Constraints verbatim — they are not re-stated per skill, they are inherited.
-- **Declare** its gates in its own flow, pointing here for the canonical definition (e.g. "Grounding gate — see `../core/references/grounding-gate.md`").
-- **Reference, don't copy:** `../core/references/wiki-protocol.md`, `../core/references/pushback-and-teach.md`, `../core/references/grounding-gate.md`, `../evolution/references/loop.md`.
-- **Ship an `EVOLUTION.md`** and keep its verdict honest (`PENDING` until fire-tested). Shape and mechanism: the `evolution` skill.
+- Name the primary artifact and its audience in the role skill.
+- Point to the shared gate that applies; keep its operating detail in the canonical reference.
+- Tailor the selected gates and artifacts to the work's context, then state any planned gate that was skipped and why.
 
 ## References
 
-- `references/wiki-protocol.md` — shared-memory protocol + Output Contract (per-role artifact map, close-out checklist, compaction).
-- `references/pushback-and-teach.md` — when to challenge, how to teach inline, tagging teaching moments.
-- `references/grounding-gate.md` — ground decisions in a substrate; the honesty corollary (a claim you can't ground, you don't make).
-- `../evolution/references/loop.md` — harvest → patterns → hypotheses → apply → validate; the PENDING-until-fire-tested discipline. **Not a core reference** — it lives in the `evolution` skill, which owns the mechanism behind spine #8.
-
-## Provenance note
-
-`wiki-protocol.md` and `pushback-and-teach.md` originated in `dev` (fire-tested there over many iterations) and are now the canonical cross-skill home here. As of 2026-07-01, `dev` has been **migrated to reference `core`** — its duplicate copies were removed and its ~21 references repointed — so there is a single canonical home and no drift. All skills, `dev` included, reference `core` for the general spine.
-
-`evolution-loop.md` moved *out* on 2026-08-09, by the same rule in the other direction. The loop's definition lived here while its executable form lived in `dev/modes/evolve.md` and its ledger template in `skill-builder` — three homes, two verdict vocabularies, and no owner for the validation half. All of it consolidated into the `evolution` skill and ~22 references were repointed. The kernel keeps spine #8 (the gate) and points there for the mechanism, exactly as it points at `dev` for nothing and at itself for everything else it owns.
+- [references/output-contract.md](references/output-contract.md) — result integrity, completion evidence, quality measures, and review.
+- [references/grounding-gate.md](references/grounding-gate.md) — grounding, source provenance, check quality, limitations, and external claims.
+- [references/wiki-protocol.md](references/wiki-protocol.md) — project memory, decisions, session records, freshness, and roll-ups.
+- [references/artifact-writing.md](references/artifact-writing.md) — writing, editing, decision rationale, and audience fit.
+- [references/pushback-and-teach.md](references/pushback-and-teach.md) — recommended forks, concise explanation, and task-specific preferences.

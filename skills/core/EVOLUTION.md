@@ -319,3 +319,24 @@ change to clear it on evidence rather than by inheritance.
 **Next harvest should ask:** did anything reach a client-bound artifact through the *image* channel again
 after H4 existed, and did anyone write a quotation without running the search H1 demands? The second question
 is the real test, because it has now been asked and answered wrongly four times.
+
+## Evolution 7 — stage B rebuild (2026-10-01)
+
+### Sources read
+
+- Approved proposal, the core rule destinations, the core / workshop / dev ledgers and crosswalks, and the practitioner review of the old core.
+- Skill-builder workflow, authoring checklist, and skill skeleton.
+- Book chapters cited by routed rules and adopted candidates: building-applications-ai-agents; building-design-systems; building-evolutionary-architectures; continuous-delivery; critical-thinking-about-research; designing-ai-interfaces; facilitating-software-architecture; flawless-consulting; hbr-guide-business-writing; how-to-read-a-paper; learning-systems-thinking; pmbok-guide-7e; research-methods-psychology; site-reliability-engineering; software-engineering-at-google; swebok.
+
+### Counts
+
+- Routed rules: 115 total — 31 agrees, 34 refines, 49 field rules, and 1 disputed rule. The 65 agrees/refines rules cite their crosswalk books; field and disputed rules are not given book citations in the body.
+- Added practices: 23 candidates adopted; 4 candidates skipped (core-C03, core-C13, core-C14, core-C28). No non-candidate additions.
+
+### Structure and changes
+
+The spine is now a short index to the shared gates. The three linked reference filenames remain. Two references were added for output/completion and artifact writing. Routed rules are organized by the shared artifact and audience: result integrity, grounding, project memory, reader-focused writing, and pushback. The harness-specific wiki bootstrap was removed. The decision-record guidance now orders context and decision for the reader, and freshness uses owner/review metadata rather than a session-count trigger.
+
+### Verdict
+
+Verdict: PENDING until two real uses validate the rebuilt gates.
