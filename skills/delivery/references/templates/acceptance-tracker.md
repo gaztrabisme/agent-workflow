@@ -1,60 +1,25 @@
-# Acceptance Tracker — <engagement>
+# Acceptance tracker — <engagement>
 
-> **The spine.** One row per acceptance criterion, IDs taken verbatim from the signed annex. This table is
-> simultaneously the scope list, the progress metric, the test plan, and the invoice trigger. Do not create a
-> second numbering system alongside it.
+## Acceptance spine
 
-**Progress (computed, not estimated):** `signed / total` = __ / __ = __%
-**In flight (reported separately, never summed into progress):** submitted-not-signed = __
+Populate one row per criterion from the signed annex before its deliverable is due. Use the signed ID and wording; do not create a parallel numbering system. This table is the scope list, acceptance measure, test reference and invoice trigger.
 
-| ID | Criterion | Preparer | Preconditions ready | Submitted | Testing ends | Status | Evidence | Signatory | Signed |
-|---|---|---|---|---|---|---|---|---|---|
-| F1.1 | | Us / Client | | | | Not started | | | |
+## Criterion quality before baseline
 
-**Status values** — use exactly these:
+Check the criterion set for clarity, concision, verifiability, consistency, completeness and a unique traceable ID before freezing it. [book:pmbok-guide-7e], 2.6.2. Deliverables
 
-| Status | Meaning |
-|---|---|
-| `Not started` | |
-| `Blocked` | Precondition outstanding — **must** have a row in the obligations tracker |
-| `In progress` | |
-| `Submitted` | Delivered; client testing window running |
-| `Rejected` | Itemised deficiency received — see defect log |
-| `Conditionally accepted` | Accepted with a closed, dated list of open items; payment released |
-| `Accepted` | Signed, with evidence |
-| `Deemed accepted` | Response window elapsed with no written response |
+## Acceptance record and traceability
 
-## Defect log (against submitted deliverables)
+Trace each criterion back to its business outcome and forward to the deliverable and test or demonstration evidence. [book:head-first-pmp], Scope management: Doing the right stuff
 
-Severity determines whether acceptance is blocked; priority only orders the queue. A new *requirement*
-raised as a defect is a change request — classify it at the moment it is raised.
-
-| # | Criterion | Raised | Severity | Blocks? | Description | Status | Fixed | Re-tested |
+| Criterion ID | Signed criterion | Business outcome / source | Deliverable | Preconditions and supplier | Demonstration or test method | Pass condition | Status | Evidence / acceptance reference |
 |---|---|---|---|---|---|---|---|---|
-| | | | Critical / High / Medium / Low | Yes (C,H) / No (M,L) | | | | |
+| <annex ID> | <verbatim> | | | | | | Not started | |
 
-## Client obligations
+Use these working statuses: Not started, Blocked, In progress, Submitted, Rejected, Accepted. When a criterion is Blocked, open a corresponding client-obligation row. When it is Rejected, record the specific deficiency and link it to the defect record.
 
-What the client owes. An obligation without a date and a named owner is a cost you will absorb silently.
+For every accepted row, retain the written acceptance reference and the evidence that supports it. A signed stakeholder acceptance document may cover several criteria; link it from each accepted row. Do not mark Accepted from recollection alone.
 
-| # | Obligation | Serves criterion | Owner (client) | Due | Received | Days late | Consequence flagged |
-|---|---|---|---|---|---|---|---|
-| | | | | | | | Cycle N report / escalated DD-MM |
-
-> Carry these forward from the presale client-obligation register rather than re-deriving them, and convert
-> schedule-relative deadlines ("week 1 phase 1") to real dates now that T0 is known.
-
-## Acceptance mechanics (from the contract — fill at mobilisation)
-
-| Term | Agreed value | In contract? |
-|---|---|---|
-| Testing window | ___ business days *(15–20 typical)* | |
-| Response deadline after testing | ___ business days *(~5 typical)* | |
-| Deemed acceptance on silence | Yes / **No → escalate** | |
-| Re-test window after fix | ___ business days | |
-| Re-test scope limited to reported defects | Yes / No | |
-| Severity definitions + consequences agreed | Yes / No | |
-| Standby / idle rate when client stalls | | |
-
-**Any `No` above is a commercial escalation, not a delivery problem.** Raise it before Phase 3 starts —
-these terms are almost impossible to agree once a deliverable is contested.
+| Criterion ID | Written acceptance reference | Supporting evidence | Invoice trigger / reference | Defect / obligation / change reference |
+|---|---|---|---|---|
+| | | | | |

@@ -1,99 +1,101 @@
-# Delivery Baseline — <engagement>
+# Delivery baseline — <engagement>
 
-> **Plan of record.** Frozen at kickoff; changes only via an approved change request (`change-request-log.md`).
-> Never overwrite — version it. Variance is measured against this document, so if it moves silently, nothing
-> downstream means anything.
+## Use the baseline as reference
 
-| | |
+Freeze scope, schedule and cost at kickoff, with the source of each value. A baseline is the comparison reference for actual results, not a blanket prerequisite to begin contract-authorized work. [book:pmbok-guide-7e], 4.6.5. Baselines; [book:head-first-pmp], The project scope baseline is a snapshot of the plan
+
+## Control fields
+
+| Field | Value |
 |---|---|
 | Baseline version | v1 |
-| Frozen on | YYYY-MM-DD |
-| **T0 (clock start)** | *the named event — signature / deposit received / access granted / kickoff held* |
-| T0 actual date | YYYY-MM-DD |
-| Derived from | *proposal vX, cost model vX, acceptance annex vX — name the exact versions* |
-| Governing-language artifact | *which document wins if two language versions disagree* |
-| ID spine | *acceptance-criteria IDs from annex vX — the single numbering for this engagement* |
-
-## Parties
-
-| Role | Name | Authority |
-|---|---|---|
-| Client focal point | | Single authorised channel for instruction |
-| Acceptance signatory | | Signs criteria off (if different) |
-| Escalation contact | | Above the focal point |
-| Delivery lead | | |
+| Freeze date | YYYY-MM-DD |
+| T0 event and date | <event> · YYYY-MM-DD |
+| Signed contract version | |
+| Proposal / roadmap version | |
+| Acceptance annex version | |
+| Cost model version | |
+| Governing language version | |
+| Acceptance-criteria ID spine | <annex version; IDs carried verbatim> |
 
 ## Scope baseline
 
-Scope **is** the acceptance-criteria set. Do not restate it in prose — reference it, so there is one source.
+Use the signed acceptance-criteria set as the scope reference instead of restating it in new prose. The controlled scope baseline consists of the approved scope statement, work breakdown structure and associated dictionary; keep these tied to the criterion IDs. Record schedule and cost baselines as linked, separately sourced records. [book:scrum-masters-path], Definition of Done vs. Acceptance; [book:pmbok-guide-7e], 4.6.5. Baselines
 
-| | |
-|---|---|
-| Criteria in baseline | N (IDs …) |
-| Explicitly out of scope | *the things worth naming because they were discussed and excluded* |
-| Assumptions carried forward | *link to the presale assumptions register* |
+| Scope item | Signed source | Criterion IDs | Out of scope / assumption reference |
+|---|---|---|---|
+| | | | |
 
 ## Schedule baseline
 
-| Phase / milestone | Deliverable | Criteria IDs | Planned submission | Planned acceptance |
+| Phase / milestone | Deliverable | Criterion IDs | Planned submission | Planned acceptance |
 |---|---|---|---|---|
 | | | | | |
 
-## Cost baseline
+## Cost and effort baseline
 
-| Element | Baselined | Notes |
-|---|---|---|
-| Effort (person-days) | | By phase, **and by discipline** — discipline is what turns a total into a staffing plan, and what makes actuals comparable back to the estimate at close |
-| Labour cost | | |
-| Hardware / CapEx | | |
-| Third-party / licences | | |
-| Contingency | | State whether it is held by delivery or by commercial |
-| **Total** | | |
+| Element | Baselined amount | Source / calculation | Owner or notes |
+|---|---:|---|---|
+| Effort by phase and discipline | | | |
+| Labour cost | | | |
+| Hardware / capital cost | | | |
+| Third-party / license cost | | | |
+| Contingency | | Risk and spending basis | State who controls it |
+| Total | | | |
 
-*Record the effort distribution this was built on — it is what the next estimate gets corrected against.*
+Record the effort distribution used to build the estimate. At close, compare actuals to the same phases and disciplines.
 
-### Capacity fit
+## Capacity and contingency
 
-A cost baseline that has never been divided by the calendar is a total, not a plan.
-
-| | |
+| Measure | Value |
 |---|---|
-| Available | *N people × M working days = **A** person-days* |
-| Required | *the effort baseline above* |
-| **Gap** | *required − available* |
-| Contingency | *days, and whether delivery or commercial holds them* |
+| Available capacity | <people × working days = person-days> |
+| Required effort | <baseline effort> |
+| Capacity gap | <required minus available> |
+| Contingency | <amount, basis and owner> |
+| Decision if gap is positive | <rescope / restaff / extend; approver and date> |
+| Accepted capacity gap, if any | <signed decision and date> |
 
-A gap of zero is not a pass — it is a plan with no contingency, and it should be frozen only if someone has
-said that out loud. A positive gap cannot be frozen as-is: re-scope, re-staff, or extend, and record which.
+Make a zero-day gap explicit as a plan with no capacity buffer. Do not freeze a positive gap without recording a rescope, staffing or duration decision. Size contingency from analyzed project risks and spending evidence, not an arbitrary reserve. [book:project-management-with-ai], Balancing workloads across teams; [book:project-management-with-ai], Automating financial contingency planning; [book:project-management-with-ai], Optimizing resource allocation with AI
 
-## Reconciliation at mobilisation
+## Assumptions and risks
 
-Run before freezing. Every discrepancy is a finding to report, not to silently fix.
+Carry the signed handoff's risk register forward and review historical project data for recurring risk patterns. Maintain assumptions and constraints throughout the engagement with an owner, source, date last checked and effect if false. Revisit them as the work proceeds. [book:project-management-with-ai], Employing data-driven decision-making; [book:pmbok-guide-7e], 4.6.2. Logs and Registers
 
-**Each line is a comparison you run, not a box you tick — write the two values beside it.** A tick with no
-numbers next to it is a claim *about* a check rather than the check. This table freezes the plan of record,
-so a false clean report here has money attached.
+| ID | Assumption or risk | Source / basis | Owner | Last checked | Effect if false / mitigation |
+|---|---|---|---|---|---|
+| | | | | | |
 
-| # | Check | Value A | Value B | ✓ / finding |
+## Reconcile sold, priced and governed sets
+
+Run these comparisons before freezing and repeat configuration consistency checks as the engagement proceeds. Record the actual values beside each check; a tick without the compared values is not evidence. Report every discrepancy rather than silently repairing the records. [book:swebok], 5.3. In-Process Audits of a Software Baseline
+
+| Check | Signed annex | Cost model | Workplan / current baseline | Finding |
 |---|---|---|---|---|
-| 1 | Every criterion in the annex appears in the cost model | *annex: N* | *cost model: N* | |
-| 2 | Every function priced in the cost model appears in the annex | | | |
-| 3 | Criterion count matches across annex, cost model, and any workplan | | | |
-| 4 | Effort baseline fits declared capacity, or the gap is stated and signed | *required* | *available* | |
-| 5 | **ID spine is unique across every register** — criteria, decisions, risks, assumptions, obligations. Two registers sharing a prefix is the second-numbering-system failure arriving early *(SA `artifact-integrity.md` C8)* | | | |
-| 6 | Language versions agree on scope (governing version declared) | | | |
-| 7 | No dangling references to removed items | | | |
-| 8 | T0 event is contractually defined | | | |
-| 9 | Deemed-acceptance term exists *(if not — escalate, see `acceptance-execution.md`)* | | | |
+| Every annex criterion appears in the cost model | | | | |
+| Every priced function appears in the annex | | | | |
+| Criterion counts agree across annex, cost model and workplan | | | | |
+| Effort fits declared capacity or a signed gap is stated | | | | |
 
-**Discrepancies found:**
+Check that IDs are unique across criteria, decisions, risks, assumptions and obligations. Confirm the language versions agree on scope and name the governing version. Resolve references to items removed from the current set. [book:refactoring], Chapter 5. Toward a Catalog of Refactorings
 
-| # | Discrepancy | Values compared | Money at stake | Raised with | Date | Resolution |
-|---|---|---|---|---|---|---|
-| | | | | | | |
+| Namespace / language / reference check | Values or evidence | Finding |
+|---|---|---|
+| Criterion and record IDs unique across registers | | |
+| Translation reviewed by a person; scope agrees across versions | | |
+| Governing language version identified | | |
+| References to removed items resolve | | |
+
+For legal or contract language, have a person review the translation for accuracy before relying on it. [book:project-management-with-ai], Translating documents and correspondence into different languages
+
+## Discrepancy record
+
+| Discrepancy | Values compared | Financial exposure | Who was informed | Date | Resolution / record |
+|---|---|---:|---|---|---|
+| | | | | | |
 
 ## Baseline history
 
-| Version | Date | Cause (CR ref) | Scope Δ | Schedule Δ | Cost Δ |
+| Version | Date | Approved change reference | Scope change | Schedule change | Cost change |
 |---|---|---|---|---|---|
-| v1 | | Initial baseline | — | — | — |
+| v1 | | Initial signed baseline | — | — | — |

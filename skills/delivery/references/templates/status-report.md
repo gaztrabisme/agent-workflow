@@ -1,74 +1,56 @@
-# Status Report — <engagement> — Cycle N (YYYY-MM-DD)
+# Cycle record — <engagement> — <week ending>
 
-> Derived from the trackers, not from recall. Every number below should be pointable-at.
-> `Grounded: acceptance tracker rows N–M → …`
+Publish a tracker-derived record to disk each week; a verbal update alone is not the cycle record. This is the delivery fact set; communication turns agreed facts into audience-ready client messages. Source each reported number to the tracker rows or report used.
 
-## Summary
+## Cycle facts and variance
 
-**Status: 🟢 / 🟡 / 🔴** — *one sentence on why, and if not green, what decision is needed.*
+| Measure | Current | Baseline / target | Variance | Source rows or report |
+|---|---:|---:|---:|---|
+| Working increments demonstrated | | | | |
+| Client-signed criteria | | | | |
+| Submitted criteria awaiting response | | | | |
+| Effort spent | | | | |
+| Next milestone | | | | |
 
-| | This cycle | Baseline | Variance |
+Record actual effort, submitted deliverables and signed criteria from current records. For an external supplier, include earned-value or exit-criteria evidence rather than an unsupported “on schedule” assurance.
+
+| Variance | Amount | One-line cause | Client-side cause / obligation reference |
+|---|---:|---|---|
+| Schedule | | | |
+| Cost against accepted work | | | |
+
+Report the client-signed acceptance ratio separately from working increments and submitted-but-unsigned criteria. Do not report a subjective percent-complete figure. [book:learning-agile], Principle #7: Working Software Is the Primary Measure of Progress.
+
+## RAG and exception response
+
+| RAG | Agreed threshold / measure | Calculated result | Sanity check |
 |---|---|---|---|
-| Criteria accepted | __ / __ | __ planned by now | ±__ |
-| Progress | __% | __% | ±__ |
-| Effort spent (person-days) | | | ±__ |
-| Next milestone | | | |
+| Green / Amber / Red | | | |
 
-**Variance cause:** *one line. A variance without a cause can't be acted on. Attribute honestly — including
-when the cause is client-side.*
+Calculate the status from agreed performance thresholds and tracker data, then sanity-check the result. Keep open risks and overdue obligations visible in their own fields rather than making them automatic color overrides. State a specific decision and escalation channel when the reported status is red.
 
-**In flight (not counted as progress):** __ criteria submitted, awaiting client response.
+| Threshold crossed or forecast | Agreed exception action | Owner | Due date | Result / next review |
+|---|---|---|---|---|
+| | | | | |
 
-## Accepted this cycle
+## Awaiting Client
 
-| Criterion | Signed by | Date | Invoice trigger |
-|---|---|---|---|
-| | | | |
+Always include this section, even when empty.
 
-## Awaiting client
+| Obligation ID | Needed from client | Criterion served | Owner | Due date | Days overdue | Concrete impact | Written follow-up record |
+|---|---|---|---|---|---:|---|---|
+| | | | | | | | |
 
-The section that makes client-side delay visible. Never omit it, even when empty.
+## Change requests and risks
 
-| # | What we need | Serves | Owner | Due | Days overdue | Impact if it stays open |
-|---|---|---|---|---|---|---|
-| | | | | | | |
+| CR | Request | Status | Client impact | Zero-cost effort / cost |
+|---|---|---|---|---|
+| | | | | |
 
-*State impact concretely: "blocks acceptance of F3.1–F3.4; each further week moves final acceptance by a
-week." Not "may cause delays."*
+Zero-cost changes this cycle: <count and effort> · cumulative: <count and effort>
 
-## Change
-
-| CR | Request | Status | Impact |
-|---|---|---|---|
-| | | | |
-
-*Absorbed (zero-cost) this cycle: __ · cumulative: __*
-
-## Risks
-
-| Risk | Likelihood | Impact | Mitigation | Owner | Trend |
+| Risk | Likelihood | Impact | Mitigation | Owner | Trend / forecast source |
 |---|---|---|---|---|---|
-| | H/M/L | H/M/L | | | ↑ / → / ↓ |
+| | | | | | |
 
-## Decisions needed from the client
-
-The most important section. If it's empty, say so explicitly rather than deleting it.
-
-| # | Decision | Needed by | Consequence if late |
-|---|---|---|---|
-| | | | |
-
-## Next cycle
-
-- …
-
----
-
-### Reporting discipline
-
-- **RAG is computed, then sanity-checked** — not chosen. Green = within tolerance, no unmitigated
-  above-threshold risk, no overdue critical-path obligation. Amber = outside tolerance *with* a credible
-  named-owner recovery plan. Red = needs a decision the delivery team can't take alone.
-- **Amber has an expiry.** Amber for four cycles is red with better manners.
-- **Red is a request, not a confession.** It should arrive with the specific decision needed.
-- **Skipped a cycle?** Say so in the next report. Never backfill silently.
+Use automated alerts between report cycles where available to surface tracked measures trending away from targets. Use progress-data analysis to identify bottlenecks. Where data and an appropriate forecasting capability exist, include forecast risk likelihood and impact; delivery keeps the mitigation, owner and trend current. [book:project-management-with-ai], Providing alerts when KPIs deviate from targets; [book:project-management-with-ai], Analyzing progress data to identify bottlenecks; [book:project-management-with-ai], Selecting AI tools for risk management and forecasting

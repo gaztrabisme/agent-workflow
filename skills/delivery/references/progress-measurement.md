@@ -1,92 +1,49 @@
-# Measuring progress honestly
+# Progress, cost and status measures
 
-The question this page answers: **"how far along are we, really?"** — in a form you can defend to a client,
-to your own management, and to yourself six weeks later.
+Keep four views distinct in the cycle record: working increments, signed acceptance, effort spent and forecast against the baseline.
 
-## The problem with the obvious answer
+## Working progress and signed acceptance
 
-"We're about 70% done" is not a measurement. It is a *feeling with a number attached*, and it has three
-properties that make it worse than useless:
+Demonstrate working software to stakeholders each iteration. It shows what has landed and exposes promised work that did not. Do not use a status report or a signed-criteria count as the only evidence of delivered progress. [book:learning-agile], Principle #7: Working Software Is the Primary Measure of Progress.; [book:user-story-mapping], Use Your Story Map During Delivery
 
-- **It only goes up.** A measurement that cannot fall isn't measuring anything.
-- **It is optimistic by construction.** The person estimating remaining work is the person who has to do it,
-  and the unknown-unknowns are, definitionally, not in their estimate.
-- **It hides the tail.** The last 10% routinely contains integration, environments, data migration, defect
-  fixing, and client review — and none of those are visible from inside the 70%.
+On an acceptance-gated engagement, calculate the commercial acceptance measure from the acceptance tracker: client-signed criteria divided by criteria in the signed spine. Keep it as the acceptance and payment view, not as a complete measure of working progress; the number of criteria alone may not reflect their relative value. [book:scrum-masters-path], Definition of Done vs. Acceptance
 
-This is where **watermelon reporting** comes from: green outside, red inside. It is rarely dishonesty. It is
-usually the arithmetic result of measuring effort spent against effort *estimated*, when the estimate was the
-thing that was wrong.
+Show submitted-but-unsigned criteria separately from the signed ratio. A working-software demonstration helps explain current delivery progress; the signed ratio remains computed from the tracker, not read off a visual map. A story map can sit beside it as a done-versus-left view, using the existing criterion IDs rather than a second measurement system. [book:user-story-mapping], Use a Map to Visualize Progress
 
-## Pick the method deliberately
+For fixed-price work, count each small deliverable 0 until it is complete, then 100. Keep criteria small enough for acceptance to land regularly; split an item that routinely takes several weeks into smaller signed criteria where the contract permits. [book:scrum-masters-path], Definition of Done; [book:user-story-mapping], Breaking Down a Big Cake
 
-| Method | How it works | Gaming / failure mode | Use when |
-|---|---|---|---|
-| **Percent complete (subjective)** | Ask the doer | Optimism bias; 90% for weeks; never falls | Never, as the reported figure. Fine as a private smell test. |
-| **Effort burn** | Spent ÷ budgeted | Measures *consumption*, not *achievement*. A project can be 100% burned and 0% delivered | As a *cost* control, never as a progress metric. Track it, don't report it as progress. |
-| **0/100 rule** | A deliverable counts 0% until fully done, then 100% | Encourages splitting work small; a large chunk shows nothing for a long time | **Default for fixed-price work.** Pair with small deliverables. |
-| **Weighted milestones** | Value assigned to sub-deliverables at defined checkpoints | Weights get argued; can be set to flatter progress | Long deliverables where 0/100 hides genuine movement |
-| **Acceptance-criteria passed** | Criteria the *client* has signed / total | Requires the client to actually respond — needs the response deadline from `acceptance-execution.md` | **The reported metric on any acceptance-gated engagement** |
-| **Full EVM (CPI/SPI)** | Earned value against planned value | Heavy machinery; the setup cost exceeds the value at small scale | Multi-year, multi-team capital programmes. Not a small consulting engagement. |
+Do not report a subjective percent-complete figure as measured progress. A chart of remaining work can show its trend across a cycle; it does not replace the acceptance tracker or make a signed criterion count into delivery progress. [book:learning-agile], Burndown Charts; [book:scrum-masters-path], Burndown Chart
 
-## The default: 0/100 on the acceptance-criteria spine
+Effort burn is a cost-control measure, not progress. Update actual effort, submitted deliverables and signed criteria from records, and report estimates from people doing the work as estimates rather than completed value. [book:user-story-mapping], Manage Your Budget; [book:user-story-mapping], The Other Secret to Good Estimation
 
-On a fixed-price, acceptance-gated engagement the honest metric already exists in the contract:
+## Capacity and sustainable pace
 
-```
-progress = criteria signed by the client / total criteria in the spine
-```
+Compare available capacity with required effort and record both the gap and contingency. If there is a positive gap, do not freeze it without a recorded rescope, staffing or duration decision. Make a zero-day gap explicit as a plan with no capacity buffer. [book:project-management-with-ai], Balancing workloads across teams; [book:project-management-with-ai], Optimizing resource allocation with AI
 
-It is the right metric for three converging reasons:
+Size contingency from analyzed project-specific risks and spending evidence rather than an arbitrary reserve. Keep its owner and distribution visible in the baseline. [book:project-management-with-ai], Automating financial contingency planning
 
-1. **It's binary.** A criterion is signed or it isn't. There is no 70%, so there is nothing to inflate.
-2. **It's externally verified.** The client's signature is the evidence. Your own opinion doesn't enter.
-3. **It's already the cash trigger.** On an acceptance-gated deal, the same row that measures progress
-   also releases the invoice. Progress, acceptance, and revenue are one instrument rather than three
-   that drift apart.
+During delivery, monitor capacity and rebalance work as people approach their limits. Compare effort with the available working time and favor a pace that can be maintained by sponsors, developers and users. [book:project-management-with-ai], Balancing workloads across teams; [book:learning-agile], Principle #8: Agile Processes Promote Sustainable Development. The Sponsors, Developers, and Users Should Be Able to Maintain a Constant Pace Indefinitely.
 
-**Do not build a second measurement system alongside it.** The most common way this goes wrong is inventing
-a delivery WBS with its own numbering, tracking that, and then having to reconcile two views of "done" that
-disagree. One spine.
+## Cycle facts and variance
 
-### Handling the honest objection
+Update actual effort, deliverables submitted and criteria signed using facts only. For external suppliers, request progress evidence such as earned value or exit criteria; an assurance that work is on schedule is not enough to support a progress claim. [book:user-story-mapping], The Other Secret to Good Estimation; [book:project-planning-scheduling-control], CHAPTER 9 Project Scheduling
 
-Clients and managers will say: *"but nothing shows as complete for the first six weeks."* That is true, and
-it is a real weakness of 0/100 — not a reason to abandon it. Two mitigations:
+Use a weekly cycle to report from task-completion data. Refresh actuals, client obligations, changes and risks in the same record cycle. Keep the report on disk, not verbal-only, and derive each number from the current tracker rows; automated data collection can reduce manual reporting errors. Reassess whether risks have moved, materialized or newly appeared. [book:project-management-with-ai], Understanding automation in project management; [book:holacracy], Chapter 5: Operations; [book:project-management-with-ai], Automating data collection for reports
 
-- **Make the criteria small enough that something lands most weeks.** If a criterion takes six weeks to
-  reach signature, it is probably several criteria.
-- **Report a second, clearly-labelled leading indicator** alongside it — e.g. *criteria submitted for
-  acceptance but not yet signed*. This shows work in flight without letting it count as achievement. Keep
-  the two columns visibly separate, and never sum them into one headline number.
+Compare accepted criteria, effort spent and the next milestone with the baseline. Record schedule variance, cost variance against accepted work and a one-line cause. Attribute the cause honestly, including when the client-side dependency caused it. Use progress-data analysis to locate bottlenecks and inform the cause line. [book:project-management-with-ai], Providing alerts when KPIs deviate from targets; [book:swebok], 3.4. Monitor Process; [book:pmbok-guide-7e], 2.2.2. Project Team Culture; [book:project-management-with-ai], Analyzing progress data to identify bottlenecks
 
-## Variance is the point
+## RAG and exception response
 
-Progress alone says nothing without the baseline to compare it to. Each cycle, record:
+Derive RAG from the current variance and risk records, then sanity-check the result rather than choosing a color by feel. Do not report an engagement as green when the underlying performance result is red. [book:pmbok-guide-7e], 2.7.4. Measurement Pitfalls; [book:software-architect-elevator], Problems on the Way Up
 
-- **Schedule variance** — criteria signed vs criteria planned-signed by this date.
-- **Cost variance** — effort spent vs effort baselined for the work *actually accepted* (not for the calendar
-  time elapsed).
-- **The reason** — one line. Variance without a cause is a number nobody can act on.
+Use agreed performance measures and thresholds for the status bands. Keep risk and overdue-obligation evidence visible in their own fields; do not make an unmitigated risk or a late critical-path obligation an automatic color override when the agreed metric thresholds do not say so. [book:pmbok-guide-7e], 2.4.8. Metrics
 
-**Attribute the cause honestly, including when it's the client.** "Behind by 2 criteria; both blocked on
-production data access, requested 12 Mar, outstanding 19 days" is a fundamentally different management
-situation from "behind by 2 criteria" — and only the first one is actionable, defensible, and fair to your
-team.
+Where task-level schedule and cost indices are used, compare them with the defined control limits before applying the stoplight. Do not summarize away opposing task variances or let an unexplained favorable total hide an individual slip. [book:project-planning-scheduling-control], CHAPTER 13 Conducting Project Reviews; [book:project-planning-scheduling-control], Project Control
 
-## Deriving RAG without lying
+Agree an exception plan for a threshold that is crossed or forecast to be crossed. It can be a simple named action, such as a stakeholder meeting, but record what will happen and who will carry it out. [book:pmbok-guide-7e], 2.7.5. Troubleshooting Performance
 
-RAG status should be *computed*, then sanity-checked — not chosen.
+Escalate any decision outside the delivery team's authority to the person with that authority, regardless of the RAG color. When reporting red, state the specific decision needed and the escalation channel. [book:pmbok-guide-7e], 2.2.4. Leadership Skills; [book:fundamentals-enterprise-architecture], Defining the Architecture Decision Workflow
 
-- **Green** — variance within tolerance, no unmitigated risk above threshold, no overdue client obligation on
-  the critical path.
-- **Amber** — variance outside tolerance **or** a critical-path obligation overdue, *with* a credible recovery
-  plan that has a named owner and a date.
-- **Red** — recovery requires a decision the delivery team cannot take alone: more budget, less scope, a later
-  date, or an escalation to the client's management.
+Use alerts between weekly cycles when tracked measures trend away from their targets. Reassess risks each cycle; where useful data and a suitable forecasting capability exist, use forecasting to estimate risk likelihood and impact, then keep mitigation, owner and trend current in the risk record. [book:project-management-with-ai], Providing alerts when KPIs deviate from targets; [book:project-management-with-ai], Monitoring Risks in Real Time with AI Alerts; [book:project-management-with-ai], Selecting AI tools for risk management and forecasting
 
-Two rules that prevent the watermelon:
-
-- **Red is a request, not a confession.** A red status that arrives with a specific decision needed is doing
-  its job. Teams hide red because they read it as failure; state explicitly that it is an escalation channel.
-- **Amber must have an expiry.** An amber that has been amber for four cycles is red with better manners.
+Amber or red status is useful only when its variance, cause and required action are visible. Report submitted criteria awaiting a client response separately from progress so delivery activity is not mistaken for acceptance. [book:learning-agile], Principle #7: Working Software Is the Primary Measure of Progress.

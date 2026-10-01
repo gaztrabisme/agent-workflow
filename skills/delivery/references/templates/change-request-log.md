@@ -1,60 +1,48 @@
-# Change Request Log — <engagement>
+# Change-request log — <engagement>
 
-> Everything new is **baseline**, **change request**, or **declined**. There is no fourth option.
-> "We'll absorb this one" is a zero-cost CR — log it, approve it, and let the pattern become visible.
+Open the log at kickoff and leave it empty until there is a request. Use the change-request rate in the contract.
 
-**Opened:** YYYY-MM-DD (at kickoff, empty — not after the first contested change)
-**Change-request day rate:** *from the contract*
+## Request and authority
 
-## Log
+Record the request on the day it appears, preserving the requester, date and exact request wording.
 
-| CR | Raised | By | Request (their words) | Effort | Cost | Schedule Δ | Criteria affected | Decision | Decided by | Date | Re-baselined |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| CR-001 | | | | | | | | Pending | | | v— |
+| CR | Raised date | Requested by | Request in their words | Effort | Cost | Schedule impact | Risk | Criteria affected | Decision | Authorized decision-maker | Decision date | Decision record | Baseline version |
+|---|---|---|---|---:|---:|---|---|---|---|---|---|---|---|
+| | | | | | | | | | Pending | | | | |
 
-**Decision values:** `Pending` · `Approved` · `Rejected` · `Deferred` · `Approved (zero-cost)`
+Decision values: Pending, Approved, Rejected, Deferred, Approved zero-cost.
 
-**Re-baselined** — the baseline version this CR produced. An approved CR with no baseline version here is
-the dangerous state: a documented promise against an unchanged plan, which will read as delivery slippage.
+## Client impact and recommendation
 
-## Running totals
+Complete this assessment for each request. State the effect in the client's terms and include what they should expect if the request is declined.
 
-| | Count | Effort | Cost | Schedule Δ |
-|---|---|---|---|---|
-| Approved (priced) | | | | |
-| Approved (zero-cost / absorbed) | | | — | |
+| CR | Defect or new behavior? | Effort and cost basis | Criterion IDs affected | Schedule / acceptance effect | Risk | Effect if declined | Recommendation |
+|---|---|---|---|---|---|---|---|
+| | | | | | | | |
+
+## Baseline changes and cumulative totals
+
+Update the baseline version and its scope, schedule and cost fields only after approval. Keep the original version and name the approved request that produced each new version.
+
+| Baseline version | Date | Approved CR | Scope change | Schedule change | Cost change |
+|---|---|---|---|---|---|
+| | | | | | |
+
+| Change status | Count | Effort | Cost | Schedule impact |
+|---|---:|---:|---:|---|
+| Approved, priced | | | | |
+| Approved, zero-cost / absorbed | | | | |
 | Pending | | | | |
-| Rejected / deferred | | | | |
+| Rejected or deferred | | | | |
 
-*Absorbed effort is margin you spent. It belongs in this table even though nobody invoiced it — it is the
-number that answers "where did the profit go?" at close-out.*
+Include absorbed effort in the totals even when no invoice was raised. The zero-cost count and effort spent make a repeated “small” accommodation visible.
 
-## Impact assessment — per CR
+## Review triggers
 
-Copy per change request. State impact in the client's terms, not internal ones.
+Open a conversation about expectations when any of these are true: zero-cost requests exceed five; absorbed effort exceeds contingency; one requester has raised at least three absorbed items; or an absorbed item changed a criterion. Also discuss scope or expectation options when spend runs ahead of the delivery budget. [book:user-story-mapping], Manage Your Budget
 
-**CR-___ · <short title>**
+| Trigger | Observed value | Date reviewed | Expectation / scope decision | Record reference |
+|---|---|---|---|---|
+| | | | | |
 
-| | |
-|---|---|
-| Raised by / when | |
-| Request, verbatim | *their exact words — this matters when scope is later disputed* |
-| Is this actually a defect? | *If it's a failure to meet an agreed criterion, it's a defect, not a CR* |
-| Effort | ___ person-days |
-| Cost | at agreed CR rate |
-| **Criteria affected** | *IDs — added, amended, or removed* |
-| Schedule impact | *"moves acceptance of F3.1–F3.4 from 12 May to 22 May"* |
-| Risk introduced | |
-| If declined | *what the client should expect instead* |
-| Recommendation | |
-
-## Absorbed-change watch
-
-Trigger a conversation when any is true:
-
-- [ ] Zero-cost CRs exceed **5** in a single engagement
-- [ ] Absorbed effort exceeds **contingency**
-- [ ] The same requester has raised 3+ absorbed items
-- [ ] Any absorbed item changed an acceptance criterion
-
-The point is not to refuse small favours — it is to notice the fifth one before the margin is gone.
+In the cycle record, show each request's status and impact, plus zero-cost changes for the cycle and cumulatively.

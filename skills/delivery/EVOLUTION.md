@@ -6,6 +6,43 @@ which client obligations slipped, where the trackers failed to catch a problem i
 
 ---
 
+## Evolution 4 — stage B rebuild (2026-10-01)
+
+### Sources read
+
+Read the approved proposal, delivery rules ledger and book crosswalk; cited chapters in `scrum-masters-path`,
+`swebok`, `pmbok-guide-7e`, `user-story-mapping`, `project-management-with-ai`, `learning-agile`,
+`head-first-pmp`, `software-architect-elevator`, `project-planning-scheduling-control`, `holacracy`,
+`fundamentals-enterprise-architecture`, `refactoring`, and `getting-to-yes`; the practitioner review and
+former skill; and the rebuilt core and skill-builder authoring guidance. The course sources named by the
+proposal did not supply routed rules that needed a course citation.
+
+### Coverage and decisions
+
+- **Rules:** 123 routed exactly once — 43 agrees, 46 refines, 34 field-rule, 0 disputed (89 book-supported,
+  34 field rules).
+- **Additional practices:** 16 crosswalk candidates adopted; the remaining candidates were outside this
+  skill's signed-client artifact and audience boundary. No extra book practice was added outside the
+  candidate list.
+- **Structure:** replaced the prior rule-led material with a signed-engagement flow: bounded estimate inputs,
+  signed mobilisation, active records, recurring measurement and change control, criterion acceptance, and
+  closure. Kept the lifecycle reference and surviving reference names, and added focused trackers for client
+  obligations and close-out. General project-planning methods and client-message drafting now route to their
+  approved sibling skills.
+- **Hard placement:** effort estimation that occurs before signature remains a bounded input in the
+  lifecycle reference because it supplies the signed baseline; it does not open precontract delivery
+  tracking.
+
+### Validation plan
+
+The coverage map records the 123 rules and 16 adopted candidates. Run the programme verifier for coverage,
+citations and skill shape. The rebuild is authoring-time evidence only; no real delivery use is claimed.
+
+**Verdict: PENDING** — retain this verdict until two real uses provide evidence about the new structure and
+records.
+
+---
+
 ## Evolution 0 — 2026-07-27 — Birth
 
 ### Why this skill exists
