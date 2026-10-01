@@ -1,0 +1,53 @@
+# Planning method
+
+## Frame the plan from a brief
+
+Start with the outcome the work should create, then name the deliverables and the success measure. On client work, distinguish the client's objective from the work they want done; a brief gives the team context and exposes questions that need answers before detailed planning. (5907 · U3 · L20 · 01:20–02:47)
+
+Check what a success measure means and over what period before using it to order work. (5907 · U3 · L20 · 02:47–03:41)
+
+Clarify the actual deadline and what the budget must cover before turning a brief into a schedule. (5907 · U3 · L20 · 05:12–06:41)
+
+Identify who has final approval so that review and sign-off can be planned as real work. (5907 · U3 · L20 · 07:20–08:37)
+
+Keep the core project information in a shared master plan or workbook: objective, deliverables, tasks, dates, owners, priorities, and only the indicators the team needs to watch. Choose a format the group can use and update. (5907 · U2 · L07 · 03:23–06:29)
+
+Write down tasks and make their priority visible to the team. This makes the order of work easier to coordinate; urgent does not automatically mean important. (5907 · U2 · L08 · 00:54–01:38)
+
+## Choose a useful view
+
+Choose among a calendar, Kanban board, and Gantt chart based on what the team needs to see. Each offers a quick view of tasks and processes, but they answer different planning questions. (5907 · U2 · L10 · 01:55–02:48)
+
+Use Kanban when work has distinct stages or short, well-defined sprints that need frequent status review. Columns may represent stages, priorities, or task owners. (5907 · U2 · L12 · 00:00–01:54)
+
+Use Gantt for complex, dated work where the team needs to see task start and end dates, durations, order, dependencies, and milestones. It is a poor fit before tasks have planned start or delivery dates. (5907 · U2 · L13 · 00:09–02:17)
+
+## Decompose, sequence, and prioritize
+
+Use the WBS guidance in [the workbook reference](wbs-workbook.md) to turn deliverables into a project-suitable work structure.
+
+For a release plan, first identify the outcome that matters outside the system. Slice out the smallest release that can create that outcome, then prioritize later work by the benefits it is meant to produce. A feature list without target outcomes gives the team no sound basis for ordering work. ([book:user-story-mapping], Slice Out a Minimum Viable Product Release; [book:user-story-mapping], Don’t Prioritize Features—Prioritize Outcomes)
+
+One useful release sequence is an opening slice that works end to end, a middle slice that fills in important optional steps and rules, and an end slice that improves the product using real use and feedback. ([book:user-story-mapping], Opening-, Mid-, and Endgame Strategy)
+
+When a work item is too large for a useful sprint commitment, discuss what is good enough first, what would make it better, and what would make it best. This separates a sufficient slice from later refinements without discarding the larger idea. ([book:user-story-mapping], Split and Thin)
+
+Prepare sprint planning ahead: choose likely work a cycle or two early, refine large items with the team before the planning session, then state the cycle goal and give the delivery team time to plan its own work. ([book:user-story-mapping], Split and Thin)
+
+## Schedule with capacity and slack
+
+Set the planning period and milestones, list the steps to reach each milestone, estimate task duration with the people doing the work, and mark which dependencies are sequential and which work can overlap. (5907 · U2 · L11 · 15:41–17:15)
+
+Group compatible work into useful calendar blocks and leave open capacity for replanning, rest, and unexpected work. Reserve recurring time for planning the next day or week. (5907 · U2 · L11 · 07:20–12:24)
+
+Keep the shared schedule current as task dates or dependencies change. Treat it as a roadmap the team uses to coordinate; discuss material date changes with the team and refresh the plan rather than leaving old dates in circulation. (5907 · U2 · L13 · 05:14–07:15)
+
+For client work, put review and approval windows on the schedule. Learn who must respond and when; plan other work that can proceed while feedback is being gathered so a slow review does not stop the whole team. (5907 · U3 · L18 · 01:20–02:54)
+
+## For client-backed work
+
+Use the brief and agreed scope document as inputs to the internal work plan. A statement of work records the agreed deliverables, cost, and timing. (5907 · U3 · L22 · 00:00–01:11)
+
+The client-facing plan can show a high-level phase timeline while the detailed task plan is prepared after project initiation. Keep the view understandable and show approval milestones; dates may move as the detailed plan develops. (5907 · U3 · L23 · 02:47–04:04)
+
+Signed-engagement baselines and acceptance, change, and obligation records remain with `delivery`.
