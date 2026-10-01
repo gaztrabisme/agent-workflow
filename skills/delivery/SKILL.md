@@ -6,7 +6,7 @@ license: MIT
 
 # Delivery
 
-Delivery produces the signed-client baseline, acceptance, change and client-obligation records, and the close record for the lead accountable for an accepted and paid engagement. It starts when the client contract is signed. A delivery lead may contribute the effort estimate, release split and cut order before signature because those values feed the signed baseline; that bounded input does not create a precontract delivery baseline.
+Delivery produces the signed-client baseline, acceptance, change and client-obligation records, and the close record for the lead accountable for an accepted and paid engagement. Use the recorded agreement event in Phase −1 as the operational signature gate. A delivery lead may contribute the effort estimate, release split and cut order before signature because those values feed the signed baseline; that bounded input does not create a precontract delivery baseline.
 
 > Inherits the core kernel. Use its shared gates through the canonical references; do not restate them. See [core](../core/SKILL.md).
 
@@ -21,7 +21,7 @@ Delivery produces the signed-client baseline, acceptance, change and client-obli
 
 ## Principles / anchoring rules
 
-1. The signed scope baseline is the reference for comparison. Tailor the governance around it to the engagement context. [book:pmbok-guide-7e], 3.7. Tailor Based on Context
+1. The signed scope baseline is the reference for comparison. Tailor the governance around it to the engagement context. For a small engagement, use the compact cycle view in `references/progress-measurement.md` while retaining its required source records. [book:pmbok-guide-7e], 3.7. Tailor Based on Context; (derived: dogfood 2026-10-01)
 2. Carry one acceptance-criteria ID spine through scope, acceptance, change and close records. Keep the baseline, current forecast, and change history distinguishable.
 3. Treat working progress, signed acceptance, and effort spent as different facts. The detailed measures and report fields are in the linked references.
 
@@ -72,3 +72,4 @@ Delivery runs alongside the build for the engagement; engineering work proceeds 
 - [references/templates/change-request-log.md](references/templates/change-request-log.md) — decisions, impact assessment and cumulative change records.
 - [references/templates/status-report.md](references/templates/status-report.md) — tracker-derived cycle facts for a report or a communication handoff.
 - [references/templates/close-record.md](references/templates/close-record.md) — final acceptance, invoice, handover and close data.
+- [references/templates/warranty-defect-log.md](references/templates/warranty-defect-log.md) — criterion-linked defects during the contractual warranty period. (derived: dogfood 2026-10-01)

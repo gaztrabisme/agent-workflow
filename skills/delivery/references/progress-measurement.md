@@ -20,9 +20,15 @@ Effort burn is a cost-control measure, not progress. Update actual effort, submi
 
 Compare available capacity with required effort and record both the gap and contingency. If there is a positive gap, do not freeze it without a recorded rescope, staffing or duration decision. Make a zero-day gap explicit as a plan with no capacity buffer. [book:project-management-with-ai], Balancing workloads across teams; [book:project-management-with-ai], Optimizing resource allocation with AI
 
+Base availability on each person's planned hours per week and allocation for the period, including known external or other-employer constraints. Recheck actual availability during delivery and rebalance the work when it changes. (derived: dogfood 2026-10-01)
+
 Size contingency from analyzed project-specific risks and spending evidence rather than an arbitrary reserve. Keep its owner and distribution visible in the baseline. [book:project-management-with-ai], Automating financial contingency planning
 
 During delivery, monitor capacity and rebalance work as people approach their limits. Compare effort with the available working time and favor a pace that can be maintained by sponsors, developers and users. [book:project-management-with-ai], Balancing workloads across teams; [book:learning-agile], Principle #8: Agile Processes Promote Sustainable Development. The Sponsors, Developers, and Users Should Be Able to Maintain a Constant Pace Indefinitely.
+
+### Small-engagement cycle view
+
+For a small team or short engagement, put these four lines at the top of the weekly cycle record: Awaiting Client, signed acceptance ratio, change-request count, and available-capacity line. Keep the same baseline, acceptance, obligation, change, risk and cycle records underneath or linked; this is a compact view, not a waiver of required evidence. Use agreed RAG thresholds and a recorded exception action when a threshold is crossed or forecast. Leave automated alerts or risk forecasts out when no suitable data or capability exists. (derived: dogfood 2026-10-01)
 
 ## Cycle facts and variance
 

@@ -32,6 +32,7 @@ proposal did not supply routed rules that needed a course citation.
 - **Hard placement:** effort estimation that occurs before signature remains a bounded input in the
   lifecycle reference because it supplies the signed baseline; it does not open precontract delivery
   tracking.
+- Dogfood (2026-10-01, shared past-presale task): 7 findings (2 high, 3 med, 2 low); 6 fixed, 1 rejected. F5 was rejected because project planning and client-message artifacts are assigned to the sibling skills for the next wave. Verdict remains PENDING.
 
 ### Validation plan
 
@@ -123,9 +124,8 @@ Specifically **unvalidated and worth watching**:
 ### Gates
 
 - **Spec validation:** `skills-ref validate` — passing.
-- **Dogfood gate: NOT RUN.** The evolution loop requires a fresh-context critic using the skill on a real
-  task. Recorded explicitly as skipped rather than quietly omitted, per `core` §3. This is a second reason
-  the verdict is `PENDING`.
+- **Dogfood gate: NOT RUN.** The evolution validation plan requires a fresh-context critic using the skill on a real
+  task. Record skipped runs explicitly rather than quietly omitting them. This is a second reason the verdict is `PENDING`.
 
 ### First validation opportunity
 

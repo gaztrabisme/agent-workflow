@@ -11,7 +11,9 @@ Freeze scope, schedule and cost at kickoff, with the source of each value. A bas
 | Baseline version | v1 |
 | Freeze date | YYYY-MM-DD |
 | T0 event and date | <event> · YYYY-MM-DD |
-| Signed contract version | |
+| Contract / proposal version accepted | |
+| Acceptance evidence (date · channel · record reference) | |
+| Accepted fee | |
 | Proposal / roadmap version | |
 | Acceptance annex version | |
 | Cost model version | |
@@ -40,16 +42,21 @@ Use the signed acceptance-criteria set as the scope reference instead of restati
 | Labour cost | | | |
 | Hardware / capital cost | | | |
 | Third-party / license cost | | | |
+| Supplier-fronted cost, reimbursable at <event> | | | |
+| Recurring cost, transferred to client at <event> | | | |
 | Contingency | | Risk and spending basis | State who controls it |
 | Total | | | |
 
 Record the effort distribution used to build the estimate. At close, compare actuals to the same phases and disciplines.
 
+Show supplier-fronted costs due for reimbursement and recurring costs transferring to the client as separate elements, with the agreed reimbursement or transfer event in the source note. (derived: dogfood 2026-10-01)
+
 ## Capacity and contingency
 
 | Measure | Value |
 |---|---|
-| Available capacity | <people × working days = person-days> |
+| Availability basis | <hours/week and allocation per person; external or other-employer constraints> |
+| Available capacity | <sum of available hours across the period; convert to person-days if useful> |
 | Required effort | <baseline effort> |
 | Capacity gap | <required minus available> |
 | Contingency | <amount, basis and owner> |
