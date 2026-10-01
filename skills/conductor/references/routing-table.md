@@ -40,7 +40,7 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 | a local spreadsheet (`.xlsx` / `.csv`) | `xlsx` |
 | a Google Sheet (over the network, acts as you) | `gsheets` — **not** `xlsx` |
 | a diagram as a file (`.drawio`, exported PNG/SVG) | `drawio` |
-| **any** chart, plot, dashboard or stat tile, in any medium | the chart-visualization owner — consult it **before** the first line of chart code |
+| **any** chart, plot, dashboard or stat tile, in any medium | `visualize` — consult it **before** the first line of chart code |
 | a published web page on claude.ai | `Artifact` + `artifact-design`; diagrams → `artifact-diagramming`; live/stateful → `artifact-capabilities` |
 | generated stills, clips, or synthetic training data | `media-gen` |
 
@@ -85,7 +85,7 @@ These are already resolved by the siblings. Conductor applies their rule; it doe
 
    **No board is not an answer — it is a question.** Substantial build work (multi-ticket, or a spec heading into a build phase) on a boardless project → **propose onboarding in the Plan Block**, don't fall through to `dev` and never mention it again. Falling through silently is how a project runs its whole build outside the spine by default. The onboarding is three steps (`harness-operator` → Project onboarding) and the qualifying question is whether the mutation gate will be real: a Python/Rust project with a test runner gets a genuine gate; a JS/TS-only diff gets an honest skip, so the oracle carries the whole load and onboarding buys less. One-off fixes and single-file work stay on `dev` — the board is for work that has tickets.
 
-**When genuinely ambiguous, name both in the Plan Block and pick one with a reason.** Silent choice between two siblings is how the wrong artifact gets built well.
+**When genuinely ambiguous, name both in the Plan Block and pick one with a reason.** Silent choice between two siblings is how the wrong artifact gets built well. [book:software-engineering-at-google], Identify the Key Trade-Offs.
 
 ## Compose-order for multi-shape requests
 
@@ -123,10 +123,10 @@ Two legitimate reorderings:
 
 | Intent | Route |
 |---|---|
-| ML metric, problem framing, architecture, evaluation, retrieval, or inference-budget question | Assign each step to the available specialist. In the common sequence, applied-ml-problem-solver owns problem framing and evaluation; dev owns implementation that depends on that framing. |
-| Dataset, training script, API, or test implementation | Route the code unit to the implementation owner after its required model and evaluation decisions are framed. |
+| ML metric, problem framing, architecture, evaluation, retrieval, or inference-budget question | Consult the available skill and lane inventory and assign each plan step to the resource specialized for that work. When the request needs an ML problem or evaluation decision, route that decision to `applied-ml-problem-solver`. |
+| Dataset, training script, API, or test implementation | Route the code unit to its implementation owner after the required model and evaluation decisions are framed. |
 
-Consult the available skill and lane inventory, then assign each plan step to the resource specialized for that work. When implementation depends on a model or evaluation decision, settle that step first. [book:agentic-mesh], Specialization.
+When implementation depends on a model or evaluation decision, settle that step first. Give the implementation owner the framed problem and its pre-registered evaluation gate; do not ask that owner to reframe the problem. [book:agentic-mesh], Specialization.
 
 ## When a route absorbs an existing collection
 

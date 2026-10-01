@@ -43,7 +43,7 @@ Write to <path>/<Letter>-<slug>.md with exactly these sections:
 ## Findings
   A table, one row per item:
   | Item | Value found (native units + converted) | Evidence and uncertainty | Current assumption | Verdict vs assumption |
-  - State what remains uncertain, why, and how it will be monitored or resolved. Do not compress a finding into fixed HIGH / MED / LOW tiers. [book:learning-systems-thinking], Be Honest About Potential Pitfalls.
+  - In the Evidence and uncertainty cell, grade the evidence basis: HIGH only for a dated live primary source; MED for secondary corroboration or a model based on HIGH inputs; LOW for a single uncorroborated source or an inference. State why. Do not compress the finding's uncertainty into a tier: state what remains uncertain, why, and how it will be monitored or resolved. [book:learning-systems-thinking], Be Honest About Potential Pitfalls.
   - Verdict is against the ASSUMPTION, not in the abstract:
       Confirms / Cheaper than assumed / Higher than assumed / Assumption is stale / No evidence either way.
     A finding with no verdict column is trivia.
@@ -61,7 +61,7 @@ Write to <path>/<Letter>-<slug>.md with exactly these sections:
 
 Prefer PRIMARY sources read live over aggregators. Third-party summaries go
 stale silently and are the single largest error source in this protocol.
-Search in every language the answer might live in. Prefer primary sources read live. [book:research-methods-psychology], How Scientists Work. Make source URLs and retrieval dates explicit. [book:facilitating-software-architecture], Step 3: Make Options and Gather Their Consequences.
+Search in every language the answer might live in. Prefer primary sources read live. [book:research-methods-psychology], How Scientists Work. Make source URLs explicit and link them. [book:facilitating-software-architecture], Step 3: Make Options and Gather Their Consequences. Record each retrieval date, and quote load-bearing material verbatim in its original language with a translation beside it.
 ```
 
 ## Empirical findings
@@ -97,7 +97,7 @@ Verdicts land in one `VERIFY.md` with the verdict counts up top. [book:pmbok-gui
 
 | Streams + verifiers | Engine |
 |---|---|
-Use ordinary parallel fan-out when the stream and verifier set fits what can be watched and accepted live; the established run used up to eight total. For a larger set, or when verifying each stream as it arrives matters, use a documented dynamic-workflow capability or coordinator-pipelined stages from `workflow-patterns.md`. Treat eight as a watchability cue, not a universal process threshold; obey the current harness cap and scale to the value and risk of the work.
+Use ordinary parallel fan-out for at most eight total streams and verifiers. Above eight, or when verifying each stream as it arrives matters, use a documented dynamic-workflow capability or coordinator-pipelined stages from `workflow-patterns.md`. Respect the current harness cap and scale the fan-out to the value and risk of the work.
 
 Run independent streams to completion in parallel and gather their results for the combined outcome. Keep synthesis as the barrier; stages that can stream do not wait for unrelated work. [book:agentic-mesh], Parallelization.
 

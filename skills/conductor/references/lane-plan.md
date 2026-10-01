@@ -48,6 +48,7 @@ All external lanes go through the `subagent` MCP server (`mcp__subagent__*`; sou
 
 **Invocation rules, all providers:**
 - Call `await` immediately after `delegate`, with `wait_seconds` ≥ 1800.
+- For DeepSeek, use the documented run defaults: 120 steps, four agents, and 5,400 seconds.
 - Every `delegate` carries a `verification` command. It must not contain `cd`, so use paths relative to the workspace root, or absolute paths. It must also be one simple command: the guard blocks compound lines (`&&`, pipes, `$(…)`) before they run ("blocked before execution: compound command line", 2026-09-29). Put a multi-step check in a script and pass `bash path/to/verify.sh`.
 - The script in a `verification` command must be a file inside the workspace; the guard blocks a script outside it ("not a file in the workspace", 2026-09-30).
 - Standing rules go in `instructions`, not in the task text, so they survive `continue`.
@@ -57,7 +58,7 @@ All external lanes go through the `subagent` MCP server (`mcp__subagent__*`; sou
 
 **Tuning.** Model, `effort`, `max_steps`, timeouts, `max_agents`, the default provider and the fallback chain live in `~/.config/subagent/config.toml`, a copy of the subagent-mcp repo's `wiki/data/config-mcbob-2026-09-28.toml`. Keys live in the 0600 file `~/.config/agent-capabilities/subagent.env`. Both take effect when the `subagent` server next starts. Size each knob from the work. An uncapped child finds the provider's rate limit instead of the answer. Tune a lane rather than working around it.
 
-**Codex directly, when the MCP server is down.** Use `codex exec -m gpt-6-luna -c model_reasoning_effort=xhigh`. The other installed models (`gpt-5.3-codex-spark`, `gpt-6-astra`, `gpt-5.6-luna`) are not used unless the owner asks.
+**Codex directly, when the MCP server is down.** Use `codex exec -m gpt-6-luna -c model_reasoning_effort=xhigh`. Do not switch among Codex models to look for quota when the quota is per account. The other installed models (`gpt-5.3-codex-spark`, `gpt-6-astra`, `gpt-5.6-luna`) are not used unless the owner asks.
 - Pass `-s workspace-write -C <dir>`. `~/.codex/config.toml` sets no sandbox mode, so without the flag the run is read-only and every edit fails. Add `--add-dir` for any other folder it must write, such as `/tmp` for verify scripts.
 - The brief goes on stdin, with a trailing `-` as the positional prompt, or it hangs.
 - Add `--skip-git-repo-check` outside a git repository.
@@ -71,7 +72,7 @@ All external lanes go through the `subagent` MCP server (`mcp__subagent__*`; sou
 
 **Codex multi-edit units through the MCP server.** Until 2026-09-30 the server's loop detector killed Codex units that edited one file 8 times, because Codex reports edits without their content. subagent-mcp commit `6ae599a` gives each Codex edit its own signature. It takes effect when the `subagent` server next starts; until then, send such units through direct `codex exec`.
 
-**Codex quota.** Whether it is per model or per account is not settled. On 2026-09-15 all three models returned the same credit limit at once, and the owner's note of 2026-09-28 says each model has its own quota. The lane check settles it on the day.
+**Codex quota.** Check the lane state before dispatch. When the quota is per account, switching Codex models does not find a fresh quota; do not model-hop to seek one. The lane check records the observed status for the day.
 
 ### Claude Agent tool / Workflow tool — small and watchable only
 

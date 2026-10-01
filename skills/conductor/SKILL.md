@@ -18,7 +18,7 @@ Conductor gives the accountable lead a coordinated plan and a durable record of 
 
 ## Principles / anchoring rules
 
-1. **Coordinate; do not take the unit.** Every unit belongs to a routed skill or a lane with a brief. The coordinator runs its acceptance check and records the result; it does not become the producer. [book:site-reliability-engineering], Trust but Verify.
+1. **Coordinate; do not take the unit.** Every unit belongs to a routed skill or a lane with a brief. The coordinator runs its acceptance check and records the result; it does not become the producer. Conductor writes only briefs, the goal file, Plan Blocks, AGENTS/wiki entries, and the run ledger; routed skills and lanes own the deliverable. [book:site-reliability-engineering], Trust but Verify.
 2. **Facilitate decisions and keep their record.** Put foreseeable forks in the Plan Block; decide small unplanned forks against the stated intent and record them in the run ledger. Use a separate durable decision record when the choice affects later work. [book:facilitating-software-architecture], Introducing Architectural Decision Records.
 3. **Scale the ceremony to its value.** Use enough process, artifacts, and checks to manage the task's stakes and dependencies. A one-line fix or lookup needs no fan-out; use a Plan Block when coordination materially clarifies the work. [book:pmbok-guide-7e], 3.3.2. Processes.
 4. **Make the evidence trail visible.** Read the project and source material before planning; carry missing information as an owned follow-up instead of turning it into an unsupported assumption. [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
@@ -40,7 +40,7 @@ Conductor gives the accountable lead a coordinated plan and a durable record of 
 ## Gates (declared, inherited from core)
 
 - **Grounding gate** — establish the project, source, audience, and harness substrate before planning. See `../core/references/grounding-gate.md`.
-- **Output Contract** — the Plan Block, goal file, briefs, run ledger, convergence record, and project-state updates are the primary artifacts. See `../core/references/wiki-protocol.md`.
+- **Output Contract** — conductor writes only briefs, the goal file, Plan Blocks, AGENTS/wiki entries, and the run ledger. Store convergence records and project-state updates in those AGENTS/wiki entries. See `../core/references/wiki-protocol.md`.
 - **Pushback and teach** — frame unresolved choices as recommended forks with their consequences. See `../core/references/pushback-and-teach.md`.
 - **Approach declaration** — for substantive work, choose an approach from the available alternatives and state it in one line; trivial and conversational turns are exempt. This makes the selected option visible to the people who will act on it. [book:facilitating-software-architecture], Stage 2: The Act of Deciding; [book:facilitating-software-architecture], Step 2c (optional): Sharing your decision.
 
@@ -86,6 +86,8 @@ NOT DOING    <explicit out of scope> [book:head-first-pmp], Scope Answers
 COST         <agent count, expected time, and any material risk budget> [book:pmbok-guide-7e], 4.4.2. Estimating
 ```
 
+If the INTENT restatement is wrong, stop here and correct it before any planning continues.
+
 The Plan Block is the only scheduled stop. End the planning turn there; dispatch starts only after an explicit go. Silence is not approval. [book:project-planning-scheduling-control], CHAPTER 17 Using Stagegate® to Select, Evaluate, and Control Projects. After go, decide forward only on choices delegated to you and log the choice. Pause for material scope, commitment, or risk changes that exceed your authority; investigate alternatives and impacts, then give the accountable decision owner a concise recommendation. Stop mid-run for an Integrity Constraint, an irreversible and unrecoverable action, or a falsified plan premise. [book:facilitating-software-architecture], Fast and Wrong Is Better Than Slow and Correct; [book:pmbok-guide-7e], 2.2.4. Leadership Skills.
 
 ### 5. Goal — the stop condition, on disk
@@ -106,7 +108,7 @@ Threads must reconcile explicitly. Surface contradictions, test how load-bearing
 
 ### 8. Close — the UAT audit
 
-Audit the artifacts against the goal file's UAT column and nothing else: run each check and report pass or fail per row. For client-, investor-, or contract-facing changes, route the proposed change through the accountable change authority or project's change control board for approval, delay, or rejection. For internal reversible work, apply it and say so. Update `wiki/decisions.md`, `wiki/log.md`, and `wiki/active-work.md`; leave open issues with an owner and next step. Finish with what exists, what changed, and what remains open. [book:head-first-pmp], Is the product ready to go?; [book:continuous-delivery], Essential Practices; [book:pmbok-guide-7e], 4.4.3. Meetings and Events; [book:swebok], 4. Software Configuration Status Accounting.
+Audit the artifacts against the goal file's UAT column and nothing else: run each check and report pass or fail per row. For client-, investor-, or contract-facing changes, route the proposed change through the accountable change authority or project's change control board for approval, delay, or rejection. For internal reversible work, apply it and say so. Update `wiki/decisions.md`, `wiki/log.md`, and `wiki/active-work.md`; leave open issues with an owner and next step. Finish with what exists, what changed, what remains open, and every fork decided forward. [book:head-first-pmp], Is the product ready to go?; [book:continuous-delivery], Essential Practices; [book:pmbok-guide-7e], 4.4.3. Meetings and Events; [book:swebok], 4. Software Configuration Status Accounting.
 
 ## Anti-patterns (hard no-list)
 
