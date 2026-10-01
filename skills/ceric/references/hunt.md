@@ -34,6 +34,9 @@ A summary does not replace the source read. If stuck, a GenAI summary is a fallb
 it wherever its wording enters the write-up, and return to the source for the evidence
 and classification. [book:research-methods-psychology], Finding and Reading the Research
 
+Assistance may help translate or define terms, or find relevant material, but you make the
+element classifications.
+
 ## Mark the abstract and set statuses
 
 Read the title and abstract once for meaning. Mark phrases C, E, R, I, or Co according to
@@ -45,10 +48,9 @@ At abstract depth, stop after these statuses and the missing list.
 
 ## Plan and hunt
 
-Write one to three answerable questions per element yourself. Assistance may help translate
-or define terms, and may help find relevant material, but you make the element
-classifications and require source quotes for each hunt answer. A summary alone is not a
-hunt answer. Name the likely section using the genre-aware map in `elements.md`; use
+Write one to three answerable questions per element yourself. Require source quotes for
+each hunt answer; a summary alone is not a hunt answer. Name the likely section using the
+genre-aware map in `elements.md`; use
 headings, tables of contents, appendices, and cross-references where the source does not
 follow IMRaD. Read the planned section for its question; if no useful map exists, search
 the whole document. An unmapped section is not evidence of absence. [book:research-methods-psychology], Finding and Reading the Research
@@ -59,8 +61,6 @@ cell. Use page labels such as `p3` and `pp3-4`. Figures and tables count as evid
 reasoning: quote a caption or row label, identify the figure/table and page in Section,
 and put your visual observation in Status. [book:research-methods-psychology], Finding and Reading the Research; [book:research-methods-psychology], Ethical Principles and Practices
 
-Do not put a paraphrase or a composite of separate source passages inside quotation
-marks. [book:research-ethics-integrity-social-scientists], 1 Why Care About Ethics?
 Immediately after capturing quotes, run `scripts/check_quotes.py`; correct or remove any
 quote that is not an exact match on its cited page before continuing.
 

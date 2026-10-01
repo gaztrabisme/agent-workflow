@@ -16,6 +16,8 @@ what was measured, derived, or compared, and what new assertion the authors make
 A Claim includes any argument the authors are trying to make, not only new knowledge
 directly answering the research question. [book:research-methods-psychology], Three Claims
 
+Use the title to find a clearly stated Claim.
+
 A **subclaim** is a subordinate claim that must hold for the main claim to hold. A
 **hypothesis** is an untested claim. A **research gap** is the missing knowledge that
 motivates the study. [book:critical-thinking-about-research], 2 Research Questions and Hypotheses
@@ -39,7 +41,6 @@ Use the map as a set of leads, not a complete or exclusive index.
 
 | Part of a source | Likely elements to look for |
 |---|---|
-| Title | Claim, when the title states the result |
 | Abstract or executive summary | Compressed versions of all five elements |
 | Introduction or background | Context, gap, rationale, and sometimes Claim |
 | Methods or approach | Evidence and Reasoning |
@@ -80,6 +81,9 @@ check it before recording a missing element.
    reason the method is trustworthy is Reasoning.
 8. **A phrase may carry two marks.** Give each mark its own reason, or choose the single
    element that best captures the phrase.
+9. Never quote words that do not occur in the article. Do not put a paraphrase or a
+   composite of separate source passages inside quotation marks.
+   [book:research-ethics-integrity-social-scientists], 1 Why Care About Ethics?
 
 ## Missing is a finding
 

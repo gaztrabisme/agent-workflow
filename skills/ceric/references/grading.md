@@ -66,9 +66,6 @@ mechanical table. Add `--freeform` for notes that do not use the templates.
    coverage, and ranked findings intact. [book:site-reliability-engineering], Closing Remarks
 
 When there is no key, grade against the source itself and state that no key was used.
-Do not reward volume, style, or effort, and do not penalize a reader for retaining a
-hedge that the key dropped. Record unresolved doubts as findings with their line instead
-of settling them in the reader's favor.
 
 ## Cold grading and reasoning quality
 
@@ -76,6 +73,10 @@ A cold grader receives the run, the source, and the instrument, but not the writ
 reasoning or another grader's output. Read every run file; use rendered pages for visual
 content. Prefer two graders on different model lanes over asking one grader to repeat the
 same pass; route their disagreements for human review. [book:swebok], 2.3. Reviews and Audits; [book:facilitating-software-architecture], Seek advice from those with conflicting views
+
+Do not reward volume, style, or effort, and do not penalize a reader for retaining a
+hedge that the key dropped. Record unresolved doubts as findings with their line instead
+of settling them in the reader's favor.
 
 For a Reasoning or Implications paragraph, ask whether it is reliable (true and
 justified), relevant to the claim and context, cohesive across its parts, and cogent to
