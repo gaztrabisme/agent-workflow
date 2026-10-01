@@ -21,6 +21,7 @@ For example, describe an integration path through its actual gateway rather than
 - Acknowledge the competitor’s merit, then explain your own fit for this customer without pivoting to an attack on a limitation. [book:meddicc], ## DON’T KNOCK THE COMPETITION
 - Do not turn a competitor comparison into a limitation callout; explain why your offering fits the buyer’s needs and criteria. [book:meddicc], ## DON’T KNOCK THE COMPETITION
 - Exclude parity claims from positioning and lead with a customer-valued capability you can substantiate as stronger than competitors’ offerings. [book:challenger-sale], ### Commercial Teaching Rule #1: Lead to Your Unique Strengths
+- In Challenger commercial teaching, present the solution last, after the reframe, data, emotional impact, and new approach. [book:challenger-sale], ## A PURPOSEFUL CHOREOGRAPHY
 - Know who captured, uploaded, and distributed the material you cite and for what purposes; the passage covers source provenance, not every research track informing Negative Space. [book:new-ethics-of-journalism], Seeing Is Not Believing: Photojournalism in the 21st Century
 - The book calls for evidence and critical challenge, but does not prescribe a capability-by-capability demo check. [book:think-like-ux-researcher], ## Sharpening Your Thinking Tools
 - The book prioritizes user benefits and pain points over feature lists, but does not define a client capability-map method. [book:storytelling-in-design], ## Focus on Outcomes Instead of Features

@@ -14,7 +14,7 @@ Delegate only work that can proceed independently. Each assignment names the dec
 
 - Compress subagent outputs to key facts rather than narratives before integrating them. [book:software-architect-elevator], Chapter 20. Writing for Busy People
 - Flag contradictions across claims, marketing capabilities missing from technical documentation, metrics without methodology, and unsupported integration claims. [book:data-science-for-business], ### Flaws in the GGC Proposal
-- Flag technology findings older than 18 months. [book:mastering-api-architecture], ## Radars, Quadrants, and Trend Reports
+- Check when a technology was implemented or stopped being used instead of applying a fixed 18-month threshold. [book:meddicc], ## DISCOVERY
 - For business-issue and pain research, work from investor-relations material — the annual report and latest 10-K — plus executive speeches and press releases, not only earnings-call Q&A and analyst reports. [book:selling-to-big-companies], Tap Into Online Resources
 - For model performance claims, check the proposal for held-out evaluation and an objective baseline. [book:data-science-for-business], ## Evaluation and Deployment
 - Inquiry findings that reveal new problems are one of the book’s obvious signals that the project has changed, so renegotiate the agreement with the client as soon as you sense the change rather than continuing on the old terms; the book makes this renegotiation ceaseless, not a one-way findings report. [book:flawless-consulting], ### Ceaseless Negotiation: The Shifting Tide of Your Role

@@ -30,7 +30,6 @@ For a new executive, an inherited vendor list may be reconsidered. Ask about pri
 - Protect a Coach's disclosures and enable them with tools for internal selling.
 - Reassess the primary Champion and stakeholder map as new stakeholders and priorities surface; the book does not prescribe re-entry as the trigger. [book:meddicc], ## CHAMPION
 - Satisfy a Technical Buyer with honest technical depth instead of selling to them.
-- Score relationship breadth, contact coverage, and relationship quality as account risks; the book does not list departures or budget cuts as discrete churn signals. [book:key-account-management], 6.5 Valuing key accounts
 - Start with the audience and intended action, then choose evidence, rather than treating the prescribed section list as the report’s organizing logic. [book:storytelling-with-data], Action
 - Test internal selling with direct questions about concerns and observe whether the contact seeks introductions or materials instead of relying on an assigned task alone. [book:meddicc], ## CHAMPION
 - The book asks about previous use of your solution or competitors, rather than inferring an executive’s accomplishments or what they may be trying to prove. [book:meddicc], ## DISCOVERY

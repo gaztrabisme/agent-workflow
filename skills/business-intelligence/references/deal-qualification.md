@@ -26,6 +26,8 @@ If evidence does not yet establish pain, mark it unresolved and investigate. If 
 - Recheck whether the Champion remains active and influential as the deal moves stages, alongside the continuity checks in this rule. [book:meddicc], ## QUALIFICATION
 - Reconsider these elements at the new sales phase, since the book assigns different MEDDICC checks to each stage. [book:meddicc], ## QUALIFICATION
 - Record confidence on the book’s 1–10 scale and use low scores to expose qualification gaps rather than only assigning Strong, Weak, or Missing statuses. [book:meddicc], ## MEDDICC SCORING
+- Maintain and iterate a tailored qualification checklist as deal requirements change; the book does not prescribe a particular Scope-stage deliverable. [book:meddicc], ## MEDDICC CHECKLIST
+- List Weak or Missing elements as intelligence targets and state how to gather each one. [book:intelligence-driven-incident-response], ### Using the Intelligence Cycle
 - Require power and influence plus a vested interest, and test actual follow-through; the book distinguishes an untested or merely friendly Coach from a Champion. [book:meddicc], ## CHAMPION
 - Score confidence across the MEDDPICC elements, and treat low Economic Buyer or Champion scores as prompts for further qualification rather than automatic red flags. [book:meddicc], ## MEDDICC SCORING
 - Score confidence for each MEDDICC element on a 1–10 scale, rather than using Strong, Weak, or Missing labels. [book:meddicc], ## MEDDICC SCORING
@@ -44,6 +46,7 @@ If evidence does not yet establish pain, mark it unresolved and investigate. If 
 - Use flags to distinguish resolved or minor risks from major threats that need urgent action; this passage does not list the broader review indicators. [book:meddicc], ## MEDDICC SCORING
 - Use per-element confidence scoring for enterprise qualification; the book presents a methodology rather than a separate score reserved for new or large deals. [book:meddicc], ## MEDDICC SCORING
 - When there is no Champion, develop one or walk away because a stall is likely. [book:meddicc], ## CHAMPION
+- Use Commit for 90%+ confidence with verifiable buyer actions, Best Case for 60–80%, and Upside for 30–50%.
 
 ## Fit, pain, and pursue decisions
 
@@ -55,8 +58,6 @@ If evidence does not yet establish pain, mark it unresolved and investigate. If 
 - For a new or large enterprise pursuit, qualify at each sales stage and keep the qualification current instead of treating it as a one-time readiness check. [book:meddicc], ## QUALIFICATION
 - Fully qualify a new client's first engagement at Scope.
 - Identify who controls the budget and can approve the purchase as Economic Buyer. [book:storytelling-in-design], ## Using Storytelling as a Way to Get Buy-in
-- List Weak or Missing elements as intelligence targets and state how to gather each one. [book:intelligence-driven-incident-response], ### Using the Intelligence Cycle
-- Maintain and iterate a tailored qualification checklist as deal requirements change; the book does not prescribe a particular Scope-stage deliverable. [book:meddicc], ## MEDDICC CHECKLIST
 - Profile each stakeholder’s functional outcomes, day-to-day concerns, and personal value drivers rather than recording workflow impact alone. [book:challenger-sale], ### Framing the Personal Win
 - Qualify out when discovery finds too little pain or willingness to change, but check whether other stakeholders reveal additional pain before ending the opportunity. [book:meddicc], ## QUALIFICATION
 - Satisfy the Technical Buyer on security, integration, and compliance instead of trying to sell to them.

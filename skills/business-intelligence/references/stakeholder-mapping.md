@@ -54,7 +54,6 @@ Review both the people named in the meeting and the wider decision group. Unknow
 - Map stakeholder pain by person and quantify it. [book:meddicc], ## IMPLICATE THE PAIN
 - Map the buying committee beyond attendees when it is known. [book:selling-to-big-companies], ## KNOW WHERE YOU’RE GOING BEFORE YOU GET THERE
 - Map the full buying committee because profiling only meeting attendees can miss decision-makers. [book:mastering-api-architecture], ## ADR Guideline: Selecting an API Gateway
-- Measure satisfaction through decision makers’ views of their issues and pair it with operational and account-level indicators instead of treating delivery KPIs as satisfaction. [book:key-account-management], 9.3 Performance measurement and monitoring
 - Narrow to a specific audience and decision maker rather than keeping a broad attendee category such as internal and external stakeholders. [book:storytelling-with-data], ### Your audience
 - Prepare stakeholder-specific objections and responses using what is known about their roles and values, rather than deriving landmines only from Negative Space or competitor intelligence. [book:articulating-design-decisions], Anticipate Reactions
 - Prioritize by stakeholder impact and benefit alongside effort, investment, and risk, rather than ranking pains only by product fit. [book:fundamentals-enterprise-architecture], ## Align on Priority

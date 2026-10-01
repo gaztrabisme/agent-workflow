@@ -5,6 +5,7 @@ A persistent account view helps each meeting start from current relationship con
 ## Map account position and relationships
 
 - Advance accounts by demonstrated relationship maturity rather than assuming one stage per year, and check for overstatement before treating a customer as a strategic partner. [book:key-account-management], ## 3.2 Stages in key relationships
+- Prevent relationship disintegration by forging multilevel links and engaging with the customer's vision rather than selling goods and services transactionally. [book:key-account-management], 3.2 Stages in key relationships
 - Assess the Economic Buyer as a potential reference after delivering the promised outcome; the book does not generalize this request to every successful engagement. [book:meddicc], ## ECONOMIC BUYER
 - Avoid attacks and redirect the discussion to your suitability for the buyer’s needs; the passage does not prescribe asking what changed. [book:meddicc], ## DON’T KNOCK THE COMPETITION
 - Brief both the reference and the prospect on what the other side cares about.
@@ -21,6 +22,7 @@ A persistent account view helps each meeting start from current relationship con
 - Organize client references by vertical.
 - Position as a logical number two before pursuing the whole account.
 - Prepare a strategic plan for a key account when building a relationship over time; the book gives no fixed multi-phase trigger. [book:key-account-management], ## Introduction
+- Use the plan’s current-position section for the account team, customer contacts, account history, and current issues; this excerpt does not cover every requested field. [book:key-account-management], ## Summary
 - Research partnership history when the relationship affects positioning. [book:key-account-management], ## 7.2 Key account analysis
 - Reserve strategic account planning for higher-potential or stronger accounts; low-potential, low-strength accounts may need only short-term forecasts, budgets and action plans. [book:key-account-management], ## 8.3 Developing a strategic marketing plan for key accounts
 - Set three 12-month expansion opportunities with estimated values, stakeholder access needs, and sequencing.
@@ -43,12 +45,16 @@ A persistent account view helps each meeting start from current relationship con
 - Tie each key action to an account strategy and track owner, departments involved, resource demand, progress measure, metric target, due date and completion date. [book:key-account-management], 8.3 Developing a strategic marketing plan for key accounts
 - Track retention as the percentage of retained business from one period to the next and judge it by its profit impact. [book:key-account-management], 6.2 Customer retention and profitability
 - Treat the account plan as a living plan with account-specific objectives, monitored through sales, share of wallet and relationship quality. [book:key-account-management], ## 8.2 Key account planning
+- Measure satisfaction through decision makers’ views of their issues and pair it with operational and account-level indicators instead of treating delivery KPIs as satisfaction. [book:key-account-management], 9.3 Performance measurement and monitoring
+- Score relationship breadth, contact coverage, and relationship quality as account risks; the book does not list departures or budget cuts as discrete churn signals. [book:key-account-management], 6.5 Valuing key accounts
+- Maintain pipeline coverage of three to five times for standard B2B, four to five times for enterprise, and ten times for complex enterprise below 10% win rates.
 - Use news and leadership changes as trigger events when they create a credible opening; the book does not prescribe snapshot fields for IT budgets or digital-transformation status. [book:selling-to-big-companies], ## WATCH FOR TRIGGER EVENTS
 - Use pilots to reduce perceived switching risk when challenging an incumbent.
 - Use the LAMP Gold Sheet to record account selection, Buy-Sell hierarchy, strategic players, strengths and vulnerabilities, mutual goals, revenue targets, and 90-day reviews.
 
 ## Set account priorities and growth
 
+- Treat reference customers as a scarce selection criterion — a few, financially viable ones — rather than building one per vertical regardless of cost. [book:key-account-management], 2.2 Selection criteria
 - Use a small entry project, prove results, and then expand; the book does not prescribe the $10K–$50K range or a 30–90-day proof window. [book:selling-to-big-companies], ## REMEMBER WHAT’S IMPORTANT
 - Use successful initial work to expand into other parts of the company; the book does not enumerate all the listed expansion dimensions. [book:selling-to-big-companies], ## REMEMBER WHAT’S IMPORTANT
 

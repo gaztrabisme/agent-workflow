@@ -6,7 +6,6 @@ Use research to free live meeting time for the questions that require the client
 
 - Begin with the shared goal, prior decisions, current process, and needed feedback, rather than relying on earlier-phase intelligence alone. [book:articulating-design-decisions], Set the Context
 - Capture anticipated objections in a pre-call Deal Sheet so you can handle them, rather than scripting Listen-Acknowledge-Explore-Respond responses. [book:meddicc], DISCOVERY
-- For a 45-minute call, allocate 2–3 minutes to opening, 5–8 to broad mapping, 20–25 to deep dive, 5 to summary, and 3–5 to next steps.
 - Identify resistance, name it neutrally, then let the client respond before moving to a solution. [book:flawless-consulting], ### Three Steps for Handling Resistance
 - Investigate the reason behind the objection and determine which resistance factor is active before testing commitment. [book:value-based-fees], ## THE FOUR FUNDAMENTAL AREAS OF RESISTANCE
 - Park off-track discussion for follow-up and return to the meeting topic. [book:articulating-design-decisions], # Chapter 6. Form a Response
@@ -20,6 +19,7 @@ Use research to free live meeting time for the questions that require the client
 ## Prepare the meeting
 
 - Apply shared meeting-design principles while tailoring the goal and context, rather than selecting a separate playbook solely by meeting type. [book:articulating-design-decisions], Chapter 3. Design the Meeting
+- For a 45-minute call, allocate 2–3 minutes to opening, 5–8 to broad mapping, 20–25 to deep dive, 5 to summary, and 3–5 to next steps.
 - Do not jump in with your solution the moment the prospect expresses a difficulty or dissatisfaction; the passage names premature solutioning, not the other discovery mistakes. [book:selling-to-big-companies], ENGAGE IN QUESTIONABLE PRACTICES
 - Do not jump to a solution before establishing the cost of inaction. [book:think-like-ux-researcher], ## Conducting an Effective Stakeholder Interview
 - Fix in the contract what you will and will not examine before research starts, rather than stopping tracks that drift mid-work. [book:flawless-consulting], Elements of a Contract
@@ -37,7 +37,6 @@ Use research to free live meeting time for the questions that require the client
 - The book asks for a clear audience action, but does not specify a buyer action or minimum acceptable outcome. [book:storytelling-with-data], ### Action
 - The book bases concessions on trust and which battles affect project goals, rather than whether the buyer is objectively right or the issue kills the deal. [book:articulating-design-decisions], # Chapter 10. Dealing with Changes
 - The book classifies evidence as none, soft, presumed, or hard rather than labeling findings as confirmed fact, assumption, or signal. [book:think-like-ux-researcher], Conducting an Effective Stakeholder Interview
-- The book focuses on inferring stakeholder subtext and meeting politics, with note-taking, rather than categorizing those cues as buying signals. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
 - The book recommends a brief agenda and rehearsal, without setting a 10–15 minute team-planning block. [book:articulating-design-decisions], # Chapter 3. Design the Meeting
 - The book recommends restating the goal to surface whether it changed, rather than explaining a mistaken preparation and asking what is newly important. [book:articulating-design-decisions], # Chapter 3. Design the Meeting
 - The book starts with user motivations, activities, and problems in context but does not specify process, data, integration, or change-management mapping. [book:think-like-ux-researcher], Structuring the Ethnographic Interview
@@ -58,12 +57,12 @@ Use research to free live meeting time for the questions that require the client
 - For a 30-minute discovery call, prepare about 10–15 well-chosen questions. [book:selling-to-big-companies], ENGAGE IN QUESTIONABLE PRACTICES
 - Label predicted needs and interests as research-informed hypotheses, then test them with the customer before treating them as facts. [book:challenger-sale], ### Step 1: The Warmer
 - Notice tone shifts, hesitation, vagueness, avoided topics, stakeholder inconsistency, and gaps between stated wants and actions. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
+- The book focuses on inferring stakeholder subtext and meeting politics, with note-taking, rather than categorizing those cues as buying signals. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
 - Once a problem surfaces, spend the time digging into negatives to implicate the pain rather than collecting more situation facts. [book:meddicc], DISCOVERY
 - Open the situation part with one broad question about how the work flows and let the rest emerge in conversation instead of running a series of situation questions. [book:selling-to-big-companies], GUIDELINES FOR GOOD QUESTIONING
 - Prepare implication-heavy questions that quantify customer pain and its business impact, using customer Metrics to check the inference. [book:meddicc], ## METRICS
 - Prepare the three must-answer questions using SPIN, emphasizing Problem and Implication over Situation.
 - Reserve teaching for an underappreciated need and make the insight new; when the buyer already values the benefit, the book says teaching may be unnecessary. [book:challenger-sale], DEVELOPING A PURPOSEFUL CHOREOGRAPHY
-- Select interviewees to represent the segment of accounts being learned about instead of chasing a yearly interview quota. [book:research-methods-psychology], Chapter 8: Bivariate Correlational Research
 - The book asks clients to describe the problems behind a requested solution, without framing this as a sales-specific frustration prompt. [book:think-like-ux-researcher], ## Conducting an Effective Stakeholder Interview
 - The book asks for the underlying problem behind a stakeholder’s suggestion rather than treating the question as a trap. [book:articulating-design-decisions], # Chapter 4. Listen to Understand
 - The book directs you to identify the underlying problem behind the requested change, while leaving audience jargon and demo scope outside this passage. [book:articulating-design-decisions], # Chapter 4. Listen to Understand

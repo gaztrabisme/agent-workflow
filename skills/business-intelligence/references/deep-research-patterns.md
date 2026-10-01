@@ -38,8 +38,6 @@ Start from the client decision, then collect the smallest set of current evidenc
 - Executive speeches can reveal company developments and views, but the passage does not specifically promise technical details from conference talks. [book:selling-to-big-companies], ## TAP INTO ONLINE RESOURCES
 - Experiment with approaches, retain what works, and keep testing; the book does not specifically prescribe dropping every approach that fails. [book:selling-to-big-companies], ## KEY POINTS
 - Formulate the business problem and use scenario before designing analysis; the book addresses problem scoping, not delegation to subagents. [book:data-science-for-business], ### Business Understanding
-- In Challenger commercial teaching, present the solution last, after the reframe, data, emotional impact, and new approach. [book:challenger-sale], ## A PURPOSEFUL CHOREOGRAPHY
-- Maintain pipeline coverage of three to five times for standard B2B, four to five times for enterprise, and ten times for complex enterprise below 10% win rates.
 - Score identified capability gaps for impact and effort before prioritizing; the passage assesses enterprise-architecture needs, not client intelligence findings. [book:fundamentals-enterprise-architecture], # Chapter 12. Assessment Framework
 - Surface buyer concerns about where the solution falls short and work to address them instead of concealing the gap. [book:meddicc], ## DECISION CRITERIA
 - The book checks whether the requirement was answered and uses new questions or failures to direct the next cycle. [book:intelligence-driven-incident-response], ### Using the Intelligence Cycle
@@ -75,7 +73,6 @@ Start from the client decision, then collect the smallest set of current evidenc
 - The book requires date and perishability checks but does not set the executive-role or source-age thresholds in this rule. [book:intelligence-driven-incident-response], ### Date of Collection
 - The book treats SEC filings as primary for financial fundamentals, not as the first source for every strategy or target claim. [book:machinelearningforalgorithmictradingsecondedition], ## Financial statement data
 - The book uses SEC filings for company financials but does not establish annual reports as a comprehensive source for all strategy and metrics. [book:machinelearningforalgorithmictradingsecondedition], ## Financial statement data
-- Use Commit for 90%+ confidence with verifiable buyer actions, Best Case for 60–80%, and Upside for 30–50%.
 - Use separate source-reliability and information-confidence scores on each claim, combining the A–E and 1–5 dimensions into one item label. [book:intelligence-driven-incident-response], ### Confidence Levels
 - Verify the person’s responsibilities rather than assuming their title means the same thing across organizations; the passage does not set a recency check. [book:meddicc], ## DISCOVERY
 - When a subsidiary or division lacks a public annual report, look for internal reports and newsletters as substitutes and note any remaining evidence gap. [book:key-account-management], ## 7.2 Key account analysis

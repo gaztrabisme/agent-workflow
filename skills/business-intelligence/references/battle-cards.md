@@ -6,16 +6,13 @@ Compare alternatives on criteria that matter to the buyer. Include internal work
 
 - Build responses around your differentiators, their fit with the buyer’s criteria, and measurable value instead of attacking the competitor. [book:meddicc], ## COMPETITION
 - Check whether competitors can access an asset or extract comparable value before ranking a differentiator as defensible. [book:data-science-for-business], ## Sustaining Competitive Advantage with Data Science
-- For win/loss interviews, use a neutral third party and interview decision-makers within one month of the decision.
 - In the war game, brief the competitor team, pitch both positions, let the client question both, counter-position, and debrief vulnerabilities.
 - Refresh battle cards after competitor launches, pricing changes, losses, vertical wins, or analyst ranking updates.
 - Refresh battle cards after launches, pricing changes, positioning shifts, or meaningful losses, and track card usage as a KPI.
 - Require the competitor team to attack your positioning without soft-pedaling.
 - Run a presale war game for deals above $100K with a named competitor, entry into an entrenched vertical, a recent competitor win, or an incumbent displacement.
-- Target 30–45 minutes per win/loss interview and at least ten similar deals before treating patterns as reliable.
 - Treat a senior appointment as a trigger event, but the book sets no 30-day outreach window and does not single out external CIOs or CTOs. [book:selling-to-big-companies], ## WATCH FOR TRIGGER EVENTS
 - Update the battle card, counter-positioning, landmine questions, weak claims, and Honest Q&A entries after the war game.
-- Use the plan’s current-position section for the account team, customer contacts, account history, and current issues; this excerpt does not cover every requested field. [book:key-account-management], ## Summary
 - Wait until the contract is near expiry or use a gap-based foothold; the book does not set a six-to-nine-month advance window. [book:selling-to-big-companies], ## BRUSH OFF YOUR PROSPECT’S BRUSH-OFFS
 
 ## Prepare a competitive conversation

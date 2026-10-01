@@ -27,6 +27,8 @@ After each debrief, ask whether it contradicts or extends a working method. Reco
 
 ## Run useful debriefs and interviews
 
+- For win/loss interviews, use a neutral third party and interview decision-makers within one month of the decision.
+- Target 30–45 minutes per win/loss interview and at least ten similar deals before treating patterns as reliable.
 - Ask all ten core win/loss questions about trigger, shortlist, decision criteria, team perception, near-misses, price, references, sales process, cultural fit, and recommendation.
 - Ask the client to report the results of your work six months after you leave rather than validating a heuristic against internal win/loss outcomes. [book:flawless-consulting], Elements of a Contract
 - Build a win/loss practice from five recent mixed deals, internal debriefs, client interviews, documented findings, and leadership review.
@@ -37,7 +39,6 @@ After each debrief, ask whether it contradicts or extends a working method. Reco
 - Debrief each client interaction with specific reflection on what worked, resistance, and what to change, instead of waiting only for a deal decision. [book:selling-to-big-companies], # 22. THE MINDSET OF SUCCESS
 - For losses, ask when the decision shifted, what the winner did differently, whether credibility was damaged, and whether the client would consider a future project.
 - Interview as soon as possible because recall accuracy decays with time while confidence stays high, so weigh vivid, confident accounts skeptically. [book:research-methods-psychology], Construct Validity of Surveys and Polls
-- Prevent relationship disintegration by forging multilevel links and engaging with the customer's vision rather than selling goods and services transactionally. [book:key-account-management], 3.2 Stages in key relationships
 - Quantify business impact in the debrief where possible. [book:meddicc], Discovery
 - Record the buyer's exact words for pain points in the debrief. [book:meddicc], Implicate the Pain
 - Schedule the interview close to the decision because distant memories decline in accuracy even while confidence in them stays high. [book:research-methods-psychology], Construct Validity of Surveys and Polls
