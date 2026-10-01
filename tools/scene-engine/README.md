@@ -1,0 +1,1 @@
+scene-engine is a private tool specification for turning a storyboard into a PowerPoint-safe MP4 explainer or app-demo video and an editable native PowerPoint deck, using pinned HyperFrames with app capture and a fallback renderer. Status: specified, not built.
