@@ -45,6 +45,8 @@ Ground covered decisions in a substrate before deciding. Leave a short record of
 
 ## Confidential material and external claims
 
+Apply this section only when the task handles partner-track material, relies on a third-party source deck or method, or makes, reviews, or publishes a vendor-funding claim. These are shared material-handling and external-claim safeguards, not a general presales workflow; qualification, pricing, and account coordination stay with their role-specific skills. (derived: dogfood 2026-10-01)
+
 - Keep local partner-track material on this machine.
 - Do not quote internal funding amounts to clients in early conversations.
 - Do not promise vendor funding until the vendor partner account team confirms it. [book:flawless-consulting], Ground Rules for Contracting.

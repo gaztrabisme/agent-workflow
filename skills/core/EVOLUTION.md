@@ -337,6 +337,8 @@ is the real test, because it has now been asked and answered wrongly four times.
 
 The spine is now a short index to the shared gates. The three linked reference filenames remain. Two references were added for output/completion and artifact writing. Routed rules are organized by the shared artifact and audience: result integrity, grounding, project memory, reader-focused writing, and pushback. The harness-specific wiki bootstrap was removed. The decision-record guidance now orders context and decision for the reader, and freshness uses owner/review metadata rather than a session-count trigger.
 
+- Dogfood follow-up (Work Stage A top-up gate-contract review, 2026-10-01): 3 high, 4 med, 1 low; 8 fixed, 0 rejected.
+
 ### Verdict
 
 Verdict: PENDING until two real uses validate the rebuilt gates.
