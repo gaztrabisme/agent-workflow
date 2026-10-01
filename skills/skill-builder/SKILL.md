@@ -41,7 +41,7 @@ Shared gate definitions live in `../core/SKILL.md`. Quality plans name the pract
 | Publish, when requested | Generalize examples, break private linkage, scan files and history, verify a clean clone | Scrub results and release record |
 | Record and hand off | Add the initial evolution entry and route later trace harvests to the right sibling | `EVOLUTION.md` and clear composition links |
 
-The checklist gives the ordered build and refine paths. The course playbook and publishing reference carry the longer procedures. The flow table is an index; scale it for a quick question, a critique of existing work, or a recheck after a fix. For a critique or structural refine, use `references/refine-review.md` and its report template. [book:continuous-delivery], Chapter 3: Continuous Integration
+The checklist gives the ordered build and refine paths. For a course, book, or talk-series distillation, follow `references/distill-course.md` with `references/authoring-checklist.md`. The course playbook and publishing reference carry the longer procedures. The flow table is an index; scale it for a quick question, a critique of existing work, or a recheck after a fix. For a critique or structural refine, use `references/refine-review.md` and its report template. [book:continuous-delivery], Chapter 3: Continuous Integration
 
 For a course distillation, specify the output medium, recurring scripts or templates, and the render-and-check loop. Say when to open the factual library, list application-changing crosswalk corrections, and cite source anchors or pages in outputs. Report what was measured, vision-judged, not judged, or skipped and why.
 
