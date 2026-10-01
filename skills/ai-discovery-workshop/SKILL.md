@@ -9,7 +9,7 @@ description: "Facilitate a client workshop that produces a client-validated AI u
 
 Produce a client-validated AI use-case brief with a journey, evidence, score caveats, and handoff. The audience is the facilitator and the client's presale decision group, including business and technology decision-makers, business-unit stakeholders, end users, and subject-matter experts. Discovery teams benefit from including business stakeholders, subject-matter experts, customers, and end users. [book:user-story-mapping], A Discovery Team Needs Lots of Others to Succeed
 
-Use human experience and business process as helpful lenses, generally giving process impact close attention. Treat that as a focus preference, not a gate: each candidate may sit in any of the four AI transformation pillars in references/discovery_cards.md.
+Keep consulting within human experience and business process, generally giving process impact close attention. Avoid adjacent areas beyond your certainty. Use the four AI transformation pillars in references/discovery_cards.md to organize relevant opportunities within that scope; they do not expand it.
 
 Map secondary personas as well as the primary persona when a complex workflow crosses roles. [book:user-story-mapping], Tell Your Users' Stories
 
@@ -27,7 +27,7 @@ Inherit the shared kernel. Declare the applicable gates and reference ../core/SK
 - Keep commercial content out of the opening. The supplier enters after the client has agreed on the problem and is ready to discuss solutions. [book:challenger-sale], Step 6: Your Solution
 - Tailor the opening to the business priorities of the people in the room, not only to their sector. [book:challenger-sale], Tailoring for Resonance
 
-Opening frame: “You described [workflow or goal]. Today we will map how it works, test where AI may help, and leave with what we know, what remains uncertain, and what needs proof.” Use the client's words and fill in only details they have confirmed. A problem-first conversation helps nontechnical stakeholders see the business problem before discussing machine learning. [book:human-in-the-loop-ml], Summary
+Opening frame: “You described [workflow or goal]. Today we will map how it works, test where AI may help, and leave with what we know, what remains uncertain, and what needs proof.” Use the client's words and fill in only details they have confirmed. Use this as the problem-first hook when asked how to approach an AI engagement. For products that use human-in-the-loop machine learning, the book recommends starting with the problem to solve and working backward. [book:human-in-the-loop-ml], Summary
 
 ## Four-phase working flow
 
@@ -43,7 +43,7 @@ The Day 1 brief can carry two or three BXT-screened candidates into further disc
 
 Day 8 is a decision point, not a promise that every output is ready. Estimate potential ROI when evidence permits; record a PoV decision only when the client has enough evidence, the relevant decision-makers are present, and follow-up is agreed. Architecture and implementation proceed through the named handoff. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
 
-Use the references below as working materials. Treat the question sets as a flexible bank: adapt them to the client and leave time for evidence and discussion.
+Use the references below as working materials. Prepare client-specific variants for the Five Golden Questions; use the facilitator scripts as literal prompts, and leave time for evidence and discussion.
 
 ## References
 
@@ -51,6 +51,6 @@ Use the references below as working materials. Treat the question sets as a flex
 - references/bxt_template.md — assessment fields, scoring, examples, and matrix caveats.
 - references/discovery_cards.md — journey mapping, card use, transformation pillars, and automation levels.
 - references/five_golden_questions.md — the BXT question bank and facilitation guidance.
-- references/facilitator_scripts.md — adaptable prompts for BXT, journey mapping, approach choice, ROI, and handoff.
+- references/facilitator_scripts.md — literal prompts for BXT, journey mapping, approach choice, ROI, and handoff.
 - references/methods_glossary.md — discovery, framing, synthesis, and convergence methods.
 - references/commercial_framing.md — client-value framing and agreed next steps.

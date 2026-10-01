@@ -4,7 +4,7 @@
 
 Before preparation, identify the business units and client roles involved. Agree in writing on the workshop's boundaries, objectives, participant roles, client support needed, and schedule. [book:flawless-consulting], Elements of a Contract
 
-Use business-intelligence research as prework; bring relevant, validated context into the session without turning the workshop into an account-research presentation. Confirm which business units are in scope, align participants around the four transformation pillars, and confirm the business and technical decision-makers can attend Day 8.
+Use business-intelligence research as prework; bring relevant, validated context into the session without turning the workshop into an account-research presentation. Confirm which business units are in scope. For each participating unit, align participants on which of the four AI Transformation Pillars matters to it. Confirm the business and technical decision-makers can attend Day 8.
 
 Prepare a lightweight persona draft for each in-scope business unit, with fuller drafts for the top two or three. Start with a collaborative proto-persona sketch based on what the team currently assumes, and mark it as an assumption to validate rather than a researched fact. [book:lean-ux], Proto-Personas The book describes narrowing a team brainstorm to a small initial persona set. [book:lean-ux], The Persona Creation Process
 

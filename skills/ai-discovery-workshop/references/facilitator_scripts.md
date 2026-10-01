@@ -1,8 +1,8 @@
 # Facilitator Prompts
 
-## Use prompts as a question bank
+## Use prompts literally
 
-Treat these prompts as starting points. Adapt them to the client, and follow evidence and uncertainty. Do not read the questions word for word as a script.
+Use these questions as literal workshop prompts; do not rephrase them. Ask clarifying follow-ups as needed while preserving the provided wording.
 
 Keep questions open-ended. Invite the client to tell what happens, explain why it happens, or describe a decision or handoff. [book:meddicc], DISCOVERY
 
