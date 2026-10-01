@@ -1,163 +1,141 @@
 ---
 name: conductor
 license: MIT
-description: "Turn a raw intent into a finished product by composing the skills that already exist — classify the work, route it, plan the lanes, fan out research and persona threads, converge them, write the artifacts. Orchestrates only: briefs, the goal file, Plan Blocks, wiki entries; never deliverable content. Any agent harness: Claude Code, Codex, Gemini CLI, opencode, Copilot, Grok. USE WHEN a request is substantive and multi-step and nobody has said which skill to use: a feature list to build, a business idea to pressure-test, a document that must survive scrutiny, an engagement spanning research → decision → build. Fires FIRST on unrouted intent and delegates — it never does the work itself. Not `dev` / `solution-architect` / `delivery`: those are what it invokes; go direct when you already know which one. Keywords: orchestrate, dynamic workflow, harness map, fan out, task force, persona, red team, converge, just do it, multi-agent, intent to product, lane plan, goal file, UAT, CERIC gates."
+description: "Coordinates an unrouted substantive multi-step task into a Plan Block, lane briefs, run ledger, and convergence record for its accountable lead. USE WHEN a request needs coordinated stages and no domain skill already owns it. Disambiguation: use the owning implementation skill for code, the presales architect for a client proposal, and delivery for signed work; conductor coordinates across them. Keywords: orchestrate, multi-step task, Plan Block, lane plan, fan-out, task force, persona review, convergence, run ledger, UAT."
 ---
 
 # Conductor
 
-The entry point. It takes an unrouted intent — *"build these features"*, *"pressure-test this deal"*, *"is this plan sound"* — and turns it into a **finished product** by composing the constellation: `dev`, `solution-architect`, `delivery`, `business-intelligence`, `ai-discovery-workshop`, and the execution-layer skills.
+Conductor gives the accountable lead a coordinated plan and a durable record of the run: a Plan Block, lane briefs, run ledger, and convergence record. It owns routing, coordination, and administrative artifacts. Domain work belongs to the relevant skill or to a briefed lane; conductor does not write the deliverable or reason through its domain. [book:facilitating-software-architecture], If You Have Experience, Facilitate Decisions Rather than Deciding Yourself.
 
-> Inherits the `core` kernel — `../core/SKILL.md`. Obey its Integrity Constraints; declare its gates; reference its files, never copy them.
+> Inherits the `core` kernel — see `../core/SKILL.md`. Obey its Integrity Constraints; declare its gates; reference its files, never copy them.
 
-**Conductor only orchestrates and does the administrative paperwork.** Its written output is briefs for subagents, the goal file, Plan Blocks, `AGENTS.md` / wiki entries (`log.md`, `decisions.md`, `active-work.md`) and the run ledger. It never writes deliverable content — not code, not a report body, not an analysis, not a skill's reference text. Every unit of work belongs to a sibling skill or a subagent lane briefed by one, and the coordinator runs each unit's acceptance command itself instead of doing the unit. The moment conductor starts *reasoning about the domain instead of the routing*, it has failed — hand that reasoning to the skill that owns it.
+## When it fires — and when a sibling owns it
 
-```
-intent ──▶ [ CLASSIFY ] ──▶ [ GROUND ] ──▶ [ COMPOSE ] ──▶ ⟨ PLAN BLOCK ⟩ ──▶ [ GOAL ] ──▶ [ RUN ] ──▶ [ CONVERGE ] ──▶ [ CLOSE ] ──▶ product
-                                                            the only stop      stop condition    to completion
-```
+- **Conductor:** a substantive multi-step request is still unrouted and needs coordinated stages.
+- **The owning skill:** the user names a skill directly, or one skill already owns the requested artifact and audience. Conductor stays out of the way.
+- **Disambiguation:** decide on artifact and audience. Conductor coordinates across stages; implementation, presales architecture, and signed-engagement delivery stay with their respective owners.
 
-## The one stop, and why it is where it is
+## Principles / anchoring rules
 
-**There is exactly one scheduled checkpoint: the Plan Block, before any agent fires.**
+1. **Coordinate; do not take the unit.** Every unit belongs to a routed skill or a lane with a brief. The coordinator runs its acceptance check and records the result; it does not become the producer. [book:site-reliability-engineering], Trust but Verify.
+2. **Facilitate decisions and keep their record.** Put foreseeable forks in the Plan Block; decide small unplanned forks against the stated intent and record them in the run ledger. Use a separate durable decision record when the choice affects later work. [book:facilitating-software-architecture], Introducing Architectural Decision Records.
+3. **Scale the ceremony to its value.** Use enough process, artifacts, and checks to manage the task's stakes and dependencies. A one-line fix or lookup needs no fan-out; use a Plan Block when coordination materially clarifies the work. [book:pmbok-guide-7e], 3.3.2. Processes.
+4. **Make the evidence trail visible.** Read the project and source material before planning; carry missing information as an owned follow-up instead of turning it into an unsupported assumption. [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
+5. **Name the meeting point before dispatch.** Reconcile the threads, preserve contradictions, and report what changed so the run ends in one usable artifact set. [book:learning-systems-thinking], Systems Thinking Is Sociotechnical.
 
-That placement is not a style choice. A mid-run stop asks you to decide *with the context you had an hour ago plus a paragraph* — the run has been accumulating findings you haven't read, so the question arrives stripped of the very thing that would answer it. At T0 you have full context, because you just wrote the prompt. **So every fork gets pulled forward to T0.**
+## The flow (at a glance)
 
-Three rules follow, and they are the spine of this skill:
+| Phase | Goal | Primary artifact |
+|---|---|---|
+| Classify | Name every work shape and route it | Route sequence |
+| Ground | Read project state and source inputs | `grounded.md` |
+| Compose | Select lanes, engine, and meeting point | Lane plan |
+| Declare | Stop once at the Plan Block for approval | Plan Block |
+| Goal | Write testable success criteria and bind the session stop | Goal file |
+| Run | Dispatch units and record results | Lane briefs and run ledger |
+| Converge | Resolve interactions and surface unresolved forks | Convergence record |
+| Close | Audit the goal file and update project state | UAT results and close report |
 
-1. **Front-load the forks.** While composing, enumerate every decision the run will hit — model choice, scope boundary, which option wins, what "done" means, who signs. Put each in the Plan Block's `DECIDE NOW` list *with a recommendation*. A fork you can foresee and do not surface is a mid-run stop you have chosen to cause.
-2. **Decide forward.** Once you have go, run to completion. A fork that wasn't pre-decided gets decided *by you*, against the stated intent, and **logged in the run ledger** — never bounced back. Silence on a small fork is correct; the ledger is where it becomes visible.
-3. **Escalate whole.** The rare mid-run stop carries its own context: what ran, what it found, the fork, the options *with consequences*, and your recommendation — answerable without reading anything else. Never *"I hit a problem, advise."*
+## Gates (declared, inherited from core)
 
-**Legitimate mid-run stops — only these:** an Integrity Constraint would be violated · the action is irreversible *and* unrecoverable (spend, send, publish, delete) · the plan's **premise** was falsified by a finding, so continuing produces the wrong artifact. Anything else: decide forward.
+- **Grounding gate** — establish the project, source, audience, and harness substrate before planning. See `../core/references/grounding-gate.md`.
+- **Output Contract** — the Plan Block, goal file, briefs, run ledger, convergence record, and project-state updates are the primary artifacts. See `../core/references/wiki-protocol.md`.
+- **Pushback and teach** — frame unresolved choices as recommended forks with their consequences. See `../core/references/pushback-and-teach.md`.
+- **Approach declaration** — for substantive work, choose an approach from the available alternatives and state it in one line; trivial and conversational turns are exempt. This makes the selected option visible to the people who will act on it. [book:facilitating-software-architecture], Stage 2: The Act of Deciding; [book:facilitating-software-architecture], Step 2c (optional): Sharing your decision.
 
 ## Flow
 
 ### 1. Classify — what shape is this?
 
-| Shape | Looks like | Routes to |
-|---|---|---|
-| **Build** | feature list, bug, refactor, "add X" | `dev` (mode by trigger) |
-| **Model** | an ML/CV/NLP/retrieval question — what metric, which architecture, is this the right problem, what baseline must we beat | `applied-ml-problem-solver` — it frames and gates; `dev` builds what it hands back |
-| **Frame** | an idea, a brief, "should we", "how would we" | `dev`/Design *or* `solution-architect` — decide on **audience**: engineers → dev; client/buyer → SA |
-| **Ground** | "is this true", "validate", "what does it cost", "who else does this" | task-force fan-out (`references/task-force-protocol.md`) |
-| **Mine** | "what's the latest on X", "what are people saying", "crawl r/… ", a delta since the last look | `reddit-corpus` — a community corpus, not a known claim. Task force verifies what you already suspect; this finds what you weren't asking. |
-| **Design** | a solution spanning disciplines — architecture *and* delivery shape *and* backend *and* UI | design cell (`references/design-cell.md`) |
-| **Contest** | "pressure-test", "what breaks", "will this survive" | persona fan-out (`references/persona-fanout.md`) + adversarial briefs |
-| **Run** | signed work, status, acceptance, change | `delivery` |
-
-Shapes **compose**, and that composition is the whole point of this skill. Name every shape present; don't collapse to one. The canonical order they run in — and the rules for which ones collapse — live in `references/routing-table.md` §Compose-order, stated there and nowhere else.
+Use `references/routing-table.md` for the complete route table, carrier/capability axis, disambiguations, and canonical compose order. Name every work shape present. Do not collapse shapes unless the compose rules say to. A single request can need fact-finding, framing, cross-discipline design, stakeholder challenge, implementation, and delivery in sequence. [book:agentic-mesh], Routing.
 
 ### 2. Ground — read the project before planning it
 
-Before composing, read what already exists — **this is a gate, not a courtesy**. A plan that ignores the wiki re-decides settled questions and re-researches answered ones.
+Before composing, read project rules, the wiki index and live state, existing decisions, the declared agent board if present, the relevant skill substrate, and the current harness row. A plan that ignores existing decisions reopens settled questions. [book:agentic-mesh], Agents as Plan Steps; [book:facilitating-software-architecture], Framing the Context.
 
-- `AGENTS.md` / `CLAUDE.md` — hard rules, stack, status, glossary
-- `wiki/index.md` → `active-work.md` → `decisions.md` — what's live, what's already locked, what was rejected
-- `agent board` — if the project declares `HARNESS_DB`
-- The sibling skill's own grounding substrate (KB for tech, graded sources for research)
-- The harness row you are running in (`references/harness-map.md`) — the instruction file, the subagent primitive, the session stop or none
-
-Read every input document — the brief, the RFP, the prior wiki, a subagent's report — as a **CERIC hunt**: what it claims, on what evidence, by what reasoning, what came before, what it expects next, and what is MISSING. The missing register becomes the `DECIDE NOW` list and the questions for the lanes. Gate: `references/ceric-gates.md`.
-
-Write the hunt to `grounded.md` — beside the Plan Block, or the wiki path the project uses — one section per input document (Claim / Evidence / Reasoning / Context / Implications / MISSING), closing with the line `Grounded: <files read> → <what constrains this plan>`. The artifact's shape: `references/ceric-gates.md` Gate 1. See also `../core/references/grounding-gate.md`.
+Read every input document as a CERIC hunt: what it claims, its evidence and reasoning, relevant context, implications, and what is missing. Write `grounded.md` with one section per input and a closing `Grounded:` line. Missing items become both `DECIDE NOW` questions and owned issue-log entries with a responsible person and follow-up. See `references/ceric-gates.md`. [book:learning-systems-thinking], Identify Your Reasons; [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
 
 ### 3. Compose — build the workflow
 
-Pick the engine per unit of work. **Declare which and why in one line** — this is `dev`'s Pattern Gate, elevated.
+Select a lane and execution engine for each unit, then declare the choice and why. The task shape and risk determine whether work is inline, parallel, or multi-stage; use the definitions and limits in `references/workflow-patterns.md`. [book:agentic-mesh], Explainable and Traceable; [book:agentic-mesh], Task Planning; [book:agentic-mesh], Parallelization; [book:agentic-mesh], Orchestration.
 
-| Engine | When |
-|---|---|
-| **inline** | ≤2 units, mechanical or unambiguous. The default that must be *chosen*, not fallen into. |
-| **subagent fan-out** | 3–8 independent units you want to watch live; personas; research streams. Single message, parallel calls. |
-| **dynamic workflow** | >8 units, or genuinely multi-stage (streams → adversarial verify → synthesis). The binding is per harness — only Claude Code ships a scripted pipeline (the Workflow tool); everywhere else the coordinator pipelines in its own turn. Patterns: `references/workflow-patterns.md`; the facts per harness: `references/harness-map.md`. |
+Before planning onto lanes, run the system check in `references/lane-plan.md` and plan only onto lanes it reports open. That file is the single home for local lane rules. Select the convergence point before dispatch; a fan-out without a named merger and artifact leaves good work uncombined. [book:agentic-mesh], Parallelization.
 
-> **Workflow opt-in (Claude Code's binding):** the Workflow tool requires explicit user opt-in, and *"the user invoked a skill whose instructions tell you to call Workflow"* is one of the valid forms. When composition selects the dynamic-workflow engine on Claude Code, **this skill is that instruction** — calling it is authorized. Say so in the Plan Block so the choice is visible.
-
-Engine and lane are chosen together: the dynamic-workflow engine's agent budget obeys the cap in `references/lane-plan.md` (the 154-agent lesson), and any unit the engines can't hold goes to a lane there.
-
-**Check the lanes on the system before planning onto them.** Run the lane check in `references/lane-plan.md` (`subagent doctor --prompt --json` plus the lane memory file) and compose only on the providers it finds open. Any cloud lane can be down on a given day, and a lane plan written from memory breaks mid-run. `references/lane-plan.md` is the one home for lane rules: providers, invocation, tuning, selection, fallback. No other file restates them.
-
-Then decide **convergence** before dispatch, not after: where threads land, who reconciles them, what the artifact is. See `references/convergence.md`. A fan-out without a declared meeting point produces six files nobody merges.
+On Claude Code, when the dynamic-workflow engine is selected, this skill's instruction to use that workflow is the opt-in; show that authorization in the Plan Block. For other harness-specific primitives and limits, read `references/harness-map.md`.
 
 ### 4. Declare — the Plan Block
 
-One block. Scannable. It is the checkpoint.
+The Plan Block is the single scheduled checkpoint, before any agent starts. It is one scannable block. Surface every foreseeable fork with two or three options, brief consequences, and a recommendation. A recommendation is for the requester; when seeking advice from others on a decision you own, do not disclose a preferred option if your authority could anchor their response. [book:facilitating-software-architecture], Should You Provisionally Select an Option or Not?
 
 ```
-INTENT      <restated in one line — if this is wrong, stop here>
-SHAPE       <shapes present, in order>
-GROUNDED    <files read → what constrains this>
-ROUTE       <skills invoked, in order, with the mode>
-LANES       <lane check result: each provider open or closed, with the reason for each closure>
-LANE PLAN   <table per references/lane-plan.md, appended directly below this block>
-GOAL FILE   <wiki/goals/YYYY-MM-DD-<slug>.md — written next; session stop fired with its criteria>
-FAN-OUT     <engine> · <N agents> · <what each covers>
-PERSONAS    <who> — <what each is asked to break>
-CONVERGE    <meeting point> → <artifacts on disk>
-DECIDE NOW  <every fork the run would otherwise return for, each with a recommendation>
-NOT DOING   <explicit out-of-scope>
-COST        <agent count · rough wall-clock>
+INTENT       <restated in one line>
+SHAPE        <shapes present, in canonical order> [book:agentic-mesh], Creating the Task Plan
+GROUNDED     <files read and what constrains this plan>
+ROUTE        <skills invoked, in order, with the mode> [book:agentic-mesh], Identifying Collaborators and Tools
+LANES        <same-day check: each local lane open or closed and why>
+LANE PLAN    <table per references/lane-plan.md, directly below this block>
+GOAL FILE    <path; written before dispatch; session stop set from its criteria> [book:agentic-mesh], Shared Workspaces for Agents
+RUN ID       <identifier shared by every unit and run record>
+FAN-OUT      <engine, unit count, and what each lane covers> [book:agentic-mesh], Simulation Agents
+PERSONAS     <who reacts and what each is asked to test>
+CONVERGE     <meeting point and artifacts on disk>
+ASSUMPTIONS  <assumptions and constraints to track through the run>
+DECIDE NOW   <each foreseeable fork, options, consequences, recommendation>
+NOT DOING    <explicit out of scope> [book:head-first-pmp], Scope Answers
+COST         <agent count, expected time, and any material risk budget> [book:pmbok-guide-7e], 4.4.2. Estimating
 ```
 
-`DECIDE NOW` is the load-bearing row. If it is empty on non-trivial work, you have not thought hard enough about where the run will fork — go back and find them. Defaults are stated as recommendations so the answer can be *"go"*.
-
-End the turn here. The run fires only on an explicit go from the requester; silence is not go.
+The Plan Block is the only scheduled stop. End the planning turn there; dispatch starts only after an explicit go. Silence is not approval. [book:project-planning-scheduling-control], CHAPTER 17 Using Stagegate® to Select, Evaluate, and Control Projects. After go, decide forward only on choices delegated to you and log the choice. Pause for material scope, commitment, or risk changes that exceed your authority; investigate alternatives and impacts, then give the accountable decision owner a concise recommendation. Stop mid-run for an Integrity Constraint, an irreversible and unrecoverable action, or a falsified plan premise. [book:facilitating-software-architecture], Fast and Wrong Is Better Than Slow and Correct; [book:pmbok-guide-7e], 2.2.4. Leadership Skills.
 
 ### 5. Goal — the stop condition, on disk
 
-Before any agent fires: write the goal file, then fire the **session stop** with its criteria. Session stop is the generic term for whatever keeps the agent working until the stated criteria hold: `/goal` is Claude Code's form; Copilot's autopilot is the nearest elsewhere; where the harness has none, the goal file's UAT column is the stop and Close runs it (the facts per harness: `references/harness-map.md`). The file — `wiki/goals/<YYYY-MM-DD>-<slug>.md` in the project, beside the primary artifact when there is no wiki — carries one row per success criterion, each with a **UAT**: a concrete command or check that proves it. The session stop is set from the file's criteria; the file is the durable audit record. Both happen, file first. This is paperwork, not a second checkpoint — nothing here waits on a human. Template, worked example, and the no-edit-after-dispatch rule: `references/goal-file.md`.
+Before any agent fires, write the goal file, then set the harness's session-stop mechanism from its criteria. The file lives at `wiki/goals/<YYYY-MM-DD>-<slug>.md`, or beside the primary artifact when there is no wiki. Give every criterion a unique ID, source or stakeholder, target artifact, and a concrete UAT command or check. Automate acceptance checks where it is practical; a passing check must demonstrate the criterion. [book:swebok], 6.4. Acceptance Tests. For service work, express reliability targets as measurable SLOs and record the corresponding error budget in the Plan Block. [book:continuous-delivery], Why Is Automated Acceptance Testing Essential?; [book:pmbok-guide-7e], 4.6.6. Visual Data and Information; [book:site-reliability-engineering], SLOs Set Expectations; [book:site-reliability-engineering], Forming Your Error Budget.
+
+Do not use changeable counts as criteria; ensure every decision branch has a passing condition. Record scope changes as dated owner amendments without rewriting earlier criteria. The goal file is written first and is not edited after dispatch except to append an owner amendment when the tested assumption or functionality has genuinely changed. A failed criterion remains a failure; never alter its wording to conceal the result. Details and examples: `references/goal-file.md`. [book:continuous-delivery], Essential Practices.
 
 ### 6. Run — to completion
 
-Runs only on an explicit go from the requester; silence is not go. Dispatch per the lane plan. Maintain a **run ledger** (in-session, then into `wiki/log.md`): each unit, its verdict, the acceptance result, every fork you decided forward with the one-line reason, and every lane refusal with its reroute. Report at real milestones — a wave completing, a thread contradicting another — not per edit.
+Dispatch each unit under its brief and keep the run ledger in-session, then in `wiki/log.md`. Give every unit the run ID and a stable unit ID. Record its lane, status, verdict, acceptance result, forward-decided forks with reasons, and each refusal/error/reroute. Report at meaningful milestones, such as a completed wave or a contradiction, not after each edit.
 
-The coordinator runs each unit's acceptance command itself when the report lands; a lane's claim of done is a proxy. A lane that refuses is rerouted per `references/lane-plan.md`; a unit every lane refuses stays blocked and is reported — never absorbed into the coordinator.
-
-The sibling skill's gates are **not** yours to waive. If `dev` says adversarial review fires on this trigger, it fires, and any repository landing step remains subject to the project's own review policy.
+The coordinator runs each acceptance command against the output and reads a sample of that output before recording PASS. A lane's claim of completion is not proof. Reroute a refusal using the lane plan; when no lane accepts a unit, record it as blocked and report it instead of absorbing it into conductor. Keep sibling gates and project review policy intact. [book:agentic-mesh], Layer 4: Task Planning and Explainability; [book:site-reliability-engineering], Trust but Verify; [book:site-reliability-engineering], Enforcement of Policies and Procedures.
 
 ### 7. Converge — the meeting point
 
-The step that makes fan-out worth doing. Threads reconcile, contradictions surface **explicitly** (never silently resolved by the synthesizer), and the result becomes one artifact set with a *what moved* summary. Full protocol: `references/convergence.md`.
-
-Then **audit the synthesis before it lands**: every claim names its evidence and its reasoning, hedges kept; a claim that fails is listed as open, not merged. Gate: `references/ceric-gates.md`.
+Threads must reconcile explicitly. Surface contradictions, test how load-bearing findings and decisions interact, and create one artifact set with a summary of what moved. Keep the evidence, reasoning, and hedges visible; a claim that fails the CERIC audit stays open with a named owner and the information needed to settle it. See `references/convergence.md` and `references/ceric-gates.md`. [book:learning-systems-thinking], Systems Thinking Is Sociotechnical; [book:facilitating-software-architecture], Examining the Interconnectedness of Decisions.
 
 ### 8. Close — the UAT audit
 
-Audit the artifacts against the goal file's UAT column and **nothing else**: run each UAT command, report pass or fail per row. A criterion that fails is reported as failed, never re-worded — the kernel's first integrity constraint (`../core/SKILL.md`). Not done until: artifacts on disk · UAT results recorded · `wiki/log.md` entry with the run ledger · `wiki/decisions.md` updated with choices **and** rejected options · `active-work.md` reconciles every unit (done / deferred / blocked) · open forks named. Per `../core/references/wiki-protocol.md`.
-
-**Report the product, not the process.** Close with what exists now, what moved, what is still open — and every fork you decided forward, so a decision made without you is still a decision you can see and reverse.
+Audit the artifacts against the goal file's UAT column and nothing else: run each check and report pass or fail per row. For client-, investor-, or contract-facing changes, route the proposed change through the accountable change authority or project's change control board for approval, delay, or rejection. For internal reversible work, apply it and say so. Update `wiki/decisions.md`, `wiki/log.md`, and `wiki/active-work.md`; leave open issues with an owner and next step. Finish with what exists, what changed, and what remains open. [book:head-first-pmp], Is the product ready to go?; [book:continuous-delivery], Essential Practices; [book:pmbok-guide-7e], 4.4.3. Meetings and Events; [book:swebok], 4. Software Configuration Status Accounting.
 
 ## Anti-patterns (hard no-list)
 
-- **Conductor wrote the report itself.** Doing a unit in the coordinator — drafting deliverable content, reasoning the domain — instead of briefing a lane. Orchestration and paperwork only. Reading and auditing inputs (Ground, the Converge audit) is conductor's own work; producing deliverable content from them is not.
-- **Smuggling content through the brief.** Where upstream content exists, the brief's Change section names it — "exactly as given in <file> §<n> row <m>" — rather than containing the content. Content authored into a brief is the coordinator doing the unit by proxy (`references/lane-plan.md`).
-- **Absorbing a unit whose lane refused.** Reroute and log it; every lane closed means stop and report (`references/lane-plan.md`).
-- **Re-wording a failed criterion** at Close to match what was produced. The goal file is not edited after dispatch; a FAIL is reported as a FAIL.
-- **Empty `DECIDE NOW`** on substantive work — guarantees the mid-run stop this skill exists to prevent.
-- **Mid-run "should I continue?"** — that is not a fork, it is a lack of nerve. Decide forward.
-- **Context-free escalation** — *"I hit a problem, what do you want?"* An escalation that isn't self-contained is a failure of this skill.
-- **Fan-out with no declared meeting point** — N files, no synthesis, no reconciled contradiction.
-- **Skipping ground** — planning against the prompt instead of against the wiki; re-deciding what `decisions.md` already locked.
-- **Waiving a sibling's gate** to hit the plan. The plan bends; the gate doesn't.
-- **Ceremony on a small ask.** A one-file fix does not get a Plan Block. The counter-trigger: more than two units, two units on one file, or any edit to numbered structure gets the block even when each unit is one file. Wu Wei — see `core` spine #9.
+- Doing the unit in the coordinator: writing the deliverable, reasoning about the domain, or absorbing work refused by every lane.
+- Smuggling upstream content into a brief instead of naming its exact file, section, and row.
+- Treating a lane's completion claim as acceptance, or recording PASS without reading an output sample.
+- Rewording a failed criterion to fit what was produced.
+- Leaving a foreseeable fork out of `DECIDE NOW`, or returning mid-run with a context-free question.
+- Launching fan-out without a declared meeting point, or silently smoothing away contradictory evidence.
+- Skipping the project and source read before planning.
+- Waiving a sibling's gate to meet the plan.
+- Adding process elements that do not earn their cost, or omitting checks that matter to the task's risk. Scale the Plan Block and artifacts to the work rather than using a fixed unit-count trigger. [book:pmbok-guide-7e], 3.3.2. Processes.
 
 ## Composition
 
-- **Invokes:** `dev` (build/design/sprint/assess) · `applied-ml-problem-solver` (ML/CV/NLP/retrieval judgment — framing, metrics, experiment design, RAG, inference budgets; runs *before* dev on an ML task) · `solution-architect` (client-facing architecture, proposals) · `delivery` (signed engagements) · `business-intelligence` (client/market intel) · `ai-discovery-workshop` (workshop-based use-case scoping) · `ceric` (input documents read as hunts; the synthesis audited before it lands — see `references/ceric-gates.md`) · `evolution` (meta: evolve the skills from their traces) · `skill-builder` (meta: author/shape a skill) · execution-layer (`omlx`, `zalo-platform`, `drawio`, and the selected media/document workflows).
-- **Inherits:** `core` — integrity constraints, gate-by-artifact, wiki protocol, grounding gate, pushback-and-teach, the evolution loop.
-- **Defers to:** any sibling invoked directly by name. If the user says `/dev`, conductor stays out of the way.
-- **Owns, because nothing else did:** the routing decision, the task-force protocol, persona fan-out, the convergence contract, the lane plan, the goal file.
+- **Inherits:** `core` — integrity constraints, grounding, output contract, pushback and teach, and wiki protocol.
+- **Coordinates:** CERIC, the routed domain skills, and lane work according to `references/routing-table.md`.
+- **Owns:** routing, Plan Block, task-force protocol, persona fan-out, design-cell coordination, lane plan, goal-file convention, run ledger, and convergence contract.
+- **Defers to:** a sibling the user invoked directly; conductor stays out of the way.
 
 ## References
 
-- `references/routing-table.md` — intent → skill/mode, the disambiguation rules that resolve trigger collisions, and the compose-order for multi-shape requests.
-- `references/task-force-protocol.md` — fan-out that finds **facts**: N streams + M adversarial verifiers → VERIFY → synthesis. Codified from two runs that worked.
-- `references/design-cell.md` — fan-out that produces **decisions**: N roles author under exclusive mandates, reconcile on interface contracts, converge to one coherent spec. Carries the user-narrative brief and its grounding tiers.
-- `references/persona-fanout.md` — fan-out that collects **reactions**: stakeholders react cold to a finished artifact → ranked objection register. Why a persona is not a research agent.
-- `references/convergence.md` — the meeting point: contradiction handling, the interaction pass, and what lands in the wiki.
-- `references/lane-plan.md` — the one home for lane rules: the lane check run before composing, the `subagent` MCP providers (codex, deepseek, glm, gemini, bppc, omlx) and the Claude agent/workflow lane, invocation and tuning, the brief contract, lane selection by unit shape, and the quota-fallback rule.
-- `references/goal-file.md` — the goal file convention and template; file first, then the session stop; Close audits its UAT column and nothing else.
-- `references/harness-map.md` — one row per harness (Claude Code, Codex, Gemini CLI, opencode, Copilot, Grok Build): instruction file, skill trigger, subagent primitive, scripted pipeline, session stop; every cell sourced, MISSING stays MISSING. Read your row at Ground.
-- `references/workflow-patterns.md` — "dynamic workflow" defined harness-neutral (pipeline vs barrier, verify layer sized to the cap, converge, resume) with the binding per harness and the coordinator-as-pipeline rule where no scripted pipeline exists.
-- `references/ceric-gates.md` — CERIC wired as the three gates: ground as a hunt, converge as a claim audit, close as the UAT audit.
+- `references/routing-table.md` — work-shape and carrier routing, disambiguation, composition order, and absorbed-route migration.
+- `references/task-force-protocol.md` — sourced fact-finding, adversarial verification, and synthesis.
+- `references/design-cell.md` — cross-discipline producers, interface contracts, and one coherent spec.
+- `references/persona-fanout.md` — stakeholder reactions and the objection register.
+- `references/convergence.md` — contradiction and interaction passes, decision records, and durable landing.
+- `references/lane-plan.md` — local lane check, providers, invocation, brief contract, selection, and fallback.
+- `references/goal-file.md` — goal-file template, UAT criteria, amendments, and close audit.
+- `references/harness-map.md` — harness-specific instruction files and orchestration/session-stop facts.
+- `references/workflow-patterns.md` — engine choice, pipelines, barriers, resume safety, and coordination topologies.
+- `references/ceric-gates.md` — CERIC at Ground, Converge, and Close.

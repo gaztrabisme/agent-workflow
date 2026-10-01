@@ -40,16 +40,16 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 | a local spreadsheet (`.xlsx` / `.csv`) | `xlsx` |
 | a Google Sheet (over the network, acts as you) | `gsheets` — **not** `xlsx` |
 | a diagram as a file (`.drawio`, exported PNG/SVG) | `drawio` |
-| **any** chart, plot, dashboard or stat tile, in any medium | `dataviz` — read **before** the first line of chart code |
+| **any** chart, plot, dashboard or stat tile, in any medium | the chart-visualization owner — consult it **before** the first line of chart code |
 | a published web page on claude.ai | `Artifact` + `artifact-design`; diagrams → `artifact-diagramming`; live/stateful → `artifact-capabilities` |
 | generated stills, clips, or synthetic training data | `media-gen` |
 
-**Frontend work has five overlapping skills. Pick on two axes, never one:**
+**Frontend work has overlapping workflow and style owners. Pick on two axes, never one:**
 
 | Axis | Choice |
 |---|---|
-| **Workflow** | new build → `frontend-design` (or `design-taste-frontend` for landing/portfolio) · existing UI → `redesign-existing-projects` (audit-first) |
-| **Aesthetic direction** | `high-end-visual-design` (agency, expensive-feeling) · `minimalist-ui` (editorial, warm monochrome, flat) |
+| **Workflow** | new interface → the new-design workflow · existing interface → the audit-first redesign workflow |
+| **Aesthetic direction** | agency/high-end · warm, flat editorial |
 
 One workflow skill **plus** one direction. Loading two directions produces a hybrid that reads as neither. `color-theory` fires beneath any of them when the task is genuinely about colour: planning or critiquing an image's colour with the course method, palettes, ramps, perceptual matching, accessibility. It carries the old `color-expert` library inside it as its science layer.
 
@@ -73,7 +73,7 @@ One workflow skill **plus** one direction. Loading two directions produces a hyb
 | third-party API docs needed | `get-api-docs` |
 | authoring or hardening a skill | `skill-builder` |
 
-**Ambiguity rule, same as above:** name both candidates in the Plan Block and pick one with a reason. A carrier chosen silently is the cheapest routing error to make and the most annoying to undo.
+**Ambiguity rule, same as above:** name both candidates in the Plan Block and pick one with a reason. A carrier chosen silently is the cheapest routing error to make and the most annoying to undo. [book:software-engineering-at-google], Identify the Key Trade-Offs.
 
 ## Disambiguation — the three collisions that actually happen
 
@@ -101,29 +101,33 @@ Ground ──▶ Frame ──▶ Design ──▶ Contest ──▶ Build ──
 
 Most requests carry three or four of these, not six. Name the ones present; skip the rest out loud.
 
-- **Ground before Frame.** Deciding on unverified numbers means re-deciding. If the frame rests on a cost, a quota, a regulation, or a competitor claim, ground it first.
-- **Frame before Design.** Frame settles *what and whether*; Design works out *how*. A cell that starts before the frame is settled designs a solution to a moving problem.
+- **Ground before Frame.** Deciding on unverified numbers means re-deciding. If the frame rests on a cost, a quota, a regulation, or a competitor claim, ground it first. [book:facilitating-software-architecture], Questions That Improve Judgment Around Framing.
+- **Frame before Design.** Frame settles *what and whether*; Design works out *how*. A cell that starts before the frame is settled designs a solution to a moving problem. [book:swebok], 5.3. Software Requirements Specification.
 - **Design collapses to `dev`/Design when one discipline could hold it.** The cell is for work that would produce incompatible halves. Single-discipline work that runs a cell gets ceremony, not coverage.
-- **Contest after Design, before Build.** A persona pass over a *spec* is cheap; over shipped code it is a rewrite. Contest it while it is still prose.
-- **Build last, and only what Contest survived.**
-- **Run wraps everything** on a signed engagement — `delivery` is concurrent, not sequential.
+- **Contest after Design, before Build.** A persona pass over a *spec* is cheap; over shipped code it is a rewrite. Contest it while it is still prose. [book:facilitating-software-architecture], When and How to Seek Advice.
+- **Build last, and only what Contest survived.** Validate the requirements document before committing build resources. [book:swebok], 6. Requirements Validation.
+- **Run wraps everything** on a signed engagement — `delivery` is concurrent, not sequential. [book:continuous-delivery], Principles of Software Delivery.
 
 Two legitimate reorderings:
-- **Probe-first.** An irreversible or expensive fork (hardware spend, schema lock-in, a long training run) gets the cheapest experiment that resolves it *before* the frame is finished. This is `dev`'s sim/probe-first pattern; conductor honours it.
-- **Contest the brief itself.** When the ask is vague or hand-waves a tradeoff, the pushback gate fires *before* any stage — challenge, surface the fork, put it in `DECIDE NOW`. See `../../core/references/pushback-and-teach.md`.
+- **Probe-first.** An irreversible or expensive fork (hardware spend, schema lock-in, a long training run) gets the cheapest experiment that resolves it *before* the frame is finished. This is `dev`'s sim/probe-first pattern; conductor honours it. [book:facilitating-software-architecture], Spikes Can Tackle Architectural Variability More Cheaply.
+- **Contest the brief itself.** When the ask is vague or hand-waves a tradeoff, surface the assumptions and fork before any stage, then put it in `DECIDE NOW`. See `../../core/references/pushback-and-teach.md`. [book:learning-systems-thinking], Modeling as a Core Practice.
 
 ## What conductor never routes
 
-- **A one-line fix, a question, a lookup.** No Plan Block, no fan-out. Answer it.
+- **A one-line fix, a question, a lookup.** No Plan Block, no fan-out. Answer it. [book:pmbok-guide-7e], 3.7. Tailor Based on Context.
 - **Work the user routed themselves.** `/dev`, `/solution-architect` typed explicitly → stay out of the way.
-- **Anything a sibling's gate reserves for a human.** `harness-operator`'s align / land / close are keystones; conductor announces them in the Plan Block and returns for them. That is not a mid-run stop — it was on the plan.
+- **Anything a sibling's gate reserves for a human.** Announce the decision owner and reserved step in the Plan Block. Before escalating a decision beyond your authority, investigate alternatives and their impacts, then send the owner a recommendation. [book:pmbok-guide-7e], 2.2.4. Leadership Skills.
 
 
 ## ML / model work — the fourth collision
 
 | Intent | Route |
 |---|---|
-| "what metric should this use", "is this the right problem", "which architecture", "design the eval", "what baseline must we beat", "why does it score well but behave badly", chunking/reranking/retrieval design, inference budget or VRAM sizing | **`applied-ml-problem-solver`** |
-| "write the Dataset class", "build the training script", "wrap it in an API", "add tests" | **`dev`** (Build) |
+| ML metric, problem framing, architecture, evaluation, retrieval, or inference-budget question | Assign each step to the available specialist. In the common sequence, applied-ml-problem-solver owns problem framing and evaluation; dev owns implementation that depends on that framing. |
+| Dataset, training script, API, or test implementation | Route the code unit to the implementation owner after its required model and evaluation decisions are framed. |
 
-**Precedence when both match.** An ML task usually matches both. `applied-ml-problem-solver` runs **first** and hands `dev` a framed problem with a pre-registered gate; `dev` does not reframe. The tie-break is the *deliverable of this turn*: a decision, a metric, an eval design or an experiment verdict → ML skill; a file of code → `dev`. If the turn would produce both, split it and run the ML skill first.
+Consult the available skill and lane inventory, then assign each plan step to the resource specialized for that work. When implementation depends on a model or evaluation decision, settle that step first. [book:agentic-mesh], Specialization.
+
+## When a route absorbs an existing collection
+
+When a distilled skill absorbs a standalone knowledge collection, install the skill as the single entry point, unlink the old route by the transition date, update this routing table, and give the prior route owner the new skill name. A warning beside the old entry is not a migration plan; remove the competing entry point rather than relying on advisory deprecation. [book:software-engineering-at-google], Advisory Deprecation.

@@ -27,13 +27,13 @@ ask ──┼── Stream C ──┼── stream files ┼── Verifier 2 �
 
 ## Stream brief
 
-Each stream agent gets: its question, the current assumption it is testing against, the output path, and this contract.
+Each stream agent gets its specific question, the current assumption it tests, the output path, and this contract. [book:research-methods-psychology], How Scientists Work.
 
 ```
 Research: <the specific question — not "everything about X">
 
 Do NOT write implementation code. Do NOT revise the assumption yourself —
-report the delta and let the synthesis propose the change.
+report the delta and let the synthesis propose the change. [book:research-methods-psychology], Research Transparency and Credibility.
 
 Write to <path>/<Letter>-<slug>.md with exactly these sections:
 
@@ -42,11 +42,8 @@ Write to <path>/<Letter>-<slug>.md with exactly these sections:
 
 ## Findings
   A table, one row per item:
-  | Item | Value found (native units + converted) | Confidence | Current assumption | Verdict vs assumption |
-  - Confidence is HIGH / MED / LOW and must name WHY:
-      HIGH = official/primary source, read live, date it.
-      MED  = secondary corroboration, or a model built on HIGH inputs.
-      LOW  = single uncorroborated source, or inference.
+  | Item | Value found (native units + converted) | Evidence and uncertainty | Current assumption | Verdict vs assumption |
+  - State what remains uncertain, why, and how it will be monitored or resolved. Do not compress a finding into fixed HIGH / MED / LOW tiers. [book:learning-systems-thinking], Be Honest About Potential Pitfalls.
   - Verdict is against the ASSUMPTION, not in the abstract:
       Confirms / Cheaper than assumed / Higher than assumed / Assumption is stale / No evidence either way.
     A finding with no verdict column is trivia.
@@ -64,19 +61,24 @@ Write to <path>/<Letter>-<slug>.md with exactly these sections:
 
 Prefer PRIMARY sources read live over aggregators. Third-party summaries go
 stale silently and are the single largest error source in this protocol.
-Search in every language the answer might live in.
+Search in every language the answer might live in. Prefer primary sources read live. [book:research-methods-psychology], How Scientists Work. Make source URLs and retrieval dates explicit. [book:facilitating-software-architecture], Step 3: Make Options and Gather Their Consequences.
 ```
+
+## Empirical findings
+
+For load-bearing empirical findings, look for independent replications; a single result or a repeated summary does not establish that a finding has been reproduced. If no independent replication is available, state that uncertainty. [book:research-methods-psychology], How Scientists Work.
 
 ## Verifier brief
 
-The verifier's independence is the whole mechanism. Give it the stream file and this instruction — **not** the stream agent's reasoning.
+The verifier must be independent of the stream producer. Give it the stream file, its brief, and enough relevant context to test the claim. Independence comes from assigning a separate reviewer, not from withholding useful reasoning. [book:swebok], Chapter 4: Software Testing.
 
 ```
 You are checking a finding written by someone else. Your job is to REFUTE it.
 
 1. Read the stream file's claim on <the load-bearing item>.
 2. Independently search for sources it did NOT cite. Citing the same source
-   back is not verification — it is an echo.
+   back is not verification — it is an echo. Check critical data with an
+   out-of-band source where one exists. [book:site-reliability-engineering], Trust but Verify.
 3. Return a verdict:
      CONFIRMED — survives attack; list the independent sources that back it.
      ADJUSTED  — partly wrong; give the corrected value and the source.
@@ -86,19 +88,18 @@ You are checking a finding written by someone else. Your job is to REFUTE it.
 4. Name any trap a reader could fall into: a price quoted for a different
    deal shape, a rule that changed, a benchmark that doesn't apply.
 
-Default to REFUTED if you cannot independently source it. Do not rubber-stamp.
+Default to REFUTED if you cannot independently source it. Do not rubber-stamp. [book:critical-thinking-about-research], 1 Seeking Trustworthy Knowledge.
 ```
 
-Verdicts land in one `VERIFY.md` with the verdict counts up top.
+Verdicts land in one `VERIFY.md` with the verdict counts up top. [book:pmbok-guide-7e], 2.7.3. Presenting Information.
 
 ## Engine
 
 | Streams + verifiers | Engine |
 |---|---|
-| ≤ 8 total | Agent fan-out, single message, parallel calls. Visible and interruptible. |
-| > 8, or you want verify-as-each-stream-lands | Workflow `pipeline()` — each stream flows into its own verifier without a barrier. Resumable; a stream that dies drops to `null` instead of killing the run. |
+Use ordinary parallel fan-out when the stream and verifier set fits what can be watched and accepted live; the established run used up to eight total. For a larger set, or when verifying each stream as it arrives matters, use a documented dynamic-workflow capability or coordinator-pipelined stages from `workflow-patterns.md`. Treat eight as a watchability cue, not a universal process threshold; obey the current harness cap and scale to the value and risk of the work.
 
-Barrier only where synthesis genuinely needs every stream at once — which it does, so the *synthesis* is the barrier and nothing before it needs to be.
+Run independent streams to completion in parallel and gather their results for the combined outcome. Keep synthesis as the barrier; stages that can stream do not wait for unrelated work. [book:agentic-mesh], Parallelization.
 
 ## Synthesis
 
@@ -106,14 +107,14 @@ One file — `README.md` beside the streams. Contract:
 
 1. **Inventory table** — file, what it covers, verifier verdict.
 2. **Headlines: what moved**, grouped by direction — *cheaper than assumed / more expensive than assumed / green lights / newly discovered lines*. This is the section the human actually reads; it is not a summary of the streams, it is a diff against the assumption.
-3. **Contradictions, surfaced.** Where two streams disagree, say so and say which is better sourced. Never silently pick one.
+3. **Contradictions, surfaced.** Where two streams disagree, say so and say which is better sourced. Name the accountable decision owner; record advice without iterating toward broad consensus. Never silently pick one. [book:facilitating-software-architecture], Make Who Is Accountable for Each Decision Explicit.
 4. **Open quote-required questions**, consolidated — who to call, what to ask.
 5. **Proposed revision — NOT applied.**
 
-That last rule is load-bearing. When the task force feeds a document that is client-, investor-, or contract-facing, the synthesis **proposes** the revised numbers in a was → proposed → why table and stops. A human applies them. The cost-validation run did exactly this and it is why the resulting numbers were defensible: someone chose each one.
+That last rule is load-bearing. When the task force feeds a document that is client-, investor-, or contract-facing, the synthesis proposes revised values in a was → proposed → why table and routes the proposal to the accountable change authority or project change control board for approval, delay, or rejection. The cost-validation run did this; each value had a named decision owner. [book:pmbok-guide-7e], 4.4.3. Meetings and Events; [book:flawless-consulting], Roles Consultants Choose.
 
 For internal, reversible artifacts, apply and say you applied.
 
 ## Cost discipline
 
-Roughly 20–25k output tokens per stream agent, more for a bilingual sweep. A 10-agent run is a real spend — declare the agent count in the Plan Block. **Never silently cap coverage:** if you drop a stream, drop a verifier, or sample instead of sweeping, say so in the synthesis. Silent truncation reads as "we covered everything."
+Roughly 20–25k output tokens per stream agent, more for a bilingual sweep. A 10-agent run is a real spend — declare the agent count in the Plan Block. [book:research-methods-psychology], Presenting Results: APA-Style Reports and Conference Posters. **Never silently cap coverage:** if you drop a stream, drop a verifier, or sample instead of sweeping, say so in the synthesis. Silent truncation reads as "we covered everything."

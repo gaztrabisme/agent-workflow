@@ -307,3 +307,26 @@ The KB v9 intake (2026-09-29/30) finished its work, but its goal could never pas
 - The next gate built with `applied-ml-problem-solver` has its test set reviewed before the gate runs.
 
 **What to watch:** the output-sample rule adds reading time to each unit, so watch whether it gets skipped on "mechanical" units. Also watch whether "Every branch passes" produces rows so conditional that they check nothing.
+
+---
+
+## Evolution 6 — stage B rebuild (2026-10-01)
+
+### Sources read
+
+- Approved Stage A proposal, conductor/core/skill-builder rule ledgers and crosswalks, and the conductor practitioner review.
+- Current BUILD skill and references, including the 2026-09-30 edits; rebuilt core kernel; skill-builder instructions and skeleton.
+- The cited book chapter for each routed book-based rule, plus the source chapters for adopted candidates and the lane data-handling practice.
+
+### Counts
+
+- **254 routed rules:** 68 agrees, 67 refines, 119 field-rule, 0 disputed. Sources: 251 conductor, 2 core, 1 skill-builder.
+- **Added practices:** 17 crosswalk candidates and one additional least-privilege data-handling practice from the named security book.
+
+### Structure changes
+
+Reorganized the skill around its coordinator audience and the run flow: classify, ground, compose, declare, set the goal, run, converge, and close. Kept the ten linked reference paths, made lane-plan the single home for local lane rules, and added citations and a coverage map. The body now points to core gates instead of restating them. Corrected the practitioner-flagged authority boundary and added safe resume, decision/assumption records, failure learning, and harness-map refresh practice.
+
+### Verdict: PENDING
+
+The formal-source rebuild has not yet been exercised in two independent real uses. Keep PENDING until two runs test the routing, one-checkpoint plan, lane-data handling, resumable workflow, and close records without a new high-severity gap.

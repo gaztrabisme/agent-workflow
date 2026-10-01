@@ -1,6 +1,6 @@
 # Harness Map
 
-One row per harness a conductor run may start in. Written for the coordinator: read your row before composing, because every engine choice in SKILL.md §3 binds to what the row says this harness can do. Distilled from the harness research of 2026-09-16 (`~/Documents/Work/lab/ceric/harness-research.md`); every URL was fetched live that day, and a cell that reads MISSING stayed missing in that research. It is carried forward as MISSING, never guessed.
+One row per harness a conductor run may start in. Written for the coordinator: read the row before composing, because each engine choice binds to what the harness documents. This dated source pass preserves MISSING cells as evidence that a fact was not established then; do not guess. In a current Plan Block, omit details you cannot verify. If the unknown capability affects the engine choice, use a coordinator-pipelined run or verify the official documentation first. [book:head-first-pmp], there are no Dumb Questions.
 
 ## The four things every run needs
 
@@ -41,9 +41,13 @@ What only some have:
 - A session-stop/goal loop: Claude Code `/goal` is the only unbounded criterion-driven mechanism [S7]. Copilot CLI autopilot is a bounded variant (stops at a continuation limit, default 5) [S37]. All others: MISSING.
 - Documented concurrency caps: Claude Code's `CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS` (1–256) for workflow fan-out [S10]; Gemini CLI's per-subagent `maxTurns` [S22]. The rest: MISSING.
 
+## Keeping the map current
+
+Treat this table as a compact technology radar for orchestration capabilities. Recheck and refresh its sourced entries on a recurring schedule and when a run finds a mismatch; carry source URLs and last-checked dates so the guidance can be shared and audited. [book:facilitating-software-architecture], Technology Radars Continually Collect and Share Guidance.
+
 ## Unlisted harness
 
-Before the first run in a harness not in the table, establish three facts from its official docs (URL + fetch date, else MISSING) and write them into the run's `grounded.md`:
+Before the first run in a harness not in the table, establish three facts from official documentation and write verified facts with URL and fetch date into grounded.md. Omit details that cannot be filled in; never guess them. If a missing capability affects planning, choose the coordinator-pipelined fallback.
 
 1. **The instruction file.** Which file(s) it loads at session start, from which scopes, because that file must carry or point to this skill's install instructions.
 2. **The subagent primitive.** Whether it spawns subagents, from what, in parallel, under what cap, and whether a scripted multi-stage pipeline exists. If none of it is documented, plan the run coordinator-pipelined (`workflow-patterns.md`).

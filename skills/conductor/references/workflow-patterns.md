@@ -1,32 +1,42 @@
 # Workflow Patterns
 
-Written for the coordinator composing a run: what "dynamic workflow" means here, independent of any harness, and how each harness binds the abstract. Per-harness facts (paths, caps, what stays MISSING) live in `harness-map.md`; read the row for the harness this run is in before selecting an engine.
+Written for the coordinator composing a run: what a dynamic workflow means independent of any harness, and how to bind the abstract to documented capabilities. Harness-specific primitives and limits live in harness-map.md; read the current row before selecting an engine.
 
 ## The abstract
 
-A dynamic workflow takes the units of work from the lane plan and hands each to a lane or subagent, then moves results between stages.
+A dynamic workflow takes the units in the lane plan, assigns each to a lane, and moves results between stages.
 
-- **Units to lanes.** Every unit already has a lane, a brief, and an acceptance command (`lane-plan.md`). The workflow is the schedule that connects them: which units start immediately, which wait on which.
-- **Pipeline.** Each item flows through the stages with no barrier: a unit's research output goes to verify as soon as it exists, and to synthesis as soon as it passes. Pipelining is the default because it removes the idle wait between stages.
-- **Barrier.** Insert one only when a stage genuinely needs every prior result: convergence (all threads must be present to reconcile), a cost total, a verdict that must see all findings. A barrier on a stage that could have streamed is idle time billed to the run.
-- **Verify layer.** A stage whose brief instructs it to refute, not confirm (the task-force rule: `task-force-protocol.md`). Size it to the stakes: load-bearing claims get a verifier each; the tail gets sampling. Also size it to the harness's documented cap, and where no cap is documented, to what you can watch (the 154-agent lesson: `lane-plan.md` — a Claude workflow reached 154 agents before the session limit killed it with 7 agents done).
-- **Converge.** The meeting point where the stages end and the threads reconcile into one artifact set: `convergence.md`. Declare it before dispatch, never after.
-- **Resume.** Where the harness offers a run id or a re-runnable workflow list, plan on resuming a failed or interrupted run from its last completed stage instead of re-running completed work. Claude Code re-runs workflows from `/workflows`; Grok resumes sessions with `-r/--resume` and `-c/--continue` (`harness-map.md`). Where the harness offers nothing, the run ledger is the resume state: every completed unit with its verdict is a stage that does not run twice.
-- **Caps and cost.** The only documented workflow concurrency cap in the research is Claude Code's `CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS` (1–256); Gemini CLI documents a per-subagent `maxTurns`. The rest: MISSING. An unknown cap is a cost risk, so a fan-out sized past the known caps needs a stated reason in the Plan Block's COST row.
+- **Units to lanes.** Every unit already has a lane, a brief, and an acceptance command in lane-plan.md. The workflow is the schedule that connects them: which units start immediately and which depend on earlier results.
+- **Pipeline.** Independent work can run in parallel; later stages can begin as soon as their required inputs are ready. Deployment and test stages can be sequential, parallel, or optional depending on their dependency. [book:continuous-delivery], Subsequent Test Stages.
+- **Barrier.** Wait for all results only when the next stage needs them together, such as the final contradiction and interaction pass or a complete cost total. Gather the required parallel results before their combined outcome.
+- **Verify layer.** A stage whose brief instructs it to refute, not confirm. Size it to the stakes: verify load-bearing claims individually and sample the tail. Respect documented harness caps; where no cap is documented, size the work to what can be watched and accepted. [book:site-reliability-engineering], Testing at Scale.
+- **Converge.** Declare the meeting point and final artifact before dispatch; see convergence.md.
+- **Resume.** Resume from the last completed stage when the harness supports it; otherwise use the run ledger as the resume state. Make each workflow step idempotent so a retry is safe. If a step has a partial or non-repeatable side effect, reconcile its actual state before retrying and guard against applying it twice. [book:site-reliability-engineering], Resolving Inconsistencies Idempotently.
+- **Caps and cost.** Use only the cap documented for the current harness row. Treat an unknown cap as a cost risk; state why a fan-out beyond known capacity is justified in the Plan Block.
+
+### Coordination topology
+
+Name the topology in the Plan Block when a run has several interacting lanes: **hierarchical** when a coordinator directs dependent work, **peer-to-peer** when lanes coordinate as equals, or **hybrid** when both patterns are needed. Record the trade-off: hierarchy gives control but can bottleneck; peer coordination shares the work but needs clear interfaces. Choose from a tested pattern rather than inventing the coordination style during the run. [book:agentic-mesh], Create Fleet Factory.
+
+### Choose the execution mode by risk
+
+Small, low-risk requests can use a flexible agent-governed workflow. Use explicit, repeatable stages when the cost of an error exceeds the requestor's tolerance. The Plan Block names the mode and why. For work on Codex, use the documented available delegation and execution path in harness-map.md; this section stays at the decision level. [book:agentic-mesh], Executing the Task Plan.
+
+Use task size as an engine-fit cue: inline suits up to two clear, mechanical units; live fan-out suits three to eight independent units that benefit from watching; a dynamic workflow suits more than eight units or genuine multi-stage dependencies. These are starting points, not automatic ceremony thresholds: scale the process to the task's value, risk, independence, and the current harness cap. [book:agentic-mesh], Task Planning; [book:agentic-mesh], Parallelization; [book:agentic-mesh], Orchestration.
 
 ## The coordinator is the pipeline
 
-Only Claude Code documents a scripted multi-stage pipeline (the Workflow tool). Everywhere else the coordinator IS the pipeline: dispatch, await, acceptance, next stage, in its own turn, holding the run ledger as the pipeline state. Say so in the Plan Block's FAN-OUT row ("dynamic workflow · coordinator-pipelined · N stages") so the choice is visible, and keep each stage's dispatch, acceptance, and ledger write in separate turns so a failed stage is visible before the next one fires.
+Claude Code is the only harness in the current map with a documented scripted multi-stage pipeline. Everywhere else, the coordinator pipelines the run: dispatch, await, acceptance, next stage, with each stage recorded separately so a failure is visible before the next stage starts. State that choice in the Plan Block. Visibility makes the process easier to coordinate and problems easier to catch. [book:agentic-mesh], Comparing AI Workflows and Agents; [book:continuous-delivery], Chapter 1: The Problem of Delivering Software.
 
 ## Binding per harness
 
 | Harness | Dynamic-workflow binding |
 |---|---|
-| Claude Code | The Workflow tool: a JavaScript script Claude writes that orchestrates many subagents; opt in by the word "ultracode" or "dynamic workflow" in the prompt or the config toggle; saved scripts in `.claude/workflows/` (project) or `~/.claude/workflows/` (personal), re-runnable from `/workflows`; concurrency cap 1–256 via `CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS` [map S6, S10]. For 3–8 independent units worth watching live, use the Agent tool fan-out instead: billed to the session, so kept small (`lane-plan.md`). |
-| Codex CLI | `features.multi_agent` (default on) with custom role declarations, plus `codex exec` invoked in bash from the coordinator as the dispatch mechanism [map S14, S16, S17]. No documented pipeline: coordinator-pipelined. |
-| Gemini CLI | Each subagent is exposed to the main agent as a tool of the same name; delegate by naming the tool or force it with `@<subagent>` at prompt start; per-subagent `maxTurns` under `agents.overrides` [map S22]. No documented pipeline: coordinator-pipelined. |
-| opencode | Primary agents and subagents; subagents invoked by the primary agent or manually by `@` mention; the built-in general subagent runs multiple units of work in parallel [map S30]. No documented pipeline: coordinator-pipelined. |
-| Copilot CLI | Custom agents configured under `.copilot/agents/`, invoked through the "Invoke custom agents" flow [map S41]. Spawn tool and caps MISSING: coordinator-pipelined, sized conservatively. |
-| Grok Build | Subagents are child sessions with their own context that return a summary; add or override them under `.grok/agents/` or `~/.grok/agents/`, manage with `/config-agents` [map S47]. No documented pipeline: coordinator-pipelined. |
+| Claude Code | Use its documented scripted workflow only when the required opt-in is present; read harness-map.md for current caps and resume behavior. |
+| Codex CLI | Coordinator-pipelined unless the current harness map documents a suitable multi-stage primitive. |
+| Gemini CLI | Coordinator-pipelined unless the current harness map documents a suitable multi-stage primitive. |
+| opencode | Coordinator-pipelined unless the current harness map documents a suitable multi-stage primitive. |
+| Copilot CLI | Coordinator-pipelined unless the current harness map documents a suitable multi-stage primitive. |
+| Grok Build | Coordinator-pipelined unless the current harness map documents a suitable multi-stage primitive. |
 
-The map citation [map S#] resolves in `harness-map.md`'s Sources section, all fetched 2026-09-16.
+The harness map is the source for per-harness details; do not infer an undocumented capability from another harness.
