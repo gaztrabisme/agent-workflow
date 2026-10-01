@@ -1,5 +1,9 @@
 # BXT Template and Scoring
 
+## AI suitability screen
+
+Before BXT scoring, record `AI needed?` as `yes`, `uncertain`, or `no`, with a short reason and evidence. If the answer is `no`, describe the conventional option, remove it from the AI matrix, and hand it to solution-architect only if the client wants further design. Keep `uncertain` visible as an open question; any related scores stay provisional. (derived: dogfood 2026-10-01)
+
 ## BXT dimensions and their evidence
 
 BXT is Business, Experience, and Technology. Strategic Fit and Business Impact belong in the Business view. [book:semantic-software-design], Business Design
@@ -10,7 +14,7 @@ User Desirability captures whether the experience is wanted. [book:art-of-ai-pro
 
 Technical Feasibility captures whether it can be implemented and operated. [book:art-of-ai-product-development], Technical feasibility
 
-Use these four criteria for each candidate:
+Use these four criteria for each candidate with a plausible AI role or an open AI-suitability question:
 
 | Criterion | Dimension | Questions to record |
 |---|---|---|
@@ -23,14 +27,14 @@ The source's prioritization criteria include user impact, business value, and te
 
 ## Use-case assessment template and criteria
 
-For each use case, record:
+For each candidate that passes the AI suitability screen or remains uncertain, record:
 
 - Name, business unit, internal or external use, and concise description.
 - Problem in the client's words, affected workflow, and desired business outcome.
 - Measurable key results and accountable stakeholder.
 - Strategic Fit score and evidence.
 - Business Impact: strategy alignment, expected value, change timeframe, score, and evidence. Discuss organizational benefit, return, and strategic alignment in general terms before filling the workshop's additional fields. [book:user-story-mapping], Have Conversations About Opportunities
-- User Desirability: primary and secondary personas, user value, appeal, change resistance, mitigation, score, and evidence. User trust and control concerns belong in the assessment. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
+- User Desirability: primary and secondary personas, user value, appeal, change resistance, mitigation, score, and evidence. Include affected workers and their role in a pilot, such as validating examples, reviewing outputs, or giving feedback; mark the role open if unknown. User trust and control concerns belong in the assessment. (derived: dogfood 2026-10-01) [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 - Technical Feasibility: implementation and operational risks, available safeguards, fit for AI or an LLM, score, and evidence. Tasks vary in AI suitability; account for expertise, payoff, and risk. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 
 The business-and-data review starts by stating the business problem. The remaining fields here are the workshop's assessment structure. [book:data-science-for-business], Business and Data Understanding
@@ -62,9 +66,13 @@ The source example describes a frontline assistant for diagnosing equipment prob
 
 ## Industry scorecards
 
-Use the scorecard closest to the client's sector and adapt its metrics. The book says prioritization criteria vary by company and context; if no scorecard fits, derive the criteria from the client's objectives rather than pretending the template is sector-specific. [book:art-of-ai-product-development], 2.2.1 Defining your prioritization criteria
+Use an authorized, current scorecard closest to the client's sector when one is available. Otherwise, use this compact pattern note (derived: dogfood 2026-10-01) and fill it only from client evidence:
 
-The source-deck scorecard structure tracks transformation pillars, metrics, initiative status, and a backlog. Treat that structure as a prompt to gather context, not as proof that a listed initiative is appropriate.
+| Industry pattern or client workflow | AI capability | Evidence or source | Measure | Status or open question |
+|---|---|---|---|---|
+| [client-described pattern] | [capability to assess] | [observation, data, or assumption] | [client-valued measure] | [current, consider, unknown] |
+
+The book says prioritization criteria vary by company and context; derive them from the client's objectives rather than pretending this note is a sector-specific scorecard. [book:art-of-ai-product-development], 2.2.1 Defining your prioritization criteria
 
 ## Added practices for value and confidence
 

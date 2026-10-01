@@ -10,7 +10,7 @@ Review the five Golden Questions before every workshop. Treat them as a prepared
 | Experience | Is this desirable? | Who uses or is affected by it? What need does it meet? How would the experience change? What makes the value appealing? What might make people hesitate or resist? |
 | Technology | Is this feasible? | What data and systems are involved? What expertise and integration are needed? What safeguards would be required? Why is AI or generative AI suitable? What is unknown? |
 
-Before the meeting, draft client-specific variants and tailor them to each stakeholder's priorities. The goal is to learn, not complete a checklist.
+Before the meeting, draft client-specific variants and tailor them to each stakeholder's priorities. For a session in another language, agree translated variants with a bilingual facilitator or client contact during prework, then record the wording used. The goal is to learn, not complete a checklist. (derived: dogfood 2026-10-01)
 
 ## In-session use
 

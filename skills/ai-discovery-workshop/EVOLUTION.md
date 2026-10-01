@@ -99,6 +99,7 @@ Not modified: the method. Discover/Define/Develop/Deliver, BXT, the pillars, the
 
 ### Harvest scope
 
+- **Dogfood 2026-10-01:** a fresh model used the skill to prepare a past presale's prework brief; findings were 3 high, 3 medium, and 2 low, with 8 fixed and 0 rejected. No live workshop was run, so the verdict remains `PENDING`.
 - **Sources read:** approved skill-set proposal; the ai-discovery-workshop and business-intelligence rule ledgers and crosswalks; practitioner review; the old skill and surviving references; shared core skill and references; skill-builder instructions, checklist, and skeleton; and the cited chapters in the 17 named source books: agentic-mesh, art-of-ai-product-development, challenger-sale, data-science-for-business, designing-ai-interfaces, flawless-consulting, flow-architectures, human-in-the-loop-ml, laws-of-ux, lean-ux, learning-agile, meddicc, pmbok-guide-7e, semantic-software-design, software-architect-elevator, user-story-mapping, and value-based-fees. No course anchor was needed for a routed rule.
 - **Coverage:** all 120 routed rules were carried into the workshop skill: 119 workshop rules and one BXT field rule from business-intelligence.
 - **Evidence limits:** the cited sources and practitioner review support this authoring pass; they do not establish that the rewritten method works in a live workshop. No workshop outcome was available.

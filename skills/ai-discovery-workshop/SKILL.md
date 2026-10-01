@@ -7,7 +7,9 @@ description: "Facilitate a client workshop that produces a client-validated AI u
 
 ## Artifact and scope
 
-Produce a client-validated AI use-case brief with a journey, evidence, score caveats, and handoff. The audience is the facilitator and the client's presale decision group, including business and technology decision-makers, business-unit stakeholders, end users, and subject-matter experts. Discovery teams benefit from including business stakeholders, subject-matter experts, customers, and end users. [book:user-story-mapping], A Discovery Team Needs Lots of Others to Succeed
+The completed artifact is a client-validated AI use-case brief with a journey, evidence, score caveats, and handoff. Before client contact, the legitimate interim artifact is a clearly labeled `prework draft`: all scores remain provisional and the Golden Questions are marked not yet asked. A draft is not a client-validated decision. (derived: dogfood 2026-10-01)
+
+The audience is the facilitator and the client's presale decision group, including business and technology decision-makers, business-unit stakeholders, end users, and subject-matter experts. Discovery teams benefit from including business stakeholders, subject-matter experts, customers, and end users. [book:user-story-mapping], A Discovery Team Needs Lots of Others to Succeed
 
 Keep consulting within human experience and business process, generally giving process impact close attention. Avoid adjacent areas beyond your certainty. Use the four AI transformation pillars in references/discovery_cards.md to organize relevant opportunities within that scope; they do not expand it.
 
@@ -15,7 +17,7 @@ Map secondary personas as well as the primary persona when a complex workflow cr
 
 Use business-intelligence for client research before Day 1 and bring its validated context into the room; this workshop turns that context into a client-validated use-case brief. After selection, hand architecture and proposal work to solution-architect. General product decisions belong to product-management. The workshop may capture an initial architecture conversation and prototype question, but it does not approve architecture or implement the prototype.
 
-Inherit the shared kernel. Declare the applicable gates and reference ../core/SKILL.md and its references; do not copy those gates into this skill. Follow the shared contract for evidence, artifact writing, and pushback.
+Inherit the shared kernel. Apply relevant integrity, grounding, and output-contract guidance by reference to ../core/SKILL.md and its current references; do not copy those gates into this skill. When a substantive unrouted task needs coordination, conductor owns the approach declaration; this workshop skill does not add one.
 
 ## Working principles
 
@@ -33,7 +35,7 @@ Opening frame: “You described [workflow or goal]. Today we will map how it wor
 
 Use Discover, Define, Develop, Deliver as a sequence: understand people and their work; frame and assess candidate problems; map the journey and explore AI assistance; then agree evidence, value, and next steps. Spend time empathizing, defining, and ideating before prototyping or testing. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
 
-Score every candidate use case across Business, Experience, and Technology to make the decision clearer, but treat the numeric matrix as intelligence gathering. Keep relevant details, evidence gaps, and open questions visible, and remain ready to revise the scores. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
+Before BXT scoring, ask whether AI is needed for the candidate. Route a clear `no` out of the AI matrix and, if the client wants further design, hand it to solution-architect as conventional scope. Score candidates with a plausible AI role across Business, Experience, and Technology; treat the numeric matrix as intelligence gathering. Keep relevant details, evidence gaps, and open questions visible, and remain ready to revise the scores. (derived: dogfood 2026-10-01) [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
 
 For enterprise AI engagements, use BXT to assess the candidate opportunities.
 
@@ -43,7 +45,7 @@ The Day 1 brief can carry two or three BXT-screened candidates into further disc
 
 Day 8 is a decision point, not a promise that every output is ready. Estimate potential ROI when evidence permits; record a PoV decision only when the client has enough evidence, the relevant decision-makers are present, and follow-up is agreed. Architecture and implementation proceed through the named handoff. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
 
-Use the references below as working materials. Prepare client-specific variants for the Five Golden Questions; use the facilitator scripts as literal prompts, and leave time for evidence and discussion.
+Use the references below as working materials. Prepare client-specific variants for the Five Golden Questions, agree translated wording during prework when needed, and record the wording used. Treat all supplied questions as prepared prompts to adapt to the room, and leave time for evidence and discussion. (derived: dogfood 2026-10-01)
 
 ## References
 

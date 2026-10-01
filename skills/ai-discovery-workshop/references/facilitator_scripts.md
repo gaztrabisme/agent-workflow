@@ -1,8 +1,8 @@
 # Facilitator Prompts
 
-## Use prompts literally
+## Use prompts literally when suitable
 
-Use these questions as literal workshop prompts; do not rephrase them. Ask clarifying follow-ups as needed while preserving the provided wording.
+Treat the supplied wording as prepared prompts. Use it as written when it fits the client's language and context; otherwise adapt it while preserving the question's intent. For a session in another language, agree the translated variants during prework and record the wording used. Ask clarifying follow-ups and skip a prompt already answered; do not recite the list as a fixed script. (derived: dogfood 2026-10-01)
 
 Keep questions open-ended. Invite the client to tell what happens, explain why it happens, or describe a decision or handoff. [book:meddicc], DISCOVERY
 
@@ -18,7 +18,7 @@ Invite the client to describe the problem in their own words: “We see [person 
 
 - **User lane:** What does the user do now, in order, to reach the goal? Where do they wait, decide, hand off, or recover from an error? Mapping today's work helps reveal the problem the user is solving. [book:user-story-mapping], 2. Understand Customers and Users
 - **AI Discovery lane:** Which substeps could AI augment or automate, and where should the boundary sit? Delimit the process substeps rather than labeling the whole process as an AI task. [book:art-of-ai-product-development], 10.1 Discovery and user research
-- **Agentic Workflow lane:** Which tasks require multiple steps or decisions, and what goal, constraint, or policy shapes each one? Agent planning addresses multi-step and decision-heavy tasks. [book:art-of-ai-product-development], 9.2.2 Planning the task execution
+- **Agentic Workflow lane, if present:** Which tasks require multiple steps or decisions, and what goal, constraint, or policy shapes each one? If none was found, leave the lane marked `none found`. (derived: dogfood 2026-10-01) Agent planning addresses multi-step and decision-heavy tasks. [book:art-of-ai-product-development], 9.2.2 Planning the task execution
 
 ## Deliver: choose an approach
 
