@@ -13,7 +13,7 @@ Use the pillar to frame the opportunity. It does not replace the client's proble
 
 ## Journey map and card use
 
-Map the client's current journey before adding AI. Always show the User, AI Discovery, and Agentic Workflow lanes. Add tasks to the Agentic Workflow lane only when a task needs multiple steps or decisions; otherwise mark the lane `none found` and do not invent tasks. (derived: dogfood 2026-10-01) Order user tasks in the sequence they happen; a task is an action toward a goal. [book:user-story-mapping], 2. Organize Your Story [book:user-story-mapping], Tasks Are What We Do
+Map the client's current journey before adding AI. (5907 · U4 · L32 · 09:10–11:50) Always show the User, AI Discovery, and Agentic Workflow lanes. Add tasks to the Agentic Workflow lane only when a task needs multiple steps or decisions; otherwise mark the lane `none found` and do not invent tasks. (derived: dogfood 2026-10-01) Order user tasks in the sequence they happen; a task is an action toward a goal. [book:user-story-mapping], 2. Organize Your Story [book:user-story-mapping], Tasks Are What We Do (5907 · U4 · L32 · 09:10–11:50)
 
 For each stage, estimate where AI might augment or automate work; delimit the substeps that AI could address instead of treating the whole process as one task. [book:art-of-ai-product-development], 10.1 Discovery and user research [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 

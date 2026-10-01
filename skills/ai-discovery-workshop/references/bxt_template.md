@@ -6,13 +6,13 @@ Screen every candidate and record `AI needed?` as `yes`, `uncertain`, or `no`, w
 
 ## BXT dimensions and their evidence
 
-BXT is Business, Experience, and Technology. Strategic Fit and Business Impact belong in the Business view. [book:semantic-software-design], Business Design
+BXT is Business, Experience, and Technology. [book:semantic-software-design], Business Design (5907 · U4 · L29 · 04:01–06:30) Strategic Fit and Business Impact belong in the Business view.
 
-Business Impact captures the value of the opportunity. [book:art-of-ai-product-development], Business impact
+Business Impact captures the value of the opportunity. [book:art-of-ai-product-development], Business impact (5907 · U4 · L34 · 01:50–03:20)
 
-User Desirability captures whether the experience is wanted. [book:art-of-ai-product-development], Desirability
+User Desirability captures whether the experience is wanted. [book:art-of-ai-product-development], Desirability (5907 · U4 · L29 · 04:01–06:30)
 
-Technical Feasibility captures whether it can be implemented and operated. [book:art-of-ai-product-development], Technical feasibility
+Technical Feasibility captures whether it can be implemented and operated. [book:art-of-ai-product-development], Technical feasibility (5907 · U4 · L34 · 00:00–01:50)
 
 Use these four criteria for every candidate; record AI suitability separately from its BXT scores:
 
@@ -23,7 +23,7 @@ Use these four criteria for every candidate; record AI suitability separately fr
 | User Desirability | Experience | Which users benefit? How appealing is the value proposition? What adoption concerns or resistance need to be understood? |
 | Technical Feasibility | Technology | What data, systems, expertise, safeguards, and operational conditions are needed? What is still unknown? |
 
-The source's prioritization criteria include user impact, business value, and technical feasibility. In this workshop, those ideas are captured in the four criteria above; keep the criteria coarse when the team lacks detail. [book:art-of-ai-product-development], 2.2.1 Defining your prioritization criteria
+The source's prioritization criteria include user impact, business value, and technical feasibility. (5907 · U4 · L34 · 00:00–01:50) In this workshop, those ideas are captured in the four criteria above; keep the criteria coarse when the team lacks detail. [book:art-of-ai-product-development], 2.2.1 Defining your prioritization criteria
 
 ## Use-case assessment template and criteria
 
@@ -56,7 +56,7 @@ The book's quick-win idea is high value, desirable, and reasonable effort; the f
 
 After scoring, use the matrix to surface the two or three candidates worth discussing next; it does not impose a hard cutoff. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
 
-If Business and Experience look strong while Technology remains weak or unknown, keep the case as a later option when payoff and evidence justify it instead of discarding it solely for uncertainty. Keep long-term opportunities visible for later. [book:art-of-ai-product-development], 2.2.3 Balancing quick wins vs. long-term investments
+If Business and Experience look strong while Technology remains weak or unknown, keep the case as a later option when payoff and evidence justify it instead of discarding it solely for uncertainty. Keep long-term opportunities visible for later. (5907 · U4 · L35 · 01:57–06:22) [book:art-of-ai-product-development], 2.2.3 Balancing quick wins vs. long-term investments
 
 Only park or drop candidates with little hope of the desired outcome; record why. [book:user-story-mapping], Be Picky
 

@@ -29,7 +29,9 @@ Prepare a lightweight persona draft for each in-scope business unit, with fuller
 
 If access permits, recruit people who fit the persona drafts and check whether the team's assumptions match their experience. [book:lean-ux], The Persona Creation Process
 
-Map how people work today before adding AI. Ask for successful as well as difficult parts of the workflow, then source candidates from both pain points and places where the work already goes well. [book:user-story-mapping], 2. Understand Customers and Users [book:flawless-consulting], The Power of Positive Deviance
+Plan an exploratory interview by separating what is known from what still needs learning, identifying user profiles, and drafting open questions. For a process, use a journey interview; record steps, context, what people do and think, and their emotions while listening and observing without offering opinions. (5907 · U4 · L32 · 01:53–04:45) (5907 · U4 · L32 · 09:10–11:50)
+
+Map how people work today before adding AI. Ask for successful as well as difficult parts of the workflow, then source candidates from both pain points and places where the work already goes well. (5907 · U4 · L32 · 09:10–11:50) [book:user-story-mapping], 2. Understand Customers and Users [book:flawless-consulting], The Power of Positive Deviance
 
 Source candidate use cases from client goals and AI benefit types using an AI opportunity tree. [book:art-of-ai-product-development], 2.1.1 The AI opportunity tree Use a short AI-suitability screen to ask whether the task has learnable patterns in data; a red flag is a question for investigation, not an automatic rejection. [book:art-of-ai-product-development], A.2.2 Identifying AI-friendly problems
 
@@ -81,6 +83,6 @@ Use one journey step for the card exercise and ask the client to choose one or t
 
 ## Materials
 
-For an in-person room, provide the compact capability prompts or another authorized card set, a flipchart or whiteboard, sticky notes, pens, and a long, continuous wall workspace for mapping. The continuous workspace is the room setup principle; the specific supplies are this workshop's checklist. [book:flow-architectures], The 10,000-Foot View of EventStorming
+For an in-person room, provide the compact capability prompts or another authorized card set, a flipchart or whiteboard, sticky notes, pens, and a long, continuous wall workspace for mapping. The continuous workspace is the room setup principle; the specific supplies are this workshop's checklist. [book:flow-architectures], The 10,000-Foot View of EventStorming (5907 · U4 · L29 · 10:32–12:25)
 
 For remote participants, use a shared virtual whiteboard with the compact digital capability prompts, BXT assessment, journey map, and prioritization matrix available on the board. [book:flow-architectures], The 10,000-Foot View of EventStorming

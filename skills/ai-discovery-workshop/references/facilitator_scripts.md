@@ -16,7 +16,7 @@ Invite the client to describe the problem in their own words: “We see [person 
 
 ## Develop: journey map prompts
 
-- **User lane:** What does the user do now, in order, to reach the goal? Where do they wait, decide, hand off, or recover from an error? Mapping today's work helps reveal the problem the user is solving. [book:user-story-mapping], 2. Understand Customers and Users
+- **User lane:** What does the user do now, in order, to reach the goal? Where do they wait, decide, hand off, or recover from an error? Mapping today's work helps reveal the problem the user is solving. [book:user-story-mapping], 2. Understand Customers and Users (5907 · U4 · L33 · 09:29–12:19)
 - **AI Discovery lane:** Which substeps could AI augment or automate, and where should the boundary sit? Delimit the process substeps rather than labeling the whole process as an AI task. [book:art-of-ai-product-development], 10.1 Discovery and user research
 - **Agentic Workflow lane:** Which tasks require multiple steps or decisions, and what goal, constraint, or policy shapes each one? If none was found, leave the lane marked `none found`; do not invent tasks. (derived: dogfood 2026-10-01) Agent planning addresses multi-step and decision-heavy tasks. [book:art-of-ai-product-development], 9.2.2 Planning the task execution
 

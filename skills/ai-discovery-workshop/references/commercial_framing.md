@@ -8,7 +8,13 @@ Ask: “For [workflow], how much time or effort does it take today? If the proce
 
 ## Validate the concept before committing
 
-Show the selected concept to users and ask them to try or react to the proposed workflow before architecture or proposal work treats it as settled. Keep a tight feedback loop, capture what changed, and update the brief. [book:art-of-ai-product-development], 10.1.3 Validating AI design concepts
+Show the selected concept to users and ask them to try or react to the proposed workflow before architecture or proposal work treats it as settled. Keep a tight feedback loop, capture what changed, and update the brief. [book:art-of-ai-product-development], 10.1.3 Validating AI design concepts (5907 · U4 · L39 · 00:00–01:13)
+
+Before building a prototype, state the user question, assumptions, and risks to test; choose the simplest format that lets target users try the relevant interaction, and build only what is needed to learn. (5907 · U4 · L38 · 04:09–05:04) (5907 · U4 · L38 · 05:04–08:35)
+
+Plan each validation test around a realistic context, user profile, task, and success criteria; select a method that fits the question, and observe behavior, questions, interpretation, and reactions as well as what users say. (5907 · U4 · L39 · 00:00–01:13) (5907 · U4 · L39 · 04:07–11:44)
+
+After a test, sort evidence into what worked, what needs improvement, surprises, new questions, and ideas. Use the findings to refine the concept, return to user research if the problem definition is weak, or select a next segment or opportunity; usability success does not by itself prove business value. (5907 · U4 · L40 · 00:00–01:39) (5907 · U4 · L40 · 04:46–07:09) (5907 · U4 · L41 · 00:00–01:00) (5907 · U4 · L41 · 01:00–03:36) (5907 · U4 · L41 · 03:36–05:14)
 
 ## Agree the commitment and next step
 
