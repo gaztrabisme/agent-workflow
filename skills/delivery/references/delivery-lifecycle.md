@@ -8,7 +8,7 @@ This is a bounded delivery contribution to the estimate, not contract delivery. 
 
 When solution-architect sends a work breakdown for pricing, delivery owns the effort input, release split and cut order because the delivery lead will be accountable for the signed commitment. Supply the estimate, schedule and cost inputs, the release split in the buyer's recorded language, and the cut order with what the client loses at each cut. [book:swebok], 7. Software Engineering Management Tools
 
-Start an effort sheet with the effort column empty so the discipline leads who will do the work can estimate their own rows. A prefilled number is not automatically wrong: verify who authored it and the assumptions behind it, then challenge unsupported estimates. The problem is accepting a confident-looking number that its future owner did not produce. [book:user-story-mapping], The Secret to Good Estimation; [book:head-first-pmp], Estimation tools and techniques
+Start an effort sheet with the effort column empty so the discipline leads who will do the work can estimate their own rows. Never accept a prefilled effort form; build estimates from individual estimates by the people who will do the work. [book:user-story-mapping], The Secret to Good Estimation; [book:head-first-pmp], Estimation tools and techniques
 
 Estimate the total effort and compare it with the people-days available. Return a capacity verdict and the size of any gap for a rescope, staffing or duration decision.
 
@@ -28,7 +28,7 @@ Use the delivery-baseline template for the baseline version, freeze date, T0 eve
 
 ## Phase 1 — Open the signed-client trackers
 
-Before the first deliverable is due, create the acceptance tracker with one Not started row for every signed criterion. Start the client-obligation tracker from the signed handoff and convert each relative deadline to a calendar date when the baseline's T0 date is known. Open the change-request log at kickoff with no entries and use the change-request rate stated in the contract.
+Before the first deliverable is due, create the acceptance tracker with one Not started row for every signed criterion. Start the client-obligation tracker from the signed handoff and convert each relative deadline to a calendar date when the baseline's T0 date is known. Open the change-request log at kickoff with no entries, tell the client it exists, and use the change-request rate stated in the contract.
 
 An absent tracker cannot show that work is unstarted or blocked. Keep the records aligned to the signed criterion spine, and link each blocked criterion to the client obligation that supplies its missing precondition.
 
