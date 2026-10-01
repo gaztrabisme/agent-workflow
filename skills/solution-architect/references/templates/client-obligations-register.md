@@ -8,15 +8,15 @@
 
 ## Obligation fields
 
-- Use this register for physical client deliverables that block the schedule, separately from assumptions.
+- Use this register for physical client deliverables that block the schedule, separately from assumptions. (5907 · U3 · L22 · 09:47–11:00)
 - Use schedule-relative deadlines and a named focal point on every obligation row.
 - Group obligation rows by timing and put contract terms first because they become costly after signature.
 - For each obligation, record group, client deliverable, criterion served, linked question, relative deadline, named focal point, completion date, and status.
-- Require a single client focal point with decision authority by contract signature.
+- Require a single client focal point with decision authority by contract signature. (5907 · U3 · L23 · 00:00–02:46)
 - Agree four written defect-severity definitions by contract signature.
 - Agree the client’s acceptance-response deadline before submissions are deemed accepted.
 - Fix T0 as the precise event that starts the delivery clock.
-- State numeric volume caps for documents, users, transactions, and footage hours.
+- State numeric volume caps for documents, users, transactions, and footage hours. (5907 · U3 · L22 · 08:04–09:47)
 - Agree the change-request day rate by contract signature.
 - Agree the standby rate for client-caused delay that leaves the team idle.
 - Name the acceptance council and decide whether one dissenting member blocks acceptance.

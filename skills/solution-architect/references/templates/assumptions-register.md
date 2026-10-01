@@ -6,7 +6,7 @@
 |---|---|---|---|---|---|---|
 | | | | | | | |
 
-A schedule-stopping client input is an obligation, not an assumption; put it in the client-obligation register with a named focal point and schedule-relative deadline.
+A schedule-stopping client input is an obligation, not an assumption; put it in the client-obligation register with a named focal point and schedule-relative deadline. (5907 · U3 · L22 · 09:47–11:00)
 
 ## Assumption pairing
 

@@ -24,18 +24,18 @@ Use this workflow for a presignature solution architecture, RFI/RFP/tender respo
 2. Compare viable options against the client’s constraints, quality priorities, and intended outcome.
 3. Trace requirements, keep assumptions correctable, and explain the option that binds the proposal.
 
-- Maintain forward traceability from requirements into design; for the response, map each requirement to a solution element and phase, and turn gaps into questions [book:swebok], Requirements Tracing.
+- Maintain forward traceability from requirements into design; for the response, map each requirement to a solution element and phase, and turn gaps into questions [book:swebok], Requirements Tracing. (5907 · U3 · L23 · 08:42–10:47)
 - Connect clause answers to an explanatory solution narrative the evaluator can follow [book:storytelling-with-data], Who, what, and how.
 - Compare two or three viable options on client-relevant axes, recommend one, and explain why the alternatives lost [book:fundamentals-enterprise-architecture], Architecture Decision Deliverable.
 - Tie each win theme to a customer pain, the metric that makes it matter, and a related decision criterion [book:meddicc], COMPETITION.
 - Set lifecycle rigor from project criticality, stakeholder count, uncertainty, and deal risk [book:pmbok-guide-7e], 3.2. Why Tailor?.
-- State the decision problem, goals, and constraints; add what success means and frame it before choosing a solution [book:fundamentals-enterprise-architecture], Overview.
-- Use repeated why-questions to uncover root causes; challenge vague briefs before architecture and explain the reframing in the response [book:software-architect-elevator], Five Whys.
+- State the decision problem, goals, and constraints; add what success means and frame it before choosing a solution [book:fundamentals-enterprise-architecture], Overview. (5907 · U3 · L20 · 06:41–07:20)
+- Use repeated why-questions to uncover root causes; challenge vague briefs before architecture and explain the reframing in the response [book:software-architect-elevator], Five Whys. (5907 · U3 · L20 · 02:47–03:41)
 - Write the decision context before drawing an architecture diagram [book:facilitating-software-architecture], Step 2: Write the Context.
 - Define NFRs from the client’s business needs and prioritize their trade-offs; do not assume every named quality applies universally [book:fundamentals-enterprise-architecture], Summarizing NFRs.
 - Translate business outcomes into technical drivers, then state decision criteria, constraints, and sequence before drawing architecture [book:software-architect-elevator], Measuring an Architect’s Value.
 - Let requirements and trade-offs drive architecture; position products after the decision options are clear [book:software-architect-elevator], Measuring an Architect’s Value.
-- Surface tacit assumptions and hidden dependencies. Mark unconfirmed matters as correctable assumptions and flag uncertainty [book:software-architect-elevator], Architects Deal with Nonrequirements.
+- Surface tacit assumptions and hidden dependencies. Mark unconfirmed matters as correctable assumptions and flag uncertainty [book:software-architect-elevator], Architects Deal with Nonrequirements. (5907 · U3 · L22 · 09:47–11:00)
 - Show alternatives and trade-offs; do not present a single-option architecture [book:fundamentals-enterprise-architecture], Architecture Decision Deliverable.
 - Compare solution options and trade-offs before positioning a vendor; treat the neutral-first sequence as a presale practice, not as a claim the source makes [book:software-architect-elevator], Measuring an Architect’s Value.
 - Translate relevant security requirements into architecture decisions early; do not treat a generic NFR checklist as a complete universal gate [book:fundamentals-enterprise-architecture], Security NFRs.
@@ -58,7 +58,7 @@ Scale the work to the deal. A narrow clarification can stay light; a multi-round
 
 
 
-- Restate the client’s ask and name the artifacts that answer it. Mark extra work as proposed with its consumer and decision.
+- Restate the client’s ask and name the artifacts that answer it. Mark extra work as proposed with its consumer and decision. (5907 · U3 · L22 · 08:04–09:47)
 - For covered technical domains, search the Knowledge Base first and record the query and applied finding, or that nothing relevant was found.
 - Before substantive solution-architecture work that fans out or forks, state the lane's approach and reason; compare independent options for wide decision spaces and research unknowns first. In a coordinated multi-skill run, conductor records the task-level approach declaration in its Plan Block; this rule governs the SA workstream.
 - For research that changes the build, present audience-relevant findings rather than exploratory analysis; use a concise findings list where useful [book:storytelling-with-data], Who, what, and how.

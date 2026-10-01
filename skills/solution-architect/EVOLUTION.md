@@ -645,4 +645,5 @@ C3a run as a content comparison or quietly reduced to another set difference?
 ### Validation
 - Dogfood 2026-10-01: presale response pack; findings 2 high, 5 med, 1 low; fixed 8, rejected 0. Verdict remains PENDING.
 - [ ] Two independent real uses confirm the rebuilt structure and additions.
-- **Verdict: PENDING** — the rebuild is source-grounded and mechanically validated; it has not yet been exercised twice in real work.
+- Course source addition (2026-10-01): read course 2999 Units 2–4 (5907 U3 lessons L18–L27; 10 lessons); course support added to 36 routed rules; 6 SOW practices added.
+**Verdict: PENDING** — the rebuild is source-grounded and mechanically validated; it has not yet been exercised twice in real work.

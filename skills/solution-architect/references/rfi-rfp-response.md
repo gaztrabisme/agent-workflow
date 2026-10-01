@@ -4,8 +4,8 @@ Build the response around the evaluator’s decisions: answer the stated need, s
 
 ## Clarification questions and assumptions
 
-- Make implicit requirements explicit. Use client questions and an assumptions register for unresolved matters that only the client can answer [book:software-architect-elevator], Architects Deal with Nonrequirements.
-- Record assumptions and constraints; ask the client only for unresolved decisions that require its answer [book:fundamentals-enterprise-architecture], Sample Template.
+- Make implicit requirements explicit. Use client questions and an assumptions register for unresolved matters that only the client can answer [book:software-architect-elevator], Architects Deal with Nonrequirements. (5907 · U3 · L20 · 02:47–03:41)
+- Record assumptions and constraints; ask the client only for unresolved decisions that require its answer [book:fundamentals-enterprise-architecture], Sample Template. (5907 · U3 · L20 · 05:12–06:41)
 - For an RFI, respond to inform and position, use assumptions, demonstrate domain knowledge, and avoid over-investing in precision pricing.
 - Order business and domain questions first; put logistics questions last or omit them. The contracting sequence surfaces method, schedule, and cost constraints early because they matter to agreement [book:flawless-consulting], Navigating the Contracting Meeting.
 
@@ -19,7 +19,7 @@ Build the response around the evaluator’s decisions: answer the stated need, s
 
 ## Requirements traceability
 
-- Maintain lifecycle traceability; in the response, map each requirement to its solution element and phase [book:swebok], Requirements Tracing.
+- Maintain lifecycle traceability; in the response, map each requirement to its solution element and phase [book:swebok], Requirements Tracing. (5907 · U3 · L23 · 08:42–10:47)
 
 ## Pre-submission quality review
 
