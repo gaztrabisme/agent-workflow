@@ -20,6 +20,8 @@ Name the customer, buyer, and user groups where they differ. Describe who experi
 
 Gather evidence from direct conversations and observation, and add relevant quantitative, market, or competitor evidence. Keep the source, date, audience, and scope with each finding. Synthesize across people and segments; label inference and uncertainty instead of blending them into facts.
 
+For interviews, make an exploration plan that separates what is known from what still needs to be learned. Reuse and adapt suitable prompts from a question bank, and write new interview questions for each learning gap. Decide whether the team needs to understand how a task or process is carried out; if it does, use the journey-focused template.
+
 For quantitative benchmarks, record the metric definition, baseline, observed value and delta, population or sample size, and significance or p-value when calculated. Distinguish values reported by a source from values measured or calculated in this work; use the matching `_reported` and `_measured` fields, and mark statistical fields not applicable when the method does not produce them. (derived: dogfood 2026-10-01)
 
 Connect what matters to users with business viability and technical or operational feasibility. Turn a grounded insight into a positive, open question that invites multiple solutions without naming one in advance. A clear point of view helps the team explore the right problem before choosing an implementation.
