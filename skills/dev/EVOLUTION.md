@@ -265,3 +265,34 @@ Not modified (foundational): Integrity Constraints, Wu Wei filter. **Rejected on
 - Constants carry an instrument + re-run command: [after: ?]
 - **Rollback tripwire:** 3 builds producing perfunctory gate lines with no test named, or a silent skip on qualifying work → REVERT H1.
 - **Verdict per change: PENDING** — one project. H1 in particular needs a *differently shaped* codebase before it can earn KEEP; a second security-heavy project would confirm the classes without testing the selector.
+
+---
+
+## Evolution 9 — stage B rebuild (2026-10-01)
+
+### Harvest scope
+- **Grounded:** approved stage A proposal; dev and conductor ledgers and crosswalks; candidate sections; practitioner review; prior dev package; core; skill-builder authoring method and skeleton; relevant cited chapters/sections in 21 book files → rebuilt the operating body around the proposed engineering artifact and audience.
+- **Coverage:** 158 routed rules: 54 agrees, 67 refines, 36 field rules, and 1 disputed. Adopted 27 dev candidates that add engineering design, implementation, test, verification or assessment practices. The source boundary excluded all other destinations and non-adopted candidates.
+- **Sources:** building-event-driven-microservices; building-evolutionary-architectures; clean-architecture; clean-code; continuous-delivery; container-security; data-science-hard-parts; growing-oo-software-by-tests; hands-on-site-reliability-engineering; learning-systems-thinking; learning-test-driven-development; llm-security-playbook; looks-good-to-me; postgresql-14-internals; practical-cloud-security; python-for-devops; real-world-software-development; seriouspython; site-reliability-engineering; software-engineering-at-google; swebok.
+- **Evidence limits:** source fidelity and routing have an automated coverage check; the skill has not yet had two independent real uses after this rebuild. This entry remains provisional.
+- **Evidence class:** authoring-time.
+
+### Settled verdicts
+| Prior item | Verdict | Evidence and reason |
+|---|---|---|
+| Rebuilt operating body and source coverage | PENDING | Await two independent natural uses across the modes before settling. |
+
+### Patterns found
+1. **The old skill mixed engineering work with ungrounded or sibling-owned instructions** — Impact: H; Effort: M. The approved routing, crosswalk corrections and practitioner review show that a mode-centered structure can retain usable procedures while leaving common gates in core and ML decisions with their owner.
+
+### Hypotheses applied
+1. **Rebuild around engineering artifacts and mode flow** — rewrote SKILL.md and the existing design, build, sprint, assess and subagent-brief files; corrected refinements, retained worked context where it explains a gate, and linked shared gates to core.
+2. **Make coverage independently checkable** — wrote the separate rule and candidate coverage map with source bases and corrected-scope notes.
+3. **Replace source-obsolete and agent-specific procedure wording** — removed fixed harness-specific review and guidance-file assumptions from the operating material; preserved the existing scripts unchanged.
+
+### Validation plan
+| Change | Expected result | Evidence floor | Evidence class | Owner | Revisit date | Status |
+|---|---|---|---|---|---|---|
+| Stage B dev rebuild | Engineers use the correct mode, preserve corrected guidance, and produce usable code-level evidence | Two independent real uses; review trigger, mode fit, rule gaps, reference friction and corrections | natural | skill owner | after second use | PENDING |
+
+**Verdict: PENDING** — keep this rebuild provisional until two independent real uses validate the changes.

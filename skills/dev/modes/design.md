@@ -1,111 +1,44 @@
 # Design Mode
 
-Transform ideas into development-ready specifications through iterative research and discussion.
+Produce a development-ready engineering design from an idea, request, or accepted upstream decision. Clarify the user problem, decide the technical shape, identify consequential unknowns, and hand off one coherent specification that can guide a build.
 
----
+## Clarify and decide
 
-## Phase 1: Clarify Intent
+Start with the problem, users, motivation, constraints and scope. Ask naturally rather than interrogating; summarize the shared understanding, state assumptions, and list unknowns that need research. [book:swebok], Process Actors; [book:swebok], System Requirements Specification
 
-Understand what the user wants to build, why, and what constraints exist.
+When a request uses broad business language such as “add authentication” or “make it fast,” surface the actual decisions as two or three options per fork. State the tradeoff, recommend one, and ask for direction before accepting scope. If two answers remain vague, stop and request binary, testable criteria. Requirements negotiation should reach agreement instead of leaving an engineer to choose unilaterally. [book:swebok], Requirements Negotiation; [book:swebok], Tradeoff Analysis; [book:swebok], Quantifiable Requirements
 
-| Category | Questions |
-|----------|-----------|
-| **What** | What problem does this solve? What does success look like? |
-| **Who** | Who are the users? What's their context? |
-| **Why** | Why build this? Why now? What happens if we don't? |
-| **Constraints** | Timeline? Budget? Tech preferences? Team size? |
-| **Scope** | MVP vs full vision? What's explicitly out of scope? |
+A decision that affects implementation must be stated so two engineers can interpret the test the same way. Research may still be needed to close a gap; do not block research just because the answer is not yet known. In iterative work, refine one behavior at a time and make its criterion testable before its test is written; do not require every later behavior to be settled before learning can begin. Before handing a design to Build, turn the agreed requirements into verifiable inputs and outcomes, and record any accepted uncertainty. [book:swebok], Quantifiable Requirements; [book:real-world-software-development], Why Use TDD?
 
-### Rules
+For ML, CV, or NLP work, hand off the decision framing before choosing the engineering design. Dev takes the framed decision back for implementation; it does not restate or perform the sibling's decision method. See ../applied-ml-problem-solver/SKILL.md.
 
-1. **Don't interrogate** — Weave questions naturally into discussion
-2. **Summarize understanding** — "So you want X that does Y for Z, correct?"
-3. **Surface assumptions** — "I'm assuming [X], is that right?"
-4. **Identify unknowns** — "We'll need to research [Y] to answer this"
-5. **Challenge vague intent** — Read `../../core/references/pushback-and-teach.md`. When the request is business-speak ("add auth", "make it fast", "just like X"), name the concrete forks the request leaves open, present 2–3 options per fork with tradeoffs and a recommendation, and do NOT accept scope until each fork has a concrete answer. Two vague answers in a row → stop and ask for binary, testable criteria.
-6. **Teach concept gaps inline** — If the user's framing reveals a missing concept (conflating auth/authz, thinking JWT = session, treating a cache like a DB, etc.), teach the concept in 3–5 sentences with a tagged block (`**Why this matters:**`) before moving on.
-7. **ML work: hand the framing out** — If the task involves ML/CV/NLP, the reframing, metric and architecture decisions belong to `../../applied-ml-problem-solver/SKILL.md` (Frame + Fit-Check + Baseline-Named gates). Get a framed problem back, then design around it. Do not reframe ML problems inside Design mode.
-8. **Greenfield library research** — If the design pulls in unfamiliar libraries, read the official docs (or web search) for accurate API signatures instead of guessing. Annotate discoveries for future sessions.
-9. **Ground domain decisions in the KB** — If the design touches a KB-covered domain (ML, AI engineering, DB, security, crypto, architecture, distributed systems, Rust, systems/ops), apply the **Knowledge Base Grounding Gate** (`SKILL.md`) before committing to an approach: search the KB for prior art and record `KB: searched "<q>" → <finding|nothing relevant>` in Key Decisions. Don't design a database/security/retrieval approach the corpus could have informed without checking it.
-10. **Apply the Invariant Gate** — If the design touches multi-tenant data, permissions/authz, irreversible or external side effects, or crash/restart recovery, work the five classes in `SKILL.md` → Invariant Gate and record one line each in Key Decisions, **naming the test** that will prove it. Design is where these are cheap; adversarial review is where they are expensive. Silent on everything else.
+## Research and ground
 
-**Hard gate:** Phase 1 does not exit until every top-level decision has a concrete, testable answer. "It should be fast" is not an answer; "p95 latency under 200ms for reads" is. No proceeding to Phase 2 research until this is true.
+Calibrate research to the situation: use a light check for clear, familiar requirements; focus on clarification for unclear requirements in a familiar domain; investigate unfamiliar or ambiguous areas deeply enough to make the decision. Research is a response to a surfaced unknown, not a mandatory phase before every task.
 
-Output: shared mental model of the project. No documents yet.
+For a covered domain, search the whole project Knowledge Base before deciding and write one result line in Key Decisions. Use a second query or generated passage only when the first search missed because it used different vocabulary. For uncovered areas, inspect the code and official documentation. The project's version-controlled guidance should point to canonical sources rather than duplicating their content. [book:software-engineering-at-google], Guidance; [book:software-engineering-at-google], Considerations When Importing
 
----
+When research finds a direction-changing alternative, a major constraint, or scope larger than expected, stop and present it to the user before proceeding. Keep the useful finding and the source in the project decision record.
 
-## Phase 2: Research
+For qualifying designs, apply the Invariant Gate from SKILL.md before build: multi-tenant data, authorization, external or irreversible effects, and crash/restart recovery. Add one Key Decisions line per applicable class, with a test that proves the guarantee is reachable. This five-class gate is dev field practice.
 
-### Calibrate Scope First
+## Development-ready specification
 
-| Signal | Research Depth |
-|--------|----------------|
-| Clear requirements, familiar domain | Minimal (1-2 searches) |
-| Clear requirements, unfamiliar domain | Domain-focused |
-| Unclear requirements, familiar domain | Clarification-focused |
-| Unclear requirements, unfamiliar domain | Full research |
+Keep the system's design coherent: write one spec in one voice instead of concatenating producer documents. Multiple sound ideas can still make a confusing design when nobody reconciles their boundaries. [book:learning-systems-thinking], Chapter 2. Crafting Conceptual Integrity
 
-### Deploy Research Team
+Scale the document set to the change. A small tool may need only a concise design and project quick start; a service may need a design, data and API contracts; a multi-component system needs a canonical design document covering architecture, technology, data and interfaces. Prefer one coordinated design document over several disconnected architecture, tech-stack, data-model and API files. [book:software-engineering-at-google], Design Docs
 
-YOU are the coordinator. Spawn research subagents using the Agent tool for independent topics. Do NOT do all research yourself — parallel subagents save context and time.
+Give each project document one purpose. Use the project's standard agent-instructions filename for operational guidance, and link to separate overview, quick-start, architecture, decisions and constraints documents when those topics need durable detail. A quick start should assume nothing and show a reader how to make the first real thing work. [book:software-engineering-at-google], Documentation Types; [book:software-engineering-at-google], Tutorials
 
-**Parallel** when topics are independent. **Sequential** when findings would redirect later research.
+The design should name its goals and how the team will later tell whether the delivered system achieved them. Write concrete acceptance conditions, implementation strategy, key decisions, alternatives and tradeoffs for each key decision, constraints, and any remaining unknowns. Keep contracts refinable during greenfield work; when a service boundary matters, add provider-consumer contract tests rather than relying only on a schema changelog. [book:software-engineering-at-google], Design Docs; [book:building-evolutionary-architectures], Case Study: Validating API Consistency in an Automated Build
 
-Each subagent gets a specific question (not "research everything about X") and presents options with tradeoffs — no final decisions.
+For cross-cutting security, privacy, storage or reliability sections, request review by an engineer with the relevant expertise before implementation. [book:software-engineering-at-google], Design Docs
+For a reliability-sensitive service, state the SLO as a target on a defined SLI, including the measurement and the conditions under which it is valid. [book:site-reliability-engineering], Service Level Objectives
 
-**ML work:** Before researching solutions, hand to `../applied-ml-problem-solver` — it owns Problem Reframing and Architecture Decisions. Often the right research question isn't "which model?" but "what simpler problem does this reduce to?"
+## Review and hand off
 
-### The Loop-Back Rule
+Review every design before code is written. The level can be proportionate to the task, but do not silently bypass the design check. For consequential handoffs, have another engineer review the requirements document for the right product, clarity, consistency and completeness; provide the material needed to understand the requirements rather than claiming the source mandates a context-free review. [book:software-engineering-at-google], Design Docs; [book:swebok], 6. Requirements Validation
 
-If research reveals something that could change direction (better alternative, significant constraint, scope much larger than expected): STOP and surface to user before continuing.
+For higher-risk or complex designs, use a separate reviewer who did not make the design decisions. Ask them to find gaps in the requirements, contradictions, architectural risks and missing unknowns. Close every review comment before handoff: fix critical findings, get an owner decision on warnings, and record the disposition of advisory comments. If three or more critical findings appear, revise the design rather than patching them one by one.
 
----
-
-## Phase 3: Document & Handoff
-
-### Only When Direction Is Stable
-
-Scale documentation to project complexity:
-
-| Project Scale | Documentation |
-|--------------|---------------|
-| Script/CLI tool | CLAUDE.md only |
-| Single-purpose service | CLAUDE.md + data-model |
-| Multi-component system | Full set (architecture, tech-stack, data-model, api-design) |
-
-CLAUDE.md must include: Overview (the "why"), Quick Start (3-5 commands), Architecture (the "what"), Key Decisions (the "why this way"), Constraints (the "what not").
-
----
-
-## Phase 4: Spec Adversarial Review
-
-**Before handoff to Build mode**, the spec gets a cold review. A subagent reads the spec with no context about the discussion that produced it.
-
-Spawn an Agent with `subagent_type: general-purpose`. Provide ONLY the spec documents (success criteria, contracts, CLAUDE.md, data models). Do NOT provide conversation context, rationale, or "why we chose X."
-
-Read `../references/subagent-briefs.md` for the spec adversarial review prompt template.
-
-**After review:**
-- **CRITICAL findings** → must resolve before handoff (update spec, discuss with user)
-- **WARNING findings** → present to user for decision (fix now or accept risk)
-- **ADVISORY findings** → note in handoff, build team is aware
-- If 3+ CRITICAL → spec needs another iteration, not patches
-
-**Run only when the trigger fires.** Adversarial review earns its cost when a mistake in the spec would be **hard to reverse** (schema/API/data-model commitments, public contracts, anything downstream code will build on), **silent** (a wrong assumption that ships green and surfaces as corruption/drift later, not as a failed test), OR **green-for-the-wrong-reason** (a success criterion a trivial or wrong implementation could also satisfy — measured by the wrong instrument, or trivially true). If none holds — bug fixes, config, wiring, anything cheap to undo and loud when wrong — skip it (and say so out loud); a review here is theatre that trains the team to ignore reviews. When in doubt, ask: *if this spec is subtly wrong, do we find out in minutes or in production?* Minutes → skip. Production → review.
-
----
-
-## Phase 5: Handoff
-
-### Planning Exit Gate
-
-Planning is done when ALL of these are true:
-
-- [ ] Every success criterion is **binary and testable** (not "works well" but "returns 200 with JSON array")
-- [ ] You can **name the remaining unknowns** and they're acceptable risks, not blockers
-- [ ] Spec adversarial review has **no unresolved CRITICAL findings**
-- [ ] A stranger could read the spec and **build the right thing** without asking you questions
-- [ ] **Output contract:** the spec/design page exists in `wiki/` and the choice + rejected alternatives are recorded in `decisions.md` (see `../../core/references/wiki-protocol.md` → Output Contract). Design is not done until these files exist.
-
-When complete: summarize what was produced, confirm with user, transition to Build mode using design artifacts as input.
+A design handoff is ready when its goals and measures are written down, requirements are testable, accepted unknowns are visible, all review comments have a disposition, and a stranger can build from the specification. Present the artifacts and ask the decision owner to accept the design after debate and expert critique. Then transition to Build using those artifacts. [book:software-engineering-at-google], Design Docs; [book:software-engineering-at-google], Code Review Flow

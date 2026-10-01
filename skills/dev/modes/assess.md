@@ -1,119 +1,50 @@
-# Assess & Analyze Modes
+# Assess and Analyze Modes
 
-Assess codebase health and investigate results. Wu wei — minimum intervention, maximum clarity.
+Assess code health and investigate results with the smallest change that addresses a demonstrated problem. Separate source-grounded findings from recommendations and keep uncertainty visible.
 
----
+## Assess code
 
-## Severity Tiers
+### Scope and inspect
 
-| Tier | Behavior | User Action |
-|------|----------|-------------|
-| **CRITICAL** | Blocks progression (security, contract violations, mocked production code) | Must fix before proceeding |
-| **QUALITY** | Advisory (AI slop, dead code, code smells, dependency issues) | User decides: fix now, defer, or accept |
+Start with the area the user identified. Ask what hurts and narrow the assessment to code causing defects, blocked work, onboarding friction, maintenance burden or slow development. For a small codebase, read the relevant code directly; for a large one, start with the affected directories.
 
----
+Run scripts/analyze.py in summary mode first; use the full report only when a finding warrants it. Static analysis is a guide. Dynamic imports, plugins, generated entry points and external consumers can be invisible, so inspect relevant paths and call sites before recommending a high-impact change. [book:software-engineering-at-google], Code Correctness
 
-# Assess Mode
+### Review dimensions
 
-## Phase 1: Scope & Filter (Wu Wei Entry Point)
+- **Size and responsibility:** A file over 500 lines is a prompt to review cohesion and readability, except generated or data files. Keep one clear responsibility per file; do not treat a line count as a hard failure threshold. [book:clean-code], Vertical Formatting; [book:clean-code], Chapter 10: Classes
+- **Configuration:** Look for scattered hardcoded URLs, thresholds and credentials. Keep build, deploy, test and release assets in version control, with configuration in a clear high-level location. [book:continuous-delivery], What Are the Benefits?
+- **Dependencies:** Inspect the dependency graph for cycles and hotspots; identify the coupling that makes changes risky. [book:clean-architecture], The Acyclic Dependencies Principle
+- **Reachability:** Confirm whether apparently unused code has a real caller before removal. For confirmed dead code, remove it; for a static-analysis hit with unknown dynamic entry points, investigate first rather than deleting blindly. [book:clean-code], Chapter 17: Smells and Heuristics
+- **Test coverage:** Use branch coverage to locate behaviors and branches the suite has not exercised. Coverage is a map of likely gaps, not proof of correctness or a target percentage by itself. [book:real-world-software-development], Code Coverage
 
-**Start by filtering, not scanning.** Ask: what hurts? What did the user ask about?
+When proposing an API or system removal, trace actual callers and unexpected uses, then revisit the removal decision if that evidence changes. Deprecation is appropriate when the system is demonstrably obsolete and a comparable replacement exists; define the removal conditions and process before retiring it. [book:software-engineering-at-google], Deprecation Tooling; [book:software-engineering-at-google], Why Deprecate?
 
-```
-User: "Refactor the backend"     -> scope = ./backend/
-User: "Assess this codebase"     -> scope = ./
-User: "Clean up the API layer"   -> scope = ./src/api/
-```
+### Present and act
 
-Apply the Wu Wei filter:
-```
-Is this actually causing problems?
-  - Blocking other work?  - Causing bugs?  - Making onboarding hard?
-  - Creating maintenance burden?  - Slowing development?
+Order findings by severity, evidence, dependencies and the user's goal. Use impact-versus-effort to choose where testing should start, not as a universal ranking formula for every assessment finding. Give each finding a location, evidence, likely consequence and a concrete next step. [book:site-reliability-engineering], Creating a Test and Build Environment
 
-YES -> Investigate    NO -> Skip
-```
+Write the durable assessment page in the project's wiki, link it from the index and append a log entry. Save scratch analysis separately. Complete Assess only when the page exists and the index and log point to it. Shared wiki mechanics are in ../core/references/wiki-protocol.md.
 
-**Size check**: Small codebase (< 50 files)? Read directly — skip scripts. Large codebase? Scope to affected directories first.
+If the user chooses to act, make one change at a time and verify it before moving to the next. The user controls whether to continue.
 
-## Phase 2: Scan
+## Analyze results
 
-Run the analysis script. Start with `summary`, drill into `full` only if needed:
-```bash
-# Context-friendly overview
-python3 {baseDir}/scripts/analyze.py --mode summary [scope]
+Use Analyze when the question is why a metric, model output or system result looks a certain way. Separate defects in results from defects in code. Do not use this mode to make ML/CV/NLP evaluation or model-selection decisions; hand those to ../applied-ml-problem-solver/SKILL.md.
 
-# Full detail — redirect to file, read on-demand
-python3 {baseDir}/scripts/analyze.py --mode full [scope] > logs/analysis-full.json
-```
+Follow this sequence:
 
-For high-severity findings, trace the blast radius before recommending a change: `grep`/`rg` the symbol's callers and importers, and read the call sites.
+1. **Failure taxonomy:** classify the result failures and their distribution.
+2. **Causal model:** map candidate causes to effects.
+3. **Disconfirmation:** hold two or three plausible causal frames. For each, ask what evidence should appear if it is true and what would contradict it. Search for the disconfirming log, query or metric. Classify anomalies as explained, concerning or frame-breaking; name the condition that would reopen the analysis.
+4. **Prioritize tests:** when choosing tests to run first, prefer high expected impact for low effort. Do not rank all recommendations by a ratio.
+5. **Experiment:** define a specific change and before/after measurement criteria. Confirm the instrument and units can resolve the target difference.
+6. **Impact view:** estimate the expected improvement for each intervention and order by cumulative gain where the evidence supports it.
 
-**Important**: Script output is a guide, not ground truth. Dynamic imports, plugin systems, and external consumers are invisible to static analysis.
+The first plausible cause is not enough: a past analysis anchored on its leading explanation until a contrary pattern in the results forced another frame. Look for evidence that could prove the preferred explanation wrong.
 
-### Assessment Rules
+Save the working analysis and any before/after results under the project's scratch logs. Promote the conclusions into a durable wiki analysis page, link it from the index, add a log entry, and record any conclusion that changes direction in the decision record. Complete Analyze only after those records exist. See ../core/references/wiki-protocol.md.
 
-| Category | Target | Flag |
-|----------|--------|------|
-| File size | < 500 lines | Any file > 500 lines (except generated/data files) |
-| Configuration | One high-level location | Hardcoded URLs, thresholds, credentials scattered in code |
-| Separation | One clear responsibility per file | God classes, mixed concerns |
-| Dependencies | Clean graph, no cycles | Circular deps, hotspots |
-| Dead code | All code reachable and used | Orphan files, unused functions (flag as "candidates") |
+## Harden findings
 
-### Subagent Deployment (Large Codebases)
-
-For 3+ modules: spawn parallel assessment subagents using Agent tool. One subagent per module, no file overlap. Aggregate findings after all complete.
-
-## Phase 3: Present
-
-Order findings by **Impact / Effort**:
-- High impact, low effort → Do first (Quick Wins)
-- High impact, high effort → Plan carefully (Structural)
-- Low impact, low effort → Do if time permits
-- Low impact, high effort → Don't do it
-
-Structure the report:
-- **Executive Summary**: 2-3 sentences — overall health, biggest issue, recommended action
-- **What's Working Well**: Good patterns to preserve
-- **What Hurts**: Findings ordered by priority, with file locations and evidence
-- **What to Skip**: Things flagged but filtered by Wu Wei, with reasoning
-
-Save to `logs/assessment-report.md`.
-
-**Output contract:** also write the findings as a wiki page (`wiki/assessment-<date>.md`), link it from `index.md`, and append a `log.md` entry. The assessment isn't done until that page exists — `logs/` is scratch; the wiki is the durable record the next session reads. See `../../core/references/wiki-protocol.md` → Output Contract.
-
-## Phase 4: Act (If User Approves)
-
-One change at a time. Verify after each (tests pass, no runtime errors). User controls progression.
-
-### Feeding into Harden Mode
-
-Group findings by severity tier → create phased success criteria → use test-first subagents (Build mode) to fix each tier → full regression suite after each tier.
-
----
-
-# Analyze Mode
-
-For data-driven investigation: "why do results look like this?", root cause analysis, experiment evaluation.
-
-Analyze asks "what's wrong with the *results*?" vs Assess which asks "what's wrong with the *code*?"
-
-## Pattern
-
-1. **Root Cause Taxonomy** — Categorize failure modes. What types of errors exist? What's their distribution?
-2. **Causal Model** — Map cause → effect chains. What produces each failure type?
-3. **Stress-test before ranking** — Hold 2–3 competing causal frames, not one. For the lead frame ask: what would I see if this *were* the cause — and what would I see if it weren't? Go find the disconfirming log/query/metric. Classify each anomaly: *dismissible* (explained within the frame), *concerning* (real tension), *frame-breaking* (forces a new cause). Name the tripwire that would reopen the analysis before you commit. The coding-trained default is to anchor on the first plausible cause and confirm it — resist it.
-4. **Impact/Effort Ranking** — For each root cause: how much would fixing it improve results vs how hard is the fix?
-5. **Experiment Design** — Define specific changes to test, with before/after measurement criteria
-6. **Projected Impact Matrix** — Expected improvement per intervention, ordered by cumulative gain
-
-## Output
-
-Save to `logs/`:
-- `analysis.md` — findings with taxonomy, causal model, rankings
-- `eval-results.md` — before/after data if experiments were run
-
-**Output contract:** promote the findings into the wiki — a `wiki/analysis-<topic>.md` page (taxonomy, causal model, decisive numbers), linked from `index.md`, plus a `log.md` entry; record any direction-changing conclusion in `decisions.md`. The analysis isn't done until that page exists. See `../../core/references/wiki-protocol.md` → Output Contract.
-
-Analyze often chains into Build (implement the top-ranked fix) or further Analyze (validate the fix worked).
+When assessment findings need code changes, group them by severity and make phased success criteria. Use the Build mode test-first process for each phase; run the full regression suite after each severity tier. The failing-test phase is the source-backed TDD practice; grouping and tiered regression are dev's hardening workflow. [book:learning-test-driven-development], Red-Green-Refactor: The Building Blocks of TDD

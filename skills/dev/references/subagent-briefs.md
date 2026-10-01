@@ -1,365 +1,66 @@
 # Subagent Briefs
 
-Prompt templates for each subagent type. The coordinator reads the relevant brief and passes ONLY that brief plus task-specific context to the subagent. Subagents never see the full skill.
+The coordinator gives a worker only the brief for its role plus task-specific context. Every brief names the target, permitted paths, expected result and acceptance evidence. A role may decline a task; the coordinator reroutes it and records the result instead of taking over a rejected unit.
 
-**Isolation constraint (every brief that mutates state inherits this).** A subagent that writes files or runs bash must touch only its assigned working tree, and must never run repo-wide VCS mutations — no `git add -A`/`git add .`, no `git commit`, no `git checkout`/`git reset`/`git stash`, no branch or remote operations. When multiple subagents run in parallel, give each its own git worktree so their edits cannot collide or stage each other's churn; a shared checkout with concurrent writers is a corruption waiting to happen. The coordinator owns the index and the commit — workers produce file changes, the coordinator reviews and stages them by explicit path. State this verbatim in any brief you hand a worker with write/bash access.
+## Shared isolation rules
 
----
+A worker with write access touches only its assigned worktree and never changes shared version-control state: no staging, commits, branch operations, resets, stashes or checkouts. Give concurrent writers separate worktrees. The coordinator reviews their diffs and owns staging and commits by explicit path.
 
-## Research Subagent
+## Test author
 
-**When:** Unknowns surface during scoping, or unfamiliar domain/tech encountered.
+**When:** after criteria and contracts are defined, before implementation.
 
-**Spawn:** Agent tool with `subagent_type: general-purpose`
+Ask a separate worker to write contract tests from the current criteria, not from the implementation. For iterative work, write one behavior test at a time as its criterion becomes testable. Tests should parse, fail for the expected reason without the implementation, cover the defined criteria and relevant edge cases, and avoid changing implementation files. Run them through scripts/run-tests.sh. The red-green-refactor cycle writes a failing test, runs the suite to verify it, implements the minimum, then refactors while keeping tests green. [book:learning-test-driven-development], Red-Green-Refactor: The Building Blocks of TDD
 
-**Provide:** The specific question (not "research everything about X"), expected output format.
+For each test:
+- Cover both sides of a behavior axis and name the axis in the test description. [book:real-world-software-development], Testing Error Cases
+- Keep tests small and focused so failure diagnostics are clear. Use the smallest useful triggering input, assert the specific observable, and exercise stated boundaries when they are part of the contract. [book:growing-oo-software-by-tests], Small, Focused, Well-Named Tests
+- Use a stable test shape: setup, exercise, verification. [book:growing-oo-software-by-tests], Canonical Test Structure
+- Name it for the contract clause and behavior, or for the success criterion when no contract exists. [book:learning-test-driven-development], Improving Our Tests
+- For Python tests, parameterize repeated values that test the same behavior.
+- Keep tests fast, independent, repeatable, self-validating and timely. [book:clean-code], F.I.R.S.T. Classify them small, medium or large, and prefer the smallest class that proves the behavior. [book:software-engineering-at-google], Test Size
 
-**Prompt constraints:**
-```
-Research: [specific question]
+Before implementation starts, independently check that tests parse, fail for the expected reason, and cover the currently defined criteria. Running the suite confirms the intended red; do not count a compile error or unrelated failure as that evidence. [book:learning-test-driven-development], Red-Green-Refactor: The Building Blocks of TDD
 
-Do NOT write implementation code. Present options with tradeoffs.
-If you find multiple viable approaches, compare them in a table.
-```
-
-**Available knowledge sources:**
-- **Knowledge Base MCP** (126 books: ML, AI engineering, databases, security, cryptography, software architecture and engineering, distributed systems, Rust, systems/ops):
-  - `search("query")` — hybrid semantic + keyword search over the whole library; returns short passages with chunk ids. Start here, without a book filter.
-  - `read_chunk(chunk_id)` — the passage around a hit
-  - `grep_books("exact term")` — literal keyword search across all book markdown
-  - `get_chapter(book, chapter)` — full chapter text when deeper reading is needed
-  - `search_book(book, query)`, `list_books()` — when the book is already known
-  - `hyde_passage=` / `extra_queries=[...]` on `search` — fallbacks when a first search misses on vocabulary; not a default
-- **Web search** — for current docs, release notes, and topics not covered by the KB
-
-For parallel research: spawn multiple subagents simultaneously in a single message.
-
----
-
-## Test Subagent
-
-**When:** After success criteria (and contracts, if any) are defined. BEFORE implementation.
-
-**Why tests first:** AI agents writing code AND tests together produce tests shaped to pass their code, not tests shaped to verify the contract.
-
-**Spawn:** Agent tool with `subagent_type: general-purpose`
+**Why this split matters:** A crash-recovery build once tested only the registry member that could not exhibit the failure. The suite passed, yet the important external effect had never been exercised. Naming the variant axis and testing both sides makes that blind spot visible.
 
-**Provide:** Success criteria, contracts (if any), phase deliverables, target test directory, existing test patterns.
+## Implementation worker
 
-**Prompt constraints:**
-```
-Write tests that verify contract compliance. Tests are executable specifications.
+**When:** after tests have been verified and, for medium or heavy work, independently validated against the agreed criteria.
 
-- Tests must parse/compile successfully
-- Tests should FAIL without implementation (no code exists yet)
-- Cover ALL success criteria + edge cases from contracts
-- Do NOT read or write implementation code
-- Do NOT mock/stub the system under test
-- COVER THE AXIS, NOT AN EXAMPLE: if the thing under test varies along a
-  dimension (a boolean flag, a registry of implementations, a type/kind
-  column, a mode enum), write a test on BOTH sides of it and name the axis
-  in the docstring. Do not pick only the simplest instance — the simplest
-  instance is usually the safe side of the risky flag, and a suite that
-  covers only it is green precisely because it cannot see the bug.
-- Run tests: bash {baseDir}/scripts/run-tests.sh [test-path]
+Provide the contracts, tests, phase deliverables, prior handoff and relevant project patterns. Require the worker to pass the tests, preserve criteria, follow existing patterns, avoid mocking the behavior under test, and stop if the tests cannot be satisfied. On a failed command, read its log rather than rerunning it only to recover output. Run tests with scripts/run-tests.sh and verbose commands with scripts/run-command.sh. The implementation follows a failing test and suite run; keep the suite green while refactoring. [book:real-world-software-development], The TDD Cycle; [book:learning-test-driven-development], Keeping Code DRY
 
-TEST DESIGN — force the failure with the smallest input:
-  Each test should fail for exactly ONE reason, driven by the SMALLEST input
-  that triggers the behavior under test. A test that needs a large fixture to
-  fail can't tell you WHICH part broke; a test that fails on a one-line input
-  points straight at the cause.
-  - Prefer the minimal case that exercises the clause (one row, one field,
-    one boundary value) over a realistic-but-noisy fixture.
-  - Assert on the specific observable, not an incidental side effect.
-  - For boundary clauses, test the exact edge (n, n-1, n+1), not a value
-    "well inside" the range — the edge is where implementations break.
-  A good failing test reads like a bug report: minimal repro, one cause.
-
-TEST NAMING — use contract-traceable names:
-  Pattern: test_<contract_clause>_<behavior>
-  Examples:
-    test_api_get_users_returns_json_array
-    test_api_get_users_unauthorized_returns_401
-    test_schema_user_email_required
-    test_schema_user_rejects_invalid_email
-  When no formal contract exists, trace to success criteria:
-    test_criteria_csv_export_includes_headers
-    test_criteria_search_returns_within_500ms
-  The name should answer: "which requirement broke?" without reading the test body.
-```
+Require a closing Key Decisions section with three to five load-bearing choices. For each, state the chosen approach, a plausible naive alternative and why that alternative would be worse. Compare relevant risks, costs and benefits; the 3–5-item report shape is dev procedure. [book:swebok], Tradeoff Analysis
 
-**After:** Verify tests parse (expect failures, not errors). Verify coverage of success criteria.
+After the worker returns, independently check the integrated presubmit evidence and rerun only checks it does not cover. Report the most load-bearing implementation decision and why it matters; make sure an interface change has corresponding test evidence from the gate or a targeted rerun. [book:software-engineering-at-google], Automate Where Possible
 
----
+## Verification worker
 
-## Test Validation Subagent
+Ask the verifier to:
+1. Run tests and quality checks; include the quality JSON summary.
+2. Compare the implementation with the contract and report undocumented deviations.
+3. Confirm mocks do not replace the behavior being tested.
+4. Inspect algorithmic cost, resource lifetimes, concurrency and error propagation.
+5. Review generated or agent-written code for dead paths, unsupported APIs, unnecessary wrappers and comments that restate the obvious.
+6. Show evidence for every criterion.
+7. Parse machine-readable YAML, JSON or TOML artifacts with their actual parser.
 
-**When:** Opt-in for high-stakes domains (finance, security, healthcare, data integrity). Skip when tests were written against clear success criteria — the test and validation subagents read the same spec and have correlated blind spots. Most builds don't need this gate.
+Use CI evidence for checks it covers; rerun only missing checks and changed interfaces. For a release, repeat tests and quality/security scans until they meet the release plan's standard. [book:hands-on-site-reliability-engineering], Test for quality and security; [book:software-engineering-at-google], Automate Where Possible. Report PASS, FAIL or PARTIAL with the evidence and command outputs. Mock-only proof of a production contract fails verification because a stub cannot prove the real contract. [book:software-engineering-at-google], The Dangers of Overusing Stubbing. Changed success criteria, unproved success, lint errors and high or critical security findings also fail verification. A justified fake or mock around a dependency is acceptable when it does not replace the contract under test.
 
-**Why:** Bad tests corrupt everything downstream. The test subagent's interpretation could miss business-critical paths, over-test implementation details, or misunderstand domain requirements.
+## Cold code review
 
-**Spawn:** Agent tool with `subagent_type: general-purpose`
+**When:** after verification, when an error could be hard to reverse, fail silently or appear green for the wrong reason. A review of every code change still happens before submission; this additional adversarial pass can be skipped only for work that is cheap to undo and loud when wrong. State the reason for a skip.
 
-**Provide:** Test file paths, success criteria, contracts (if any), business context/requirements. Do NOT provide the test subagent's process or reasoning.
-
-**Prompt constraints:**
-```
-You are reviewing tests written by someone else. You have the business
-requirements and success criteria but you did NOT write these tests.
-
-COVERAGE:
-- Does every success criterion have at least one test? Map each criterion
-  to its test(s). Flag any criterion with no coverage.
-- Are there business-critical paths NOT in the success criteria that should
-  be tested? (e.g., security boundaries, data integrity, failure recovery)
-- Are edge cases covered? (empty inputs, boundary values, concurrent access,
-  invalid data, permission boundaries)
-
-CORRECTNESS:
-- Does each test actually verify what its name claims?
-- Are any tests testing implementation details instead of behavior?
-  (e.g., testing that a specific function is called vs testing the outcome)
-- Are assertions meaningful? (e.g., "assert response is not None" is weak —
-  "assert response.status == 200 and 'users' in response.json()" is strong)
-- Could any test pass with a wrong implementation? (e.g., testing only the
-  happy path when the requirement implies error handling)
-
-DOMAIN:
-- Do tests reflect how the system will actually be used?
-- Are there domain-specific invariants missing? (e.g., financial calculations
-  need precision tests, auth flows need token expiry tests)
-
-For EACH finding:
-  - Test name and file
-  - What's wrong or missing
-  - Severity: CRITICAL (will miss real bugs) / WARNING (weak coverage) /
-    ADVISORY (could be better)
-  - Suggested fix (one sentence)
-
-If tests are solid, say so — but be genuinely skeptical.
-```
-
-**After:** CRITICAL findings → test subagent fixes before implementation proceeds. WARNING → coordinator decides. ADVISORY → note for later.
-
----
-
-## Implementation Subagent
-
-**When:** After tests are verified (parse and fail as expected) and validated (medium/heavy).
-
-**Spawn:** Agent tool with `subagent_type: general-purpose`
-
-**Provide:** Contracts, test file paths ("These tests must pass"), phase deliverables, previous phase handoff (if exists), existing code patterns.
-
-**Prompt constraints:**
-```
-Write code that passes all tests while matching contracts.
-
-- Full freedom in HOW to implement
-- All tests MUST pass (no skipping, no modifying tests)
-- Follow existing project patterns
-- Do NOT mock/stub production code or modify success criteria
-- Run tests: bash {baseDir}/scripts/run-tests.sh [test-path]
-- For verbose commands (builds, installs): bash {baseDir}/scripts/run-command.sh <command>
-- If tests can't be passed, STOP and report why
-- If stuck >3 attempts, STOP and escalate
-- On failure, read the log file for details instead of re-running commands
-```
-
-**Additional constraint — surface key decisions in your report:**
-```
-At the end of your report, include a "Key Decisions" section listing the
-3–5 most load-bearing decisions you made while implementing. For each:
-  - What you picked (one line)
-  - What the naive alternative would have been (one line)
-  - Why the naive alternative would have failed or been worse (one line)
-Not every decision — the ones a junior engineer would benefit from seeing.
-The coordinator uses this to teach the user inline; don't skip it.
-```
-
-**After:** Run tests yourself — do NOT trust subagent's reported output. Read the Key Decisions section and pick the single most load-bearing one to narrate to the user with a `**Why this matters:**` tag — per `../../core/references/pushback-and-teach.md`, one concept per task. If you changed any interface shape that tests depend on, re-run affected tests to confirm alignment.
-
----
-
-## Verification Subagent
-
-**When:** After all tests pass for a phase.
-
-**Spawn:** Agent tool with `subagent_type: general-purpose`
-
-**Provide:** Success criteria, contracts (if any), implementation file paths, test file paths.
-
-**Prompt constraints:**
-```
-You are a skeptical auditor. Verify with evidence, not trust.
-
-1. TESTS PASS — Run: bash {baseDir}/scripts/run-tests.sh [test-path]
-2. CODE QUALITY — Run: bash {baseDir}/scripts/run-quality.sh [src-path]
-   - Lint errors → FAIL (must fix before proceeding)
-   - Security issues → report severity, FAIL on HIGH/CRITICAL
-   - Type errors → advisory (report but don't block unless --strict)
-   - Show the JSON summary in your report
-3. CONTRACT COMPLIANCE — Compare implementation vs contracts field-by-field
-   - Check Contract Changelog: any undocumented deviations → FAIL
-   - Verify test names trace to contract clauses or success criteria
-4. NO MOCKED PRODUCTION CODE — Check src/ for mock/stub/fake patterns
-5. TECHNICAL SOUNDNESS — Read the code for structural problems tools can't catch:
-   - Algorithmic efficiency: nested loops over same data? O(n²) where set/dict gives O(n)?
-   - Resource management: files/connections/locks opened but not closed? Missing context managers?
-   - Concurrency safety: shared mutable state without locks? async/await misuse? race conditions?
-   - Error propagation: does the error reach someone who can act, or does it vanish silently?
-   - Severity: CRITICAL if it will cause data loss, deadlock, or resource exhaustion under load.
-     WARNING if it degrades performance or fails under edge conditions. ADVISORY for suboptimal patterns.
-6. AI SLOP CHECK — Run /ai-slop-detector on changed files
-   - Look for: theatrical error handling, dead code paths, hallucinated APIs,
-     over-abstracted wrappers, comments restating the obvious
-   - Advisory findings: report but don't block
-   - Structural slop (hallucinated APIs, broken abstractions): FAIL
-7. SUCCESS CRITERIA — For EACH criterion, show specific evidence
-8. MACHINE-READABLE ARTIFACTS — Any YAML/JSON/TOML artifact another tool
-   consumes must round-trip its parser (yaml.safe_load / json.load / tomllib).
-   Parse failure → FAIL. Prose-heavy YAML (list items containing colons or
-   backticks) is the classic breakage — the fix is block scalars (|), and
-   agents authoring such files should be told so in their brief.
-
-Red flags (AUTO-FAIL): Mocked production code, tests testing mocks,
-modified success criteria, "it works" without proof, lint errors,
-HIGH/CRITICAL security findings.
-
-Output: PASS / FAIL / PARTIAL with evidence for each item.
-Include quality scan JSON summary in report.
-```
-
----
-
-## Adversarial Review Subagent
-
-**When:** After verification passes. Final gate before delivery. **Fire on the trigger, not the build size** (see `../modes/build.md` Phase 5): a mistake that is hard-to-reverse, silent, or *green-for-the-wrong-reason*. Skip only when none holds (cheap-to-undo and loud-when-wrong), and say the skip out loud.
-
-**Why:** This is a gate *distinct* from verification, not a redundant one. Verification checks the code against the spec and inherits the spec's blind spots — it cannot catch a result that's right for the wrong reason (leakage, memorization, a measurement artifact). The adversarial reviewer gets the code **cold** and must not be its author or the author of its tests (correlated blind spots).
-
-**Spawn:** Agent tool with `subagent_type: general-purpose`
-
-**Provide:** ONLY the implementation file paths. Do NOT provide success criteria, contracts, design docs, or rationale.
-
-**Prompt constraints:**
-```
-You are a senior engineer reviewing code written by someone else. You have
-NO context about why this code was written or what it's supposed to do.
-Read it cold and answer:
-
-LOGIC REVIEW:
-- What does this code actually do? (your interpretation, not theirs)
-- Are there logic bugs? (off-by-one, wrong operator, missing edge cases,
-  race conditions, infinite loops, silent failures)
-- Are there paths where data could be None/null/undefined unexpectedly?
-- Do error handling paths actually handle the error or just swallow it?
-- Are there assumptions baked in that could break? (hardcoded values,
-  implicit ordering, platform assumptions)
-- If anything here reports success — a passing test, a metric, a "PASS" —
-  could it be true for the WRONG reason? (a test that passes against a
-  stubbed/leaked value, an eval split that overlaps training, a metric a
-  trivial baseline would also score, a check satisfiable by a no-op). If
-  you can't tell from the code what makes it pass, say exactly that.
-
-ARCHITECTURE REVIEW:
-- Is anything over-engineered for what it does?
-- Is anything suspiciously simple for what it claims to do?
-- Are abstractions earning their complexity?
-- Would a junior developer understand this in 6 months?
-
-SMELL TEST:
-- Does anything look copy-pasted or templated without understanding?
-- Are there TODO/FIXME/HACK comments that indicate unfinished work?
-- Are there functions that do too many things?
-- Is there dead code or unreachable branches?
-
-EXECUTE-VERIFY — where a finding can be checked by RUNNING something cheap
-(a script against a crafted input, a parser against the artifact, the failing
-path in isolation), run it and include the reproduction in the finding.
-
-For EACH finding, provide:
-  - File and line number
-  - What you found
-  - VERIFIED (you reproduced it — show the output) or HYPOTHESIZED (reasoned
-    from reading — say what would confirm it)
-  - Severity: CRITICAL (will break) / WARNING (might break) / ADVISORY (code smell)
-  - Suggested fix (one sentence)
-
-If you find nothing concerning, say so — but be genuinely skeptical.
-Do NOT rubber-stamp.
-```
-
-**Reading the labels:** VERIFIED findings skip re-litigation — go straight to the fix, and the reproduction becomes the regression test. HYPOTHESIZED findings the coordinator re-checks before acting.
-
-**After:** CRITICAL findings must be fixed before delivery. WARNING: present to user. ADVISORY: include in handoff notes. If 3+ CRITICAL → systemic problem, STOP and escalate to user (narrow fix-and-disclose exception in `../modes/build.md` Phase 5: all VERIFIED + one root cause + mechanical fixes; never for integrity findings).
-
----
-
-## Spec Adversarial Review Subagent
-
-**When:** Before handoff from Design to Build mode. Skip for light builds.
-
-**Spawn:** Agent tool with `subagent_type: general-purpose`
-
-**Provide:** ONLY spec documents (success criteria, contracts, CLAUDE.md, data models). No conversation context or rationale.
-
-**Prompt constraints:**
-```
-You are a senior engineer handed a spec to implement. You have NO context
-about why decisions were made. Read the spec cold and answer:
-
-COMPLETENESS:
-- Can you build this without asking questions? If not, what's missing?
-- Are all success criteria binary and testable? Flag any that say "works well",
-  "handles gracefully", "is fast" — these are untestable.
-- Are error cases specified? What happens when inputs are invalid, services
-  are down, or data is missing?
-- Are edge cases called out? (empty inputs, boundary values, concurrent access,
-  large payloads)
-
-CONTRADICTIONS:
-- Do any requirements conflict with each other?
-- Do contracts match the success criteria? Any gaps?
-- Are there implicit assumptions that aren't stated?
-
-ARCHITECTURE:
-- Does the proposed approach match the problem scale? (over-engineered or
-  under-engineered?)
-- Are there simpler alternatives the spec doesn't consider?
-- What will be hardest to change later if requirements shift?
-- Any scalability concerns visible from the spec alone?
-
-MISSING UNKNOWNS:
-- What risks aren't addressed?
-- What third-party dependencies could block implementation?
-- What questions would you ask in a design review?
-
-For EACH finding:
-  - Section/criterion affected
-  - What you found
-  - Severity: CRITICAL (will block build or cause wrong product) /
-    WARNING (likely to cause rework) / ADVISORY (worth discussing)
-  - Suggested resolution (one sentence)
-
-If the spec is solid, say so — but be genuinely skeptical.
-```
-
-**After:** CRITICAL → must resolve before handoff. WARNING → user decides. ADVISORY → note in handoff. If 3+ CRITICAL → spec needs another iteration.
-
----
-
-## Mechanical Edit Pattern
-
-**When:** The task is repetitive pattern application across many files (dark mode classes, rename, migration, i18n keys). The change is predictable and doesn't require reasoning about each file.
-
-**DO NOT spawn a reasoning agent.** Instead:
-
-1. Read 2-3 representative files to confirm the pattern
-2. Generate a structured edit list: `[{file, old, new}, ...]`
-3. Apply edits via Edit tool with `replace_all` where safe
-4. Verify with build/lint
-
-**Token budget:** ~1K per file (read + edit). A mechanical task touching 20 files should cost ~20K tokens, not 100K+ for a reasoning agent.
-
-**When it's NOT mechanical:** If each file needs different logic (conditional changes, context-dependent decisions), use a regular implementation subagent.
+Use a reviewer independent of the code author and test author. Give the cold reviewer implementation paths only, with no criteria, design rationale or prior conclusion. Ask for a cold reading of the actual logic, null and failure paths, race conditions, hidden assumptions, architecture and smells. Review whether the code is properly tested, designed, correct and efficient. [book:software-engineering-at-google], Code Correctness Ask whether any passing result could be true for the wrong reason. When a finding has a cheap executable reproduction, run it.
+
+Each finding records file and line, result, VERIFIED or HYPOTHESIZED status, severity and a one-sentence fix. Re-check HYPOTHESIZED findings before acting. Use a VERIFIED reproduction as a regression test. [book:site-reliability-engineering], Creating a Test and Build Environment Fix CRITICAL findings, present WARNINGs for an owner decision and note ADVISORY findings. Escalate three or more CRITICALs unless every finding is verified, has one cause and admits a mechanical fix that can be disclosed; the exception never applies to integrity findings.
+
+## Mechanical edit pattern
+
+For predictable multi-file edits, use modes/sprint.md.
+
+## Reusable additions for engineering work
+
+Keep repeatable test gates hermetic: self-contained inputs and isolated dependencies make their results more stable and attributable. [book:software-engineering-at-google], Hermetic Testing
+
+Treat each review comment as a TODO. Disagreement need not be accepted, but discuss the alternatives and record a clear response before closing the comment. [book:software-engineering-at-google], Be Polite and Professional

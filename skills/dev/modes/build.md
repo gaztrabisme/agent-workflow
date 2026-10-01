@@ -1,238 +1,96 @@
 # Build Mode
 
-Feature builds via coordinated subagents with test-driven development. YOU are the coordinator.
+Build a code change from fixed criteria, existing contracts and accepted design choices. Choose the lightest process that still protects the behavior at risk; keep the implementation, checks and handoff tied to the same contract.
 
----
+## Scope and size
 
-## Phase 1: Scope
+Classify the work before implementation:
 
-| Signal | Weight | Process |
-|--------|--------|---------|
-| "Fix [bug]" / "Update [small thing]" | Light | Define done → Build+Test → Verify |
-| "Add [feature] to [existing]" | Medium | Define done + interface shapes → Build+Test → Verify → Adversarial Review |
-| "Build an app/service/API" | Heavy | Define done + contracts → Phased Build+Test → Verify per phase → Adversarial Review |
-| Unfamiliar domain or tech | +Research | Spawn research subagent when unknowns surface |
-| ML/CV/NLP task | *(hand off first)* | The framing belongs to `../applied-ml-problem-solver` — build from its framed problem, don't reframe here |
-| Retrieval / RAG / semantic search task | *(hand off first)* | Chunking, hybrid search, rerank, enrichment and eval design belong to `../../applied-ml-problem-solver/references/rag-heuristics.md` |
+| Shape | Example | Starting process |
+|---|---|---|
+| Light | focused bug fix or small update | Define binary completion, build, test, verify |
+| Medium | new behavior in an existing system | Agree interfaces and criteria, test first, build, verify, review when risk calls for it |
+| Heavy | new application, service or API | Define contracts and criteria, prove a walking skeleton, build in phases, verify each phase and review |
+| Mechanical | predictable repeated edits | Use the structured edit pattern in modes/sprint.md |
+| Exploratory | scope or cause is unknown | Assess or research before changing code |
+| Wire/prep | ingestion, conversion, data preparation, wiring or configuration | Coordinator-direct when the work is bounded and unambiguous |
 
-**Knowledge Base Grounding Gate:** if the build touches a KB-covered domain (ML, AI engineering, DB, security, crypto, architecture, distributed systems, Rust, systems/ops — the `+ML`/`+RAG` rows and any security/DB-internals work), apply the gate in `SKILL.md` before implementing: search the KB and record `KB: searched "<q>" → <finding|nothing relevant>` in Key Decisions. Skippable only by stating the domain isn't covered.
+For medium and heavy work, usually keep each reviewable change near 200 lines or fewer. Split coherent pieces when that makes verification and rollback easier; the number is a guide, not a reason to fragment a cohesive change. [book:software-engineering-at-google], Write Small Changes
 
-**Invariant Gate:** if the build touches multi-tenant data, permissions/authz, irreversible or external side effects, or crash/restart recovery, apply the gate in `SKILL.md` before implementing — one line per applicable class in Key Decisions, each naming the test that proves it. A line naming no test is decoration. Silent on builds without those traits.
+Use the Pattern declaration in SKILL.md. Work directly for small, clear changes. Use a subagent chain when independent test authorship, implementation, verification or review meaningfully reduces risk; use parallel work only for streams that do not share files or depend on each other's output. Keep every worker's assigned paths explicit and isolate concurrent writers.
 
----
+For a greenfield project, begin with a walking skeleton: prove the thinnest end-to-end path and toolchain before building out the full design. [book:growing-oo-software-by-tests], First, Test a Walking Skeleton
 
-## Phase 1.5: TDD Decision
+## Requirements and contracts
 
-Not every change benefits from test-first development. Apply TDD when the value of catching regressions exceeds the cost of writing tests.
+Define what “done” means with binary, specific and verifiable conditions. Keep the user's original criteria fixed; if evidence shows they cannot be met, surface the blocker instead of changing them. Before a test is authored, ensure the criterion for that behavior names a testable input and output that independent engineers would interpret consistently. [book:continuous-delivery], Real-Life Situations and Strategies; [book:swebok], Quantifiable Requirements
 
-| Signal | TDD? | Why |
-|--------|------|-----|
-| New behavior (endpoint, service, component) | YES | Tests define the contract |
-| Modifying existing behavior | YES | Tests catch regressions |
-| Deleting code / removing features | NO | Verify existing tests still pass |
-| Mechanical changes (add classes, rename across files) | NO | Build verification is sufficient |
-| Config changes | NO | Smoke test is sufficient |
-| Pure frontend UI (no logic) | NO | Visual verification, build check |
+When a non-obvious choice affects behavior—such as authorization, schema, caching, concurrency or error handling—present two or three options with tradeoffs and a recommendation. Ask for the user's answer to the unresolved fork. If the user has already authorized the implementation and no material choice remains, continue without asking them to approve the build a second time. [book:swebok], Requirements Negotiation
 
-When skipping TDD, state why. "Skipping TDD: deletion-only change, existing tests cover regression" is valid. Silence is not.
+For the behavior in scope, use the pushback loop and ask for a concrete result. If the user remains vague after two attempts, stop and request binary criteria. In iterative work, move one testable behavior at a time; later criteria may be refined as evidence arrives. If the user explicitly accepts shallow tests, proceed while recording which edge cases are unknown or untested and why that is the accepted gap. [book:real-world-software-development], Why Use TDD?; [book:real-world-software-development], Code Coverage
 
----
+In a greenfield system, create refinable schemas and interface contracts. Verify provider-consumer compatibility with contract tests at service boundaries and record contract changes; a changelog by itself cannot show whether both sides still agree. For an existing codebase, treat the code and its current behavior as the contract; read it rather than re-specifying it. Focus bug fixes on the indicated defect and normally add or update a regression test. [book:software-engineering-at-google], Bug Fixes and Rollbacks Fix or triage a red test promptly—within minutes where practical—so failures remain attributable. [book:building-evolutionary-architectures], Case Study: Validating API Consistency in an Automated Build; [book:continuous-delivery], Implementing Acceptance Tests
 
-## Phase 2: Align
+Before changing a function definition, inspect callers, importers and shape-dependent test doubles, then read the call sites. Update changed callers and test doubles together; if an out-of-scope stale caller remains, assign the migration to the system owner rather than leaving it unowned. For broad changes, use the semantic code index to enumerate references; for narrow changes, a focused search is sufficient. When a migration touches many internal callers, keep migration ownership with the system team and update the callers in place, rather than scattering migration tasks among users. [book:swebok], Technical Issues; [book:software-engineering-at-google], Codebase Insight; [book:software-engineering-at-google], Policies that Don’t Scale
 
-**Light (all projects):** Success criteria only — verifiable, binary, specific.
+## Test-first build
 
-```markdown
-## Done When
-- [ ] GET /users returns 200 with JSON array
-- [ ] All tests pass with 0 failures
-```
+Use test-driven development for new behavior and changes to existing behavior. Write a failing test first, then the smallest production change that makes it pass, then refactor while keeping tests green. Each new behavior needs a test for the behavior the team intends to keep. For structural invariants, inspect source structure or its syntax tree; use a simple text search only for a narrow change where it can distinguish the invariant. [book:clean-code], The Three Laws of TDD; [book:growing-oo-software-by-tests], Separate Tests That Measure Progress from Those That Catch Regressions
 
-**Greenfield builds** without existing code → create data schemas and API contracts as refinable coordination tools. Claude generates these from architecture docs. Track contract drift with a changelog:
+Skip test-first work for deletion-only changes, predictable mechanical renames, configuration changes, or logic-free visual changes when another suitable check exists. Configuration changes need a smoke test. For frontend UI with no logic, check the build and the rendered appearance; when the UI is an application boundary, add a user-facing test through that frontend. State the reason for any TDD skip. [book:continuous-delivery], Managing Software Configuration; [book:software-engineering-at-google], Browser and Device Testing
 
-```markdown
-## Contract Changelog
-<!-- Append entries here if contracts change during build -->
-<!-- Format: - [PHASE-N] Changed: X → Y. Reason: Z. Approved by: user/coordinator. -->
-```
+Use a test brief that covers every success criterion, relevant error path and both sides of each variant axis. Name the axis in the test description so the next reader can tell which behavior the suite covers. For important boundaries, use the smallest useful input and assert the specific observable. Keep tests small and focused so a failure is easy to diagnose. [book:real-world-software-development], Testing Error Cases; [book:growing-oo-software-by-tests], Small, Focused, Well-Named Tests
 
-**Extending existing code** → the codebase IS the contract. Read it, don't re-specify it. No changelog needed — the diff is the audit trail.
+Name each test after its contract clause and behavior; when no formal contract exists, name the success criterion and behavior. Use a consistent setup, exercise, and verification structure. For Python suites, parameterize repeated inputs that exercise the same behavior along one axis. [book:growing-oo-software-by-tests], Test Names Describe Features; [book:growing-oo-software-by-tests], Canonical Test Structure; [book:python-for-devops], Parametrization
 
-**Test naming convention:** `test_<contract_clause>_<behavior>` (e.g., `test_api_get_users_returns_json_array`). When a test fails, the name tells you which requirement broke.
+Tests should be fast, independent, repeatable, self-validating and timely. Classify tests by size: small tests stay in one process, medium tests on one machine, and large tests may use broader infrastructure; prefer the smallest class that proves the contract. Keep a little descriptive repetition in tests when it makes their setup and intent clear. A test should exist for every behavior the team does not want to break. [book:clean-code], F.I.R.S.T.; [book:software-engineering-at-google], Test Size; [book:software-engineering-at-google], Tests and Code Sharing: DAMP, Not DRY; [book:software-engineering-at-google], The Beyoncé Rule
 
-**Before the approval gate:** If the task involves any non-obvious decisions (auth mechanism, DB schema shape, caching strategy, concurrency model, error-handling contract, etc.), surface them per `../../core/references/pushback-and-teach.md`. List the forks with 2–3 options each, recommend one with a one-line tradeoff, and get an explicit answer. Do NOT proceed with silent defaults.
+Prefer real implementations or contract-faithful fakes. Use a mock only when its tradeoffs are justified, and do not stub the very behavior under test. A stub cannot prove that the real contract still holds; use the project's supported marker for interfaces that must not be mocked. [book:software-engineering-at-google], Prefer Realism Over Isolation; [book:software-engineering-at-google], The Dangers of Overusing Stubbing
 
-**STOP for user approval before building.**
+Before implementation, verify that the test suite parses, the new tests fail for the expected reason without the implementation, and the criteria have coverage. Check the smallest input that exposes each failure. Do not let a test that fails to compile or fails for an unrelated reason count as a valid red test. [book:learning-test-driven-development], Red-Green-Refactor: The Building Blocks of TDD
 
-### Criteria Concreteness Gate (pre-TDD)
+## Implementation
 
-Before spawning the test subagent, run each success criterion through this litmus:
+Read adjacent code, relevant callers and real inputs before editing. Keep one concern in a file and separate commands from queries where that makes side effects clear. Leave touched code a little cleaner when the improvement is local and does not broaden the change. [book:clean-code], The Single Responsibility Principle; [book:clean-code], Command Query Separation; [book:clean-code], The Boy Scout Rule
 
-| Question | Pass | Fail |
-|----------|------|------|
-| Can a stranger write a test from this criterion alone? | "Expired JWT returns 401 with `{error: 'token_expired'}`" | "Auth works" |
-| Does it name a specific input → output pair? | "Empty cart returns 200 with `{items: []}`" | "Handles edge cases" |
-| Would two engineers write the same test from it? | "Search with no results returns 200 + empty array" | "Search is fast" |
+Use real code or the project's well-tested dependency for behavior with meaningful edge cases. Choose a subprocess API that passes executable and arguments separately instead of concatenating a shell command. [book:software-engineering-at-google], Considerations When Importing; [book:python-for-devops], Avoid shell=True
 
-**Any criterion that fails → pushback loop.** Apply `../../core/references/pushback-and-teach.md`: name the forks, present options, get a concrete answer. Two vague answers → stop and demand binary criteria before proceeding.
+For container builds, scan the produced image as part of the CI pipeline, run the service as a non-root user, keep credentials out of image layers, and fetch secrets from an approved runtime store. Build the image contents as immutable deployment artifacts so a scan describes what runs. Apply these checks only when the change builds or modifies a container. [book:container-security], Scanning in the CI/CD Pipeline; [book:container-security], Containers Run as Root by Default; [book:practical-cloud-security], Cloud Asset Management and Protection; [book:container-security], Immutable Containers
 
-**Escape hatch:** User explicitly says "shallow tests are fine here" → document which criteria are vague and proceed. The test subagent will produce what it can; the gap is acknowledged, not hidden.
+When code launches work through an existing CI or presubmit system, automate the checks it can reliably cover; run manually only what the automated gate does not cover. For mechanically checkable architecture constraints, add a fitness function to the build so the invariant is checked continuously instead of drifting unnoticed. [book:software-engineering-at-google], Automate Where Possible; [book:building-evolutionary-architectures], What Is a Fitness Function?
 
-**When this gate is instant:** If criteria already read like test assertions (most concrete tasks), this adds zero overhead — you confirm they pass and move on.
+For deployments whose resilience claim matters, define the steady state and run a controlled failure experiment to see whether it still holds. This is a targeted proof for systems with meaningful failure modes, not a routine requirement for every code change. [book:hands-on-site-reliability-engineering], Chaos engineering process
+When launching a new service, use the organization’s reliability launch checklist and automate its verification or the collection of supporting data where practical. [book:hands-on-site-reliability-engineering], 3. Introduction to SRE
 
-### Cover the axis, not an example
+When building a command-line tool, treat its command names and flags as a user interface: make them easy to understand and document how to use them. [book:python-for-devops], Creating Command-Line Tools
 
-**When the thing under test has a variant axis — a boolean flag, a registry of implementations, a type/kind column, a mode enum — a test must exist on BOTH sides of it, and the brief must name the axis.**
+## Verification and review
 
-Test authors reach for the simplest instance, and the simplest instance is very often the *safe* side of the risky flag. That is not carelessness; it is the default pull of writing an example instead of covering a space.
+Before completion, use the integrated presubmit as the independent run for checks it covers; manually rerun only checks it omits, including tests affected by an interface change. Run the full relevant test suite through a covered gate or the test wrapper. [book:software-engineering-at-google], Automate Where Possible Triage each failure: fix it, quarantine it with a reason and follow-up task, or delete an obsolete test with an explanation. A pre-existing red test still needs a disposition; do not leave it as “not mine.” If the user excludes test hygiene, record the observed failures in the session summary and proceed with that limit disclosed. [book:clean-code], Simple Design Rule 1: Runs All the Tests; [book:continuous-delivery], The Acceptance Test Stage; [book:software-engineering-at-google], Write, Run, React
 
-Worked failure: a crash-recovery suite exercised the one tool in a five-tool registry with `needs_conn=False` — the **only** one that could not exhibit the bug being hunted. The suite was green, and a CRITICAL (an approved, irreversible external send silently never happening) survived **five** cold reviews sitting on the untested side of that flag. The convention it violated was correctly implemented at two other call sites, so those tests passed and gave false assurance.
+Run all planned gates before marking work complete. If a measurable gate is used, confirm its instrument can distinguish the target difference. For a release, repeat tests and security and quality scans until the package meets the release plan's standard; record the outputs that establish the gate. Checks or scaffolding that fail on missing, malformed, stale or empty inputs should produce a clear, documented failure. [book:site-reliability-engineering], The Launch Checklist; [book:site-reliability-engineering], Fail Sanely; [book:hands-on-site-reliability-engineering], Test for quality and security
 
-Ask before writing tests: *what dimension does this thing vary along, and am I testing one point or the space?* Then name the axis in the test docstring, so the next person can see which side is covered.
+Get each code change reviewed before submission. Add a separate cold adversarial review when a defect could be hard to reverse, fail silently, or appear green for the wrong reason. The cold reviewer should be independent of both code and test authors. Give that reviewer implementation paths only, so the review tests what the code says rather than repeating the author's rationale. For triggered reviews, ask about logic, edge cases, error propagation, wrong-reason success, architecture and code smells; have them execute a cheap reproduction when useful. [book:software-engineering-at-google], Code Review; [book:looks-good-to-me], The modern code review workflow; [book:software-engineering-at-google], Code Correctness
 
-Corollary — **structural locks for structural invariants.** When the invariant is "this convention exists in exactly one place," assert it by inspecting the source (parse the AST; don't grep — a grep matches the docstring explaining the rule, and a lock that fires on prose gets relaxed). Behavioural tests cannot see code that is never run.
+Report findings with file and line, what was found, VERIFIED or HYPOTHESIZED evidence status, severity and a suggested fix. Turn a reproduced failure into a regression test; re-check a hypothesized issue before changing code. [book:site-reliability-engineering], Creating a Test and Build Environment
 
----
+Treat CRITICAL code-review findings as blockers. Present WARNING findings for an owner decision and note ADVISORY findings. Escalate three or more CRITICAL findings, except when all are verified, share one cause and have a mechanical fix that can be safely applied and disclosed; never use the exception for integrity failures. QUALITY findings are advisory and can be fixed, deferred or accepted by the user. Close every review comment with a fix or an explicit disposition before committing. [book:looks-good-to-me], Blocking issues; [book:looks-good-to-me], Nonblocking issues; [book:software-engineering-at-google], Code Review Flow
 
-## Phase 3: Build
+When test health or a planned gate is skipped, state the reason. For light work, report each criterion's evidence and the pass/fail targets that were run, not only the totals. Record decisions as they are made in the change description or nearby code comment; at completion, follow core's durable-record protocol for the outcome and any reusable failure pattern. [book:software-engineering-at-google], Riding the TAP Train; [book:software-engineering-at-google], Write Good Change Descriptions
 
-### Context Management
+## Handoff
 
-- **Verbose commands** (builds, installs) → `bash {baseDir}/scripts/run-command.sh <command>`
-- **Test runs** → `bash {baseDir}/scripts/run-tests.sh [test-path]`
-- **Quick one-liners** (`mkdir`, `cp`, `mv`) → run directly
+Describe the change type, what changed and why in the review description. Keep build, deployment, testing and release assets under version control. For service work, carry the reliability target into the handoff as an SLI and SLO, with the measurement and valid conditions made explicit. [book:software-engineering-at-google], Write Good Change Descriptions; [book:continuous-delivery], What Are the Benefits?; [book:site-reliability-engineering], Service Level Objectives
 
-### Codebase Understanding (Existing Projects)
+## Script wrappers
 
-Before changing existing code, map its blast radius: `grep`/`rg` for every caller, importer, and test mock of the symbols you'll touch (see Signature-Change Protocol below). Read the call sites, don't guess them. For unfamiliar libraries, read the official docs / web search for the real signatures rather than inventing them.
+Use the shipped wrappers for repeatable checks:
 
-### Signature-Change Protocol
+| Script | Use |
+|---|---|
+| scripts/run-tests.sh [path] | Discover or select the test runner and save a concise result |
+| scripts/run-quality.sh [path] | Run available lint, security and type checks |
+| scripts/run-command.sh -- <command> | Capture verbose command output in a log |
+| scripts/analyze.py --mode summary [path] | Summarize a codebase before deeper assessment |
 
-When you edit a function's **definition** (not just its body) — parameters, return type, rename, or deletion — *before committing*, grep for all callers including test mocks:
-
-```bash
-# Example: you changed create_api_key's return type
-rg -l 'create_api_key' --type py     # all files touching it
-rg 'mock.*create_api_key|patch.*create_api_key' --type py   # test mocks
-```
-
-Test mocks that specify return shape (`.return_value = {...}`) are the most fragile — they duck-type against a contract that exists only in runtime, so static analysis can't warn you. Update them in the same commit as the signature change. If you can't (too many callers, out of scope), create a task for each stale caller *before* marking this one complete.
-
-Typed mocks (`MagicMock(spec=ActualClass)`, `Protocol`-based fixtures) fail loud when the real contract changes — prefer them in new tests.
-
-### When to Use Subagents vs Coordinator-Direct
-
-| Task Characteristics | Approach |
-|---------------------|----------|
-| Single file, <50 lines changed | Coordinator-direct |
-| Clear scope, no ambiguity | Coordinator-direct |
-| Multiple files, complex logic | Implementation subagent |
-| Needs isolation from main context | Subagent (protects context window) |
-| Parallel with other work | Subagent (background) |
-| Mechanical across many files | Structured edit pattern (see `../references/subagent-briefs.md`) |
-
-**Declare the pattern, don't default into one** (SKILL.md → Pattern Gate). `coordinator-direct` is a legitimate *declared* choice for mechanical/unambiguous work — but when a task has independent parts or logic that can be wrong, rule out fan-out / a subagent chain *on purpose*, not by omission. Subagents cost context and coordination overhead; they earn it through parallelism, isolation, or independent-reviewer separation.
-
-### Subagent Orchestration
-
-**Feature builds → subagents** (test separation pays for itself). **Wiring, data prep, config, small fixes → coordinator works directly.**
-
-Spawn in this order:
-1. **Test subagent** — BEFORE implementation. Tests verify contract, not code.
-2. **Test validation subagent** (opt-in) — Reviews tests cold against business requirements. Use for high-stakes domains: finance, security, healthcare, data integrity. Skip when the test subagent wrote tests against a clear spec — both agents read the same requirements and have correlated blind spots.
-3. **Implementation subagent** — Write code that passes tests.
-4. **Verification subagent** — Tests pass, quality scan, contract compliance, no mocked production.
-5. **Adversarial review subagent** (medium/heavy only) — Cold code review, no planning context.
-
-Read `../references/subagent-briefs.md` for exact prompt templates. When briefing subagents, provide ONLY the relevant prompt constraints from that file plus task-specific context. Do not forward skill-level instructions.
-
-**Worker VCS hygiene (non-negotiable when subagents write code).** Workers produce file changes; the **coordinator** owns the index and the commit. No subagent runs `git add -A`/`.`, `git commit`, or any branch/reset/stash/checkout — see the isolation constraint at the top of `../references/subagent-briefs.md`. When two or more implementation subagents run **in parallel**, give each its **own git worktree** so their edits can't collide or cross-stage; a shared checkout with concurrent writers corrupts silently. Reviewing and staging by explicit path is the coordinator's job, after the workers return.
-
----
-
-## Phase 4: Verify
-
-Verification subagent covers: tests pass, code quality scan (ruff + bandit + pyright via `run-quality.sh`), contracts met, no mocked production code, ai-slop-detector, success criteria evidence.
-
-### Gate-Script Smoke Test (when the build ships its own gates)
-
-When the deliverable mixes LLM agents with deterministic scripts that act as **gates or scaffolding** (validators, stage checks, instantiators), exercise the scripts' failure paths before trusting them: missing input, malformed input, stale input, empty input — each must fail loud with the documented output shape. The scripts get less scrutiny than the prompts but carry the integrity load; a gate that opens on garbage is worse than no gate, because it converts "unverified" into "falsely verified". (Trace: accelerator-kit 2026-07-03 — the stage gate passed with a missing service due to an untested parse path, while the agent markdown survived cold review untouched.)
-
-**Red flags (auto-fail):** Mocked production code, tests testing mocks, modified success criteria, "it works" without proof, lint errors, HIGH/CRITICAL security findings.
-
-### Negative Claims Need Instruments
-
-Positive claims produce natural artifacts (the passing test, the file on disk). **Negative claims — no secrets, no copied source, no client identifiers, no PII — have no artifact unless you build the instrument**: a grep pattern set, a hash-compare against the source corpus, whatever discriminates. The coordinator runs the sweep itself; a subagent's self-reported scrub is a claim, not a gate — the agent is grading its own homework. Keep the sweep command in the report so the claim is re-checkable on challenge. (Trace: accelerator-kit 2026-07-03 — "did you paste the whole project?" answered in one hash-compare command because the instrument existed.)
-
-### Test-Health Gate (prevents bit-rot accumulation)
-
-Run the **full** test suite (not just the tests you added/modified) before marking complete. If the suite has ANY failures — whether caused by this task or pre-existing — triage each one:
-
-| Disposition | When | Requirement |
-|-------------|------|-------------|
-| **Fix** | The test is correct; the code (or the test's mock of current code) is stale | Fix in this commit |
-| **Quarantine** | The test needs non-trivial work and blocks this task | `@pytest.mark.skip(reason="...")` / `xfail` with a one-line reason that names the drift, *and* a task entry created to fix it |
-| **Delete** | The test is for behavior that no longer exists or was replaced | Remove the test; note in commit message |
-
-**"Pre-existing, not mine"** is not a valid defer. A pre-existing red test is test bit-rot — the function evolved and the test didn't. Leaving it red is how you end up with 5 broken tests that nobody noticed for weeks. Triage it or quarantine it with a ticket; silence is the failure mode.
-
-Exception: if the user explicitly scopes the task to exclude test hygiene ("just fix X, I'll clean tests later"), document the pre-existing failures in the session summary and move on. The documentation itself is the defer.
-
----
-
-## Phase 5: Adversarial Review
-
-A separate subagent reviews the code **cold** — no planning context, no contracts, no rationale. Reads the code like a new developer joining the project.
-
-**Run only when the trigger fires.** Cold review earns its cost when a mistake would be:
-- **hard to reverse** — schema/API/data-model commitments, public contracts, anything downstream builds on; or
-- **silent** — ships green and surfaces later as corruption/drift, not as a failed test; or
-- **green for the wrong reason** — a success metric or passing test that could be satisfied *without the system actually working*: data leakage, memorization, a label/grid/measurement artifact, a coincidental pass.
-
-The third case is why adversarial review is a gate **distinct from verification**, not a redundant one: a verifier checks the code against the spec and so *inherits the spec's blind spots* — it structurally cannot catch a result that's right for the wrong reason. Only a reviewer reading the artifact cold, with no spec to anchor on, catches "passes for the wrong reason." Skip only when none of the three holds (cheap-to-undo and loud-when-wrong) — and say so out loud (a silent skip is an integrity miss).
-
-**Keep it cold.** The reviewer gets the artifact **context-free** (file paths only — no spec, no rationale, no "why we chose X") and must **not** be the author of the code or of the tests being reviewed — author and reviewer share correlated blind spots. Test-author ≠ implementer ≠ reviewer.
-
-- **CRITICAL findings** → must fix before delivery
-- **3+ CRITICAL** → systemic problem, STOP and escalate to user. **Narrow exception:** you may fix-and-proceed without escalating only when ALL of these hold — every critical is VERIFIED (reproduced, not just plausible), they share one root cause, and the fixes are mechanical and regression-testable. Then fix, re-run full verification, and disclose the override prominently in the report (name the rule, say why the exception applied). If you find yourself arguing a borderline case *into* the exception, that's the signal to escalate. The exception NEVER applies to integrity-constraint findings (faked results, modified criteria, mocked production paths).
-
----
-
-## Gate Enforcement
-
-When a plan specifies gates (adversarial review, test validation, verification), they are NOT optional during execution.
-
-Before marking any item complete:
-1. Check what gates were planned
-2. Execute each planned gate
-3. If skipping a gate: state the reason explicitly ("Skipping adversarial: light-weight config change, 3 lines modified")
-
-The coordinator must not skip gates silently. Planned gates are promises to the user.
-
----
-
-## Evidence
-
-Match effort to task weight:
-
-| Weight | Evidence |
-|--------|----------|
-| **Light** (bug fix, config, wiring) | Pass/fail count + 1-line summary per criterion |
-| **Medium** (feature, refactor) | `run-tests.sh` JSON in `logs/` + checked criteria |
-| **Heavy** (multi-phase, greenfield) | Full `logs/` directory + report.md + checked criteria |
-
-Minimum: every success criterion either checked with evidence, deferred with reason, or marked N/A.
-
-**Output contract:** before reporting the build complete, append the outcome (with evidence pointer) to `wiki/log.md`, record any non-obvious choice in `decisions.md`, and file new failure patterns in `gotchas.md`. The build isn't done until that write exists — see `../../core/references/wiki-protocol.md` → Output Contract.
-
----
-
-## Failure Protocol
-
-```
-Attempt 1: Same subagent retries with error feedback
-Attempt 2: Fresh subagent with original spec + "Approach X failed, try Y"
-Attempt 3: ESCALATE to user
-```
-
-Escalation includes: what was attempted, specific blockers, options (simplify scope / change approach / user assists / abort).
+Read the log after a failed wrapped command rather than repeating an expensive run to recover its details. Do not treat a wrapper reporting success as proof of the artifact's behavior; inspect the result itself.

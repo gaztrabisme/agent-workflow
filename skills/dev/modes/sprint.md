@@ -1,113 +1,40 @@
 # Sprint Mode
 
-Execute multiple items as coordinated waves. YOU are the coordinator.
+Coordinate multiple engineering items as reviewable work units. Keep their dependencies visible, group changes around ownership and project boundaries, and verify each finished wave before starting dependent work.
 
----
+## Classify and shard
 
-## Phase 1: Classify Items
+Classify each item by how it should be executed:
 
-For each item, assign a work type:
+| Type | Meaning | Execution |
+|---|---|---|
+| Mechanical | The exact edit is predictable without reasoning separately about each file | Structured edit pattern; no reasoning agent |
+| Surgical | Targeted change with clear scope | Coordinator-direct |
+| Constructive | New behavior or logic | Build mode |
+| Exploratory | Cause or scope is not known | Assess or focused research |
 
-| Type | Description | Execution | Example |
-|------|-------------|-----------|---------|
-| `mechanical` | Repetitive pattern across many files | Structured edit plan, no reasoning agent | Dark mode classes, rename, i18n |
-| `surgical` | Targeted change, clear scope | Coordinator-direct | Config fix, dead code removal, small tweak |
-| `constructive` | New logic or behavior | Build mode pipeline (TDD when Medium+) | New endpoint, new component, new service |
-| `exploratory` | Unknown scope, needs investigation | Assess or Research first | "Make it faster", "fix the flaky test" |
+Treat work as mechanical only when each exact edit is predictable. Read two or three representative files, record the pattern and its exceptions, then create a structured edit list before applying changes. If a file requires a context-dependent choice, use constructive work for that item instead. [book:software-engineering-at-google], Heterogeneity; [book:software-engineering-at-google], What Is a Large-Scale Change?
 
-**Mechanical vs Constructive:** If you can predict the exact change for every file without reading it, it's mechanical. If each file needs different reasoning, it's constructive.
+Before authorizing fan-out, explain the change to an engineer unfamiliar with it in a concise FAQ and proposed change description. Then apply safe replacements and verify them with the appropriate build or lint check. If changes require per-file reasoning, have an implementation worker handle that work rather than forcing it into a replacement list. [book:software-engineering-at-google], Authorization; [book:software-engineering-at-google], Change Creation
 
----
+Shard multi-file work around project boundaries and ownership so each resulting change can be submitted atomically. Represent dependencies in a directed acyclic graph, identify which units unblock others, and schedule the compatible shards in waves; do not bundle unrelated ownership areas merely because they are sequential. [book:software-engineering-at-google], Sharding and Submitting; [book:continuous-delivery], Managing Dependency Graphs
 
-## Phase 2: Wave Planning
+Name the wave membership and dependency for each item. If assessment feeds implementation, place it before the affected build work. Put shared-file edits together or schedule them sequentially to avoid concurrent writes. [book:continuous-delivery], Managing Dependency Graphs
 
-Group items into waves by dependency:
+## Execute in waves
 
-1. **Dependencies first** — Items that unblock others go in earlier waves
-2. **Parallel within waves** — Independent items in the same wave execute simultaneously
-3. **Shared files** — Items touching the same files go in the same wave or sequential waves (avoid merge conflicts)
-4. **Assessment before execution** — If an assessment feeds implementation, it's Wave 0
+Run mechanical items with the structured edit pattern, surgical items directly, constructive items through Build, and exploratory items through Assess or research. For constructive items, classify weight, apply the TDD decision, select useful independent roles, and run planned gates. The failing-test step grounds TDD; the item weight and worker choice remain this skill's process. [book:learning-test-driven-development], Red-Green-Refactor: The Building Blocks of TDD
 
-Output a dependency graph:
-```
-Wave 0: [assessment, setup] — no deps
-Wave 1: [item-a, item-b] — parallel, different files
-Wave 2: [item-c] — depends on item-a (shared file)
-```
+After each independent shard is ready, run it through the project's CI before submission. A local build or lint may catch an early problem, but it does not replace the CI checks that prove the shard in its actual integration environment. [book:software-engineering-at-google], Sharding and Submitting
 
----
+Do not let a red test sit until a later wave. Triage new and pre-existing failures promptly. After each wave, run backend tests, the frontend build where relevant, regression checks, and test-health triage; do not start the next dependent wave until results are clean or every failure has a recorded disposition. [book:software-engineering-at-google], Write, Run, React
 
-## Phase 3: Execute
+Run every gate planned for an item. If one cannot run, state the reason before marking the item complete. A check list makes repeated work consistent; the explicit skip rule is dev's coordination practice. [book:site-reliability-engineering], The Launch Checklist
 
-### Mechanical Items
+Track useful, measurable milestones that show delivered value, not only that a wave ended. Report progress at wave milestones, a contradiction, or another decision point. [book:software-engineering-at-google], Milestones
 
-See `../references/subagent-briefs.md` → Mechanical Edit Pattern.
+## Close the sprint
 
-1. Read 2-3 representative files to confirm the pattern
-2. Generate edit list: `[{file, old, new}, ...]`
-3. Apply via Edit tool (use `replace_all` where safe)
-4. Verify with build/lint
+Before completion, write a batch summary to the project log and reconcile every item in active work as done, deferred or blocked. Name the remaining gates and the evidence for any item that did not pass.
 
-**Token budget:** ~1K per file (read + edit). 20 files = ~20K tokens, not 100K+.
-
-**Teach the pattern once.** Before fanning out, emit a short tagged block (`**Pattern:**`) explaining what the mechanical change *is*, why this codebase has it, and what would break with the naive alternative. One concept, 3–5 sentences. Per `../../core/references/pushback-and-teach.md` — the user should absorb the pattern, not just watch 40 files change.
-
-### Surgical Items
-
-Coordinator works directly. Read the file, make the change, verify.
-
-### Constructive Items
-
-Follow Build mode (`build.md`). For each item:
-1. Classify weight (Light/Medium/Heavy)
-2. Apply TDD decision heuristic (see Build mode)
-3. Use subagents when the item benefits from parallelism or isolation
-4. Run planned gates (adversarial, verification)
-
-### Exploratory Items
-
-Run Assess or Research first. Reclassify as mechanical/surgical/constructive after investigation.
-
----
-
-## Phase 4: Verify Per Wave
-
-After each wave completes:
-1. **Backend:** Run test suite
-2. **Frontend:** Run build
-3. **Both:** Verify no regressions from parallel changes
-4. **Test-health gate:** Any red test — new or pre-existing — must be triaged: fix / quarantine (skip or xfail with reason + follow-up task) / delete. See Build mode Phase 4 for the full rubric. Pre-existing failures are test bit-rot; leaving them red is how they accumulate into "5 broken tests nobody noticed for weeks."
-
-Do not start the next wave until the current wave verifies clean.
-
----
-
-## Phase 5: Gate Enforcement
-
-If the sprint plan specifies gates (adversarial review, test validation, verification) for an item, they are NOT optional during execution.
-
-Before marking any item complete:
-1. Check what gates were planned for this item
-2. Execute each planned gate
-3. If skipping a gate: state the reason explicitly
-
-```
-"Skipping adversarial: surgical change, 3 lines modified in config"  ← valid
-(silence)                                                              ← NOT valid
-```
-
-The coordinator must not skip gates silently. Planned gates are promises to the user.
-
----
-
-## Sprint Tracker
-
-Use TaskCreate/TaskUpdate to track items. Each item gets a task with:
-- Work type tag (mechanical/surgical/constructive/exploratory)
-- Wave assignment
-- Planned gates
-- Status progression: pending → in_progress → gates → completed
-
-Report progress at natural milestones (wave completion), not after every edit.
-
-**Output contract:** the sprint isn't done until `wiki/log.md` has a batch summary and `active-work.md` reconciles every item (done / deferred / blocked). See `../../core/references/wiki-protocol.md` → Output Contract.
+Treat CRITICAL findings as progression blockers. Treat QUALITY findings as advisory and let the user choose whether to fix, defer or accept them. [book:looks-good-to-me], Blocking issues; [book:looks-good-to-me], Nonblocking issues
