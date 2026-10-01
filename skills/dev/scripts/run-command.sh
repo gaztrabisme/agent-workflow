@@ -2,16 +2,17 @@
 # Universal command wrapper — full output to log file, JSON summary to stdout.
 # Prevents context window exhaustion when running builds, installs, or any verbose command.
 #
-# Usage: bash {baseDir}/scripts/run-command.sh [options] -- <command...>
+# Set DEV_SKILL_DIR to the installed dev skill directory once.
+# Usage: bash "$DEV_SKILL_DIR/scripts/run-command.sh" [options] -- <command...>
 #
 # Options:
 #   --label NAME     Label for this command (used in log filename, default: "command")
-#   --log-dir DIR    Directory for log files (default: current directory)
+#   --log-dir DIR    Directory for log files (default: fresh directory under TMPDIR)
 #
 # Examples:
-#   bash {baseDir}/scripts/run-command.sh --label "npm-install" --log-dir logs -- npm install
-#   bash {baseDir}/scripts/run-command.sh --label "build" --log-dir logs -- cargo build --release
-#   bash {baseDir}/scripts/run-command.sh -- python setup.py install
+#   bash "$DEV_SKILL_DIR/scripts/run-command.sh" --label "npm-install" --log-dir logs -- npm install
+#   bash "$DEV_SKILL_DIR/scripts/run-command.sh" --label "build" --log-dir logs -- cargo build --release
+#   bash "$DEV_SKILL_DIR/scripts/run-command.sh" -- python setup.py install
 #
 # Output (stdout): Single JSON line with summary
 #   Success: {"status":"success","exit_code":0,"lines":847,"errors":0,"warnings":3,"log":"logs/npm-install.log"}
@@ -21,7 +22,7 @@ set -euo pipefail
 
 # ── Parse arguments ──────────────────────────────────────
 label="command"
-log_dir="."
+log_dir=""
 cmd_args=()
 
 while [[ $# -gt 0 ]]; do
@@ -53,7 +54,12 @@ if [[ ${#cmd_args[@]} -eq 0 ]]; then
 fi
 
 # ── Setup ────────────────────────────────────────────────
-mkdir -p "$log_dir"
+if [[ -z "$log_dir" ]]; then
+    tmp_root="${TMPDIR:-/tmp}"
+    log_dir=$(mktemp -d "${tmp_root%/}/dev-command.XXXXXX")
+else
+    mkdir -p "$log_dir"
+fi
 log_file="${log_dir}/${label}.log"
 
 # ── Run command, capture everything ──────────────────────

@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # Code quality scanner — JSON summary to stdout, full output to log file.
-# Runs ruff (lint + format), bandit (security), pyright (types) on Python code.
-# For JS/TS projects, runs available linters.
+# Runs configured and installed quality tools; records exactly which tools ran.
 #
-# Usage: bash {baseDir}/scripts/run-quality.sh [options] [path]
+# Set DEV_SKILL_DIR to the installed dev skill directory once.
+# Usage: bash "$DEV_SKILL_DIR/scripts/run-quality.sh" [options] [path]
 #
 # Options:
-#   --log-dir DIR        Directory for log files (default: current directory)
+#   --log-dir DIR        Directory for log files (default: fresh directory under TMPDIR)
 #   --strict             Treat warnings as errors (default: advisories only)
 #   --security-only      Run only security checks (bandit)
 #   --lint-only          Run only lint checks (ruff)
-#   --types-only         Run only type checks (pyright)
+#   --types-only         Run only type checks (pyright or tsc)
 #
 # Output (stdout): JSON summary
 #   {"status":"pass","lint":{"errors":0,"warnings":3},"security":{"issues":0},"types":{"errors":0},"log":"logs/quality.log"}
@@ -19,7 +19,7 @@
 set -euo pipefail
 
 # ── Parse arguments ──────────────────────────────────────
-log_dir="."
+log_dir=""
 target_path="."
 strict=false
 run_lint=true
@@ -63,7 +63,12 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-mkdir -p "$log_dir"
+if [[ -z "$log_dir" ]]; then
+    tmp_root="${TMPDIR:-/tmp}"
+    log_dir=$(mktemp -d "${tmp_root%/}/dev-quality.XXXXXX")
+else
+    mkdir -p "$log_dir"
+fi
 log_file="${log_dir}/quality.log"
 > "$log_file"
 
@@ -86,9 +91,14 @@ has_js_files() {
     find "$target_path" \( -name '*.js' -o -name '*.ts' -o -name '*.jsx' -o -name '*.tsx' \) -not -path '*/node_modules/*' -not -path '*/.git/*' 2>/dev/null | head -1 | grep -q .
 }
 
+has_typescript_files() {
+    find "$target_path" \( -name '*.ts' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) -not -path '*/node_modules/*' -not -path '*/.git/*' 2>/dev/null | head -1 | grep -q .
+}
+
 # ── Detect project type ──────────────────────────────────
 is_python=false
 is_js=false
+is_typescript=false
 
 if has_python_files; then
     is_python=true
@@ -96,9 +106,12 @@ fi
 if has_js_files; then
     is_js=true
 fi
+if has_typescript_files; then
+    is_typescript=true
+fi
 
 if ! $is_python && ! $is_js; then
-    echo '{"status":"skip","message":"No Python or JS/TS files found in target path."}'
+    echo '{"status":"skip","checks_run":[],"message":"No Python or JS/TS files found in target path."}'
     exit 0
 fi
 
@@ -110,9 +123,18 @@ security_issues=0
 security_critical=()
 type_errors=0
 overall_status="pass"
+checks_run=()
+checks_run_count=0
+
+record_check() {
+    checks_run+=("$1")
+    checks_run_count=$((checks_run_count + 1))
+}
 
 # ── Ruff (lint + format check) ──────────────────────────
 if $run_lint && $is_python && command -v ruff &>/dev/null; then
+    record_check "ruff check"
+    record_check "ruff format --check"
     echo "=== RUFF LINT ===" >> "$log_file"
 
     # Lint check
@@ -149,10 +171,17 @@ print(len(fixable))
     fi
 
 elif $run_lint && $is_js; then
-    # Try eslint if available
-    if command -v npx &>/dev/null && [[ -f "node_modules/.bin/eslint" || -f ".eslintrc.js" || -f ".eslintrc.json" || -f "eslint.config.js" ]]; then
+    # Run ESLint only when the project has a config and the tool is installed.
+    eslint_bin=""
+    if [[ -x "node_modules/.bin/eslint" ]]; then
+        eslint_bin="node_modules/.bin/eslint"
+    elif command -v eslint &>/dev/null; then
+        eslint_bin=$(command -v eslint)
+    fi
+    if [[ -n "$eslint_bin" ]] && { [[ -f ".eslintrc.js" ]] || [[ -f ".eslintrc.cjs" ]] || [[ -f ".eslintrc.json" ]] || [[ -f ".eslintrc.yaml" ]] || [[ -f ".eslintrc.yml" ]] || [[ -f "eslint.config.js" ]] || [[ -f "eslint.config.cjs" ]] || [[ -f "eslint.config.mjs" ]] || [[ -f "eslint.config.ts" ]]; }; then
+        record_check "eslint"
         echo "=== ESLINT ===" >> "$log_file"
-        eslint_output=$(npx eslint "$target_path" --format json 2>>"$log_file") || true
+        eslint_output=$("$eslint_bin" "$target_path" --format json 2>>"$log_file") || true
         echo "$eslint_output" >> "$log_file"
         if [[ -n "$eslint_output" ]]; then
             lint_errors=$(echo "$eslint_output" | python3 -c "
@@ -174,6 +203,7 @@ fi
 
 # ── Bandit (security) ───────────────────────────────────
 if $run_security && $is_python && command -v bandit &>/dev/null; then
+    record_check "bandit"
     echo "" >> "$log_file"
     echo "=== BANDIT SECURITY SCAN ===" >> "$log_file"
 
@@ -214,6 +244,7 @@ fi
 
 # ── Pyright (type checking) ─────────────────────────────
 if $run_types && $is_python && command -v pyright &>/dev/null; then
+    record_check "pyright"
     echo "" >> "$log_file"
     echo "=== PYRIGHT TYPE CHECK ===" >> "$log_file"
 
@@ -235,6 +266,40 @@ print(summary.get('errorCount', 0))
     fi
 fi
 
+# ── TypeScript type checking ────────────────────────────
+if $run_types && $is_typescript; then
+    tsconfig_path=""
+    if [[ -f "./tsconfig.json" ]]; then
+        tsconfig_path="./tsconfig.json"
+    elif [[ -f "$target_path/tsconfig.json" ]]; then
+        tsconfig_path="$target_path/tsconfig.json"
+    fi
+    tsc_bin=""
+    if [[ -x "node_modules/.bin/tsc" ]]; then
+        tsc_bin="node_modules/.bin/tsc"
+    elif command -v tsc &>/dev/null; then
+        tsc_bin=$(command -v tsc)
+    fi
+    if [[ -n "$tsconfig_path" && -n "$tsc_bin" ]]; then
+        record_check "tsc --noEmit"
+        echo "" >> "$log_file"
+        echo "=== TSC TYPE CHECK ===" >> "$log_file"
+        if tsc_output=$("$tsc_bin" --noEmit --pretty false -p "$tsconfig_path" 2>&1); then
+            tsc_exit=0
+        else
+            tsc_exit=$?
+        fi
+        echo "$tsc_output" >> "$log_file"
+        type_errors=$(echo "$tsc_output" | grep -cE 'error TS[0-9]+' 2>/dev/null) || type_errors=0
+        if [[ "$tsc_exit" -ne 0 && "$type_errors" -eq 0 ]]; then
+            type_errors=1
+        fi
+        if [[ "$type_errors" -gt 0 ]] && $strict; then
+            overall_status="fail"
+        fi
+    fi
+fi
+
 # ── Build JSON summary ──────────────────────────────────
 critical_json="[]"
 if [[ ${#security_critical[@]} -gt 0 ]]; then
@@ -252,8 +317,26 @@ if [[ ${#security_critical[@]} -gt 0 ]]; then
     critical_json+="]"
 fi
 
+checks_run_json="["
+first=true
+if [[ "$checks_run_count" -gt 0 ]]; then
+    for check in "${checks_run[@]}"; do
+        escaped=$(json_escape "$check")
+        if $first; then
+            checks_run_json+="\"${escaped}\""
+            first=false
+        else
+            checks_run_json+=",\"${escaped}\""
+        fi
+    done
+fi
+checks_run_json+="]"
+if [[ "$checks_run_count" -eq 0 ]]; then
+    overall_status="skip"
+fi
+
 cat <<EOJSON
-{"status":"${overall_status}","lint":{"errors":${lint_errors},"warnings":${lint_warnings},"fixable":${lint_fixable}},"security":{"issues":${security_issues},"critical":${critical_json}},"types":{"errors":${type_errors}},"log":"${log_file}"}
+{"status":"${overall_status}","checks_run":${checks_run_json},"lint":{"errors":${lint_errors},"warnings":${lint_warnings},"fixable":${lint_fixable}},"security":{"issues":${security_issues},"critical":${critical_json}},"types":{"errors":${type_errors}},"log":"${log_file}"}
 EOJSON
 
 if [[ "$overall_status" == "fail" ]]; then

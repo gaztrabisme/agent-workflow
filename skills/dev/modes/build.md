@@ -6,11 +6,11 @@ Build a code change from fixed criteria, existing contracts and accepted design 
 
 Classify the work before implementation:
 
-| Shape | Example | Starting process |
+| Shape | Example | Starting process and review floor |
 |---|---|---|
-| Light | focused bug fix or small update | Define binary completion, build, test, verify |
-| Medium | new behavior in an existing system | Agree interfaces and criteria, test first, build, verify, review when risk calls for it |
-| Heavy | new application, service or API | Define contracts and criteria, prove a walking skeleton, build in phases, verify each phase and review |
+| Light | focused bug fix or small update | Define binary completion, build, test and verify; get one independent code review before submission; add a cold adversarial review when its trigger below fires |
+| Medium | new behavior in an existing system | Agree interfaces and criteria, test first, build and verify; get one independent code review before submission; add a cold adversarial review when its trigger below fires |
+| Heavy | new application, service or API | Define contracts and criteria, prove a walking skeleton, build in phases and verify each phase; get one independent code review per change before submission; add a cold adversarial review when its trigger below fires |
 | Mechanical | predictable repeated edits | Use the structured edit pattern in modes/sprint.md |
 | Exploratory | scope or cause is unknown | Assess or research before changing code |
 | Wire/prep | ingestion, conversion, data preparation, wiring or configuration | Coordinator-direct when the work is bounded and unambiguous |
@@ -18,6 +18,8 @@ Classify the work before implementation:
 For medium and heavy work, usually keep each reviewable change near 200 lines or fewer. Split coherent pieces when that makes verification and rollback easier; the number is a guide, not a reason to fragment a cohesive change. [book:software-engineering-at-google], Write Small Changes
 
 Use the Pattern declaration in SKILL.md. Work directly for small, clear changes. Use a subagent chain when independent test authorship, implementation, verification or review meaningfully reduces risk; use parallel work only for streams that do not share files or depend on each other's output. Keep every worker's assigned paths explicit and isolate concurrent writers.
+
+Every code change receives review before submission, regardless of work size. The table makes that floor explicit; the cold-review trigger below is an additional check. Apply core's separate two-reviewer gate when its stated judgment trigger applies, using core's reviewer and deferral rules rather than defining a dev-specific substitute. (derived: dogfood 2026-10-01)
 
 For a greenfield project, begin with a walking skeleton: prove the thinnest end-to-end path and toolchain before building out the full design. [book:growing-oo-software-by-tests], First, Test a Walking Skeleton
 
@@ -30,6 +32,8 @@ When a non-obvious choice affects behavior—such as authorization, schema, cach
 For the behavior in scope, use the pushback loop and ask for a concrete result. If the user remains vague after two attempts, stop and request binary criteria. In iterative work, move one testable behavior at a time; later criteria may be refined as evidence arrives. If the user explicitly accepts shallow tests, proceed while recording which edge cases are unknown or untested and why that is the accepted gap. [book:real-world-software-development], Why Use TDD?; [book:real-world-software-development], Code Coverage
 
 In a greenfield system, create refinable schemas and interface contracts. Verify provider-consumer compatibility with contract tests at service boundaries and record contract changes; a changelog by itself cannot show whether both sides still agree. For an existing codebase, treat the code and its current behavior as the contract; read it rather than re-specifying it. Focus bug fixes on the indicated defect and normally add or update a regression test. [book:software-engineering-at-google], Bug Fixes and Rollbacks Fix or triage a red test promptly—within minutes where practical—so failures remain attributable. [book:building-evolutionary-architectures], Case Study: Validating API Consistency in an Automated Build; [book:continuous-delivery], Implementing Acceptance Tests
+
+For defect work, first reproduce the reported behavior against the unchanged code. Record the exact command or input, the observed result and the expected result in the build record, then derive the regression test from that reproduction. If the failure cannot be reproduced, keep investigating or record the limitation instead of inventing a red test. (derived: dogfood 2026-10-01)
 
 Before changing a function definition, inspect callers, importers and shape-dependent test doubles, then read the call sites. Update changed callers and test doubles together; if an out-of-scope stale caller remains, assign the migration to the system owner rather than leaving it unowned. For broad changes, use the semantic code index to enumerate references; for narrow changes, a focused search is sufficient. When a migration touches many internal callers, keep migration ownership with the system team and update the callers in place, rather than scattering migration tasks among users. [book:swebok], Technical Issues; [book:software-engineering-at-google], Codebase Insight; [book:software-engineering-at-google], Policies that Don’t Scale
 
@@ -64,7 +68,7 @@ When building a command-line tool, treat its command names and flags as a user i
 
 ## Verification and review
 
-Before completion, use the integrated presubmit as the independent run for checks it covers; manually rerun only checks it omits, including tests affected by an interface change. Run the full relevant test suite through a covered gate or the test wrapper. [book:software-engineering-at-google], Automate Where Possible. Triage each failure and fix every broken test within minutes of failure, including pre-existing failures; do not document a red test and proceed because it was already failing or the user excluded test hygiene. Delete only obsolete tests, with an explanation. [book:clean-code], Simple Design Rule 1: Runs All the Tests; [book:continuous-delivery], The Acceptance Test Stage; [book:software-engineering-at-google], Write, Run, React
+Before completion, use the integrated presubmit as the independent run for checks it covers; manually rerun only checks it omits, including tests affected by an interface change. Run the full relevant test suite through a covered gate or the test wrapper. [book:software-engineering-at-google], Automate Where Possible. Triage each failure and fix every broken test within minutes where practical, including pre-existing failures; do not document a red test and proceed because it was already failing or the user excluded test hygiene. If triage proves an external prerequisite is unavailable and prevents a fix, record the unchanged baseline and post-change result, show why it is unrelated, and mark the suite blocked. Do not call the gate green or continue the build while that failure remains. Surface the blocker rather than fabricating a substitute. (derived: dogfood 2026-10-01) Delete only obsolete tests, with an explanation. [book:clean-code], Simple Design Rule 1: Runs All the Tests; [book:continuous-delivery], The Acceptance Test Stage; [book:software-engineering-at-google], Write, Run, React
 
 Run all planned gates before marking work complete. If a measurable gate is used, confirm its instrument can distinguish the target difference. For a release, repeat tests and security and quality scans until the package meets the release plan's standard; record the outputs that establish the gate. Checks or scaffolding that fail on missing, malformed, stale or empty inputs should produce a clear, documented failure. [book:site-reliability-engineering], The Launch Checklist; [book:site-reliability-engineering], Fail Sanely; [book:hands-on-site-reliability-engineering], Test for quality and security
 
@@ -84,13 +88,15 @@ Describe the change type, what changed and why in the review description. Keep b
 
 ## Script wrappers
 
-Use the shipped wrappers for repeatable checks:
+Set `DEV_SKILL_DIR` once to the installed `dev` skill directory, then call the wrappers with `bash "$DEV_SKILL_DIR/scripts/<name>"`. Their default logs go to a fresh directory under `${TMPDIR:-/tmp}` so they do not add files to the target tree; pass `--log-dir DIR` to choose another location. (derived: dogfood 2026-10-01)
 
 | Script | Use |
 |---|---|
-| scripts/run-tests.sh [path] | Discover or select the test runner and save a concise result |
-| scripts/run-quality.sh [path] | Run available lint, security and type checks |
-| scripts/run-command.sh -- <command> | Capture verbose command output in a log |
+| scripts/run-tests.sh [path] | Detect pytest, Jest, Node `--test`, Go or Cargo, or select one with `--runner`; reports `error` if detection or result parsing fails |
+| scripts/run-quality.sh [path] | Run configured and installed lint, security and type checks; reports tools actually run and returns `skip` if none ran |
+| scripts/run-command.sh -- <command> | Capture the project's native check command and its output in a log |
 | scripts/analyze.py --mode summary [path] | Summarize a codebase before deeper assessment |
+
+If the test wrapper reports `error` or the project's runner is unsupported, run the project's own test command through `run-command.sh` and record why the wrapper was bypassed. The quality wrapper uses ESLint where available, Bandit and Ruff for Python, Pyright for Python types, and `tsc --noEmit` for TypeScript projects with a `tsconfig.json`; its `checks_run` field names each executed tool. (derived: dogfood 2026-10-01)
 
 Read the log after a failed wrapped command rather than repeating an expensive run to recover its details. Do not treat a wrapper reporting success as proof of the artifact's behavior; inspect the result itself.

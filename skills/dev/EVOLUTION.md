@@ -270,6 +270,8 @@ Not modified (foundational): Integrity Constraints, Wu Wei filter. **Rejected on
 
 ## Evolution 9 — stage B rebuild (2026-10-01)
 
+- Dogfood: fixed render-kit `--simulate` defect; 10 findings (2 high, 4 med, 4 low), 9 fixed and 1 rejected (F9: sibling targets exist in the installed skill set).
+
 ### Harvest scope
 - **Grounded:** approved stage A proposal; dev and conductor ledgers and crosswalks; candidate sections; practitioner review; prior dev package; core; skill-builder authoring method and skeleton; relevant cited chapters/sections in 21 book files → rebuilt the operating body around the proposed engineering artifact and audience.
 - **Coverage:** 158 routed rules: 54 agrees, 67 refines, 36 field rules, and 1 disputed. Adopted 27 dev candidates that add engineering design, implementation, test, verification or assessment practices. The source boundary excluded all other destinations and non-adopted candidates.

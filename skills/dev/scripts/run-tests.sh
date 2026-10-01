@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
 # Smart test runner — JSON summary to stdout, full output to log file.
-# Auto-detects test runner (pytest, jest, go test, cargo test) or accepts explicit runner.
+# Auto-detects supported test runners or accepts an explicit runner.
 #
-# Usage: bash {baseDir}/scripts/run-tests.sh [options] [test-args...]
+# Set DEV_SKILL_DIR to the installed dev skill directory once.
+# Usage: bash "$DEV_SKILL_DIR/scripts/run-tests.sh" [options] [test-args...]
 #
 # Options:
-#   --log-dir DIR        Directory for log files (default: current directory)
-#   --runner RUNNER      Force runner: pytest|jest|go|cargo (default: auto-detect)
+#   --log-dir DIR        Directory for log files (default: fresh directory under TMPDIR)
+#   --runner RUNNER      Force runner: pytest|jest|node|go|cargo (default: auto-detect)
 #
 # Examples:
-#   bash {baseDir}/scripts/run-tests.sh tests/
-#   bash {baseDir}/scripts/run-tests.sh --log-dir logs tests/test_api.py
-#   bash {baseDir}/scripts/run-tests.sh --runner jest -- --coverage
-#   bash {baseDir}/scripts/run-tests.sh --runner go ./...
+#   bash "$DEV_SKILL_DIR/scripts/run-tests.sh" tests/
+#   bash "$DEV_SKILL_DIR/scripts/run-tests.sh" --log-dir logs tests/test_api.py
+#   bash "$DEV_SKILL_DIR/scripts/run-tests.sh" --runner jest -- --coverage
+#   bash "$DEV_SKILL_DIR/scripts/run-tests.sh" --runner go ./...
 #
 # Output (stdout): JSON summary
 #   {"status":"pass","passed":47,"failed":0,"total":47,"duration":"3.2s","log":"logs/tests.log"}
 #   {"status":"fail","passed":45,"failed":2,"total":47,"errors":["test_login ...","test_auth ..."],"log":"logs/tests.log"}
 
 # ── Parse arguments ──────────────────────────────────────
-log_dir="."
+log_dir=""
 runner="auto"
 test_args=()
 
@@ -45,20 +46,35 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-mkdir -p "$log_dir"
+if [[ -z "$log_dir" ]]; then
+    tmp_root="${TMPDIR:-/tmp}"
+    log_dir=$(mktemp -d "${tmp_root%/}/dev-tests.XXXXXX")
+else
+    mkdir -p "$log_dir"
+fi
 log_file="${log_dir}/tests.log"
 
 # ── Auto-detect runner ───────────────────────────────────
 if [[ "$runner" == "auto" ]]; then
-    if [[ -f "package.json" ]] && grep -q '"jest"\|"vitest"\|"mocha"' package.json 2>/dev/null; then
-        runner="jest"
+    if [[ -f "package.json" ]]; then
+        test_script=$(python3 -c 'import json; print(json.load(open("package.json")).get("scripts", {}).get("test", ""))' 2>/dev/null) || test_script=""
+        if [[ "$test_script" =~ (^|[[:space:][:punct:]])node([[:space:]]|$).*--test ]]; then
+            runner="node"
+        elif [[ "$test_script" == *jest* ]] || [[ -f "jest.config.js" ]] || [[ -f "jest.config.cjs" ]] || [[ -f "jest.config.mjs" ]] || [[ -f "jest.config.ts" ]]; then
+            runner="jest"
+        elif find . -type f \( -name '*.test.js' -o -name '*.test.cjs' -o -name '*.test.mjs' -o -name '*.test.ts' -o -name 'test-*.js' -o -name 'test-*.ts' \) -not -path '*/node_modules/*' -not -path '*/.git/*' -print -quit 2>/dev/null | grep -q . && [[ ! -f "jest.config.js" && ! -f "jest.config.cjs" && ! -f "jest.config.mjs" && ! -f "jest.config.ts" ]]; then
+            runner="node"
+        else
+            echo '{"status":"error","message":"package.json test script is not a supported runner; run the project command with run-command.sh or select --runner."}'
+            exit 1
+        fi
     elif [[ -f "go.mod" ]]; then
         runner="go"
     elif [[ -f "Cargo.toml" ]]; then
         runner="cargo"
     elif [[ -f "pyproject.toml" ]] || [[ -f "setup.py" ]] || [[ -f "pytest.ini" ]] || [[ -f "setup.cfg" ]]; then
         runner="pytest"
-    elif command -v pytest &>/dev/null || command -v python &>/dev/null; then
+    elif command -v pytest &>/dev/null; then
         runner="pytest"
     else
         echo '{"status":"error","message":"Could not detect test runner. Use --runner to specify."}'
@@ -85,6 +101,14 @@ case "$runner" in
         cargo test "${test_args[@]}" > "$log_file" 2>&1
         exit_code=$?
         ;;
+    node)
+        if [[ -f "package.json" && -n "${test_script:-}" ]]; then
+            npm test -- --test-reporter=tap "${test_args[@]}" > "$log_file" 2>&1
+        else
+            node --test --test-reporter=tap "${test_args[@]}" > "$log_file" 2>&1
+        fi
+        exit_code=$?
+        ;;
     *)
         echo "{\"status\":\"error\",\"message\":\"Unknown runner: ${runner}\"}"
         exit 1
@@ -108,6 +132,7 @@ failed=0
 total=0
 duration=""
 errors_json="[]"
+parse_error=false
 
 case "$runner" in
     pytest)
@@ -208,6 +233,37 @@ case "$runner" in
             fi
         fi
         ;;
+
+    node)
+        # Node's TAP reporter emits a parseable summary even when npm adds lifecycle output.
+        summary_line=$(grep -E '^# tests [0-9]+$' "$log_file" | tail -1) || summary_line=""
+        pass_line=$(grep -E '^# pass [0-9]+$' "$log_file" | tail -1) || pass_line=""
+        fail_line=$(grep -E '^# fail [0-9]+$' "$log_file" | tail -1) || fail_line=""
+        if [[ -n "$summary_line" && -n "$pass_line" && -n "$fail_line" ]]; then
+            total=$(echo "$summary_line" | awk '{print $3}')
+            passed=$(echo "$pass_line" | awk '{print $3}')
+            failed=$(echo "$fail_line" | awk '{print $3}')
+        else
+            parse_error=true
+        fi
+        if [[ "$failed" -gt 0 ]]; then
+            failing_tests=$(grep -E '^not ok [0-9]+ - ' "$log_file" | head -5 | sed 's/^not ok [0-9][0-9]* - //') || failing_tests=""
+            if [[ -n "$failing_tests" ]]; then
+                errors_json="["
+                first=true
+                while IFS= read -r line; do
+                    escaped=$(json_escape "$line")
+                    if $first; then
+                        errors_json+="\"${escaped}\""
+                        first=false
+                    else
+                        errors_json+=",\"${escaped}\""
+                    fi
+                done <<< "$failing_tests"
+                errors_json+="]"
+            fi
+        fi
+        ;;
 esac
 
 # Default values if parsing failed
@@ -217,11 +273,16 @@ total=${total:-0}
 
 # ── Build JSON summary ───────────────────────────────────
 status="pass"
-if [[ "$exit_code" -ne 0 ]]; then
+if [[ "$parse_error" == true ]]; then
+    status="error"
+elif [[ "$exit_code" -ne 0 ]]; then
     status="fail"
 fi
 
-if [[ "$failed" -gt 0 ]]; then
+if [[ "$status" == "error" ]]; then
+    echo "{\"status\":\"${status}\",\"runner\":\"${runner}\",\"message\":\"Test output did not contain a parseable summary; inspect the log and use the project command if needed.\",\"passed\":${passed},\"failed\":${failed},\"total\":${total},\"log\":\"${log_file}\"}"
+    exit 2
+elif [[ "$failed" -gt 0 ]]; then
     echo "{\"status\":\"${status}\",\"runner\":\"${runner}\",\"passed\":${passed},\"failed\":${failed},\"total\":${total},\"duration\":\"${duration}\",\"errors\":${errors_json},\"log\":\"${log_file}\"}"
 else
     echo "{\"status\":\"${status}\",\"runner\":\"${runner}\",\"passed\":${passed},\"failed\":${failed},\"total\":${total},\"duration\":\"${duration}\",\"log\":\"${log_file}\"}"
