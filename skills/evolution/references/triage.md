@@ -58,7 +58,7 @@ Keep key terms unambiguous across the owner, analyst and approver. Maintain a sh
 
 ## Evidence table and prioritization
 
-Keep signal columns separate, rank work against the current bottleneck, and explain the value and cost of each selection. A ranking is a prompt for judgment. Do not let an instrument choose the verdict or let an arbitrary numerical score override the trace.
+Keep signal columns separate, rank work against the current bottleneck, and explain the value and cost of each selection. A ranking is a prompt for judgment. Do not let an instrument choose the verdict or let an arbitrary numerical score override the trace. (5907 · U6 · L63 · 03:20–05:32)
 
 A retained reference should carry an owner and last-reviewed date, with a reminder for its next review. This makes freshness visible between evolution runs. [book:software-engineering-at-google], Chapter 10. Documentation
 

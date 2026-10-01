@@ -38,7 +38,7 @@ A run that only settles old verdicts is complete work. Do not create a new hypot
 
 ## Harvest real use and find causes
 
-Judge a change by what real user traffic does, not by imagined or simulated use. [book:site-reliability-engineering], Feature Flag Frameworks
+Judge a change by what real user traffic does, not by imagined or simulated use. [book:site-reliability-engineering], Feature Flag Frameworks (5907 · U6 · L63 · 03:20–05:32)
 
 A signal may trigger review, but the human decision maker retains judgment over whether it matters. [book:site-reliability-engineering], Symptoms Versus Causes
 
@@ -50,7 +50,7 @@ Keep role-specific evidence connected to the skill it can improve:
 
 - For skills used in presales account work, review deal outcomes and debriefs; turn recurring lessons into changes to the method, positioning or gates, not only into deal notes. Capture lessons continuously as work proceeds, then consolidate recurring findings into the method. [book:selling-to-big-companies], HOLD YOURSELF ACCOUNTABLE; [book:head-first-pmp], Exam Answers; [book:meddicc], MEDDICC CHECKLIST
 - For skills used in signed engagements, compare estimates with actual effort by phase, contested criteria and obligation slippage. Feed ambiguous upstream guidance back to the skill that owns that guidance; record engagement-level learning in its own evolution entry. [book:swebok], 5.2. Closure Activities
-- For skills distilled from workshops or other source methods, let real outcomes update the method and verify claims in the source artifact. Repeated conflicts between decisions and a stated principle signal that the principle may need revision. For authoring practice, use recurring conflicts between advice and later decisions to update reusable conventions and checklists. [book:facilitating-software-architecture], Keeping Principles Useful; [book:facilitating-software-architecture], Repeated conflicts between multiple decisions and a principle are a signal to change
+- For skills distilled from workshops or other source methods, let real outcomes update the method and verify claims in the source artifact. Repeated conflicts between decisions and a stated principle signal that the principle may need revision. For authoring practice, use recurring conflicts between advice and later decisions to update reusable conventions and checklists. [book:facilitating-software-architecture], Keeping Principles Useful; [book:facilitating-software-architecture], Repeated conflicts between multiple decisions and a principle are a signal to change (5907 · U6 · L63 · 00:00–01:27)
 
 For coordination methods, use run records and routing decisions to improve the protocol. Ways of working can change as learning accumulates. [book:pmbok-guide-7e], 2.5.8. Learning throughout the Project
 - For a significant failure, turn the outcome into a preventive action that reduces recurrence; do not respond to one incident by merely changing triage weights. [book:site-reliability-engineering], Google’s Postmortem Philosophy
@@ -121,6 +121,14 @@ Keep periodic resweeps of prior guidance. Set an owner and revisit date on every
 
 Classify recurring, manual, automatable, tactical work with little lasting value as toil; separate it from overhead and work that creates durable improvements. Use the label to identify automation opportunities, not to dismiss necessary judgment. [book:site-reliability-engineering], Toil Defined
 
-Removing a skill component that no longer adds value is useful maintenance; measure the value it provides rather than rewarding line or section count. [book:site-reliability-engineering], The “Negative Lines of Code” Metric
+Removing a skill component that no longer adds value is useful maintenance; measure the value it provides rather than rewarding line or section count. [book:site-reliability-engineering], The “Negative Lines of Code” Metric (5907 · U6 · L63 · 03:20–05:32)
 
 When a skill component no longer serves a purpose, name the replacement, provide a transition path, then remove or mark the obsolete component. Age alone is not a reason to deprecate it. [book:software-engineering-at-google], Chapter 15. Deprecation
+
+During a resweep, record whether evidence supports continuing to evolve a skill because its purpose remains valid and real-use feedback supports worthwhile next improvements. (5907 · U6 · L63 · 00:00–01:27)
+
+Transition a skill to maintenance when it still meets its purpose but further changes offer little expected benefit for their cost. (5907 · U6 · L63 · 01:27–02:44)
+
+Consider sunsetting a skill when evidence shows its purpose is no longer served or upkeep no longer pays. (5907 · U6 · L63 · 02:44–03:20)
+
+Before proposing a sunset, verify the evidence, dry-run the retirement and an alternative with affected skill users, revisit if their response reveals material harm, and record effects on users and dependent skills plus the transition path in its EVOLUTION entry. (5907 · U6 · L63 · 03:20–05:32)

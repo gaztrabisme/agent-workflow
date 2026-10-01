@@ -121,7 +121,9 @@ Also worth stating plainly: the harvest agents caught all three bugs, and the pa
 
 **Grounded:** approved `A/skill-set.md`, the four routed ledgers and crosswalks, `A/pov/evolution.md`, the rebuilt `core` skill and its gate references, the `skill-builder` authoring guide/checklist/skeleton, the old evolution package, and cited source chapters in BOOKS.
 
-**Books read:** agentic-design-patterns, clean-architecture, clean-code, continuous-delivery, critical-thinking-about-research, facilitating-software-architecture, hands-on-site-reliability-engineering, head-first-pmp, learning-systems-thinking, meddicc, pmbok-guide-7e, python-for-devops, selling-to-big-companies, site-reliability-engineering, software-engineering-at-google, swebok. No course anchor was used because no routed crosswalk verdict names a course lesson.
+**Books read:** agentic-design-patterns, clean-architecture, clean-code, continuous-delivery, critical-thinking-about-research, facilitating-software-architecture, hands-on-site-reliability-engineering, head-first-pmp, learning-systems-thinking, meddicc, pmbok-guide-7e, python-for-devops, selling-to-big-companies, site-reliability-engineering, software-engineering-at-google, swebok. The course source was not ready during the rebuild.
+
+**Course:** Read all four sections of 5907 U6 L63; added course support to 3 routed rules (evolution-R018, R042, R074) and 1 existing practice (evolution-C34), and added 4 lifecycle practices (evolution-N36–N39).
 
 ### Patterns found
 
