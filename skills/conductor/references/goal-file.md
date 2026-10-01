@@ -1,10 +1,16 @@
 # Goal File
 
-The goal file is the run's persisted stop condition. Write it before dispatch, then set the active harness's session-stop mechanism from its criteria. Where the harness has no such mechanism, the UAT column is the stop condition and Close runs it. The file is the durable audit record; Close audits the artifacts against its UAT column.
+The goal file is the run's persisted stop condition. Write it before dispatch, then set the active harness's session-stop mechanism from its coordinator-verifiable criteria. Human keystone rows remain required UATs but are evaluated by their named owner, not inferred by the stop mechanism. Where the harness has no such mechanism, the UAT column is the stop condition and Close runs it. The file is the durable audit record; Close audits the artifacts against its UAT column.
 
 ## Where it lives
 
 `wiki/goals/<YYYY-MM-DD>-<slug>.md` in the project. When the project has no wiki, beside the primary artifact.
+
+## Pre-go drafts and human keystones
+
+If a goal file helps the requester review the Plan Block, it may be prepared before approval. Mark it `Status: DRAFT — not an active stop condition`; do not dispatch from it or configure the session stop. Mark criteria that depend on a `DECIDE NOW` fork with the fork ID and give a passing condition for each branch. After explicit go resolves those forks, before dispatch, record the selected branch as a dated owner decision in `Branch resolutions` and mark the goal file approved. If approval never comes, it remains a draft and no run starts. Choosing a listed branch is not a scope amendment. (derived: dogfood 2026-10-01)
+
+If a criterion depends on a human keystone, give it a separate goal row. Name the decision owner and the stage at which the check is due; its UAT records the human's verdict and date. Announce the keystone in the Plan Block's `GATES` row. Configure the automated session stop only from coordinator-verifiable criteria; it must not wait for a model to guess the human verdict. The human row remains required: collect its recorded result at the named stage or at Close, and report it open if it has not been completed. (derived: dogfood 2026-10-01)
 
 ## Template
 
@@ -12,6 +18,8 @@ The decision record names the accountable author and a contact so responsibility
 
 ```
 # Goal — <date> — <slug>
+
+**Status:** DRAFT until the requester approves the Plan Block; mark APPROVED before dispatch.
 
 **Decision owner / author:** <name and date>. **Audited by:** <coordinator or named reviewer at Close>. **Contact:** <who answers questions about this record>.
 
@@ -26,6 +34,9 @@ The decision record names the accountable author and a contact so responsibility
 
 ## Amendments
 <Scope changes the owner asks for mid-run, each dated and in the owner's words; "(none)" if there are none.>
+
+## Branch resolutions (before dispatch)
+<Each fork ID, selected branch, decision owner, and date; "(none)" if the draft did not depend on an unresolved fork.>
 ```
 
 ## Service objectives and error budget

@@ -325,7 +325,9 @@ The KB v9 intake (2026-09-29/30) finished its work, but its goal could never pas
 
 ### Structure changes
 
-Reorganized the skill around its coordinator audience and the run flow: classify, ground, compose, declare, set the goal, run, converge, and close. Kept the ten linked reference paths, made lane-plan the single home for local lane rules, and added citations and a coverage map. The body now points to core gates instead of restating them. Corrected the practitioner-flagged authority boundary and added safe resume, decision/assumption records, failure learning, and harness-map refresh practice.
+Reorganized the skill around its coordinator audience and the run flow: classify, ground, compose, declare, set the goal, run, converge, and close. Kept the linked reference set, made lane-plan the single home for local lane rules, and added citations and a coverage map. The body now points to core gates instead of restating them. Corrected the practitioner-flagged authority boundary and added safe resume, decision/assumption records, failure learning, and harness-map refresh practice.
+
+Dogfood (2026-10-01, design run 3 / phase 3 Methods): 12 findings — 2 high, 7 medium, 3 low; 11 fixed and 1 rejected (F9, sibling target present outside the partial dogfood copy).
 
 ### Verdict: PENDING
 

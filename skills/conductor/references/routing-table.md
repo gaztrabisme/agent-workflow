@@ -6,6 +6,7 @@ Intent → skill → mode. Conductor's only original judgment. Everything downst
 
 | The user says (roughly) | Shape | Route |
 |---|---|---|
+| "plan the next programme run", "coordinate these stages", or an unrouted multi-step task needing coordinated stages | Coordination | `conductor` → classify, ground, compose, plan, and coordinate. If the request is specifically to improve an existing skill from its traces, route to `evolution`; if it is to create, split, or publish a skill, route to `skill-builder`. |
 | "build X", "add feature", "fix", "implement", "refactor" | Build | `dev` → Build mode. Board project → `harness-operator` instead. |
 | a list of features / a backlog | Build | `dev` → Design → Sprint. >6 items on a board project → `harness-operator`. |
 | "assess", "audit", "code health", "why is this slow" | Build | `dev` → Assess / Analyze |
@@ -32,6 +33,8 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 
 1. **Choose the carrier in the Plan Block, not at the end.** "We'll turn it into a deck later" is false — knowing the output is 12 slides changes what the producers write. Carrier chosen late means the content gets rewritten.
 2. **A carrier skill never decides content.** `pptx` owns how the deck is built; `solution-architect` owns what it says. When a carrier skill starts making substantive calls, the routing was wrong.
+
+**Project route override.** If a current project decision retires or replaces a carrier or capability skill, follow that decision for this project and name the override and decision in the Plan Block's `ROUTE` row. Keep the default route intact for other projects. (derived: dogfood 2026-10-01)
 
 | The artifact is… | Skill |
 |---|---|

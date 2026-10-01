@@ -24,6 +24,8 @@ Before a requirements or proposal document crosses to someone who can reject it,
 
 Cast from the **actual stakeholder map**, not a generic list. If upstream work has mapped buyers, sponsors, blockers, and their needs, use those people. Otherwise derive the map from the situation, disclose that it was derived, and make a point of seeking advice from uncomfortable sources as well as familiar ones. [book:facilitating-software-architecture], Step 2a: Making your set of decision options; [book:facilitating-software-architecture], Seek advice from those with conflicting views.
 
+For an internal artifact, cast the people who will use or maintain it, even when there is no buying committee. Use the user reactions in `design-cell.md` Step 6 to ground that cast when available. Keep the persona pass on interpretation, workflow, incentives, and reception; verify domain conventions with a source or an actual expert rather than treating role-play as evidence. (derived: dogfood 2026-10-01)
+
 The archetypes worth covering — pick the 3–5 that exist in *this* situation:
 
 - **Economic buyer** — signs and pays. Objects on price, downside, and what happens when it fails.

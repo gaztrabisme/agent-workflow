@@ -19,14 +19,28 @@ Per unit of work, one row:
 - **Acceptance** — the coordinator runs this command itself against the unit's output. A lane grading its own homework is not a gate, and the coordinator never does the unit work.
 - **Cost consequence** — roughly what the unit costs on this lane, and what the run loses if the lane dies mid-unit.
 
+## Run ledger row template
+
+Use this six-column row shape for the run ledger. Record one row per unit result; add a row for any run-level fork, contradiction, refusal, or reroute not already represented by a unit row. Use `—` when a field does not apply, and link to the fuller convergence or decision record when the explanation needs more room. (derived: dogfood 2026-10-01)
+
+| Run ID | Unit / fork / thread ID | Lane | Status / verdict | Acceptance command, outcome, and output sample | Forward decision, contradiction, refusal, or reroute (reason and destination) |
+|---|---|---|---|---|---|
+| `<run>` | `<stable ID>` | `<lane or —>` | `<state and verdict>` | `<command + result + sample path, or —>` | `<decision/refusal and why, or —>` |
+
 ## Lane check — before composing, every run
 
-Any lane can be down on a given day: a spent quota, an empty balance, a revoked key, a local server that is off. A lane plan written from memory routes units onto dead lanes, and the run then stops mid-flight for a reroute that could have been decided at T0. So **the lanes are checked on the system before the lane plan is written**, never assumed from a past run or from this file.
+Any lane can be down on a given day: a spent quota, an empty balance, a revoked key, a local server that is off. A lane plan written from memory routes units onto dead lanes, and the run then stops mid-flight for a reroute that could have been decided at T0. So **final lane assignments are checked on the system before the lane plan is finalized**, never assumed from a past run or from this file.
 
 1. Run `set -a; . ~/.config/agent-capabilities/subagent.env; set +a; subagent doctor --prompt --json`. The key file has to be loaded first: the `subagent` MCP server loads it itself, but a plain shell does not. Without it, the check reports the keyed lanes (glm, deepseek, omlx) as unavailable when they are fine (found 2026-09-29). For each provider it checks the driver's binary, the API-key variables, the health gate for local servers, and with `--prompt` one cheap real turn. A provider is **open** only when its row passes, including the prompt turn. A binary and a key prove nothing about quota.
 2. Read the lane memory at `~/.subagent-mcp/sessions/lane_state.json`. A lane closed there with an unexpired `closed_until` is closed, even if the doctor turn passed.
 3. Compose only on open lanes. A unit whose preferred lane is closed goes to the next open lane of the right shape (the Lane selection table below). When no open lane fits a unit, that is a `DECIDE NOW` item, not a run-time surprise. Assess the cause and choose a response before dispatch. [book:head-first-pmp], How do you respond to a risk?
 4. Record the result in the Plan Block's `LANES` row: each provider, open or closed, with the doctor's reason for each closure. The Plan Block is where the owner sees it.
+
+## Provisional LANES before approval
+
+When the Plan Block must be prepared before a same-turn check is available, it may show a **provisional** LANES row from the latest recorded check. Include that check's date/time and source, and state that it must be rerun before the lane plan is finalized or any unit is dispatched. Mark the attached lane table provisional too. Provisional status is a planning aid, not proof that a lane is open or permission to dispatch.
+
+After approval and before dispatch, run the full lane check, update the Plan Block and lane table to the observed state, then assign units only to currently open lanes. If the check changes the available lanes, revise the assignments and acceptance plan before dispatch. If no open lane fits a unit, surface it in `DECIDE NOW`. (derived: dogfood 2026-10-01)
 
 ## Data handling before dispatch
 
