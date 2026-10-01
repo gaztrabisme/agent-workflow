@@ -21,7 +21,7 @@ Turn raw client input into an internal decision frame. Use account intelligence 
 ## Frame the engagement
 
 - Keep a source trail for each claim and distinguish factual statements from opinions in the evidence notes [book:hbr-guide-business-writing], ***Get the Madman started***.
-- The book requires validity and reliability for strong evidence, so source type alone does not establish a Confirmed claim [book:think-like-ux-researcher], UX Research and Strength of Evidence.
+- Classify a claim as Confirmed only when it was directly observed or a primary document states it; the book also requires valid and reliable evidence, so source type alone does not establish a Confirmed claim [book:think-like-ux-researcher], UX Research and Strength of Evidence.
 - Classify a named client speaker’s statement as Reported and attribute it to that person.
 - The book treats hearsay as weaker than observed behavior; preserve that evidence-strength distinction when labeling a second-hand claim [book:think-like-ux-researcher], UX Research and Strength of Evidence.
 - Classify self-reported claims by an interested party as Marketing.
@@ -33,9 +33,8 @@ Turn raw client input into an internal decision frame. Use account intelligence 
 - Do not call a claim Confirmed without identifying a named speaker.
 - For each client constraint, record who said it rather than only the document where it appears.
 - Ask whose sentence each constraint is; if it originated with your side, tier it Reported at best.
-- Do not change a material claim's tier silently.
+- Tier every material claim, carry its evidence tier into downstream artifacts, and never change its tier silently. MEDDICC scores qualification dimensions by evidence maturity; it does not prescribe tiering every material claim [book:meddicc], MEDDICC SCORING.
 - When an inference is later confirmed, state what evidence confirmed it.
-- Carry each claim’s evidence tier into downstream artifacts and assumptions.
 - Fill every frame slot or convert it into an ask or assumption rather than leaving it silent.
 - The book says to state the user problem as the outcome and distinguish it from the product output; it does not require verbatim client wording [book:storytelling-in-design], Focus on Outcomes Instead of Features.
 - The book classifies stakeholders by impact, authority, and expertise, then considers influence and importance rather than assigning buyer, sponsor, user, and blocker labels [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.

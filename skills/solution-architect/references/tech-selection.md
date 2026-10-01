@@ -17,6 +17,7 @@ Compare options against the client’s problem, constraints, quality priorities,
 
 ## Decision methods
 
+- Run options analysis with two or three viable choices, compare them on client-relevant factors, recommend one, and explain why the alternatives lost. The book's sample compares pros and cons by factor and option without prescribing a count [book:fundamentals-enterprise-architecture], Sample Template.
 - Record each major decision with its context, choice, tradeoff, and rejected alternatives in wiki/decisions.md [book:software-architecture-hard-parts], Architectural Decision Records.
 - Record the rejected option and why it lost so later sessions do not reopen a settled decision [book:fundamentals-enterprise-architecture], Overview.
 - Preserve options by minimizing early decisions that are difficult to reverse when project knowledge is limited [book:software-architect-elevator], Reversing Irreversible Decision Making.

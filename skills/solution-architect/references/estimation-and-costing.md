@@ -5,11 +5,11 @@ Use this reference for presignature estimation inputs and commercial cost views.
 ## Effort estimate ownership
 
 - Have delivery author pre-signature effort estimates because it will be accountable for them [book:head-first-pmp], Estimation tools and techniques.
+- On an RFI, stop at ranged effort with uncertainty drivers unless pricing structure was requested; leave price and detailed cost work to the commercial owner.
 
 ## Close-out feedback
 
 - Use implementation feedback to revisit architecture; return estimate-versus-actuals, contested criteria, and slipped obligations to the presale references [book:software-architect-elevator], Measuring an Architect’s Value.
-- On an RFI, stop at ranged effort with uncertainty drivers unless pricing structure was requested; leave price and detailed cost work to the commercial owner.
 
 ## Pricing model and scenarios
 
@@ -22,20 +22,21 @@ Use this reference for presignature estimation inputs and commercial cost views.
 
 ## Effort distribution and uncertainty
 
+- Treat bottom-up WBS effort as build effort and convert it to total delivery effort with an explicit distribution.
 - Separate reclassified capability tracks and AMS/hypercare setup so they can be priced and dropped without disturbing the base.
 
 ## Cloud cost by environment
 
-- Treat bottom-up WBS effort as build effort and convert it to total delivery effort with an explicit distribution.
-- The book recommends calibrated models grounded in historical data; it does not prescribe a universal multiplier [book:swebok], 2. Software Project Planning.
+- Tie every cloud-cost row to a sizing driver and its corresponding volume assumption. The book ties resource scaling to tenant consumption activity and spikes; it does not prescribe a per-row cloud-cost worksheet [book:building-multi-tenant-saas], Chapter 3. Multi-Tenant Deployment Models.
 
 ## Estimate and pricing quality checks
 
 - Include each multiplier’s rates and reasoning in a traceable estimate basis alongside its inclusions and exclusions [book:head-first-pmp], Basis of estimates.
 - Present excluded effort as a named risk, not as savings to book.
 - The book describes probability distributions for effort, schedule, and risk; this rule applies that guidance to estimation rather than a single multiplier [book:swebok], Software Engineering Management Tools.
+- Do not assume a universal effort multiplier. The book recommends calibrated models grounded in historical data but does not prescribe a universal multiplier [book:swebok], 2. Software Project Planning.
 - Apply the multiplier only to base build phases and state whether separately priced tracks are build-only or all-in.
-- The book translates resource requirements into cost estimates; it does not prescribe a blended rate or separate out-of-pocket line [book:swebok], 2. Software Project Planning.
+- Convert total effort to man-months, multiply by the blended rate, then add out-of-pocket costs as a separate percentage line. The book translates resource requirements into cost estimates; it does not prescribe this blended-rate chain or separate out-of-pocket line [book:swebok], 2. Software Project Planning.
 - When pricing scenarios, hold engineering scope fixed and vary only provisioning around it.
 - Offer optimized, recommended, and full-spec provisioning scenarios where useful, and describe the physical difference in each row.
 - Keep labor identical across provisioning scenarios and put any engineering-scope change in the WBS instead.
@@ -43,7 +44,6 @@ Use this reference for presignature estimation inputs and commercial cost views.
 - Estimate cloud costs with one worksheet per environment and one service per row.
 - For each cloud service row, record layer, component, purpose, region, SKU, sizing driver, billing note, and monthly min–max.
 - Use min–max ranges for usage-based cloud costs and report monthly and yearly ranges.
-- The book recommends correlating infrastructure consumption with tenant activity to reveal cost drivers; it does not prescribe a single dominant meter [book:building-multi-tenant-saas], The SaaS Mindset.
 - Mark cloud lines that depend on client licenses or unconfirmed plans for verification.
 - State BYOL or client-provided exclusions on each applicable line and repeat them as commercial assumptions.
 
@@ -51,11 +51,12 @@ For a delivery-shaped proposal, send the planner a task inventory with effort bl
 
 ## Cost drivers and measurement
 
+- Flag the dominant billing meter so the client can see what drives the bill. The book recommends correlating infrastructure consumption with tenant activity to reveal cost drivers, but does not prescribe a single dominant meter [book:building-multi-tenant-saas], The SaaS Mindset.
 - Keep non-production rows aligned with production rows by zeroing inapplicable costs with a reason instead of deleting them.
-- The book ties resource scaling to tenant consumption activity and spikes; it does not prescribe a per-row cloud-cost worksheet [book:building-multi-tenant-saas], Chapter 3. Multi-Tenant Deployment Models.
 - Offer Bronze, Silver, and Gold support tiers with their listed service levels, and recommend Silver content operations for AI quality sustainability.
 - Define support-tier coverage for Bronze, Silver, and Gold, including the listed service additions at each tier.
 - Price discrete project work separately from retainer access, and state the access boundaries and expectations in the retainer terms [book:value-based-fees], ORGANIZING THE SCOPE AND MANAGING PROJECTS CONCURRENT WITH THE RETAINER.
+- State a minimum monthly retainer floor and how effort above it is billed.
 - Name the on-site escalation trigger and mark its commercial treatment TBC rather than silently absorbing it.
 - State whether L1 support is in scope and attach a severity and SLA matrix.
 - For on-premise, edge, and manufacturing work, include hardware in the price as a bill of materials.
@@ -68,7 +69,7 @@ For a delivery-shaped proposal, send the planner a task inventory with effort bl
 - State the residency consequence of client-owned on-premise hardware.
 - PMBOK requires physical-resource lead-time planning; excluding hardware from the effort multiplier and recording it in the obligation register are rule-specific additions [book:pmbok-guide-7e], 2.4.5. Physical Resources.
 - The book separates capital and operating expense types and describes their timing; the client still supplies the commercial comparison lens [book:fundamentals-data-engineering], Cost Optimization and Business Value.
-- The book compares total ownership cost, including labor and resources, so the CapEx/OpEx split still needs that wider cost view [book:fundamentals-enterprise-architecture], Example Architecture Decision.
+- Present implementation and hardware as CapEx and cloud/AMS as OpEx, then use the client's preferred subscription or usage comparison lens. Compare the split with total ownership cost, including labor and resources [book:fundamentals-enterprise-architecture], Example Architecture Decision.
 - Never choose an input assumption because it makes the estimate fit available capacity.
 - When changing an assumption makes an estimate fit, state the assumption alongside the client's figure and re-derive the estimate.
 - Do not calibrate productivity factors to close a capacity gap.

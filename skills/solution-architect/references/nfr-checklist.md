@@ -4,22 +4,22 @@ Select and prioritize quality requirements from the client’s business context.
 
 ## Select client-relevant quality attributes
 
-- The book starts with system quality goals and develops measurable fitness functions iteratively, rather than prescribing this exact NFR catalog workflow [book:software-architecture-metrics], Fitness Functions and Metrics.
+- Run every solution against the NFR catalog early in Phases 2–3; turn gaps into design decisions, clarification questions, or assumptions. The book starts with system quality goals and develops measurable fitness functions iteratively, rather than prescribing this exact catalog workflow [book:software-architecture-metrics], Fitness Functions and Metrics.
 - The book says to make broad quality goals measurable with an objective value, which sharpens a forcing question into a testable target [book:software-architecture-hard-parts], Using Fitness Functions.
 - The book centralizes MFA support in a shared authorization framework; the rule also calls for naming the customer identity provider and SSO model [book:building-secure-reliable-systems], Using Advanced Authorization Controls.
 - Specify authorization including role or record-level controls and least privilege [book:building-secure-reliable-systems], Least Privilege.
-- The book covers encryption at rest and in transit, then warns that data can remain exposed during computation [book:zero-trust-networks-2e], When You Host Applications in a Public Cloud, How Can You Trust It?.
+- Specify secret and key management plus encryption at rest and in transit. The book covers encryption at rest and in transit, then warns that data can remain exposed during computation [book:zero-trust-networks-2e], When You Host Applications in a Public Cloud, How Can You Trust It?.
 - The book requires sanitizing sensitive inputs before model processing; the rule adds a stricter prohibition on routing credentials or identity through an LLM [book:llm-security-playbook], The Role of Guardrails in an LLM Security Strategy.
 - The book makes logs hard to alter and preserves an immutable trail of changes; the retention period still needs its own policy [book:building-secure-reliable-systems], Design Your Logging to Be Immutable.
 - The book supports limiting each user to needed data and services; the blast-radius and regulator-audit prompts extend that security inquiry [book:building-secure-reliable-systems], Chapter 5. Design for Least Privilege.
 
 ## Quality attribute catalog
 
-- The book tests third-party API latency and unavailability explicitly, adding failure behavior to the integration design [book:software-architecture-metrics], Fitness Functions: Integration Tests with Network Latency.
+- Design integrations explicitly instead of hand-waving that systems integrate. The book tests third-party API latency and unavailability explicitly, adding failure behavior to the integration design [book:software-architecture-metrics], Fitness Functions: Integration Tests with Network Latency.
 - The book calls out authentication, rate limits, and timeouts/retries at the gateway; the rule also asks for protocol and backend SLA details [book:mastering-api-architecture], What Functionality Does an API Gateway Provide?.
 - The book favors asynchronous communication where fault tolerance matters, so select the communication pattern per interaction instead of making every call synchronous [book:software-architecture-hard-parts], Availability/Fault Tolerance.
-- The book gives gateways authentication, rate limits, and telemetry responsibilities; validation, caching, and backend exposure still need explicit treatment [book:mastering-api-architecture], What Functionality Does an API Gateway Provide?.
-- The book lists those resilience patterns for service communication; add idempotency as a separate requirement [book:mastering-api-architecture], Reliability.
+- Put back-end access behind a secured gateway with throttling, validation, caching, and telemetry; never expose back-ends directly or to an LLM. The book assigns gateway authentication, rate limits, and telemetry; validation, caching, and exposure boundaries remain explicit requirements [book:mastering-api-architecture], What Functionality Does an API Gateway Provide?.
+- Design retries, idempotency, circuit breakers, timeouts, and graceful degradation for integrations. The book lists retries, timeouts, circuit breakers, bulkheads, and fallbacks as service resilience patterns; idempotency and graceful degradation remain explicit requirements [book:mastering-api-architecture], Reliability.
 - The book versions APIs and treats incompatible changes as a major release; the rule additionally asks for canonical payload schemas [book:mastering-api-architecture], Semantic Versioning.
 - Ask which integrations must be real time, what happens to the customer when a back end is unavailable, and whether its capacity meets peak demand.
 
@@ -59,7 +59,7 @@ Select and prioritize quality requirements from the client’s business context.
 ## Scale and performance
 
 - The book monitors cost per interaction in production; use client-specific unit economics and identify the design lever that moves them [book:building-reliable-ai-systems], Principle 3: Monitor systems continuously.
-- The book warns that portability stops at cloud-native integrations, so name the switching boundary rather than promise blanket portability [book:fundamentals-enterprise-architecture], Example Architecture Decision.
+- Specify modularity, portability, and standards-based interfaces. The book warns that portability stops at cloud-native integrations, so name the switching boundary rather than promise blanket portability [book:fundamentals-enterprise-architecture], Example Architecture Decision.
 - The book treats extensibility as adding functionality as a service context grows; it does not require committing every future channel or use case now [book:software-architecture-hard-parts], Extensibility.
 - The book says enablement needs tools and training for its users; translate that into client administrator and maker coaching [book:fundamentals-enterprise-architecture], Enterprise Architecture Enablement.
 - The book raises replaceability and vendor lock-in; estimating switching cost and the client team’s ability to run and extend are additions [book:software-architect-elevator], Planned Obsolescence.

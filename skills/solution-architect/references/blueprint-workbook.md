@@ -39,15 +39,15 @@ For each client answer, update every affected sheet, not only the question row. 
 
 ## Scope treatment
 
-- When waiting can improve a consequential choice, defer the decision while fixing its parameters instead of proceeding on an assumed position [book:software-architect-elevator], Deferring Decisions with Options.
-
-## Name phases in client outcome language
-
 - Mark committed and priced scope as Base.
 - Mark scope committed to a later named phase and state its unlocking gate as Phased.
 - Mark separately priced client-elected scope as Optional.
 - State the analysis boundary and name the problem areas the engagement will leave untouched when defining exclusions [book:flawless-consulting], Elements of a Contract.
 - For acknowledged requirements whose implementation is deferred, mark them in scope for design and frame the approach decision for the client.
-- For significantly impactful choices, use a proof of concept or pilot in the organization’s environment to produce technical evidence [book:fundamentals-enterprise-architecture], The Importance of Experimentation.
+- For significantly impactful choices, offer a separately sized demonstration or readiness-assessment track with its own decision gate to produce technical evidence in the organization's environment [book:fundamentals-enterprise-architecture], The Importance of Experimentation.
 - Record deferred scope and its tradeoff on the work-package row where the work is planned.
-- The book puts outcomes and the user’s benefit ahead of feature descriptions; it does not prescribe outcome-based phase names or correction propagation [book:storytelling-in-design], Focus on Outcomes Instead of Features.
+- When waiting can improve a consequential choice, defer the decision while fixing its parameters instead of proceeding on an assumed position [book:software-architect-elevator], Deferring Decisions with Options.
+
+## Name phases in client outcome language
+
+- The book puts outcomes and the user's benefit ahead of feature descriptions; it does not prescribe outcome-based phase names or correction propagation [book:storytelling-in-design], Focus on Outcomes Instead of Features.

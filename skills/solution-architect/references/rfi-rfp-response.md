@@ -7,14 +7,15 @@ Build the response around the evaluator’s decisions: answer the stated need, s
 - Make implicit requirements explicit. Use client questions and an assumptions register for unresolved matters that only the client can answer [book:software-architect-elevator], Architects Deal with Nonrequirements.
 - Record assumptions and constraints; ask the client only for unresolved decisions that require its answer [book:fundamentals-enterprise-architecture], Sample Template.
 - For an RFI, respond to inform and position, use assumptions, demonstrate domain knowledge, and avoid over-investing in precision pricing.
-- The guide adds that the response should address every stated need and tailor its content to the client’s industry, company size, and culture [book:hbr-guide-business-writing], **Understand your readers**.
-- The book anchors architecture in business needs translated into technical drivers; lead the response with the client outcome and value [book:software-architect-elevator], Measuring an Architect’s Value.
-- The book recommends shaping the buyer’s RFP by teaching which requirements matter and why, then bidding when they reflect the supplier’s differentiated offer [book:challenger-sale], Teaching for Differentiation.
+- Order business and domain questions first; put logistics questions last or omit them. The contracting sequence surfaces method, schedule, and cost constraints early because they matter to agreement [book:flawless-consulting], Navigating the Contracting Meeting.
 
 ## Response pack
 
 - Lead the response with an executive summary, then add the solution narrative, traceability, and win themes needed by the evaluator [book:storytelling-with-data], Horizontal logic.
-- Answer every stated RFP need and tailor the response to the client’s industry, size, and culture [book:hbr-guide-business-writing], ***Tailor your message***.
+- For an RFP, compete against the published criteria and treat precision, traceability, and compliance as non-negotiable. Address every stated need and tailor the response to the client's industry, company size, and culture [book:hbr-guide-business-writing], **Understand your readers**.
+- For a direct brief without a formal template, impose a response structure that leads with client outcome and value. The book anchors architecture in business needs translated into technical drivers [book:software-architect-elevator], Measuring an Architect's Value.
+- Do not answer every clause only with feature matching; include a solution narrative and win theme. The book says to compare decision options and trade-offs beyond vendor names and feature lists [book:software-architect-elevator], Measuring an Architect's Value.
+- Answer every stated RFP need and tailor the response to the client's industry, size, and culture [book:hbr-guide-business-writing], ***Tailor your message***.
 
 ## Requirements traceability
 
@@ -23,6 +24,8 @@ Build the response around the evaluator’s decisions: answer the stated need, s
 ## Pre-submission quality review
 
 - Before calling presale done, check the artifact set, decisions and rejected options, open assumptions, traceability gaps, every client export, and cross-artifact integrity.
+- Run the complete Final QA pass on every client-bound deliverable, using a reviewer who did not author it.
+- Inspect work as it is created and use peer reviews before accepting interim deliverables as done [book:head-first-pmp], Inspection, testing, and product evaluation.
 - If the client's template is internally inconsistent, state your convention and proceed instead of asking permission for a decidable issue.
 - Use a traceability matrix with requirement reference, client requirement, coverage status, approach/technology, and phase.
 - Mark unmappable requirements Partial, Clarify, or Excluded with a reason instead of omitting them.
@@ -33,12 +36,11 @@ Build the response around the evaluator’s decisions: answer the stated need, s
 - Explain each Ours row with a client anchor or explicit justification.
 - The book uses why questions to surface decisions and assumptions; use clarification to expose the reasoning behind a claim [book:software-architect-elevator], Whys Reveal Decisions and Assumptions.
 - The book says to research publicly available facts first and use client questions to uncover their situation, problems, and gaps [book:selling-to-big-companies], GUIDELINES FOR GOOD QUESTIONING.
-- The contracting sequence surfaces constraints such as method, schedule, and cost early because they are vital to agreement [book:flawless-consulting], Navigating the Contracting Meeting.
 - The book starts from business needs and derives technical drivers; ask about outcomes and baselines before requesting configuration detail [book:software-architect-elevator], Measuring an Architect’s Value.
 - The book prunes goal-question-metric trees by signal and cost; apply that selection logic to clarification questions [book:software-architecture-metrics], Prioritize Metrics and Devise a Data Collection Strategy.
 - On an RFI, pair each load-bearing question with an assumption that lets work proceed if unanswered.
 
-Run this review on each client-bound file and export. These checks came from defects that reached real deliverables:
+Run this review on each client-bound file and export. Have a reviewer who did not author the deliverable perform the complete Final QA pass. These checks came from defects that reached real deliverables:
 
 1. Read every label with its value; editing can shift a row under the wrong label.
 2. Remove internal review notes and comments from every circulated copy.
@@ -61,11 +63,10 @@ Run this review on each client-bound file and export. These checks came from def
 ## Win themes and evidence
 
 - Treat the assumptions register as a primary artifact, keep it current with every open item, and surface high-impact low-confidence items in the response.
+- Write three to five win themes, each mapped to a published or inferred evaluation criterion and backed by proof. MEDDICC aligns value proposition with pain, Metrics, and customer Decision Criteria; the count and proof requirement are additions [book:meddicc], COMPETITION.
 
 ## Response writing and presentation
 
-- MEDDICC aligns value proposition with pain, Metrics, and customer Decision Criteria; the three-to-five count and proof backing are rule-specific additions [book:meddicc], COMPETITION.
-- The book recommends inspecting work as it is created and using peer reviews before accepting interim deliverables as done [book:head-first-pmp], Inspection, testing, and product evaluation.
 - Check that every label matches its adjacent content.
 - Remove internal reviewer comments and team-language notes from client exports.
 - Recompute totals and currency conversions from raw cells.
@@ -87,9 +88,8 @@ Run this review on each client-bound file and export. These checks came from def
 - On re-review, re-sweep the full deliverable for each supposedly fixed string instead of trusting a status tracker.
 - After splitting a dense slide, check the section counter, title, and continuation-slide density.
 - Treat the working file and any circulating export as separate deliverables; name and check both.
-- The book says to move past vendor and feature lists to compare the decision options and their trade-offs [book:software-architect-elevator], Measuring an Architect’s Value.
 - Do not submit a matrix with silent coverage gaps.
 - Do not over-ask the client or ask permission for conventions that can be decided internally.
 - Match pricing precision to the solicitation: avoid precision pricing for unscored RFIs and do not give vague pricing for scored RFPs.
 
-When the RFI explicitly says its answers will shape a later RFP, use the response to make missing decision criteria visible. For example, show why residency, sector compliance, or evaluation rigor must be assessed. State inferred future criteria as inference; an RFI has not published a scorecard.
+When the RFI explicitly feeds a future RFP, use the response to shape its criteria toward your differentiators by teaching which requirements matter and why; bid when those criteria reflect your differentiated offer. Make missing decision criteria visible, and state inferred future scoring criteria as inference because an RFI has not published a scorecard [book:challenger-sale], Teaching for Differentiation.

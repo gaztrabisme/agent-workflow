@@ -6,6 +6,7 @@ Choose the response and commercial instrument from the deal’s solicitation, ac
 
 - Read the deal-shape reference before choosing a workbook or pricing multiplier.
 - Declare the deal shape in Phase 0 before choosing the spine, carrier, pricing method, and definition of done.
+- Choose an enterprise bid when there is a scored document, client-authored acceptance requirements, or a submission receipt. Otherwise choose the instrument that fits the work: fixed price for scoped delivery, or time-and-materials or retainer terms for discovery, advisory, or managed services.
 
 ## Sizing and estimate basis
 
@@ -23,7 +24,6 @@ Choose the response and commercial instrument from the deal’s solicitation, ac
 - Prioritize the solution qualities as design constraints; the book does not prescribe this fixed NFR subset across both deal shapes [book:fundamentals-enterprise-architecture], Summarizing NFRs.
 - Use one ID spine across the artifact set, with every artifact as a view over it.
 - Ask a less familiar reader to check clarity and flow; the book does not prescribe a mechanical integrity checklist [book:storytelling-with-data], A fresh perspective.
-- Choose enterprise bid when there is a scored document, client-authored acceptance requirements, or submission receipt; otherwise select fixed-price delivery.
 - When a won enterprise bid becomes fixed-price delivery, state the shape change and migrate requirement refs to acceptance criteria and traceability to the acceptance annex.
 - Run artifact-integrity checks across the deal-shape migration boundary.
 - Tailor methods and artifacts to project context and scale while preserving mandatory contract obligations [book:pmbok-guide-7e], 3.7. Tailor Based on Context.
