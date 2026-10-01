@@ -1,6 +1,6 @@
 ---
 name: skill-builder
-description: "A workflow for building and maintaining role-skill packages. USE WHEN creating a skill, changing its structure or trigger, distilling a book/course/method into a skill, or preparing a skill to publish. Not `core` (shared gates), `evolution` (trace-based changes to a working skill), `conductor` (cross-skill routing), or `ceric` (general claim audits). Keywords: skill authoring, build a skill, SKILL.md, frontmatter, distill, dogfood, references, validate skill, publish skill."
+description: "A workflow for building and maintaining role-skill packages. USE WHEN creating a skill, changing its structure or trigger, distilling a book/course/method into a skill, or preparing a skill to publish. Not `core` (shared gates), `evolution` (trace-based changes to a working skill), `conductor` (cross-skill routing), or `ceric` (general claim audits). Not `domestika-course-archive` (exports purchased course media and captions); this skill builds the reusable role-skill package. Keywords: skill authoring, build a skill, SKILL.md, frontmatter, distill, dogfood, references, validate skill, publish skill."
 ---
 
 # Skill-builder
@@ -19,6 +19,8 @@ Shared gate definitions live in `../core/SKILL.md`. Quality plans name the pract
 - Split concerns out before a shared skill swallows them; do not let one skill accumulate every capability. [book:facilitating-software-architecture], Chapter 4. The Architecture Advice Process
 
 > **Disambiguation:** choose by artifact and audience. Skill-builder produces or reshapes the skill package for its author; its siblings own the shared kernel, later trace harvest, constellation routing, or general argument audit.
+
+> **Specific boundary:** `domestika-course-archive` exports a user's purchased course media and captions; skill-builder creates or structurally refines the reusable skill package. (derived: dogfood 2026-10-01)
 
 ## Principles / anchoring rules
 
@@ -39,7 +41,7 @@ Shared gate definitions live in `../core/SKILL.md`. Quality plans name the pract
 | Publish, when requested | Generalize examples, break private linkage, scan files and history, verify a clean clone | Scrub results and release record |
 | Record and hand off | Add the initial evolution entry and route later trace harvests to the right sibling | `EVOLUTION.md` and clear composition links |
 
-The checklist gives the ordered build and refine paths. The course playbook and publishing reference carry the longer procedures. The flow table is an index; scale it for a quick question, a critique of existing work, or a recheck after a fix. [book:continuous-delivery], Chapter 3: Continuous Integration
+The checklist gives the ordered build and refine paths. The course playbook and publishing reference carry the longer procedures. The flow table is an index; scale it for a quick question, a critique of existing work, or a recheck after a fix. For a critique or structural refine, use `references/refine-review.md` and its report template. [book:continuous-delivery], Chapter 3: Continuous Integration
 
 For a course distillation, specify the output medium, recurring scripts or templates, and the render-and-check loop. Say when to open the factual library, list application-changing crosswalk corrections, and cite source anchors or pages in outputs. Report what was measured, vision-judged, not judged, or skipped and why.
 
@@ -48,7 +50,6 @@ For a course distillation, specify the output medium, recurring scripts or templ
 - **Grounding gate** — read the relevant source, `core`, and every sibling the new skill touches; record what conventions or references were reused. See `../core/references/grounding-gate.md`.
 - **Output Contract** — the result is the skill package and its evidence: files exist, checks name their results, and an unfinished gate is reported. See `../core/references/output-contract.md` and `../core/references/wiki-protocol.md`.
 - **Pushback and teach** — explain a substantive recommendation and give a better next move. See `../core/references/pushback-and-teach.md`.
-- **Approach declaration** — say whether the work is single-actor or uses independent review lanes; a single-actor approach may skip the lane declaration when no hand-off is involved. See `../core/SKILL.md` §7.
 
 ## Anti-patterns (hard no-list)
 
@@ -63,7 +64,7 @@ These failures are easier to catch when the workflow names its gates and checks 
 ## Composition
 
 - **Core reference:** link to `core` for shared gate definitions; keep skill-specific procedures here.
-- **Consumes / hands off to:** `conductor` for constellation routing; `evolution` for real-trace harvesting and verdict settlement; `ceric` for general claim-evidence audits.
+- **Consumes / hands off to:** `conductor` for constellation routing and multi-skill approach declarations; `evolution` for real-trace harvesting and verdict settlement; `ceric` for general claim-evidence audits.
 - **Pipeline position:** after `conductor` scopes and routes an authoring request, this workflow consumes the request brief and existing skill-set conventions; a distillation also consumes the complete source and factual library. It produces the skill package and its validation and dogfood evidence. Later trace harvesting and verdict settlement go to `evolution`; general claim audits go to `ceric`. [book:continuous-delivery], Chapter 3: Continuous Integration
 - Keep each skill narrow, give it a distinct trigger, and connect neighboring skills with forward and return links plus explicit hand-offs. [book:swebok], Chapter 2: Software Design
 - **Canonical reference rule:** keep shared material in one authoritative source and link to it from the role-skill. [book:building-design-systems], Define the Sources of Truth
@@ -71,6 +72,9 @@ These failures are easier to catch when the workflow names its gates and checks 
 ## References
 
 - `references/authoring-checklist.md` — decide, ground, write, validate, dogfood, refine and record a skill.
+- `references/refine-review.md` — inspect an existing skill, map build checks to review checks, and report evidence-backed findings.
+- `references/templates/refine-review-report.md` — record a critique or structural-refine review.
+- `references/templates/EVOLUTION.md.skeleton` — minimal local starter if the shared evolution template is unavailable.
 - `references/templates/SKILL.md.skeleton` — canonical section headers and frontmatter shape.
 - `references/distill-course.md` — source approval, method digests, crosswalk, execution, checks and privacy for book/course distillation.
 - `references/rebuild-from-sources.md` — the agent-neutral source-ledger, coverage, claim-audit, dogfood, fix and swap method used in this programme.
@@ -78,6 +82,6 @@ These failures are easier to catch when the workflow names its gates and checks 
 - `references/templates/method-digest.md` — one anchored digest for each method stage.
 - `references/templates/science-crosswalk.md` — compare a course method with its factual or measurement library.
 - `references/publishing.md` — prepare a skill for public release and verify the published artifact.
-- `scripts/check_refs.py` — check local links and source anchors in a distilled skill.
+- `scripts/check_refs.py` — check package paths, named files, sibling pointers, optional skeleton headings, format, and source anchors.
 - `scripts/scrub_check.py` — scan a working tree and, when requested, the full Git history against a private denylist.
-- Every skill ships with `EVOLUTION.md`; use `../evolution/references/templates/EVOLUTION.md.skeleton` for its shared evolution-entry shape.
+- Every skill ships with `EVOLUTION.md`; use `../evolution/references/templates/EVOLUTION.md.skeleton` when the shared sibling is available, or `references/templates/EVOLUTION.md.skeleton` as the local minimum fallback. (derived: dogfood 2026-10-01)

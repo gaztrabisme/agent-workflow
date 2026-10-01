@@ -2,7 +2,7 @@
 
 Reader: the author turning a complete source into a role-skill whose main content is the ordered method it teaches and the checks at each stage. Run this playbook inside `authoring-checklist.md`; this file adds the source, claim, execution, and verification work.
 
-Worked example: `../../color-theory/` distilled one course in 2026. Its evolution record explains which decisions were reused and what the dogfood exposed.
+Worked example: `../../color-theory/` is a programme-workspace sibling that distilled one course in 2026; it may be absent from a standalone install. When that sibling is unavailable, use the in-repo `references/rebuild-from-sources.md` core-rebuild example for a complete local example of the source-to-check workflow. Treat the missing sibling as unavailable input, not as evidence that the course-playbook steps ran. (derived: dogfood 2026-10-01)
 
 Terms:
 - **Reading copy:** checked text of the source, with its figures and pages or lessons intact.

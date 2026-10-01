@@ -24,6 +24,16 @@ Use all three; each exercises a different part of `../distill-course.md`:
 2. **Critique work.** Use a real or mocked artifact and run the whole review checklist without the source application. Say which checks were measured, judged visually, not judged, or skipped. At least one task must make an artifact through the complete render-and-check path.
 3. **Fact question.** Route a question to the factual library and verify a computed number.
 
+## Tasks for a tool skill
+
+Use the available rung that exercises the tool contract without requiring private credentials or paid inputs:
+
+1. Run the package's shipped tests or scripted checks against fixtures.
+2. If the tool offers a dry-run, probe-only, or equivalent mode, use it with mocked inputs and inspect the resulting artifacts. If it has no safe probe, record that gap rather than inventing live results.
+3. Audit the package boundary: named versus shipped files, links and sibling pointers, and whether manifests, media, captions, logs, or temporary data could be staged with the source package.
+
+When a live run is unavailable, this check-and-package audit is the accepted substitute rung for dogfood. State what it exercises, what remains untested, and why. (derived: dogfood 2026-10-01)
+
 ## Pass condition (state it before running)
 
 The skill passes this dogfood when it fires on the right task without a sibling collision, each required gate is actionable, references resolve, and no high-severity defect remains after fixes. A `PENDING` entry still needs two independent real uses before `KEEP`. (field rule)

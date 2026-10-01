@@ -8,7 +8,7 @@ description: "<one line: what buildable/knowable/sellable thing this produces>. 
 
 <Identity — one paragraph: what this skill produces and for whom. The concrete artifact, not a mission statement.>
 
-> Inherits the `core` kernel — see `../core/SKILL.md`. Obey its Integrity Constraints; declare its gates; reference its files, don't copy them.
+> Inherits the `core` kernel — see `../core/SKILL.md`. Follow shared gates through their canonical references; do not copy their definitions. (derived: dogfood 2026-10-01)
 
 ## When it fires — and when a sibling owns it
 - **This skill:** <the situations it owns>.
@@ -29,14 +29,13 @@ description: "<one line: what buildable/knowable/sellable thing this produces>. 
 - **Grounding gate** — substrate for this skill: <what>. See `../core/references/grounding-gate.md`.
 - **Output Contract** — primary artifacts: <what must exist before "done">. See `../core/references/wiki-protocol.md`.
 - **Pushback & teach** — see `../core/references/pushback-and-teach.md`.
-- **Approach declaration** — <mark skippable for single-actor work if apt>. (core SKILL.md §7.)
 
 ## Anti-patterns (hard no-list)
 - <the failure modes specific to this skill>.
 
 ## Composition
 - **Inherits:** `core`.
-- **Consumes / hands off to:** <pipeline neighbors>.
+- **Consumes / hands off to:** <pipeline neighbors, including `conductor` for cross-skill approach declarations>.
 
 ## References
 - `references/<file>.md` — <one-line purpose>. (Every reference/template listed here must exist and be pointed at — no orphans.)
