@@ -20,7 +20,7 @@ Obtain written confirmation from the relevant stakeholders that the deliverables
 
 In the tracker, mark a criterion Accepted only when its written acceptance is recorded and supporting evidence is linked. Keep the relevant stakeholder's acceptance tied to the criterion ID; do not treat a remembered verbal approval as the record. [book:swebok], 5.1. Determining Closure
 
-Accept completed criteria in batches during delivery. For a rejection, capture each specific deficiency and the criterion it fails. A vague rejection is not actionable: ask which concrete harm or unmet condition the client means, and record the itemised answer. [book:holacracy], Chapter 6: Facilitating Governance
+Accept completed criteria in batches during delivery. For a rejection, capture each specific deficiency and the criterion it fails. A vague rejection is not actionable: ask which concrete harm or unmet condition the client means, and record the itemised answer. [book:holacracy], Chapter 6: Facilitating Governance (5907 · U3 · L19 · 02:31–03:25)
 
 If a deficiency is a failure against the signed criterion, link it to the defect record. If it asks for behavior the signed set does not require, raise a change request immediately rather than treating the new requirement as a defect. [book:swebok], 3.1. Requesting, Evaluating, and Approving Software Changes; [book:head-first-pmp], Is the product ready to go?
 

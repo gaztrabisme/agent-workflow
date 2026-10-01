@@ -8,9 +8,9 @@ This is a bounded delivery contribution to the estimate, not contract delivery. 
 
 For the operational signature gate, treat a contract as in force when the client has accepted a specific proposal version and fee in writing, whether in an executed contract, email or chat. Record the date, channel, exact version and fee, and a reference to the acceptance record in the baseline control fields. A conditional or ambiguous message is not enough; route contract status to solution-architect. (derived: dogfood 2026-10-01)
 
-When solution-architect sends a work breakdown for pricing, delivery owns the effort input, release split and cut order because the delivery lead will be accountable for the signed commitment. Supply the estimate, schedule and cost inputs, the release split in the buyer's recorded language, and the cut order with what the client loses at each cut. [book:swebok], 7. Software Engineering Management Tools
+When solution-architect sends a work breakdown for pricing, delivery owns the effort input, release split and cut order because the delivery lead will be accountable for the signed commitment. Supply the estimate, schedule and cost inputs (5907 · U3 · L22 · 03:57–06:18), the release split in the buyer's recorded language, and the cut order with what the client loses at each cut. [book:swebok], 7. Software Engineering Management Tools
 
-Start an effort sheet with the effort column empty so the discipline leads who will do the work can estimate their own rows. Never accept a prefilled effort form; build estimates from individual estimates by the people who will do the work. [book:user-story-mapping], The Secret to Good Estimation; [book:head-first-pmp], Estimation tools and techniques
+Start an effort sheet with the effort column empty so the discipline leads who will do the work can estimate their own rows. Never accept a prefilled effort form; build estimates from individual estimates by the people who will do the work. [book:user-story-mapping], The Secret to Good Estimation; [book:head-first-pmp], Estimation tools and techniques (5907 · U3 · L22 · 03:57–06:18)
 
 Estimate the total effort and compare it with each contributor's actual availability over the delivery window. Record planned hours per week, allocation, and external or other-employer constraints, then convert the available time to person-days if useful. Return a capacity verdict and the size of any gap for a rescope, staffing or duration decision. (derived: dogfood 2026-10-01)
 
@@ -18,7 +18,7 @@ Observed: a delivery PM rejected a prefilled presale WBS and rebuilt 234 task ro
 
 ## Phase 0 — Mobilise the signed baseline
 
-Convert the signed proposal and its supporting artifacts into a delivery baseline. At kickoff, freeze scope, schedule and cost as the plan of record and record the source for each. The scope baseline is the approved scope statement, work breakdown structure and associated dictionary under change control; keep linked schedule and cost baselines as separate records. [book:pmbok-guide-7e], 4.6.5. Baselines
+Convert the signed proposal and its supporting artifacts into a delivery baseline (5907 · U3 · L22 · 01:11–02:54). At kickoff, freeze scope, schedule and cost as the plan of record and record the source for each. The scope baseline is the approved scope statement, work breakdown structure and associated dictionary under change control; keep linked schedule and cost baselines as separate records. [book:pmbok-guide-7e], 4.6.5. Baselines
 
 Inherit the signed acceptance-criteria IDs verbatim. Use that single spine for the scope list, acceptance tracker, test references and invoice trigger; do not renumber it or make a parallel delivery list.
 
@@ -38,13 +38,13 @@ An absent tracker cannot show that work is unstarted or blocked. Keep the record
 
 ## Phase 2 — Run the record cycle
 
-Update effort spent, deliverables submitted and criteria signed from current records. Reassess risk and capacity; record new requests through change control; publish the cycle record from the trackers. The weekly reporting cadence is the default. [book:project-management-with-ai], Understanding automation in project management
+Update effort spent, deliverables submitted and criteria signed from current records. Reassess risk and capacity; record new requests through change control; publish the cycle record from the trackers. The weekly reporting cadence is the default. [book:project-management-with-ai], Understanding automation in project management (5907 · U3 · L18 · 06:13–07:32)
 
 Delivery remains active while the software is being built. Keep its baseline, obligation and acceptance records current alongside engineering cycles; the delivery lead is not a substitute for the people doing the build. [book:head-first-pmp], Sometimes you need to change your plans
 
 ## Phase 3 — Accept in batches
 
-Move each criterion through preparation, demonstration, client review and a written acceptance or deficiency record. Record criteria as they complete rather than holding all acceptance until close. [book:user-story-mapping], Evaluate Each Piece
+Move each criterion through preparation, demonstration, client review and a written acceptance or deficiency record. Record criteria as they complete rather than holding all acceptance until close. [book:user-story-mapping], Evaluate Each Piece (5907 · U3 · L26 · 00:00–01:29)
 
 Use the acceptance-execution reference for test preparation, rejection evidence and how a newly requested behavior enters change control.
 

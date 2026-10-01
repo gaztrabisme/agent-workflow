@@ -2,7 +2,7 @@
 
 ## Use the baseline as reference
 
-Freeze scope, schedule and cost at kickoff, with the source of each value. A baseline is the comparison reference for actual results, not a blanket prerequisite to begin contract-authorized work. [book:pmbok-guide-7e], 4.6.5. Baselines; [book:head-first-pmp], The project scope baseline is a snapshot of the plan
+Freeze scope, schedule and cost at kickoff, with the source of each value. A baseline is the comparison reference for actual results, not a blanket prerequisite to begin contract-authorized work. [book:pmbok-guide-7e], 4.6.5. Baselines; [book:head-first-pmp], The project scope baseline is a snapshot of the plan (5907 · U3 · L22 · 00:00–01:11)
 
 ## Control fields
 
@@ -22,7 +22,7 @@ Freeze scope, schedule and cost at kickoff, with the source of each value. A bas
 
 ## Scope baseline
 
-Use the signed acceptance-criteria set as the scope reference instead of restating it in new prose. The controlled scope baseline consists of the approved scope statement, work breakdown structure and associated dictionary; keep these tied to the criterion IDs. Record schedule and cost baselines as linked, separately sourced records. [book:scrum-masters-path], Definition of Done vs. Acceptance; [book:pmbok-guide-7e], 4.6.5. Baselines
+Use the signed acceptance-criteria set as the scope reference instead of restating it in new prose (5907 · U3 · L22 · 08:04–09:47). The controlled scope baseline consists of the approved scope statement, work breakdown structure and associated dictionary; keep these tied to the criterion IDs. Record schedule and cost baselines as linked, separately sourced records. [book:scrum-masters-path], Definition of Done vs. Acceptance; [book:pmbok-guide-7e], 4.6.5. Baselines
 
 | Scope item | Signed source | Criterion IDs | Out of scope / assumption reference |
 |---|---|---|---|
@@ -47,7 +47,7 @@ Use the signed acceptance-criteria set as the scope reference instead of restati
 | Contingency | | Risk and spending basis | State who controls it |
 | Total | | | |
 
-Record the effort distribution used to build the estimate. At close, compare actuals to the same phases and disciplines.
+Record the effort distribution used to build the estimate (5907 · U3 · L23 · 12:27–15:10). At close, compare actuals to the same phases and disciplines.
 
 Show supplier-fronted costs due for reimbursement and recurring costs transferring to the client as separate elements, with the agreed reimbursement or transfer event in the source note. (derived: dogfood 2026-10-01)
 

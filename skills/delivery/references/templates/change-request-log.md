@@ -14,7 +14,7 @@ Decision values: Pending, Approved, Rejected, Deferred, Approved zero-cost.
 
 ## Client impact and recommendation
 
-Complete this assessment for each request. State the effect in the client's terms and include what they should expect if the request is declined.
+Complete this assessment for each request. State the effect in the client's terms and include what they should expect if the request is declined (5907 · U3 · L24 · 03:10–04:20).
 
 | CR | Defect or new behavior? | Effort and cost basis | Criterion IDs affected | Schedule / acceptance effect | Risk | Effect if declined | Recommendation |
 |---|---|---|---|---|---|---|---|
@@ -39,7 +39,7 @@ Include absorbed effort in the totals even when no invoice was raised. The zero-
 
 ## Review triggers
 
-Open a conversation about expectations when any of these are true: zero-cost requests exceed five; absorbed effort exceeds contingency; one requester has raised at least three absorbed items; or an absorbed item changed a criterion. Also discuss scope or expectation options when spend runs ahead of the delivery budget. [book:user-story-mapping], Manage Your Budget
+Open a conversation about expectations when any of these are true: zero-cost requests exceed five; absorbed effort exceeds contingency; one requester has raised at least three absorbed items; or an absorbed item changed a criterion. Also discuss scope or expectation options when spend runs ahead of the delivery budget. [book:user-story-mapping], Manage Your Budget (5907 · U3 · L22 · 03:57–06:18)
 
 | Trigger | Observed value | Date reviewed | Expectation / scope decision | Record reference |
 |---|---|---|---|---|

@@ -20,7 +20,7 @@ Effort burn is a cost-control measure, not progress. Update actual effort, submi
 
 Compare available capacity with required effort and record both the gap and contingency. If there is a positive gap, do not freeze it without a recorded rescope, staffing or duration decision. Make a zero-day gap explicit as a plan with no capacity buffer. [book:project-management-with-ai], Balancing workloads across teams; [book:project-management-with-ai], Optimizing resource allocation with AI
 
-Base availability on each person's planned hours per week and allocation for the period, including known external or other-employer constraints. Recheck actual availability during delivery and rebalance the work when it changes. (derived: dogfood 2026-10-01)
+Base availability on each person's planned hours per week and allocation for the period, including known external or other-employer constraints. Recheck actual availability during delivery and rebalance the work when it changes (5907 · U2 · L08 · 01:38–03:00). (derived: dogfood 2026-10-01)
 
 Size contingency from analyzed project-specific risks and spending evidence rather than an arbitrary reserve. Keep its owner and distribution visible in the baseline. [book:project-management-with-ai], Automating financial contingency planning
 

@@ -32,6 +32,7 @@ proposal did not supply routed rules that needed a course citation.
 - **Hard placement:** effort estimation that occurs before signature remains a bounded input in the
   lifecycle reference because it supplies the signed baseline; it does not open precontract delivery
   tracking.
+- **Course add-on:** read 5907 U2 L07–L17 and U3 L18–L27 (the approved course 2999 mapping is U3 L18–L27); added course support to 26 routed rules and 3 practices (delivery-N01–N03).
 - Dogfood (2026-10-01, shared past-presale task): 7 findings (2 high, 3 med, 2 low); 6 fixed, 1 rejected. F5 was rejected because project planning and client-message artifacts are assigned to the sibling skills for the next wave. Verdict remains PENDING.
 
 ### Validation plan
