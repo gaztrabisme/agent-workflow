@@ -33,18 +33,21 @@
 
 ## Rules for using the engagement frame
 
+- Use this Phase 0 frame template, tier every material claim, and turn each empty slot into a client ask or an explicit assumption.
 - Frame the circumstances that affect the decision and why it matters now, then mark uncertainty so advisers can test it [book:facilitating-software-architecture], Framing the Context.
 - Record engagement, date, source, deal shape, and ID spine in the frame header.
-- Use a shared domain model vocabulary across diagrams, writing, and speech, refining terms with domain experts [book:domain-driven-design-evans], Ubiquitous Language.
+- Record the business outcome in the client's own words rather than as technology. Use a shared domain model vocabulary across diagrams, writing, and speech, refining terms with domain experts [book:domain-driven-design-evans], Ubiquitous Language.
 - Record the known facts and circumstances driving the decision at that time so later readers can see the baseline it assumed [book:facilitating-software-architecture], Context.
 - Identify the actual decision maker and what is known about that audience before tailoring the artifact [book:storytelling-with-data], Consulting for context: questions to ask.
 - Name the sponsor who wants the work.
+- Name the economic buyer who releases the money.
 - Name the users who will touch the solution.
 - Map blockers by their actual influence over the decision and verify whose dissent can impede it [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
 - Record the trigger explaining why the work is happening now [book:facilitating-software-architecture], Framing the Context.
 - Capture the decision horizon and delivery deadline in the context, and state when the decision should be revisited [book:facilitating-software-architecture], Framing time.
 - Record hard constraints across budget, systems, regulation, and access [book:fundamentals-enterprise-architecture], What Is an Architecture Decision?.
 - The book calls for an explicit agreement on reciprocal expectations and how the client and consultant will work together, with a written record when useful [book:flawless-consulting], Contracting: The Concept and the Skill.
+- Record the existing relationship context and obligations.
 - Map the buyer’s motivation and the decision’s importance to them alongside formal authority and impact [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
 - Identify concrete risks and case weaknesses, then decide whether to address them proactively [book:storytelling-with-data], Consulting for context: questions to ask.
 - The book recommends teaching a tailored insight that reveals opportunities customers have not yet recognized [book:challenger-sale], THE POWER OF INSIGHT.

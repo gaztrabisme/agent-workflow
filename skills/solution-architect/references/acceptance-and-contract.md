@@ -25,8 +25,8 @@ Use this reference to negotiate the presignature consulting agreement, acceptanc
 
 ## Commercial risk and client obligations
 
-- The book links each acceptance test to a story or requirement; the rule adds a separate capability field to each criterion [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
-- The book requires user value and testability; it does not require the one-sentence format or witness role [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
+- The book links each acceptance test to a story or requirement; give each criterion a separate capability field stating which delivered capability it proves [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
+- The book requires user value and testability; write each criterion summary as one sentence describing an observable, witnessable result [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
 
 ## Connect criteria to contract terms
 

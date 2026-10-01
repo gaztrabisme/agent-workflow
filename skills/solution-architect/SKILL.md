@@ -58,7 +58,7 @@ Scale the work to the deal. A narrow clarification can stay light; a multi-round
 
 
 
-- Restate the client’s ask and name the artifacts that answer it. Mark extra work as proposed with its consumer and decision. (5907 · U3 · L22 · 08:04–09:47)
+- Quote the client's ask verbatim, list the artifacts that answer it, and mark extras as proposed with a named consumer and decision. (5907 · U3 · L22 · 08:04–09:47)
 - For covered technical domains, search the Knowledge Base first and record the query and applied finding, or that nothing relevant was found.
 - Before substantive solution-architecture work that fans out or forks, state the lane's approach and reason; compare independent options for wide decision spaces and research unknowns first. In a coordinated multi-skill run, conductor records the task-level approach declaration in its Plan Block; this rule governs the SA workstream.
 - For research that changes the build, present audience-relevant findings rather than exploratory analysis; use a concise findings list where useful [book:storytelling-with-data], Who, what, and how.

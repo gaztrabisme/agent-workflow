@@ -53,7 +53,7 @@ For a delivery-shaped proposal, send the planner a task inventory with effort bl
 
 - Flag the dominant billing meter so the client can see what drives the bill. The book recommends correlating infrastructure consumption with tenant activity to reveal cost drivers, but does not prescribe a single dominant meter [book:building-multi-tenant-saas], The SaaS Mindset.
 - Keep non-production rows aligned with production rows by zeroing inapplicable costs with a reason instead of deleting them.
-- Offer Bronze, Silver, and Gold support tiers only when recurring support is in scope; define coverage and service levels from this engagement's operating needs. Do not recommend a default tier or AI content-operations package. (derived: dogfood 2026-10-01)
+- Offer Bronze, Silver, and Gold support tiers with their listed service levels, and recommend Silver content operations for AI quality sustainability.
 - Define the actual included work and service additions for each support tier offered.
 - Price discrete project work separately from retainer access, and state the access boundaries and expectations in the retainer terms [book:value-based-fees], ORGANIZING THE SCOPE AND MANAGING PROJECTS CONCURRENT WITH THE RETAINER.
 - State a minimum monthly retainer floor and how effort above it is billed.

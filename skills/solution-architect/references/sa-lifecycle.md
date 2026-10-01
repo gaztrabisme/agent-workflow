@@ -16,11 +16,12 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 - Promote an opportunity only when it has a named beneficiary, observable outcome, access path, and definition of done; park the rest with one named dependency. For factory or OT opportunities, start with instrumentation already available; phase work that needs client-built hardware after a pilot on what exists. (derived: dogfood 2026-10-01)
 - Keep damaging sensitive inferences internal with a named holder; never share them or use them as stated justification.
 - Declare the deal shape and ID spine during intake.
-- The book says to define the specific audience, the action they should take, and the communication medium before creating the message [book:storytelling-with-data], Chapter 1: the importance of context.
+- Declare the recipient in Phase 0 with its role, decision, and primary artifact. Before creating a message, also define the specific audience, action they should take, and communication medium [book:storytelling-with-data], Chapter 1: the importance of context.
 - Open an ask ledger that quotes the ask, lists matching artifacts, and marks extras as proposed with a named consumer and decision.
 - Ask what business outcome changes and establish its baseline [book:fundamentals-enterprise-architecture], Align on the Why.
 - Identify the trigger for acting now [book:fundamentals-enterprise-architecture], Align on the Why.
 - The book says to map affected people, decision authorities, and subject experts, then prioritize them by influence and importance [book:fundamentals-enterprise-architecture], Align on Who.
+- Identify who releases the money (the economic buyer) and who can stop the decision (the veto holder); record them explicitly even when they differ from the recipient or sponsor.
 - Identify who loses discretion if the project succeeds.
 - Test which candidate opportunities are finishable before treating them as projects.
 
@@ -64,8 +65,8 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 
 ## Phase 5 — Respond
 
-- Challenger Sale recommends using customer-relevant insight to define the need before the RFP, then showing how the solution fits, rather than simply steering criteria toward supplier differentiators [book:challenger-sale], Step 2: The Reframe.
-- MEDDICC advises defining absent criteria with the customer's Champion before using them as the basis for evaluation, rather than relying on inference alone [book:meddicc], CHAMPION.
+- Use customer-relevant insight to define the need before the RFP, then show how the solution fits [book:challenger-sale], Step 2: The Reframe. When an RFI explicitly feeds a future RFP, use the response to shape that RFP's requirements and criteria around the surfaced client need, including relevant differentiators; do not simply steer criteria toward supplier differentiators.
+- If decision criteria are unpublished, infer them from the brief and domain, state the inference, and map win themes to those inferred criteria. Validate absent criteria with the customer's Champion before using them as the basis for evaluation, rather than relying on inference alone [book:meddicc], CHAMPION.
 - Audit source documents for duplicate references, contradictory figures, leaked scope, and template mismatch; raise findings as questions or stated conventions.
 - Follow the client's required response structure and numbering exactly; if its template is mismatched, state a convention and proceed.
 - Lead with an executive summary of the outcome and win themes, then tell a focused, audience-specific story with only the takeaways the evaluator needs [book:storytelling-with-data], Chapter 1: the importance of context.

@@ -5,7 +5,7 @@ Select and prioritize quality requirements from the client’s business context.
 ## Select client-relevant quality attributes
 
 - Run every solution against the NFR catalog early in Phases 2–3; turn gaps into design decisions, clarification questions, or assumptions. The book starts with system quality goals and develops measurable fitness functions iteratively, rather than prescribing this exact catalog workflow [book:software-architecture-metrics], Fitness Functions and Metrics.
-- The book says to make broad quality goals measurable with an objective value, which sharpens a forcing question into a testable target [book:software-architecture-hard-parts], Using Fitness Functions.
+- When an NFR statement is vague, use forcing questions such as “What outcome is protected, under what load or failure condition, and what measurable threshold is acceptable?” Then make the selected quality goal measurable with an objective value [book:software-architecture-hard-parts], Using Fitness Functions.
 - The book surfaces unstated context, assumptions, and dependencies; carry each NFR into the design or make its uncertainty explicit [book:software-architect-elevator], Architects Deal with Nonrequirements.
 
 ## Security and identity
@@ -35,24 +35,24 @@ Select and prioritize quality requirements from the client’s business context.
 - The book includes residency and locality in data policy; the rule also requires identifying applicable cross-border transfer and localization laws [book:data-governance-definitive-guide], The Enterprise Dictionary.
 - When a required PaaS service is not available in-region, state the split-region posture, keep data, app, and identity in-region, restrict cross-region use to an encrypted unstored service over private connectivity, plan migration, and repeat the posture on the deployment diagram.
 - For owned infrastructure, state that data stays on client premises and disclose CapEx, lead time, lifecycle/failure risk, fixed capacity, upgrade responsibility, and hardware replacement/warranty owner.
-- The book records residency and locality requirements by data class; it does not specify the regional fallback architecture [book:data-governance-definitive-guide], The Enterprise Dictionary.
+- Ask where data must physically live and which unavailable regional services require a fallback. The book records residency and locality requirements by data class; it does not specify the regional fallback architecture [book:data-governance-definitive-guide], The Enterprise Dictionary.
 
 ## Compliance and governance
 
 - The book calls for identifying applicable regulations and defining compliance; naming the regulator and guideline in this checklist makes that concrete [book:data-governance-definitive-guide], Chapter 8. Monitoring.
 - The book identifies legal demands for human oversight in AI systems; the sector-specific rules and exact legally required human steps are additions [book:building-reliable-ai-systems], 1.6 Why reliable AI systems matter now.
 - The book calls for per-class access, retention, residency, and processing policies; consent and erasure obligations need separate detail [book:data-governance-definitive-guide], The Enterprise Dictionary.
-- The book grounds data governance in lineage, quality, and classification during processing; it does not specify AI model or content approval workflows [book:data-governance-definitive-guide], Data Processing.
+- For AI/data work, specify data lineage, model/content governance, and approval workflows. The book grounds data governance in lineage, quality, and classification during processing; it does not specify AI model or content approval workflows [book:data-governance-definitive-guide], Data Processing.
 - The book requires identifying applicable regulations and their compliance meaning; asking for the clause and legally required human step adds precision [book:data-governance-definitive-guide], Chapter 8. Monitoring.
 - Add data lifecycle policies for retention and verified destruction [book:data-governance-definitive-guide], Chapter 4. Data Governance over a Data Life Cycle.
 
 ## Scale, performance, and evolvability
 
-- The book makes concurrency and responsiveness explicit and distinguishes gradual growth from spike-driven elasticity [book:software-architecture-hard-parts], Scalability.
+- Establish current and projected volume, peak periods, and concurrency. The book makes concurrency and responsiveness explicit and distinguishes gradual growth from spike-driven elasticity [book:software-architecture-hard-parts], Scalability.
 - The book relates response-time targets to active user load; define comparable targets for each interaction type and cost threshold [book:software-architecture-metrics], Is the fitness function static or dynamic?.
 - The book separates spike capacity from ordinary growth; the ten-times cost and latency-critical questions remain client-specific [book:software-architecture-hard-parts], Scalability.
 - Specify modularity, portability, and standards-based interfaces. The book warns that portability stops at cloud-native integrations, so name the switching boundary rather than promise blanket portability [book:fundamentals-enterprise-architecture], Example Architecture Decision.
-- The book treats extensibility as adding functionality as a service context grows; it does not require committing every future channel or use case now [book:software-architecture-hard-parts], Extensibility.
+- Plan how the architecture will absorb future channels and use cases. The book treats extensibility as adding functionality as a service context grows; it does not require committing every future channel or use case now [book:software-architecture-hard-parts], Extensibility.
 - The book says enablement needs tools and training for its users; translate that into client administrator and maker coaching [book:fundamentals-enterprise-architecture], Enterprise Architecture Enablement.
 - The book raises replaceability and vendor lock-in; estimating switching cost and the client team’s ability to run and extend are additions [book:software-architect-elevator], Planned Obsolescence.
 
