@@ -1,98 +1,64 @@
-# Facilitator Scripts — Verbatim Questions by Phase
+# Facilitator Prompts
 
-All questions are verbatim from the source PDF. Use these as literal prompts in the workshop.
+## Use prompts as a question bank
 
-## Define Phase — BXT Scoring (PDF pp 25–27)
+Treat these prompts as starting points. Adapt them to the client, and follow evidence and uncertainty. Do not read the questions word for word as a script.
 
-### Business Viability questions
-- "Is there a clear and quantifiable revenue?"
-- "What changes are expected in efficiency?"
-- "Will implementation result in cost reductions?"
-- "Does it create a durable competitive advantage?"
-- "What is the predicted time to value?"
+Keep questions open-ended. Invite the client to tell what happens, explain why it happens, or describe a decision or handoff. [book:meddicc], DISCOVERY
 
-**Closing prompt:** "What other viability questions come to mind?"
+## Define: questions for BXT scoring
 
-### Experience / Desirability questions
-- "Does it align with users' needs and preferences?"
-- "How will solution impact user experiences?"
-- "Is the user clear? Who is the 'pilot' of the assistant?"
-- "Will users be motivated to use it over other experiences?"
-- "Are there any potential pain points for users in adopting the solution?"
+Use the Golden Questions in references/five_golden_questions.md. Ask about outcomes, affected users, data, risk, and unknowns before assigning a score. Do not score a pillar without asking its questions.
 
-**Closing prompt:** "What other experience questions come to mind?"
+## Define: problem statement
 
-### Technology / Feasibility questions
-- "Is there a skill gap within your organization?"
-- "Is implementing technology a 'catch up,' or a differentiator?"
-- "Are there any potential integration challenges with existing systems?"
-- "How ready are you to consume this vendor's technology?"
-- "What value is a generative approach going to add?"
-- "How can we ensure the accuracy of the models?"
+Invite the client to describe the problem in their own words: “We see [person or role] trying to [goal] in [context]. What gets in the way, and what result would matter?” Keep the framing open so it does not dictate a solution. Adapt the starter to the team and its context. [book:lean-ux], Problem Statement
 
-**Closing prompt:** "What other feasibility questions come to mind?"
+## Develop: journey map prompts
 
-## Define Phase — Problem Statement Prompt
+- **User lane:** What does the user do now, in order, to reach the goal? Where do they wait, decide, hand off, or recover from an error? Mapping today's work helps reveal the problem the user is solving. [book:user-story-mapping], 2. Understand Customers and Users
+- **AI Discovery lane:** Which substeps could AI augment or automate, and where should the boundary sit? Delimit the process substeps rather than labeling the whole process as an AI task. [book:art-of-ai-product-development], 10.1 Discovery and user research
+- **Agentic Workflow lane:** Which tasks require multiple steps or decisions, and what goal, constraint, or policy shapes each one? Agent planning addresses multi-step and decision-heavy tasks. [book:art-of-ai-product-development], 9.2.2 Planning the task execution
 
-**Template to elicit user voice:**
-> "Ideally, I'd tell the system what I need, and it would..."
+## Deliver: choose an approach
 
-Fill in the blank with the client's own words. This keeps the problem statement user-anchored, not tech-anchored.
-
-## Develop Phase — Journey Map Prompts
-
-Three swim lanes on the Agentic User Journey Map. One prompt per lane:
-
-- **User lane:** "Create steps for the main persona to complete the user tasks and their KPIs."
-- **AI Discovery lane:** "Ideate and enhance tasks with AI capabilities."
-- **Agentic Workflow lane:** "Ideate and identify agentic tasks that can be automated."
-
-## Deliver Phase — GenAI Approach Selection (PDF pp 52–54)
-
-Four decision dimensions; ask each set of questions:
+Ask the group to work through four dimensions:
 
 ### Data
-- "Where is my data?"
-- "What infrastructure do I need to connect it?"
-- "How does my data need to interface with the platform's data and other sources?"
+
+What data is needed, in what modality, and where is it available? What data or modality limits the model or engineering choices? [book:art-of-ai-product-development], 3.1 Data
 
 ### Customization
-- "How will customers interact with my app?"
-- "Do I need to control its tone and behavior?"
-- "Am I prepared to manage security and compliance?"
 
-### Development Complexity
-- "How much time can I dedicate to app dev?"
-- "What resources can I dedicate to this app?"
-- "Who do I have available to staff to this project?"
+Can a prompt or retrieval from trusted sources meet the need, or would fine-tuning be worth assessing? [book:art-of-ai-product-development], 8.1.2 Evaluating fine-tuning as a solution
 
-### End User
-- "Who is the end user?"
-- "How much technical know-how will my end user have?"
-- "Where would the end-user interface with the app?"
+### Development complexity
 
-**Maps to:**
-- Low data + no/low-code + non-technical users → **Adopt / extend an off-the-shelf assistant**
-- Multiple data sources (API) + moderate customization + pro-code → **Build a custom assistant**
-- Complex infrastructure + full customization + technical users → **Build on a unified data platform**
+What skills, time, compute, integration, and operating effort would each approach require? Fine-tuning can add computational, expertise, and time demands. [book:art-of-ai-product-development], 8.1.2 Evaluating fine-tuning as a solution
 
-## Deliver Phase — ROI Framing Question
+### End user
 
-Example phrasing to walk a client through ROI:
+Who uses the system, what skills do they have, and where do trust, control, or human approval matter? [book:art-of-ai-product-development], 10.1.2 Understanding the skills and psychology of your users
 
-> "What are my cost savings per year in [Contoso / client name], to optimize each [candidate recruitment duration] by 30%, and reduce [manhours effort] by 50%?"
+Use these as hypotheses to compare, not automatic prescriptions:
 
-Replace bracketed items with the client's specific workflow, baseline metric, and target improvement.
+- An off-the-shelf assistant may fit low-data, low/no-code use with nontechnical users; pretrained models and existing frameworks can be faster and more cost-effective than custom training. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
+- A custom assistant may fit multiple data sources, moderate customization, and a team prepared for pro-code work. Consider fine-tuning only when the team's background or motivation supports it. [book:art-of-ai-product-development], 8.1.2 Evaluating fine-tuning as a solution
+- A unified data platform may fit complex infrastructure, full customization, and technical users when the learning problem's nature and complexity call for it. [book:art-of-ai-product-development], 3.2 Different types of intelligence
 
-## Deliver Phase — Solutioning Considerations Prompts
+## Deliver: estimate value
 
-Ask these once a use case is chosen for PoV:
+Replace placeholders with the client's workflow, baseline metric, and target improvement. Start with the time currently spent on the task, then quantify possible savings in the client's terms. [book:art-of-ai-product-development], 12.3.1 Communicating the value of your AI
 
-- "Are there secondary personas in this workflow (submitter, reviewer, approver, finance)? What's different about their actions and decision points?"
-- "Where does a human need to stay in the loop (HITL)? Which tool calls require approval vs. autonomous execution?"
-- "What's the RACI for this workflow once deployed?"
-- "As agents scale, do we have a catalog of user workflows and goals to ground new agents against?"
+If no baseline exists, record that gap and include measurement in the PoV plan rather than assuming an improvement.
 
-## Discover Phase — Five Golden Questions
+## Deliver: solution notes for handoff
 
-⚠️ **See `five_golden_questions.md`.** The source methodology names this technique but does not define it in one place — the reconstruction there is inferred from the BXT screening questions and should be treated as `PENDING` until confirmed against a trainer or a real workshop.
+After a use case is selected for PoV, ask:
+
+- Which secondary personas act in the workflow, and what are their actions and decision points? [book:user-story-mapping], Describe Your Customers and Users
+- Where does a person need to review, approve, or be able to stop an action? [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
+- Who is Responsible, Accountable, Consulted, and Informed for each important step? Represent roles and relationships clearly. [book:pmbok-guide-7e], 4.6.6. Visual Data and Information
+- Which workflow goals, tasks, and constraints should ground the proposed agent? Give each agent a plain-language purpose describing what it should do. [book:agentic-mesh], Identity, Description, and Purpose
+
+Capture the answers as client-validated design inputs for the architecture and implementation handoff. They are not a final architecture.

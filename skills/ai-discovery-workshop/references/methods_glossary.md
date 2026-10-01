@@ -1,86 +1,93 @@
-# Design-Thinking Methods Glossary
+# Facilitation Methods
 
-The source deck references facilitation methods by name without defining them. Most are from the LUMA Institute system of 36 methods. Use this glossary to understand what each is and when to deploy it.
+## Discover methods
 
-For deeper detail, see the Design Thinking resource links in the source deck appendix (pg 70): IDEO, Stanford d.school, MIT Sloan, LUMA.
+### Rose, Thorn, Bud
 
-## Discover Phase Methods
+Invite participants to name something that is working, something difficult, and something with potential. Use the themes to open discovery; do not treat a quick round as a substitute for understanding the workflow.
 
-### Rose, Thorn, Bud (LUMA)
-**What it is:** Reflection technique using three categories: positive (rose), negative (thorn), potential (bud).
-**When to use:** Early discovery to gather open feedback and surface emerging themes from users or data.
-**Typical artifact:** Color-coded sticky notes or matrix revealing patterns across three sentiment categories.
+### Five Whys
 
-### Five Whys (lean / root-cause)
-**What it is:** Iterative root-cause technique asking "Why?" five times to move past surface symptoms.
-**When to use:** Problem discovery to uncover systemic causes vs. observable symptoms.
-**Typical artifact:** Chain of why-because statements revealing true root cause.
+When a problem is stated, ask why it happens, then follow each answer until the group finds a plausible underlying cause. Usually around five rounds is enough; stop when the explanation is useful rather than forcing a fixed number. [book:learning-agile], Find the Root Cause of Problems That You Discover [book:software-architect-elevator], Five Whys
 
-### Move off the Solution (facilitation principle)
-**What it is:** Principle of keeping teams in exploration before letting them converge on a solution. Not a formally named canonical method — exists widely in design-thinking facilitation literature (Pivotal, IDEO).
-**When to use:** When the client jumps to a solution prematurely ("we should just build a chatbot..."). Redirect them back to the problem.
-**Typical artifact:** Extended problem/opportunity list without premature filter or gate.
+### Move off the solution
 
-### Asking for Evidence
-**What it is:** Probing question technique ("How do you know that?") requiring claims to be substantiated.
-**When to use:** Throughout the workshop to promote critical thinking and ensure discussions rest on concrete data.
-**Typical artifact:** Transcript or notes distinguishing evidence-backed from unsupported claims.
+If the client jumps to a solution, acknowledge the idea and ask what problem or user need it addresses. Keep the conversation at the problem level until the group understands the outcome. [book:user-story-mapping], 1. Frame the Idea
 
-### Dealing with Yellow Lights
-**What it is:** Traffic-light conflict framework flagging uncertainty/hesitation (yellow) for proactive dialogue — not just green (go) or red (stop).
-**When to use:** Group dynamics when you sense tension or hedging. Surface the yellow before it escalates.
-**Typical artifact:** Conversation log or decision record showing assumption clarification.
+### Two-sided discovery
 
-### Personas (design)
-**What it is:** Fictional user characters representing needs, goals, and behaviors based on research data.
-**When to use:** Define phase to synthesize empathy research and guide ideation toward real user needs.
-**Typical artifact:** One-page persona sheets with demographics, goals, pain points, behaviors. An off-the-shelf AI assistant generates usable first drafts of these.
+Do not stop at the first pain named. Ask for examples, frequency, who is affected, consequences, and how the client knows. The purpose is to understand and quantify impact with the client, not to amplify fear or steer toward a sale. [book:meddicc], DISCOVERY
 
-## Define Phase Methods
+Keep the question open-ended by inviting the client to tell what happened, explain how a process works, or describe a decision in their own words. [book:meddicc], DISCOVERY
 
-### Five Golden Questions (BXT screening)
-**What it is:** The set of ~5 probing questions under each BXT pillar's headline ("Is it viable? / desirable? / feasible?"). Not a single list of 5 — 5-per-pillar.
-**When to use:** During BXT scoring of every candidate use case. The core workhorse of the Define phase.
-**Typical artifact:** Filled BXT template with evidence-backed 1–5 scores per pillar.
-**Full content:** see `five_golden_questions.md` and `facilitator_scripts.md`.
+### Positive deviance
 
-## Problem-Framing Methods
+Alongside a painful workflow, ask where someone in the same organization already achieves a better result with available resources. Study what is different in that pocket of success before proposing a solution. [book:flawless-consulting], The Power of Positive Deviance
 
-### Statement Starters (LUMA)
-**What it is:** Problem reframing using open-ended openers like "How might we..." to invite exploration.
-**When to use:** Problem definition to convert a challenge into a broad invitation that avoids embedded solutions.
-**Typical artifact:** Reframed problem statement as an open question guiding ideation.
+## Frame and synthesize
 
-### Abstraction Laddering (LUMA)
-**What it is:** Problem reframing using "Why?" (ladder up, more abstract) and "How?" (ladder down, more concrete) to shift focus across levels.
-**When to use:** When the problem feels stuck at the wrong altitude — too narrow (tactical) or too broad (vague).
-**Typical artifact:** Ladder diagram showing problem from multiple levels of scope.
+### Ask for evidence
 
-### Affinity Clustering (LUMA)
-**What it is:** Graphic technique organizing items into logical groups based on perceived similarity.
-**When to use:** Data synthesis phase to discover patterns and tame complexity from research findings.
-**Typical artifact:** Grouped clusters of items with emergent labels defining commonalities.
+When a statement affects a score or recommendation, ask what observation, measure, or example supports it. Mark an unsupported statement as an assumption with risk instead of treating every claim as fact. [book:lean-ux], Assumptions
 
-## Prioritization / Convergence Methods
+### Yellow lights and resistance
 
-### Dot Voting
-**What it is:** Democratic prioritization technique where participants allocate tokens (dots) to rank alternatives.
-**When to use:** Convergence to surface consensus and avoid the HiPPO effect (Highest-Paid Person's Opinion).
-**Typical artifact:** Vote tally revealing heat map of priorities across options.
+Notice hedging, tension, or withdrawal early and pause. First pick up the cue, then name the resistance neutrally, and leave space for the client to respond. [book:flawless-consulting], Three Steps for Handling Resistance
 
-### Bulls-eye Diagramming (LUMA)
-**What it is:** Target-ranked prioritization placing critical items at center, important in middle ring, peripheral outside.
-**When to use:** Requirements definition to force deliberation on essentials vs. nice-to-haves.
-**Typical artifact:** Concentric ring diagram showing three-tier priority hierarchy.
+When presenting a difficult finding, pair support with a clear challenge: recognize the client's effort or goal, then name the evidence or decision that needs attention. [book:flawless-consulting], Support and Confront
 
-### Prioritization Matrix (2×2)
-**What it is:** Plot use cases on two axes to identify quadrant-based priority (Quick Wins / Invest Long Term / Test & Learn / Parked).
-**When to use:** The core BXT prioritization step..
-**Typical artifact:** 2×2 scatter plot. See `bxt_template.md` for the exact axes.
+### Personas
 
-## Retrospective / Reflection
+Use a collaborative proto-persona sketch in Define to make assumptions about users visible. It is a best guess to validate, not a polished research conclusion. [book:lean-ux], Proto-Personas
 
-### Sailboat (retrospective)
-**What it is:** Retrospective metaphor using wind (accelerators), anchor (blockers), rocks (risks), and island (goals).
-**When to use:** Sprint or phase closure to identify what propelled progress and what held teams back.
-**Typical artifact:** Visual sailboat diagram with categorized sticky notes driving action items.
+### Statement starters
+
+Turn a narrow challenge into an open request for improvement without embedding a specific solution. Adapt the starter to the team's context. [book:lean-ux], Problem Statement
+
+### Abstraction laddering
+
+If the problem is too narrow, ask what broader goal it serves; if too broad, ask for a concrete instance and action. Use the level that helps the group describe a testable opportunity.
+
+### Affinity clustering
+
+Have participants place observations where the group can see them, then cluster related items and name the themes together. Keep the evidence attached to each observation. Making sense of research is a team activity. [book:lean-ux], Making Sense of the Research: A Team Activity
+
+## Converge and reflect
+
+### Dot voting
+
+Use dots to help the group converge on themes or opportunities, then discuss what the vote means and what it misses. Dot voting can surface a preference; it does not prove consensus or prevent senior voices from influencing the result. [book:laws-of-ux], Defining Your Principles
+
+### Must-have, Delighter, Satisfier tags
+
+Instead of a bulls-eye exercise, tag candidate stories as Must-have, Delighter, or Satisfier to distinguish essentials from desirable additions. Treat the tags as a discussion prompt. [book:user-story-mapping], The Map Is Just the Beginning
+
+### BXT prioritization matrix
+
+Use the matrix to structure discussion, not as the whole decision. Preserve open questions, technical options, and context beside the plotted candidate. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
+
+### Sailboat
+
+At phase close, ask what moved the group forward, what slowed it down, what risk lies ahead, and what destination it is aiming for. Record an action when the group can own one.
+
+## Added practices for the workshop
+
+### Design Studio
+
+Use a short diverge-and-converge exercise with a cross-functional group: sketch possible answers to one clearly framed design question, share them, and combine or select directions for further investigation. [book:lean-ux], Running a Design Studio
+
+### Business assumptions
+
+Surface assumptions about users, business outcomes, and the solution on separate notes. Cluster and prioritize the riskiest assumptions so the workshop can decide what evidence is needed next. [book:lean-ux], Running the Exercise: Business Assumptions Exercise
+
+### Testable hypotheses
+
+For a selected case, write an outcome-first hypothesis that names the user or workflow, the change expected, and a measurable result. Keep it open to disconfirmation. [book:lean-ux], Getting from Problem Statement to Hypothesis
+
+### Three Amigos
+
+Seat a business stakeholder, a technical contributor, and a user-experience voice together while mapping a story. Ask them to examine the same task from value, feasibility, and user perspectives. [book:user-story-mapping], The Three Amigos
+
+### Mid-session check-in
+
+Halfway through, ask the client whether the session is meeting its objectives and what should change for the remaining time. [book:flawless-consulting], The Meeting for Action, Step by Step

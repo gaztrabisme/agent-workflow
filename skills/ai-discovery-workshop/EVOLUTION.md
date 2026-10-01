@@ -92,3 +92,37 @@ Not modified: the method. Discover/Define/Develop/Deliver, BXT, the pillars, the
 - [ ] No sibling skill still routes to the old name (`grep -rn ai-discovery-workshop` across the constellation returns nothing but historical ledger entries).
 - [ ] The decision rules still discriminate. A rule that says "off-the-shelf vs custom vs platform" without naming products risks being *true but useless* — check whether a facilitator can actually act on it in a room.
 - **Verdict: PENDING** — zero workshops run, and the generalization is one author's judgement about what was incidental. Pattern 2 in particular could be wrong in the direction that matters: the product names may have been carrying more decision weight than they appeared to.
+
+---
+
+## Evolution 3 — stage B rebuild (2026-10-01)
+
+### Harvest scope
+
+- **Sources read:** approved skill-set proposal; the ai-discovery-workshop and business-intelligence rule ledgers and crosswalks; practitioner review; the old skill and surviving references; shared core skill and references; skill-builder instructions, checklist, and skeleton; and the cited chapters in the 17 named source books: agentic-mesh, art-of-ai-product-development, challenger-sale, data-science-for-business, designing-ai-interfaces, flawless-consulting, flow-architectures, human-in-the-loop-ml, laws-of-ux, lean-ux, learning-agile, meddicc, pmbok-guide-7e, semantic-software-design, software-architect-elevator, user-story-mapping, and value-based-fees. No course anchor was needed for a routed rule.
+- **Coverage:** all 120 routed rules were carried into the workshop skill: 119 workshop rules and one BXT field rule from business-intelligence.
+- **Evidence limits:** the cited sources and practitioner review support this authoring pass; they do not establish that the rewritten method works in a live workshop. No workshop outcome was available.
+- **Evidence class:** authoring-time.
+
+### Patterns found
+
+1. **The old scope mixed a client decision brief with vendor qualification and architecture work** — Impact: H; Effort: M. The practitioner review and routing table put account research upstream, architecture and proposal downstream, and general product decisions elsewhere.
+2. **Some scoring and agenda rules needed correction to preserve evidence and client judgment** — Impact: H; Effort: M. Crosswalk corrections reject averaged pillar scores, a rigid agentic-case target, and a fixed-minute opening; the review also makes Day 8 outputs conditional.
+3. **The references had useful examples and facilitation practice that a bare checklist would lose** — Impact: M; Effort: M. The factory example, question-bank guidance, workflow mapping, and score caveats explain how to use the rules.
+
+### Hypotheses applied
+
+1. **Reframed SKILL.md around the client-validated AI use-case brief** — closes pattern 1; preserved upstream business-intelligence input, core references, and downstream solution-architect handoff.
+2. **Rebuilt the seven existing references around the workshop flow** — closes pattern 2; corrected BXT aggregation, four-pillar scope, agenda timing, and evidence-dependent decisions.
+3. **Adopted 23 relevant candidate practices** — closes pattern 3: 21 ai-discovery-workshop candidates and two business-intelligence candidates. These add user validation, current-workflow and AI-suitability checks, expected value and pain-cost framing, confidence notes, resistance handling, and client-agreed success measures.
+4. **Removed routed-out partner-program and unrelated rules** — the rebuild does not restore funding tiers, marketplace steps, vendor qualification counters, or generic product-management and architecture deliverables.
+
+### Validation plan
+
+| Change | Expected result | Evidence floor | Evidence class | Owner | Revisit date | Status |
+|---|---|---|---|---|---|---|
+| Brief scope and handoff | Facilitator and client decision group produce a validated use-case brief and route architecture and implementation questions to the right owner. | Two real workshops with a documented handoff and client feedback. | natural | skill owner | after two real uses | PENDING |
+| BXT scoring and caveats | Participants can trace each score to evidence, see uncertainty, and revise the shortlist without treating the matrix as a verdict. | Two real workshops with completed scorecards and decision notes. | natural | skill owner | after two real uses | PENDING |
+| Agenda and facilitation practices | The session reaches a client-owned decision while retaining time for evidence, user feedback, and next steps. | Two real workshops with agenda timing and client feedback. | natural | skill owner | after two real uses | PENDING |
+
+**Verdict: PENDING** — the source-grounded rebuild is complete as an authoring change, but its usefulness remains a hypothesis until two real uses are reviewed.

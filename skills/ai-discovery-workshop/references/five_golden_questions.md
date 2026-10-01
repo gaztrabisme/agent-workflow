@@ -1,40 +1,21 @@
 # The Five Golden Questions
 
-## What they are
+## Prepare a flexible question bank
 
-The Five Golden Questions are **the probing questions under each BXT pillar**. They're not a single list of 5 — they're a **set of ~5 questions per pillar**, each opening with the pillar's headline question:
+Review the five Golden Questions before every workshop. Treat them as a prepared question bank, not a script to recite. Know the headline and internalize the five follow-ups for each pillar well enough to listen, adapt the wording, and ask a useful next question.
 
-| Pillar | Headline | Five Golden Questions |
-|--------|----------|----------------------|
-| **Business** | *Is it viable?* | Quantifiable revenue, efficiency changes, cost reductions, durable advantage, time to value |
-| **Experience** | *Is it desirable?* | User alignment, UX impact, clear "pilot" of the assistant, user motivation, adoption pain points |
-| **Technology** | *Is it feasible?* | Skill gap, catch-up vs. differentiator, integration challenges, platform readiness, generative value + model accuracy |
+| Dimension | Headline | Follow-up themes |
+|---|---|---|
+| Business | Is this viable? | What measurable outcome matters? Could revenue, cost, quality, or time change? How does the opportunity fit current strategy? How durable is the benefit? When could value appear? |
+| Experience | Is this desirable? | Who uses or is affected by it? What need does it meet? How would the experience change? What makes the value appealing? What might make people hesitate or resist? |
+| Technology | Is this feasible? | What data and systems are involved? What expertise and integration are needed? What safeguards would be required? Why is AI or generative AI suitable? What is unknown? |
 
-The verbatim questions for each pillar are in `facilitator_scripts.md` under the **Define Phase — BXT Scoring** section. Read those before every workshop.
-
-## Why these are must-prep
-
-Two reasons:
-
-1. **They're the workhorse questions of the session.** Every candidate use case is scored on BXT; the Golden Questions are what you actually ask to arrive at those scores. If you can't ask them naturally and follow up on the answers, the workshop stalls.
-
-2. **They anchor you in the client's reality.** Clients default to tech-first framing ("we want an AI chatbot"). The Golden Questions drag the conversation back to business value, user desirability, and technical feasibility — which is the whole point of the BXT frameworkS methodology.
-
-## How to prep
-
-Before a workshop:
-
-1. **Memorize the headline question per pillar** — "Is it viable? / Is it desirable? / Is it feasible?" You should be able to lead with these.
-2. **Internalize the 5 follow-ups per pillar** so you can ask them in any order without reading off a slide.
-3. **Prepare client-specific variants** — rephrase generic questions in the client's language. For an energy client, "cost reductions" might become "OpEx savings per asset." For a compliance-heavy client, "platform readiness" might become "readiness given your current data residency stance."
-4. **Anticipate likely answers** — for each question, sketch 2–3 plausible client responses and your follow-ups. This is where the "Asking for Evidence" method (see `methods_glossary.md`) comes in: for every answer, be ready with "How do you know?"
+Before the meeting, draft client-specific variants and tailor them to each stakeholder's priorities. The goal is to learn, not complete a checklist.
 
 ## In-session use
 
-The source deck ends each pillar's question block with: **"What other [viability/experience/feasibility] questions come to mind?"** — always close this way. It invites the client to surface questions specific to their context that the generic set misses.
+Use the Golden Questions while scoring each candidate on BXT. The questions help make opportunity scoring clearer, but the score remains provisional where evidence is thin. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
 
-## What NOT to do
+Ask the headline and use the follow-ups as a prepared question bank. Close each pillar's question block with an open invitation for anything else the group thinks matters. Do not read a slide of questions verbatim.
 
-- **Don't read the 15 questions off a slide.** That's a questionnaire, not a consulting conversation. Know them well enough to weave them in.
-- **Don't force all 5 per pillar** if the client has already addressed one organically. Skip the redundant ones.
-- **Don't score a use case on a pillar where you haven't actually asked the questions.** A BXT score with zero evidence behind it is exactly the overconfident-consult failure mode this method exists to prevent.
+Do not score a pillar before asking about it. If time or access prevents a question, mark the score as unknown or provisional and record the evidence gap.

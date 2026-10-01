@@ -1,67 +1,39 @@
-# Discovery Cards & Agentic Cards
+# Discovery Cards and Agentic Workflow
 
-Two card decks are used across the workshop:
+## Four AI Transformation Pillars
 
-1. **79 AI Discovery Cards** (Develop phase) — for ideating AI enhancements to existing journey steps
-2. **12 Agentic Cards** (Solution Envisioning) — for ideating autonomous/agentic workflow tasks
+Place every use case in one of the four transformation pillars:
 
-## 79 AI Discovery Cards — Categories
+1. Enrich employee experiences.
+2. Reinvent customer engagement.
+3. Reshape business processes.
+4. Bend the curve on innovation.
 
-Each card has: **Title → Description → Examples → AI services mapped**
+Use the pillar to frame the opportunity. It does not replace the client's problem statement or determine whether AI fits.
 
-Categories (colored by AI capability):
+## Journey map and card use
 
-1. **Information Management**
-2. **Content Creation**
-3. **Communication**
-4. **Process Optimization**
-5. **Decision Making**
-6. **Analytics**
-7. **Navigation**
+Map the client's current journey before adding AI. Show the User lane, the AI Discovery lane, and the Agentic Workflow lane. Order user tasks in the sequence they happen; a task is an action toward a goal. [book:user-story-mapping], 2. Organize Your Story [book:user-story-mapping], Tasks Are What We Do
 
-**Cloud AI services commonly mapped:** managed vision APIs, custom-vision training, general cognitive-services suites, managed ML platforms, and hosted LLM services. Map to whichever cloud the client already runs on.
+For each stage, estimate where AI might augment or automate work; delimit the substeps that AI could address instead of treating the whole process as one task. [book:art-of-ai-product-development], 10.1 Discovery and user research [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 
-For the full 79-card list with titles and descriptions, read PDF pp 34–37 directly — the cards are visual/layout-heavy and don't distill well.
+In the 15-minute Develop block:
 
-## 12 Agentic Cards — Solution Envisioning
+1. Pick one journey step.
+2. Spread relevant AI Discovery Cards, filtered to the capability category.
+3. Ask the client to choose one or two cards that fit the step.
+4. Record the capability and the evidence or question it creates on the map.
 
-Domain-specific agent templates. Each card: description + examples + the relevant platform tooling (off-the-shelf assistants, low-code agent builders, CRM/ERP suites, code hosting, etc.).
+For the agentic workflow, select one Agentic Card that matches the task's goals, constraints, and policies. Choose for contextual fit rather than maximum capability. [book:agentic-mesh], Finding the Right Agent Use the selected card as the workflow lane template and populate it with tasks specific to the client's context. User tasks express actions toward goals; the swim lane is this workshop's way to make the workflow concrete. [book:user-story-mapping], Tasks Are What We Do
 
-| # | Card | Typical domain |
-|---|------|---------------|
-| 1 | Onboarding Assistant | HR / employee experience |
-| 2 | Compliance and Audit | Legal / finance / regulated industries |
-| 3 | Routing and Logistics | Supply chain / field ops |
-| 4 | Retail and Marketing | Commerce / customer engagement |
-| 5 | Software Development | Engineering / DevEx |
-| 6 | Customer Service | Support / CX |
-| 7 | Proactive Action | Operations / monitoring |
-| 8 | Personalized Recommendations | Sales / marketing / commerce |
-| 9 | Process Optimization | Operations / BPM |
-| 10 | Productivity | Cross-functional / knowledge work |
-| 11 | Security Operations | SecOps / SOC |
-| 12 | Decision Making | Leadership / analytics |
+## Automation levels
 
-## Four AI Transformation Pillars (how cards map)
+Describe the proposed degree of automation as assisted, augmented, or autonomous. These labels make the human and system roles explicit while the client compares alternatives. [book:art-of-ai-product-development], 3.3.2 Assisted, augmented, and autonomous intelligence
 
-Every use case belongs to one of four pillars. This is the top-level taxonomy for the Select Scenario step:
+For each proposed output, ask whether the user can independently check it before acting. Outputs containing objective information that drive action need a secondary human verification layer. [book:designing-ai-interfaces], Designing for Verifiability
 
-1. **Enrich employee experiences** — Talent Acquisition, Travel Planner, Expense Management, Project Planner, Security & Compliance Management
-2. **Reinvent customer engagement** — Customer Engagement & Success, Account Opportunity Insights
-3. **Reshape business processes** — Service Ticket Resolution, Business Unit Workflow Orchestration, Finance Assistant
-4. **Bend the curve on innovation** — Product Researcher, Rapid Prototyping Assistant, SaaS IP Generator, Backlog Prioritization, Knowledge Retention
+## Agent purpose and handoff
 
-**Scope guidance:** stay focused on pillars 2 and 3 (employee experience + business process) — the two domains this method is built to target. Of those, reshaping business processes is generally the higher-leverage.
+Write each proposed agent's purpose in plain language: what it should do, for whom, and within which workflow. A natural-language purpose gives the team a reference point for outcomes and governance. [book:agentic-mesh], Identity, Description, and Purpose
 
-## How to use the cards in session
-
-**Develop phase (15 min block):**
-1. Pick 1 journey step on the map
-2. Spread relevant AI Discovery Cards (filtered by category)
-3. Client picks the 1–2 cards that resonate most
-4. Note on the journey map which AI capability augments that step
-
-**Solution Envisioning:**
-1. After picking top use case, pick 1 Agentic Card that matches the domain
-2. Use as template for the Agentic Workflow swim lane
-3. Populate with concrete tasks for that client's context
+Treat the workflow as a client-validated sketch. Capture unresolved decisions, required data, human checks, and candidate tasks for the architecture handoff; do not present the card as a finished design.

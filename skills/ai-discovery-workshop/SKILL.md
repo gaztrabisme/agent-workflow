@@ -1,68 +1,56 @@
 ---
 name: ai-discovery-workshop
-description: "Run an AI Discovery & Envisioning workshop with an enterprise client — Discover/Define/Develop/Deliver, BXT-scored use cases, agentic journey mapping, one use case approved for PoV. USE WHEN preparing or facilitating an AI discovery or envisioning workshop, scoring use cases on BXT, working the AI Discovery Cards, prepping the five golden questions, or scoping an AI engagement with a client. Not `business-intelligence` — that researches the client before Day 1; this runs the room. Not `solution-architect` — that turns the output into an architecture and a proposal. Keywords: AI discovery workshop, AI envisioning, BXT, discovery cards, agentic use case, design thinking, Rose Thorn Bud, journey map, five golden questions, PoV, workshop facilitation, use case prioritization."
+description: "Facilitate a client workshop that produces a client-validated AI use-case brief with journey, evidence, score caveats, and handoff for presale decision-makers. USE WHEN preparing or running AI discovery, BXT scoring, AI Discovery Cards, Golden Questions, journey mapping, or a PoV use-case decision. Keywords: AI discovery workshop, BXT, AI use case, Design Thinking, agentic workflow, journey map, Golden Questions, PoV. Disambiguation: business-intelligence prepares client research; product-management owns general product decisions; solution-architect owns the final architecture and proposal."
 ---
 
-# AI Discovery & Envisioning
+# AI Discovery Workshop
 
-The operating manual for running an AI Discovery & Envisioning workshop as a presale consultant: a structured two-session engagement that takes an enterprise client from vague AI ambition to one use case scored, agreed and ready for a funded proof of value.
+## Artifact and scope
 
-> Inherits the `core` kernel — see `../core/SKILL.md`. Obey its Integrity Constraints; declare its gates; reference its files, don't copy them.
+Produce a client-validated AI use-case brief with a journey, evidence, score caveats, and handoff. The audience is the facilitator and the client's presale decision group, including business and technology decision-makers, business-unit stakeholders, end users, and subject-matter experts. Discovery teams benefit from including business stakeholders, subject-matter experts, customers, and end users. [book:user-story-mapping], A Discovery Team Needs Lots of Others to Succeed
 
-## Anchoring principles (read first, every time)
+Use human experience and business process as helpful lenses, generally giving process impact close attention. Treat that as a focus preference, not a gate: each candidate may sit in any of the four AI transformation pillars in references/discovery_cards.md.
 
-These override anything downstream. If a downstream artifact conflicts with them, the principle wins.
+Map secondary personas as well as the primary persona when a complex workflow crosses roles. [book:user-story-mapping], Tell Your Users' Stories
 
-1. **Scope consulting to two domains: human experience and business process.** These are the only two areas this framework targets AI & Data at. When consulting clients, focus the conversation here. Of the two, **process is generally the higher-leverage.** Do not consult on adjacent domains you're less certain about.
+Use business-intelligence for client research before Day 1 and bring its validated context into the room; this workshop turns that context into a client-validated use-case brief. After selection, hand architecture and proposal work to solution-architect. General product decisions belong to product-management. The workshop may capture an initial architecture conversation and prototype question, but it does not approve architecture or implement the prototype.
 
-2. **Don't overconfident-consult.** If you can't defend a claim under pushback, don't make it. This is not about being timid — it's about not getting caught in a follow-up question you can't answer. Build escape hatches. Flag uncertainty. Know the negative space.
+Inherit the shared kernel. Declare the applicable gates and reference ../core/SKILL.md and its references; do not copy those gates into this skill. Follow the shared contract for evidence, artifact writing, and pushback.
 
-3. **The Five Golden Questions must be prepped before every workshop.** They are the **BXT screening questions** — the ~5 probing questions under each pillar's "Is it viable? / Is it desirable? / Is it feasible?" header. Know them cold. Full verbatim set in `references/facilitator_scripts.md`; concept overview in `references/five_golden_questions.md`.
+## Working principles
 
-4. **Use the systematic design-thinking approach.** The procedure is a structured Discover → Define → Develop → Deliver flow with specific methods at each stage. Don't improvise — run the flow.
+- Start with the client's problem and workflow, not a technology choice. A solution-led brief narrows the team before it understands the problem. [book:lean-ux], Problem Statement
+- Make only claims you can defend. Mark uncertainty, missing evidence, and questions that need follow-up; being direct about possible AI failure builds trust. [book:art-of-ai-product-development], 12.3.2 Communicating about AI failure
+- If technical feasibility is unknown, say so and leave the score provisional. Before pursuing higher-risk tasks, check that the team has the needed expertise and that potential payoff justifies the investment. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
+- Do not state a performance or savings statistic without a concrete baseline and a measurement plan. A suitable baseline is part of understanding the business task. [book:data-science-for-business], Evaluation, Baseline Performance, and Implications for Investments in Data
+- Derive decision measures from the client's goals and express value in the client's terms; funding arrangements do not decide which use case is best. [book:meddicc], Metrics
+- Keep commercial content out of the opening. The supplier enters after the client has agreed on the problem and is ready to discuss solutions. [book:challenger-sale], Step 6: Your Solution
+- Tailor the opening to the business priorities of the people in the room, not only to their sector. [book:challenger-sale], Tailoring for Resonance
 
-## The 4-phase flow (at a glance)
+Opening frame: “You described [workflow or goal]. Today we will map how it works, test where AI may help, and leave with what we know, what remains uncertain, and what needs proof.” Use the client's words and fill in only details they have confirmed. A problem-first conversation helps nontechnical stakeholders see the business problem before discussing machine learning. [book:human-in-the-loop-ml], Summary
 
-| Phase | Duration | Output | Key methods |
-|-------|----------|--------|-------------|
-| **Discover** | Day 1 prework + opening | Personas, pain points | Five Whys, Move off the Solution, Rose/Thorn/Bud, Statement Starters |
-| **Define** | Day 1 core | 2–3 candidate use cases scored on BXT | BXT framework + **Five Golden Questions** (per pillar), Affinity Clustering, Prioritization Matrix |
-| **Develop** | Day 1 → Day 8 | Agentic Journey Map, GenAI approach selected | Journey Mapping, AI Discovery Cards (79), Agentic Cards (12) |
-| **Deliver** | Day 8 close | Approved use case for PoV, ROI baseline, architecture draft | ROI Analysis, Architecture Design Session, Rapid Prototyping (AI coding assistant) |
+## Four-phase working flow
 
-Workshop targets **3–5 agentic AI use cases** per engagement, narrowed to **1 approved for PoV** by end of Day 8.
+Use Discover, Define, Develop, Deliver as a sequence: understand people and their work; frame and assess candidate problems; map the journey and explore AI assistance; then agree evidence, value, and next steps. Spend time empathizing, defining, and ideating before prototyping or testing. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
 
-## How to use this skill
+Score every candidate use case across Business, Experience, and Technology to make the decision clearer, but treat the numeric matrix as intelligence gathering. Keep relevant details, evidence gaps, and open questions visible, and remain ready to revise the scores. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
 
-**For quick lookups**, go to `references/` — these are tight digests of the most-accessed content:
+For enterprise AI engagements, use BXT to assess the candidate opportunities.
 
-- `references/workshop_agenda.md` — Day 1 / Day 8 structure, prework, prep checklist
-- `references/bxt_template.md` — BXT scoring model, rubric, Factory AI example
-- `references/facilitator_scripts.md` — verbatim questions to ask the client by phase
-- `references/discovery_cards.md` — 79 AI Discovery Cards + 12 Agentic Cards by category
-- `references/commercial_framing.md` — how to position the workshop commercially, and the ROI conversation
-- `references/methods_glossary.md` — 1-liner on every named method (Rose/Thorn/Bud, Sailboat, etc.)
-- `references/five_golden_questions.md` — concept overview (the BXT screening questions)
+During journey mapping, prioritize a small number of journey steps, likely one, at the stage with the highest payoff. Do not promise a fixed count of agentic cases. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 
-**For prework intel**, use the `business-intelligence` skill before Day 1. That skill produces the executive profiles (with political-layer analysis), competitive context, Capability Map, and Claims Verification that the workshop then structures into BXT-scored use cases. The two skills compose: BI is *what* you know about the client; this skill is *how* you run the room.
+The Day 1 brief can carry two or three BXT-screened candidates into further discussion. Build an Agentic Journey Map between Day 1 and Day 8 and estimate where AI could augment or automate a step; the map and cards are the workshop method. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 
-**For the step after the workshop**, use the `solution-architect` skill. The BXT-scored use cases, agentic journey map, and ROI baseline this workshop produces become the inputs to its Architect phase, where they're turned into a solution architecture and an RFI/RFP/proposal response. `solution-architect` pulls this skill's stack and `commercial_framing.md` rather than re-deriving them — so the pipeline is: BI → this skill → solution-architect → dev (the build).
+Day 8 is a decision point, not a promise that every output is ready. Estimate potential ROI when evidence permits; record a PoV decision only when the client has enough evidence, the relevant decision-makers are present, and follow-up is agreed. Architecture and implementation proceed through the named handoff. [book:art-of-ai-product-development], 2.3.1 The careful approach: Ready, aim, fire
 
-**Kernel:** this skill inherits the `core` spine — integrity constraints, gate-by-artifact, the Grounding Gate (ground BXT scores and claims in the evidence; "don't overconfident-consult" is the honesty corollary), and the evolution loop. Reference `../core/references/…`, don't re-derive. No real workshop has yet been run through this skill and written up, so treat its method as `PENDING` until validated in practice (see `../evolution/references/loop.md`).
+Use the references below as working materials. Treat the question sets as a flexible bank: adapt them to the client and leave time for evidence and discussion.
 
-## Anti-patterns (hard no-list)
+## References
 
-- **Tech-first framing.** "We should use a managed LLM service for..." before the problem is nailed down. The method opens with the ~80% AI project failure rate — tech-first is the root cause.
-- **Scoping outside experience or process.** If the use case isn't clearly (a) enriching a human experience or (b) reshaping a business process, stop and rescope.
-- **Claiming maturity we don't have.** The framework bakes in "is it feasible?" scoring — if we don't know, score honestly.
-- **Unverified stats.** "100x acceleration", "50% productivity gain" without a concrete baseline — don't.
-- **Skipping the BXT scoring.** Every candidate use case must get scored across Business / Experience / Technology. No "gut feel" prioritization.
-- **Single-persona shortcut.** Complex workflows usually have secondary personas (submitter / reviewer / approver / finance). Map them all or the HITL design is broken.
-
-## Opening hook for a client conversation
-
-When asked how you'd approach an AI engagement, you can answer along these lines:
-
-> "Industry data shows roughly 80% of AI projects fail because teams solve the wrong problem. We run a structured 2-session workshop — Discover, Define, Develop, Deliver — that scores every candidate use case across Business, Experience, and Technology before we commit. By the end of Day 8 you have one use case ready for a funded PoV. We stay scoped to AI for your human experience and business process. We don't consult outside that."
-
-Adjust the language to the client's sector — compliance-first for a regulated industry, throughput-first for heavy industry — but keep the structure honest.
+- references/workshop_agenda.md — contract, prework, session flow, timing, and materials.
+- references/bxt_template.md — assessment fields, scoring, examples, and matrix caveats.
+- references/discovery_cards.md — journey mapping, card use, transformation pillars, and automation levels.
+- references/five_golden_questions.md — the BXT question bank and facilitation guidance.
+- references/facilitator_scripts.md — adaptable prompts for BXT, journey mapping, approach choice, ROI, and handoff.
+- references/methods_glossary.md — discovery, framing, synthesis, and convergence methods.
+- references/commercial_framing.md — client-value framing and agreed next steps.

@@ -1,40 +1,21 @@
-# Commercial Framing
+# Client Value and Next Steps
 
-How a workshop converts into a funded project — and how to talk about money without losing the room.
+## Frame value from a baseline
 
-The workshop is not the product. It is the qualification step that makes the product fundable, and it earns its fee by being the cheapest way for a client to find out which of their AI ideas is real.
+Do not lead with a vendor's headline ROI multiple. Work backward from the client's goal and calculate from the client's baseline. [book:data-science-for-business], Evaluation, Baseline Performance, and Implications for Investments in Data
 
-## Vendor funding programmes — position them, don't lead with them
+Ask: “For [workflow], how much time or effort does it take today? If the process changed by [target], what would that mean for cost, capacity, quality, or service?” Replace each placeholder with an agreed metric and baseline. If there is no baseline, name the gap and include measurement in the PoV plan. Business outcomes should be measurable changes. [book:lean-ux], Assumptions: The Big Four
 
-Most hyperscalers run partner funding for exactly this shape of engagement: a presales envelope for discovery, assessment and a proof of value, and a larger post-sales envelope once the workload lands. Each names it differently, but the shape is the same. Two things matter more than the specific programme:
+## Validate the concept before committing
 
-- **Deal size selects the track.** Below roughly half a million dollars of annual consumption these are partner-led and the presales envelope is modest. Above it, they become vendor-sales-led, the envelope grows substantially, and the vendor's own account team is in the room with you. Know which track you are on before you promise anything.
-- **The numbers are an internal pathway, not a price list.** Confirm funding with the vendor's partner account team before it reaches a client conversation.
+Show the selected concept to users and ask them to try or react to the proposed workflow before architecture or proposal work treats it as settled. Keep a tight feedback loop, capture what changed, and update the brief. [book:art-of-ai-product-development], 10.1.3 Validating AI design concepts
 
-Get the current tiers from the vendor's own partner materials rather than from a skill file — they change every fiscal year, and a stale funding figure quoted to a client is the most avoidable credibility loss in presale.
+## Agree the commitment and next step
 
-## Where the funding conversation belongs in the arc
+After the workshop, follow up with the client on the use cases and ask whether a PoV commitment is appropriate. A pilot with selected clients is one possible next step, but the client and evidence determine whether it fits. [book:art-of-ai-product-development], 12.2.1 Executives
 
-1. **Not in the opening.** Lead with the problem-first framing — the ~80% AI project failure rate, and the fact that the common cause is solving the wrong problem well.
-2. **Not while scoping.** The funding model must not drive which use case wins. If it does, you have optimised the engagement for your own economics and the client will feel it.
-3. **After they are bought into the process**, as de-risking: the discovery step is partially or wholly funded, so the client's exposure before commitment is small. That is a genuine argument and it lands better once the value case exists.
+Agree a named next step, an owner, and a decision date while the workshop is active. The field practice is to follow up within roughly two weeks, while interest is still fresh; do not let the calendar replace a client-agreed deadline. [book:meddicc], Paper Process
 
-## Immediate next steps after a workshop
+During scoping and at close, ask the client how both sides will know the engagement succeeded. Record measures the client accepts, not just measures convenient to the facilitator. [book:flawless-consulting], Closing the Contracting Meeting
 
-1. **Engage the client** on the use cases produced — push for the PoV commitment while the room is still warm. The half-life of workshop energy is about two weeks.
-2. **Register the engagement** through the vendor's partner portal if a funding programme applies. Most have naming or tagging requirements for workshop nominations; check them before you submit, not after.
-3. **Publish the offer** on the vendor's marketplace if you intend to run this repeatedly — it is usually a prerequisite for the higher funding tiers and for co-sell motions.
-
-## Qualifying as a featured partner
-
-Vendors typically gate their featured-partner and co-sell priority on a small number of countable things: a minimum number of trained consultants, a minimum number of delivered workshops, a published commercial offer, and at least one relevant specialization. If running these workshops is a strategic bet rather than a one-off, treat those counters as the real roadmap — they are what converts individual wins into inbound flow.
-
-## ROI positioning
-
-Never lead with the vendor's headline ROI multiple. Back into the number with the client, using their baseline:
-
-> "If we optimize [specific workflow] by [X%] and reduce [specific effort metric] by [Y%], what is the cost saving per year in your organisation?"
-
-The template's value is that it forces three things into the open: which workflow, which effort metric, and whose baseline. A claim assembled this way survives the CFO's follow-up question. A vendor's published multiple does not — **don't overconfident-consult with statistics you cannot defend against the client's own numbers.**
-
-If the client cannot supply a baseline, that is itself a finding worth naming: an organisation that cannot measure the process today cannot prove the improvement tomorrow, and the PoV should include the measurement, not assume it.
+If the client chooses a PoV, make the handoff include the validated problem, workflow, users, evidence and gaps, value baseline or measurement plan, approach assumptions, human checks, decision owner, and the next decision date. Architecture and implementation owners take the work forward from that brief.

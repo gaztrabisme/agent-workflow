@@ -1,159 +1,75 @@
-# BXT Template & Scoring Model
+# BXT Template and Scoring
 
-BXT = **B**usiness × e**X**perience × **T**echnology. The core prioritization framework. Every candidate use case must be scored.
+## BXT dimensions and their evidence
 
-## The 3 Pillars
+BXT is Business, Experience, and Technology. Strategic Fit and Business Impact belong in the Business view. [book:semantic-software-design], Business Design
 
-### Business (Viability) — "Is it viable?"
-- Clear, quantifiable revenue or cost reduction
-- Efficiency gains, competitive advantage
-- Durability of advantage; time-to-value prediction
-- Strategic alignment with executive goals
+Business Impact captures the value of the opportunity. [book:art-of-ai-product-development], Business impact
 
-### Experience (Desirability) — "Is it desirable?"
-- Alignment with users' needs and preferences
-- Impact on user experience and adoption likelihood
-- Clear user persona (the "pilot" of the assistant)
-- Change resistance assessment and mitigation
+User Desirability captures whether the experience is wanted. [book:art-of-ai-product-development], Desirability
 
-### Technology (Feasibility) — "Is it feasible?"
-- Skill gaps and expertise requirements
-- Integration challenges with legacy systems
-- Model accuracy and reliability safeguards
-- Natural extension of existing solutions
+Technical Feasibility captures whether it can be implemented and operated. [book:art-of-ai-product-development], Technical feasibility
 
-## Scoring Rubric (1–5 per pillar, 1 = Low, 5 = High)
+Use these four criteria for each candidate:
 
-Each candidate use case gets scored across:
-
-| Dimension | Scored In |
-|-----------|-----------|
-| **Strategic Fit** | Business pillar |
-| **Business Impact** | Business pillar |
-| **User Desirability** | Experience pillar |
-| **Technical Feasibility** | Technology pillar |
-
-### Derived Scores
-
-```
-Business Viability Score  = (Strategic Fit + Business Impact)     / 2
-Executional Fit Score     = (User Desirability + Technical Feasibility) / 2
-```
-
-## Prioritization Matrix (2×2)
-
-Plot each use case on:
-- **X-axis:** Degree of Executional Fit (1–5, low → high)
-- **Y-axis:** Degree of Strategic Business Impact (1–5, low → high)
-
-**Four quadrants:**
-
-| | Low Executional Fit | High Executional Fit |
+| Criterion | Dimension | Questions to record |
 |---|---|---|
-| **High Strategic Impact** | **Invest Long Term** | **Quick Wins** ← target these first |
-| **Low Strategic Impact** | **Parked** (drop) | **Test & Learn** |
+| Strategic Fit | Business | Which objective and executive strategy does it advance? What measurable result matters? Who is accountable? |
+| Business Impact | Business | What value could change, for whom, and on what time horizon? What is the evidence? |
+| User Desirability | Experience | Which users benefit? How appealing is the value proposition? What adoption concerns or resistance need to be understood? |
+| Technical Feasibility | Technology | What data, systems, expertise, safeguards, and operational conditions are needed? What is still unknown? |
 
-## BXT Use Case Template — Structure
+The source's prioritization criteria include user impact, business value, and technical feasibility. In this workshop, those ideas are captured in the four criteria above; keep the criteria coarse when the team lacks detail. [book:art-of-ai-product-development], 2.2.1 Defining your prioritization criteria
 
-**Page 1 of 2: General + Strategic Fit**
+## Use-case assessment template and criteria
 
-- Use case name
-- Department
-- Internal or external use
-- Problem to solve (bullets)
-- Use case description (bullets)
-- Business objective
-- Key results (KRs, measurable)
-- Primary stakeholder accountable for OKRs (role, name, org/group)
-- **Strategic Fit score** (1–5)
+For each use case, record:
 
-**Page 2 of 2: 3 impact assessments**
+- Name, business unit, internal or external use, and concise description.
+- Problem in the client's words, affected workflow, and desired business outcome.
+- Measurable key results and accountable stakeholder.
+- Strategic Fit score and evidence.
+- Business Impact: strategy alignment, expected value, change timeframe, score, and evidence. Discuss organizational benefit, return, and strategic alignment in general terms before filling the workshop's additional fields. [book:user-story-mapping], Have Conversations About Opportunities
+- User Desirability: primary and secondary personas, user value, appeal, change resistance, mitigation, score, and evidence. User trust and control concerns belong in the assessment. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
+- Technical Feasibility: implementation and operational risks, available safeguards, fit for AI or an LLM, score, and evidence. Tasks vary in AI suitability; account for expertise, payoff, and risk. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 
-**Business viability — Strategic business impact assessment:**
-- How does the use case align to the org's executive strategy?
-- How does the use case generate business value?
-- Business change management timeframe (1–3 mo / 4–6 mo / >6 mo)
-- **Business Impact score** (1–5)
+The business-and-data review starts by stating the business problem. The remaining fields here are the workshop's assessment structure. [book:data-science-for-business], Business and Data Understanding
 
-**Experience value — User desirability impact assessment:**
-- Key personas
-- How appealing is the overall value proposition for the user?
-- Change resistance (Low / Medium / High, with mitigation)
-- **User Desirability score** (1–5)
+## Scoring and prioritization
 
-**Technical value — Feasibility impact assessment:**
-- Implementation and operational risks
-- Are sufficient safeguards available? (Responsible AI, RAG, model validation, etc.)
-- AI/LLM fit (why generative, what value does it add)
-- **Technical Feasibility score** (1–5)
+Rate each criterion from 1 (low) to 5 (high). [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity.
 
-## Illustrative Example — Factory AI Assistant (PDF pp 71–72)
+Keep each rating distinct and attach a short evidence note, confidence mark, or open question. Do not average Strategic Fit with Business Impact to create a Business Viability score, and do not average User Desirability with Technical Feasibility into an Executional Fit score. Sum the individual criterion scores for a rough total if useful; the source aggregates by summing criteria. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity.
 
-### Page 1: General
+Use the 2×2 as a conversation aid. The workshop plots Executional Fit on the X-axis and Strategic Business Impact on the Y-axis. Place cases with the group using the agreed underlying evidence; do not present an averaged score as a formula-backed coordinate. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
 
-**Use case name:** Factory AI assistant
-**Department:** Product development
-**Internal/external:** External
+| | Lower Executional Fit | Higher Executional Fit |
+|---|---|---|
+| Higher Strategic Business Impact | Invest Long Term | Quick Wins |
+| Lower Strategic Business Impact | Parked | Test and Learn |
 
-**Problem to solve:**
-- New workers lack established knowledge held by others (inc. ability to program/configure machines to meet factory goals)
-- Machinery breakdown and redirection costly, especially regarding time lost
-- Less need to bring in specialists to solve equipment challenges
-- Difficulty in quickly training new employees
+The book's quick-win idea is high value, desirable, and reasonable effort; the four quadrant labels and this matrix are the workshop's field method. Investigate Quick Wins first when the evidence and client priorities support it, while treating each plotted location as provisional rather than a verdict. [book:art-of-ai-product-development], 10.1.1 Identifying the best opportunities for automation and augmentation
 
-**Use case description:**
-- Provide frontline workers with a personal assistant for quickly identifying reasons for equipment malfunctions and path to resolution
-- Frontline workers use natural language dialogue; always-on onboarding & upskilling
-- The assistant can access training material, factory data, machine info
+After scoring, use the matrix to surface the two or three candidates worth discussing next; it does not impose a hard cutoff. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
 
-**Business objective:**
-- Improve skillset of frontline workers
-- Shorten time to diagnose and fix machinery
-- Improve PLC code creation
+If Business and Experience look strong while Technology remains weak or unknown, keep the case as a later option when payoff and evidence justify it instead of discarding it solely for uncertainty. Keep long-term opportunities visible for later. [book:art-of-ai-product-development], 2.2.3 Balancing quick wins vs. long-term investments
 
-**Key results:**
-- Increase in worker productivity
-- Decrease in downtime due to equipment malfunctions
+Only park or drop candidates with little hope of the desired outcome; record why. [book:user-story-mapping], Be Picky
 
-**Primary stakeholder accountable:** Product and engineering leads / factory line managers
-**Strategic Fit:** **4/5**
+## Worked example: Factory AI Assistant
 
-### Page 2: Assessments
+The source example describes a frontline assistant for diagnosing equipment problems. It gives Strategic Fit 4, Business Impact 4, User Desirability 3, and Technical Feasibility 4. Record the four ratings separately and the total of 15/20; do not turn them into averaged pillar scores. The desirability score reflects medium appeal and medium-high change resistance, while technical notes include misdiagnosis, security, and IP risks. The numbers alone do not settle the choice: verify user adoption, safeguards, and the baseline for downtime before recommending a PoV. [book:art-of-ai-product-development], 2.2.2 Deciding on the next opportunity
 
-**Business viability:**
-- Aligns with corporate strategy of improving employee experience and digital transformation
-- Higher quality, lower cost, faster time to resolution
-- Faster time to value for frontline workers; increase production through quicker analysis and repair
-- **Business change management timeframe:** >6 months
-- **Business Impact:** **4/5**
+## Industry scorecards
 
-**Experience value:**
-- **Key personas:** Frontline factory workers
-- **Value proposition appeal:** Medium — frontline workers continually look for areas to improve diagnostic and repair efforts
-- **Change resistance:** Medium–high — workers need training on the assistant and are generally wary of tech changes
-- **User Desirability:** **3/5**
+Use the scorecard closest to the client's sector and adapt its metrics. The book says prioritization criteria vary by company and context; if no scorecard fits, derive the criteria from the client's objectives rather than pretending the template is sector-specific. [book:art-of-ai-product-development], 2.2.1 Defining your prioritization criteria
 
-**Technical value:**
-- **Implementation risks:** Incorrect models/content (precision) could damage equipment or misdiagnose problems; data security and IP concerns
-- **Safeguards:** Responsible use of AI (oversight, transparency, privacy); RAG
-- **AI/LLM fit:** Faster & more accurate resolution; democratize domain-specific info through natural language
-- **Technical Feasibility:** **4/5**
+The source-deck scorecard structure tracks transformation pillars, metrics, initiative status, and a backlog. Treat that structure as a prompt to gather context, not as proof that a listed initiative is appropriate.
 
-### Derived Scores for Factory AI Assistant
+## Added practices for value and confidence
 
-```
-Business Viability Score = (4 + 4) / 2 = 4.0
-Executional Fit Score    = (3 + 4) / 2 = 3.5
-```
+For a value discussion, compare plausible outcomes and their probabilities and values rather than presenting one unsupported point estimate. Expected value is an organizing frame; ask the client to supply or validate the ranges and assumptions. [book:data-science-for-business], A Key Analytical Framework: Expected Value
 
-→ Plot: High Strategic Impact (4.0) × Moderate Executional Fit (3.5) → **Quick Win / edges into Invest Long Term**.
+Ask what the current pain costs, including time, rework, delay, or missed outcome, and carry the client's estimate into the business case. [book:meddicc], Implicate the Pain
 
-## Industry Scorecard Templates (PDF pp 73–76)
-
-Appendix includes 4-pillar scorecards per industry showing:
-- Column 1: **AI Transformation Offer Pillars** (Reinventing Customer Engagement / Enriching Employee Experiences / Reshaping Business Processes / Bending the Curve on Innovation)
-- Column 2: **Metrics to track** per pillar
-- Column 3: **3 Key Initiatives** per pillar with status (In Prod / On Track / At Risk / High Risk / Not started) and Core Pattern star
-- Column 4: **Top-of-Mind Backlog Initiatives**
-
-Industries included: Banking, Insurance, Retail and **Energy**. Pick the scorecard matching the client's sector and adapt the metrics — the pillars are stable across industries, the metrics are not.
+Add a separate confidence mark to each criterion so a high score based on assumption is visible. Define the confidence scale with the group and write down what evidence would raise confidence; confidence describes evidence quality, not the opportunity's value. [book:meddicc], MEDDICC SCORING
