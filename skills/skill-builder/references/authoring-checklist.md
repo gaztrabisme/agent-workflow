@@ -71,6 +71,11 @@ Draft the whole section or digest before editing it. Then make separate passes f
 
 ## Refine (existing skill) — minimal path
 
+- At a structural review, record which lifecycle route fits the skill:
+  - **Evolve** the package when reviewed use shows its existing trigger and audience still deliver value; prioritize updates using user and dogfood feedback. (5907 · U6 · L63 · 00:00–01:27)
+  - **Transition** a complete package to maintenance when further structural changes offer little expected value; stop adding scope, keep outcome checks with an owner, and route later trace-based revisions to `evolution`. (5907 · U6 · L63 · 01:27–02:44)
+  - **Sunset** it when evidence shows the need has ended or its trigger and outcomes have become obsolete enough that continued maintenance is no longer justified. (5907 · U6 · L63 · 02:44–03:20)
+- Before a sunset, verify the evidence with relevant owners and an independent group, dry-run the replacement or redirect with affected users, assess impacts on dependent skills, links, references and hand-offs, then record the transition plan. (5907 · U6 · L63 · 03:20–05:32)
 - Re-ground in core and touched siblings, run the dogfood path, and record the evolution entry. Never skip the entry.
 - For a critique or structural refine, use `refine-review.md` to test each build gate as a review question and preserve the review report. After edits, rerun the applicable local checks and target test suite; run `skills-ref validate` before calling the skill done. If that network-backed command is blocked, record the exact failure and run the offline checks in step 8; keep the official gate marked blocked. (derived: dogfood 2026-10-01)
 - Route structural changes—new references, split or merge, frontmatter, wiring, publishing—to skill-builder. Route changes driven by real traces, recurring skipped gates, contradicted substrate, or open verdicts to `evolution`. If both apply, do the structural work here and hand off trace harvesting.

@@ -201,7 +201,8 @@ fixes a skill that isn't invoked when a skill is being built.
 
 ### Counts and changes
 - Coverage: 151 routed rules — 40 agrees, 59 refines, 51 field rules, and 1 disputed; 150 route to skill-builder and core-R035 supplies the shared canonical-reference rule.
-- Adopted 16 crosswalk candidates; added no new N rows. No course anchors were added.
+- Adopted 16 crosswalk candidates; the initial rebuild added no new N rows or course anchors because the course copy was unavailable then.
+- Course addendum: read 5907 U6 L63 in full; added course support to skill-builder-R002 and skill-builder-R025, and four lifecycle practices (evolve, transition, sunset, and pre-sunset impact review).
 - Reorganized `SKILL.md` as a short trigger, principles, workflow, gates, anti-patterns, composition and reference index. Kept the detailed authoring, course-distillation, publishing and template procedures in linked references, and added `references/rebuild-from-sources.md` for the programme's source-to-swap method.
 - Applied proposal/POV corrections: trust follows staged use across two independent real uses; visualization medium follows interaction, data scale and the reader's editable format; unsupported thresholds are not invented; review stays professional and defers between equally valid approaches.
 - Dogfood (2026-10-01): fresh-context critique/refine of `domestika-course-archive`; 10 findings (4 high, 4 med, 2 low), fixed 10, rejected 0.
