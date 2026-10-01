@@ -27,8 +27,8 @@ Project memory is an agent-maintained record of decisions, findings, work state,
 
 ## Decision records and learning
 
-- In an operational re-entry note whose reader needs orientation before the recorded choice, put Context before Decision and include why alternatives lost and the tradeoff. For a durable ADR read by someone encountering the choice after it was made, use Decision before Context. (derived: dogfood 2026-10-01)
-- Shape a durable ADR as: Title, Status, Date, Owner, Decision, Context, Options and tradeoffs, Consequences. [book:facilitating-software-architecture], The Structure of an ADR.
+- Record decisions as Context → Decision, including why alternatives lost and the tradeoff. The cited ADR template instead places Decision before Context; the source comparison leaves this ordering conflict disputed, so do not treat the ADR order as a settled exception.
+- The cited ADR template is ordered: ID and Title; Status and Date; Author; Decision; Context; Options considered; Consequences; Advice. Its Decision-before-Context order conflicts with the shared core rule above; the source comparison leaves that conflict disputed. [book:facilitating-software-architecture], The Structure of an ADR.
 - Keep a standing Rejected Approaches section with the rejected option and why it lost. [book:facilitating-software-architecture], Options.
 - Record decisions and rejected approaches whenever a choice is made. [book:facilitating-software-architecture], Options.
 - When a shipped direction is reverted, record the mechanism of failure as a reusable lesson. [book:site-reliability-engineering], Keep a History of Outages.
