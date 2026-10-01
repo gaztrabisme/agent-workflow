@@ -2,8 +2,10 @@
 """Summarize an explicitly supplied, harness-neutral evolution trace manifest.
 
 Manifest JSONL records use: skill, task_id, date (YYYY-MM-DD), event
-(invoke/read/friction/change), and optional detail. The helper reports evidence;
-it does not select skills or make verdicts.
+(invoke/read/friction/change), and optional detail. Invocation records also
+require parent_session_id: the root session ID shared by parent and child-agent
+invocations. The helper reports evidence; it does not select skills or make
+verdicts.
 """
 from __future__ import annotations
 
@@ -54,6 +56,8 @@ def read_manifest(path: Path) -> list[dict]:
                 raise ValueError(f"{path}:{line_no}: require skill, task_id, date, and event")
             if row["event"] not in EVENTS:
                 raise ValueError(f"{path}:{line_no}: event must be one of {', '.join(sorted(EVENTS))}")
+            if row["event"] == "invoke" and not row.get("parent_session_id"):
+                raise ValueError(f"{path}:{line_no}: invoke events require parent_session_id")
             try:
                 row["_date"] = date.fromisoformat(row["date"])
             except (TypeError, ValueError) as exc:
@@ -87,7 +91,9 @@ def main() -> int:
         if since and row["_date"] <= since:
             continue
         event = row["event"]
-        if event in ("invoke", "read"):
+        if event == "invoke":
+            state[event].add(row["parent_session_id"])
+        elif event == "read":
             state[event].add(row["task_id"])
         else:
             state[event].append((row["date"], row.get("detail", "")))
@@ -95,9 +101,9 @@ def main() -> int:
     print("# Evolution triage")
     print(f"\n- Skill root: `{args.root}`")
     print(f"- Trace manifest: `{args.traces}`")
-    print("- Independence unit: distinct `task_id`; invocation and read evidence remain separate.")
+    print("- Invocation independence unit: distinct `parent_session_id` values; parent and child-agent sessions share the root ID. Read evidence remains separate.")
     print("- This table supports a decision; it does not choose or rank the skills.\n")
-    print("| Skill | Last entry | Invoked tasks | Read tasks | Open items | PENDING | Friction | Changes | Trace gate |")
+    print("| Skill | Last entry | Invoked parent sessions | Read tasks | Open items | PENDING | Friction | Changes | Trace gate |")
     print("|---|---|---:|---:|---:|---:|---:|---:|---|")
     for skill in skills:
         since, unchecked, pending = ledger_state(skill)

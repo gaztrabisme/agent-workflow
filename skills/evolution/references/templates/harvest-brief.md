@@ -24,11 +24,11 @@ For each source, record its origin, observed date, task identity, directness, co
 
 Work through the fixed pattern questions in [`../triage.md`](../triage.md) to identify recurring causes and relationships. Report patterns with their evidence and uncertainty; do not require each finding to fit a fixed taxonomy of categories. [R134]
 
+Report findings as advice a separate decision taker may act on; the decision taker retains the choice, and the finding does not itself authorize implementation. [R137] [book:facilitating-software-architecture], Direct Versus Representative Democracy
+
 ## Pattern questions
 
 Use the seven questions in `../triage.md` to find repeated causes and relationships. Mark patterns first noticed after examining evidence as exploratory and state what further evidence would strengthen or overturn them. [evolution-C27] [book:critical-thinking-about-research], 9 Inferences, Conclusions, and the Research Report
-
-Report findings as advice a separate decision taker may act on; the decision taker retains the choice, and the finding does not itself authorize implementation. [R137] [book:facilitating-software-architecture], Direct Versus Representative Democracy
 
 ## Output
 
