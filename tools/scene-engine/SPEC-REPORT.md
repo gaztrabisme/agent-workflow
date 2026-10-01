@@ -17,3 +17,14 @@ fatal: your current branch 'master' does not have any commits yet
 ```
 
 Exit code: 128. The requested commit could not be created because the workspace permission profile makes `.git` read-only: `git branch -m main` failed when Git attempted to write `.git/HEAD.lock` (`Operation not permitted`). The working tree remains on `master` with the four requested files uncommitted.
+
+
+## Revision after the persona contest
+
+**Artifact verdict: PASS for spec/register completeness; implementation acceptance is pending the coordinator.** `SPEC.md` now answers all 26 blocking rows. `contest/objections.md` records 26 blocking and 10 non-blocking rows as `answered`, and 7 non-blocking rows as `declined` with version-two reasons; no row remains open and no blocking row is declined. The acceptance table keeps the required `| AT | Part | Given | When | Then |` format, retains the original cases and adds AT23–AT39 for the new scene, timing, narration, app-demo, PPTX, CLI and owner-check contracts.
+
+The revision defines property tracks, group/stagger behavior, text and chart animation, masks, a 2D camera, symbolic time, narration overflow, app-demo steps and fixtures, asset-root containment, explicit frame reuse, renderer defaults, command JSON and error codes. It also states the v1 limits for spatial paths, spring/repeat motion, high frame rates, preview, themes/layouts and partial draft rendering.
+
+For the PowerPoint objection, the spec requires ECMA-376 validation of hand-written package parts, python-pptx and LibreOffice open/save/reopen checks, LibreOffice PDF renders, and a Keynote import/PDF smoke check through `osascript`. This Mac has Keynote and LibreOffice but no Microsoft PowerPoint. Those checks can catch malformed XML, round-trip loss and alternate-viewer import problems; they do **not** prove that PowerPoint opens without repair, that Edit Data works in its UI, or that Morph, SVG, timing and movie playback behave correctly. AT37 assigns the Windows/Mac PowerPoint check to the release owner.
+
+The coordinator's acceptance command and runtime tests were not run here. This revision report records the specification and objection-register disposition only; it does not claim that the planned XML validator, renderer, round trips or viewer checks have been executed.
