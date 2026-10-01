@@ -1,158 +1,49 @@
 # The Experiment Loop
 
-Iterative ML training loops — finetuning, architecture experiments, hyperparameter search. Unlike `dev`'s Build mode (test -> implement -> verify), the experiment loop measures success by metrics, not binary tests.
+Use this loop for training, fine-tuning, model comparisons, and other ML experiments where success is measured by outcomes rather than a binary code test. Read `ml-heuristics.md` for problem formulation and model choices, and use the shared teaching gate in `../../core/references/pushback-and-teach.md` when explaining ML mechanisms.
 
-Read `ml-heuristics.md` (beside this file) for problem reframing and architecture decision heuristics. Read `../../core/references/pushback-and-teach.md` — the teach directive applies to ML math too: when you introduce a loss function, activation, optimizer, or architecture choice, narrate the *mechanism* (what it computes, what it penalizes, why the shape is what it is), not just the API call.
+## Ground, define convergence, and size the study
 
-**Apply the Knowledge Base Grounding Gate (`../SKILL.md` -> Gates) before Phase 1.** ML is a KB-covered domain — search the corpus for the technique/architecture/metric you're about to use and record `KB: searched "<q>" → <finding|nothing relevant>` in the experiment log or Key Decisions. Ground the approach before spending compute.
+Before the first run, search the available knowledge base for the planned technique, architecture, and metric; record the useful finding or that the search found nothing relevant. Declare the approach before substantive work.
 
----
+Before collecting data or training, state the hypothesis, primary and secondary metric thresholds, and stop condition. If convergence cannot be defined, return to problem framing. [book:research-methods-psychology], Psychology Is a Way of Thinking
 
-## Phase 1: Define Convergence Criteria
+Size the sample from the smallest worthwhile difference and the outcome's variability. Plan enough observations to detect that difference at roughly 80–90% power; do not start with an arbitrary sample size and retrofit a rationale. [book:how-to-read-a-paper], Were preliminary statistical questions addressed?
 
-Before any training, define what "done" looks like:
+## Prepare data and evaluation
 
-```markdown
-## Convergence Criteria
-- Primary: [metric] [operator] [threshold] (e.g., mAP@50 > 0.85)
-- Secondary: [metric] [operator] [threshold] (e.g., inference latency < 50ms)
-- Stop condition: [when to stop iterating] (e.g., 3 consecutive experiments with <1% improvement)
-```
+Before spending compute, inspect the data source, processing history, statistics, and known uses. Check whether class imbalance reflects the actual population or a collection artifact and whether it matches the objective. [book:ai-engineering-huyen], Inspect Data; [book:designing-ml-systems-huyen], Challenges of Class Imbalance
 
-If you can't define convergence criteria, you're not ready to train — go back to Frame (`SKILL.md`, the flow table) first.
+Manually inspect 20–50 examples and compare the labels with your own assessment before trusting a label set. [book:ai-engineering-huyen], Inspect Data
 
-### Proxy vs. Decisive Metric (pre-register the gate)
+Keep training, validation, and test splits separate. Split before scaling or fitting learned preprocessing, then apply transformations fitted on training data to the other splits. [book:designing-ml-systems-huyen], Scaling before splitting
 
-**The rule and the traces that earned it live in `ml-heuristics.md` → Metrics** (Proxy vs.
-Decisive Metric, and The Instrument Must Resolve the Delta). Not restated here.
+Before trusting an evaluation score, verify that the set measures the lever being changed. Check for a near-ceiling baseline, positives derived from their answer text, and distractors too easy to distinguish. [book:ai-engineering-huyen], Evaluate your evaluation pipeline; Challenges of Comparative Evaluation
 
-What Phase 1 owes on top of the rule — the procedure:
+## Run the experiment loop
 
-1. Name the **proxy** you will iterate on and the **decisive gate** you will ship on.
-2. **Write the ship threshold down before you run the decisive gate.** "Ships only if
-   [decisive metric] beats [recorded baseline by ≥ X]" — recorded in `experiment-log.md`
-   ahead of the run, not after the number arrives.
-3. Record the gate's **minimum detectable effect** and confirm X exceeds it. The sizing
-   arithmetic — and what to do when the statistic is binary or is an AP — is in
-   `../SKILL.md` → Fit-Check Gate → *Sizing the gate*. If X is below the MDE, the
-   experiment cannot answer the question; fix the instrument before spending the run.
+Define primary and secondary thresholds, a stop condition, an iteration proxy, and the decisive ship gate before the run. Write the threshold against the recorded baseline and confirm that the evaluation can resolve the smallest worthwhile delta.
 
-## Phase 2: Validate Data
+`Change one variable → train → evaluate → record → decide`
 
-Before spending compute, verify the data is sound:
+Change one variable per training run so its effect can be attributed. [book:effective-conversational-ai], 1.3.2 The continuous improvement cycle
 
-- [ ] Class distribution — are classes balanced? If not, is that intentional?
-- [ ] Label quality — sample 20-50 items and manually verify labels
-- [ ] Train/val/test splits — no data leakage between splits
-- [ ] Data pipeline — does loading, augmentation, preprocessing produce expected output?
-- [ ] Edge cases — what does the model see for ambiguous/hard examples?
-- [ ] **Eval-set validity** — does the benchmark actually measure the lever you're pulling? Red flags: a near-ceiling baseline (no headroom to detect improvement), positives generated *from* the answer (queries inherit the answer's vocabulary → trivial match), distractor pools without hard negatives. Verify objectively (e.g., query↔positive lexical overlap) before trusting any score. See `ml-heuristics.md` → Eval-Set Validity.
+Use a cheap proxy to rank candidates, but ship only if the pre-registered decisive gate passes. After the convergence criteria are met or returns diminish, stop unless the business requires further gains. [book:ai-engineering-huyen], Select evaluation methods; [book:human-in-the-loop-ml], 3.5.3 When do I stop if I'm not time- or budget-constrained?
 
-If data pipeline engineering is needed (ingestion, cleaning, transformation), hand that work to `dev` Build mode (`../../dev/modes/build.md`), then return here.
+After selecting a candidate on validation data, run the final evaluation on the held-out test set; never use test results to tune hyperparameters. [book:designing-ml-systems-huyen], Soft AutoML: Hyperparameter tuning
 
----
+After final evaluation, profile inference latency, throughput, and memory; export the converged model in the target serving format and record the final evaluation results. [book:ai-engineering-huyen], Inference Performance Metrics; [book:machine-learning-production-systems], Exporting Keras Models for TF Serving; Experiment Tracking
 
-## Phase 3: Baseline
+## Record, stop, and learn
 
-Establish baseline with minimal configuration:
-- Pretrained model, default hyperparameters, no augmentation
-- Record all metrics in experiment log
-- This is experiment #1 — every future experiment is measured against it
+Maintain an append-only project-root `experiment-log.md` with the goal, current best, and a short entry per run: changed variable, configuration, result, verdict, and next action. Track experiment progress and version the data, code, environment, and model artifacts with the result so the run can be reproduced. [book:machine-learning-production-systems], Experiment Tracking; [book:designing-ml-systems-huyen], Experiment Tracking and Versioning
 
----
+For each training run, record its configuration, metric against the pre-registered baseline, and verdict. Write every ship/no-ship reason and post-mortem, direction-changing conclusion, and negative outcome to `wiki/decisions.md` as well as the run log. [book:site-reliability-engineering], Negative Results Are Magic
 
-## Phase 4: Experiment Loop
+Do not mark an experiment complete until its log entry and any required direction-changing decision exist. Keep entries terse because they will be reread. [book:software-engineering-at-google], Types of Audiences
 
-```
-Read experiment-log.md → Change ONE variable → Train → Evaluate → Record → Decide
-```
+When a candidate misses its gate, honor the threshold; do not move it after seeing the result. Revert to the baseline and confirm its score returns. Retain rejected artifacts for a later revisit, and record the failure cause so a dead end is not retried without new evidence. [book:machine-learning-production-systems], Experiment Tracking
 
-**Rules:**
-1. **One variable per experiment** — changing lr AND augmentation AND architecture means you can't attribute the result
-2. **Read the log first** — always, every time. This survives context compression.
-3. **Record before deciding** — write the result before choosing the next experiment. Prevents confirmation bias.
-4. **Stop when criteria met OR diminishing returns** — don't chase the last 0.1% unless the business requires it
-5. **Iterate on the proxy, ship on the decisive gate** — use the cheap metric to rank candidates fast, but a candidate only graduates when it clears the pre-registered decisive gate (Phase 1). Never promote a proxy win straight to ship.
+Write a post-mortem explaining why and how a candidate lost. For a rejected direction, add a `wiki/Rejected Approaches` entry. Use a blameless structure: summary, timeline, primary cause, impact, actions with owners, and lessons learned. A negative result is useful when it changes what the next run will do. [book:software-engineering-at-google], Blameless Postmortem Culture
 
-**Typical experiment order** (high-to-low impact):
-1. Architecture / model selection
-2. Data augmentation strategy
-3. Learning rate and schedule
-4. Batch size
-5. Regularization (dropout, weight decay)
-6. Fine-grained hyperparameters
-
----
-
-## Phase 5: Evaluate & Handoff
-
-When convergence criteria are met:
-- Run final evaluation on held-out test set (not val set)
-- Profile inference performance (latency, throughput, memory)
-- Export model (see `ml-heuristics.md` Deployment section)
-- Record final results in experiment log
-
-**Handoff to `dev` Build mode** (`../../dev/modes/build.md`) for: inference engine, API wrapper, deployment pipeline, monitoring.
-**Handoff to Analyze mode** for: "why do certain classes underperform?", error analysis, failure mode investigation.
-
-**Output contract:** the experiment isn't done until the `experiment-log.md` entry exists (config, metric vs. pre-registered baseline, verdict) and any direction-changing result is in `wiki/decisions.md`. A negative result is a required write, not an optional one. See `../../core/references/wiki-protocol.md` → Output Contract.
-
-### When the experiment says DON'T ship
-
-A pre-registered gate (Phase 1) exists precisely so it can come back negative. **"This change does not ship" is a first-class, successful outcome — not a failure to paper over.** When a candidate loses its gate:
-
-1. **Honor the gate.** You pre-registered the threshold before seeing the result (Phase 1) specifically so you couldn't rationalize a regression into a ship now. Don't move the bar.
-2. **Revert cleanly to the baseline** and confirm the baseline number is restored. Keep the rejected artifacts (e.g. `*_rejected/`, gitignored) so a future revisit doesn't start from scratch.
-3. **Write the post-mortem as the deliverable.** Record *why* it lost and the mechanism — the negative result is reusable knowledge that stops you (and the next session) re-running a dead end. Put it in `wiki/decisions.md` with a "why it failed — the lesson" note, and add a `wiki/` Rejected Approaches entry if it's a whole direction.
-4. **Keep reusable infra.** The harness/optimizer/pipeline you built to run the experiment is still valuable even when the experiment loses — note that it's re-runnable if the corpus/objective changes.
-
-This realizes Integrity Constraint 6 ("Honest failure beats fabricated success") at the experiment level. A sprint that concludes "ship nothing" with a clear post-mortem is a clean win.
-
----
-
-## Experiment Log
-
-Maintain an append-only `experiment-log.md` in project root. This survives context compression and prevents retrying dead ends.
-
-### Format
-
-```markdown
-# Experiment Log
-
-## Goal
-[One sentence: what we're optimizing for]
-
-## Current Best
-| Metric | Value | Config | Checkpoint |
-|--------|-------|--------|------------|
-| [e.g. mAP@50] | [value] | [key hyperparams] | [path/epoch] |
-
-## Log
-
-### Exp [N] — [timestamp]
-- **Changed:** [what was different from previous]
-- **Result:** [metrics]
-- **Verdict:** [better/worse/inconclusive — why]
-- **Next:** [what to try based on this result]
-```
-
-### Rules
-
-1. **Always read the log before starting a new experiment** — this is your memory across context compressions
-2. **Update "Current Best" immediately** when a new best is found
-3. **Record failures** — "tried X, got worse because Y" prevents retrying dead ends
-4. **Keep entries terse** — this file will be read many times
-
----
-
-## Key differences from `dev` Build mode
-
-| Build Mode | Train Mode |
-|-----------|------------|
-| Success = tests pass (binary) | Success = metrics meet criteria (continuous) |
-| Test → implement → verify (linear) | Experiment → evaluate → adjust (loop) |
-| Subagents for separation | Coordinator runs directly (training is sequential) |
-| Contract changelog for changes | Experiment log for iterations |
-| Adversarial review at end | Analyze mode for result investigation |
-
-Train mode chains into: **Build** (inference engine, deployment pipeline), **Analyze** (why are results bad?), or more **Train** (next experiment).
+Keep reusable experiment infrastructure and state when it can be rerun under a changed corpus or objective.

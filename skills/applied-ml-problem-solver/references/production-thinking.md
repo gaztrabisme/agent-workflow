@@ -1,385 +1,75 @@
 # Production Thinking
 
-Mental models for the journey from "my model works" to "this runs reliably in production." Consult when designing or reviewing an inference pipeline or deployment. (`dev` owns the code — `../../dev/modes/build.md`.) These are the questions a 10-year senior asks reflexively — use them deliberately until they become reflexive.
+Use this reference when deciding whether an ML inference pipeline can meet its latency, throughput, capacity, and reliability needs. `dev` owns its implementation code.
 
-**Origin:** Distilled from senior engineer feedback on a client CV inference pipeline. The gap wasn't knowledge of specific tricks — it was operating at the wrong abstraction layer. At the API level, two ONNX model calls look equivalent. At the hardware level, the data movement between them dominates latency.
+## Production decisions start below the API
 
----
+For each production-critical technology, identify the operations hidden below its API calls. Map where data physically resides at each pipeline step, identify every device transition, and determine what moves data between CPU, GPU, disk, and network. Compare transfer requirements with measured ceilings on the actual target hardware. [book:ai-engineering-huyen], Computational bottlenecks
 
-## The Layer Below
+An API call can conceal a GPU-to-host copy, a synchronization barrier, serialization, or queueing. A NumPy slice between two GPU models may look cheap while forcing a GPU-to-CPU transfer, host operation, and upload back to the GPU. Avoid CPU access in a hot path when the runtime would serialize the work—but verify the runtime and I/O binding before assuming every CPU touch creates an extra synchronization. (Senior engineer review of a client inference pipeline.)
 
-Every technology you use in production has a layer below the API you call. That layer is where optimization opportunities and failure modes live. At the API level, everything looks like function calls. One layer down, you see memory copies, synchronization barriers, serialization overhead, and hardware constraints.
+If an API's lower layer is unclear, name the blind spot and investigate when performance is unexpectedly poor. Learn from internals documentation, performance guides, postmortems, and hot-path source code rather than stopping at API tutorials.
 
-### The Rule
+## Draw the pipeline and reduce data movement
 
-**For every production-critical technology, be able to answer: "What happens between my function calls?"**
+Draw an inference pipeline as a graph: operations are nodes; data handoffs and device boundaries are edges. Reduce unnecessary moving edges, keep adjacent operations on the same device when possible, and fuse neighboring stages when measurement supports it. [book:designing-ml-systems-huyen], Model optimization
 
-Not "how does the API work" — that's the layer you're already at. The question is: what invisible operations happen that the API abstracts away?
+To avoid GPU-to-CPU-to-GPU round trips, consider merging sequential models into one graph, moving crops or preprocessing onto the GPU, or simplifying the design to one model. When a boundary is necessary, send the smallest useful payload.
 
-### Your Stack, One Layer Down
+Fuse operators to avoid redundant memory access, including adjacent preprocessing and postprocessing when possible. Eliminate intermediate materialization unless it is needed for debugging or fan-out. Fusion can be described as a ladder—from separate processes to a merged graph or custom kernel—but higher fusion is not a goal by itself. Added coupling can reduce observability, fault isolation, portability, and cost efficiency; increase fusion only when measured service needs justify it.
 
-| You call | What actually happens below |
-|---|---|
-| `ort.InferenceSession.run()` | Input tensor copied to GPU memory (if not already there), CUDA kernels dispatched, output copied back to host |
-| `numpy` slicing between two GPU models | Implicit GPU→CPU sync, PCIe memcpy to host, CPU operation, PCIe memcpy back to device |
-| `cv2.resize()` on a frame | CPU operation — if the frame came from GPU decode, it already round-tripped through PCIe |
-| `docker.containers.run()` | cgroup creation, namespace setup, overlay filesystem mount, GPU device passthrough (nvidia-container-runtime) |
-| `subprocess.Popen(ffmpeg)` | Fork + exec, pipe buffer allocation, kernel context switches per write |
-| `threading.Thread` in Python | OS thread created, but GIL means only one thread executes Python bytecode at a time |
-| `requests.post()` to localhost | Still TCP: SYN/ACK, serialization, kernel buffer copy, deserialization — not a function call |
+Where the design calls for graph changes, use the appropriate mechanism: `onnx.compose` to merge sequential ONNX models, ONNX Runtime custom operations for CPU logic between GPU passes, `onnx-graphsurgeon` to edit exported nodes, TensorRT plugins for custom CUDA kernels when runtime custom operations are too slow, and NVIDIA DALI when preprocessing is the bottleneck.
 
-### Forcing Questions
+CUDA streams can overlap GPU computation and data transfers when pipelining frames. [book:machine-learning-production-systems], NVIDIA Triton Inference Server
 
-1. **"Where does my data physically live at each step?"** Draw it: GPU memory → host memory → disk → network → host memory → GPU memory. Every arrow is latency.
+## Load, scale, and hardware
 
-2. **"What moves data between devices?"** PCIe bus (GPU↔CPU): ~12 GB/s practical on PCIe 4.0. Network: ~1 Gbps typical. Disk: ~500 MB/s SSD. These are hard ceilings.
+Assess what happens when production components run together, not only one at a time. Inventory shared GPU memory, PCIe bandwidth, CPU, memory bandwidth, network, and disk resources. [book:machine-learning-production-systems], Ensemble Serving Considerations Benchmarks using an exclusive GPU are not production latency; test realistic concurrency and profile the whole system. [book:machine-learning-production-systems], NVIDIA Triton Inference Server; [book:software-engineering-at-google], Performance, Load, and Stress testing; [book:ai-engineering-huyen], Throughput and goodput
 
-3. **"What synchronization happens implicitly?"** GPU operations are async by default. But the moment you touch the result on CPU (numpy, print, save), the runtime inserts a sync barrier — CPU blocks until GPU finishes. One innocent `print(output.shape)` in the hot path serializes your pipeline.
+An isolated pipeline once summed three fast components to predict about 71 frames per second. With ten cameras on one shared GPU, contention, transfer waits, CPU serialization, and alert bursts brought observed throughput closer to 25 frames per second on a good day and 15 during storms. The lesson is to measure the combined system under production-like traffic and topology, since load behavior emerges from the whole system. [book:software-engineering-at-google], Performance, Load, and Stress testing
 
-4. **"Can I name the layer below this API?"** If no → you have a blind spot. Doesn't mean you need to master it, but you need to know it exists so you can investigate when something is unexpectedly slow.
+Under load, bound queues or define backpressure and frame-drop behavior; identify the queue that acts as the pressure valve. Classify threaded work by GIL behavior: multiprocessing or GIL-releasing extensions can help CPU-bound work; threads suit I/O-bound work, and some numerical and inference libraries release the GIL.
 
-### Anti-Pattern: The Invisible Round-Trip
+Before deployment, project the design to 10× the expected load. Identify O(1) and O(N) operations, determine which per-item work dominates, note resources that accumulate over time, and establish the blast radius if one component fails. [book:hands-on-site-reliability-engineering], Purging of database tables. Mentally simulate 10× cameras, frame rate, alerts, and runtime duration, then prioritize the scale failures most likely to bite first. [book:hands-on-site-reliability-engineering], Introducing chaos engineering
 
-```
-# Looks like: three fast operations
-persons = yolo_model.run(frame)          # GPU inference
-crops = [frame[y1:y2, x1:x2] for ...]   # "just" numpy slicing
-ppe = multilabel_model.run(crops)         # GPU inference
+ML pipeline problems often have equivalents in databases, networking, and operating systems. Reuse their patterns where they fit: co-locate models that currently communicate through CPU glue; skip unchanged frames or use temporal differencing; time-slice shared GPU work and batch across cameras where suitable; use rate limits and backpressure for alert storms; preload models and warm up kernels; move preprocessing to the GPU when it is the bottleneck; consider a shared inference server when multiple containers load the same model; slow producers or drop frames when queues grow.
 
-# Actually: GPU → sync → PCIe copy → CPU slice → PCIe copy → GPU
-# The numpy slicing forces a GPU→CPU sync + memory copy.
-# The re-upload for multilabel is another PCIe copy.
-# These transfers can take longer than the inference itself.
-```
+### Hardware and capacity
 
-**Fix:** Keep data on the same device. Options:
-- Merge models into one ONNX graph with a custom crop op (graph surgery)
-- Use GPU-native cropping (CUDA kernel, torchvision.ops on GPU tensors)
-- Redesign: single model that does both tasks (RF-DETR approach — one pass, no crop needed)
+Profile to identify the capacity limit rather than guessing. Compute-bound and memory-bandwidth-bound workloads need different fixes; a profiler roofline chart can distinguish them. [book:ai-engineering-huyen], Computational bottlenecks
 
----
+Use the profiler's roofline view to classify compute versus memory-bandwidth limits. Track model FLOPs utilization (MFU) against the chip's theoretical peak throughput. For an approximate latency floor, estimate compute time from operations divided by peak compute and data-movement time from bytes divided by memory bandwidth; the slower bound sets the lower limit. [book:ai-engineering-huyen], Computational bottlenecks; Utilization, MFU, and MBU
 
-## Graph-Level Thinking
+When movement limits the workload, consider smaller batches or quantization. Do not pay for FP32 unless the task requires it; use FP16 when accuracy permits and calibrate before using INT8. [book:ai-engineering-huyen], Computational bottlenecks; Inference quantization
 
-A multi-step inference pipeline is a computation graph. Each step is a node. Each data handoff is an edge. Optimization means: minimize edges (data movement), fuse nodes (eliminate intermediate representations), and keep the whole graph on one device.
+## Failures, observability, and recovery
 
-### Forcing Questions
+For each component, ask how it can fail at 3 a.m. and whether operators will know. Distinguish loud failures such as crashes from silent failures such as degraded predictions, missing alerts, or a stream that slows down without an error. Ensure monitoring catches performance degradation, not only process health. [book:designing-ml-systems-huyen], Alerts; Causes of ML System Failures
 
-1. **"Can I draw my pipeline as a graph?"** If you can't draw it, you can't optimize it. Nodes = operations. Edges = data movement. Color edges by device (GPU=green, CPU=red, network=orange).
+Specify what happens when an external dependency is unavailable: route to a fallback, retry within a defined bound, degrade, or fail explicitly. Define the recovery path after a crash and whether it is automatic or needs a person. [book:ai-engineering-huyen], Gateway; [book:hands-on-site-reliability-engineering], Automated remediation
 
-2. **"Can any adjacent nodes be fused?"** Two ONNX models in sequence → merge into one graph (`onnx.compose.merge_models`, `onnx-graphsurgeon`). Model + preprocessing → bake resize/normalize into the ONNX graph as initial nodes. Model + postprocessing → add NMS/threshold as final nodes.
+Provision a full-capacity fallback for a fast cached path so losing the cache raises latency rather than causing an outage. If full capacity is not viable, define a deliberate graceful-degradation mode, such as reducing inference rate while preserving other service functions. [book:software-engineering-at-google], Managing State
 
-3. **"Can I eliminate intermediate materialization?"** Every time you save an intermediate result (to numpy, to disk, to a message queue), you're materializing. Sometimes necessary (for debugging, for fan-out). Often not — it's just how the code evolved.
+Give distinct terminal status labels to distinct failure endings so callers can respond correctly. For each component, define healthy, degraded, and failed signals, the notification path, and whether recovery is automatic or manual. [book:real-world-software-development], Modeling Errors; [book:ai-engineering-huyen], Summary
 
-4. **"What's the minimum data that crosses device boundaries?"** If you must cross CPU↔GPU, send the smallest possible payload. Bounding box coordinates (4 floats) cross cheaper than pixel crops (224×224×3 floats).
+Monitor model quality as well as service health. Watch input and output distributions with descriptive statistics so shifts and failures can be investigated; distribution shifts can degrade a model after deployment. [book:machine-learning-production-systems], What Should You Monitor?; [book:designing-ml-systems-huyen], Causes of ML System Failures
 
-### Tools You Should Know Exist
+Monitor gradual VRAM growth and plan memory cleanup, pools, or reloads. For inference-time creep, profile on the target system and consider periodic restarts only if measurements justify them. Use the scheduler's resource requests and bin-packing to place replicas and isolate tenants; when startup memory still exceeds capacity, consider a shared inference server. [book:software-engineering-at-google], Containerization and Multitenancy
 
-| Tool | What it does | When to reach for it |
-|---|---|---|
-| `onnx.compose` | Merge multiple ONNX models into one graph | Two models in sequence on same device |
-| `onnxruntime` custom ops | Add arbitrary ops (crop, NMS, custom logic) to ONNX graph | CPU logic between GPU model passes |
-| `onnx-graphsurgeon` (NVIDIA) | Programmatic ONNX graph editing — add/remove/replace nodes | Modify exported graphs without re-exporting |
-| TensorRT plugins | Custom CUDA kernels as TRT layers | When ONNX RT custom ops aren't fast enough |
-| NVIDIA DALI | GPU-accelerated data preprocessing pipeline | Preprocessing is the bottleneck, not inference |
-| `torch.cuda.Stream` | Overlap GPU compute with data transfers | Pipeline multiple frames through GPU |
+For queues, monitor depth and alert on fill-ups from slow subscribers or high publisher volume; a bounded queue alone does not explain why it fills. Use a bounded queue with a deliberate drop policy where required. On stream reconnect, cancel, join, and restart the old thread explicitly. Use monotonic time for intervals and UTC for timestamps. For FFmpeg workers, inspect return codes and terminate a process that exceeds its timeout. [book:hands-on-site-reliability-engineering], MQ monitoring
 
-### The Pipeline Fusion Ladder
+## Launch, learn, and optimize
 
-From least fused (slow, easy) to most fused (fast, harder):
+Set service-level indicators and objectives for the deployed model, with a documented error budget policy that says what may ship while the objective is met and what stops when it is missed. [book:hands-on-site-reliability-engineering], Key metrics for SRE
 
-```
-Level 0: Separate processes, communicate via files/HTTP
-Level 1: Same process, separate models, CPU glue code between them
-Level 2: Same process, models share GPU memory, minimal CPU involvement
-Level 3: Merged ONNX/TRT graph, single forward pass, no intermediate materialization
-Level 4: Custom CUDA kernel fusing multiple operations (rarely needed)
-```
+Use bounded chaos experiments to test recovery: define steady state, hypothesize that it will continue during an injected failure, inject a limited fault, verify behavior, and remediate findings. Prioritize faults by severity. [book:hands-on-site-reliability-engineering], Build a hypothesis; Introducing chaos engineering
 
-Most production pipelines should aim for Level 2-3. Level 0-1 is where most people stop because it's how you prototype. The senior's reflex is to ask "why aren't we at Level 3?" immediately.
+Use a canary deployment to route part of production traffic to the new model version and verify it before directing full traffic. [book:hands-on-site-reliability-engineering], Canary deployments
 
----
+After a production incident, hold a blameless postmortem that turns the incident into resilience actions. Use a shared account of the timeline, impact, contributing causes, and actions rather than assigning blame. [book:hands-on-site-reliability-engineering], Blameless postmortems
 
-## Systems Interaction
+Before launch, complete the data-movement, system-interaction, scale, hardware, and operations checks. [book:hands-on-site-reliability-engineering], Skill set of SREs
 
-Components that are fast in isolation can be slow together. The senior's instinct: **"What happens when these things run at the same time?"**
+Optimize the largest measured bottleneck, not the most interesting component. Profile the pipeline and model first: in one logged example, inference took 1.65 seconds while vector search took 123 milliseconds, so model optimization mattered more than search tuning. [book:building-reliable-ai-systems], 10.3.2 Logging what matters; [book:ai-engineering-huyen], Computational bottlenecks
 
-### Forcing Questions
-
-1. **"What shared resources are my components competing for?"** Common contenders:
-   - **GPU memory** — two models loaded simultaneously may not fit
-   - **PCIe bandwidth** — multiple streams copying data to GPU saturate the bus
-   - **CPU cores** — Python GIL means threads serialize on CPU-bound work
-   - **Memory bandwidth** — multiple preprocessing threads can saturate DRAM
-   - **Disk I/O** — logging, saving frames, reading configs all share one disk
-
-2. **"Does this component assume it has exclusive access to a resource?"** GPU inference benchmarks assume exclusive GPU access. In production with N camera containers, each gets 1/N of the GPU. Your 7ms benchmark becomes 7×N ms effective if they contend.
-
-3. **"What's the queuing behavior under load?"** When producer is faster than consumer, queues grow. Unbounded queues → OOM. Bounded queues → backpressure or dropped items. Ask: "Which queue is the pressure valve, and what happens when it activates?"
-
-4. **"What's the GIL situation?"** In Python:
-   - CPU-bound threads: GIL serializes them → use `multiprocessing` or C extensions that release GIL
-   - I/O-bound threads: GIL released during I/O → `threading` is fine
-   - ONNX Runtime: releases GIL during inference → GPU threads truly parallel
-   - NumPy: releases GIL for large array ops → parallel for heavy preprocessing
-   
-   If you don't know which category your threads fall into, you're guessing at concurrency.
-
-### Anti-Pattern: The Benchmark Lie
-
-```
-# Benchmarked in isolation:
-# - ONNX inference: 7ms
-# - Frame capture: 2ms
-# - Alert generation: 5ms
-# Total: 14ms → "We can do 71 FPS!"
-
-# Reality with 10 cameras on one GPU:
-# - GPU contention: 7ms × 3-5x = 21-35ms
-# - PCIe saturation: +10ms waiting for bus
-# - CPU GIL: alert generation serializes across threads
-# - Actual: ~25 FPS on a good day, 15 FPS under alert storms
-```
-
-**Fix:** Always benchmark under realistic concurrency. Profile the system, not the component.
-
----
-
-## Scale Projection
-
-The senior asks: **"What breaks at 10x?"** Not because you'll be at 10x tomorrow, but because it reveals architectural assumptions that are invisible at current scale.
-
-### Forcing Questions
-
-1. **"What's O(1) vs O(N) in my pipeline?"** Model loading is O(1). Per-frame inference is O(N). Alert JPEG saving is O(alerts). Which O(N) operations dominate at 10x the current N?
-
-2. **"What resource is my pipeline really limited by?"** Profile to find out. Common limiters:
-   - **Compute-bound:** GPU utilization near 100%, adding cameras makes everything slower
-   - **Memory-bound:** GPU VRAM fills up, next model load fails
-   - **I/O-bound:** Disk writes (JPEG alerts, HLS segments) saturate
-   - **Network-bound:** RTSP streams + Kafka messages + HLS output exceed bandwidth
-
-3. **"What accumulates over time?"** Resources that grow without bound:
-   - HLS segments on disk (without cleanup)
-   - Log files
-   - InfluxDB cardinality (unique tag combinations)
-   - Thread handles from leaked threads
-   - GPU memory fragmentation
-   
-   Anything that grows → eventually breaks. The senior's reflex: "where's the cleanup?"
-
-4. **"What's the blast radius of one component failing?"** If one camera stream hangs, does it block others? If Kafka is down, do alerts queue in memory until OOM? Failure isolation = scale resilience.
-
-### The 10x Test
-
-Before deploying, mentally simulate 10x load:
-- 10x cameras: Does GPU VRAM fit 10x model instances? (Hint: share one model, not N copies)
-- 10x frame rate: Does the queue drop frames gracefully or OOM?
-- 10x alerts: Does disk I/O keep up? Does Kafka partition handle it?
-- 10x duration: What accumulates after 10x runtime hours?
-
-You don't need to solve all of these. You need to know which ones will bite first.
-
----
-
-## Cross-Domain Patterns
-
-Many production ML problems are solved problems in other domains. The senior recognizes the pattern from databases, networking, or OS design. You can shortcut years of experience by learning to make these translations.
-
-### Pattern Map
-
-| ML Pipeline Problem | Equivalent In | Solution Pattern |
-|---|---|---|
-| Two models with CPU glue between them | Database: join across two tables on different servers | Co-locate (merge the graph) or denormalize (single model) |
-| Processing every frame when most are identical | Networking: sending full state vs. delta updates | Skip-frame / temporal differencing — only process when something changes |
-| Multiple cameras sharing one GPU | OS: multiple processes sharing one CPU | Time-slicing with priority scheduling. Batch across cameras for better GPU utilization |
-| Alert storm overwhelming downstream | Networking: packet storm / DDoS | Rate limiting (alert interval), backpressure, circuit breaker |
-| Model loading takes 5s on cold start | Database: cold cache after restart | Warm-up: pre-load models at container start, run dummy inference to JIT-compile CUDA kernels |
-| Preprocessing bottleneck on CPU | Database: application-side filtering vs. DB-side filtering | Push the work to where the data is (GPU preprocessing with DALI/custom ops) |
-| N containers each loading the same model | OS: shared libraries (libc loaded once, mapped into N processes) | Model serving: one inference server (Triton), N camera clients send frames via shared memory |
-| Frame queue growing under load | Networking: TCP congestion | Backpressure signal → producer slows down, or explicit drop policy (tail drop, random early drop) |
-
-### Forcing Question
-
-**"What's the equivalent problem in [databases / networking / operating systems]?"**
-
-If you can name the equivalent, the solution patterns from that domain probably transfer. Database people have 40 years of solutions for data movement, caching, and query optimization. Networking people have 40 years of solutions for throughput, backpressure, and multiplexing. Use their vocabulary — it makes Google searches more productive too.
-
----
-
-## Hardware Constraints
-
-Software optimization hits a ceiling set by physics. The senior knows these ceilings intuitively. You can learn them once and reference them.
-
-### Key Numbers (2024-era hardware)
-
-| Resource | Typical Ceiling | Implication |
-|---|---|---|
-| PCIe 4.0 x16 bandwidth | ~25 GB/s theoretical, ~12 GB/s practical | A 512×512×3 float32 frame ≈ 3MB → ~0.25ms per transfer. 30 frames/sec = ~90MB/s (fine). But CUDA sync overhead dominates small transfers, not raw bandwidth |
-| GPU memory (RTX 5080) | 16 GB VRAM | One RF-DETR ≈ 500MB. 10 copies = 5GB. Leaves 11GB for tensors. Memory fragmentation over time can cause OOM even with headroom |
-| GPU compute (RTX 5080) | ~50 TOPS FP16 | Theoretical max. Actual throughput depends on memory access patterns, not just FLOPS |
-| DRAM bandwidth | ~50 GB/s DDR5 | CPU preprocessing on large images can be memory-bandwidth-bound, not compute-bound |
-| NVMe SSD write | ~3-5 GB/s sequential, ~1 GB/s random | 10 alert JPEGs/sec is fine. 300 HLS segments/sec across 10 cameras — check random write pattern |
-| 1 Gbps network | ~100 MB/s after overhead | One 1080p RTSP stream ≈ 5 MB/s. 10 streams = 50 MB/s. 20 streams → consider 10GbE |
-| Python GIL | 1 thread executing Python bytecode at a time | N Python threads doing CPU work = 1 core of throughput. C extensions releasing GIL are the escape hatch |
-
-### Forcing Questions
-
-1. **"Am I compute-bound or memory-bound?"** If GPU utilization is high but throughput is low, you're memory-bound — the GPU is waiting for data from VRAM. Smaller batch sizes or model quantization help more than a faster GPU.
-
-2. **"What's the theoretical maximum throughput?"** `Model size / memory bandwidth` gives minimum inference time for a memory-bound model. `FLOPS required / GPU TFLOPS` gives minimum for compute-bound. Your actual time can't beat the worse of these two.
-
-3. **"Am I paying for precision I don't need?"** FP32 → FP16 halves memory bandwidth and often doubles throughput, with negligible accuracy loss for inference. INT8 halves it again but requires calibration. Most detection models work fine in FP16.
-
----
-
-## Operational Failure Modes
-
-The senior asks: **"How does this fail at 3am?"** Not just "does it work" but "how does it fail, and will I know?"
-
-### Forcing Questions
-
-1. **"What's the failure mode — loud or silent?"**
-   - **Loud:** crash, exception, container restart → you know immediately
-   - **Silent:** model returns garbage confidences, stream degrades to 2 FPS, alerts stop without error → you find out when the client calls
-   
-   Silent failures are worse. For every component, ask: "If this degrades, will any monitoring catch it?"
-
-2. **"What happens when an external dependency is temporarily unavailable?"**
-   - Kafka down: do alerts buffer in memory (OOM risk) or drop (data loss)?
-   - InfluxDB slow: does the writing thread block the inference thread?
-   - RTSP stream drops: does reconnection happen, and what happens to pipeline state during the gap?
-   
-   The answer should be explicit in the code, not "I think it just retries."
-
-3. **"What's the recovery path?"** After a crash, can the system resume automatically? Does it need manual intervention? "Restart container" vs. "restart container, re-pull model, re-authenticate to Kafka, manually check HLS state" — this difference determines whether you can sleep through failures.
-
-4. **"What does graceful degradation look like?"** When GPU runs out of headroom:
-   - **Bad:** crash, no video, no alerts
-   - **Better:** reduce inference FPS, keep HLS streaming, alert at lower frequency
-   - **Best:** automatically shed load (pause low-priority cameras), alert ops team
-
-5. **"Does the terminal signal encode HOW it ended, not just THAT it ended?"** A status that collapses distinct endings into one token throws away the information you need to react. `failed` tells you to look; `stalled` (no progress before the deadline) vs `truncated` (hit the output cap mid-stream) vs `looped` (same action repeating) vs `rejected` (gate refused it) tells you *what to do* — and lets a caller branch without re-deriving the cause from logs. When you design an exit code, a job state, or a return enum, give each failure mode its own label. The cost of one extra variant is a line; the cost of conflating them is a 3am log-archaeology session.
-
-### The Silent Failure Checklist
-
-For each pipeline component, define:
-- [ ] What does "healthy" look like? (metric or heartbeat)
-- [ ] What does "degraded" look like? (threshold)
-- [ ] What does "failed" look like? (absence of signal)
-- [ ] Who/what gets notified at each level?
-- [ ] Is recovery automatic or manual?
-
----
-
-## Common Failure Patterns
-
-The closest encoding of "experience" — patterns a senior has seen fail enough times to recognize instantly.
-
-### GPU Memory Patterns
-
-| Pattern | Symptom | Root Cause | Fix |
-|---|---|---|---|
-| Gradual VRAM increase | OOM after N hours of stable running | Memory fragmentation, tensors not freed, CUDA context growth | Periodic VRAM monitoring + model reload schedule, or memory pools |
-| OOM on startup under load | Model loads alone fine, fails with N containers | Each container allocates VRAM independently | Shared inference server (Triton) or sequential startup with memory check |
-| Inference time creep | 7ms → 20ms after 1000 frames | CUDA context pollution, memory fragmentation | Profile with `nvidia-smi dmon`, consider periodic process restart |
-
-### Pipeline Patterns
-
-| Pattern | Symptom | Root Cause | Fix |
-|---|---|---|---|
-| Queue memory growth | Container memory climbs linearly | Producer faster than consumer, unbounded queue | Bounded queue with drop policy — design decision, not a bug |
-| Thread leak on reconnect | Thread count climbs, CPU spikes | Old stream thread not joined on reconnect | Explicit thread lifecycle: cancel → join → restart |
-| Timestamp drift | Alerts show wrong time after hours | Wall clock instead of monotonic for intervals, or NTP issues | `time.monotonic()` for intervals, UTC everywhere for timestamps |
-| FFmpeg zombie | HLS stops, ffmpeg process still running | Pipe broken but process not killed | Explicit process lifecycle: check returncode, kill on timeout |
-
-### "Works on My Machine" Patterns
-
-| Dev Environment | Production Reality | Why |
-|---|---|---|
-| One model, exclusive GPU | N models, shared GPU | GPU contention changes latency entirely |
-| Local filesystem, fast SSD | Docker overlay, shared volume | Overlay fs has write amplification. Shared volumes add network latency |
-| Clean restart every debug session | 30-day uptime between updates | Everything that accumulates matters |
-| Single RTSP stream, stable | 10 streams, some flaky | Network jitter, camera firmware bugs, WiFi cameras dropping |
-
----
-
-## Pre-Deployment Checklist
-
-Before pushing an inference pipeline to production, answer these:
-
-### Data Movement
-1. Where does data physically live at each pipeline step? Can I draw the device transitions?
-2. Are there any GPU→CPU→GPU round-trips that could be eliminated?
-3. Is preprocessing happening on the same device as inference?
-
-### System Interactions
-4. What shared resources do my components compete for? (GPU, PCIe, disk, CPU cores)
-5. Under realistic concurrency (N cameras), what's the actual throughput?
-6. Where is the GIL a bottleneck, and where does it not matter?
-
-### Scale
-7. What breaks at 10x cameras? 10x frame rate? 10x runtime duration?
-8. What accumulates over time without cleanup? (files, memory, connections, queue depth)
-9. What's the blast radius of one component failing?
-
-### Hardware
-10. Am I compute-bound or memory-bound? (Profile, don't guess)
-11. Am I paying for precision I don't need? (FP32 when FP16 works)
-12. Do I know the ceiling numbers for my hardware? (PCIe bandwidth, VRAM, disk I/O)
-
-### Operations
-13. For each component: how does it fail silently? What monitoring catches it?
-14. When an external dependency goes down, what happens? (Explicit, not "I think it retries")
-15. Can the system recover from a crash without manual intervention?
-16. After 30-day uptime, what state has accumulated that a fresh start doesn't have?
-
----
-
-## The Meta-Principle
-
-**Optimize the pipeline, not the model.**
-
-Most ML engineers spend 90% of optimization effort on model architecture and 10% on the pipeline around it. In production, it's usually the opposite: the pipeline (data movement, concurrency, I/O, failure handling) determines real-world performance more than model inference time.
-
-A 7ms model in a 200ms pipeline means the model is 3.5% of your latency. Making the model 2x faster saves 3.5ms. Eliminating one unnecessary GPU→CPU round-trip saves 5-50ms. The senior optimizes the pipeline first because that's where the time actually goes.
-
-| Optimization | Typical Savings | Effort |
-|---|---|---|
-| Model FP32 → FP16 | 1.5-2x inference speedup | Low (one export flag) |
-| Eliminate CPU preprocessing round-trip | 5-50ms per frame | Medium (ONNX graph surgery or GPU preprocessing) |
-| Merge two models into one graph | 10-100ms per frame (eliminates transfer + sync) | Medium-High (graph surgery, custom ops) |
-| Batch inference across cameras | 2-5x throughput improvement | Medium (architecture change) |
-| Shared model server (Triton) | Eliminates per-container model loading, 60-80% VRAM savings | High (infrastructure change) |
-
-Ask: **"Where does the time actually go?"** Profile first. Then optimize the biggest bar in the profile, not the most intellectually interesting component.
-
----
-
-## How to Close Your Own Gaps
-
-This document encodes specific patterns. But the meta-skill — the ability to discover blind spots proactively — requires a learning strategy, not a bigger checklist.
-
-### The "Layer Below" Audit
-
-Periodically (monthly, or when starting with a new technology), list your production stack and check:
-
-| Technology | Can I name the layer below? | Do I know the failure modes? | Last time I read the internals? |
-|---|---|---|---|
-| ONNX Runtime | ONNX graph format, execution providers, memory arenas | ? | ? |
-| Docker | cgroups, namespaces, overlay fs, GPU passthrough | ? | ? |
-| FFmpeg | codec internals, keyframes, GOP structure | ? | ? |
-| FastAPI/Uvicorn | ASGI, event loop, worker model | ? | ? |
-| PostgreSQL | query planner, indexes, WAL, vacuum | ? | ? |
-
-A "?" means you have a blind spot. Not an emergency — but when something breaks in that component, you'll be debugging from the API level instead of the root cause level.
-
-### Where to Learn the Layer Below
-
-Not tutorials (they teach the API you already know). Read:
-- **The "internals" or "architecture" page** of the official docs (every major project has one)
-- **Performance tuning guides** — they expose what knobs exist and why, which teaches the layer below
-- **Post-mortems** from companies running at scale — they describe failures you haven't hit yet
-- **Source code** of the hot path — even skimming teaches you what actually happens per call
-
-One hour of reading ONNX Runtime's execution provider docs would have revealed that custom ops exist and that graph surgery is a normal workflow — surfacing the senior's insight before he had to point it out.
+Periodically, and when adopting a new technology, audit whether you understand each production component's lower layer and failure modes.

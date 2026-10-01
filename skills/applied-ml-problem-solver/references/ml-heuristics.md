@@ -1,349 +1,98 @@
 # ML Heuristics
 
-Decision heuristics for ML work. Consult when framing an ML problem or choosing an architecture, before any code is written. These are forcing questions, not rules — skip what doesn't apply.
+Use these decisions before implementation: reduce the task, define what the labels mean, choose an objective, make sure the evaluation can answer the question, and fit the model to the actual operating constraints.
 
----
+## Problem formulation and task choice
 
-## Problem Reframing
+- Read the specification literally. Do not add model complexity the requested outcome does not need. [book:real-world-software-development], KISS Principle
+- Decompose a difficult task into solved subproblems and chain existing solutions where that is sufficient. A detector plus a small attribute classifier may be simpler than a single fine-grained detector. [book:designing-ml-systems-huyen], When to Use Machine Learning
+- Choose the simplest useful problem type before selecting a model. A different frame can turn a difficult task into one with fewer classes or a smaller prediction space. [book:designing-ml-systems-huyen], Multiple ways to frame a problem
+- Fit-Check the six constraints in `SKILL.md` before committing to the chosen formulation.
 
-Before choosing a model or framework, challenge the problem statement itself.
+## Labels, uncertainty, and error costs
 
-### Forcing Questions
+First ask whether labels can coexist on the same example.
 
-1. **"What does the spec actually say?"** — Read requirements literally. If it says "detect compliance," that's classification, not detection-with-bounding-boxes. Don't add complexity the problem doesn't demand.
+| Relationship | Formulation | Typical output |
+|---|---|---|
+| One state excludes the others | Binary or multiclass classification | Softmax probabilities and a cross-entropy objective |
+| Attributes can independently be true together | Multilabel classification | Independent sigmoid scores and binary cross-entropy |
 
-2. **"Can I decompose this into solved sub-problems?"** — Chain existing solutions instead of training one model end-to-end. Example: person detection (solved) → crop → classify attributes (simpler problem) instead of multi-class fine-grained object detection (hard problem).
+Use sigmoid binary cross-entropy for genuinely multilabel targets; its independent scores allow more than one label to be active. [book:kagglebook_secondedition], Training loop
 
-3. **"What's the simplest problem type this reduces to?"** — Detection → classification. Segmentation → detection + mask. Generation → retrieval + ranking. Every reduction in problem complexity is a 10x reduction in data/compute/debugging effort.
+Do not encode mutually exclusive states as independent binary labels. For example, “no helmet,” “helmet backward,” and “helmet without strap” are alternative states of one helmet label; independent sigmoids can predict incompatible states together. [book:designing-ml-systems-huyen], Multiclass versus multilabel classification
 
-4. **"Can I build a labeling pipeline instead of a labeled dataset?"** — Semi-automate with VLMs or existing models producing structured output (JSON captions), then human-correct. This scales; manual labeling doesn't.
+Do not create a learnable “unknown” class for an absence that has no visual pattern, such as a head outside the frame. Mask that task's loss for the sample. Handle inference uncertainty separately with a confidence threshold and a defined path for below-threshold cases, such as abstention, human review, or requesting more information. [book:designing-ml-systems-huyen], Confidence measurement
 
----
+Multitask models can share a representation while using separate heads for different tasks. If tasks have different numbers of classes, keep those output sizes separate and use a suitable per-task loss. [book:human-in-the-loop-ml], 9.4 Embeddings and contextual representations
 
-## Label Schema Design
+Weight task losses according to the real-world cost of their errors. A false negative with safety impact may warrant a different cost from a mistaken accessory label. [book:designing-ml-systems-huyen], Cost-sensitive learning
 
-**Your label schema IS your model architecture.** Get this wrong and no amount of training fixes it.
+Class-balanced loss can use normalized inverse-frequency weights, but class counts alone do not establish the right objective. Inspect label quality, the cost of each error, and performance by class before weighting; aggressive weights can amplify noisy rare labels or distort the operating objective. [book:designing-ml-systems-huyen], Class-balanced loss
 
-### Mutual Exclusivity Test
+## Data quantity, splits, and model selection
 
-Before defining labels, ask: **"Can these values coexist on the same sample?"**
+Before investing in additional data, define a reasonable evaluation baseline and estimate whether more data could plausibly repay its collection cost. [book:data-science-for-business], Evaluation, Baseline Performance, and Implications for Investments in Data
 
-| Answer | Formulation | Loss |
-|--------|------------|------|
-| No — they're states of the same thing | Multi-class (one task, N classes) | CrossEntropyLoss |
-| Yes — genuinely independent attributes | Multi-label (N independent sigmoids) | BCEWithLogitsLoss |
+Plot learning curves: generalization performance against training-set size helps distinguish a data-limited model from a model that needs a different formulation or more capacity. [book:data-science-for-business], Learning Curves
 
-**Anti-pattern:** Splitting mutually exclusive states into independent binary attributes. Example: `no_helmet`, `helmet_backward`, `helmet_no_strap` as three binary sigmoids — but a person can't simultaneously have no helmet AND a backward helmet. These are 3 classes of one `helmet` task, not 3 independent binary tasks. Sigmoid allows contradictory outputs (P(no_helmet)=0.8 AND P(helmet_backward)=0.7). CrossEntropy + softmax enforces mutual exclusivity by design.
+Use cross-validation when data is limited and a single holdout would waste too much information for model selection. Keep a final test set outside the tuning process. [book:data-science-for-business], From Holdout Evaluation to Cross-Validation
 
-### The "Unknown" Class Trap
+Never evaluate on resampled data. Rebalance only the training split; evaluation must retain the deployment distribution or the reported result will reflect the artificial resampling distribution. [book:designing-ml-systems-huyen], Data-level methods: Resampling
 
-Ask: **"Is this class a visual pattern learnable from pixels, or a metadata annotation about the image?"**
+Split before scaling or fitting any learned preprocessing. Fit those transformations on the training split and apply the fitted values to validation and test data to prevent leakage. [book:designing-ml-systems-huyen], Scaling before splitting
 
-- "Head not visible in frame" → NOT a visual category. There's no pixel pattern for absence. Use `ignore_index=-1` to produce zero gradient for that task on that sample.
-- Having "unknown" as a learnable class creates an escape hatch — the model dumps uncertain predictions into it instead of learning real decision boundaries.
-- At inference time, handle uncertainty via softmax confidence threshold (e.g., 0.60), entirely decoupled from training.
+## Metrics and evaluation validity
 
-### Variable Class Counts
+Choose a primary selection metric, but report the component axes of a composite beside it. A single aggregate can stay flat while precision, recall, latency, or faithfulness move in opposite directions. [book:building-machine-learning-pipelines], 7. Model Analysis and Validation
 
-Different tasks can have different numbers of classes. Don't force everything into the same shape:
+Use cheap, broad signals to rank candidates and an expensive, higher-quality evaluation where it adds confidence. Only the decisive full-scale gate authorizes a ship. [book:ai-engineering-huyen], Select evaluation methods
 
-```python
-TASK_NUM_CLASSES = {
-    "helmet":  3,   # absent / correct / wrong
-    "body":    3,   # absent / correct / worn wrong
-    "hand":    2,   # absent / present
-    "foot":    2,
-    "glasses": 2,
-}
-```
+Pre-register the ship threshold against the recorded baseline before running the decisive evaluation. The source supports registering the study design and analysis plan; the baseline-linked ship threshold is the ML-specific decision rule. [book:statistics-by-simulation], 3.5. Pre-registration
 
-One `CrossEntropyLoss` per task allows per-task class weights, ignore_index, and independent class counts.
+Keep a point estimate as the best single guess, but publish its confidence interval and describe the strength of the inference. A broad interval does not confirm the point estimate's apparent win. [book:how-to-read-a-paper], Probability and confidence
 
----
+When a measure is at ceiling or floor, use a manipulation check and a more sensitive measure with detailed quantitative increments before interpreting a null or small difference. A perfect score can hide a real change. [book:research-methods-psychology], Interrogating Null Effects: What if the Independent Variable Does Not Make a Difference?
 
-## Multi-Task Architecture
+Test whether the delta is statistically or interval-resolved before calling a win; report unresolved differences as inconclusive. [book:how-to-read-a-paper], Probability and confidence
 
-When multiple tasks share a backbone, **gradient politics** determines what the backbone learns.
+Check the minimum detectable effect before gating. If the expected change is smaller than the design can resolve, improve the sample, pairing, or measurement grid before running it. [book:statistics-by-simulation], 3.4. Testing Hypotheses and Assessing their Support
 
-### The Gradient Dominance Problem
+A surprising gain is a hypothesis, not proof of a mechanism. Check for bugs, coarse grids, and artifacts, and replicate the result independently before treating it as established. [book:research-methods-psychology], Research Transparency and Credibility
 
-Easy tasks (binary, 2-class) converge faster → their gradients become large and confident early → backbone gradient = sum of all task gradients → backbone optimizes for easy tasks, starving hard tasks of signal.
+For a retrieval evaluation, check that it has headroom, that positives were not generated from their answer text, that distractors include real competitors, and that the scored unit matches what the consumer receives. Simple prompts or easy distractors can make weak systems look equivalent or excellent. [book:ai-engineering-huyen], Challenges of Comparative Evaluation
 
-**Fix: Shared projection layer** between backbone and task heads:
-```
-Backbone [D] → FC(D→P) + BatchNorm1d + Activation + Dropout → task heads
-```
+Measure lexical overlap between query and positive passage; when the overlap is high, rewrite the query into realistic user language and check that the measured overlap falls.
 
-BatchNorm normalizes the feature distribution so no single task's loss scale distorts the shared representation. All tasks backpropagate through the projection equally.
+Seed retrieval distractors with real competitors, such as passages from the same source, section, or topic. Random off-topic negatives often make ranking trivial.
 
-### Proportional Head Sizing
+## Experiments and diagnostic controls
 
-Size task heads to match task complexity:
+Build a cheap comparison or control before interpreting an experiment that can fail because of either the method or its measurement. A comparison condition is required, but it need not always be a full no-treatment group. [book:research-methods-psychology], Why Experiments Support Causal Claims
 
-| Task Type | Architecture | Rationale |
-|-----------|-------------|-----------|
-| Hard (3+ classes, fine-grained visual differences) | Projection → 128 → C | More capacity for subtle distinctions |
-| Easy (2 classes, coarse signal) | Projection → 64 → C | Less capacity prevents overfitting |
+Use a non-learned oracle to separate insufficient input signal from a model's inability to use that signal. If an oracle can solve the task from the features but the trained model cannot, the failure is downstream of the input. A centroid or averaging decoder can serve as a diagnostic, not automatically as the fair comparator.
 
-Oversized heads on simple tasks waste parameters and overfit on small datasets.
+Calibrate a null control to the behavior of a correct system, not to an intuitive score. For example, removing all task signal should yield the global prior if that is what a signal-free system would predict. [book:designing-ml-systems-huyen], Baselines
 
-### Safety/Priority Weighting
+For synthetic or finite-bank training, compare performance on seen realizations with fresh draws from the same generator before relying on train/validation loss. High performance on seen examples but substantially lower performance on fresh draws indicates memorization of the bank.
 
-Not all misclassifications are equally costly. Weight the loss by consequence:
-```python
-TASK_WEIGHTS = {"helmet": 2.0, "body": 2.0, "hand": 1.0, "foot": 1.0, "glasses": 1.0}
-loss = sum(TASK_WEIGHTS[task] * CE(logits, labels) for task in tasks)
-```
-
-Ask: **"If the model gets this wrong, what's the real-world cost?"** Fatal risk → higher weight.
-
----
-
-## Training Schedule
-
-### Phased Unfreezing (For Pretrained Backbones)
-
-**Problem:** Randomly initialized heads produce large, noisy gradients. If the backbone is unfrozen from epoch 1, these gradients destroy pretrained features (edge detectors, texture filters, spatial reasoning) — catastrophic forgetting.
-
-**Solution: 3-phase schedule:**
-
-| Phase | Backbone | LR (backbone) | LR (heads) | Purpose |
-|-------|----------|--------------|------------|---------|
-| 1: Warmup (ep 1-5) | Frozen | 0 | ramp from lr/100 → lr | Stabilize random heads |
-| 2: Partial FT (ep 6-20) | Top blocks unfrozen | lr × 0.1 | cosine decay | Adapt task-specific features |
-| 3: Full FT (ep 21-40) | All unfrozen | lr × 0.01 | cosine continues | Fine-tune general features conservatively |
-
-**Key detail:** Use `optimizer.add_param_group()` at phase transitions — this preserves momentum states for parameters already being trained. Don't rebuild the optimizer.
-
-### When to Use Phased Unfreezing
-
-Ask: **"Am I fine-tuning a pretrained model with randomly initialized heads?"** If yes → always use phased unfreezing. The 2-4% accuracy improvement on hard tasks is free.
-
-### Class Imbalance
-
-When any class has fewer than ~5% of the most common class, use inverse-frequency class weights:
-```
-w_c = (1 / count_c) / mean(1 / count_c)
-```
-This normalizes so mean weight = 1, correcting imbalance without inflating the total loss magnitude.
-
----
-
-## Metrics
-
-### Global Accumulation, Not Per-Batch Averaging
-
-**Problem:** Per-batch F1 averaging is a biased estimator. With rare classes and batch_size=32, most batches have 0 positive examples → per-batch F1 = 0.0 → average is systematically lower than true performance.
-
-**Fix:** Store all argmax predictions and labels as CPU int64 tensors during the epoch (negligible memory). Compute F1 once over the full dataset at epoch end. This is unbiased by construction and comparable across runs with different batch sizes.
-
-Ask: **"Does any class have fewer samples than my batch size?"** If yes → per-batch metrics are biased → accumulate globally.
-
-### Primary Metric Selection
-
-Use **macro F1** (unweighted average across classes per task, then averaged across tasks) as the primary checkpoint selection metric. It balances precision and recall and is sensitive to rare-class performance — unlike accuracy, which can be gamed by always predicting the majority class.
-
-### Decompose Composite Metrics — Report Each Axis
-
-A single score that blends multiple axes (F1 over precision+recall, a quality score over fluency+faithfulness, a combined latency+accuracy gate) can stay flat while the axes underneath move in opposite directions and cancel. The aggregate says "no change"; the truth is "recall collapsed, precision spiked, and they happened to net to zero." **Select on one primary metric, but always log the components beside it.** When you report a composite, show the breakdown — the aggregate is for ranking, the per-axis split is for *understanding what your change actually did*. The first question on any surprising aggregate is "which axis moved?", and you can only answer it if you recorded them separately.
-
-### Proxy vs. Decisive Metric
-
-You will iterate on a **cheap proxy** (small pool, held-out slice, mini-harness) and ship on a **decisive gate** (full-scale eval on the real pipeline). Respect the hierarchy or the proxy will lie to you:
-
-- **Proxies rank candidates; only the decisive gate authorizes a ship.** A proxy win is a hypothesis, not a result.
-- **Pre-register the ship threshold before running the decisive gate.** "Ships only if [metric] beats [recorded baseline]" — written down *first*. Choosing the bar after seeing the number launders a regression into a ship.
-- **Sub-noise-floor margins aren't wins.** If the margin is smaller than the proxy's run-to-run variance, the proxy can suggest *direction* but not confirm *magnitude*.
-- **A proxy scoring near-ceiling has stopped measuring.** Fix the eval (see below) before trusting it.
-
-A small in-memory retrieval pool once ranked an enrichment prompt as a +0.006 winner; the pre-registered full-index gate showed it actually *regressed* retrieval and it was reverted. The cheap metric gave a false positive — the gate, reserved as decisive in advance, was the only thing that caught it.
-
-### The Instrument Must Resolve the Delta (discrimination floor)
-
-A decisive gate only *decides* if it can see the difference you're asking it to judge. An eval can be valid — right construct, real pipeline — and still be a proxy *for this decision* when the delta is below its resolution. The trap: a gate that can't resolve the delta still emits a number, and that number launders a coin-flip into a verdict.
-
-- **Significance-test deltas; don't read aggregates raw.** Before accepting "A beats B," check the margin against the metric's own noise — a paired test (p<0.05) on per-query/per-sample scores, or the CI half-width. A gap smaller than the instrument's resolution is **inconclusive, not a result**; report it as such, don't crown a winner.
-- **Confirm resolution *before* you gate.** Know the gate's minimum detectable effect (run-to-run variance, validation-grid coarseness, sample size) up front. If the delta you expect is below it, the experiment can't answer the question — make the instrument finer (more queries, denser grid, paired design) before spending the run.
-- **A number that moved is not a win until you know *why* it moved.** A surprising improvement is a hypothesis about a mechanism; until you can name the mechanism, suspect a bug, a coarse grid, or an artifact first.
-
-> **Trace (knowledge-base gate-audit):** an embedding upgrade was rejected on a 0.012 NDCG gap that sat **3.6× below the gate's CI half-width (±0.043)** and below the paired MDE at every correlation level — and was never significance-tested. A later paired re-test downgraded the call to *inconclusive* and showed the single-label gate had *inflated* the deficit. The instrument was sound for ranking but could not adjudicate a sub-0.02 delta, yet was used to. The robotics project hit the same trap from the other side: a geometry-optimizer "14.2°→0°" win was a coarse-validation-grid artifact that vanished on a dense grid — the number moved for the wrong reason.
-
-### Eval-Set Validity (the "measure-the-wrong-thing" trap)
-
-Before you trust *any* number, ask: **"Does this benchmark actually measure the lever I'm pulling?"** A metric that can't move when your change works is worse than no metric — it manufactures false confidence.
-
-- **Near-ceiling baselines are a red flag, not a victory.** If the baseline already scores ~0.95+, the set has no headroom to detect an improvement. The change you're testing literally cannot show up.
-- **Beware positives generated from the answer.** An LLM-generated query written *from* the chunk it should retrieve inherits that chunk's rare vocabulary, so retrieval matches trivially. The eval then measures "can it find the chunk that shares its weird words" — not real recall. **Verify objectively:** measure query↔positive content-word overlap; if it's high, paraphrase the queries into how a real user would phrase them and confirm the overlap dropped.
-- **Distractor pools need hard negatives.** Scoring a positive against a pool of random off-topic items is trivial — the positive wins by default (a flat random pool scored a useless perfect 1.0). Seed the pool with the positive's *real competitors* (same source/section/topic siblings) so the metric has to discriminate.
-- **Match the granularity you actually deliver.** Score at the unit the consumer receives (e.g., parent chunk), not an internal unit, or the number won't reflect delivered quality.
-
-> **Trace (knowledge-base):** the first golden set scored NDCG 0.93 / Recall@50 1.00 — looked excellent, but was generated from the chunks, so it couldn't measure the recall lever enrichment was meant to pull. A paraphrase pass dropped query↔chunk overlap 52% (0.649→0.313) and exposed real headroom (NDCG 0.79). The same trap recurred one level down in the optimizer's distractor pool.
-
----
-
-## Experiment Design (controls, discriminators, sim data)
-
-How to set an experiment up so its result is *interpretable*, not just run it. (Per-experiment one-variable isolation lives in `train-loop.md` → Phase 4; these are the design moves that make a single result *mean* something.)
-
-### Build the discriminating instrument before you read a two-way result
-
-When an experiment can fail two ways — the *thing you're testing* failed, OR the *measurement around it* failed — build the cheap control that tells them apart **before** you read the headline number. Otherwise a FAIL is uninterpretable and you'll mis-attribute it.
-
-- The classic pair: a result is bad because the *signal* is insufficient vs. bad because the *model* couldn't use it. Add a non-learned oracle (a centroid/averaging decoder, a hand-rule) that answers "are the features even sufficient?" — now a learned-model FAIL can't hide behind "maybe the inputs were bad." One-variable isolation tells you *which input* broke; the discriminator tells you *which layer* broke. You want both.
-
-> **Trace (the robotics project):** a spatial-binding probe could fail because the direction features were too noisy *or* because attention couldn't bind instruction→direction. A non-attention oracle, built first, isolated it — the FAIL was diagnosable instead of ambiguous.
-
-### Calibrate the control to a *correct* system, not to an intuitive number
-
-A null/control is only useful if it's pinned to what a *correct* model would actually do. A plausible-sounding number is often the score of a *wrong* model — pin to it and the control becomes a false-negative generator.
-
-- Example: "ablate the signal → accuracy should fall to 1/N" sounds right, but a model that still slot-picks scores 1/N; a *genuinely* signal-free model decays to the **global prior (1/B over all classes)**. Pinning the wrong expected value hides a real failure.
-
-### Sim / finite-data has its own overfitting mode
-
-Synthetic or finite-bank data lets a model memorize *per-realization noise* instead of the task — and the usual instincts misfire:
-
-- **First diagnostic is train-realization vs fresh-realization eval**, not train/val loss. Tell: high accuracy on *seen* realizations, much lower on *fresh* draws from the same generator (e.g. 0.99 vs 0.72) → memorizing the bank, not learning the task.
-- **The fix is more realizations (K↑), not regularization.** A tiny model at few steps is *under*-fitting capacity-wise; adding dropout to a model that's memorizing a too-small bank makes it worse. Grow the data the generator produces for free before reaching for weight decay.
-- **An averaging/centroid oracle is a *low-variance ceiling*, not proof of impossibility.** "Trained model < averaging oracle" is usually estimator variance + finite data, not "the task can't be learned." Report a single-snapshot decoder as the fair comparator; don't declare a task impossible against a low-variance baseline.
-
----
+When finite-bank memorization is the issue, increase the number of generated realizations before adding regularization. If a trained model loses to a low-variance averaging oracle, do not declare the task impossible; report a fair single-snapshot comparator.
 
 ## Augmentation
 
-### Domain-Specific Augmentations Are Not Optional
+Choose augmentation from real input variation and the label semantics. For camera-angle variation, horizontal flips can be appropriate; avoid vertical flips for upright people because they create an unrealistic distribution. [book:d2l-en], Flipping and Cropping
 
-Ask: **"What does the real-world input distribution look like? What variations exist that my training data doesn't cover?"**
+## Mechanisms and inference constraints
 
-| Real-World Variation | Augmentation |
-|---------------------|-------------|
-| Grayscale CCTV cameras | `RandomGrayscale(p=0.05)` |
-| Night / low-light | `ColorJitter(brightness=0.3)` + consider CLAHE preprocessing at inference |
-| Compression artifacts | Random JPEG compression |
-| Variable resolution | `Resize(256) → RandomCrop(224)` not just `Resize(224)` |
-| Camera angles | `RandomHorizontalFlip(p=0.5)` (NOT vertical — people don't appear upside down) |
+Choose the specific mechanism needed rather than defaulting to a full model architecture. A simpler method that meets the task can be cheaper and easier to maintain than a state-of-the-art model. [book:designing-ml-systems-huyen], Avoid the state-of-the-art trap
 
-Every variation missing from training is a failure mode in production.
+Establish the end-to-end inference latency budget before selecting a backbone. Filter out models that miss the latency requirement, then choose the best-accuracy option among those that fit. [book:ai-engineering-huyen], Cost and Latency
 
-### Augmentation for Resize
+Research work often prioritizes throughput; production serving often prioritizes low latency. Select the objective from the workload rather than carrying one metric across both contexts. [book:designing-ml-systems-huyen], Computational priorities
 
-Use `Resize(img_size + 32) → RandomCrop(img_size)` for training, not `Resize(img_size)` directly. The extra border gives the crop randomness to work with, simulating slight scale and position variations. Validation uses `Resize(img_size)` directly — no randomness.
+## Added evaluation practices
 
----
+These practices extend the experiment record with diagnostics for data, metrics, and external evidence.
 
-## Architecture Decisions
+- When an external AI study or benchmark supplies a baseline, appraise its intended use, intended users, design, comparator, data, and outcomes before treating its number as transferable. For AI decision-support studies, use the ten-question appraisal set based mainly on CONSORT-AI and DECIDE-AI. [book:how-to-read-a-paper], Ten questions to ask about a paper that reports AI studies in healthcare
 
-### Use Mechanisms, Not Models
-
-Don't default to downloading a full model architecture. Ask: "Which specific mechanism solves my problem?"
-
-| Need | Mechanism | Not |
-|------|-----------|-----|
-| Spatial focus on image regions | Cross-attention over CNN feature maps | Full Vision Transformer |
-| Sequence ordering | Positional encoding + self-attention | Full transformer encoder-decoder |
-| Feature comparison | Cosine similarity / contrastive head | Siamese network framework |
-| Multi-task classification | Lightweight backbone + shared projection + per-task heads | End-to-end fine-tuned large model |
-
-### Model Sizing Is an Inference Budget Problem
-
-Ask: **"What's my end-to-end latency budget, and how does each component's inference time stack up?"**
-
-```
-Example budget: 10ms per person on RTX A4000
-  YOLO nano person detection:     ~2ms
-  MobileNetV3-Small backbone:     ~1.5ms (fp16)
-  Shared projection + 5 heads:    ~0.5ms
-  Total:                          ~4ms ✓ (headroom for multi-camera)
-```
-
-Choose the backbone AFTER knowing the budget, not before. The fastest model that meets accuracy requirements wins.
-
-### Strip to Primitives
-
-Frameworks wrap layers of abstraction around computation kernels. For production, ask:
-
-- **Training time:** Framework overhead is acceptable — developer velocity matters more.
-- **Inference time:** Extract the computation graph. Remove what you don't use.
-
-| Layer | Example | When to strip |
-|-------|---------|---------------|
-| High-level API | Ultralytics, HuggingFace Trainer | When you need control over the training loop or inference pipeline |
-| Framework | PyTorch, TensorFlow | When deploying — export to ONNX/TensorRT, don't ship the training framework |
-| Operator level | Custom CUDA kernels, C++ extensions | When a specific operation is the bottleneck and the framework's implementation is general-purpose |
-
----
-
-## Deployment
-
-> **Deep dive:** `production-thinking.md` covers the full post-training world — data movement, graph fusion, systems interaction, scale projection, hardware constraints, operational failures. This section covers the export basics; production-thinking covers everything else.
-
-### Separate Training from Inference
-
-The training artifact is not the deployment artifact.
-
-```
-Train (PyTorch/TF) → Export (ONNX) → Optimize (TensorRT/ONNX Runtime) → Deploy
-```
-
-- Training container: large, GPU, full framework — that's fine, it runs once
-- Inference container: minimal runtime only — no autograd, no optimizer, no training utilities
-- PyTorch container: ~4GB+. ONNX Runtime container: ~500MB. TensorRT: even smaller with better throughput.
-
-### Inference Optimization Checklist
-
-- [ ] Exported to ONNX or framework-native format (TorchScript, SavedModel)?
-- [ ] Quantized (FP16/INT8) where accuracy permits?
-- [ ] Batching strategy defined (dynamic vs fixed)?
-- [ ] Runtime selected (TensorRT for NVIDIA, ONNX Runtime for cross-platform, Core ML for Apple)?
-- [ ] Profiled end-to-end latency (not just model inference — include pre/post-processing)?
-
----
-
-## Pre-Training Checklist
-
-Before writing any training code, answer these questions:
-
-### Problem Formulation
-1. Are my classes mutually exclusive or independent? → CrossEntropy vs Sigmoid
-2. Is every class a learnable visual pattern, or are some metadata? → Remove non-visual classes from model output
-3. What's the simplest problem type this reduces to?
-
-### Architecture
-4. Do I have mixed-difficulty tasks sharing a backbone? → Need gradient balancing (shared projection + BatchNorm)
-5. Does each head's capacity match its task complexity? → Size proportionally
-6. What's my inference latency budget? → Size the backbone accordingly
-
-### Training
-7. Am I fine-tuning pretrained weights? → Phased unfreezing + differential LR
-8. Are all errors equally costly? → Task weights in loss
-9. Is my dataset class-imbalanced? → Inverse-frequency class weights
-10. Is my metric computation biased by batch composition? → Global accumulation
-
-### Data & Augmentation
-11. What does the real-world input distribution look like? → Domain-specific augmentations
-12. What edge cases exist (grayscale cameras, night, occlusion)? → Cover in augmentation pipeline
-
-### Labels
-13. Is `-1`/unknown a visual category or an annotation decision? → `ignore_index`, not a class
-14. Are my label granularity and model output granularity aligned? → Don't split mutually exclusive states into independent attributes
-
----
-
-## Training & Experiment Loop
-
-The experiment-loop workflow — convergence criteria → validate data → baseline → one-variable experiment loop → evaluate/handoff — and the append-only `experiment-log.md` spec live in **`train-loop.md`**, which owns them (with the pre-registration procedure and negative-result discipline). **This file owns the proxy-vs-decisive rule and the discrimination floor themselves** — `train-loop.md` points here for them rather than restating them. This file covers the pieces `train-loop.md` leans on: problem reframing, label/architecture decisions, metrics, and experiment *design* (controls, discriminators, sim — above).
-
-## The Meta-Principle
-
-**Minimize the distance between your problem and your solution.**
-
-| Approach | Energy |
-|----------|--------|
-| Start from problem → pull only needed primitives | Low |
-| Start from framework → configure until it fits | High |
-| Chain solved sub-problems → simple pipeline | Low |
-| Train one model to do everything end-to-end | High |
-| Ship optimized inference artifact | Low |
-| Ship training framework as inference engine | High |
-
-This is gradient descent applied to engineering decisions: find the lowest-energy solution, not the most obvious one.

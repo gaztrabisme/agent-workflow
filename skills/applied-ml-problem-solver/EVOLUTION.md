@@ -213,3 +213,24 @@ they must be on domains the gates were not mined from — the transfer test is t
   failed and was fixed rather than passed on inspection. Both gates still rest on **one
   derivation project plus one transfer test**. The hand-off precedence rule is **untested**.
   `KEEP` requires two more independent real uses.
+
+## Evolution 2 — stage B rebuild (2026-10-01)
+
+### Harvest scope
+- Read the approved proposal, the applied-ML and core rule ledgers and crosswalks, the practitioner review, the current skill and references, the shared kernel, and the skill-builder instructions and templates.
+- Read the cited chapters for routed rules and adopted candidates from: ai-engineering-huyen, ai-powered-search, art-of-ai-product-development, building-machine-learning-pipelines, building-reliable-ai-systems, critical-thinking-about-research, d2l-en, data-science-for-business, designing-ai-interfaces, designing-ml-systems-huyen, effective-conversational-ai, essential-graphrag, hands-on-site-reliability-engineering, how-to-read-a-paper, human-in-the-loop-ml, kagglebook_secondedition, machine-learning-production-systems, real-world-software-development, research-methods-psychology, site-reliability-engineering, software-engineering-at-google, statistics-by-simulation.
+- This is a source-based rebuild; the change needs two real uses before its practice can be settled.
+
+### Patterns found
+1. **The skill was organized as accumulated rules rather than a decision flow.** The practitioner review also identified defaults that overreached their evidence, including pipeline-first optimization, assumed GPU synchronization, and a fixed fusion target.
+2. **Several useful practices were absent.** The book candidates added evaluation reliability and scoring guidance, multiple baselines, data diagnostics, monitoring, and staged rollout and recovery practices.
+
+### Hypotheses applied
+1. **Rebuilt `SKILL.md` around the ML decision record and its workflow** — frame, ground, fit-check, resolve the gate, name headroom, run experiments, and decide.
+2. **Separated durable reference material by job** — ML formulation, experiment loop, retrieval, evaluation harness, and inference production thinking. Kept the linked `production-thinking.md` and `rag-heuristics.md` paths.
+3. **Applied crosswalk corrections and review findings** — profile the largest measured bottleneck, qualify CPU/GPU synchronization by runtime evidence, avoid fusion targets as defaults, and use class counts as evidence rather than a universal 5% trigger.
+4. **Coverage:** 209 routed rules: 46 agrees, 81 refines, 82 field rules, 0 disputed. Adopted 27 candidates; left 6 skill candidates and 27 core candidates out of this skill.
+
+### Validation results
+- [ ] Two real uses confirm the workflow is usable and the added practices help decisions.
+- **Verdict: PENDING** — this rebuild is distilled from formal sources and a practitioner review; it has not yet been exercised in two independent real uses.
