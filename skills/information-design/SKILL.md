@@ -104,6 +104,7 @@ Templates use render-kit markup and are examples to adapt. The four drilling exa
 
 ## References
 
+- [references/method/claim-audit.md](references/method/claim-audit.md) — the independent claim audit of every course citation (evidence per scope in `audit/`).
 - [references/method/brief.md](references/method/brief.md) — define the reader, question and use context.
 - [references/method/source-and-data.md](references/method/source-and-data.md) — check source, data, joins, selection and missingness.
 - [references/method/story-and-structure.md](references/method/story-and-structure.md) — find the story and order its layers.
