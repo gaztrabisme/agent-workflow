@@ -6,13 +6,14 @@ license: Proprietary (private; cites a paid course)
 
 # Project-management
 
-This skill helps a project lead turn work into a usable plan before execution: a work breakdown structure (WBS), schedule, capacity view, dependency register, and sprint commitments. The plan can be a spreadsheet or planning file the team can update. It serves the people coordinating and doing the work.
+This skill helps a project lead turn work into a usable plan before execution: a work breakdown structure (WBS), schedule, capacity view, dependency register, and sprint commitments. When a WBS is needed, the default deliverable is a concise plan note plus an editable workbook the team can update. Use a lighter shared plan when a WBS would not help the decision.
 
 > Inherits the `core` kernel. Use its canonical gates through [core/SKILL.md](../core/SKILL.md); keep shared gate definitions there.
 
 ## When it fires — and when a sibling owns it
 
 - **This skill:** a project lead needs to frame, sequence, staff, or commit project work before it starts, for an internal or client project.
+- **Presignature priced estimate:** use `delivery`'s pre-signature estimate step for client response estimates, release split, and capacity decisions; `solution-architect` owns the response pack. This skill can frame and sequence a separate team plan, but it does not own the priced estimate or response pack.
 - **`delivery` instead:** a signed client engagement needs its baseline, acceptance, change, or obligation controls. This plan may feed that work, but does not replace its records.
 - **`conductor` instead:** the request needs cross-skill staging or coordination; this skill builds the project plan itself.
 
@@ -57,7 +58,7 @@ For a client project, use the brief and any agreed scope document as planning in
 ## Composition
 
 - **Inherits:** `core` shared gates.
-- **Consumes / hands off to:** `delivery` for signed-client controls; `conductor` for cross-skill staging. A presale solution plan can pass planning inputs into this workflow when a separate team plan is needed.
+- **Consumes / hands off to:** `delivery` for signed-client controls and pre-signature estimate, release-split, and capacity decisions; `solution-architect` for the presignature response pack; `conductor` for cross-skill staging. A presale solution plan can pass planning inputs into this workflow when a separate team plan is needed.
 
 ## References
 

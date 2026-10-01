@@ -10,6 +10,10 @@ Clarify the actual deadline and what the budget must cover before turning a brie
 
 Identify who has final approval so that review and sign-off can be planned as real work. (5907 · U3 · L20 · 07:20–08:37)
 
+Record explicit exclusions with a reason and rough size, or mark the size unknown; ask the approver to confirm the list. (derived: dogfood 2026-10-01)
+
+When the work changes an existing system, ask its technical owner for an as-built inventory of the repository, test status, data stores, third-party components and licences, and known demo-only shortcuts. Compare that state with the intended outcome and add a WBS row for each confirmed gap with `Origin = as-built gap`. The project lead records the planning gaps; the technical owner verifies the system facts. (derived: dogfood 2026-10-01)
+
 Keep the core project information in a shared master plan or workbook: objective, deliverables, tasks, dates, owners, priorities, and only the indicators the team needs to watch. Choose a format the group can use and update. (5907 · U2 · L07 · 03:23–06:29)
 
 Write down tasks and make their priority visible to the team. This makes the order of work easier to coordinate; urgent does not automatically mean important. (5907 · U2 · L08 · 00:54–01:38)
@@ -33,6 +37,10 @@ One useful release sequence is an opening slice that works end to end, a middle 
 When a work item is too large for a useful sprint commitment, discuss what is good enough first, what would make it better, and what would make it best. This separates a sufficient slice from later refinements without discarding the larger idea. ([book:user-story-mapping], Split and Thin)
 
 Prepare sprint planning ahead: choose likely work a cycle or two early, refine large items with the team before the planning session, then state the cycle goal and give the delivery team time to plan its own work. ([book:user-story-mapping], Split and Thin)
+
+To bridge WBS rows into a sprint candidate set, carry their WBS IDs into the backlog. Consider P0 decision rows and long-lead dependency requests first, then check that the candidates form a thin outcome slice and fit the team's capacity. (derived: dogfood 2026-10-01)
+
+If the planner or team is not available yet, issue a `Draft for planner`: use a WBS with an empty effort column (or a schedule-position grid when that is the needed form), show a proposed sprint goal and candidate list as uncommitted, mark capacity unknown, and list open decisions. Turn the draft into a commitment only after the responsible leads supply estimates, capacity is checked, the team reviews the candidate set, and the accountable owner explicitly approves it. (derived: dogfood 2026-10-01)
 
 ## Schedule with capacity and slack
 

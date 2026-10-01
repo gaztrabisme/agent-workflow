@@ -6,6 +6,8 @@ The loop turns real use into skill improvements. This new, source-distilled skil
 
 ## Evolution 0 — stage B rebuild (2026-10-01)
 
+- **Stage B dogfood (2026-10-01):** Fresh use on an existing-system production plan found 3 high, 5 medium, and 3 low findings; 11 fixed, 0 rejected. Verdict remains PENDING.
+
 ### Harvest scope
 - **Grounded:** approved stage A proposal, its 40 routed destination rows, both ledgers, and both crosswalks → excluded every rule routed elsewhere or dropped; applied the six book corrections/agreement statements.
 - **Grounded:** cited chapters in `head-first-pmp`, `swebok`, `pmbok-guide-7e`, and `user-story-mapping` → corrected WBS decomposition/hierarchy, resource assignment, estimation, and milestone guidance; added four planning-focused candidate practices and one sprint-preparation practice.
