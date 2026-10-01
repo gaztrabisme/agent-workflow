@@ -40,11 +40,12 @@ Not modified (validated as already-strong): the 5-principle Posture, MEDDPICC qu
 ### Harvest scope
 - Distilled the approved stage A proposal, routed ledgers and crosswalks, the business-intelligence practitioner review, the live shared `core` kernel, and the skill-builder authoring guidance.
 - Validated the crosswalk-based wording against cited chapter anchors and source passages in the named book files before final verification; no book quotations were copied into the skill. Sources: articulating-design-decisions, bargaining-for-advantage, challenger-sale, continuous-api-management, critical-thinking-about-research, data-science-for-business, designing-llm-applications, designing-ml-systems-huyen, excel-for-accountants, flawless-consulting, fundamentals-data-engineering, fundamentals-enterprise-architecture, getting-to-yes, hbr-guide-business-writing, head-first-pmp, how-to-read-a-paper, intelligence-driven-incident-response, key-account-management, machinelearningforalgorithmictradingsecondedition, mastering-api-architecture, meddicc, modernnetworkobservability, new-ethics-of-journalism, privacy-in-context, research-methods-psychology, selling-to-big-companies, software-architect-elevator, software-engineering-at-google, storytelling-in-design, storytelling-with-data, think-like-ux-researcher, training-data-for-machine-learning, value-based-fees.
-- Classified as distilled practice. Fresh-context dogfood is deferred because this stage prohibits subagent use; the verdict remains PENDING until two real uses.
+- Classified as distilled practice. Fresh-context dogfood was deferred during the initial rebuild because this stage prohibited subagent use; the verdict remains PENDING until two real uses.
 
 ### Counts
 - Routed rules: 556 total — 83 agrees, 385 refines, 87 field-rule, 1 disputed.
 - Candidates adopted: 68 total — 65 from the business-intelligence crosswalk and 3 from the solution-architect crosswalk where they fit this artifact and audience.
+- Dogfood (2026-10-01): A fresh model used BI to prepare an intelligence dossier and meeting brief from a past presale; 2 high, 4 med, 2 low findings; fixed 8, rejected 0.
 
 ### Structure change
 - Reframed the entry skill around the presale intelligence dossier and meeting brief: qualify, scope, research, synthesize, prepare, and learn.

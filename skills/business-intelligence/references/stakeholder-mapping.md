@@ -64,7 +64,7 @@ Review both the people named in the meeting and the wider decision group. Unknow
 - Research analysts and review sites that shape the customer’s Decision Criteria; the passage does not prescribe peer-community research or a general anonymous-research workflow. [book:meddicc], ## DECISION CRITERIA
 - Satisfy a Technical Evaluator with what they need to say there is no risk instead of trying to sell to them.
 - Search for invisible stakeholders in Legal/Compliance, Security/InfoSec, the CFO's office, Board/Investment committees, and predecessor-backed vendors. [book:articulating-design-decisions], Identifying Influencers
-- Set minimum stakeholder contacts and role coverage by deal size: under $50K needs 2–3 contacts; $50K–$200K needs 5–7 across 3+ roles; $200K+ needs 7–10 across functions.
+- Enterprise-only planning heuristic: for comparable deals, use the recorded bands as a starting point — under $50K: 2–3 contacts; $50K–$200K: 5–7 across 3+ roles; $200K+: 7–10 across functions. Do not treat them as universal minimums or qualification gates; for private or smaller organizations, map the actual consensus and roles needed. (derived: dogfood 2026-10-01)
 - Tailor down to each individual stakeholder's own value drivers and desired outcomes, not just one version per stakeholder group. [book:challenger-sale], TAILORING THE MESSAGE
 - Tailor the presentation to stakeholder knowledge and priorities; the exact CEO/CFO/CTO/Procurement message mapping is a skill-specific extension. [book:storytelling-in-design], ## Adapting How You Present Your Story
 - The book counts inertia or doing nothing as competition, but does not distinguish buyer indecision from status-quo risk or give separate interventions for indecision. [book:meddicc], ## COMPETITION

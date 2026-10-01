@@ -14,6 +14,7 @@ This skill helps a consultant prepare for a consequential presale conversation b
 
 - **This skill:** client, stakeholder, competitor, qualification, or business-case research is needed before signature; existing account intelligence needs an update; or a presale conversation needs evidence-based preparation.
 - **CERIC:** owns the argument audit of claims, evidence, and reasoning. This skill gathers and verifies client sources and product facts, then supplies evidence and ranked findings for that review.
+- **`ai-discovery-workshop`:** owns client-validated AI use-case scoring and journey design; BI supplies the account evidence and prework.
 - **`solution-architect`:** owns the client-facing architecture, options, and proposal response that may follow this intelligence work.
 - **Communication work:** uses the dossier and brief to make audience-ready updates; this skill does not draft the solution response.
 
@@ -35,16 +36,16 @@ This skill helps a consultant prepare for a consequential presale conversation b
 | Research | Build current, source-linked findings about the account, stakeholders, market, and alternatives | Evidence log and topic findings |
 | Synthesize | Explain what the evidence means, its limits, the decision implications, and the counterevidence | Intelligence dossier and concise executive story |
 | Prepare | Convert the dossier into meeting objectives, questions, likely concerns, and next steps | Pre-meeting brief |
-| Learn | Capture decision and relationship changes; promote recurring lessons through the evolution loop | Debrief and refreshed account record |
+| Learn | Capture decision and relationship changes; promote recurring lessons through the evolution loop. Consult `references/win-loss.md` and the war-game guidance in `references/battle-cards.md` only in this phase. (derived: dogfood 2026-10-01) | Debrief and refreshed account record |
 
-Use only the phases needed for the request. For depth, see the references below.
+For a dossier request, use the template as the artifact outline: decide pursue/hold/exit; set the decision and source plan; gather source-linked evidence; reconcile conflicts and counterevidence; write the executive story and meeting brief; name the exact sections and rows at handoff. (derived: dogfood 2026-10-01) Use only the phases needed for the request. For depth, see the references below.
 
 ## Gates (declared, inherited from core)
 
 - **Grounding gate** — apply to client findings, source claims, and product facts. See `../core/references/grounding-gate.md`.
 - **Output Contract** — apply to the dossier, evidence log, and meeting brief. See `../core/references/output-contract.md` and `../core/references/wiki-protocol.md`.
 - **Pushback and teach** — use the shared response pattern when the user’s proposed claim or plan is unsupported. See `../core/references/pushback-and-teach.md`.
-- **Approach declaration** — state the approach for work involving multiple actors or stages; use the core single-actor tailoring where appropriate. See `../core/SKILL.md` §7.
+For substantive work involving multiple actors or stages, `conductor` owns the one-line approach declaration in its Plan Block. See `../conductor/SKILL.md` under **Approach declaration**. This skill supplies the intelligence work within that plan.
 
 ## Anti-patterns (hard no-list)
 
@@ -59,13 +60,14 @@ Use only the phases needed for the request. For depth, see the references below.
 
 - **Inherits:** `core`.
 - **Consumes:** graded argument findings from CERIC and current client or product evidence.
-- **Hands off:** a grounded dossier and meeting brief for communication work and any resulting solution architecture or proposal response.
+- **Hands off (derived: dogfood 2026-10-01):** a grounded dossier and meeting brief for communication work, `ai-discovery-workshop`, and any resulting solution architecture or proposal response. Name the exact dossier section headings and source rows downstream work should use; the standard section names are in `references/templates/dossier.md`.
 - **Learning source:** meeting retrospectives, qualification outcomes, and win/loss debriefs update the account record and later skill hypotheses.
 
 ## References
 
 - `references/deal-qualification.md` — qualification evidence, scores, buying process, and pursuit decisions.
 - `references/deep-research-patterns.md` — scoping, source selection, evidence quality, and research iteration.
+- `references/templates/dossier.md` — fixed dossier sections, evidence-log fields, and downstream handoff names (derived from the 2026-10-01 dogfood).
 - `references/account-strategy.md` — account position, relationship health, priorities, and growth.
 - `references/stakeholder-mapping.md` — buying group, influence, champions, and decision path.
 - `references/executive-profiling.md` — role context, political dynamics, and profile refresh.

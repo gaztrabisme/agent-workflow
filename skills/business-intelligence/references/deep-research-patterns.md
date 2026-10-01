@@ -30,10 +30,12 @@ Start from the client decision, then collect the smallest set of current evidenc
 
 ## Scope and collection
 
+Scale sources to the organization. SEC filings, 10-Ks, earnings calls, analyst coverage, and fixed deal-size or contact-count thresholds are enterprise-only options, not prerequisites. For private or smaller organizations, use appropriate official local registries, primary customer or supplier documents, certifications, relationship evidence, and site observation where available; record unavailable sources as gaps rather than negative evidence. (derived: dogfood 2026-10-01)
+
 - Apply Miller Heiman Blue Sheet to the top 10–20 active deals rather than every opportunity.
 - Check when a technology was implemented or stopped being used instead of applying a fixed 18-month threshold. [book:meddicc], ## DISCOVERY
 - Communicate the rationale and approach for a change instead of silently adjusting the work. [book:articulating-design-decisions], Managing Expectations
-- Consult the annual report and latest 10-K for company issues; the passage does not specifically define a freshness rule for financial metrics. [book:selling-to-big-companies], ## TAP INTO ONLINE RESOURCES
+- Consult an annual report or latest 10-K for company issues when the organization publishes them; the passage does not specifically define a freshness rule for financial metrics. [book:selling-to-big-companies], ## TAP INTO ONLINE RESOURCES
 - Do not silently skip an ungrounded claim; treat that as an integrity violation.
 - Executive speeches can reveal company developments and views, but the passage does not specifically promise technical details from conference talks. [book:selling-to-big-companies], ## TAP INTO ONLINE RESOURCES
 - Experiment with approaches, retain what works, and keep testing; the book does not specifically prescribe dropping every approach that fails. [book:selling-to-big-companies], ## KEY POINTS
@@ -50,7 +52,7 @@ Start from the client decision, then collect the smallest set of current evidenc
 - Treat feedback as an exploratory loop and revisit earlier stages when discoveries warrant it, including during evaluation. [book:data-science-for-business], ## The Data Mining Process
 - Use analysis as input to live judgment and combine it with human knowledge for high-level decisions. [book:data-science-for-business], ## What Data Can’t Do: Humans in the Loop, Revisited
 - Use analyst commentary as one input on company psychographics; the passage does not assign it specifically to market-position or forecast estimates. [book:selling-to-big-companies], ## SCOPE OUT THE PSYCHOGRAPHICS
-- Use BXT as the scoring lens for enterprise AI engagements.
+- For BI prework, use BXT for a provisional internal score of an enterprise AI opportunity before a specific use case is client-validated; keep that score out of the BI dossier and hand client-validated use-case scoring to `ai-discovery-workshop`.
 - Use current news and press for company developments and strategic direction; the passage does not prescribe them specifically for quotations. [book:meddicc], ## DISCOVERY
 - Use required outputs as decision scaffolding to keep landmines off stage, not as a mechanical checklist. [book:meddicc], ## MEDDICC CHECKLIST
 - Use trade journals to follow industry changes and context; the cited passage does not prescribe them for competitive analysis. [book:selling-to-big-companies], ## WATCH FOR TRIGGER EVENTS

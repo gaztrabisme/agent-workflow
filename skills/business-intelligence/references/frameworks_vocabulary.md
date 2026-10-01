@@ -20,7 +20,7 @@ Use MEDDICC for element-based deal qualification; use SPIN or a pain-funnel stru
 - Grade source reliability and information credibility independently when using Admiralty Code. [book:intelligence-driven-incident-response], ### Confidence Levels
 - Prevent objections by changing your own opening message and timing instead of relying on prepared responses to recover from objections after they occur. [book:selling-to-big-companies], Deal with the Really Tough Objections and Obstacles
 - Score each MEDDPICC element 1–10 for confidence with defined bands and treat a low score as a found qualification gap to work, not just a missing element to research. [book:meddicc], MEDDICC Scoring
-- Score enterprise AI use cases with BXT.
+- Use BXT for a provisional internal score of an enterprise AI opportunity in prework; keep it out of the BI dossier, and let `ai-discovery-workshop` score the client-validated use case.
 - Screen analyst comparisons for vendor sponsorship and age, and corroborate them with experiments or a proof of concept. [book:mastering-api-architecture], ## Radars, Quadrants, and Trend Reports
 - The book maps buying roles by budget authority, technical approval, user evaluation, and Champion or Coach status, rather than assigning every role a separate win-result. [book:meddicc], ## What is MEDDICC?
 - The book uses stage-specific MEDDICC questions and prioritizes unresolved elements for follow-up; it does not prescribe Strong/Weak/Missing ratings or a two-missing pause. [book:meddicc], ## QUALIFICATION

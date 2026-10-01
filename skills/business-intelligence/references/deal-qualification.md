@@ -1,10 +1,13 @@
 # Deal Qualification
 
-Qualification separates a demonstrated lack of fit from an unresolved question. In the old score matrix, five strong elements could say “pursue” while two missing elements said “pause”; keep scores at the element level and let conflicting signals drive targeted discovery.
+Qualification separates a demonstrated lack of fit from an unresolved question. Keep scores at the element level and let conflicting signals drive targeted discovery.
 
-## Qualification conflict example
+## Decide what the scores mean (derived: dogfood 2026-10-01)
 
-If evidence does not yet establish pain, mark it unresolved and investigate. If the evidence shows insufficient pain or willingness to change, consider qualifying out. Do not turn a low confidence score into an automatic no-go.
+1. If evidence shows insufficient pain, willingness to change, or achievable fit, consider qualifying out after checking whether another stakeholder or a material scope change changes the picture.
+2. If an element is missing, contradictory, or low-confidence, keep it unresolved and name the evidence or discovery step that could resolve it. A low score alone is not a no-go.
+3. For each material concern, record its impact, next action, owner, and decision point. Re-score only when new evidence changes confidence.
+4. Pursue, hold, or exit based on the evidence and materiality of unresolved concerns; do not use a score total or a fixed Strong/Missing cutoff.
 
 ## Buying process and timing
 
@@ -12,10 +15,16 @@ If evidence does not yet establish pain, mark it unresolved and investigate. If 
 - Gather Paper Process requirements from procurement, legal, and security early.
 - Gather the Decision Process before committing if it is unknown. [book:meddicc], ## DECISION PROCESS
 - Map the buyer’s paper process with its stages, stakeholders, legal and procurement requirements, dependencies, and timing before commercial discussions. [book:meddicc], PAPER PROCESS
+- When signature or payment involves more than one entity, verify the proposed signing and invoiced entity against a primary buyer document; flag a mismatch for the solution architect to resolve rather than assuming a trading name is the legal counterparty. (derived: dogfood 2026-10-01)
+
+## Seller and channel readiness (derived: dogfood 2026-10-01)
+
+- Before recommending pursuit, check whether the team can deliver, has authority and contractual freedom to sell, and can address known employment or other conflicts; record evidence and an owner for each open issue.
+- If a referral partner or intermediary is involved, record its role and economics and map who contracts, invoices, and pays whom. Flag unresolved commercial arrangements for the solution architect; this skill identifies qualification risks but does not negotiate terms or interpret law.
 
 ## Evidence, scoring, and qualification gaps
 
-- Apply MEDDICC and qualify out whenever any concern about the deal's qualification remains, rather than gating pursuit on a five-Strong threshold. [book:meddicc], QUALIFICATION
+- Apply MEDDICC continuously. Qualify out when a material concern remains after the relevant evidence check or is confirmed to be unworkable; an untested low-confidence element is a discovery target, not a resolved negative. Do not let five Strong elements override a confirmed concern. [book:meddicc], QUALIFICATION
 - Do not qualify a well-known, deeply related, low-risk client; an internal project without a buying committee; or intelligence work for already contracted delivery.
 - For a quick check, use stage-specific MEDDICC and investigate the elements that need closer attention rather than limiting every screen to those three. [book:meddicc], ## QUALIFICATION
 - Increase an element's score only when new deal evidence raises confidence; keep assumptions or partial evidence at a lower level. [book:meddicc], ## MEDDICC SCORING
@@ -70,7 +79,7 @@ If evidence does not yet establish pain, mark it unresolved and investigate. If 
 - The book ties KPIs to experience goals and follow-up measurement rather than requiring the buyer to define them. [book:storytelling-in-design], ### Using metrics and KPIs to help tell your story
 - The book treats inaction as a consequence to explain and asks you to discuss solution options rather than labeling inaction as a competitor. [book:storytelling-with-data], ### The middle
 - Use BANT as an early-stage screen, then apply MEDDPICC to serious opportunities. [book:meddicc], ## MEDDICC VERSUS OTHER QUALIFICATION METHODOLOGIES
-- Use SCOTSMAN for complex deals above €50K ACV when its richer qualification fits the deal.
+- Enterprise-only example: use SCOTSMAN for complex deals above €50K ACV when its richer qualification fits the deal; do not treat that value as a universal qualification threshold.
 - Watch for buyer-inertia stall signals — no Metrics consensus, unreachable Economic Buyer, undefined criteria or process, no compelling event — and qualify out early. [book:meddicc], COMPETITION
 - Whatever framework you lead with, keep qualifying continuously through the deal instead of treating it as a one-off checklist. [book:meddicc], MEDDICC VERSUS OTHER QUALIFICATION METHODOLOGIES
 - When the solution does not fit the customer's problem, either change its scope substantially or qualify out. [book:meddicc], ## QUALIFICATION
