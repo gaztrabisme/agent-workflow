@@ -17,7 +17,7 @@
 - Agree the client’s acceptance-response deadline before submissions are deemed accepted.
 - Fix T0 as the precise event that starts the delivery clock.
 - State numeric volume caps for documents, users, transactions, and footage hours. (5907 · U3 · L22 · 08:04–09:47)
-- Agree the change-request day rate by contract signature.
+- If a binding client contract requires time-based change-request pricing, agree and record the applicable day rate before SOW signature; otherwise, for consulting changes, price against client results and value rather than using a time-based day rate [book:value-based-fees], 2. Basing Fees on Time or Materials and Not on Value Is Simply Crazy (and Unethical).
 - Agree the standby rate for client-caused delay that leaves the team idle.
 - Name the acceptance council and decide whether one dissenting member blocks acceptance.
 - List the power, network, and cabinet space needed at each installation location.

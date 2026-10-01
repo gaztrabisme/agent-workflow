@@ -86,6 +86,5 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 - Flawless Consulting treats client support and involvement as contract content, so record access, time, and participation alongside physical client deliverables [book:flawless-consulting], Elements of a Contract.
 - Land the focal point, defect severities, acceptance deadline, T0, numeric volume caps, change-request rate, standby rate, and council membership before signature.
 - Iterate criteria, preconditions, obligations, and contract terms until they converge before signature.
-- Read acceptance/handover, change-request, IP, personal-data, and liability clauses against the solution architecture.
 - Re-run artifact-integrity checks before signature.
 - Skip contract and acceptance work while an enterprise bid remains unawarded, then revisit it when the bid converts.

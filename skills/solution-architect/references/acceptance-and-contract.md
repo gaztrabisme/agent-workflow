@@ -51,12 +51,13 @@ Use this reference to negotiate the presignature consulting agreement, acceptanc
 - Set the client's acceptance-response deadline and deemed-acceptance consequence before signature.
 - Define precisely what event starts the schedule clock as T0.
 
-A rate based on cases the supplier cannot control is a weak payment gate. If the denominator comes from a client component that the scope does not test, better client performance can make the supplier’s result less measurable. For a constructed test, publish the cases before the run, let the client add or veto cases, include hard classes, and report results per class. Describe it as sensitivity on that test set, not expected live performance.
+A rate based on cases the supplier cannot control is a weak payment gate. If the denominator comes from a client component that the scope does not test, better client performance can make the supplier’s result less measurable.
 
 ## Consulting agreement and negotiation
 
 - State volume caps numerically rather than using vague language. (5907 · U3 · L22 · 08:04–09:47)
 - For consulting work, price changes against client results and value rather than a time-based day rate [book:value-based-fees], 2. Basing Fees on Time or Materials and Not on Value Is Simply Crazy (and Unethical).
+- Read acceptance/handover, change-request, IP, personal-data, and liability clauses against the proposed solution.
 - Agree a standby rate for team idle time caused by unmet client obligations.
 - Name the acceptance-council members and whether one dissenting member can block acceptance. (5907 · U3 · L20 · 07:20–08:37)
 - Define warranty and support duration and distinguish defects from enhancements. (5907 · U3 · L27 · 03:51–05:20)
@@ -68,6 +69,7 @@ A rate based on cases the supplier cannot control is a weak payment gate. If the
 - The book requires each criterion to express user-facing business value and be provable with an acceptance test; it does not define payment gates [book:continuous-delivery], Chapter 4: Implementing a Testing Strategy.
 - Flawless Consulting treats essential client support, such as access to key people, time, and records, as a gate to proceeding; do not commit criteria that depend on inputs until the client has agreed to provide them [book:flawless-consulting], Chapter 5: The Contracting Meeting. (5907 · U3 · L22 · 09:47–11:00)
 - PMBOK calls for approved changes to be integrated into project plans and scope and communicated to stakeholders, but does not prescribe the rule’s annex, pricing, and translation crosswalk [book:pmbok-guide-7e], 2.5.7. Monitoring New Work and Changes. (5907 · U3 · L24 · 03:10–04:20)
+- When a scope change is approved, propagate it across the acceptance annex, pricing, and translations; do not silently drop functions.
 - Value-Based Fees recommends putting delay and rescheduling consequences in proposal language upfront, though it does not address day rates or standby rates [book:value-based-fees], Ethics and Fees, Fees and Ethics: *A Mid-Book Practicum*. (5907 · U3 · L24 · 03:10–04:20)
 - Flawless Consulting treats client time, access, and participation as explicit wants to negotiate during contracting, rather than assumed inputs [book:flawless-consulting], Chapter 5: The Contracting Meeting. (5907 · U3 · L22 · 09:47–11:00)
 - Head First requires the full scope to be very well known before fixed price, beyond merely defining acceptance criteria [book:head-first-pmp], Fixed price contracts. (5907 · U3 · L22 · 08:04–09:47)
@@ -75,17 +77,21 @@ A rate based on cases the supplier cannot control is a weak payment gate. If the
 - Commit counts, coverage, deterministic measures, and rates with a constructed denominator only when independent readers can compute the same value.
 - PMBOK requires performance information to convey its degree of uncertainty, but does not prescribe the rule’s sample-size disclosure or when rates may be committed [book:pmbok-guide-7e], 2.7.3. Presenting Information.
 - The book treats measurement collection and computation as system requirements and scope inputs, rather than prescribing a payment acceptance criterion [book:software-architecture-metrics], Run a GQM Workshop.
+- Make the measurement contract a criterion, including its definitions, inputs, and adjudication route.
 - Prefer a count as the headline metric when the value proposition can be stated as a count.
 - Treat observations from one document, interview, or site as clustered rather than independent.
 - Do not make a narrow-confidence claim from a small clustered sample; widen the sample or report the number with its clustering.
 - Do not call a metric measurable when its denominator is controlled by a client component you cannot test or tune.
 - Construct a controlled denominator by injecting known cases into verified-correct inputs when the original denominator is outside your control.
-- The book recommends writing acceptance tests before development; it does not give the client add or veto rights over a constructed suite [book:continuous-delivery], Chapter 4: Implementing a Testing Strategy.
+- For a constructed test suite, publish it before the run and let the client add cases and veto yours.
 - Include the difficult classes by name and report their results rather than omitting low-scoring classes.
 - Report constructed-test results per class instead of pooling classes.
+- The book recommends writing acceptance tests before development; it does not give the client add or veto rights over a constructed suite [book:continuous-delivery], Chapter 4: Implementing a Testing Strategy.
 - The book distinguishes test performance from real-world reliability; the per-class sensitivity framing is an addition [book:building-reliable-ai-systems], 1.6 Why reliable AI systems matter now.
+- State that a constructed sample measures per-class sensitivity on that test set, not expected live performance.
 - Read every committed criterion adversarially and ask how it could be satisfied while delivering nothing.
 - The book balances throughput measures with service stability measures, but does not prescribe a contractual quality floor beside a volume commitment [book:software-architecture-metrics], Definition and Instrumentation.
+- Check that workload or volume commitments have a quality floor beside them.
 - Bond criteria that only make sense together directly on the artifact.
 - When the deal shape changes, replace the acceptance criteria set rather than merely editing its numbers.
 - Continue the ID namespace, do not reuse retired numbers, and mark the retired set at its source to prevent accidental citation.
