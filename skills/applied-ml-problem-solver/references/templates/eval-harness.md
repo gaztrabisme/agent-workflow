@@ -51,10 +51,13 @@ If a public number is unavailable, record `UNVERIFIED-PENDING-LOOKUP`, the searc
 |---|---|
 | Size and unit | |
 | Construction and labels | |
+| Reference truth and adjudication | |
 | Contamination control and measured check | |
 | Strata and expected-to-fail cases | |
 | Refresh policy | |
 | Pre-gate review | |
+
+For a client-facing pilot or acceptance gate, link the `solution-architect` `acceptance-and-contract.md` review here. Reconcile the approved acceptance condition with this harness's ML metric, sample, and uncertainty plan; keep contract acceptance ownership with solution architecture. (derived: dogfood 2026-10-01)
 
 Detect benchmark contamination and decontaminate where possible. Name the domain-specific leakage and how the split prevents it. [book:ai-engineering-huyen], Data contamination with public benchmarks
 
@@ -71,6 +74,10 @@ Before scoring any outputs, write a rubric with clear examples of good, bad, and
 For an experiment that depends on a human-facing manipulation or prompt, define a separate manipulation check to confirm people received or perceived the intended change before interpreting a null result. [book:research-methods-psychology], Interrogating Null Effects: What if the Independent Variable Does Not Make a Difference?
 
 Before trusting small score changes, test evaluation reliability: repeat the evaluation to measure test-retest stability and use multiple raters where human judgment is involved. [book:research-methods-psychology], Reliability of Measurement: Are the Scores Consistent?
+
+Report rater agreement. (derived: dogfood 2026-10-01)
+
+When incumbent operators are also the only label source, those labels measure agreement with the incumbent, not whether the system is more correct. Define reference truth independently, using a physical test or two independent raters with an arbiter for disagreements. Keep incumbent and model results separate against that reference and report rater agreement. (derived: dogfood 2026-10-01)
 
 ## Metrics and usefulness
 
@@ -101,6 +108,15 @@ For threshold decisions, report sensitivity and specificity across candidate thr
 
 Use bootstraps over evaluation examples or an appropriate significance test on score differences to assess whether the set can support the decision. Do not apply the paired continuous `σ_diff`/MDE formula mechanically to ranking metrics or metrics without a per-example decomposition. If the evaluation cannot resolve the smallest worthwhile difference, improve it before running the gate. [book:ai-engineering-huyen], Annotate evaluation data
 
+For a proportion gate such as recall, size the number of confirmed positive units using the approximate planning formula `n ≈ z² p(1-p) / e²`, where `p` is the expected proportion and `e` is the desired two-sided margin of error. The table is a normal-approximation planning aid; use a Wilson or exact binomial interval for the final estimate.
+
+| Confidence | p=.90, ±5 points | p=.95, ±5 points | p=.90, ±10 points | p=.95, ±10 points |
+|---|---:|---:|---:|---:|
+| 90% | 98 | 52 | 25 | 13 |
+| 95% | 139 | 73 | 35 | 19 |
+
+These are positive examples needed, not total units. Estimate inspected units as `positive examples needed ÷ prevalence`; plan a representative population sample separately when the gate also constrains false-flag rate. (derived: dogfood 2026-10-01)
+
 ## Substrate probes and run protocol
 
 Record defects found by probing the system that invalidate a naive evaluation—for example, an ignored result-count parameter, mismatched preprocessing, or response truncation.
@@ -110,4 +126,3 @@ Record defects found by probing the system that invalidate a naive evaluation—
 - Log configuration, data and rubric versions, result, and verdict. [book:ai-engineering-huyen], Iterate
 - Write negative results and direction-changing conclusions in the experiment record.
 - Report any post-result review beside, never instead of, the pre-registered result.
-

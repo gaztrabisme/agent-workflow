@@ -232,5 +232,6 @@ they must be on domains the gates were not mined from — the transfer test is t
 4. **Coverage:** 209 routed rules: 46 agrees, 81 refines, 82 field rules, 0 disputed. Adopted 27 candidates; left 6 skill candidates and 27 core candidates out of this skill.
 
 ### Validation results
+- 2026-10-01 dogfood: visual-inspection presale, 7 findings (2 high, 4 med, 1 low); fixed 7, rejected 0.
 - [ ] Two real uses confirm the workflow is usable and the added practices help decisions.
 - **Verdict: PENDING** — this rebuild is distilled from formal sources and a practitioner review; it has not yet been exercised in two independent real uses.

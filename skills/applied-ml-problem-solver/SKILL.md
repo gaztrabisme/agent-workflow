@@ -65,7 +65,7 @@ Run Fit-Check before naming an algorithm, framework, architecture, metric, evalu
 | Signal breadth | Can every sample the method needs actually be scored? |
 | Budget | What memory, time, and money are available? |
 | Failure mode | Would a mismatch fail loudly or silently? |
-| Instrument stability | Does the system expose and honor the control or parameter the measurement assumes? |
+| Instrument stability | Does the measurement instrument stay stable and resolve the needed tolerance? For software controls, verify the assumed parameter is exposed and honored; for physical vision, check resolution against tolerance and watch for optics or lighting drift. (physical-vision extension derived: dogfood 2026-10-01) |
 
 A delayed outcome and too few scores can make a group-based learner silently train on zero advantages rather than crash. A retrieval eval also fails the fit-check if it lacks known relevant items for its recall claim or the system ignores the requested result count. Fix the method or the measurement substrate before spending. Extend the Fit-Check when a real mismatch fits none of its rows, and retire dimensions that stop recurring.
 
@@ -87,7 +87,8 @@ Do not apply the continuous paired formula unchanged to other metrics:
 
 | Statistic | Appropriate check |
 |---|---|
-| Paired binary outcomes | Use a paired binary test such as McNemar; the disagreement rate controls precision. |
+| Paired binary comparison between methods | Use a paired binary test such as McNemar; the disagreement rate controls precision. This tests a paired difference, not one method's standalone recall interval. |
+| Single estimated proportion (for example, recall) | Use the binomial confidence-interval and sample-size guidance in `references/templates/eval-harness.md`. (derived: dogfood 2026-10-01) |
 | AP/mAP or other whole-set ranking metrics | Bootstrap over images or queries and inspect the interval. |
 | A metric with no per-unit decomposition | Use a bootstrap if resampling is possible; otherwise say the delta cannot be sized with that method. |
 
@@ -107,13 +108,15 @@ If a public benchmark number is not available, record `UNVERIFIED-PENDING-LOOKUP
 - Before accepting a result, check its statistical or interval resolution. If a surprising gain appears, check for bugs, coarse grids, and artifacts, then replicate it independently. [book:how-to-read-a-paper], Probability and confidence; [book:research-methods-psychology], Research Transparency and Credibility
 - When load behavior matters, an isolated component benchmark is only diagnostic: load behavior emerges from the full system, so measure with production-like traffic and topology. [book:software-engineering-at-google], Performance, Load, and Stress testing
 
+When there is no evaluation data or runnable system yet, use the pre-data variant of `references/templates/decision-record.md`. Record what data to collect, the labeling protocol, and the pilot gate; do not invent run results. Choose a verdict of `build`, `readiness track`, or `no-go`. (derived: dogfood 2026-10-01)
+
 ## Gates (declared, inherited from core)
 
 - **Grounding gate** — ground model, evaluation, retrieval, and serving choices in the relevant evidence; see [`../core/references/grounding-gate.md`](../core/references/grounding-gate.md).
 - **Output Contract** — the problem framing, filled evaluation harness, per-run log, and decision record are the ML artifacts; see [`../core/references/wiki-protocol.md`](../core/references/wiki-protocol.md).
 - **Pushback and teach** — explain the mechanism behind an ML loss, metric, optimizer, or architecture; see [`../core/references/pushback-and-teach.md`](../core/references/pushback-and-teach.md).
 - When introducing ML math, explain what the loss, activation, optimizer, or architecture computes and why; use the shared teaching gate rather than duplicating its mechanics.
-- **Approach declaration** — name the approach before substantive work and state why a probe is suitable for costly choices; see [`../core/SKILL.md`](../core/SKILL.md) §7.
+- **Approach declaration** — name the approach before substantive work and state why a probe is suitable for costly choices; the shared requirement is in [`conductor`'s approach declaration](../conductor/SKILL.md). This skill applies it to ML choices by naming a cheap probe for the riskiest assumption.
 
 ## Anti-patterns (hard no-list)
 
@@ -138,4 +141,6 @@ If a public benchmark number is not available, record `UNVERIFIED-PENDING-LOOKUP
 - `references/train-loop.md` — convergence, data checks, experiment steps, and run records.
 - `references/rag-heuristics.md` — retrieval architecture, chunking, ranking, and retrieval evaluation.
 - `references/templates/eval-harness.md` — decision-specific evaluation plan to fill before running a system.
+- `references/templates/decision-record.md` — the primary ML framing and experiment decision record, including a pre-data variant.
+- `references/inspection-heuristics.md` — computer-vision inspection choices for measurement, defect detection, labels, and sensor stability (derived from dogfood 2026-10-01).
 - `references/production-thinking.md` — serving constraints, system interactions, scaling, and operational failures.

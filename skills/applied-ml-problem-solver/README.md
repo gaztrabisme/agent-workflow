@@ -17,6 +17,8 @@ this survive contention in production. It does not write the code — `dev` does
 | `references/rag-heuristics.md` | Do you even need RAG, chunking, hybrid retrieval, reranking, contextual enrichment, retrieval eval |
 | `references/production-thinking.md` | The layer below, graph-level thinking, systems interaction, scale projection, hardware constraints, operational failure modes |
 | `references/templates/eval-harness.md` | Fill-in eval-harness spec |
+| `references/templates/decision-record.md` | Primary framing and experiment decision record, including a pre-data variant |
+| `references/inspection-heuristics.md` | Dogfood-derived checks for computer-vision inspection and measurement |
 
 Two gates are specific to this skill:
 
