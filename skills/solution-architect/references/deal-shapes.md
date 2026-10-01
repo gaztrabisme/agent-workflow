@@ -6,7 +6,8 @@ Choose the response and commercial instrument from the deal’s solicitation, ac
 
 - Read the deal-shape reference before choosing a workbook or pricing multiplier.
 - Declare the deal shape in Phase 0 before choosing the spine, carrier, pricing method, and definition of done.
-- Choose an enterprise bid when there is a scored document, client-authored acceptance requirements, or a submission receipt; otherwise select fixed-price delivery.
+- Choose an enterprise bid when there is a scored document, client-authored acceptance requirements, or a submission receipt.
+- Otherwise select fixed-price delivery.
 
 ## Sizing and estimate basis
 

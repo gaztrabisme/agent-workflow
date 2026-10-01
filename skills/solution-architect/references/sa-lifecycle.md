@@ -60,7 +60,6 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 - Size work with a WBS, roles, effort ranges, and assumptions; state uncertainty drivers and a declared distribution multiplier, and include per-environment cloud costs and AMS tiers with a retainer floor.
 - Maintain a risk register covering technical, integration, data, compliance, and adoption risks, with likelihood, impact, owner, and mitigation. Score failure criticality from probability and impact [book:fundamentals-enterprise-architecture], Chapter 5. Enable and Enforce.
 - Reclassify risky demanded capabilities into separately priced readiness tracks or defer an unresolved implementation approach with the decision framed for the client.
-- Leave final pricing to the commercial or bid owner while the SA supplies technical cost drivers and commercial framing.
 
 ## Phase 5 — Respond
 
@@ -78,6 +77,7 @@ Follow the presale work from intake through signed handoff. Scale depth to the d
 ## Phase 6 — Agree terms before signature
 
 - Getting to Yes treats a stated constraint as a position whose underlying interests should be tested before accepting it as fixed [book:getting-to-yes], 3 Focus on Interests, Not Positions.
+- Leave final pricing to the commercial or bid owner while the SA supplies technical cost drivers and commercial framing.
 - Answer every pricing question in the response or explicitly defer it to a labelled priced attachment.
 - The book requires user-valued outcomes in acceptance criteria; the per-outcome format, preconditions, and preparing-party fields are additions [book:continuous-delivery], Chapter 4: Implementing a Testing Strategy.
 - Flawless Consulting treats client support and involvement as contract content, so record access, time, and participation alongside physical client deliverables [book:flawless-consulting], Elements of a Contract.
