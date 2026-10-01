@@ -25,11 +25,9 @@ A completion claim is about the result artifact. Name what was checked and show 
 
 - For important success criteria, encode a checkable fitness function when practical so later changes can be tested against the same target. [book:building-evolutionary-architectures], Fitness Function-Driven Architecture.
 - Before adopting a measure, check whether it rewards volume over value, changes behavior merely by being measured, or invites people to optimize the wrong thing. [book:pmbok-guide-7e], Measurement Pitfalls.
-- Make the review floor useful: separate technical accuracy, audience clarity, and writing consistency into distinct review passes where the artifact warrants them. [book:software-engineering-at-google], Documentation Reviews.
-
 ## Independent review
 
-- Before a primary artifact ships, write down the weaknesses you expect. Have a reviewer with no prior context check clarity against the source of record; keep factual accuracy with a subject-matter expert. [book:software-engineering-at-google], Documentation Reviews.
+- Before a primary artifact ships, write down the weaknesses you expect. When the artifact warrants the full review floor, use three distinct passes: technical accuracy by a subject-matter expert, audience clarity by someone with no prior context checking against the source of record, and writing consistency. [book:software-engineering-at-google], Documentation Reviews.
 - Judge the review by whether it found the pre-registered weaknesses.
 - Scale cold review to the stakes. It may be skipped for reversible internal work, but not for client-facing work. [book:software-engineering-at-google], Documentation Reviews.
 - Automate mechanical checks so human reviewers can focus on judgment. Aim their attention at content the checks cannot inspect, including rendered or image-based material. [book:software-engineering-at-google], Automate Where Possible.

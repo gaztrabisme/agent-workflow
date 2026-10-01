@@ -16,10 +16,9 @@ Write for the result the reader needs and keep the permanent rationale in a dura
 - Put teaching and forks in the conversation, permanent decisions and rationale in decisions.md, and only the conclusion plus a reference token in a handoff or client-facing artifact.
 - In a table, keep prose cells of twelve or more words to at most one per 100 non-empty cells. Move a multi-clause cell's rationale to decisions.md and put a reference in the cell. Do not apply this prose restriction to internal design specs or architecture documents.
 - Do not defend a choice inside a deliverable; put that rationale in decisions.md.
-- Use section headings as labels. If a reader could disagree with a heading, move its explanation to decisions.md.
-
 ## Recipient and polarity checks
 
+- Use section headings as labels. If a reader could disagree with a heading, move its explanation to decisions.md.
 - For each row or section, name its recipient and the decision they must make; test whether the content helps that recipient make that decision.
 - Run both the prose budget and the lane test because they catch different defects.
 - Before restating a negative rule, read the restatement back and check what action it authorizes.

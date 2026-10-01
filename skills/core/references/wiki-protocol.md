@@ -27,8 +27,8 @@ Project memory is an agent-maintained record of decisions, findings, work state,
 
 ## Decision records and learning
 
-- Order context and decision for the reader: put the decision first when the reader needs the answer up front; give context first when the reader needs to follow the decision as it was made.
-- Shape a decision record with a clear title and status, date and owner, a visible decision, context, options, and consequences. [book:facilitating-software-architecture], The Structure of an ADR.
+- Record decisions with context followed by the decision, including why alternatives lost and the tradeoff.
+- Shape a decision record with a clear title and status, date and owner, plus a visible decision, context, options, and consequences. [book:facilitating-software-architecture], The Structure of an ADR.
 - Keep a standing Rejected Approaches section with the rejected option and why it lost. [book:facilitating-software-architecture], Options.
 - Record decisions and rejected approaches whenever a choice is made. [book:facilitating-software-architecture], Options.
 - When a shipped direction is reverted, record the mechanism of failure as a reusable lesson. [book:site-reliability-engineering], Keep a History of Outages.
