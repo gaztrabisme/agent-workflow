@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Radial repeated-series template</title>
+  <desc id="desc">Illustrative radial values use the same zero-to-forty reference in each spoke; provide a clear key.</desc>
+  <rect width="960" height="600" fill="#fff"/>
+  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+    <text x="60" y="54" font-size="26" font-weight="700">Repeated values around a common centre</text>
+    <text x="60" y="82" font-size="14">ILLUSTRATIVE VALUES — preserve the shared reference range</text>
+    <g data-rk-chart="radial" data-rk-x-scale="ordinal" data-rk-x-domain="0,3" data-rk-x-range="0,3" data-rk-y-scale="linear" data-rk-y-domain="0,40" data-rk-y-range="0,160" transform="translate(420 330)">
+      <circle r="40" fill="none" stroke="#ddd"/><circle r="80" fill="none" stroke="#ddd"/><circle r="120" fill="none" stroke="#bbb"/>
+      <path d="M0 0V-64M0 0L92 0M0 0V38M0 0L-55 0" fill="none" stroke="#245c73" stroke-width="8" data-rk-mark="line" data-rk-points="0,16 1,23 2,10 3,14" data-rk-series="Example" data-rk-ignore="custom polar point mapping requires manual scale review"/>
+      <g fill="#191919" font-size="13"><text x="8" y="-40">10</text><text x="8" y="-80">20</text><text x="8" y="-120">30</text><text x="8" y="-160">40</text></g>
+    </g>
+    <text x="664" y="192" font-size="14">One spoke per period</text><text x="664" y="218" font-size="14">One fixed radial scale</text>
+    <text x="60" y="552" font-size="13">Key: spoke length = measure in stated unit; label start/end period and all exceptions.</text>
+    <text x="60" y="574" font-size="12">Source: replace with source and period; reader must be able to decode the radial scale</text>
+  </g>
+</svg>

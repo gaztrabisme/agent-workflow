@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Derived mud properties by measured depth</title>
+  <desc id="desc">Two aligned property panels use depth position. Units and vertical domains differ; values are illustrative.</desc>
+  <rect width="960" height="600" fill="#fff"/>
+  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+    <text x="60" y="48" font-size="26" font-weight="700">Mud properties by measured depth</text>
+    <text x="60" y="75" font-size="14">DERIVED DRILLING VIEW · illustrative values only; separate units by panel</text>
+    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,4000" data-rk-x-range="140,480" data-rk-y-scale="linear" data-rk-y-domain="0.9,1.5" data-rk-y-range="450,140">
+      <text x="210" y="112" font-size="18" font-weight="700">Mud weight (sg)</text>
+      <path d="M140 383L225 331L310 269L395 217L480 176" fill="none" stroke="#245c73" stroke-width="3" data-rk-mark="line" data-rk-points="0,1.03 1000,1.13 2000,1.25 3000,1.35 4000,1.43" data-rk-series="Mud weight"/>
+      <path d="M140 140V450H480" fill="none" stroke="#555"/>
+    </g>
+    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,4000" data-rk-x-range="560,900" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="450,140">
+      <text x="610" y="112" font-size="18" font-weight="700">Funnel viscosity (s)</text>
+      <path d="M560 352L645 321L730 290L815 228L900 197" fill="none" stroke="#a64931" stroke-width="3" data-rk-mark="line" data-rk-points="0,32 1000,42 2000,52 3000,72 4000,82" data-rk-series="Funnel viscosity"/>
+      <path d="M560 140V450H900" fill="none" stroke="#555"/>
+    </g>
+    <text x="320" y="495" font-size="15">Measured depth (m)</text><text x="690" y="495" font-size="15">Measured depth (m)</text>
+    <text x="60" y="540" font-size="13">Keep the shared depth scale; label each panel's distinct unit and value range.</text>
+    <text x="60" y="574" font-size="12">Source: replace with validated mud measurements; this dashboard form is derived</text>
+  </g>
+</svg>

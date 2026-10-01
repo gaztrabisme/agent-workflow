@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Slope chart template</title>
+  <desc id="desc">Example start and end measures on one shared scale. Replace both values and time labels.</desc>
+  <rect width="960" height="600" fill="#fff"/>
+  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+    <text x="72" y="54" font-size="26" font-weight="700">Change between two periods</text>
+    <text x="72" y="82" font-size="14">ILLUSTRATIVE VALUES — replace before use</text>
+    <g data-rk-chart="slope" data-rk-x-scale="ordinal" data-rk-x-domain="0,1" data-rk-x-range="260,720" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="470,120">
+      <path d="M260 365L720 225" fill="none" stroke="#245c73" stroke-width="3" data-rk-mark="line" data-rk-points="0,30 1,70" data-rk-series="North"/>
+      <path d="M260 295L720 330" fill="none" stroke="#a64931" stroke-width="3" data-rk-mark="line" data-rk-points="0,50 1,40" data-rk-series="South"/>
+      <path d="M260 155L720 190" fill="none" stroke="#687b48" stroke-width="3" data-rk-mark="line" data-rk-points="0,90 1,80" data-rk-series="West"/>
+      <g fill="#245c73"><circle cx="260" cy="365" r="6" data-rk-mark="point" data-rk-x="0" data-rk-y="30" data-rk-series="North"/><circle cx="720" cy="225" r="6" data-rk-mark="point" data-rk-x="1" data-rk-y="70" data-rk-series="North"/></g>
+      <g fill="#a64931"><circle cx="260" cy="295" r="6" data-rk-mark="point" data-rk-x="0" data-rk-y="50" data-rk-series="South"/><circle cx="720" cy="330" r="6" data-rk-mark="point" data-rk-x="1" data-rk-y="40" data-rk-series="South"/></g>
+      <g fill="#687b48"><circle cx="260" cy="155" r="6" data-rk-mark="point" data-rk-x="0" data-rk-y="90" data-rk-series="West"/><circle cx="720" cy="190" r="6" data-rk-mark="point" data-rk-x="1" data-rk-y="80" data-rk-series="West"/></g>
+    </g>
+    <path d="M260 120V470H720" fill="none" stroke="#555" stroke-width="2"/>
+    <text x="235" y="500" font-size="15">Start year</text><text x="690" y="500" font-size="15">End year</text>
+    <text x="450" y="540" font-size="16">Period</text><text x="30" y="300" font-size="16" transform="rotate(-90 30 300)">Measure (unit; 0–100)</text>
+    <text x="775" y="230" font-size="15">North</text><text x="775" y="335" font-size="15">South</text><text x="775" y="195" font-size="15">West</text>
+    <text x="72" y="574" font-size="12">Source: replace with source and period; keep one shared scale</text>
+  </g>
+</svg>

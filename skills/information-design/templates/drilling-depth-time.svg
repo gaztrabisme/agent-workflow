@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Derived drilling depth against time</title>
+  <desc id="desc">Illustrative measured depth increases downward over elapsed days. Replace with checked project values.</desc>
+  <rect width="960" height="600" fill="#fff"/>
+  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+    <text x="72" y="54" font-size="26" font-weight="700">Depth against elapsed time</text>
+    <text x="72" y="82" font-size="14">DERIVED DRILLING VIEW · illustrative values only</text>
+    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,4" data-rk-x-range="130,870" data-rk-y-scale="linear" data-rk-y-domain="0,4000" data-rk-y-range="120,470">
+      <path d="M130 120L315 190L500 277.5L685 365L870 426.25" fill="none" stroke="#245c73" stroke-width="4" data-rk-mark="line" data-rk-points="0,0 1,800 2,1800 3,2800 4,3500" data-rk-series="Hole depth"/>
+      <g fill="#245c73"><circle cx="130" cy="120" r="6" data-rk-mark="point" data-rk-x="0" data-rk-y="0"/><circle cx="315" cy="190" r="6" data-rk-mark="point" data-rk-x="1" data-rk-y="800"/><circle cx="500" cy="277.5" r="6" data-rk-mark="point" data-rk-x="2" data-rk-y="1800"/><circle cx="685" cy="365" r="6" data-rk-mark="point" data-rk-x="3" data-rk-y="2800"/><circle cx="870" cy="426.25" r="6" data-rk-mark="point" data-rk-x="4" data-rk-y="3500"/></g>
+    </g>
+    <path d="M130 120V470H870" fill="none" stroke="#555" stroke-width="2"/>
+    <g font-size="13"><text x="82" y="125">0 m</text><text x="72" y="212">1,000 m</text><text x="72" y="300">2,000 m</text><text x="72" y="387">3,000 m</text><text x="72" y="475">4,000 m</text></g>
+    <text x="440" y="520" font-size="16">Elapsed days</text><text x="30" y="300" font-size="16" transform="rotate(-90 30 300)">Measured depth (m; increases downward)</text>
+    <text x="72" y="574" font-size="12">Source: replace with validated depth/time records; domain-specific view is derived</text>
+  </g>
+</svg>

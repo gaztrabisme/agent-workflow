@@ -50,6 +50,15 @@ def is_sibling(value: str) -> bool:
     return value.startswith('../')
 
 
+def is_course_corpus(path: Path, root: Path) -> bool:
+    """Course reading copies and frames are source evidence, not skill references."""
+    try:
+        parts = path.relative_to(root).parts
+    except ValueError:
+        return False
+    return len(parts) > 1 and parts[0] == 'references' and parts[1].startswith('course-')
+
+
 def heading_key(heading: str) -> str:
     text = heading.lstrip('#').strip()
     text = re.sub(r'\s*\([^)]*\)\s*$', '', text)
@@ -94,7 +103,11 @@ def main() -> int:
         return 1
 
     skill_text = skill_file.read_text(encoding='utf-8')
-    files = glob_all(root, args.files)
+    # The paid reading copies are an evidence corpus. Their lesson-to-frame and PDF
+    # links are audited separately; enumerating every frame as a skill reference
+    # would make the operating manual list hundreds of source assets.
+    files = [path for path in glob_all(root, args.files)
+             if not is_course_corpus(path, root)]
     if skill_file not in files:
         files.insert(0, skill_file)
     files = sorted(set(files))
@@ -166,7 +179,8 @@ def main() -> int:
         if folder.is_dir():
             shipped.extend(path for path in folder.rglob('*')
                            if path.is_file() and '__pycache__' not in path.parts
-                           and path.suffix != '.pyc')
+                           and path.suffix != '.pyc'
+                           and not is_course_corpus(path, root))
     print('Reference/script/test files shipped:')
     for path in sorted(shipped):
         rel = path.relative_to(root).as_posix()

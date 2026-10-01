@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Line chart template</title>
+  <desc id="desc">Example series over time. Replace values, labels, units, range and source.</desc>
+  <rect width="960" height="600" fill="#fff"/>
+  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+    <text x="72" y="54" font-size="26" font-weight="700">Measure through time</text>
+    <text x="72" y="82" font-size="14">ILLUSTRATIVE VALUES — replace before use</text>
+    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,4" data-rk-x-range="100,880" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="470,120">
+      <path d="M100 400 L295 347.5 L490 358 L685 218 L880 176" fill="none" stroke="#245c73" stroke-width="4" data-rk-mark="line" data-rk-points="0,20 1,35 2,32 3,72 4,84" data-rk-series="Example"/>
+      <g fill="#245c73" data-rk-series="Example">
+        <circle cx="100" cy="400" r="6" data-rk-mark="point" data-rk-x="0" data-rk-y="20"/>
+        <circle cx="295" cy="347.5" r="6" data-rk-mark="point" data-rk-x="1" data-rk-y="35"/>
+        <circle cx="490" cy="358" r="6" data-rk-mark="point" data-rk-x="2" data-rk-y="32"/>
+        <circle cx="685" cy="218" r="6" data-rk-mark="point" data-rk-x="3" data-rk-y="72"/>
+        <circle cx="880" cy="176" r="6" data-rk-mark="point" data-rk-x="4" data-rk-y="84"/>
+      </g>
+    </g>
+    <path d="M100 120V470H880" fill="none" stroke="#555" stroke-width="2"/>
+    <text x="100" y="500" font-size="14">Start</text><text x="850" y="500" font-size="14">End</text>
+    <text x="450" y="540" font-size="16">Time (unit)</text><text x="30" y="300" font-size="16" transform="rotate(-90 30 300)">Measure (unit)</text>
+    <text x="100" y="574" font-size="12">Source: replace with source and period</text>
+  </g>
+</svg>

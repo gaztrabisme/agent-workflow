@@ -1,0 +1,19 @@
+# Chart templates
+
+Copy an SVG, replace the illustrative data and labels, preserve the `data-rk-*` markup, and update domains, units and source notes. The sample marks are examples only; they are not operational data.
+
+| Template | Form | Status and course basis |
+|---|---|---|
+| [line-chart.svg](line-chart.svg) | Time series with position on both axes | Course-supported: line charts for change over time (4217 · U2 · L03 · 02:18–04:02; 3601 · U3 · L09 · 03:18–07:00). |
+| [bar-chart.svg](bar-chart.svg) | Category magnitude comparison | Course-supported form; bar use for lost-time causes is a derived application (4217 · U2 · L03 · 01:32–02:18). |
+| [slope-chart.svg](slope-chart.svg) | Start-to-end comparison | Course-supported (3601 · U3 · L09 · 03:18–07:00). |
+| [small-multiples.svg](small-multiples.svg) | Repeated views with shared scales | Course-supported; mud-property use is derived (3601 · U3 · L09 · 03:18–07:00). |
+| [scatterplot.svg](scatterplot.svg) | Two quantitative variables by position | Course-supported (4217 · U2 · L03 · 02:18–04:02). |
+| [bubble-chart.svg](bubble-chart.svg) | Two positions plus a size measure | Course-supported; area is less precise than position and length in the course-cited channel ranking (4217 · U2 · L03 · 02:18–04:02). |
+| [radial-series.svg](radial-series.svg) | Repeated radial series | Course-demonstrated custom form; only use when the data and reader can support it (2495 · U4 · L12 · 04:22–09:35). Its custom polar mapping is marked for manual scale review. |
+| [drilling-depth-time.svg](drilling-depth-time.svg) | Measured depth against elapsed time, depth increases downward | **Derived** from the drilling fixture and the course's time-series form. |
+| [drilling-lost-time-split.svg](drilling-lost-time-split.svg) | Non-productive time by cause | **Derived** from the drilling fixture and a category comparison. |
+| [drilling-mud-properties.svg](drilling-mud-properties.svg) | Mud measurements in aligned small multiples | **Derived** from drilling fields and the course's shared-scale small-multiple form; units remain distinct by panel. |
+| [drilling-trajectory.svg](drilling-trajectory.svg) | Northing against easting path | **Derived** from the drilling fixture and positional encoding. |
+
+The drilling views are adaptation examples. Replace their sample values from a project dataset and follow its domain's units, conventions, limits and review rules.

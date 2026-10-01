@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Derived well trajectory view</title>
+  <desc id="desc">Illustrative survey stations trace a path from vertical to deviated. East-west and north-south axes use equal scales.</desc>
+  <rect width="960" height="600" fill="#fff"/>
+  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+    <text x="72" y="54" font-size="26" font-weight="700">Well path in plan view</text>
+    <text x="72" y="82" font-size="14">DERIVED DRILLING VIEW · illustrative positions only</text>
+    <g data-rk-chart="scatter" data-rk-x-scale="linear" data-rk-x-domain="-600,600" data-rk-x-range="190,770" data-rk-y-scale="linear" data-rk-y-domain="600,-600" data-rk-y-range="130,510">
+      <path d="M480 320L499.3 294.7L528.3 259.8L569.4 218.7L625 179.1L690.3 155.3" fill="none" stroke="#245c73" stroke-width="4" data-rk-mark="line" data-rk-points="0,0 40,80 100,190 185,320 300,445 435,520" data-rk-series="Trajectory"/>
+      <g fill="#245c73"><circle cx="480" cy="320" r="5" data-rk-mark="point" data-rk-x="0" data-rk-y="0"/><circle cx="499.3" cy="294.7" r="5" data-rk-mark="point" data-rk-x="40" data-rk-y="80"/><circle cx="528.3" cy="259.8" r="5" data-rk-mark="point" data-rk-x="100" data-rk-y="190"/><circle cx="569.4" cy="218.7" r="5" data-rk-mark="point" data-rk-x="185" data-rk-y="320"/><circle cx="625" cy="179.1" r="5" data-rk-mark="point" data-rk-x="300" data-rk-y="445"/><circle cx="690.3" cy="155.3" r="5" data-rk-mark="point" data-rk-x="435" data-rk-y="520"/></g>
+    </g>
+    <path d="M190 130V510H770" fill="none" stroke="#555" stroke-width="2"/>
+    <path d="M480 130V510M190 320H770" fill="none" stroke="#ddd" stroke-dasharray="5 5"/>
+    <text x="390" y="550" font-size="16">East–west offset (m)</text><text x="40" y="320" font-size="16" transform="rotate(-90 40 320)">North–south offset (m)</text>
+    <text x="72" y="574" font-size="12">Use equal distance scales; replace with validated survey coordinates and domain checks</text>
+  </g>
+</svg>
