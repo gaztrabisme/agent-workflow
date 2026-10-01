@@ -1,8 +1,9 @@
 # The CERIC read, step by step
 
-One source in; page-cited notes, a still-missing register, and a one-paragraph narrative
-out. Declare the depth before starting. A bounded, time-boxed probe gathers information;
-it does not pretend to settle more than it examined. [book:facilitating-software-architecture], Introducing Spikes
+In Read mode, one source produces traceable notes, a still-missing register, and a
+one-paragraph narrative. Declare the depth before starting. A bounded, time-boxed probe
+gathers information; it does not pretend to settle more than it examined.
+[book:facilitating-software-architecture], Introducing Spikes
 
 Hunt in CERIC order—Claim, Evidence, Reasoning, Implications, Context—and write the
 finished narrative in time order: Context, Claim, Evidence, Reasoning, Implications.
@@ -20,14 +21,20 @@ for a defined inquiry. [book:facilitating-software-architecture], Introducing Sp
 
 ## Ground the document
 
-Extract page-marked text with `scripts/extract_pages.py`. Read from that text and the
-rendered pages, not from memory. Render pages at about 110 dpi for visual inspection of
-figures, tables, and error bars; text extraction can scramble them. For a paper-level task, do not stop after an abstract
-when the requested read is of the full paper; abstract depth is valid only when that is
-the requested scope. Render pages when tables, figures, equations, or error bars are hard
-to interpret in extracted text. Always read figures and tables on the rendered page;
-extraction can scramble their content. The quote checker requires an exact normalized match on
-the explicitly cited page; inspect symbol-sensitive matches on the rendered page.
+For a paginated source, extract page-marked text with `scripts/extract_pages.py` and read
+from it and the rendered pages, not from memory. Inspect figures, tables, and error bars
+on the rendered page; text extraction can scramble them. For a
+paper-level task, do not stop after an abstract when the requested read is of the full
+paper; abstract depth is valid only when that is the requested scope. Always inspect
+figures and tables on the rendered page. For a source supplied only as plain text or
+markdown, cite its source alias plus `L12-L15` or `§ Heading`; the exact-quote checker
+compares against that line range or heading section. (derived: dogfood 2026-10-01)
+
+If a symbol-sensitive quote has a rendered original, inspect that page. If the authoritative
+source has no rendered form, compare each symbol in the quote character by character with
+the source text and record `text-source comparison` in Status or the run record. If the
+plain text was extracted from a paginated original, use the original page and render for
+this review instead. (derived: dogfood 2026-10-01)
 [book:research-methods-psychology], Ethical Principles and Practices; [book:how-to-read-a-paper], Ten questions to ask about a paper describing a questionnaire study
 
 A summary does not replace the source read. If stuck, a GenAI summary is a fallback; cite
@@ -55,14 +62,18 @@ headings, tables of contents, appendices, and cross-references where the source 
 follow IMRaD. Read the planned section for its question; if no useful map exists, search
 the whole document. An unmapped section is not evidence of absence. [book:research-methods-psychology], Finding and Reading the Research
 
-For every answer, record the exact quote, cited page, section, question answered, and
-status (**answered**, **partly**, or **missing**). Keep one verbatim quote in each Quote
-cell. Use page labels such as `p3` and `pp3-4`. Figures and tables count as evidence and
+For every answer, record the exact quote, Source alias, page or text locator, section,
+question answered, and status (**answered**, **partly**, or **missing**). Keep one verbatim
+quote in each Quote cell. Use page labels such as `p3` and `pp3-4` for paginated sources,
+or `L12-L15` / `§ Heading` for plain text. Figures and tables count as evidence and
 reasoning: quote a caption or row label, identify the figure/table and page in Section,
 and put your visual observation in Status. [book:research-methods-psychology], Finding and Reading the Research; [book:research-methods-psychology], Ethical Principles and Practices
 
 Immediately after capturing quotes, run `scripts/check_quotes.py`; correct or remove any
-quote that is not an exact match on its cited page before continuing.
+quote that is not an exact match at its cited page, line range, or section before
+continuing. For an audit using several documents, add `Source` and `Where` columns and
+configure each source by alias, for example `--source synthesis=./synthesis.md --source
+web=./agent-ready-web.txt`. (derived: dogfood 2026-10-01)
 
 ### Design-specific checks
 
@@ -122,16 +133,19 @@ well.
 ## Mechanical handoff
 
 Run `scripts/check_quotes.py` before continuing and correct every quote that fails its
-cited page. Run `scripts/ceric_check.py <run_dir> --paper <paper.pdf-or-txt>` over the
-complete run; use `--freeform` when the notes do not use the templates. Keep the output
-table, resolve eye-check rows on the rendered page, and hand over only when mechanical
-checks are green. Broken checks should be fixed promptly; if the fix is not available,
-revert the change that broke the check. [book:continuous-delivery], Essential Practices
+cited locator. For one source, use `--paper <paper.pdf-or-txt>`; for an audit with several
+sources, use `--source alias=path` once per source and keep those aliases in each table row.
+Run `scripts/ceric_check.py <run_dir> --paper <paper.pdf-or-txt>` over a complete Read;
+use `--freeform` when the notes do not use the templates. Keep the output table, resolve
+eye-check rows against the original rendered page or authoritative text, and hand over
+only when mechanical checks are green. Broken checks should be fixed promptly; if the fix
+is not available, revert the change that broke the check. [book:continuous-delivery], Essential Practices
 
 ## Pair reads and review advice
 
 When a read informs a decision or will be tested outside the reading group, declare a pair
-read. A second reader independently marks the title, abstract, and element statuses
+read in the notes header as `pair` and name both readers. A second reader independently
+marks the title, abstract, and element statuses
 without seeing the first reader's work. A third pass resolves each disagreement against
 `elements.md` and records the rule used. Skip the pair read for private notes. [book:swebok], 2.3. Reviews and Audits; [book:facilitating-software-architecture], The Architecture Advice Process: One Rule, Two Advice-Offering Groups, and One Contract
 
@@ -141,6 +155,10 @@ and share the outcome; consultation does not require consensus. For grading or a
 important audit, a cold second grader is preferable to having the same grader repeat the
 pass; two graders on different model lanes can reveal disagreement that needs human
 attention; prefer this over asking one grader to repeat the same pass. [book:facilitating-software-architecture], Seek advice from those with conflicting views
+
+If a second lane is unavailable, put `DEFERRED` and the reason in that same field, follow
+the shared core grounding gate's DEFERRED path, and limit the claim to the solo review.
+(derived: dogfood 2026-10-01)
 
 ## Out-of-lane findings
 

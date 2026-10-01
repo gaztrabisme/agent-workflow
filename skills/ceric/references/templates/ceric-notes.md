@@ -1,6 +1,6 @@
 # CERIC notes — <Author (year), journal, volume, page>
 
-**Depth:** abstract | hunt | full · **Source:** `<file.pdf>` (<n> pages; page numbers are the PDF's) · **Reader:** <who>
+**Depth:** abstract | hunt | full · **Sources:** `<alias=path>` · **Reader:** <who> · **Review approach:** single | pair (<readers and resolution>) | DEFERRED (<reason>) (derived: dogfood 2026-10-01)
 
 ## 1. Title and abstract, marked
 
@@ -13,13 +13,13 @@ Marks: C Claim · E Evidence · R Reasoning · I Implications · Co Context. Two
 
 ## 2. CERIC notes (copied words)
 
-| Element | Quote | Page | Section | Status |
+| Element | Source | Quote | Where | Section | Status |
 |---|---|---|---|---|
-| Claim | “<exact words>” | p1 | Title | present |
-| Evidence | “<exact words>” | p1 | Abstract | thin: <what is missing> |
-| Reasoning | “<exact words>” | p1 | Abstract | present |
-| Implications | “<exact words>” | p1 | Abstract | present |
-| Context | “<exact words>” | p1 | Abstract | MISSING: <what the abstract does not give> |
+| Claim | paper | “<exact words>” | p1 | Title | present |
+| Evidence | paper | “<exact words>” | p1 | Abstract | thin: <what is missing> |
+| Reasoning | paper | “<exact words>” | p1 | Abstract | present |
+| Implications | paper | “<exact words>” | p1 | Abstract | present |
+| Context | paper | “<exact words>” | p1 | Abstract | MISSING: <what the abstract does not give> |
 
 Status: present · thin (name the gap) · MISSING (say so). This column is the hunt list.
 One verbatim quote per Quote cell. A figure or table row quotes its caption or row label. Your own observations go in Status.
@@ -32,11 +32,11 @@ One verbatim quote per Quote cell. A figure or table row quotes its caption or r
 
 ## 4. Hunt findings
 
-| # | Element | Quote | Page | Section | Answers | Status |
+| # | Element | Source | Quote | Where | Section | Answers | Status |
 |---|---|---|---|---|---|---|
-| 1 | Evidence | "the EHT collaboration fielded a global VLBI array of eight stations over six geographical locations" | p3 | §3, paragraph 4 | Q1 | answered |
-| 2 | Reasoning | "The best-fit models for the asymmetric emission ring have diameters of 43 ± 0.9 μas" | p7 | §7, paragraph 2 | Q3 | answered |
-| 3 | Reasoning | "similar images taken over different days showing the stability of the basic image structure and the equivalence among different days" | p5 | Figure 3, p5 | Q3 | answered; on the render, the ring with southern brightness excess appears in all four day-panels |
+| 1 | Evidence | paper | "the EHT collaboration fielded a global VLBI array of eight stations over six geographical locations" | p3 | §3, paragraph 4 | Q1 | answered |
+| 2 | Reasoning | paper | "The best-fit models for the asymmetric emission ring have diameters of 43 ± 0.9 μas" | p7 | §7, paragraph 2 | Q3 | answered |
+| 3 | Reasoning | paper | "similar images taken over different days showing the stability of the basic image structure and the equivalence among different days" | p5 | Figure 3, p5 | Q3 | answered; on the render, the ring with southern brightness excess appears in all four day-panels |
 
 Rows 1–3 are worked from the same paper as the abstract example in `elements.md` (Event Horizon Telescope Collaboration 2019, ApJL 875 L1). Row 3 is a figure row: the Quote cell carries the caption verbatim, Section cites the figure and page, and what the reader saw on the render is Status content.
 
@@ -58,4 +58,6 @@ One verbatim quote per Quote cell. A figure or table row quotes its caption or r
 |---|---|---|
 | <term> | <definition> | p<n> · or † |
 
-† = outside knowledge, not from the document.
+† = outside knowledge, not from the document. For each quote row, cite a page when the
+source has pages; otherwise cite a line range (`L12-L15`) or markdown heading (`§ Heading`).
+With multiple sources, use the configured alias in the Source cell. (derived: dogfood 2026-10-01)

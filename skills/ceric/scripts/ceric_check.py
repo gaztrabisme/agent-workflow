@@ -5,6 +5,8 @@ Usage:
   ceric_check.py <run_dir> --paper <pdf|txt> [--extra <pdf|txt> ...] [--freeform] [--json <path>]
 
 Template mode expects `ceric-notes.md` and `narrative.md` in <run_dir> (this skill's templates).
+It checks only that notes file's quote rows and the narrative; audit tables, grade files,
+issues, and separate track-quote files are outside this command's mechanical pass.
 Freeform mode (--freeform) takes every *.md in <run_dir> except README.md and files ending in
 -report.md: the rest go to the quote check; the narrative is the file whose name contains
 "narrative" (else the file with the longest paragraph); the builders file is the one whose name
@@ -69,10 +71,12 @@ def main():
     if not files or not narrative or not os.path.exists(narrative):
         print(f'nothing to check in {a.run_dir} (need {"*.md" if a.freeform else "ceric-notes.md + narrative.md"})')
         return 1
-    if a.freeform:
-        print('picked for quotes: ' + (', '.join(os.path.basename(f) for f in files) or '-'))
-        print(f"picked as narrative: {os.path.basename(narrative) if narrative else '-'} · "
-              f"picked as builders: {os.path.basename(builders) if builders else '-'}")
+    quote_files = files if a.freeform else [f for f in files if os.path.basename(f) != 'narrative.md']
+    print('picked for quotes: ' + (', '.join(os.path.basename(f) for f in quote_files) or '-'))
+    print(f"picked as narrative: {os.path.basename(narrative) if narrative else '-'} · "
+          f"picked as builders: {os.path.basename(builders) if builders else '-'}")
+    if not a.freeform:
+        print('template mode scope: ceric-notes.md quotes + narrative.md only; audit/grade/issues/separate quote files are not checked')
 
     qargs = ['--paper', a.paper, '--notes'] + files + (['--freeform'] if a.freeform else [])
     if a.extra:
@@ -91,7 +95,7 @@ def main():
                    f"via extra {s.get('pass-extra', 0)} · pass-eye {s.get('pass-eye', 0)} · "
                    f"eye-check {s.get('eye-check', 0)} · FLAG {s.get('FLAG', 0)}",
          'ok' if q_rc == 0 else 'FAIL'),
-        ('page hints', f"{q.get('pinned', 0)}/{q.get('total', 0)} quotes carry a page", 'info'),
+        ('source + locator', f"{q.get('pinned', 0)}/{q.get('total', 0)} quote rows name a source and locator", 'info'),
         ('narrative words', f"{n.get('words')} (band {n.get('band')}) · mode {n.get('mode')}",
          'ok' if n.get('hard', {}).get('words') else 'FAIL'),
         ('one paragraph', f"{n.get('long_paragraphs')} long paragraph(s)",

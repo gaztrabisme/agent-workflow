@@ -1,6 +1,6 @@
 # Evolution Log — ceric
 
-The loop that turns real use into skill improvements. Mechanism: `../evolution/references/loop.md`. Harvest source: CERIC reads and audits done with this skill (their `ceric_check.py` output and scorecards), and unaided reads graded with its instrument. Fixtures and the calibration traces: `$CERIC_FIXTURES` (default `~/Documents/Work/lab/ceric`, private).
+The loop that turns real use into skill improvements. Mechanism: use the `evolution` skill's loop when that sibling is installed; in a partial install, keep the harvest and hypotheses here and leave the verdict `PENDING`. (derived: dogfood 2026-10-01) Harvest source: CERIC reads and audits done with this skill (their `ceric_check.py` output and scorecards), and unaided reads graded with its instrument. Fixtures and the calibration traces: `$CERIC_FIXTURES` (default `~/Documents/Work/lab/ceric`, private).
 
 ---
 
@@ -66,6 +66,8 @@ Critic: a fresh-context GLM agent, briefed with `skill-builder`'s dogfood brief,
 - F9 low — freeform globbed reports and READMEs → skipped, files picked are printed.
 
 ## Evolution 2 — stage B rebuild (2026-10-01)
+
+- Dogfood (2026-10-01): artifact audit of a synthesis against its cited track reports; 3 high, 4 med, 4 low findings; fixed 11, rejected 0.
 
 ### Sources read
 - Approved stage A `skill-set.md`, the CERIC, conductor, and skill-builder ledgers and crosswalks, and the CERIC practitioner review.
