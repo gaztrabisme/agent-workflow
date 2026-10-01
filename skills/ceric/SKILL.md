@@ -53,7 +53,7 @@ Depth and detail: `references/hunt.md`. Instrument: `references/grading.md`.
 - **Output Contract** — `read` is done when the notes, the still-missing register and the narrative exist and `scripts/ceric_check.py` is green (eye-check rows resolved by a look at the page). `audit` is done when every claim in the artifact has a row. `grade` is done when the scorecard names its evidence line for every mark. See `../core/references/wiki-protocol.md`.
 - **Pushback & teach** — "summarise this paper" forks on depth (abstract / hunt / full) and on audience; ask once, then declare. "Fill in every element" is refused: an absent element stays absent. "Just give me the gist" gets the narrative, with its hedges. See `../core/references/pushback-and-teach.md`.
 - **Approach declaration** — skippable for a single reader at abstract depth. A pair read (two independent markups reconciled against `elements.md`) is declared when the read leaves the building or a decision rests on it. (core SKILL.md §7.)
-- **Cold review** — a grade is produced by a reader who has not seen the reasoning behind the read, per core spine #10. Two graders on different models beat one grader twice.
+- **Cold review** — a grade is produced by a reader who has not seen the reasoning behind the read, per core's independent-review gate (`../core/references/output-contract.md`, §Independent review). Two graders on different models beat one grader twice.
 
 ## Anti-patterns (hard no-list)
 
