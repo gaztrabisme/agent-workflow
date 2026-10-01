@@ -1,53 +1,49 @@
-# Tech-stack selection & options analysis
+# Technology and Architecture Decisions
 
-The deliverable of a technology choice is not the choice — it's the **defensible comparison** behind it. Architect neutral, then position.
+Compare options against the client’s problem, constraints, quality priorities, and change horizon before naming products. Keep decisions reviewable and ready for the response and engineering handoff.
 
-## The method
+## Reference architecture
 
-1. **Derive the axes from the requirement, not the vendors.** What does *this* client actually weigh? Common axes: data residency, customisation/control, time-to-value, scale & cost-at-volume, security/compliance fit, lock-in/portability, team skill fit, ecosystem alignment. Pick the 5–8 that matter here; drop the rest.
-2. **Shortlist 2–3 genuinely viable options.** Not one (that's a guess) and not ten (that's noise). Include the "obvious incumbent/aligned" option even if you'll argue against it — it shows you considered it.
-3. **Score against the axes, honestly.** Use words or a small scale; cite the *reason*, not just a rating. A cell that says "Limited: no in-country region" beats "Low."
-4. **Recommend — and graft.** State the winner and *why the others lost*. Often the right answer is a **hybrid**: primary option for the hard constraint, secondary where it's strongest (e.g. low-code for fast FAQ, pro-code for secure transactions).
-5. **Name the design-time checks.** What must be confirmed before commit (regional availability, license terms, a benchmark on the client's own data). These become assumptions or clarification questions.
+- Use a documented pattern blueprint for the reference architecture; add decision options and only the integration, security, residency, and NFR views this engagement needs [book:fundamentals-enterprise-architecture], Architecture Pattern Deliverable.
+- Show context, component, and deployment views, with the resilience, security, residency, and NFR details relevant to the proposal [book:fundamentals-enterprise-architecture], Application Target Architecture Deliverable.
+- Identify dimensions entangled in this architecture instead of requiring a fixed five-to-eight axes [book:software-architecture-hard-parts], Chapter 15. Build Your Own Trade-Off Analysis.
+- Build the shortlist from actual constraints and keep criteria neutral; avoid comparison charts fitted to a preselected result [book:software-architect-elevator], Chapter 6. Making Decisions.
+- Use qualitative measures and compare their context-specific effects instead of treating numeric ratings as conclusive [book:software-architecture-hard-parts], Chapter 15. Build Your Own Trade-Off Analysis.
 
-## Tradeoff-table template
+## Decision records
 
-```markdown
-| Consideration (axis) | Option A | Option B | Option C |
-|----------------------|----------|----------|----------|
-| <the hard constraint, e.g. residency> | <reason-bearing cell> | … | … |
-| Customisation / control | | | |
-| Time-to-value | | | |
-| Scale & cost at <client volume> | | | |
-| Security / compliance fit | | | |
-| Lock-in / portability | | | |
+- Record major decisions with alternatives, rationale, consequences, and what the selected option binds [book:fundamentals-enterprise-architecture], Architecture Decision Deliverable.
+- Use a factor-by-option matrix with pros and cons and a recommendation; the template does not prescribe separate design-time checks [book:fundamentals-enterprise-architecture], Sample Template.
 
-**Recommendation:** <option or hybrid> — <why, anchored to the top axis>.
-Use <secondary> for <where it's strongest>.
-**Design-time checks:** <what to confirm before commit>.
-```
+## Decision methods
 
-## Decision record (write to `wiki/decisions.md`)
+- Record each major decision with its context, choice, tradeoff, and rejected alternatives in wiki/decisions.md [book:software-architecture-hard-parts], Architectural Decision Records.
+- Record the rejected option and why it lost so later sessions do not reopen a settled decision [book:fundamentals-enterprise-architecture], Overview.
+- Preserve options by minimizing early decisions that are difficult to reverse when project knowledge is limited [book:software-architect-elevator], Reversing Irreversible Decision Making.
+- Use bounded contexts and context maps to make business boundaries and integration relationships explicit [book:learning-domain-driven-design], Chapter 3. Managing Domain Complexity.
+- Use a consistent architecture decision record with an identifier, description, stakeholders, status, date, problem, alternatives, rationale, and implications [book:fundamentals-enterprise-architecture], Overview.
+- Codify proven architecture patterns as reusable, technology-agnostic designs or technology-specific implementation recommendations [book:fundamentals-enterprise-architecture], Architecture Pattern Deliverable.
+- Use an architecture advice process that separates option making, decision taking, and decision sharing [book:facilitating-software-architecture], Chapter 3. Decisions at Scale.
+- Record decision implications, including technical debt and risk [book:fundamentals-enterprise-architecture], Architecture Decision Deliverable.
+- Choose architecture sketch viewpoints from the perspective being examined and indicate uncertainty [book:software-architect-elevator], Sketching Architectures.
+- Classify subdomains as core, generic, or supporting before choosing where to invest bespoke design effort [book:learning-domain-driven-design], Chapter 1. Analyzing Business Domains.
+- Manage each decision through draft, in-progress research and feedback, review, approval, and deprecation [book:fundamentals-enterprise-architecture], Managing the Architecture Decision Lifecycle.
+- Give each architecture decision forum a clear charter, purpose, and chair [book:fundamentals-enterprise-architecture], Defining the Architecture Decision Workflow.
+- Model only feasible combinations in a context-specific trade-off analysis, then compare their effects in a matrix [book:software-architecture-hard-parts], Analyze Coupling Points.
+- Offer architecture options at different up-front costs and switching costs, accounting for uncertainty and vendor lock-in [book:software-architect-elevator], Strike Prices.
+- Invite likely dissenters into decision review and record unresolved concerns as risks [book:fundamentals-enterprise-architecture], Managing the Architecture Decision Lifecycle.
+- Keep an accessible, searchable and immutable ADR registry, linking deprecated records to replacements [book:fundamentals-enterprise-architecture], Providing an Architecture Decision Registry.
+- Use MECE criteria to compare like-for-like alternatives and check that the decision space has no obvious gaps [book:software-architecture-hard-parts], MECE Lists.
+- Use domain model language consistently in diagrams, writing, and speech [book:domain-driven-design-evans], Ubiquitous Language.
+- Frame decision context around the circumstances, scope boundaries, and time horizon that make the decision necessary now [book:facilitating-software-architecture], Framing the Context.
+- Record raw advice on an ADR with the advice giver’s name, role, and date alongside the decision analysis [book:facilitating-software-architecture], Advice.
 
-```markdown
-## D<n> — <decision title>
-**Context:** <the constraint/requirement forcing the choice>
-**Decision:** <what was chosen>
-**Tradeoff:** <what we give up; what gates it>
-**Rejected:** <option> — <why it lost (cost / residency / lock-in / maturity)>
-```
+## SaaS architecture choices
 
-The **Rejected** line is the highest-value part — it stops a future session (or a teammate, or the client's challenge) from re-litigating a settled call.
-
-## Neutral-then-position
-
-- Phase 3 (Architect) is **vendor-neutral**: capabilities and patterns, no product names in the reference architecture's logic.
-- Positioning is a **separate, explicit** step: map capabilities → a named stack, with the tradeoff table as justification.
-- When the deal came through a discovery workshop, pull the stack and commercial framing from `ai-discovery-workshop` (its `references/commercial_framing.md`) rather than re-deriving — and keep the neutral comparison visible so the choice stays defensible.
-
-## Anti-patterns
-
-- **Vendor-led design** — the stack you want to sell picks the architecture. Reverse it.
-- **Strawman alternatives** — listing options you never seriously considered fools no evaluator.
-- **Ratings without reasons** — "Low/Med/High" with no cause is unscoreable and undefendable.
-- **Hiding the hybrid** — forcing a single winner when "A for X, B for Y" is the honest answer.
+- The book directs architects toward options and trade-offs beyond product lists; this rule makes the Phase 3 design explicitly vendor-neutral [book:software-architect-elevator], Measuring an Architect’s Value.
+- For workshop-originated deals, reuse the discovery skill's stack and commercial framing while keeping a neutral comparison visible.
+- Start with business drivers and analyze the problem’s trade-offs before naming products [book:software-architecture-hard-parts], Chapter 15. Build Your Own Trade-Off Analysis.
+- Compare alternatives against the real problem instead of shaping a score chart to justify a preferred option [book:software-architect-elevator], Chapter 6. Making Decisions.
+- Do not use ratings without stating their reasons [book:fundamentals-enterprise-architecture], Overview.
+- For SaaS proposals, compare silo, pool, or hybrid deployment models against current and emerging needs [book:building-multi-tenant-saas], Chapter 3. Multi-Tenant Deployment Models.
+- Establish tenant identities, authentication, and tenant context in the SaaS control-plane foundation on day one [book:building-multi-tenant-saas], Build Your Multi-Tenant Foundation on Day One.

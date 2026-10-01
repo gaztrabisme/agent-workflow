@@ -1,76 +1,63 @@
 # Engagement Frame — template
 
-*The Phase-0 output. Turns an informal dump into the structured input Phase 1 consumes. Method and forcing
-questions: `../engagement-intake.md`. Every material claim carries a tier: **Confirmed · Reported · Hearsay ·
-Marketing · Inference · Speculation**. Empty slots become asks or assumptions — never silence.*
+*Internal presale frame. Separate confirmed facts, reported claims, inference, and speculation. It consumes account intelligence rather than rebuilding it.*
 
-**Engagement:** `[client]` · **Date:** `[YYYY-MM-DD]` · **Source of this frame:** `[site visit / call / thread]`
-**Deal shape:** `[enterprise bid | fixed-price delivery]` (`../deal-shapes.md`) · **ID spine:** `[requirement refs | acceptance-criteria IDs]`
+**Engagement:** `[client / opportunity]` · **Date:** `[YYYY-MM-DD]` · **Input:** `[RFI / call / workshop / brief]`
+**Deal shape:** `[enterprise bid / direct consulting agreement / other]` · **Recipient:** `[role and decision]`
 
-## 1. The frame
+## Frame and handback
 
-| Slot | Content | Tier |
-|------|---------|------|
-| Outcome (their words, not tech) | | |
-| Baseline today | | |
-| Economic buyer (releases money) | | |
-| Sponsor (wants it) | | |
-| Users (touch it) | | |
-| Blockers (lose if it succeeds) | | |
-| Trigger — why now | | |
-| Decision process & timeline | | |
-| Hard constraints (budget shape, systems, regulatory, access) | | |
-| Relationship context & obligation | | |
-| What winning looks like *personally* for the buyer | | |
+| Slot | Content | Evidence tier |
+|---|---|---|
+| Client outcome and baseline | | |
+| Decision to be made and why now | | |
+| Constraints and dependencies | | |
+| Decision participants (from supplied account intelligence) | | |
+| Trigger and timing | | |
+| Negative space: what is excluded or still unknown | | |
 
-## 2. Negative space
+## Candidate projects and parked leads
 
-| Question | Read |
-|----------|------|
-| What would make us lose? | |
-| What did they *not* ask for that they should need? | |
-| Who loses if this succeeds? | |
-| What are we being told that's too convenient? | |
-| What does the sponsor not control? | |
+| Candidate | Beneficiary | Observable outcome | Access or named dependency | What would count as done | Rank |
+|---|---|---|---|---|---|
+| | | | | | |
 
-## 3. Candidate projects vs parked leads
+## Asks and assumptions
 
-*Promotion test — all four required: named beneficiary · observable outcome · existing data/access path (or a named owner who can grant it) · a definition of done.*
+| Priority | Client-only question | What it unblocks | If unanswered, correctable assumption |
+|---|---|---|---|
+| | | | |
 
-| # | Candidate project | Beneficiary | Observable outcome | Access path | Done means | Rank |
-|---|-------------------|-------------|--------------------|-------------|------------|------|
-| 1 | | | | | | |
+**Proposed deliverables:** `[artifact · consumer · decision]`
+**Pushback to carry into the response:** `[problem framing that needs correction, with reason]`
 
-| # | Parked lead | Fails which test | Single named dependency that would promote it | Owner |
-|---|-------------|------------------|-----------------------------------------------|-------|
-| 1 | | | | |
+## Rules for using the engagement frame
 
-## 4. Sensitive inferences — handling rules
-
-*Only for inferences that damage the relationship if surfaced. Test: if the client read this, what happens? Full rule: `../engagement-intake.md`.*
-
-| # | Inference | Holder | Handling | Legitimate framing to use instead |
-|---|-----------|--------|----------|-----------------------------------|
-| S1 | | `[named person]` | Internal-only; never in any shared/exported/client-facing artifact; never stated as justification | `[the defensible merits: objectivity, automation, evidence quality, efficiency]` |
-
-## 5. Handback
-
-**Decided without asking** — each with the assumption it rests on:
-
-| # | Decision | Resting on |
-|---|----------|------------|
-| 1 | | |
-
-**Asks — only you can answer these** (ranked, ideally ≤5):
-
-| # | Ask | What it unblocks | If unanswered, we proceed on |
-|---|-----|------------------|------------------------------|
-| 1 | | | |
-
-**Proposed deliverables:**
-
-| Artifact | By | Unblocks |
-|----------|-----|----------|
-| | `[date]` | |
-
-**Pushback:** `[where the framing is wrong, and why]`
+- Frame the circumstances that affect the decision and why it matters now, then mark uncertainty so advisers can test it [book:facilitating-software-architecture], Framing the Context.
+- Record engagement, date, source, deal shape, and ID spine in the frame header.
+- Use a shared domain model vocabulary across diagrams, writing, and speech, refining terms with domain experts [book:domain-driven-design-evans], Ubiquitous Language.
+- Record the known facts and circumstances driving the decision at that time so later readers can see the baseline it assumed [book:facilitating-software-architecture], Context.
+- Identify the actual decision maker and what is known about that audience before tailoring the artifact [book:storytelling-with-data], Consulting for context: questions to ask.
+- Name the sponsor who wants the work.
+- Name the users who will touch the solution.
+- Map blockers by their actual influence over the decision and verify whose dissent can impede it [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
+- Record the trigger explaining why the work is happening now [book:facilitating-software-architecture], Framing the Context.
+- Capture the decision horizon and delivery deadline in the context, and state when the decision should be revisited [book:facilitating-software-architecture], Framing time.
+- Record hard constraints across budget, systems, regulation, and access [book:fundamentals-enterprise-architecture], What Is an Architecture Decision?.
+- The book calls for an explicit agreement on reciprocal expectations and how the client and consultant will work together, with a written record when useful [book:flawless-consulting], Contracting: The Concept and the Skill.
+- Map the buyer’s motivation and the decision’s importance to them alongside formal authority and impact [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
+- Identify concrete risks and case weaknesses, then decide whether to address them proactively [book:storytelling-with-data], Consulting for context: questions to ask.
+- The book recommends teaching a tailored insight that reveals opportunities customers have not yet recognized [book:challenger-sale], THE POWER OF INSIGHT.
+- Map people and groups with positive or adverse impacts, then prioritize engagement by influence and importance [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
+- Reality check the assumptions behind the framing against current conditions and constraints [book:facilitating-software-architecture], Questions That Improve Judgment Around Framing.
+- Ask what the enthusiastic sponsor does not control.
+- Promote a candidate project only if all four beneficiary, outcome, access-path, and definition-of-done tests pass.
+- For each candidate project, record beneficiary, observable outcome, access path, done definition, and rank.
+- For each parked lead, record the failed test and one named promoting dependency and owner.
+- Apply the sensitive-inference disclosure test and handling rule when a frame includes damaging inferences.
+- For each sensitive inference, record its holder, handling, and legitimate alternative framing.
+- Ask why to expose tacit assumptions behind past decisions and verify whether they remain valid [book:software-architect-elevator], Whys Reveal Decisions and Assumptions.
+- List ranked asks that only the client can answer and keep the list ideally at five or fewer.
+- For each ranked client ask, state what it unblocks and the assumption you will proceed on if unanswered.
+- Head First ties a scheduled item’s attributes to its predecessors, successors, constraints, and time; read what each unblocks as the successor dependency and record it alongside timing [book:head-first-pmp], Activity attributes.
+- The Fieldbook says staying with the client's initial problem definition limits the consultant's help; the rule adds an explicit pushback and rationale in the intake hand-back [book:flawless-consulting-fieldbook-companion-2e], Chapter 28 Seven Questions: *To the Most Frequently Asked Answers*.

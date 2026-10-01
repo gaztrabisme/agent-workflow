@@ -1,30 +1,27 @@
 # Clarification Questions — template
 
-*Two buckets. Bucket 1 goes to the client; Bucket 2 you route internally or decide yourself. Business/domain-first ordering; logistics last or omitted. Guidance: `../rfi-rfp-response.md`.*
+*Separate client-only questions from matters the solution architect can decide or research internally. Pair each client question with a working assumption and its impact if wrong.*
 
-**Pairing rule:** every Bucket-1 question carries a **fallback assumption** — what you proceed on if it goes unanswered. Copy each fallback into the assumptions register (`assumptions-register.md`) so the pairing is structural. On an RFI, assume some questions go unanswered.
+## Questions for the client
 
-**Impact rule:** every Bucket-1 question also states **what changes if the assumption turns out wrong**. This is the column that actually gets a client to answer — a question with a visible consequence gets prioritised; a bare question gets deferred. It is also what tells *you* which unanswered questions are safe to proceed on.
+| Priority | Requirement or criterion served | Question | Working assumption | Impact if wrong | Client answer |
+|---|---|---|---|---|---|
+| | | | | | |
 
-**Spine rule:** on a delivery engagement, each question cites the **acceptance criterion** it serves (`../artifact-integrity.md`). A question serving no criterion is either scope you haven't captured or a question you don't need. On an enterprise bid, cite the requirement ref instead.
+## Resolve internally
 
-## Bucket 1 — Questions for the client
+| Open point | Why it does not need a client answer | Action / owner |
+|---|---|---|
+| | | |
 
-| # | Priority | Serves criterion / req ref | Category | Question | Our working assumption | Impact if the assumption is wrong | Client answer | Answered by |
-|---|----------|----------------------------|----------|----------|------------------------|-----------------------------------|---------------|-------------|
-| 1 | `P1` | `[TC-1.1.1]` | `[Business value & scope]` | `[business/domain-first, outcome-framed]` | `[what we proceed on → goes to register]` | `[what changes in scope, cost, schedule, or architecture]` | | |
-| 2 | `P2` | | | | | | | |
+## Question discipline
 
-*Priority is binary and honest: **P1** blocks a criterion, a price, or a design decision — **P2** improves the answer but you can ship without it. If everything is P1, nothing is; the client will answer the short list first and you want to choose which one that is.*
-
-*Group the rows by function or requirement area with section headers — clients answer a sheet organised the way they think about their business, not the way you numbered it.*
-
-## Bucket 2 — Resolve internally / decide ourselves
-
-| # | Original ask | Why not ask the client | Action / owner |
-|---|--------------|------------------------|----------------|
-| 1 | `[logistics: dates, contacts, presentation format]` | `[partner already knows; spending goodwill]` | `[route to account partner]` |
-| 2 | `[document convention: template mismatch, numbering]` | `[self-answerable; asking reads as junior]` | `[state our convention in the response]` |
-| 3 | `[anything researchable: public company facts, product ranges, market context]` | `[research, not a client question]` | `[look it up]` |
-
-*Reframe "tell us your config" → "what outcome / what baseline." Prune to the high-signal set; a tight list beats an exhaustive one that buries the good questions.*
+- Maintain one client-question bucket and one internal-resolution bucket, ordering business/domain matters before logistics.
+- Give every client question a fallback assumption and copy that assumption to the assumptions register.
+- The book asks for a response when an assumption proves false; stating the impact of selected assumptions is the rule’s explicit extension [book:semantic-software-design], RAID.
+- Link each question to its delivery acceptance criterion or enterprise requirement reference.
+- For each client question, record priority, served criterion/reference, category, question, assumption, impact, answer, and respondent.
+- Mark a question P1 only when it blocks a criterion, price, or design decision; mark an improvable but nonblocking question P2.
+- Group client questions by function or requirement area rather than by internal numbering.
+- For internal questions, record the original ask, why not to ask the client, and the action or owner; route conventions and research internally.
+- The book supports pruning a GQM tree toward strong signals; reframing configuration questions as outcome/baseline questions is the rule’s added practice [book:software-architecture-metrics], Prioritize Metrics and Devise a Data Collection Strategy.

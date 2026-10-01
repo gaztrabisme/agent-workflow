@@ -1,129 +1,124 @@
 ---
 name: solution-architect
-description: "Vendor-neutral Solution Architect lifecycle for presale — turn client requirements (an RFI/RFP, a discovery output, a brief) into a defensible solution architecture and a winning response. USE WHEN scoping or architecting a client solution, writing/reviewing an RFI/RFP/proposal/tender response, doing tech-stack options analysis and tradeoffs, defining non-functional requirements, building a requirements-traceability matrix, or phasing/sizing/risk-assessing a deal. Composes with business-intelligence (client intel), ai-discovery-workshop (workshop-based use-case scoping), and dev (the build). Keywords: solution architect, SA, RFI, RFP, proposal, tender, bid, solution architecture, reference architecture, tech stack selection, options analysis, tradeoff, NFR, non-functional, traceability matrix, presale, phasing, roadmap, sizing, estimation, win theme."
+description: "Client-facing solution architecture and presale response pack for a presale solution architect and client evaluation team. USE WHEN an RFI/RFP, discovery output, or brief must become a defensible solution, consulting agreement, or proposal options. Not business-intelligence (qualification and account intelligence), ai-discovery-workshop (use-case scoping), delivery (signed engagement control), or dev (implementation); this skill owns presignature solution design, terms, and response shaping. Keywords: solution architect, SA, RFI, RFP, proposal, tender, bid, response pack, solution architecture, reference architecture, technology options, trade-offs, NFR, traceability, consulting agreement, value pricing, negotiation, presale."
 license: MIT
 ---
 
 # Solution Architect
 
-Turn a client's stated need — an RFI, an RFP, a workshop output, a one-line brief — into a **solution the client can buy and a team can build**. The output of this skill is an architecture and a response you can **defend in the evaluation room**: every requirement traced, every major choice justified against alternatives, every assumption stated, every non-functional risk named before the client finds it.
+This skill produces a client-facing solution architecture and response pack for a presale solution architect and the client evaluation team. It turns client requirements, a discovery output, or a brief into a defensible solution, proposal options, and a handoff that is usable after signature.
 
-This is the connective tissue of the presale lifecycle. It sits *after* you know the client and *before* anyone writes code:
+> Inherits the shared `core` kernel. Use its canonical gates and references; do not copy their definitions here. See `../core/SKILL.md`.
 
-```
-business-intelligence → ai-discovery-workshop → [ SOLUTION-ARCHITECT ] ──signed──┬─→ delivery (run the engagement)
- (know the client)      (scope use cases,   (architect the solution        └─→ dev      (build it)
-                         workshop-scoped)  + write the response)
-```
+## When it fires — and when a sibling owns it
 
-It **consumes** client intel (from `business-intelligence`) and scoped use cases (from `ai-discovery-workshop`, or directly from an RFI/RFP when there is no workshop), and **hands off** decisions to `dev` for the build.
+Use this workflow for a presignature solution architecture, RFI/RFP/tender response, proposal, technology options analysis, NFR definition, requirements traceability, or a consulting agreement and negotiation that shapes the response pack.
 
-## When this fires — and when a sibling owns it
+- Look beyond product lists to compare decision options and trade-offs; use a vendor-neutral default unless explicit vendor positioning is part of the client decision [book:software-architect-elevator], Measuring an Architect’s Value.
+- Keep this work client-facing: engineering owns implementation specifications and the delivery of running software [book:software-architect-elevator], What Architects Are Not.
+- At signature, hand negotiated acceptance criteria and obligations to delivery for tracking; keep project status reporting outside the architecture role [book:software-architect-elevator], What Architects Are Not.
 
-- **This skill:** client-facing presale. RFI/RFP/proposal/tender response, solution & reference architecture, tech-stack options analysis, NFRs, traceability, phasing, sizing, risk, win themes. **Vendor-neutral by default.**
-- **`business-intelligence` instead:** you need to *research* the client, competitors, stakeholders, or build the business case — the *inputs* to architecture, not the architecture.
-- **`ai-discovery-workshop` instead:** you're running a *discovery/envisioning workshop* (BXT, Five Golden Questions, Discovery Cards) to scope use cases. SA consumes its output; when the deal came through such a workshop, SA *invokes* it for the workshop lens rather than duplicating it.
-- **`dev` (Design mode) instead:** the audience is the *engineering team*, not the client — implementation specs, data models, contracts, success criteria for code. SA stops at the architecture and the response; dev takes it into the build.
-- **`delivery` instead:** the deal is **signed** and the work is now being run — baselining the estimate, tracking acceptance criteria to sign-off, chasing client obligations, pricing change requests, reporting status. SA *produces* the acceptance annex, obligations register, estimate, and ID spine; `delivery` baselines and tracks them. Decide on **tense**: criteria being *negotiated* → SA; criteria being *tracked to sign-off* → delivery.
+## Principles / anchoring rules
 
-> **Disambiguation rule:** both SA and dev/Design trigger on "design/architect." Decide on **artifact + audience**. Client solution / proposal / tech selection → **SA**. Internal spec / data model / feature implementation → **dev/Design**.
+1. Understand the client decision before selecting a product or drawing a view.
+2. Compare viable options against the client’s constraints, quality priorities, and intended outcome.
+3. Trace requirements, keep assumptions correctable, and explain the option that binds the proposal.
 
-## Anchoring principles
+- Maintain forward traceability from requirements into design; for the response, map each requirement to a solution element and phase, and turn gaps into questions [book:swebok], Requirements Tracing.
+- Connect clause answers to an explanatory solution narrative the evaluator can follow [book:storytelling-with-data], Who, what, and how.
+- Compare two or three viable options on client-relevant axes, recommend one, and explain why the alternatives lost [book:fundamentals-enterprise-architecture], Architecture Decision Deliverable.
+- Tie each win theme to a customer pain, the metric that makes it matter, and a related decision criterion [book:meddicc], COMPETITION.
+- Set lifecycle rigor from project criticality, stakeholder count, uncertainty, and deal risk [book:pmbok-guide-7e], 3.2. Why Tailor?.
+- State the decision problem, goals, and constraints; add what success means and frame it before choosing a solution [book:fundamentals-enterprise-architecture], Overview.
+- Use repeated why-questions to uncover root causes; challenge vague briefs before architecture and explain the reframing in the response [book:software-architect-elevator], Five Whys.
+- Write the decision context before drawing an architecture diagram [book:facilitating-software-architecture], Step 2: Write the Context.
+- Define NFRs from the client’s business needs and prioritize their trade-offs; do not assume every named quality applies universally [book:fundamentals-enterprise-architecture], Summarizing NFRs.
+- Translate business outcomes into technical drivers, then state decision criteria, constraints, and sequence before drawing architecture [book:software-architect-elevator], Measuring an Architect’s Value.
+- Let requirements and trade-offs drive architecture; position products after the decision options are clear [book:software-architect-elevator], Measuring an Architect’s Value.
+- Surface tacit assumptions and hidden dependencies. Mark unconfirmed matters as correctable assumptions and flag uncertainty [book:software-architect-elevator], Architects Deal with Nonrequirements.
+- Show alternatives and trade-offs; do not present a single-option architecture [book:fundamentals-enterprise-architecture], Architecture Decision Deliverable.
+- Compare solution options and trade-offs before positioning a vendor; treat the neutral-first sequence as a presale practice, not as a claim the source makes [book:software-architect-elevator], Measuring an Architect’s Value.
+- Translate relevant security requirements into architecture decisions early; do not treat a generic NFR checklist as a complete universal gate [book:fundamentals-enterprise-architecture], Security NFRs.
 
-1. **Problem before solution — always.** The dominant failure mode (industry data: ~80% of AI projects) is architecting the wrong thing well. Nail the business outcome, the decision criteria, and the constraints *before* drawing a box. A diagram produced before the problem is understood is a liability.
-2. **Vendor-neutral first; positioning is a separate, explicit step.** Architect to the requirement, then position a stack against it with tradeoffs shown. Never let the preferred vendor pick the architecture. (When a specific platform is being positioned, pull the workshop lens from `ai-discovery-workshop`.)
-3. **Show the tradeoff, then recommend.** Single-option architecture is not architecture — it's a guess with confidence. Present 2–3 viable options on the axes that matter to *this* client, then recommend one and say why the others lost.
-4. **NFRs kill more deals than features.** Security, scale, data residency, compliance, availability, cost-at-scale — these are where credibility is won or lost in regulated/enterprise deals. Treat them as first-class, early.
-5. **Trace everything.** Every client requirement maps to a solution element and a delivery phase. A requirements-traceability matrix is the proof of coverage; gaps you find are clarification questions, not silent omissions.
-6. **State assumptions; don't fabricate certainty.** Anything you can't confirm becomes an explicit assumption in a register, framed so you can proceed and the client can correct. Don't overconfident-consult — build escape hatches, flag uncertainty, and know the negative space.
-7. **Clarification questions are a positioning instrument, not just intake.** A sharp domain question signals mastery; a pile of logistics questions signals juniority. Ask what only the client can answer; decide or route the rest. (See `references/rfi-rfp-response.md`.)
-8. **Win themes map to *their* evaluation criteria, not your feature list.** "Why us" must answer how the client will actually score the bid.
 
-## The SA lifecycle (at a glance)
+## The flow (at a glance)
 
 | Phase | Goal | Primary artifact |
-|-------|------|------------------|
-| **0. Intake** | Turn an informal dump (site visit, conversation, chat scroll) into a structured frame + ranked asks. Tier fact vs inference; name the negative space; collapse "opportunities" into candidate projects. | Engagement frame + ≤5 asks + proposed deliverables |
-| **1. Frame** | Understand the real problem, decision criteria, constraints, and what "winning" means. Challenge the brief. | Engagement frame (problem, sponsor, eval criteria, constraints) |
-| **2. Clarify** | Extract & disambiguate requirements; produce clarification questions + assumptions register. | Clarification questions + assumptions register |
-| **3. Architect** | Options analysis → reference architecture; integration, security, residency, NFRs. | Solution architecture doc + options/decision records |
-| **4. Plan** | Phasing/roadmap, sizing/estimation inputs, risk register, commercial framing inputs. | Phased roadmap + risk register + sizing inputs |
-| **5. Respond** | Assemble the RFI/RFP/proposal: exec summary, solution narrative, traceability matrix, win themes. | The response document + traceability matrix |
-| **6. Contract & Acceptance** | Convert an accepted proposal into criteria that gate payment and obligations that bound schedule risk. *(Fixed-price shape, and any bid you win.)* | Acceptance annex + client-obligation register |
-| **7. Handoff** | Convert accepted decisions into build inputs for `dev`; record what binds the build. | Decision records + build-ready brief |
+|---|---|---|
+| Frame | Establish the outcome, decision, constraints, negative space, and intended reader. | Internal engagement frame |
+| Clarify | Resolve requirements, assumptions, and client-only questions. | Clarification questions and assumptions register |
+| Architect | Compare viable options and document the recommendation and its consequences. | Solution architecture and decision records |
+| Shape the response | Tie the solution to the evaluator’s criteria and present proposal options. | Response pack, traceability matrix, commercial options |
+| Agree terms | Negotiate scope, client inputs, measures, fees, and the written consulting agreement. | Consulting agreement and pre-signature annexes |
+| Sign and hand off | Transfer accepted decisions, estimates, criteria, obligations, and risks to delivery. | Delivery handoff packet |
 
-Full method, checklists, and templates per phase: `references/sa-lifecycle.md`. Don't run every phase heavyweight — scale to the deal (a one-pager RFI clarification ≠ a multi-week RFP). Start light; add depth only where the deal's risk demands it.
+Scale the work to the deal. A narrow clarification can stay light; a multi-round bid may need a blueprint workbook. The sale does not authorize a general project plan: general project planning belongs to the project-planning workflow.
 
-**Pick the deal shape before reaching for machinery.** An *enterprise bid* (scored RFI/RFP, requirement refs, blueprint workbook, blended-rate pricing) and a *fixed-price delivery* engagement (acceptance-criteria spine, obligation register, lump sum + CapEx) need different instruments. Declare it in Phase 0: `references/deal-shapes.md`. Applying one shape's machinery to the other is how this skill generates ceremony instead of leverage.
+## Work-specific operating rules
 
-**Then declare the recipient — it is a second axis, not a detail.** Shape says what the deal is; it does not say who picks the artifact up next or what they decide with it. One line, beside the shape: `Recipient: <role> — decides <what> — therefore the primary artifact is <shape>`. A correctly-shaped artifact aimed at the wrong reader still gets rejected. See `references/deal-shapes.md` §Axis 2.
 
-## Gates (declared, not skipped)
 
-These are inherited from the `core` kernel so the discipline is consistent across every role. On entry, read the referenced files.
+- Restate the client’s ask and name the artifacts that answer it. Mark extra work as proposed with its consumer and decision.
+- For covered technical domains, search the Knowledge Base first and record the query and applied finding, or that nothing relevant was found.
+- Before a wide or multi-requirement presale effort fans out, state the approach and reason; a narrow clarification can stay with one architect.
+- For research that changes the build, present audience-relevant findings rather than exploratory analysis; use a concise findings list where useful [book:storytelling-with-data], Who, what, and how.
 
-- **Pushback gate.** If the brief is vague, business-level, or hand-waves a tradeoff, *challenge before architecting* and surface the decision. Narrate the WHY in the final response. See `../core/references/pushback-and-teach.md`.
-- **KB Grounding gate.** When a decision touches a KB-covered domain (ML/RAG, RAG-evaluation, multilingual NLU, databases, security, distributed systems, cryptography), search the Knowledge Base first and record one line: `KB: searched "<q>" → applied <finding>` or `→ nothing relevant`. A silent skip on a covered domain is a gate violation. (The general gate — and its substrate-by-role table and honesty corollary — is in `../core/references/grounding-gate.md`; for SA the tech-layer substrate is the KB.)
-- **Approach declaration.** Before substantive work, state in one line how you'll run it: `Approach: <single-architect | options-panel | research-first | fan-out over requirements> — <reason>`. For wide solution spaces, generate independent options and compare; for unknowns, research first; for big multi-requirement RFPs, fan out coverage and merge. *Skippable for a single-actor engagement (one architect, a small RFI clarification) — declare only when the work fans out or forks.*
-- **Output Contract.** A phase is not done until its artifact exists on disk and is captured in the project wiki. See "Artifacts & Output Contract" below and `../core/references/wiki-protocol.md`.
-- **Ask ledger.** Restate the ask verbatim, then list the artifacts you will produce against it. **Anything beyond the ask is *proposed*, not produced** — with a named consumer and the decision it serves. Research that changes the build is a *findings list*, not a paper. The failure this closes is real: an engagement asked for a scope list and an estimate, and received eleven documents totalling 22,400 words; the owner's report was *"I'm lost in the middle — I thought we just need to make a WBS?"* Volume also defeats `artifact-integrity.md`, whose reconciliation cost grows with the square of the artifact count.
+
+## Presale artifacts
+
+| Artifact | Audience and purpose |
+|---|---|
+| Engagement frame | Internal use; holds the problem, decision, constraints, negative space, and candidate projects. |
+| Clarification questions and assumptions register | Client-facing questions and the correctable positions used while answers are pending. |
+| Solution architecture and decision records | Client evaluation and engineering handoff; explain context, options, recommendation, and what the choice binds. |
+| Response and requirements traceability | Client evaluator; show how every stated need is addressed or left open. |
+| Consulting agreement, acceptance annex, and client-obligation register | Client and delivery; capture negotiated terms through signature. Delivery owns live signed-client trackers. |
+| Delivery WBS instrument | Delivery planner; enumerate work for estimation and staffing, leaving effort blank. |
+| Blueprint workbook | Multi-round bid carrier; propagate each answer across affected sheets and log cell-level changes. |
+
+The client-facing exports and cross-artifact integrity checks are different reviews; use both when their scope applies.
+
+## Gates (declared, inherited from core)
+
+- Grounding: `../core/references/grounding-gate.md`.
+- Result evidence and completion: `../core/references/output-contract.md` and `../core/references/wiki-protocol.md`.
+- Cooperative pushback and teaching: `../core/references/pushback-and-teach.md`.
+
+The presale-specific checks are in this skill’s linked references. Apply them to the artifact and deal shape in front of you.
 
 ## Anti-patterns (hard no-list)
 
-- **Tech-first framing** — an architecture diagram before the problem, criteria, and constraints are nailed.
-- **Single-option architecture** — no alternatives, no tradeoff, no defensible "why this."
-- **NFRs as an afterthought** — security/residency/compliance/scale bolted on at the end of the response.
-- **Line-by-line feature matching** — answering each RFI clause with no overarching solution narrative or win theme.
-- **Asking the client what you can decide** — burning clarification goodwill on logistics or convention questions. Route or decide them.
-- **Promising maturity you don't have** — claiming capability/experience that won't survive due diligence. Score feasibility honestly.
-- **Untraced coverage** — claiming "full coverage" without a matrix that proves it.
-- **Vendor-led design** — picking the architecture to suit the stack you want to sell.
+- Starting with technology or a diagram before the client problem and decision are clear.
+- Comparing one preferred option to nothing, treating a generic NFR list as universal, or claiming full coverage without traceability.
+- Turning intake into account research or qualification; consume the evidence from its owner.
+- Filling delivery effort estimates as the architect, or continuing to own signed-client tracking after handoff.
+- Adding artifacts that do not answer the ask or serve a named reader’s decision.
 
-## Composition with sibling skills
+## Composition
 
-- **From `business-intelligence`:** client profile, decision-makers & political layer, competitor context, capability map, verified claims → feed Phase 1 (Frame) and Phase 5 win themes. Full handoff in `references/composition.md`.
-- **From `ai-discovery-workshop`:** BXT-scored use cases, agentic journey map, ROI baseline → feed Phase 2–3. When positioning a specific platform, use its stack/commercial-framing references instead of re-deriving them.
-- **To `dev`:** accepted architecture + decision records + NFRs + traceability → become the Design-mode input and the project `AGENTS.md`/`wiki/` for the build.
-- **To `delivery` (on signature):** the estimate, phased roadmap, acceptance annex, client-obligation register, risk register, and the declared **ID spine** → become the delivery baseline and its trackers. `delivery` runs for the whole engagement with `dev` cycling inside it.
-- **Back from `delivery` (at close-out):** estimate vs actual per phase, which criteria were contested and why, which client obligations slipped. This is the highest-value correction signal `references/estimation-and-costing.md` and `references/acceptance-and-contract.md` will ever receive — a criterion that caused a dispute was written ambiguously here.
-- **With the domain and localization owner:** on a Vietnamese engagement, **language parity and which language governs stay here** (`references/artifact-integrity.md` C5/C6 — scope divergence between versions is this skill's finding to make). The proposal must be reviewed for the intended Vietnamese register before it reaches the client.
-
-## Artifacts & Output Contract
-
-Every SA engagement, at minimum, writes its result to the project wiki (`wiki/` per `../core/references/wiki-protocol.md`) — append a dated `log.md` entry and keep `active-work.md` current. Beyond that floor, the **primary artifacts** are:
-
-| Artifact | Consumer | Lives in | Purpose |
-|----------|----------|----------|---------|
-| Engagement frame | **SA (internal)** — never shipped | `docs/` | Phase 0 output: the problem, buyer, trigger, constraints, negative space, candidate projects — tiered fact vs inference. The thing every later choice is checked against. |
-| Clarification questions + assumptions register | Client | `docs/` | What only the client can answer; what we assume in the meantime. |
-| Client-obligation register | Client · `delivery` | `docs/` | What the *client* must deliver, by when, to whom — the schedule risk the assumptions register doesn't hold. *(Delivery shape.)* |
-| Acceptance annex | Client · `delivery` | `docs/` | The criteria that gate payment, with per-criterion preconditions and preparing party. *(Delivery shape.)* |
-| Solution architecture doc | Client · `dev` | `docs/` | Reference architecture, integration, security, residency, NFRs. |
-| Options/decision records | SA · `dev` | `wiki/decisions.md` | Each major choice: alternatives, why the rest lost, what it binds. **Record rejected approaches.** |
-| Requirements-traceability matrix | Client | `docs/` | Every requirement → solution element → phase. Proof of coverage. |
-| The response (RFI/RFP/proposal) | Client evaluator | `docs/` | The client-facing deliverable. |
-| **Delivery WBS (instrument)** | **PM / delivery planner** | `docs/` | **The task inventory they price and staff from — enumerate the work, ship the effort column empty.** Its absence from this table is why an eight-sheet scope-defence workbook got handed to a PM who needed a task list. Spec: `references/templates/delivery-wbs-workbook.md`. |
-
-**Close-out before "done":** artifact on disk · `wiki/log.md` entry · `decisions.md` updated with choices *and* rejected options · assumptions register reflects open items · traceability matrix has no silent gaps · **Final QA pass run on every client-bound export** (label/content alignment, internal-comment strip, totals/conversion recompute, numbering walk — full 6-item list in `references/rfi-rfp-response.md`) · **artifact-integrity checks run across the artifact set** (count reconciliation, dangling spine refs, orphans, version lineage, language parity, priced-vs-committed — `references/artifact-integrity.md`). The two passes catch different defects; running one is not running the other.
-
-> On a live multi-round engagement, the matrix, register, questions, risks, WBS and roadmap converge into a single **blueprint workbook** with a cell-level change log — see `references/blueprint-workbook.md`.
+- **From business-intelligence:** use evidence-grounded account, stakeholder, competitor, and qualification inputs. Do not recreate the dossier or qualification method.
+- **From ai-discovery-workshop:** use the accepted use case, journey, and outcome baseline; the workshop owns its scoped brief.
+- **From applied-ml-problem-solver:** use its model, metric, and evaluation decisions when the solution includes ML.
+- **From ceric:** use source-document claim gaps and ranked findings to shape clarifications.
+- **With delivery:** the delivery planner authors presignature effort estimates; this skill supplies architecture and technical cost drivers. At signature, transfer the agreed packet. Delivery owns baselines, change control, acceptance tracking, and signed-client follow-up.
+- **To dev:** hand over the accepted client architecture and decision context for implementation. General project planning remains outside this skill.
 
 ## References
 
-- `references/sa-lifecycle.md` — the 8 phases in depth: methods, checklists, per-phase templates.
-- `references/deal-shapes.md` — enterprise bid vs fixed-price delivery: which spine, carrier, and pricing chain apply. Read before reaching for a workbook or a multiplier.
-- `references/engagement-intake.md` — Phase 0, the front gate: statement tiering, the frame slots, the negative space, opportunity→project promotion, the sensitive-inference handling rule.
-- `references/artifact-integrity.md` — the cross-artifact consistency checks: one ID spine, count reconciliation, dangling refs, orphans, version lineage, language parity, priced-vs-committed.
-- `references/acceptance-and-contract.md` — Phase 6: acceptance criteria as the spine, the client-obligation register, and the commercial risk-transfer terms that must land before signature.
-- `references/blueprint-workbook.md` — the living spreadsheet that carries a multi-round engagement: sheet inventory, the answer-folding loop (client answers → every touched sheet + change log), scope-treatment vocabulary, phase naming in the client's outcome language.
-- `references/estimation-and-costing.md` — WBS→price chain: uncertainty-driver column, effort-distribution multiplier, per-environment cloud-cost workbook (dominant meter flagged, BYOL exclusions), AMS tiers + retainer floor, pre-ship sanity checks.
-- `references/tech-selection.md` — options-analysis method, tradeoff-table template, decision records, neutral-then-position.
-- `references/nfr-checklist.md` — the non-functional requirements catalog with forcing questions (security, scale, performance, residency, compliance, availability, observability, cost).
-- `references/rfi-rfp-response.md` — response anatomy, clarification-question discipline, assumptions register, win themes, traceability.
-- `references/composition.md` — exact hand-offs to/from `business-intelligence`, `ai-discovery-workshop`, `dev`, and the SA-vs-dev/Design disambiguation.
-- `references/templates/rfi-rfp-response-template.md` — fill-in skeleton for a full RFI/RFP/proposal response (generalised from a real enterprise AI RFI), with traceability matrix, options table, and assumptions register built in.
-- `references/templates/engagement-frame.md` — the Phase-0 fill-in: frame slots with tiers, negative space, candidate-project promotion test, sensitive-inference handling, and the four-part handback.
-- `references/templates/clarification-questions.md` — two-bucket question template (ask-the-client vs resolve-internally) with paired working-assumption, **impact-if-wrong**, and **serves-criterion** columns.
-- `references/templates/assumptions-register.md` — standalone assumptions-register (a primary artifact); pairs 1:1 with the clarification questions.
-- `references/templates/client-obligations-register.md` — what the client must deliver, by a schedule-relative deadline, with a named focal point; pre-seeded with the contract terms that cost money to fix after signature.
-- `references/templates/delivery-wbs-workbook.md` — the WBS as a **collection instrument** for a delivery planner: column spec, the effort column shipped **empty**, formula-driven summary, capacity sheet, two-direction traceability.
+- `references/sa-lifecycle.md` — presale phases, proportionate depth, and phase outputs.
+- `references/engagement-intake.md` — frame, negative space, candidate projects, and client inputs.
+- `references/deal-shapes.md` — choose the commercial shape before its instruments.
+- `references/tech-selection.md` — options, reference architecture, decision records, and trade-offs.
+- `references/nfr-checklist.md` — client-specific quality, security, integration, and operational requirements.
+- `references/rfi-rfp-response.md` — clarification, response structure, traceability, win themes, and final export review.
+- `references/acceptance-and-contract.md` — terms negotiated before signature, acceptance annex, and client obligations.
+- `references/estimation-and-costing.md` — effort-estimate ownership, technical cost drivers, and commercial options.
+- `references/artifact-integrity.md` — presale artifact consistency and cross-reference checks.
+- `references/blueprint-workbook.md` — multi-round bid workbook and answer-folding loop.
+- `references/composition.md` — input and signature handoffs.
+- `references/templates/engagement-frame.md` — internal intake form.
+- `references/templates/clarification-questions.md` — client question form.
+- `references/templates/assumptions-register.md` — correctable assumptions form.
+- `references/templates/client-obligations-register.md` — client inputs and schedule-relative deadlines.
+- `references/templates/rfi-rfp-response-template.md` — response-pack outline.
+- `references/templates/delivery-wbs-workbook.md` — delivery planner’s work-collection instrument.

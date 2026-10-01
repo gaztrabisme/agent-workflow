@@ -1,33 +1,27 @@
 # Client-Obligation Register — template
 
-*What the **client** must physically deliver, by when, or the schedule slips. Distinct from the assumptions
-register: an assumption you can proceed on; an unmet obligation stops you. Guidance:
-`../acceptance-and-contract.md`.*
+*Use before signature to state what the client must supply or decide for the proposed scope and schedule to hold. Delivery owns the live tracker after signature.*
 
-**Two rules that make it work:** deadlines are **schedule-relative** ("on signature", "week 1 phase 1"), not
-absolute — so the register survives a start-date slip. And every row carries a **named client focal point**;
-a deadline with no name is a wish.
+| ID | Client input or decision | Serves criterion | Needed by (schedule-relative) | Client focal point | Consequence if late | Status |
+|---|---|---|---|---|---|---|
+| | | | | | | |
 
-*Group rows so the client sees what they owe now versus later. The **Contract terms** group is first because
-those rows cost money to fix after signature.*
+## Obligation fields
 
-| # | Group | Item the client provides / both parties agree | Serves criterion | Linked question | Proposed deadline | Client focal point | Completed | Status |
-|---|-------|-----------------------------------------------|------------------|-----------------|-------------------|--------------------|-----------|--------|
-| 1 | Contract terms | `[nominate a single authorized focal point with decision authority]` | — | | On signature | | | Not delivered |
-| 2 | Contract terms | `[agree the four defect-severity definitions in writing]` | — | | On signature | | | Not delivered |
-| 3 | Contract terms | `[agree the client's acceptance-response deadline before a submission is deemed accepted]` | — | | On signature | | | Not delivered |
-| 4 | Contract terms | `[fix T0 — the precise event that starts the delivery clock]` | — | | On signature | | | Not delivered |
-| 5 | Contract terms | `[state volume caps numerically: documents, users, transactions, hours]` | `[TC-x.y.z]` | `[Qn]` | On signature | | | Not delivered |
-| 6 | Contract terms | `[agree the change-request day rate]` | — | | On signature | | | Not delivered |
-| 7 | Contract terms | `[agree the standby rate when client-caused delay holds the team idle]` | — | | On signature | | | Not delivered |
-| 8 | Contract terms | `[name the acceptance council and whether one dissent blocks]` | — | | On signature | | | Not delivered |
-| 9 | Infrastructure | `[power, network, cabinet space at every install location]` | `[TC-x.y.z]` | | Before each phase milestone | | | Not delivered |
-| 10 | Phase 1 | `[the source data, in an agreed format, at an agreed volume]` | `[TC-x.y.z]` | `[Qn]` | Week 1 phase 1 | | | Not delivered |
-| 11 | Phase 1 | `[test accounts across the permission groups needed to prove access control]` | `[TC-x.y.z]` | `[Qn]` | Before UAT | | | Not delivered |
-| 12 | | | | | | | | |
-
-**Status vocabulary:** `Not delivered → Partially delivered → Delivered → Waived (with reason)`.
-
-*Every row should trace to a criterion whose test cannot run without it — that traceability is what makes
-the register a schedule instrument rather than a wish list. Rows serving no criterion belong in the
-contract-terms group or don't belong at all.*
+- Use this register for physical client deliverables that block the schedule, separately from assumptions.
+- Use schedule-relative deadlines and a named focal point on every obligation row.
+- Group obligation rows by timing and put contract terms first because they become costly after signature.
+- For each obligation, record group, client deliverable, criterion served, linked question, relative deadline, named focal point, completion date, and status.
+- Require a single client focal point with decision authority by contract signature.
+- Agree four written defect-severity definitions by contract signature.
+- Agree the client’s acceptance-response deadline before submissions are deemed accepted.
+- Fix T0 as the precise event that starts the delivery clock.
+- State numeric volume caps for documents, users, transactions, and footage hours.
+- Agree the change-request day rate by contract signature.
+- Agree the standby rate for client-caused delay that leaves the team idle.
+- Name the acceptance council and decide whether one dissenting member blocks acceptance.
+- List the power, network, and cabinet space needed at each installation location.
+- Require source data in an agreed format and volume for Phase 1.
+- Require test accounts across the permission groups needed to prove access control before UAT.
+- Use the status sequence Not delivered, Partially delivered, Delivered, or Waived with reason.
+- Link every obligation row to a criterion whose test depends on it; otherwise place it under contract terms or remove it.

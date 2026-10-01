@@ -1,139 +1,90 @@
-# Estimation & costing — from WBS to a price the deal owner can defend
+# Estimation and Costing
 
-> **Applies to: both deal shapes, but the chain differs.** The blended-rate chain below is
-> **enterprise-bid** machinery. A fixed-price delivery deal prices as a lump sum per phase plus CapEx/BOM —
-> see "CapEx and bill of materials" below and `deal-shapes.md`.
+Use this reference for presignature estimation inputs and commercial cost views. The delivery planner authors effort estimates; the solution architect supplies technical drivers, scenarios, and cost consequences for the response.
 
-SA owns the technical cost drivers (see `sa-lifecycle.md` Phase 4); this is the machinery that produces them. The chain below was validated on a completed enterprise AI-chatbot engagement (high-hundreds of engineering MD → one-time implementation price + per-environment cloud OpEx + AMS tiers).
+## Effort estimate ownership
 
-**Scale to the engagement:** this is RFP / priced-proposal machinery. On an RFI, stop at ranged MD with uncertainty drivers — the blended-rate → price step belongs to the deal's commercial/bid owner (SA feeds it), and the per-environment cloud workbook + AMS tiers are over-ceremony unless the client asked for pricing structure.
+- Have delivery author pre-signature effort estimates because it will be accountable for them [book:head-first-pmp], Estimation tools and techniques.
 
-## The estimation chain
+## Close-out feedback
 
-```
-WBS (engineering MD per work package, each with an uncertainty driver)
-  → effort-distribution multiplier (engineering MD → total MD)
-  → blended rate (total MD → man-months → price)
-  → plus out-of-pocket % · cloud OpEx per environment · AMS retainer
-```
+- Use implementation feedback to revisit architecture; return estimate-versus-actuals, contested criteria, and slipped obligations to the presale references [book:software-architect-elevator], Measuring an Architect’s Value.
+- On an RFI, stop at ranged effort with uncertainty drivers unless pricing structure was requested; leave price and detailed cost work to the commercial owner.
 
-### 1. WBS with an uncertainty-driver column
+## Pricing model and scenarios
 
-One row per work package: `WBS ref · package · description · deliverables · MD · uncertainty driver`. The **uncertainty driver** column states *what has to be true / become known for this number to hold to ±20%* — "API inventory to be determined in RFP", "BM SME availability", "environment count TBC". This turns the WBS into a negotiation instrument: every soft number points at the client input that would harden it, and the drivers double as clarification questions and assumptions-register rows.
+- Choose the pricing chain by deal shape: enterprise bid uses the blended-rate chain; fixed-price delivery uses per-phase lump sums plus applicable CapEx/BOM.
 
-Structure the WBS by phase (POC / Phase 1 → Phase 2 → Phase 3), plus **separate tracks for reclassified capabilities** (a readiness-assessment track like voice) and **AMS/hypercare transition setup** — these price separately and the client may drop them without disturbing the base.
+## WBS and uncertainty drivers
 
-### 2. Effort-distribution multiplier — declare the envelope
+- The book describes scheduling WBS tasks with assigned resources; the requirement-reference and uncertainty-driver columns are additions [book:swebok], Software Engineering Management Tools.
+- The book recommends range estimates grounded in calibrated historical data, expert judgment, or analogy rather than a fixed ±20% condition [book:swebok], 2. Software Project Planning.
 
-Bottom-up WBS MD is *build* effort only. Convert to total delivery effort with an explicit distribution.
+## Effort distribution and uncertainty
 
-**There is no universal multiplier.** Two real engagements, both defensible, landed nearly 2× apart — because they were pricing different envelopes:
+- Separate reclassified capability tracks and AMS/hypercare setup so they can be priced and dropped without disturbing the base.
 
-| Category | Full-lifecycle envelope | Lean-delivery envelope |
-|----------|------------------------|------------------------|
-| Coding & DevOps (= the WBS MD) | 36% | 76% |
-| Testing | 25% | 11% |
-| Requirements & analysis | 16% | — *(excluded)* |
-| Project management | 13% | 11% |
-| Buffer / contingency | 10% | — *(excluded)* |
-| **Effective multiplier** | **≈ ×2.8** (÷0.36) | **≈ ×1.3** |
+## Cloud cost by environment
 
-The lean envelope isn't wrong — a small team on a tightly-scoped fixed-price build, where requirements were settled during presale and the client absorbs discovery, genuinely spends less on those lines. It becomes wrong the moment it's presented as if it covered them.
+- Treat bottom-up WBS effort as build effort and convert it to total delivery effort with an explicit distribution.
+- The book recommends calibrated models grounded in historical data; it does not prescribe a universal multiplier [book:swebok], 2. Software Project Planning.
 
-**The rule: a multiplier must name what it includes and what it excludes.** State the exclusions on the sheet, next to the number. Then:
+## Estimate and pricing quality checks
 
-- **Exclusions are risks to state, not savings to book.** "This price excludes requirements analysis and carries no buffer" is a sentence that belongs in the assumptions register *and* in the commercial conversation. Un-named, the first scope surprise eats the margin and the team works it for free.
-- **Show the distribution, never a naked multiplier.** A reviewer or client will challenge "×2.8" and accept a five-line table they can argue per-line.
-- **Scope the multiplier explicitly.** It applies to the **base build phases**; separately-priced tracks (a readiness assessment, AMS transition) are usually already scoped as total effort — state per track whether its MD is build-only or all-in, so the multiplier isn't double-applied.
+- Include each multiplier’s rates and reasoning in a traceable estimate basis alongside its inclusions and exclusions [book:head-first-pmp], Basis of estimates.
+- Present excluded effort as a named risk, not as savings to book.
+- The book describes probability distributions for effort, schedule, and risk; this rule applies that guidance to estimation rather than a single multiplier [book:swebok], Software Engineering Management Tools.
+- Apply the multiplier only to base build phases and state whether separately priced tracks are build-only or all-in.
+- The book translates resource requirements into cost estimates; it does not prescribe a blended rate or separate out-of-pocket line [book:swebok], 2. Software Project Planning.
+- When pricing scenarios, hold engineering scope fixed and vary only provisioning around it.
+- Offer optimized, recommended, and full-spec provisioning scenarios where useful, and describe the physical difference in each row.
+- Keep labor identical across provisioning scenarios and put any engineering-scope change in the WBS instead.
+- The book calls for documenting positive and negative consequences of each option, rather than stating only the cheaper scenario’s saving [book:facilitating-software-architecture], Consequences.
+- Estimate cloud costs with one worksheet per environment and one service per row.
+- For each cloud service row, record layer, component, purpose, region, SKU, sizing driver, billing note, and monthly min–max.
+- Use min–max ranges for usage-based cloud costs and report monthly and yearly ranges.
+- The book recommends correlating infrastructure consumption with tenant activity to reveal cost drivers; it does not prescribe a single dominant meter [book:building-multi-tenant-saas], The SaaS Mindset.
+- Mark cloud lines that depend on client licenses or unconfirmed plans for verification.
+- State BYOL or client-provided exclusions on each applicable line and repeat them as commercial assumptions.
 
-Then: total MD → man-months (÷ ~20) → × blended rate → one-time price; add out-of-pocket as a % line (a low single-digit percentage is typical).
+For a delivery-shaped proposal, send the planner a task inventory with effort blank. The planner returns the effort model; the solution architect contributes technical drivers such as data volume, environments, regions, usage meters, and uncertainty. Keep the assumptions and cost scenarios visible beside any quoted option.
 
-### 2b. Scenario multipliers — pricing options without re-scoping
+## Cost drivers and measurement
 
-A separate device, and a good answer to *"give me a cheaper number."* Hold the **engineering scope fixed** and vary the *provisioning* around it — typically three columns at ×0.7 / ×1.0 / ×1.3 applied to hardware, cloud, and licence lines:
-
-- **Optimized** — reuse what the client already owns (existing cameras, existing servers, minimum viable tiers).
-- **Recommended** — the configuration you'd actually deploy.
-- **Full-spec** — headroom for growth, redundancy, larger buffers.
-
-Give each column a one-line description per row saying *what physically differs* ("reuse existing CCTV + 2 pilot units" vs "new units at every station"). Two disciplines keep it honest: **labour stays identical across columns** — if engineering effort changes, that's re-scoping, not a scenario, and it belongs in the WBS; and the cheap column must state **what the client gives up**, not just what they save. A scenario table where only the total moves teaches the client that your prices are soft.
-
-### 3. Cloud cost workbook — one sheet per environment
-
-Estimate cloud OpEx as a workbook with **one sheet per environment** (Dev / QA / Staging / Prod) so the client sees non-prod isn't priced like prod. One row per service:
-
-`Layer · Component · Purpose · Region · Suggested SKU/tier · Sizing driver · Billing note · Estimated monthly (min–max)`
-
-Discipline that made it defensible:
-
-- **Min–max ranges, not point estimates**, for every usage-based line; totals as min/max per month and per year.
-- **Flag the dominant meter** — mark the line that will actually drive the bill ("Billed — dominant" on the LLM tokens line; "watch this one" on log ingestion). One or two lines usually dwarf the rest; the client should see you know which.
-- **`Verify` flags** on lines that depend on client licences or unconfirmed plans (existing ExpressRoute circuit, Defender plans, DevOps licences).
-- **BYOL / client-provided exclusions stated per line** ("identity platform — existing client licences — Included/BYOL") and echoed as a commercial assumption — this is where double-charging accusations die.
-- **Environment zeroing with a reason** — non-prod lines set to 0 with "no need in Dev", not silently deleted, so sheets stay row-aligned and diffable across environments.
-- **Sizing driver per row** (tokens/min, RU/s, GB/day, MAU) — ties every number to the volume assumption (sessions/month, peak uplift) in the assumptions register.
-
-### 4. AMS pricing shape
-
-Tiered catalog + retainer floor, aligned to the support NFRs (`nfr-checklist.md` Observability/operations):
-
-- **Tiers:** Bronze (business-hours L2/L3, incident mgmt, monthly report) → Silver (+ content/eval operations: KB refresh, golden-set regression, prompt tuning) → Gold (+ release mgmt, enhancement backlog, quarterly roadmap). For AI solutions the Silver content-ops tier is the quality-sustainability recommendation — the model degrades without it.
-- **Retainer floor:** a minimum monthly charge (e.g. 3 man-months/month standby inside an annual package); effort above the floor billed on actuals with per-ticket effort norms (L2 ≈ 0.5 MD, L3 ≈ 1–5 MD).
-- **Escalation commercial edge:** name the on-site trigger ("if unresolved after 24h of restoration effort") and mark its commercial treatment TBC rather than absorbing it silently.
-- L1 in/out of scope stated explicitly; severity/SLA matrix (P1–P4 response/resolution + SLA %) attached.
-
-### 5. CapEx and bill of materials (when hardware is in scope)
-
-Cloud-only deals price consumption. On-premise, edge, and manufacturing deals put **hardware on your invoice** — often the largest single line — and it prices nothing like software. One row per item:
-
-`Group · Item · Specification · Qty · Unit price (ex-tax) · Tax % · Total ex-tax · Total inc-tax · Source/URL · Notes`
-
-- **Cite a source per line.** A URL or quote reference per item is what survives the client's own procurement team pricing it independently. Unsourced hardware numbers get challenged and you lose the room.
-- **Show ex-tax and inc-tax separately.** Local sales tax/VAT is often reclaimable for the client and not for you, and mixing the two is the fastest route to an argument about a number nobody disputes.
-- **Add an explicit contingency line** with its own percentage, and say whether sub-groups carry their own. Hardware prices move between quotation and purchase.
-- **Installation and mechanical work is a line item**, not an afterthought — cable routing, drilling, mounting, wiring, calibration. On a factory floor this is routinely a fifth of the hardware cost.
-- **Decide and state who fronts the capital.** Client purchases directly (you spec it) · you procure and hand over at cost · you procure with a stated markup. Each has different cash-flow, warranty, and ownership consequences, and the warranty path must be named: who replaces a failed unit in month 9, and against whose warranty?
-- **Name the ownership and residency consequence.** Client-owned on-premise hardware is a *residency posture* (see `nfr-checklist.md`) as well as a cost line — often the whole reason the deal is winnable.
-
-Hardware is CapEx and behaves differently from the labour chain above: it doesn't take the effort multiplier, it doesn't scale with scope changes the way effort does, and it usually has a longer lead time than any software task. Track its lead time as a schedule dependency in the obligation register (`acceptance-and-contract.md`), not just as a cost.
-
-## Presentation split
-
-The response shows **CapEx** (one-time implementation + hardware + out-of-pocket) and **OpEx** (cloud consumption per environment + AMS) as separate tables. When the client prefers a subscription-model comparison, present subscription as the primary comparison basis and usage-based as supplementary sensitivity — mirror *their* preferred commercial lens, don't impose yours.
-
-## The capacity-fit gate — the one that hides best
-
-**No input assumption may be selected because it makes the total fit the capacity.**
-
-When an estimate closes only *after* an assumption moves, name the assumption, put the client's own stated
-figure beside it, and re-derive. If it still doesn't fit, the output is **"it doesn't fit, by N MD"** —
-that is a finding, not a failure, and it is the most useful thing you can hand a deal owner.
-
-This applies identically to an efficiency or productivity factor. **A factor calibrated until the gap
-closes is the same defect wearing a different hat**, and it is harder to spot because it looks like
-craft rather than arithmetic.
-
-> *Observed, twice in one engagement.* The client said on the record: *"there's about 200 data fields the
-> user is going to use and it needs to be verified."* The estimate assumed a 40–60 field set — which made
-> the work fit the window, and broke the headline claim the scope existed to make, since "200 → 25 flagged"
-> only holds if the denominator really is 200. Caught by a cold review. Re-priced at 200, the requirement
-> came to 72 MD against 58 available — and closed to 59 via a 0.7 productivity factor applied to a
-> selected subset of packages. Same reflex, second costume.
-
-The tell: you changed an input and the total landed within a rounding error of capacity. Write down what
-the number was *before* you touched the assumption, in the same table. If a reader can't see the
-pre-adjustment figure, the adjustment isn't an estimate — it's a target.
-
-## Sanity checks before the numbers ship
-
-This is the canonical home for the numeric checks. All of these have shipped in real deliverables.
-
-- Recompute every total and **every currency conversion** from the raw cells — a stale conversion shipped next to a freshly-updated total in the other currency.
-- Spreadsheet range-entry hazard: `50-100` typed into a numeric cell can coerce to a **date** (`1950-05-01` once shipped as a cloud line-item cost). Scan cost columns for date-typed cells before export.
-- The WBS total, the distribution table, and the priced man-month figure must reconcile to one chain — a reviewer who finds two different totals stops trusting all of them.
-- **Effort units must agree across sheets.** One workbook labelled a line "Labor (299 mandays)" on the summary sheet while the detail sheet summed to **57**. Both numbers were live; only one was right.
-- **Read every summary label against its own content.** A row labelled "Labor (incl. contingency + overhead)" sat above a breakdown whose contingency and overhead rows were both **zero**. The label promised what the arithmetic didn't contain.
-- **One formula per concept.** The same workbook defined maintenance twice — "15% of development + hardware" on the summary, "10% of development" on the detail sheet — producing two different numbers for the same line.
-- **Zero-priced rows carrying a non-zero effort note.** A feature priced at 0 across every column, with a note reading "37 mandays", is either free work you're about to do or a scope item that shouldn't be listed.
-- **Reconcile the price list against the commitment artifact.** Every priced function must appear in the acceptance annex and vice versa — see `artifact-integrity.md` C6. Pricing a function that the current annex has dropped is a live commercial exposure, and it has happened.
-- **Proofread client-facing feature names.** A misspelled capability name propagates from the cost model into the deck and the annex, and it is the one defect every reader notices.
+- Keep non-production rows aligned with production rows by zeroing inapplicable costs with a reason instead of deleting them.
+- The book ties resource scaling to tenant consumption activity and spikes; it does not prescribe a per-row cloud-cost worksheet [book:building-multi-tenant-saas], Chapter 3. Multi-Tenant Deployment Models.
+- Offer Bronze, Silver, and Gold support tiers with their listed service levels, and recommend Silver content operations for AI quality sustainability.
+- Define support-tier coverage for Bronze, Silver, and Gold, including the listed service additions at each tier.
+- Price discrete project work separately from retainer access, and state the access boundaries and expectations in the retainer terms [book:value-based-fees], ORGANIZING THE SCOPE AND MANAGING PROJECTS CONCURRENT WITH THE RETAINER.
+- Name the on-site escalation trigger and mark its commercial treatment TBC rather than silently absorbing it.
+- State whether L1 support is in scope and attach a severity and SLA matrix.
+- For on-premise, edge, and manufacturing work, include hardware in the price as a bill of materials.
+- For each hardware item, record group, specification, quantity, unit price, tax, totals, source, and notes.
+- Cite a procurement-verifiable source for every hardware price line.
+- Show pre-tax and tax-inclusive amounts separately.
+- Add a numeric hardware contingency line and state whether subgroups also carry contingency.
+- Price installation and mechanical work as explicit line items.
+- State who funds or procures hardware, the ownership and warranty path, and who replaces failed units.
+- State the residency consequence of client-owned on-premise hardware.
+- PMBOK requires physical-resource lead-time planning; excluding hardware from the effort multiplier and recording it in the obligation register are rule-specific additions [book:pmbok-guide-7e], 2.4.5. Physical Resources.
+- The book separates capital and operating expense types and describes their timing; the client still supplies the commercial comparison lens [book:fundamentals-data-engineering], Cost Optimization and Business Value.
+- The book compares total ownership cost, including labor and resources, so the CapEx/OpEx split still needs that wider cost view [book:fundamentals-enterprise-architecture], Example Architecture Decision.
+- Never choose an input assumption because it makes the estimate fit available capacity.
+- When changing an assumption makes an estimate fit, state the assumption alongside the client's figure and re-derive the estimate.
+- Do not calibrate productivity factors to close a capacity gap.
+- Record the pre-adjustment number beside the changed input so readers can see when an estimate was targeted to capacity.
+- Recompute every total and currency conversion from raw cells before shipping.
+- Scan numeric cost columns for range entries coerced into date-typed cells.
+- Reconcile WBS effort, distribution, and priced man-months through one calculation chain.
+- Verify effort units agree across summary and detail sheets.
+- Read each summary label against the content and arithmetic it describes.
+- Use one formula per concept across sheets rather than duplicate definitions.
+- Investigate zero-priced rows with non-zero effort notes and remove the inconsistency before shipping.
+- Reconcile every priced function with the current acceptance annex in both directions.
+- Proofread client-facing feature names in the cost model before they propagate to other deliverables.
+- Use Goal-Question-Metric to connect an architecture goal to questions and the metrics that answer them [book:software-architecture-metrics], The Goal-Question-Metric Approach.
+- Attribute SaaS infrastructure costs to tenant consumption and activity [book:building-multi-tenant-saas], Chapter 3. Multi-Tenant Deployment Models.
+- Compare technology choices with total opportunity cost of ownership [book:fundamentals-data-engineering], Total Opportunity Cost of Ownership.
+- Prioritize architecture metrics by signal strength and collection cost [book:software-architecture-metrics], Prioritize Metrics and Devise a Data Collection Strategy.
+- Build early predictive models from prior experience, comparable systems, benchmarks, or test results, and validate whether they are useful [book:software-architecture-metrics], Estimates and Models.
+- Add a basis-of-estimates note listing the rates and reasoning behind quoted activity and project costs [book:head-first-pmp], Basis of estimates.

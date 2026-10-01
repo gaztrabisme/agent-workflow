@@ -621,3 +621,27 @@ the engagement that produced it already has the script.
 
 **Next harvest should ask:** did any client-facing claim ship whose cited task did not deliver it, and was
 C3a run as a content comparison or quietly reduced to another set difference?
+
+## Evolution 9 — stage B rebuild (2026-10-01)
+
+### Sources read
+- Approved proposal row and all 563 routed destination notes in `stage-a/skill-set.md`.
+- Routed ledger rows and crosswalk verdicts for solution-architect, business-intelligence, and conductor.
+- The solution-architect practitioner review and the previous skill, references, templates, and evolution history.
+- The shared core skill and canonical references; skill-builder workflow, checklist, and skeleton.
+- The cited book passages for every routed agrees/refines rule and each adopted source-backed candidate.
+
+### Counts
+- Routed rules: 563 — 28 agrees, 219 refines, 310 field rules, and 6 disputed.
+- Candidate practices adopted: 57. Qualification and account-intelligence candidates were left with business-intelligence; general project-planning candidates were not brought into this skill.
+
+### Structure changes
+- Recast the top-level skill as a short presale operating manual with artifact, audience, boundaries, phase flow, gates, handoffs, and a linked reference index.
+- Rebuilt the references around intake, architecture, response, presignature terms, estimation inputs, integrity, and signature handoff.
+- Kept the WBS as a delivery planner’s collection instrument with effort blank; made delivery the author of effort estimates and the owner of signed work.
+- Added source-backed practices for measurable architecture qualities, decision records, options, response craft, consulting terms, and estimate evidence.
+- Kept field and disputed rules source-free in the skill body; stated disputed material only as field guidance.
+
+### Validation
+- [ ] Two independent real uses confirm the rebuilt structure and additions.
+- **Verdict: PENDING** — the rebuild is source-grounded and mechanically validated; it has not yet been exercised twice in real work.

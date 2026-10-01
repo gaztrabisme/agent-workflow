@@ -1,164 +1,77 @@
-# Phase 0 — Engagement intake (the front gate)
+# Engagement Intake
 
-**Fires when the input is informal.** Site-visit notes, a conversation you're recalling from memory, a
-voice-memo transcript, a chat scroll, a forwarded email thread, "we met the owner and she wants AI." No
-document to answer, no requirement list, no structure — just context, some of it wrong.
+Turn raw client input into an internal decision frame. Use account intelligence as an input; keep solution-specific constraints, open questions, and candidate work in this artifact.
 
-The rest of the lifecycle assumes a formal input. This phase manufactures one. Its output is what Phase 1
-(Frame) consumes.
+## Frame the engagement and hand back decisions
 
-**Skip it** only when the engagement genuinely starts from a formal document (an RFI/RFP arrives cold). Even
-then, run steps 2 and 4 on the surrounding context — the document is never the whole story.
+- Turn informal input into a frame with ranked asks, fact and inference tiers, negative space, and candidate projects.
+- Declare the deal shape in intake before choosing its workbook, ID spine, or pricing method.
+- Name the audience and intended decision before selecting the communication form; record deal shape separately [book:storytelling-with-data], Who, what, and how.
+- Keep an internal engagement frame with the problem, buyer, trigger, constraints, negative space, candidate projects, and fact/inference tiers.
+- Skip intake only when work genuinely starts from a formal RFI/RFP; still tier claims and name negative space in surrounding context.
 
----
+## Presale intake
 
-## The protocol
+- Run the intake phase when the input is informal and lacks a structured requirement document.
 
-### 1. Take the whole dump first
+## Listen before structuring
 
-Don't interrogate mid-flow. Let the human finish, however unstructured. Interrupting to ask "what's the
-budget?" trains them to give you a filtered account, and the unfiltered one is where the negative space
-lives. Read it all, *then* work.
+- Let the person finish an unstructured account before asking structured questions [book:fundamentals-enterprise-architecture], On Deep Listening.
 
-### 2. Tier every statement
+## Frame the engagement
 
-Nothing downstream is trustworthy if this is skipped. Tag each material claim:
+- Keep a source trail for each claim and distinguish factual statements from opinions in the evidence notes [book:hbr-guide-business-writing], ***Get the Madman started***.
+- The book requires validity and reliability for strong evidence, so source type alone does not establish a Confirmed claim [book:think-like-ux-researcher], UX Research and Strength of Evidence.
+- Classify a named client speaker’s statement as Reported and attribute it to that person.
+- The book treats hearsay as weaker than observed behavior; preserve that evidence-strength distinction when labeling a second-hand claim [book:think-like-ux-researcher], UX Research and Strength of Evidence.
+- Classify self-reported claims by an interested party as Marketing.
+- Classify a conclusion that nobody stated as Inference.
 
-| Tier | Means | Example phrasing in the frame |
-|---|---|---|
-| **Confirmed** | You saw it, or a primary document states it | "38,000 m² plant (site visit)" |
-| **Reported** | A named person at the client said it — attribute it | "Chair says the technical team resists efficiency changes" |
-| **Hearsay** | Someone told you what someone else said | "Via the supplier: they're replacing the line next year" |
-| **Marketing** | Self-reported by a party with an interest | "Supplier catalogue claims 8-hour service response" |
-| **Inference** | Nobody said it; we concluded it | "Their machines likely have no digital interfaces" |
-| **Speculation** | We're guessing and should say so | "Possibly a budget cycle driving the timing" |
+## Decision context and stakeholders
 
-**Record the speaker, not just the fact. A `Confirmed` tier with no named speaker is not confirmed.**
-
-For anything the client is treated as having *constrained* — a date, a volume, an accuracy bar, a budget —
-the frame must carry **who said it**. Not the document it appears in: the mouth it came out of. Our own side
-is in the room, our own side speaks on the call, and our own side's guesses get transcribed alongside the
-client's requirements. A "Confirmed" cell that cites only a source file cannot distinguish them.
-
-> *Observed twice on one engagement, and the second instance survived a purge of the first.*
-> **(a)** *"Their extraction runs at ~80%"* was tiered Confirmed and shipped in four documents. The client
-> never gave an accuracy figure; the number originated in our own internal chat and was promoted across the
-> boundary. Purged.
-> **(b)** *"MVP needed by ~10 Sep"* was tiered **Confirmed** as the engagement trigger. The transcript reads:
-> our account lead asks for a timeline → **the broker** says *"within September"* → **our own account lead**
-> says *"the 10th September"* → the client says *"Correct"* — to the preceding remark about the *decision*
-> needing to be made soon, not to a date. **No client voice ever states 10 September.** Every downstream
-> artifact then worked backwards from it, compressing the plan for no stated reason.
-
-The check is one question, asked of every constraint in the frame: **whose sentence is this?** If the answer
-is "ours", the tier is Reported at best. The failure mode is not lying — it is a colleague's helpful
-clarification hardening into a client requirement because the transcript records both in the same voice.
-
-**A statement never changes tier silently.** If an inference later gets confirmed, say what confirmed it.
-Downstream artifacts inherit the tier — an assumption built on hearsay is a weaker assumption, and the
-register should show that.
-
-### 3. Fill the frame slots
-
-Whatever the dump covered, these are the slots. Empty ones become asks or assumptions — never silence.
-
-- **Outcome** — what changes for the business if this works, in their words, not technology.
-- **Baseline** — what it costs or looks like today. If nobody knows, that's finding #1.
-- **Economic buyer** — who releases money. Distinguish from **sponsor** (who wants it), **users** (who
-  touch it), and **blockers** (who loses if it succeeds — see step 4).
-- **Trigger** — why now? An expansion, an audit, a loss, a new hire, a competitor. No trigger usually means
-  no budget.
-- **Decision process** — who else signs, what forum, what timeline, what happens if it slips.
-- **Hard constraints** — budget shape (CapEx vs OpEx, one-time vs recurring), existing systems, regulatory,
-  physical/site access, data availability.
-- **Relationship context** — warm or cold, who brokered it, what obligation that creates, who else is
-  circling.
-- **What winning looks like personally** for the buyer. Executives buy outcomes that make them look right.
-- **Deal shape** — enterprise bid or fixed-price delivery (`deal-shapes.md`). This determines the machinery.
-
-### 4. Name the negative space
-
-The highest-value part of intake, and the part that never appears in the dump. Forcing questions:
-
-- **What would make us lose?**
-- **What did they *not* ask for** that an organisation like this should obviously need? Absence is data.
-- **Who loses if this succeeds?** Every efficiency or visibility project takes discretion away from
-  someone. Name them. They will surface later as delay, missing access, or "the data isn't ready."
-- **What are we being told that's too convenient?**
-- **What does the enthusiastic sponsor not control?**
-
-### 5. Collapse opportunities into candidate projects
-
-An informal dump typically yields a list of "opportunities." **A list of opportunities is zero projects.**
-Say this out loud — it is the most useful pushback in the phase.
-
-Promote an opportunity to **candidate project** only if all four hold:
-
-1. **Named beneficiary** — a specific role that behaves differently afterwards.
-2. **Observable outcome** — something that can be measured, or at minimum witnessed.
-3. **A data/access path that exists** — or a named owner who can grant it.
-4. **A definition of done** — what you'd demo to call it finished.
-
-Anything failing one or more is a **lead**, not a project. Park it with the *single named dependency* that
-would promote it ("needs CCTV playback access — owner: plant security"). This converts a vague list into a
-short buildable set plus an explicit parking lot, which is the actual fog→walkway transition.
-
-Then rank the candidates by *(value to the economic buyer) ÷ (dependency risk)* — not by technical interest.
-
-### 6. Declare the ID spine
-
-Before any artifact exists, decide what everything will key to (`artifact-integrity.md`): requirement refs
-for an enterprise bid, acceptance-criteria IDs for fixed-price delivery. Declaring it now is what stops the
-engagement fragmenting into files that disagree with each other later.
-
-### 7. Hand back
-
-Terminate with `docs/engagement-frame.md` on disk **and** a four-part report:
-
-1. **Decided** — what you resolved without asking, each with the assumption it rests on. This is the point
-   of the gate; handing back a question list is a failure, not a deliverable.
-2. **Asks** — ranked, ideally ≤5, strictly things only the human can answer. Anything you could research,
-   decide, or assume does not belong here.
-3. **Proposed deliverables** — named artifacts, with dates, and what each unblocks.
-4. **Pushback** — where you think the framing is wrong, with the reason.
-
----
-
-## Sensitive-inference handling
-
-Some inferences are not merely uncertain — they are damaging if they surface. A read on someone's
-competence, a suspicion about internal conduct, a guess at a political motive. These reframe an entire
-engagement and are genuinely useful internally.
-
-**Test:** *if the client read this sentence, what happens?* If the answer is "the relationship ends" or
-"someone gets fired," it needs a **handling rule**, not just an Inference tag.
-
-The rule, stated in the frame beside the inference:
-
-- **Internal-only**, with a named holder.
-- **Never in a shared, exported, or client-facing artifact** — including diagrams, decks, and the wiki
-  section you would screen-share.
-- **Never used as stated justification.** Pitch the resulting solution on its legitimate merits —
-  objectivity, automation, evidence quality, efficiency — which are true independently of the inference.
-- If it drives a scope decision, record the *decision* and its defensible rationale, not the suspicion.
-
-A sensitive inference that turns out to be **wrong** and was written into a shared document is
-unrecoverable. Treat labelling as necessary but not sufficient.
-
----
-
-## Anti-patterns
-
-- **Interviewing instead of ingesting** — interrupting the dump for structure you could impose afterwards.
-- **Handing back a question list** and calling it a frame. Decide what you can; ask only what you can't.
-- **Asking what you could look up.** Public company facts, market context, and product ranges are research,
-  not client questions. Burn goodwill only on what's genuinely private.
-- **Treating the opportunity list as a scope.** It's raw material; step 5 is the work.
-- **Letting an inference harden into a fact** across retellings because nobody re-checked the tier.
-- **Skipping the negative space** because the meeting went well. Enthusiasm is not access.
-
-## Done means
-
-`docs/engagement-frame.md` exists, every frame slot is filled or explicitly marked as an ask, every material
-claim carries a tier, the opportunity list is split into candidate projects and parked leads with named
-dependencies, the deal shape and ID spine are declared, and the human has ≤5 ranked asks in front of them.
+- For testable performance claims, measure first instead of treating a labeled guess as adequate evidence [book:refactoring], Refactoring and Performance.
+- Do not call a claim Confirmed without identifying a named speaker.
+- For each client constraint, record who said it rather than only the document where it appears.
+- Ask whose sentence each constraint is; if it originated with your side, tier it Reported at best.
+- Do not change a material claim's tier silently.
+- When an inference is later confirmed, state what evidence confirmed it.
+- Carry each claim’s evidence tier into downstream artifacts and assumptions.
+- Fill every frame slot or convert it into an ask or assumption rather than leaving it silent.
+- The book says to state the user problem as the outcome and distinguish it from the product output; it does not require verbatim client wording [book:storytelling-in-design], Focus on Outcomes Instead of Features.
+- The book classifies stakeholders by impact, authority, and expertise, then considers influence and importance rather than assigning buyer, sponsor, user, and blocker labels [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
+- The book asks why the problem matters now; recording the answer as a dedicated engagement trigger is the rule’s addition [book:fundamentals-enterprise-architecture], Sell the Why.
+- Record and validate the buyer’s full evaluation, selection, and purchase sequence with its participants, alongside the signer, forum, timeline, and consequences of delay [book:meddicc], DECISION PROCESS.
+- The book says to surface unstated context, assumptions, and dependencies as nonrequirements instead of treating only the named constraint categories as hard constraints [book:software-architect-elevator], Architects Deal with Nonrequirements.
+- Record what winning looks like personally for the buyer.
+- Record the deal shape during intake and use it to select machinery.
+- The book recommends seeking conflicting advice, including from strong supporters, to scrutinize a decision; it does not frame this as a commercial loss question [book:facilitating-software-architecture], Seek advice from those with conflicting views.
+- Identify important client needs that were not requested [book:software-architect-elevator], Architects Deal with Nonrequirements.
+- Identify who loses discretion if the project succeeds.
+- The book recommends asking why to expose the decisions and assumptions behind a claim rather than treating convenience itself as the test [book:software-architect-elevator], Whys Reveal Decisions and Assumptions.
+- The book says to identify a stakeholder’s formal approval authority directly rather than infer control from the sponsor’s enthusiasm [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
+- Do not treat an opportunity list as a project scope.
+- Add an explicit solution-fit gate and qualify out when the proposed solution cannot meet the customer’s requirements [book:meddicc], QUALIFICATION.
+- Name access to an influential buyer as a promotion dependency, and qualify the opportunity out if no contact can establish that path [book:meddicc], QUALIFICATION.
+- The book recommends weighing impact, benefits, effort, investment, and risk rather than ranking by an economic-buyer value-to-dependency-risk ratio [book:fundamentals-enterprise-architecture], Align on Priority.
+- Choose the ID spine before creating any artifact, using requirement refs for an enterprise bid or authored acceptance IDs for fixed-price.
+- Finish intake with the engagement frame on disk and a four-part report.
+- The book advises surfacing decisions and their underlying assumptions in architecture reviews, rather than limiting assumption reporting to decisions made without asking [book:software-architect-elevator], Whys Reveal Decisions and Assumptions.
+- Limit asks to ranked questions only the human can answer, ideally no more than five.
+- Link dated deliverables to predecessor work and constraints so the plan shows what each deliverable unblocks [book:head-first-pmp], Activity attributes.
+- The book recommends raising specific concerns and differing perspectives, then addressing them to strengthen the recommendation [book:fundamentals-enterprise-architecture], Align on the Decision.
+- Test a sensitive inference by asking what happens if the client reads it; add a handling rule if disclosure could damage the relationship.
+- Keep sensitive inferences internal-only and assign a named holder.
+- Never put sensitive inferences in shared, exported, or client-facing materials, including screen-shared wiki sections.
+- Never use a sensitive inference as stated justification for a scope decision or solution.
+- The book records reasons and consequences for the selected and rejected options; it does not give a separate confidentiality rule for a sensitive inference [book:facilitating-software-architecture], Consequences.
+- Do not interrupt an informal account to conduct the interview instead of ingesting it [book:articulating-design-decisions], Chapter 4. Listen to Understand.
+- Do not hand back a question list in place of a frame; decide what you can and ask only what you cannot.
+- Research public company facts, market context, and product ranges instead of asking the client [book:selling-to-big-companies], TAP INTO ONLINE RESOURCES.
+- Do not use the raw opportunity list as a scope without the promotion test.
+- Recheck tiers so an inference does not harden into fact across retellings.
+- Do not skip negative-space analysis just because a meeting went well.
+- Before declaring intake done, create the frame, fill or flag every slot, tier every claim, split candidate projects from parked leads, declare shape and spine, and present no more than five ranked asks.
+- Map stakeholders by impact, authority, expertise, influence, and importance to choose who participates in each decision [book:fundamentals-enterprise-architecture], What Is a Stakeholder?.
+- Quantify the problem’s business impact and benefits, grounding qualitative claims in credible evidence [book:fundamentals-enterprise-architecture], Sell the Why.
+- Prepare stakeholder meetings by stating the goal, recapping prior decisions, showing progress, and naming the feedback needed now [book:articulating-design-decisions], Set the Context.
+- Use repeated why questions to uncover the root cause behind a client’s stated problem [book:software-architect-elevator], Five Whys.

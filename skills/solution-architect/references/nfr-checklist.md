@@ -1,72 +1,86 @@
-# Non-functional requirements (NFR) catalog
+# Non-functional Requirements
 
-NFRs are where enterprise and regulated deals are won or lost. Client docs almost always under-state them. Run every solution against this list early (Phase 2–3); each gap is either a design decision, a clarification question, or an assumption.
+Select and prioritize quality requirements from the client’s business context. Define measurable targets and the architecture decisions, evidence, and operational implications that follow.
 
-Use the **forcing questions** to pull the real requirement out of a vague one ("must be secure" → *what* exactly).
+## Select client-relevant quality attributes
 
-## Security & identity
-- Authentication & customer identity provider; SSO; step-up/MFA for sensitive actions.
-- Authorization model: RBAC, row/record-level access, least privilege.
-- Secrets/key management; encryption at rest and in transit.
-- Data masking/redaction; PII handling; **credentials/identity never flow through an LLM** (for AI solutions).
-- Audit trail: what's logged, immutability, retention.
-- **Forcing:** Whose data can each user see? What's the blast radius of a compromised component? What must be auditable for a regulator?
+- The book starts with system quality goals and develops measurable fitness functions iteratively, rather than prescribing this exact NFR catalog workflow [book:software-architecture-metrics], Fitness Functions and Metrics.
+- The book says to make broad quality goals measurable with an objective value, which sharpens a forcing question into a testable target [book:software-architecture-hard-parts], Using Fitness Functions.
+- The book centralizes MFA support in a shared authorization framework; the rule also calls for naming the customer identity provider and SSO model [book:building-secure-reliable-systems], Using Advanced Authorization Controls.
+- Specify authorization including role or record-level controls and least privilege [book:building-secure-reliable-systems], Least Privilege.
+- The book covers encryption at rest and in transit, then warns that data can remain exposed during computation [book:zero-trust-networks-2e], When You Host Applications in a Public Cloud, How Can You Trust It?.
+- The book requires sanitizing sensitive inputs before model processing; the rule adds a stricter prohibition on routing credentials or identity through an LLM [book:llm-security-playbook], The Role of Guardrails in an LLM Security Strategy.
+- The book makes logs hard to alter and preserves an immutable trail of changes; the retention period still needs its own policy [book:building-secure-reliable-systems], Design Your Logging to Be Immutable.
+- The book supports limiting each user to needed data and services; the blast-radius and regulator-audit prompts extend that security inquiry [book:building-secure-reliable-systems], Chapter 5. Design for Least Privilege.
 
-## Integration & API
-*Usually the bulk of an enterprise solution's real work and risk — design it explicitly, don't hand-wave "we integrate."*
-- Per system: documented API available? protocol (REST/SOAP/file/queue)? authentication (OAuth2 / mTLS / API key)? rate limits & SLAs of the back-end itself?
-- Pattern per interaction: **synchronous** (real-time enquiry — balances, profile) vs **asynchronous / event-driven** (broadcasts, campaigns, updates). Don't make everything synchronous.
-- Gateway/middleware: single secured entry, throttling, schema validation, caching, telemetry; **back-ends never exposed directly** (esp. never to an LLM — deterministic actions are typed tools behind the gateway).
-- Resilience: retries, idempotency, circuit breakers, timeouts, graceful degradation when a back-end is slow/down.
-- Data contracts & versioning: payload schemas, canonical models, how breaking changes are absorbed.
-- **Forcing:** Which integration is real-time-critical vs can be async? What happens to the customer experience when system X is unavailable? Is each back-end's own throughput/SLA enough for your peak?
+## Quality attribute catalog
 
-## Data residency & sovereignty
-- In-country hosting requirement; region availability of each proposed service.
-- Cross-border transfer rules; data-localization law.
-- Private/hybrid vs public cloud; network isolation (VNet, private endpoints).
-- **Split-region residency posture** (the fallback pattern when a load-bearing PaaS isn't GA in-region): keep **data-at-rest, application, and identity in-region**; run only the non-resident service (e.g. LLM inference) cross-region over Private Link — encrypted in transit, **no data stored** there — and commit to migrating it in-region when it becomes available. State this as a single posture sentence and repeat it as a callout on the deployment diagram; it converts the deal's residency blocker into a governed, time-bounded exception. (Validated on a regulated-market engagement where the required managed inference service was not generally available in the mandated region.)
-- **Owned-infrastructure posture** — the sibling pattern, and often the *reason a deal is winnable* rather than a concession. When the client buys and owns the compute, sovereignty comes from ownership rather than region selection: models run on client-owned hardware on the client's premises, nothing leaves the site, and there is no per-token meter to forecast. The tradeoffs to state honestly are a one-time CapEx and a lead time (see `estimation-and-costing.md` CapEx/BOM), the client inheriting hardware lifecycle and failure risk, capacity that is fixed rather than elastic, and a self-managed upgrade path for models and security patches. Name who replaces failed hardware and against whose warranty — that question decides whether this posture is an asset or a liability in year two.
-- **Forcing:** Where must the data physically live? Which proposed services are *not* available in that region — and what's the fallback?
+- The book tests third-party API latency and unavailability explicitly, adding failure behavior to the integration design [book:software-architecture-metrics], Fitness Functions: Integration Tests with Network Latency.
+- The book calls out authentication, rate limits, and timeouts/retries at the gateway; the rule also asks for protocol and backend SLA details [book:mastering-api-architecture], What Functionality Does an API Gateway Provide?.
+- The book favors asynchronous communication where fault tolerance matters, so select the communication pattern per interaction instead of making every call synchronous [book:software-architecture-hard-parts], Availability/Fault Tolerance.
+- The book gives gateways authentication, rate limits, and telemetry responsibilities; validation, caching, and backend exposure still need explicit treatment [book:mastering-api-architecture], What Functionality Does an API Gateway Provide?.
+- The book lists those resilience patterns for service communication; add idempotency as a separate requirement [book:mastering-api-architecture], Reliability.
+- The book versions APIs and treats incompatible changes as a major release; the rule additionally asks for canonical payload schemas [book:mastering-api-architecture], Semantic Versioning.
+- Ask which integrations must be real time, what happens to the customer when a back end is unavailable, and whether its capacity meets peak demand.
 
-## Compliance & governance
-- Applicable regulators and named guidelines (don't accept "be compliant" — list them).
-- Sector rules (financial advice licensing, health, etc.); the line the product must not cross without a human.
-- Data-protection law (consent, classification, retention, right-to-erasure).
-- Data lineage, model/content governance, approval workflows (for AI/data solutions).
-- **Forcing:** Which specific regulation, which clause? What requires human-in-the-loop by law, not preference?
+## Security and identity
 
-## Scale & performance
-- Volume today and projected; peak periods; concurrency.
-- Latency/throughput targets per interaction type; cost-at-scale (the number that breaks naive designs).
-- **Forcing:** What's the peak, not the average? What does it cost at 10×? Which operation is latency-critical vs can be async?
+- The book checks model availability by region; apply that check to every proposed service whose regional presence is load-bearing [book:azureai-102certificationessentials], Deploying Azure OpenAI.
+- The book includes residency and locality in data policy; the rule also requires identifying applicable cross-border transfer and localization laws [book:data-governance-definitive-guide], The Enterprise Dictionary.
+- When a required PaaS service is not available in-region, state the split-region posture, keep data, app, and identity in-region, restrict cross-region use to an encrypted unstored service over private connectivity, plan migration, and repeat the posture on the deployment diagram.
+- For owned infrastructure, state that data stays on client premises and disclose CapEx, lead time, lifecycle/failure risk, fixed capacity, upgrade responsibility, and hardware replacement/warranty owner.
+- The book records residency and locality requirements by data class; it does not specify the regional fallback architecture [book:data-governance-definitive-guide], The Enterprise Dictionary.
+- The book calls for identifying applicable regulations and defining compliance; naming the regulator and guideline in this checklist makes that concrete [book:data-governance-definitive-guide], Chapter 8. Monitoring.
 
-## Availability & resilience
-- SLA/uptime target; RTO/RPO; multi-zone/region; DR.
-- Failure modes: graceful degradation, retries, circuit breakers, fallback paths.
-- **Forcing:** What happens when a back-end is down? What's the cost of an hour of downtime to the client?
+## Integration and API
 
-## Observability & operations
-- Monitoring, logging, tracing, alerting; health & quality dashboards.
-- For AI: quality/eval monitoring, drift, groundedness/accuracy tracking in production.
-- Support model: hours, tiers, response/restore targets, on-site vs remote.
-- **Forcing:** How will the client know it's working *right now*? Who gets paged, and against what SLA?
+- The book identifies legal demands for human oversight in AI systems; the sector-specific rules and exact legally required human steps are additions [book:building-reliable-ai-systems], 1.6 Why reliable AI systems matter now.
+- The book calls for per-class access, retention, residency, and processing policies; consent and erasure obligations need separate detail [book:data-governance-definitive-guide], The Enterprise Dictionary.
+- The book grounds data governance in lineage, quality, and classification during processing; it does not specify AI model or content approval workflows [book:data-governance-definitive-guide], Data Processing.
+- The book requires identifying applicable regulations and their compliance meaning; asking for the clause and legally required human step adds precision [book:data-governance-definitive-guide], Chapter 8. Monitoring.
+- The book makes concurrency and responsiveness explicit and distinguishes gradual growth from spike-driven elasticity [book:software-architecture-hard-parts], Scalability.
+- The book relates response-time targets to active user load; define comparable targets for each interaction type and cost threshold [book:software-architecture-metrics], Is the fitness function static or dynamic?.
+- The book separates spike capacity from ordinary growth; the ten-times cost and latency-critical questions remain client-specific [book:software-architecture-hard-parts], Scalability.
 
-## Cost & commercial (technical drivers)
-- CapEx vs OpEx; licensing/consumption model; what scales the bill.
-- TCO over the contract term; cost levers (caching, quantization, tiering).
-- **Forcing:** What's the unit economics per interaction/user? Which design choice is the biggest cost lever?
+## Data residency and sovereignty
 
-## Maintainability, portability, extensibility
-- Modularity, lock-in/portability, standards-based interfaces.
-- Future channels/use cases; how the architecture absorbs them.
-- Skills/transfer-of-technology; client maker/admin enablement.
-- **Forcing:** What's the cost of switching a component later? Can the client's team run and extend this?
+- The book turns user priorities into measurable service objectives; the rule adds recovery times, recovery points, site choices, and fallback requirements [book:site-reliability-engineering], Chapter 4. Service Level Objectives.
+- The book ties availability to dependency failures, so capture what an unavailable backend does to the service and its users [book:building-secure-reliable-systems], Access Controls.
+- An SLO quantitatively measures outage impact; asking the client for the financial cost of one hour adds a commercial input [book:site-reliability-engineering], Chapter 30. Embedding an SRE to Recover from Operational Overload.
+- The book identifies gateway telemetry for observability; define alerts and health or quality dashboards for the client’s operating model [book:mastering-api-architecture], What Functionality Does an API Gateway Provide?.
+- The book tracks semantic quality and system drift in production; the rule adds groundedness and accuracy measures [book:building-reliable-ai-systems], Principle 3: Monitor systems continuously.
 
-## Accessibility & UX-level NFRs
-- Accessibility standards; multilingual/localization correctness; channel consistency.
-- **Forcing:** Which languages/locales, validated how? (For multilingual AI: validate on the client's *own* data, not benchmarks.)
+## Compliance and governance
 
----
+- The book uses metrics for alerts and historical views; it does not specify the client-facing health dashboard or pager owner [book:site-reliability-engineering], Monitoring and Alerting.
+- The book distinguishes capital from operating expenditure within TCO; licensing, consumption models, and their cost drivers are added prompts [book:fundamentals-data-engineering], Total Cost of Ownership.
+- The book uses workload-aware inference techniques such as quantization to manage cost and latency; contract-term TCO and tiering remain additional views [book:ai-engineering-huyen], Chapter 9. Inference Optimization.
 
-**Output:** fold the resolved NFRs into the solution architecture doc; turn the unresolved ones into clarification questions or assumptions. An RFP response that addresses NFRs head-on reads as senior; one that only lists features reads as junior.
+## Scale and performance
+
+- The book monitors cost per interaction in production; use client-specific unit economics and identify the design lever that moves them [book:building-reliable-ai-systems], Principle 3: Monitor systems continuously.
+- The book warns that portability stops at cloud-native integrations, so name the switching boundary rather than promise blanket portability [book:fundamentals-enterprise-architecture], Example Architecture Decision.
+- The book treats extensibility as adding functionality as a service context grows; it does not require committing every future channel or use case now [book:software-architecture-hard-parts], Extensibility.
+- The book says enablement needs tools and training for its users; translate that into client administrator and maker coaching [book:fundamentals-enterprise-architecture], Enterprise Architecture Enablement.
+- The book raises replaceability and vendor lock-in; estimating switching cost and the client team’s ability to run and extend are additions [book:software-architect-elevator], Planned Obsolescence.
+
+## Availability and resilience
+
+- The book uses WCAG success criteria as the accessibility baseline; locale correctness and cross-channel consistency need their own checks [book:practical-web-accessibility], 1. The Accessibility Problem.
+- The book distinguishes benchmark scores from production reliability, supporting evaluation on representative client data [book:building-reliable-ai-systems], 1.1 From benchmarks to the real world.
+- The book includes audience language fluency among localization inputs; define how each required locale will be validated [book:strategic-writing-for-ux], 6: Measuring UX Content Effectiveness.
+- The book surfaces unstated context, assumptions, and dependencies; carry each NFR into the design or make its uncertainty explicit [book:software-architect-elevator], Architects Deal with Nonrequirements.
+
+## Architecture assurance
+
+- Define NFRs as measurable targets, then prioritize trade-offs among them [book:fundamentals-enterprise-architecture], Summarizing NFRs.
+- Add architecture fitness functions to check that implementation preserves selected architecture characteristics [book:software-architecture-hard-parts], Architecture Fitness Functions.
+- Define architecture fitness functions with acceptable quality values and a way to check them, automating the check where practical [book:software-architecture-metrics], Fitness Functions.
+- Use FMEA to score failure likelihood and impact, calculate criticality, and record mitigations [book:fundamentals-enterprise-architecture], Chapter 5. Enable and Enforce.
+- Run a proof of concept or pilot in the client environment to validate consequential architecture recommendations [book:fundamentals-enterprise-architecture], The Importance of Experimentation.
+- Use consumer-driven contract tests for service integrations [book:software-architecture-hard-parts], Consumer-driven contracts.
+- Version public APIs semantically and gate breaking changes with specification diffs [book:mastering-api-architecture], Semantic Versioning.
+- Define service indicators, objectives, and agreements around user-visible behavior [book:site-reliability-engineering], Chapter 4. Service Level Objectives.
+- Add data lifecycle policies for retention and verified destruction [book:data-governance-definitive-guide], Chapter 4. Data Governance over a Data Life Cycle.
+- Design audit logging to resist alteration and retain an immutable change trail [book:building-secure-reliable-systems], Design Your Logging to Be Immutable.
+- Require production AI evaluation with both automated metrics and human review [book:building-reliable-ai-systems], Principle 6: Build in evaluation from day one.

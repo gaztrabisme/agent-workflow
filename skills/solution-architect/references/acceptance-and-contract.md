@@ -1,211 +1,96 @@
-# Acceptance & contract — where the architecture meets the money
+# Acceptance and Contract
 
-> **Applies to: the fixed-price delivery shape**, and to any enterprise bid you *win* — the moment a
-> proposal converts to a contract, this becomes the live phase. See `deal-shapes.md`.
+Use this reference to negotiate the presignature consulting agreement, acceptance annex, client inputs, and commercial risk terms. It ends at signature; delivery owns signed-client baselines and follow-up.
 
-Presale does not end when the proposal lands. On a fixed-price engagement the proposal is the *opening*
-position; the artifact that actually binds both parties is the **acceptance annex** — the schedule of
-criteria that gate payment. It is written by the solution architect, negotiated line by line, and lived
-with for the whole delivery.
+## Presignature terms
 
-Get it wrong in one of two directions and the deal bleeds: criteria too vague and acceptance becomes an
-opinion; criteria too tight, or dependent on client inputs nobody committed to, and you own a schedule you
-can't control.
+- Before signature, negotiate payment-gating criteria and schedule-bounding client obligations.
+- Before signature, state what the client supplies, by when, and to whom.
+- For delivery-shaped proposals, include payment-gating acceptance criteria, preconditions, and the party that prepares evidence.
 
----
+## Acceptance criteria and evidence
 
-## 1. Acceptance criteria as the spine
+- Apply acceptance and contract guidance to fixed-price delivery and to any enterprise bid that is won.
+- Write acceptance tests for criteria before development, with testers involved in requirement shaping [book:continuous-delivery], Chapter 4: Implementing a Testing Strategy.
 
-Each criterion gets an ID and becomes the thing everything else keys to (`artifact-integrity.md`).
+## Client obligations and dependencies
 
-**Anatomy of a good criterion:**
+- Give each acceptance criterion an ID and use it as the engagement's ID spine.
 
-| Field | Purpose |
-|-------|---------|
-| **ID** | `TC-<phase>.<function>.<n>` — the spine |
-| **Function** | Which delivered capability it proves |
-| **Criterion summary** | What must be observably true. One sentence, witnessable. |
-| **Preconditions to run the test** | What must physically exist before the test is even executable |
-| **Preparing party** | **Us / Client / Both** — who provides the preconditions |
-| **Linked clarification question** | The open question whose answer settles this criterion's shape |
-| **Ready date** | When the preconditions will be in place |
-| **Status** | Not prepared / Prepared / Passed / Failed |
+## Commercial risk and client obligations
 
-The two columns that do the real work are **preconditions** and **preparing party**. "The assistant answers
-only within the user's permissions" is untestable on acceptance day without two accounts in two permission
-groups and a document only one of them may see. Naming that precondition — and naming *who* provides it —
-converts a promise into a dated dependency. Most fixed-price schedule slips are precondition slips wearing
-a technical costume.
+- Give every acceptance criterion an ID in the engagement’s spine.
+- The book links each acceptance test to a story or requirement; the rule adds a separate capability field to each criterion [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
+- The book requires user value and testability; it does not require the one-sentence format or witness role [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
 
-**Write criteria in the observable, not the mechanism.** "Every alert carries an evidence image
-identifying the event" survives a change of detector. "The YOLO model returns a bounding box" doesn't, and
-ties acceptance to an implementation you may want to change.
+## Connect criteria to contract terms
 
-## 2. The client-obligation register
+- Record the physical preconditions required before the criterion test can run.
+- Name who prepares the test preconditions: us, the client, or both.
+- Link the open clarification question that settles the criterion’s shape.
+- Record the date when the test preconditions will be in place.
+- Track each criterion as Not prepared, Prepared, Passed, or Failed.
 
-Distinct from the assumptions register, and frequently confused with it:
+## Measurable and game-resistant commitments
 
-- **Assumptions register** — what *we believe* while proceeding without an answer (`templates/assumptions-register.md`).
-- **Obligation register** — what the *client must physically deliver*, by when, or the schedule slips.
+- The book says criteria should express user value and be testable; the rule further excludes implementation-mechanism wording [book:continuous-delivery], Chapter 8: Automated Acceptance Testing.
+- Maintain a client-obligation register separately from the assumptions register.
+- Use the assumptions register for beliefs used to proceed without an answer, not for client deliverables.
+- Use the obligation register for physical client deliverables with deadlines that affect the schedule.
+- Record the obligation number, group, client deliverable, served criterion, linked question, proposed deadline, focal point, completion date, and status.
+- Use schedule-relative deadlines for obligations rather than fixed calendar dates.
+- Assign a named client focal point to each obligation row.
+- Group obligation rows by contract terms and delivery phase so the client can see what is due now and later.
+- Use an authorized focal point for accountability while keeping a wider client contact team and an escalation route [book:key-account-management], 10.1 Roles.
+- Agree written defect-severity definitions before signature.
+- Set the client's acceptance-response deadline and deemed-acceptance consequence before signature.
+- Define precisely what event starts the schedule clock as T0.
 
-An assumption that turns out wrong costs you a rework. An unmet obligation costs you the calendar, and
-without this register it will be remembered as your delay.
+A rate based on cases the supplier cannot control is a weak payment gate. If the denominator comes from a client component that the scope does not test, better client performance can make the supplier’s result less measurable. For a constructed test, publish the cases before the run, let the client add or veto cases, include hard classes, and report results per class. Describe it as sensitivity on that test set, not expected live performance.
 
-Columns: `# · group · item the client provides · serves criterion · linked question · proposed deadline ·
-client focal point · completion date · status`.
+## Consulting agreement and negotiation
 
-Two disciplines make it work:
-
-- **Schedule-relative deadlines**, not absolute dates: "on contract signature", "week 1 of phase 1",
-  "before the phase-2 milestone". The register survives a start-date slip without being rewritten, and it
-  makes the dependency chain legible.
-- **A named client focal point per row.** A deadline with no name is a wish. This is also why the first
-  obligation on the list is usually *"nominate a single authorized focal point."*
-
-Group the rows — contract terms · infrastructure · phase 1 · phase 2 · phase 3 — so the client can see
-what they owe *now* versus later.
-
-## 3. Commercial risk transfer — the obligations that are really contract terms
-
-The most valuable rows in the register aren't logistics. They are the terms that must land in the contract
-*before* signature, because after signature they cost money to fix:
-
-- **A single authorized focal point** with decision authority — and what happens when they're unavailable.
-- **Defect-severity definitions** (typically four levels), agreed in writing. Without these, "critical bug"
-  is whatever the unhappy party says it is.
-- **The client's acceptance-response deadline** — how long they have to accept or reject a submission
-  before it is deemed accepted. Open-ended review is an unfunded liability.
-- **T0** — what event starts the clock, precisely. Contract signature? Deposit received? Access granted?
-  Every schedule commitment is meaningless without it.
-- **Volume caps stated numerically** — documents, users, transactions, hours of footage. "Reasonable
-  volume" is not a scope boundary.
-- **A day rate for change requests**, agreed up front. Negotiating a rate while the client wants something
-  is negotiating from the weak side.
-- **A standby rate when the client causes delay** — what you charge when your team is held idle waiting on
-  an unmet obligation. This is the clause that converts their schedule risk from your problem into a
-  priced one, and it is the single most-omitted term.
-- **Acceptance-council membership** — who signs, and whether one dissenting voice can block.
-- **Warranty and support boundaries** — duration, what counts as a defect versus an enhancement.
-
-**Frame these as protecting both parties**, because they do: the client gets predictability and a defined
-escalation path, you get a bounded downside. A vendor who raises them reads as experienced, not defensive.
-
-## 4. The loop between criteria and terms
-
-These two artifacts generate each other, and the loop runs several times:
-
-```
-acceptance criteria → preconditions → client obligations → contract terms
-        ↑                                                        │
-        └──────── terms constrain what you can commit to ────────┘
-```
-
-Writing a criterion surfaces a precondition; the precondition needs an owner and a date, which makes it an
-obligation; obligations that carry commercial consequence become contract clauses; and the clauses you
-*can't* get agreed force you to soften or re-scope the criterion. Run the loop until it converges before
-signature — every unclosed cycle is an argument scheduled for delivery.
-
-## 5. Contract anatomy — what the annex sits inside
-
-You will not draft the contract, but you own the schedules attached to it and must recognise where your
-architecture creates obligations. A typical service contract carries: definitions · both parties' rights and
-obligations · value and payment · implementation time · **acceptance and handover** · warranty and support ·
-IP ownership · confidentiality · personal-data protection · **change requests** · force majeure · penalties
-and damages · suspension and termination · limitation of liability · notices · governing law and disputes.
-
-The architecture-bearing ones are **acceptance and handover**, **change requests**, **IP**, **personal-data
-protection**, and **limitation of liability** — read those clauses against your solution. A data-protection
-clause written for a document-management system will not survive an architecture that ships data to a
-third-party inference API.
-
-Appendices usually carry: scope and deliverables · **acceptance criteria** · price breakdown and adjustment ·
-penalty schedule · notice templates. The acceptance appendix is yours.
-
-## Anti-patterns
-
-- **Criteria that restate features.** "The system has a chatbot" proves nothing and gates nothing.
-- **Criteria that depend on client inputs nobody committed to** — untestable on the day, and the delay
-  lands on you.
-- **Silent scope drift between revisions.** Dropping a function from the annex without repricing, or
-  without propagating to the translation, is the defect class in `artifact-integrity.md` C5/C6.
-- **Deferring the day rate and standby terms** to "we'll sort it out later." Later is when you have no
-  leverage.
-- **Treating obligations as assumptions.** An assumption you can proceed on; an unmet obligation stops you.
-- **Acceptance criteria written after the price is fixed.** The criteria *are* the scope; pricing before
-  they exist is pricing a guess.
-
-## Tier criteria by what the instrument can carry
-
-A criterion is only as good as the thing that will measure it. Before writing a number, ask what will produce
-it and how big the sample actually is — then place it in one of three tiers, and say on the artifact which
-tier it is in.
-
-| Tier | Holds | Test for membership |
-|---|---|---|
-| **Commit** | Counts, coverage, determinism, and rates whose **denominator you construct** | Could two people compute this to the same value from the same run, with no sampling argument available? |
-| **Report** | Every rate measured against a sample you did not construct | State it *with* its sample size and the honest uncertainty, and do not commit |
-| **Method** | The measurement contract itself — the definitions, the inputs, the adjudication route | Makes every other number computable. It is a criterion, not preamble |
-
-**Prefer a count to a rate.** A count has no sampling noise, can be measured across the whole population
-rather than a labelled subset, and cannot be argued down with a confidence interval. Where the value
-proposition can be stated as a count, that is the headline.
-
-### Effective sample size is clusters, not observations
-
-Observations inside one document, one interview, one site are **not independent** — they share a layout, a
-respondent, a configuration. A thousand data points drawn from ten documents behave like somewhere between
-fifteen and thirty independent observations, not a thousand. A single structural failure produces dozens of
-correlated errors in one event.
-
-Consequence: a ±5-point claim on a ten-document sample is not defensible, and a numerate client will say so.
-Either widen the sample, or move the number to **report** and state the clustering.
-
-### A denominator you do not control is not measurable
-
-If a metric counts *"the share of X we catch"* and X is produced by a component you have contractually agreed
-not to test or tune, the denominator is outside your control and probably small. Worse, the relationship is
-perverse: **the better that component performs, the fewer instances exist, and the less provable your number
-becomes.** You have tied your evidence to your client's component failing.
-
-**The fix is to construct the denominator.** Inject instances of known class and magnitude into verified-correct
-inputs and measure against those. It costs engineering time rather than client-expert time — usually the scarce
-resource — and it converts an unmeasurable claim into a committable one.
-
-Three guardrails make a self-set test credible rather than self-serving, and they are what a sceptical buyer
-will look for:
-
-- **Publish the suite before the run** and let the client add cases and veto yours.
-- **Include the hard classes by name** — specifically the ones your mechanism is least likely to catch. Their
-  low scores are the honest boundary of the method and should be reported, not omitted.
-- **Report per class, never pooled.** Pooling is how a self-set test is gamed.
-
-State the limitation yourself: a constructed sample measures **sensitivity per class**, not expected live
-performance, because injected instances are not distributed like real ones. Both numbers answer real
-questions; conflating them is what gets caught.
-
-### Check the set for gameability before you sign it
-
-Every committed criterion should be read as an adversary would: *what is the cheapest way to satisfy this
-while delivering nothing?* Criteria that are individually sound are routinely gameable in combination.
-
-The recurring shape is a **workload or volume commitment with no quality floor beside it** — "no more than N
-items reach a human" is won outright by a system that surfaces nothing. Where two criteria are only
-meaningful together, **bond them on the artifact itself**: say on the card that one is valid only against the
-other. An internal understanding does not survive the artifact being read alone, which is exactly when it
-will be read.
-
-### When the deal shape changes, replace the criteria — do not renumber them
-
-Criteria authored for one commercial shape cannot be salvaged by editing their numbers; the **shape is the
-defect**. A set written as fixed-price acceptance gates carries assumptions — that a miss has a payment
-consequence, that thresholds precede evidence, that "done" is binary — which survive any amount of
-rewording.
-
-Observed failure mode: a set was correctly recorded as mis-aimed, then "fixed" by retiring three criteria and
-restating one with new percentages. **That repeated the original error at smaller scale**, and two independent
-reviews caught it within hours. Replace the set, continue the ID namespace rather than reusing numbers, and
-banner the retired set at its source so the old IDs cannot be cited by accident.
-
-Watch for what the restatement quietly drops. In the same case the rewrite deleted the only criterion
-bounding the reviewer's workload — the number that *was* the value proposition — and nothing caught it,
-because consistency gates check that claims agree, not that the important one is still present.
+- State volume caps numerically rather than using vague language.
+- For consulting work, price changes against client results and value rather than a time-based day rate [book:value-based-fees], 2. Basing Fees on Time or Materials and Not on Value Is Simply Crazy (and Unethical).
+- Agree a standby rate for team idle time caused by unmet client obligations.
+- Name the acceptance-council members and whether one dissenting member can block acceptance.
+- Define warranty and support duration and distinguish defects from enhancements.
+- Frame commercial risk-transfer clauses as protecting both parties.
+- Flawless Consulting sets a stable, balanced, workable agreement as the goal, while the rule adds iterative convergence across its named conditions before signature [book:flawless-consulting], Chapter 5: The Contracting Meeting.
+- Value-Based Fees warns that a client contract can supersede the proposal and recommends reviewing and challenging its terms, without naming the rule’s clause categories [book:value-based-fees], CHAPTER 7 Seventy Ways to Raise Fees and/or Increase Profits Immediately: **Act Today and Receive a Second Bass-o-Matic Free of Charge!**.
+- The book requires each criterion to express user-facing business value and be provable with an acceptance test; it does not define payment gates [book:continuous-delivery], Chapter 4: Implementing a Testing Strategy.
+- Flawless Consulting treats essential client support, such as access to key people, time, and records, as a gate to proceeding; do not commit criteria that depend on inputs until the client has agreed to provide them [book:flawless-consulting], Chapter 5: The Contracting Meeting.
+- PMBOK calls for approved changes to be integrated into project plans and scope and communicated to stakeholders, but does not prescribe the rule’s annex, pricing, and translation crosswalk [book:pmbok-guide-7e], 2.5.7. Monitoring New Work and Changes.
+- Value-Based Fees recommends putting delay and rescheduling consequences in proposal language upfront, though it does not address day rates or standby rates [book:value-based-fees], Ethics and Fees, Fees and Ethics: *A Mid-Book Practicum*.
+- Flawless Consulting treats client time, access, and participation as explicit wants to negotiate during contracting, rather than assumed inputs [book:flawless-consulting], Chapter 5: The Contracting Meeting.
+- Head First requires the full scope to be very well known before fixed price, beyond merely defining acceptance criteria [book:head-first-pmp], Fixed price contracts.
+- The book derives metrics from goals and questions, then identifies the data needed to compute them; it does not set Commit, Report, or Method labels [book:software-architecture-metrics], Run a GQM Workshop.
+- Commit counts, coverage, deterministic measures, and rates with a constructed denominator only when independent readers can compute the same value.
+- PMBOK requires performance information to convey its degree of uncertainty, but does not prescribe the rule’s sample-size disclosure or when rates may be committed [book:pmbok-guide-7e], 2.7.3. Presenting Information.
+- The book treats measurement collection and computation as system requirements and scope inputs, rather than prescribing a payment acceptance criterion [book:software-architecture-metrics], Run a GQM Workshop.
+- Prefer a count as the headline metric when the value proposition can be stated as a count.
+- Treat observations from one document, interview, or site as clustered rather than independent.
+- Do not make a narrow-confidence claim from a small clustered sample; widen the sample or report the number with its clustering.
+- Do not call a metric measurable when its denominator is controlled by a client component you cannot test or tune.
+- Construct a controlled denominator by injecting known cases into verified-correct inputs when the original denominator is outside your control.
+- The book recommends writing acceptance tests before development; it does not give the client add or veto rights over a constructed suite [book:continuous-delivery], Chapter 4: Implementing a Testing Strategy.
+- Include the difficult classes by name and report their results rather than omitting low-scoring classes.
+- Report constructed-test results per class instead of pooling classes.
+- The book distinguishes test performance from real-world reliability; the per-class sensitivity framing is an addition [book:building-reliable-ai-systems], 1.6 Why reliable AI systems matter now.
+- Read every committed criterion adversarially and ask how it could be satisfied while delivering nothing.
+- The book balances throughput measures with service stability measures, but does not prescribe a contractual quality floor beside a volume commitment [book:software-architecture-metrics], Definition and Instrumentation.
+- Bond criteria that only make sense together directly on the artifact.
+- When the deal shape changes, replace the acceptance criteria set rather than merely editing its numbers.
+- Continue the ID namespace, do not reuse retired numbers, and mark the retired set at its source to prevent accidental citation.
+- Check each restatement for quietly dropped criteria that carry the value proposition.
+- Clarify the form, length, and specificity of the deliverable rather than the occasion the engagement supports [book:flawless-consulting], Elements of a Contract.
+- During scoping, establish when the engagement will occur [book:flawless-consulting], Elements of a Contract.
+- For advisory proposals with measurable outcomes, price options around client results rather than consultant tasks [book:value-based-fees], CHAPTER 3 The Basics of Value-Based Fees: *It's Better to Be an Artist Than to Be an Engineer*.
+- Specify the form, detail level, and recommendation specificity of each contracted deliverable [book:flawless-consulting], Elements of a Contract.
+- Use a brief written consulting contract to agree the project boundaries, objectives, consultant role and deliverable, client support, schedule, and confidentiality before work starts [book:flawless-consulting], Elements of a Contract.
+- Agree with the economic buyer on business outcomes, success measures, and the value of those outcomes before setting a discretionary consulting fee [book:value-based-fees], CHAPTER 4 How to Establish Value-Based Fees: ***If You Read Only One Chapter …***.
+- Develop several options that satisfy important interests on both sides before converging on a commercial agreement [book:getting-to-yes], 4 Invent Options for Mutual Gain.
+- Put engagement boundaries, objectives, information needs, consultant and client roles, deliverable, support, and timing into a clear contract before work begins [book:flawless-consulting], Elements of a Contract.
+- Define retainer access limits and price discrete projects separately from the recurring retainer [book:value-based-fees], ORGANIZING THE SCOPE AND MANAGING PROJECTS CONCURRENT WITH THE RETAINER.
+- Write the engagement agreement briefly and conversationally, covering analysis boundaries, objectives, needed information, the consultant role, deliverables, and success measures [book:flawless-consulting], Elements of a Contract.
+- Explicitly agree reciprocal expectations and how both sides will work together before beginning a consulting engagement [book:flawless-consulting], Contracting: The Concept and the Skill.
