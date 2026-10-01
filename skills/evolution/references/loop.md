@@ -2,7 +2,7 @@
 
 The mechanism that turns a skill from "current instinct / borrowed confidence" into earned, refined judgment. A skill that never ingests its own real traces is frozen at its authoring assumptions; a skill *distilled from documents* is a confident hypothesis until fire-tested. The loop fixes both.
 
-> Canonical home. Moved here from `core/references/evolution-loop.md` on 2026-08-09 when the machinery was consolidated into this skill; `core` keeps spine item #8 (the *gate*: ship an `EVOLUTION.md`, keep its verdict honest) and points here for the *mechanism*.
+> Canonical home. Moved here from `core/references/evolution-loop.md` on 2026-08-09 when the machinery was consolidated into this skill; this skill now owns both the *gate* (ship an `EVOLUTION.md`, keep its verdict `PENDING` until two real uses) and the *mechanism*.
 
 ## The loop
 

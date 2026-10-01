@@ -14,7 +14,7 @@ Turns the constellation's own traces into skill improvements. You invoke it with
 
 - **This skill:** "evolve my skills", "meta session", "improve the skill", "what have we learned" — and the unprompted cases: a gate the user keeps skipping, a correction that has recurred, a ledger stuck at `PENDING` while the skill kept being used.
 - **`skill-builder` instead:** creating a new skill, splitting/merging, distilling a methodology, fixing frontmatter or structure, publishing. Birth and shape.
-- **`core` instead:** you want the canonical statement of an inherited gate. `core` spine #8 declares that skills must evolve; this skill is *how*.
+- **`core` instead:** you want the canonical statement of an inherited gate. This skill now owns both the gate (ship an `EVOLUTION.md`, keep its verdict `PENDING` until two real uses) and its mechanism.
 - **`dev` instead:** the thing being improved is software, not a skill.
 
 > **Disambiguation:** on **artifact**. `skill-builder` produces a skill that didn't exist or a structure that was wrong. `evolution` produces a **diff plus a ledger entry** on a skill that already works, justified by a trace. When a refine needs both — new structure *and* evidence — `skill-builder` shapes it and hands the ledger step here.
