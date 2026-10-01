@@ -12,6 +12,10 @@
 
 Each command writes one JSON result to stdout. Diagnostics use stable codes and JSON pointers. A storyboard's project root is its directory unless `--root` is supplied; asset paths resolve inside that root. Keep output paths inside the repository; the build and sample commands write under `out/`.
 
+## PowerPoint owner check
+
+AT37 is the sole expected owner check because Microsoft PowerPoint is not installed on the build Mac. `scene-engine selftest --case AT37` reports `status: owner-check` and the manual steps; it is not a passing compatibility test. On current Microsoft PowerPoint for Windows and Mac, record each OS and PowerPoint build, open `out/tests/at33-morph.pptx` and `out/tests/at35.pptx` and record repair prompts, edit a chart value and confirm it survives save/reopen, verify the AT33 Morph and AT32 entrance animation, and play the AT35 embedded video. `npm test` reports that one owner check as skipped until the release owner records the results.
+
 ## Storyboard example
 
 ```json

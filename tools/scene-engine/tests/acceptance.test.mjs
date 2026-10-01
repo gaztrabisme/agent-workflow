@@ -10,6 +10,7 @@ import { loadStoryboard, diagnostic } from '../src/scene.mjs';
 import { ease, sampleTrack, sampleLayer, frameTimeMs, frameCount } from '../src/timeline.mjs';
 import { generateHtml, writeVtt } from '../src/html.mjs';
 import { renderStoryboard } from '../src/render.mjs';
+import { exportWithKeynote } from '../src/pptx_smoke.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'out');
@@ -33,9 +34,9 @@ function runCli(args) {
   const stdout = execFileSync(process.execPath, [CLI, ...args], { cwd: ROOT, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
   return JSON.parse(stdout.trim());
 }
-function runCliAsync(args) {
+function runCliAsync(args, env = process.env) {
   return new Promise((resolve) => {
-    const child = spawn(process.execPath, [CLI, ...args], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+    const child = spawn(process.execPath, [CLI, ...args], { cwd: ROOT, env, stdio: ['ignore', 'pipe', 'pipe'] });
     let stdout = ''; let stderr = '';
     child.stdout.on('data', (chunk) => stdout += chunk);
     child.stderr.on('data', (chunk) => stderr += chunk);
@@ -59,8 +60,8 @@ async function unusedPort() {
   await new Promise((resolve) => server.close(resolve));
   return port;
 }
-async function startFixtureApp(port) {
-  const child = spawn(process.execPath, [path.join(ROOT, 'src/static-server.mjs'), path.join(ROOT, 'samples/fixture-app'), String(port)], { cwd: ROOT, stdio: 'ignore' });
+async function startFixtureApp(port, root = path.join(ROOT, 'samples/fixture-app')) {
+  const child = spawn(process.execPath, [path.join(ROOT, 'src/static-server.mjs'), root, String(port)], { cwd: ROOT, stdio: 'ignore' });
   const deadline = Date.now() + 10000;
   while (Date.now() < deadline) {
     if (child.exitCode !== null) throw new Error(`fixture app exited ${child.exitCode}`);
@@ -69,6 +70,14 @@ async function startFixtureApp(port) {
   }
   child.kill('SIGTERM');
   throw new Error('fixture app did not start');
+}
+function zipText(filename, entry) { return execFileSync('unzip', ['-p', filename, entry], { encoding: 'utf8' }); }
+function exportPptx(filename, output, extra = []) { return runCli(['export-pptx', filename, '--root', ROOT, '--out', output, ...extra]); }
+function makeAt17Story(url) {
+  return baseStory([layer('unseekable-dashboard', 'appDemo', {
+    width: 640, height: 360, type: 'appDemo', url, readySelector: '[data-ready]', steps: [],
+    appBuildId: 'at17-canvas-fixture', deviceScaleFactor: 2, viewport: 'layer-box-css-pixels'
+  })], 1000);
 }
 
 test('AT01', () => {
@@ -129,7 +138,25 @@ test('AT05', async (t) => {
   assert.deepEqual(first, second);
 });
 
-test('AT06', { skip: 'Registered backward-unseekable adapters are not implemented in this build.' }, () => {});
+test('AT06', async (t) => {
+  const story = baseStory([layer('adapter-stage')], 1000);
+  const model = loadStoryboard(storyFile('at06.json', story), { root: ROOT });
+  const htmlFile = path.join(WORK, 'at06.html'); fs.writeFileSync(htmlFile, generateHtml(model));
+  const context = await chromium.launchPersistentContext(path.join(WORK, 'at06-profile'), { headless: true, viewport: { width: 1920, height: 1080 } });
+  t.after(() => context.close());
+  const page = await context.newPage();
+  await page.addInitScript(() => {
+    let lastFrame = -1;
+    window.__sceneEngineAdapters = [{ id: 'history-adapter', layerId: 'adapter-stage', seekFrame(frame) { if (frame < lastFrame) return false; lastFrame = frame; return true; } }];
+  });
+  await page.goto(pathToFileURL(htmlFile).href); await page.evaluate(() => window.__sceneEngine.ready());
+  const probe = await page.evaluate(() => window.__sceneEngine.verifyAdapters());
+  assert.equal(probe.status, 'fail');
+  assert.equal(probe.code, 'UNSEEKABLE');
+  assert.equal(probe.adapterId, 'history-adapter');
+  assert.equal(probe.layerId, 'adapter-stage');
+  assert.equal(probe.frame, 0);
+});
 
 test('AT07', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
@@ -139,7 +166,17 @@ test('AT07', () => {
   assert.match(renderer, /\['lint', compositionDir\]/);
 });
 
-test('AT08', { skip: 'The locked HyperFrames executable is installed; missing-binary behavior needs an injectable executable path.' }, () => {});
+test('AT08', async () => {
+  const filename = storyFile('at08.json', baseStory([layer('missing-hyperframes')], 1000));
+  const output = path.join(OUT, 'tests', 'at08-missing.mp4'); fs.rmSync(output, { force: true });
+  const env = { ...process.env, SCENE_ENGINE_HYPERFRAMES_BIN: path.join(WORK, 'missing', 'hyperframes') };
+  const result = await runCliAsync(['render', filename, '--root', ROOT, '--renderer', 'hyperframes', '--captions', 'none', '--out', output], env);
+  const document = JSON.parse(result.stdout.trim());
+  assert.equal(result.code, 3);
+  assert.equal(document.errors[0].code, 'HYPERFRAMES_MISSING');
+  assert.match(document.errors[0].message, /unavailable/i);
+  assert.equal(fs.existsSync(output), false);
+});
 
 test('AT09', async () => {
   const audio = makeTone(path.join(WORK, 'at09.wav'), 0.5);
@@ -186,8 +223,37 @@ test('AT12', () => {
   assert.match(shapes, /ok/);
 });
 
-test('AT13', { skip: 'Native combo chart XML and secondary-axis workbooks are not implemented.' }, () => {});
-test('AT14', { skip: 'Per-layer raster fallback for unsupported DrawingML effects is not implemented.' }, () => {});
+test('AT13', () => {
+  const chart = layer('combo-chart', 'chart', { kind: 'combo', categories: ['Q1', 'Q2', 'Q3'], series: [
+    { name: 'Units', kind: 'column', axis: 'primary', values: [12, 18, 16] },
+    { name: 'Margin', kind: 'line', axis: 'secondary', values: [0.12, 0.14, 0.18] }
+  ] });
+  const filename = storyFile('at13.json', baseStory([
+    layer('combo-title', 'text', { text: 'Units and margin', width: 700, height: 80 }),
+    layer('combo-marker', 'shape', { x: 750, y: 20, width: 80, height: 80, decorative: true }),
+    chart
+  ])); const output = path.join(OUT, 'tests', 'at13-combo.pptx');
+  const document = exportPptx(filename, output);
+  assert.equal(document.ok, true);
+  const xml = zipText(output, 'ppt/charts/chart1.xml');
+  assert.match(xml, /<c:lineChart>/);
+  assert.equal((xml.match(/<c:valAx>/g) ?? []).length, 2);
+  assert.match(xml, /<c:axPos val="r"/);
+  assert.equal(document.result.workbookChecks[0].series, 2);
+  assert.ok(document.result.workbookChecks[0].workbookPart);
+  assert.ok(execFileSync('unzip', ['-Z1', output], { encoding: 'utf8' }).split('\n').includes(document.result.workbookChecks[0].workbookPart));
+});
+test('AT14', () => {
+  const title = layer('editable-title', 'text', { text: 'Effects keep title editable.', style: { fontFamily: 'Arial', fontSize: 40 } });
+  const effect = layer('effect-panel', 'shape', { alt: 'Blurred evidence panel', effects: { blurPx: 3, blendMode: 'multiply', transform3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1] } });
+  const filename = storyFile('at14.json', baseStory([title, effect])); const output = path.join(OUT, 'tests', 'at14-fallback.pptx');
+  const document = exportPptx(filename, output);
+  assert.equal(document.ok, true);
+  assert.equal(document.result.mappings.find((item) => item.layerId === 'effect-panel').representation, 'rasterized-layer');
+  assert.match(document.result.mappings.find((item) => item.layerId === 'effect-panel').reason, /blur.*blend.*3D/);
+  const inspect = execFileSync(path.join(ROOT, '.venv/bin/python'), ['-c', "from pptx import Presentation; import sys; p=Presentation(sys.argv[1]); shapes=[s for slide in p.slides for s in slide.shapes]; assert any(s.has_text_frame and 'Effects keep title editable.' in s.text_frame.text for s in shapes); pic=next(s for s in shapes if s.name == 'effect-panel' and s.shape_type == 13); assert pic.image.size[0] >= 600 and pic.image.size[1] >= 400, pic.image.size; assert pic._element.nvPicPr.cNvPr.get('descr') == 'Blurred evidence panel'; print('editable text + 2x picture + alt text')", output], { encoding: 'utf8' });
+  assert.match(inspect, /editable text \+ 2x picture/);
+});
 
 test('AT15', async (t) => {
   const port = await unusedPort(); const server = await startFixtureApp(port);
@@ -215,7 +281,21 @@ test('AT16', async (t) => {
   assert.match(document.errors[0].message, /ready selector/);
 });
 
-test('AT17', { skip: 'Unseekable app canvas detection is not implemented.' }, () => {});
+test('AT17', async (t) => {
+  const appRoot = path.join(WORK, 'at17-app'); fs.mkdirSync(appRoot, { recursive: true });
+  fs.writeFileSync(path.join(appRoot, 'index.html'), '<!doctype html><div data-ready>ready</div><canvas id="draw" width="40" height="40"></canvas><script>const c=document.querySelector("canvas").getContext("2d");function tick(){c.fillStyle="#2563EB";c.fillRect(Math.random()*20,0,20,20);requestAnimationFrame(tick)}tick();</script>');
+  const port = await unusedPort(); const server = await startFixtureApp(port, appRoot); t.after(() => server.kill('SIGTERM'));
+  const filename = storyFile('at17.json', makeAt17Story(`http://127.0.0.1:${port}/`));
+  const outDir = path.join(OUT, 'tests', 'at17'); fs.rmSync(outDir, { recursive: true, force: true });
+  const result = await runCliAsync(['capture', filename, '--root', appRoot, '--scene', 'scene', '--layer', 'unseekable-dashboard', '--out-dir', outDir, '--timeout', '3000']);
+  const document = JSON.parse(result.stdout.trim());
+  assert.equal(result.code, 1);
+  assert.equal(document.errors[0].code, 'UNSEEKABLE');
+  assert.equal(document.errors[0].layerId, 'unseekable-dashboard');
+  assert.equal(document.errors[0].frame, 0);
+  assert.match(document.errors[0].message, /canvas.*deterministic seek adapter/i);
+  assert.equal(fs.existsSync(outDir), false);
+});
 
 test('AT18', async () => {
   const story = baseStory([layer('fallback-box')], 1000);
@@ -365,11 +445,82 @@ test('AT31', () => {
   assert.ok(app.steps.some((step) => step.locator.role === 'button' && step.locator.name === 'Compare periods'));
 });
 
-test('AT32', { skip: 'PowerPoint entrance XML, bullet formatting and pose warnings are incomplete; native text and Arial substitution are supported.' }, () => {});
-test('AT33', { skip: 'ECMA-376 schema validation and LibreOffice/Keynote round trips are incomplete.' }, () => {});
-test('AT34', { skip: 'Embedded workbook formula-to-cell mismatch validation is incomplete.' }, () => {});
+test('AT32', () => {
+  const title = layer('pose-title', 'text', {
+    x: 1750, y: 80, width: 400, height: 220, scaleX: 1.5, scaleY: 1,
+    bullets: [{ text: 'First point', kind: 'bullet', level: 0 }, { text: 'Second point', kind: 'number', level: 1 }],
+    style: { fontFamily: 'SceneEngineMissingFont', fontSize: 36 },
+    entrance: 'flyInLeft', entranceDurationMs: 500,
+    tracks: [{ property: 'opacity', keyframes: [{ atMs: 0, value: 0 }, { atMs: 999, value: 0 }] }]
+  });
+  const story = baseStory([title]); story.scenes[0].pptxAtMs = 0;
+  const filename = storyFile('at32.json', story); const output = path.join(OUT, 'tests', 'at32-timing.pptx');
+  const document = exportPptx(filename, output);
+  assert.equal(document.ok, true);
+  const slide = zipText(output, 'ppt/slides/slide1.xml');
+  assert.match(slide, /<p:animEffect[^>]*filter="fly\(left\)"/);
+  assert.match(slide, /dur="500"/);
+  assert.match(slide, /<a:buChar[^>]*char="•"/);
+  assert.match(slide, /<a:buAutoNum[^>]*type="arabicPeriod"/);
+  assert.doesNotMatch(slide, /• First point|1\. Second point/);
+  assert.equal(document.result.roundTrip.status, 'pass');
+  assert.equal(document.result.mappings.find((item) => item.layerId === 'pose-title').representation, 'native-text');
+  assert.deepEqual(document.result.fontReport.find((item) => item.layerId === 'pose-title'), {
+    sceneId: 'scene', layerId: 'pose-title', requested: 'SceneEngineMissingFont', emitted: 'Arial', status: 'substituted'
+  });
+  assert.deepEqual(new Set(document.result.poseWarnings.map((item) => item.code)), new Set(['PPTX_POSE_INVISIBLE', 'PPTX_POSE_CLIPPED', 'PPTX_TEXT_REFLOW']));
+});
+
+test('AT33', () => {
+  const svg = path.join(WORK, 'at33.svg');
+  fs.writeFileSync(svg, '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80"><rect width="120" height="80" fill="#2563eb"/><circle cx="60" cy="40" r="20" fill="#ffffff"/></svg>');
+  const first = { id: 'morph-start', startMs: 0, durationMs: 1000, layers: [
+    layer('morph-title-one', 'text', { name: '!!shared-title', text: 'Schema-checked Morph title', width: 900, height: 100 }),
+    layer('svg-mark', 'image', { src: 'out/.work/acceptance/at33.svg', width: 120, height: 80, alt: 'Blue mark' }),
+    layer('schema-chart', 'chart', { kind: 'column', categories: ['A', 'B'], series: [{ name: 'Count', values: [3, 7] }] })
+  ] };
+  const second = { id: 'morph-end', after: 'morph-start', durationMs: 1000, layers: [
+    layer('morph-title-two', 'text', { name: '!!shared-title', text: 'Schema-checked Morph title, continued', width: 1100, height: 100 })
+  ] };
+  const filename = storyFile('at33.json', { ...baseStory(), scenes: [first, second] });
+  const output = path.join(OUT, 'tests', 'at33-morph.pptx');
+  const document = exportPptx(filename, output);
+  assert.equal(document.ok, true);
+  assert.equal(document.result.openXmlValidation.status, 'pass');
+  assert.ok(document.result.openXmlValidation.partsChecked >= 10);
+  assert.equal(document.result.roundTrip.status, 'pass');
+  assert.equal(document.result.roundTrip.libreOffice, 'pass');
+  assert.match(zipText(output, 'ppt/slides/slide2.xml'), /p159:morph[^>]*option="byObject"/);
+  assert.match(zipText(output, 'ppt/slides/slide1.xml'), /asvg:svgBlip r:embed="rId\d+"/);
+  assert.match(zipText(output, 'ppt/slides/slide1.xml'), /name="svg-mark" descr="Blue mark"/);
+  assert.ok(execFileSync('unzip', ['-Z1', output], { encoding: 'utf8' }).split('\n').some((name) => /^ppt\/media\/imageSvg\d+\.svg$/.test(name)));
+  const keynotePdf = path.join(OUT, 'tests', 'at33-keynote.pdf');
+  const keynote = exportWithKeynote(output, keynotePdf);
+  assert.equal(keynote.status, 'pass');
+  assert.ok(fs.statSync(keynotePdf).size > 0);
+});
+
+test('AT34', () => {
+  const categories = ['Jan', 'Feb', 'Mar']; const seriesData = [{ name: 'Visits', values: [10, 20, 30] }];
+  const filename = storyFile('at34.json', baseStory([layer('formula-chart', 'chart', { kind: 'column', categories, series: seriesData })]));
+  const output = path.join(OUT, 'tests', 'at34-valid.pptx'); const corrupt = path.join(OUT, 'tests', 'at34-corrupt.pptx');
+  const document = exportPptx(filename, output, ['--no-verify']); assert.equal(document.ok, true);
+  const expected = [{ layerId: 'formula-chart', chartPart: 'ppt/charts/chart1.xml', categories, seriesData }];
+  const script = `import json,runpy,sys,zipfile\nsrc,dst,target,checks,writer=sys.argv[1:]\nchanged=False\nwith zipfile.ZipFile(src) as a, zipfile.ZipFile(dst,'w',zipfile.ZIP_DEFLATED) as b:\n  for item in a.infolist():\n    data=a.read(item.filename)\n    if item.filename=='ppt/charts/chart1.xml':\n      text=data.decode(); old='!$B$2:$B$4'; changed=old in text; data=text.replace(old,'!$B$2:$B$2',1).encode()\n    b.writestr(item,data)\nif not changed: raise SystemExit('formula fixture was not found')\nmodule=runpy.run_path(writer)\ntry: module['verify_and_publish'](dst,target,json.loads(checks))\nexcept module['PackageValidationError'] as error: print(json.dumps({'code':error.code,'details':error.details})); raise SystemExit(0)\nraise SystemExit('mismatched workbook passed validation')`;
+  const target = path.join(OUT, 'tests', 'at34-should-not-publish.pptx'); fs.rmSync(target, { force: true });
+  const result = spawnSync(path.join(ROOT, '.venv/bin/python'), ['-c', script, output, corrupt, target, JSON.stringify(expected), path.join(ROOT, 'src/pptx_writer.py')], { cwd: ROOT, encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  const validation = JSON.parse(result.stdout.trim());
+  assert.equal(validation.code, 'PPTX_WORKBOOK_MISMATCH');
+  assert.equal(validation.details[0].code, 'PPTX_WORKBOOK_MISMATCH');
+  assert.equal(fs.existsSync(target), false);
+});
 test('AT35', () => {
-  const story = baseStory([layer('app-footage', 'video', { src: 'out/tests/at15/capture.mp4', poster: 'out/tests/at18.png', muted: true })], 1000);
+  const story = baseStory([
+    layer('playback-title', 'text', { text: 'Full storyboard playback', width: 700, height: 100, alt: 'Embedded video acceptance title' }),
+    layer('playback-marker', 'shape', { x: 800, y: 120, width: 120, height: 120, decorative: true }),
+    layer('app-footage', 'video', { src: 'out/tests/at15/capture.mp4', poster: 'out/tests/at18.png', muted: true })
+  ], 1000);
   const filename = storyFile('at35.json', story);
   const output = path.join(OUT, 'tests', 'at35.pptx');
   const result = runCli(['export-pptx', filename, '--root', ROOT, '--out', output, '--embed-video', path.join(OUT, 'tests/at18.mp4'), '--verify']);
@@ -380,8 +531,25 @@ test('AT35', () => {
   const count = execFileSync(path.join(ROOT, '.venv/bin/python'), ['-c', "from pptx import Presentation; p=Presentation('" + output + "'); print(len(p.slides))"], { encoding: 'utf8' });
   assert.equal(Number(count.trim()), 2);
 });
-test('AT36', { skip: 'Keynote import and PDF smoke automation has not been run.' }, () => {});
-test('AT37', { skip: 'Manual current PowerPoint checks on Windows and Mac require the release owner; PowerPoint is not installed here.' }, () => {});
+test('AT36', () => {
+  const document = runCli(['selftest', '--case', 'AT36']);
+  const smoke = document.result.cases.find((item) => item.id === 'AT36');
+  assert.equal(document.ok, true);
+  assert.equal(smoke.status, 'pass');
+  assert.equal(smoke.details.keynote.status, 'pass');
+  assert.equal(smoke.details.libreOffice.status, 'pass');
+  assert.equal(smoke.details.powerpointBehaviorProven, false);
+  assert.ok(fs.statSync(smoke.details.keynote.pdf).size > 0);
+  assert.ok(fs.statSync(smoke.details.libreOffice.pdf).size > 0);
+});
+test('AT37 owner-check: current PowerPoint on Windows and Mac', (t) => {
+  const document = runCli(['selftest', '--case', 'AT37']);
+  const ownerCheck = document.result.cases.find((item) => item.id === 'AT37');
+  assert.equal(document.ok, true);
+  assert.equal(ownerCheck.status, 'owner-check');
+  assert.ok(ownerCheck.manualSteps.length >= 3);
+  t.skip('owner-check: release owner must record OS and PowerPoint builds, confirm AT33/AT35 open without repair, edit and retain chart data after save/reopen, verify Morph and entrance timing, and play embedded video.');
+});
 
 test('AT38', () => {
   const document = runCli(['validate', 'samples/explainer/storyboard.json', '--root', 'samples/explainer']);

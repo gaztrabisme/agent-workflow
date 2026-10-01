@@ -5,14 +5,17 @@ import crypto from 'node:crypto';
 import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { pathToFileURL } from 'node:url';
+import { chromium } from 'playwright';
 import { loadStoryboard, diagnostic, allLayers, canonicalHash } from './scene.mjs';
 import { ease, sampleTrack, sampleLayer, frameTimeMs, frameCount } from './timeline.mjs';
 import { renderStoryboard, ensureInsideRepository } from './render.mjs';
 import { appLayers, captureAppLayer } from './capture.mjs';
-import { generateStaticHtml } from './html.mjs';
+import { generateHtml, generateStaticHtml } from './html.mjs';
+import { exportWithKeynote, renderWithLibreOffice } from './pptx_smoke.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
+const CLI = path.join(HERE, 'cli.mjs');
 const FORMAT = 'scene-engine/result@1';
 
 function parseArgs(argv) {
@@ -84,7 +87,7 @@ function resultDefaults(command) {
     validate: { valid: false, sceneCount: 0, layerCount: 0, durationMs: 0, frameCount: 0 },
     render: { durationMs: 0, frameCount: 0, renderer: { name: 'fallback', version: null }, streams: [], diagnostics: [] },
     capture: { sceneId: '', layerId: '', appBuildId: null, cssViewport: { width: 0, height: 0 }, deviceScaleFactor: 2, frameCount: 0, fixtureCount: 0, hashes: [], manifestPath: '', storyboardHash: '', layerHash: '', browserVersion: '' },
-    'export-pptx': { slideCount: 0, slideAdvanceMs: [], mappings: [], fontReport: [], workbookChecks: [], openXmlValidation: { status: 'skipped', partsChecked: 0, relationshipErrors: [] }, roundTrip: { status: 'skipped', text: 'not run', geometry: 'not run', chartData: 'not run', libreOffice: 'not run' }, captionsEmbedded: false, captionsBySlide: [] },
+    'export-pptx': { slideCount: 0, slideAdvanceMs: [], mappings: [], fontReport: [], workbookChecks: [], poseWarnings: [], openXmlValidation: { status: 'skipped', partsChecked: 0, relationshipErrors: [] }, roundTrip: { status: 'skipped', text: 'not run', geometry: 'not run', chartData: 'not run', libreOffice: 'not run' }, captionsEmbedded: false, captionsBySlide: [] },
     check: { timesMs: [], reports: [], pptxDiagnostics: {} },
     selftest: { cases: [], ok: false }
   })[command] ?? {};
@@ -129,6 +132,50 @@ async function commandCapture(positional, options) {
   }, { files }));
 }
 
+function pptxRasterReason(layer) {
+  if (layer.type === 'text') return null;
+  const effects = layer.effects ?? {};
+  const reasons = [];
+  if (effects.blurPx) reasons.push('blur');
+  if (effects.backdropBlurPx) reasons.push('backdrop blur');
+  if (effects.blendMode) reasons.push(`blend mode ${effects.blendMode}`);
+  if (effects.transform3d) reasons.push('3D transform');
+  if (effects.mask) reasons.push('layer mask');
+  if (layer.type === 'image' && path.extname(layer.src).toLowerCase() === '.svg') reasons.push('SVG image raster fallback');
+  return reasons.length ? reasons.join(', ') : null;
+}
+
+async function preparePptxRasterFallbacks(model, work) {
+  const items = [];
+  const visit = (scene, layers) => {
+    for (const layer of layers ?? []) {
+      const reason = pptxRasterReason(layer);
+      if (reason) items.push({ scene, layer, reason });
+      visit(scene, layer.children);
+    }
+  };
+  for (const scene of model.scenes) visit(scene, scene.layers);
+  if (!items.length) return;
+  const htmlFile = path.join(work, 'raster-source.html');
+  fs.writeFileSync(htmlFile, generateHtml(model));
+  const context = await chromium.launchPersistentContext(path.join(work, 'raster-profile'), { headless: true, viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 2, locale: 'en-US', timezoneId: 'UTC' });
+  try {
+    const page = await context.newPage();
+    await page.goto(pathToFileURL(htmlFile).href, { waitUntil: 'load', timeout: 30000 });
+    await page.evaluate(async () => { await window.__sceneEngine.ready(); await document.fonts.ready; });
+    for (const [index, item] of items.entries()) {
+      const localTime = Math.min(item.layer.startMs + item.layer.durationMs - 1, Math.max(item.layer.startMs, item.scene.pptxAtMs ?? item.scene.durationMs - 1));
+      await page.evaluate((globalTime) => window.__sceneEngine.seek(globalTime), item.scene._startMs + localTime);
+      const image = path.join(work, `raster-${index}.png`);
+      const locator = page.locator(`[data-layer-id="${item.layer.id}"]`);
+      await locator.waitFor({ state: 'visible', timeout: 10000 });
+      await locator.screenshot({ path: image, animations: 'disabled', timeout: 15000 });
+      item.layer._pptxRaster = image;
+      item.layer._pptxRasterReason = item.reason;
+    }
+  } finally { await context.close(); }
+}
+
 async function commandExportPptx(positional, options) {
   validateOptions(options, new Set(['root', 'out', 'report', 'verify', 'no-verify', 'embed-video']), 'export-pptx');
   const model = modelFrom(requireStoryboard(positional), options);
@@ -152,13 +199,19 @@ async function commandExportPptx(positional, options) {
   const scratch = path.join(ROOT, 'out', '.work'); fs.mkdirSync(scratch, { recursive: true });
   const work = fs.mkdtempSync(path.join(scratch, 'pptx-'));
   const modelFile = path.join(work, 'model.json'); const tempOutput = path.join(work, 'draft.pptx');
-  fs.writeFileSync(modelFile, JSON.stringify({ story: model.story, scenes: model.scenes, root: model.root, durationMs: model.durationMs }));
   const python = path.join(ROOT, '.venv', 'bin', 'python');
   try {
+    await preparePptxRasterFallbacks(model, work);
+    fs.writeFileSync(modelFile, JSON.stringify({ story: model.story, scenes: model.scenes, root: model.root, durationMs: model.durationMs }));
     const { stdout, stderr } = await new Promise((resolve, reject) => {
       const child = spawn(python, [path.join(HERE, 'pptx_writer.py'), modelFile, tempOutput, options['no-verify'] ? 'false' : 'true', embedVideo ?? ''], { stdio: ['ignore', 'pipe', 'pipe'] });
       let out = ''; let err = ''; child.stdout.on('data', (b) => { out += b; }); child.stderr.on('data', (b) => { err += b; });
-      child.once('error', reject); child.once('close', (code) => code === 0 ? resolve({ stdout: out, stderr: err }) : reject(Object.assign(new Error(err.trim() || `python-pptx exited ${code}`), { code: 'PPTX_ROUNDTRIP_FAILED', exitCode: 1 })));
+      child.once('error', reject); child.once('close', (code) => {
+        if (code === 0) { resolve({ stdout: out, stderr: err }); return; }
+        let writerError;
+        try { writerError = JSON.parse(err.trim()).error; } catch { }
+        reject(Object.assign(new Error(writerError?.message || writerError?.details?.[0]?.reason || err.trim() || `python-pptx exited ${code}`), { code: writerError?.code || 'PPTX_ROUNDTRIP_FAILED', exitCode: 1, details: writerError?.details }));
+      });
     });
     if (stderr) process.stderr.write(stderr);
     const result = JSON.parse(stdout.trim());
@@ -252,6 +305,16 @@ function simpleSelftest(id) {
   if (id === 'AT21') {
     return { status: 'skipped', errors: [diagnostic('FFMPEG_PROFILE_MISMATCH', 'AT21 requires a rendered fixture video; run npm run samples for artifact profile checks.', { severity: 'warning' })] };
   }
+  if (id === 'AT37') return {
+    status: 'owner-check',
+    errors: [],
+    manualSteps: [
+      'On current Microsoft PowerPoint for Windows and Mac, record the OS and PowerPoint build, then open out/tests/at33-morph.pptx and out/tests/at35.pptx; record whether either shows a repair prompt.',
+      'In the chart, use Edit Data to change a value, save, close, reopen and confirm the edited value persists.',
+      'Run the AT33 Morph slides and AT32 entrance animation; record whether the named title morphs and the text enters from the left.',
+      'Play the embedded video on the AT35 playback slide, then record playback and audio results on each platform.'
+    ]
+  };
   if (id === 'AT24') {
     const before = sampleTrack(12, { property: 'x', keyframes: [{ atMs: 100, value: 32 }] }, 0);
     const held = sampleTrack(0, { property: 'x', keyframes: [{ atMs: 100, value: 32 }] }, 500);
@@ -265,6 +328,22 @@ function simpleSelftest(id) {
   return { status: 'skipped', errors: [diagnostic('CLI_USAGE', `${id} needs a dedicated integration fixture or external application check.`, { severity: 'warning' })] };
 }
 
+function selftestAT36() {
+  const directory = path.join(ROOT, 'out', 'tests', 'AT36');
+  fs.mkdirSync(directory, { recursive: true });
+  const presentation = path.join(directory, 'smoke.pptx');
+  const keynotePdf = path.join(directory, 'keynote.pdf');
+  const libreOfficePdf = path.join(directory, 'libreoffice.pdf');
+  let exported;
+  try { exported = execFileSync(process.execPath, [CLI, 'export-pptx', 'samples/explainer/storyboard.json', '--root', 'samples/explainer', '--out', presentation, '--no-verify'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 12 * 1024 * 1024 }); }
+  catch (error) { throw new Error((error.stderr || error.stdout || error.message).toString().trim()); }
+  const exportDocument = JSON.parse(exported.trim());
+  if (!exportDocument.ok) throw new Error('AT36 could not export its PPTX fixture.');
+  const keynote = exportWithKeynote(presentation, keynotePdf);
+  const libreOffice = renderWithLibreOffice(presentation, libreOfficePdf);
+  return { status: 'pass', errors: [], details: { importRenderSmoke: true, keynote, libreOffice, powerpointBehaviorProven: false } };
+}
+
 async function commandSelftest(positional, options) {
   validateOptions(options, new Set(['case', 'strict']), 'selftest');
   const ids = options.case ? [options.case] : Array.from({ length: 39 }, (_, index) => `AT${String(index + 1).padStart(2, '0')}`);
@@ -275,9 +354,12 @@ async function commandSelftest(positional, options) {
       const file = path.join(ROOT, 'samples', 'explainer', 'storyboard.json');
       const model = loadStoryboard(file);
       cases.push({ id, status: model.errors.length ? 'fail' : 'pass', errors: model.errors });
+    } else if (id === 'AT36') {
+      try { cases.push({ id, ...selftestAT36() }); }
+      catch (error) { cases.push({ id, status: 'fail', errors: [diagnostic('PPTX_ROUNDTRIP_FAILED', error.message, { severity: 'error' })] }); }
     } else cases.push({ id, ...simpleSelftest(id) });
   }
-  const ok = cases.every((item) => item.status === 'pass' || (item.status === 'skipped' && !options.strict));
+  const ok = cases.every((item) => item.status === 'pass' || (item.status === 'owner-check' && !options.strict) || (item.status === 'skipped' && !options.strict));
   emit(resultDocument('selftest', { cases, ok }, { ok, exitCode: ok ? 0 : 1 }));
 }
 

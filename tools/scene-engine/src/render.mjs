@@ -41,6 +41,11 @@ function playwrightShell() {
   return candidates.find((item) => fs.existsSync(item)) ?? null;
 }
 
+function hyperframesBinary() {
+  const configured = process.env.SCENE_ENGINE_HYPERFRAMES_BIN;
+  return configured ? path.resolve(configured) : path.resolve('node_modules/.bin/hyperframes');
+}
+
 function probe(ffprobe, file) {
   const output = execFileSync(ffprobe, ['-v', 'error', '-show_streams', '-show_format', '-of', 'json', file], { encoding: 'utf8' });
   return JSON.parse(output);
@@ -131,6 +136,8 @@ async function fallbackRender(htmlFile, workDir, durationMs, timeoutMs) {
     const page = await context.newPage();
     await page.goto(pathToFileURL(htmlFile).href, { waitUntil: 'load', timeout: timeoutMs });
     await page.evaluate(() => window.__sceneEngine.ready());
+    const seekability = await page.evaluate(() => window.__sceneEngine.verifyAdapters());
+    if (seekability.status === 'fail') throw Object.assign(new Error(seekability.message), { code: 'UNSEEKABLE', exitCode: 1, adapterId: seekability.adapterId, layerId: seekability.layerId, frame: seekability.frame });
     for (let i = 0; i < frameCount(durationMs); i += 1) {
       const time = frameTimeMs(i);
       await page.evaluate((t) => window.__sceneEngine.seek(t), time);
@@ -142,8 +149,19 @@ async function fallbackRender(htmlFile, workDir, durationMs, timeoutMs) {
   return raw;
 }
 
+async function verifySeekAdapters(htmlFile, timeoutMs) {
+  const context = await chromium.launchPersistentContext(path.join(path.dirname(htmlFile), 'seek-probe-profile'), { headless: true, viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
+  try {
+    const page = await context.newPage();
+    await page.goto(pathToFileURL(htmlFile).href, { waitUntil: 'load', timeout: timeoutMs });
+    await page.evaluate(() => window.__sceneEngine.ready());
+    const result = await page.evaluate(() => window.__sceneEngine.verifyAdapters());
+    if (result.status === 'fail') throw Object.assign(new Error(result.message), { code: 'UNSEEKABLE', exitCode: 1, adapterId: result.adapterId, layerId: result.layerId, frame: result.frame });
+  } finally { await context.close(); }
+}
+
 async function hyperframesRender(htmlFile, raw, timeoutMs) {
-  const binary = path.resolve('node_modules/.bin/hyperframes');
+  const binary = hyperframesBinary();
   const shell = playwrightShell();
   if (!fs.existsSync(binary)) throw Object.assign(new Error('Pinned HyperFrames CLI is not installed.'), { code: 'HYPERFRAMES_MISSING', exitCode: 3 });
   if (!shell) throw Object.assign(new Error('Playwright Chromium 1243 headless shell was not found in the user browser cache.'), { code: 'HYPERFRAMES_MISSING', exitCode: 3 });
@@ -215,8 +233,8 @@ export async function renderStoryboard(model, { out, renderer = 'auto', captions
   const temporaryMp4 = path.join(workDir, 'delivery.mp4');
   const diagnostics = [];
   let engine = renderer;
-  if (engine === 'auto') engine = fs.existsSync(path.resolve('node_modules/.bin/hyperframes')) ? 'hyperframes' : 'fallback';
-  if (engine === 'hyperframes' && !fs.existsSync(path.resolve('node_modules/.bin/hyperframes'))) throw Object.assign(new Error('Explicit HyperFrames renderer is unavailable.'), { code: 'HYPERFRAMES_MISSING', exitCode: 3 });
+  if (engine === 'auto') engine = fs.existsSync(hyperframesBinary()) ? 'hyperframes' : 'fallback';
+  if (engine === 'hyperframes' && !fs.existsSync(hyperframesBinary())) throw Object.assign(new Error(`HyperFrames executable is unavailable: ${hyperframesBinary()}`), { code: 'HYPERFRAMES_MISSING', exitCode: 3, path: hyperframesBinary() });
   try {
     const narration = narrationInputs(model);
     const captureMap = await captureLayerMap(model, workDir, timeoutMs, framesDir);
@@ -234,6 +252,7 @@ export async function renderStoryboard(model, { out, renderer = 'auto', captions
     const htmlFile = writeComposition(model, compositionDir, { captionMode: captions, captureMap });
     const raw = path.join(workDir, 'raw.mp4');
     let rendererVersion = null;
+    await verifySeekAdapters(htmlFile, timeoutMs);
     if (engine === 'hyperframes') rendererVersion = await hyperframesRender(htmlFile, raw, timeoutMs);
     else { await fallbackRender(htmlFile, workDir, model.durationMs, timeoutMs); fs.renameSync(path.join(workDir, 'fallback.mp4'), raw); rendererVersion = process.version; }
     const audioNormalization = await transcode(raw, temporaryMp4, model.durationMs, timeoutMs, narration);

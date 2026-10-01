@@ -112,6 +112,22 @@ export async function captureAppLayer(model, scene, layer, outDir, { timeoutMs =
     });
     const browserVersion = context.browser()?.version() ?? 'unknown';
     const page = await context.newPage();
+    await page.addInitScript(() => {
+      const probe = { contexts: [], rafScheduled: false };
+      Object.defineProperty(window, '__sceneEngineCaptureProbe', { value: probe, configurable: false });
+      const getContext = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function (type, ...args) {
+        const context = getContext.call(this, type, ...args);
+        if (context) probe.contexts.push({ type: String(type).toLowerCase(), id: this.id || null });
+        return context;
+      };
+      const requestAnimationFrame = window.requestAnimationFrame.bind(window);
+      window.requestAnimationFrame = (callback) => {
+        probe.rafScheduled = true;
+        return requestAnimationFrame(callback);
+      };
+      window.__sceneEngineAdapters = window.__sceneEngineAdapters || [];
+    });
     const origin = new URL(layer.url).origin;
     const fixtures = (layer.fixtures ?? []).map((fixture) => ({ ...fixture, regex: globRegex(fixture.urlPattern), method: (fixture.method ?? 'GET').toUpperCase() }));
     let fixtureCount = 0; let blockedUrl = null;
@@ -133,6 +149,32 @@ export async function captureAppLayer(model, scene, layer, outDir, { timeoutMs =
       const code = blockedUrl ? 'FIXTURE_NOT_FOUND' : 'APP_LOAD_FAILED';
       throw Object.assign(new Error(blockedUrl ? `External request had no fixture: ${blockedUrl}` : `App did not reach ready selector '${layer.readySelector}' at ${layer.url}: ${error.message}`), { code, url: blockedUrl ?? layer.url, selector: layer.readySelector, exitCode: 3 });
     }
+    const canvasState = await page.evaluate((lastFrame) => {
+      const adapters = window.__sceneEngineAdapters ?? [];
+      const adapterFailures = [];
+      for (const adapter of adapters) {
+        try {
+          if (adapter.seekFrame(lastFrame, Math.floor(lastFrame * 1000 / 30)) === false || adapter.seekFrame(0, 0) === false || adapter.seekFrame(lastFrame, Math.floor(lastFrame * 1000 / 30)) === false) throw new Error('adapter rejected backward/forward seek');
+        } catch (error) { adapterFailures.push({ id: adapter.id ?? null, layerId: adapter.layerId ?? null, message: error.message }); }
+      }
+      return {
+        count: document.querySelectorAll('canvas').length,
+        contexts: window.__sceneEngineCaptureProbe.contexts,
+        rafScheduled: window.__sceneEngineCaptureProbe.rafScheduled,
+        adapterCount: adapters.length,
+        adapterFailures
+      };
+    }, Math.max(0, frameCount(layer.durationMs) - 1));
+    const canvasContext = canvasState.contexts.find((item) => /webgl|experimental-webgl|webgpu/.test(item.type));
+    const animatedCanvas = canvasState.count > 0 && canvasState.rafScheduled && canvasState.contexts.some((item) => /2d|webgl|experimental-webgl|webgpu/.test(item.type));
+    if ((canvasContext || animatedCanvas) && !canvasState.adapterCount) {
+      const id = canvasContext?.id ?? null;
+      throw Object.assign(new Error(`Canvas${id ? ` '${id}'` : ''} uses ${canvasContext?.type ?? 'an animated 2D context'} without a deterministic seek adapter.`), { code: 'UNSEEKABLE', layerId: layer.id, frame: 0, exitCode: 1 });
+    }
+    if (canvasState.adapterFailures.length) {
+      const adapter = canvasState.adapterFailures[0];
+      throw Object.assign(new Error(`Adapter ${adapter.id ?? '(unnamed)'} on layer ${adapter.layerId ?? layer.id} cannot seek backwards: ${adapter.message}`), { code: 'UNSEEKABLE', layerId: adapter.layerId ?? layer.id, adapterId: adapter.id, frame: 0, exitCode: 1 });
+    }
     const steps = layer.steps ?? []; let stepIndex = 0;
     const count = frameCount(layer.durationMs);
     const hashes = [];
@@ -149,6 +191,14 @@ export async function captureAppLayer(model, scene, layer, outDir, { timeoutMs =
       await page.evaluate((ms) => {
         for (const animation of document.getAnimations({ subtree: true })) { animation.pause(); try { animation.currentTime = ms; } catch { } }
       }, time);
+      const adapterFailure = await page.evaluate(({ frameIndex, timeMs }) => {
+        for (const adapter of window.__sceneEngineAdapters) {
+          try { if (adapter.seekFrame(frameIndex, timeMs) === false) throw new Error('adapter rejected frame'); }
+          catch (error) { return { id: adapter.id ?? null, layerId: adapter.layerId ?? null, message: error.message }; }
+        }
+        return null;
+      }, { frameIndex: frame, timeMs: time });
+      if (adapterFailure) throw Object.assign(new Error(`Adapter ${adapterFailure.id ?? '(unnamed)'} on layer ${adapterFailure.layerId ?? layer.id} cannot seek frame ${frame}: ${adapterFailure.message}`), { code: 'UNSEEKABLE', layerId: adapterFailure.layerId ?? layer.id, adapterId: adapterFailure.id, frame, exitCode: 1 });
       await updateOverlays(page, layer, time);
       const bytes = await page.screenshot({ path: path.join(temp, 'frames', `frame-${String(frame).padStart(6, '0')}.png`), animations: 'allow', caret: 'hide' });
       hashes.push(sha256(bytes));
@@ -174,7 +224,7 @@ export async function captureAppLayer(model, scene, layer, outDir, { timeoutMs =
   } catch (error) {
     if (context) await context.close().catch(() => {});
     fs.rmSync(temp, { recursive: true, force: true });
-    errors.push(diagnostic(error.code ?? 'APP_LOAD_FAILED', error.message, { sceneId: scene.id, layerId: layer.id, path: error.url ?? null, pointer: error.stepIndex == null ? null : `/steps/${error.stepIndex}`, hint: error.locator ? `Check locator ${JSON.stringify(error.locator)}.` : null }));
+    errors.push(diagnostic(error.code ?? 'APP_LOAD_FAILED', error.message, { sceneId: scene.id, layerId: error.layerId ?? layer.id, frame: error.frame ?? null, path: error.url ?? null, pointer: error.stepIndex == null ? null : `/steps/${error.stepIndex}`, hint: error.locator ? `Check locator ${JSON.stringify(error.locator)}.` : null }));
     throw Object.assign(error, { diagnostics: errors, exitCode: error.exitCode ?? 3 });
   }
 }
