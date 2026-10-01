@@ -4,16 +4,21 @@
 from __future__ import annotations
 
 import argparse
+import fcntl
 import html
 import json
+import os
 import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import unicodedata
 import zipfile
+from contextlib import contextmanager
 from html.parser import HTMLParser
 from pathlib import Path
+from typing import Iterator
 
 import markdown
 from PIL import Image, ImageDraw, ImageFont
@@ -381,15 +386,42 @@ def progress_path(workdir: Path) -> Path:
 
 
 def load_progress(workdir: Path) -> dict:
+    path = progress_path(workdir)
     try:
-        return json.loads(progress_path(workdir).read_text(encoding='utf-8'))
-    except (OSError, json.JSONDecodeError):
+        text = path.read_text(encoding='utf-8')
+    except FileNotFoundError:
         return {}
+    return json.loads(text)
 
 
 def save_progress(workdir: Path, progress: dict) -> None:
-    progress_path(workdir).parent.mkdir(parents=True, exist_ok=True)
-    progress_path(workdir).write_text(json.dumps(progress, indent=2) + '\n', encoding='utf-8')
+    path = progress_path(workdir)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(prefix=f'.{path.name}.', suffix='.tmp', dir=path.parent)
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8') as stream:
+            stream.write(json.dumps(progress, indent=2) + '\n')
+        os.replace(temporary, path)
+    finally:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+
+
+@contextmanager
+def progress_transaction(workdir: Path) -> Iterator[dict]:
+    """Hold the per-work-folder lock across a progress read, update, and atomic save."""
+    path = progress_path(workdir)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with (path.parent / 'progress.lock').open('a', encoding='utf-8') as lock:
+        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        try:
+            progress = load_progress(workdir)
+            yield progress
+            save_progress(workdir, progress)
+        finally:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
 
 
 def set_state(progress: dict, unit: dict, lesson: dict, state: str) -> None:
@@ -468,14 +500,13 @@ def cmd_prepare(args) -> int:
                 print(f'  L{lesson["number"]:02d}: excluded by intro rule ({lesson["title"]})', flush=True)
             else:
                 prepare_lesson(course, unit, lesson, args.workdir)
-            # Reload before each write: check runs from other agents update the same file.
-            progress = load_progress(args.workdir)
-            state = progress.get(str(lesson['number']), {}).get('state')
-            if excluded:
-                set_state(progress, unit, lesson, 'excluded')
-            elif state not in ('drafted', 'checked'):
-                set_state(progress, unit, lesson, 'prepared')
-            save_progress(args.workdir, progress)
+            # Reload while holding the lock: check may update other lessons at the same time.
+            with progress_transaction(args.workdir) as progress:
+                state = progress.get(str(lesson['number']), {}).get('state')
+                if excluded:
+                    set_state(progress, unit, lesson, 'excluded')
+                elif state not in ('drafted', 'checked'):
+                    set_state(progress, unit, lesson, 'prepared')
     return 0
 
 
@@ -655,7 +686,7 @@ def check_lesson(directory: Path, rules: dict, log: Removals | None = None) -> l
 def cmd_check(args) -> int:
     course, units = load_course(args.manifest, args.unit)
     rules = load_rules(course['course_id'])
-    progress = load_progress(args.workdir)
+    updates = []
     failed = 0
     for unit in units:
         # A unit left out when packaging has no reading folder. Skip it unless it was named.
@@ -666,7 +697,7 @@ def cmd_check(args) -> int:
             if args.lesson and lesson['number'] not in args.lesson:
                 continue
             if is_intro_lesson(lesson['title'], rules):
-                set_state(progress, unit, lesson, 'excluded')
+                updates.append((unit, lesson, 'excluded'))
                 continue
             directory = lesson_dir(args.workdir, unit, lesson)
             if not (directory / 'lesson.json').exists():
@@ -679,14 +710,16 @@ def cmd_check(args) -> int:
             if errors:
                 failed += 1
                 if (directory / 'lesson.md').exists():
-                    set_state(progress, unit, lesson, 'drafted')
+                    updates.append((unit, lesson, 'drafted'))
                 print(f'U{unit["number"]:02d} L{lesson["number"]:02d}: FAIL')
                 for error in errors:
                     print(f'  - {error}')
             else:
-                set_state(progress, unit, lesson, 'checked')
+                updates.append((unit, lesson, 'checked'))
                 print(f'U{unit["number"]:02d} L{lesson["number"]:02d}: ok ({removed} sentence(s) will be removed by rules)')
-    save_progress(args.workdir, progress)
+    with progress_transaction(args.workdir) as progress:
+        for unit, lesson, state in updates:
+            set_state(progress, unit, lesson, state)
     return 1 if failed else 0
 
 
