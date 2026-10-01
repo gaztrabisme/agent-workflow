@@ -1,5 +1,11 @@
 # Method for a Product Decision Brief
 
+## Choose brief depth by decision
+
+Use one product decision brief for both discovery and release decisions. For a new product or a decision with major market, user, or lifecycle uncertainty, use the full method. For an incremental release on an established product, keep the brief focused on the decision, current user problem and evidence, proposed delta, outcomes and measures, release criteria, dependencies, and next review. Reuse or link prior evidence for context that has not changed, and mark an inapplicable field with a short reason instead of inventing content. Link the engineering or project tracker for task-level owners, commits, worktrees, asset distribution, migration steps, or operating schedules. (derived: dogfood 2026-10-01)
+
+Human-participant research fields apply when the decision needs research with people. An automated benchmark or system evaluation can instead name its evaluated population or configuration, task scenario, run count, measures, and decision threshold; do not fabricate interview participants or prompts. Keep all applicable discovery, learning, and release guidance available for cases that need it. (derived: dogfood 2026-10-01)
+
 ## Treat the product as a continuing decision
 
 A product continues after launch and can change as its users, market, and organization change. Use the brief as a dated snapshot of the current decision, evidence, and next review point; do not treat it as a one-time project plan.
@@ -13,6 +19,8 @@ Describe an intended outcome as a change in user or business behavior, then trea
 Name the customer, buyer, and user groups where they differ. Describe who experiences the problem, the situation in which it occurs, the goal they are trying to reach, current workarounds, and what the organization needs to change. State the decision the evidence must inform.
 
 Gather evidence from direct conversations and observation, and add relevant quantitative, market, or competitor evidence. Keep the source, date, audience, and scope with each finding. Synthesize across people and segments; label inference and uncertainty instead of blending them into facts.
+
+For quantitative benchmarks, record the metric definition, baseline, observed value and delta, population or sample size, and significance or p-value when calculated. Distinguish values reported by a source from values measured or calculated in this work; use the matching `_reported` and `_measured` fields, and mark statistical fields not applicable when the method does not produce them. (derived: dogfood 2026-10-01)
 
 Connect what matters to users with business viability and technical or operational feasibility. Turn a grounded insight into a positive, open question that invites multiple solutions without naming one in advance. A clear point of view helps the team explore the right problem before choosing an implementation.
 
@@ -30,6 +38,10 @@ Map the end-to-end user story before expanding feature detail. Put activities an
 
 Slice the map into releases by asking what outcome a specific user needs to achieve in each release. The smallest useful release must deliver that outcome; a minimum viable release is not merely the least functionality the team can ship. Order later slices around the outcomes they are expected to create. [book:user-story-mapping], Chapter 2. Plan to Build Less
 
+## Map AI- and agent-mediated journeys
+
+When an AI system or autonomous agent is the direct product user, map its goal and decision loop alongside any human journey. Include the initiating context or prompt, available tools and schema constraints, token or context budget, tool selection and calls, returned results and secondary reads, retries, handoffs, and recovery from partial or failed actions. State what success the agent can observe, where it must stop or ask for human input, and how it recovers without losing important state. Include human setup, oversight, and outcomes where people are part of the system. (derived: dogfood 2026-10-01)
+
 ## Shape a bounded specification and learning step
 
 Describe the chosen user, scenario, core journey, and behavior the solution must support. Include in-scope and out-of-scope work, acceptance signals, material constraints, dependencies, risks, and unanswered questions. Keep implementation detail proportional to the decision and the next work being planned.
@@ -38,7 +50,7 @@ State the highest-risk assumption and what evidence would change the decision. W
 
 Choose the least costly prototype or experiment that can answer the next important question. Match its fidelity to the question and audience; test the risky part of the journey before investing in a complete solution. Learning can come from a sketch, service trial, concierge step, or software slice. [book:lean-ux], Chapter 5. Minimum Viable Products and Prototypes
 
-Plan validation around a defined participant or audience, realistic scenario, tasks, and neutral prompts. Record observable behavior and participant feedback separately. Decide beforehand what would support or weaken the hypothesis, and what the team will do with each result.
+When validation uses human participants, plan around a defined participant or audience, realistic scenario, tasks, and neutral prompts. Record observable behavior and participant feedback separately. Decide beforehand what would support or weaken the hypothesis, and what the team will do with each result. For an automated evaluation, use the benchmark population and configuration, task scenario, measures, sample size, and a predeclared threshold instead. (derived: dogfood 2026-10-01)
 
 ## Define measures and plan release
 
@@ -51,6 +63,8 @@ Describe the roadmap as a sequence of outcome initiatives and release horizons, 
 ## Learn and change direction
 
 After a test or release, compare observed results with the baseline, target, and guardrails. Record what worked, what needs improvement, what was surprising, new questions, and possible next solutions. Update the evidence and assumptions before changing the priority or specification.
+
+Keep a lightweight decision log with each brief. Append a new row when a review changes or reaffirms the decision; preserve prior rows so the rationale remains visible. Create a versioned copy only when organizational change control or audit needs require it, and link the versions. Use the schema in the brief template. (derived: dogfood 2026-10-01)
 
 Keep an opportunity backlog for problems and outcomes still worth exploring, and a solution backlog for options supported by evidence. Revisit both after validation so that the next slice reflects what the team has learned.
 

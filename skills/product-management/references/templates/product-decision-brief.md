@@ -1,6 +1,7 @@
 # Product Decision Brief
 
 > Replace prompts with evidence-backed statements. Mark unknowns and assumptions clearly. Keep the date and decision status current.
+> Choose the full or incremental-release depth described in the decision method. For a compact release brief, reuse linked context and give a short reason for each field marked not applicable. (derived: dogfood 2026-10-01)
 
 ## Brief details
 
@@ -37,9 +38,11 @@
 
 ## Evidence and uncertainty
 
-| Finding | Source and date | Audience or scope | Evidence type | Confidence / limits |
-|---|---|---|---|---|
-| | | | | |
+| Finding | Source and date | Audience or scope | Evidence type | Confidence / limits | Reported values (_reported) | Metric_measured | Baseline | Observed / Delta | Significance / p-value | Sample_size_n |
+|---|---|---|---|---|---|---|---|---|---|---|
+| | | | | | | | | | | |
+
+For benchmark evidence, use the structured fields when applicable. Separate source-reported values from values measured or calculated for this decision; state the metric, baseline, observed value or delta, sample size, and significance result when calculated. Write `N/A` with a reason when a statistical field does not apply. (derived: dogfood 2026-10-01)
 
 - **Assumptions that matter to the decision:**
 - **Evidence gaps and how to resolve them:**
@@ -82,8 +85,8 @@
 - **Highest-risk assumption:**
 - **Hypothesis:** For [user or segment], if [change], then [observable result], because [reason].
 - **Smallest useful test or prototype:**
-- **Participants and scenario:**
-- **Tasks and neutral prompts:**
+- **Participants or benchmark population and scenario:**
+- **Tasks and neutral prompts, or benchmark task/configuration:**
 - **Evidence to collect:**
 - **Success / failure / inconclusive threshold:**
 - **Owner and date:**
@@ -102,6 +105,7 @@
 - **Support and communication plan:**
 - **Measurement and data readiness:**
 - **Release owner and date:**
+- **Execution tracker / handoff:** Link the task plan, release asset record, migration guidance, or operating schedule when needed. (derived: dogfood 2026-10-01)
 - **First post-release review:**
 - **Results against baseline, targets, and guardrails:**
 
@@ -113,3 +117,6 @@
 - **Open questions:**
 - **Decision log:**
 
+| Date | Decision | Author | Rationale | Replaces |
+|---|---|---|---|---|
+| | | | | |

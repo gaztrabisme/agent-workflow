@@ -1,6 +1,6 @@
 # Evolution Log — product-management
 
-The loop turns real use into skill improvements. Mechanism: `../evolution/references/loop.md`. Harvest source: future product decision briefs, review comments, and observed decisions made from those briefs.
+The loop turns real use into skill improvements. Mechanism: [the local evolution-log use note](references/evolution-loop.md); later trace-based skill changes remain with the Evolution skill. Harvest source: future product decision briefs, review comments, and observed decisions made from those briefs.
 
 ---
 
@@ -9,8 +9,9 @@ The loop turns real use into skill improvements. Mechanism: `../evolution/refere
 ### Harvest scope
 - **Grounded:** proposal `stage-a/skill-set.md`; Domestika 5907 units 4, 5, and 6; chapters used from `art-of-ai-product-development`, `data-science-for-business`, `lean-ux`, and `user-story-mapping`; shared-kernel references; skill-builder authoring sources → established the artifact, scope, and source-backed method for a new skill.
 - **Coverage:** no routed rules, old skill, candidates, or practitioner review existed for this new skill; formal method sources were read for the proposed product manager audience.
-- **Evidence limits:** authoring-time evidence only; no real decision briefs or decision outcomes have been observed yet.
-- **Evidence class:** authoring-time (derived: dogfood 2026-10-01).
+- **Evidence limits:** one retrospective dogfood exercised an incremental-release decision and produced a brief; no decision-owner feedback or observable follow-up outcome was recorded, so the two-use evidence floor is unmet.
+- **Evidence class:** authoring-time plus one real-task dogfood; changes prompted by the dogfood remain provisional (derived: dogfood 2026-10-01).
+- **Dogfood 2026-10-01:** Developer Knowledge Base MCP Server v9.2/v10 incremental-release decision; findings: 3 high, 3 medium, 2 low; fixed 8, rejected 0.
 
 ### Settled verdicts
 | Prior item | Verdict | Evidence and reason |
@@ -36,4 +37,3 @@ None yet; real-use traces have not been collected.
 | Product decision flow and brief template | Two real briefs make the decision, evidence, measures, specification, and roadmap easier to inspect and revise. | Two independent real uses with decision-owner feedback and observable follow-up decisions. | natural | Skill owner | After the second real use | PENDING |
 
 **Verdict: PENDING** — document-derived changes remain hypotheses until two real uses reach the evidence floor.
-
