@@ -8,7 +8,7 @@
 
 ## Look for a question the data can answer
 
-- Compare totals, relative sizes, changes, relationships and outliers; decide whether a single dataset or connected layers offer a useful direction. (3069 · U2 · L06 · 00:40–01:28; 3069 · U2 · L06 · 01:28–02:44; 3069 · U2 · L06 · 02:44–03:25)
+- Compare totals, relative sizes, relationships and outliers; decide whether a single dataset or connected layers offer a useful direction. (3069 · U2 · L06 · 00:40–01:28; 3069 · U2 · L06 · 01:28–02:44; 3069 · U2 · L06 · 02:44–03:25)
 - Ask who, what, when, where and how much. Compare definitions, overlapping categories, missingness, periods and geographic groups before choosing the main measure. (3601 · U3 · L08 · 00:00–00:47; 3601 · U3 · L08 · 00:47–02:24; 3601 · U3 · L08 · 02:24–04:35; 3601 · U3 · L08 · 04:35–07:26; 3601 · U3 · L08 · 07:26–10:06)
 - For a narrative, list the people, places or objects to represent and the features that could become marks. The storyline sketch considers how the marks work together in the layout; the chapter sketch also sets out the question of how many characters appear in each chapter. (3069 · U3 · L07 · 00:00–03:36; 3069 · U3 · L07 · 03:36–05:02; 3069 · U3 · L07 · 05:02–06:55)
 - Separate the main story from context. In the CO₂ example, emissions over time carry the story; population and GDP orient the reader. (2495 · U3 · L09 · 01:08–02:33; 2495 · U3 · L09 · 02:33–03:35)
