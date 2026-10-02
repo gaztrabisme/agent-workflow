@@ -8,6 +8,7 @@ Each exported lesson is either cited by a method digest or listed here with a re
 | U2 L06 — Collaboration | 2495 · U2 · L06 | Team formation and collaboration agreements are outside the chart method's artifact decisions. |
 | U1 L02 — Influences | 3069 · U1 · L02 | Personal background and inspiration examples add little to the reusable chart decision sequence. |
 | U1 L02 — Influences | 3601 · U1 · L02 | Design influences introduce context, but do not add a distinct data-to-chart decision. |
+| U2 L04 — Visual Storytelling with Data | 3601 · U2 · L04 | Perception and storytelling examples add no distinct reusable method decision. |
 | U2 L05 — Data design overview | 3601 · U2 · L05 | High-level workflow framing repeats stages grounded in more specific lessons. |
 | U4 L11 — Visualisation skeleton | 3601 · U4 · L11 | Printed spread composition and typography hand off to visual-design. |
 | U4 L13 — Crafting the display | 3601 · U4 · L13 | Map appearance and colour treatment hand off to color-theory and visual-design. |
