@@ -48,7 +48,7 @@ This skill produces a sourced story plan and the requested presentation delivera
 2. Draft and confirm the story outline before styling. Ask the relevant sibling skill for chart, composition, color, motion, or app decisions; preserve the source data and limitations.
 3. Select a governing brand system. If the owner's profile is appropriate, consult its [README](../../brand-profile/README.md) and [profile](../../brand-profile/PROFILE.md); both identify it as a draft awaiting owner review.
 4. Build the HTML/SVG source or storyboard. Use [render-kit](../../render-kit/AGENTS.md) for visual checks and [scene-engine](../../scene-engine/AGENTS.md) for native PowerPoint export, video rendering, and app capture.
-5. Run applicable checks in [review-checklist.md](review-checklist.md) and [measurement.md](measurement.md). Fix failures, inspect skipped or incomplete results, and rerun affected checks.
+5. Run applicable checks in [review-checklist.md](references/method/review-checklist.md) and [measurement.md](references/method/measurement.md). Fix failures, inspect skipped or incomplete results, and rerun affected checks.
 6. Deliver the requested files with a short evidence record. Separate measured results, vision review, not-judged items, and owner checks.
 
 Scale the stages to the task: a quick slide critique starts at render and check; a new deck or explainer uses the full sequence; after a fix, rerun every check that could be affected.
@@ -87,8 +87,8 @@ Scale the stages to the task: a quick slide critique starts at render and check;
 - [references/method/render-and-check.md](references/method/render-and-check.md) — render-kit, scene-engine, and visual-review loop.
 - [references/method/delivery-and-editability.md](references/method/delivery-and-editability.md) — source and export checks, editability, and owner checks.
 - [references/method/claim-audit.md](references/method/claim-audit.md) — source decisions and limits, with evidence index in [audit/](audit/).
-- [review-checklist.md](review-checklist.md) — T1–T18 pass conditions and return stages.
-- [measurement.md](measurement.md) — reproducible code checks and vision questions.
+- [review-checklist.md](references/method/review-checklist.md) — T1–T18 pass conditions and return stages.
+- [measurement.md](references/method/measurement.md) — reproducible code checks and vision questions.
 - [templates/deck-shell.html](templates/deck-shell.html) — standalone 1920×1080 HTML slide shell with render-kit markup and copied draft tokens.
 - [NOTICE.md](NOTICE.md) — private status and source notices.
 - [EVOLUTION.md](EVOLUTION.md) — design-run birth and pending real-use validation.

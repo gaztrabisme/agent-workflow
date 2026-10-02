@@ -6,7 +6,7 @@ Mark HTML/SVG artifact regions with `data-rk-stage` and any intended focal area 
 
 Fix every `fail`, then read each `skipped` and `incomplete` item before accepting the result. A skipped or incomplete item is not a pass; when a reviewer cannot see the render, leave the vision item not-judged. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “The loop”; [book:playwright-docs], “Accessibility testing”.
 
-Ask an independent reviewer concrete yes-means-pass questions from [review-checklist.md](../../review-checklist.md); render-kit can prepare and verify its review answers, but does not itself make vision judgments. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “The loop”.
+Ask an independent reviewer concrete yes-means-pass questions from [review-checklist.md](review-checklist.md); render-kit can prepare and verify its review answers, but does not itself make vision judgments. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “The loop”.
 
 For videos, use scene-engine's validation and selected-frame check, then decode or inspect the actual output frames. An encoder success code establishes that encoding ran, not that the delivered frames are correct. [scene-engine AGENTS.md](../../../../scene-engine/AGENTS.md), “Check loop”; (field rule (screencast)).
 
