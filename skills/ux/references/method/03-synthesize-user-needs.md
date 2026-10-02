@@ -26,7 +26,7 @@
 |---|---|---|---|
 | Observation or research finding | Finding with source and context | Explain what people did, said, or experienced | 1490 · U3 · L12 · 01:10–03:41 |
 | Early user picture without research | Provisional persona or assumption | Identify questions for research, not proof of a segment | 798 · U2 · L06 · 05:52–08:19 |
-| Team interpretation | Hypothesis or insight with its evidence | Decide what to test or explore next | 1490 · U2 · L04 · 05:12–06:48; 1490 · U3 · L12 · 07:53–08:54 |
+| Research insight | Discovery or insight found by asking users or researching | Use the evidence to redefine the real problem, then prototype ideas with real users | 1490 · U2 · L04 · 05:12–06:48 |
 
 ## A rule you derived (derived)
 
@@ -35,7 +35,7 @@ Label provisional user profiles and emotional interpretations explicitly. This p
 ## Failures
 
 **Problem: presenting an imagined user as a research result.**
-- **The failure:** a convenient biography is treated as evidence about what real users do or need. (798 · U2 · L06 · 05:52–08:19; 1490 · U4 · L14 · 00:00–01:04)
+- **The failure (derived):** treating an invented proto-persona as evidence about actual users. The UX writing course calls its example fictional; the product-design course allows invented details before research and says they can be updated when research is available. (derived from 798 · U2 · L06 · 05:52–08:19; 1490 · U4 · L14 · 02:34–04:44)
 - **The fix:** mark the profile as provisional, add sources as findings arrive, and revise the goals and behavior from observed patterns. (1490 · U4 · L14 · 00:00–01:04)
 
 ## Check before moving on

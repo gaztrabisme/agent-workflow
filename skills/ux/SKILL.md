@@ -23,7 +23,7 @@ This skill produces a research-grounded product brief, user journey and flow, pr
 
 1. **Balance user value, business value, and development effort.** (1490 · U2 · L04 · 02:24–03:22)
 2. **Treat content as part of experience design from the beginning.** Real words affect screen space and layout. (798 · U2 · L05 · 00:07–01:55; 798 · U2 · L05 · 01:55–03:03)
-3. **Keep findings, assumptions, and team interpretations distinct.** A proto-persona may help before research, but it remains provisional until evidence updates it. (798 · U2 · L06 · 05:52–08:19; 1490 · U4 · L14 · 00:00–01:04)
+3. **Keep findings, assumptions, and team interpretations distinct.** A pre-research proto-persona can be a starting point; treat its invented details as provisional and update them when research becomes available. (derived from 798 · U2 · L06 · 05:52–08:19; 1490 · U4 · L14 · 02:34–04:44)
 4. **Optimize for learning and user outcomes.** Prototype the smallest useful test, then use what the team learns to revise the work. (1490 · U2 · L04 · 04:41–05:12; 1490 · U2 · L04 · 06:48–08:20)
 5. **Write for the whole task.** Help people understand what is happening, what action is available, and what comes next. (798 · U2 · L05 · 09:05–11:31; 798 · U3 · L09 · 02:40–06:25; 798 · U3 · L09 · 06:25–08:48)
 6. **Make access and localization part of content design.** Provide clear order, labels, useful image descriptions, and context for localizing strings. (798 · U4 · L13 · 04:28–08:09; 798 · U4 · L13 · 08:09–11:23; 798 · U4 · L13 · 11:23–13:18; 798 · U4 · L13 · 13:18–14:20; 798 · U4 · L13 · 14:20–16:09)

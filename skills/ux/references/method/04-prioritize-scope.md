@@ -38,7 +38,7 @@ For every item in the first testable scope, record the user need it supports and
 
 **Problem: treating a prioritization score as a decision made by arithmetic.**
 - **The failure:** a matrix can make estimates look exact even though its inputs and negotiated priority are judgments. (1490 · U5 · L20 · 01:57–03:01; 1490 · U5 · L20 · 03:01–03:59)
-- **The fix:** show the criteria and assumptions beside the score, then let the team confirm the tradeoff and the learning objective. (1490 · U2 · L04 · 02:24–03:22; 1490 · U5 · L20 · 03:01–03:59)
+- **The fix:** consider user value, business value, and development cost or difficulty (1490 · U2 · L04 · 02:24–03:22), and treat the matrix result as indicative and negotiable when discussing priority (1490 · U5 · L20 · 03:01–03:59).
 
 ## Check before moving on
 

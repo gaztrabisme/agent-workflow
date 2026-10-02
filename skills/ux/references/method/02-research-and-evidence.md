@@ -26,7 +26,7 @@
 
 | Need to learn | Method | Guardrail | Source |
 |---|---|---|---|
-| How often a behavior or preference occurs | Focused survey or existing product measures | Show the response count; a proportion does not explain why people chose it. | 1490 · U3 · L09 · 00:00–01:25; 1490 · U3 · L09 · 01:25–02:20 |
+| Quantitative information about a product, service, or its users | Survey | Numbers may show that a problem exists but tell little about its cause or how to solve it. | 1490 · U3 · L09 · 00:00–01:25; 1490 · U3 · L09 · 01:25–02:20 |
 | What a person wants, expects, or finds confusing | Short, neutral interview guide with follow-up questions | Avoid leading language; probe for context and reasons. | 1490 · U3 · L10 · 01:15–02:11; 1490 · U3 · L10 · 03:32–04:35; 1490 · U3 · L10 · 04:35–05:18 |
 | What people do in a real setting | Contextual observation of a planned task | Record actions and context before interpreting them. | 1490 · U3 · L11 · 00:00–01:57 |
 | What existing products teach about language or patterns | Desk research and annotated references | Summarize useful findings; do not substitute competitor screenshots for user evidence. | 1490 · U3 · L08 · 00:33–01:45; 1490 · U3 · L08 · 01:45–03:14 |

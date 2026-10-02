@@ -19,7 +19,7 @@
 - Generate alternatives before choosing. In the Crazy 8s exercise, sketch one idea in each space, present the ideas, vote, and develop a promising option. (1490 · U7 · L24 · 00:00–01:04; 1490 · U7 · L24 · 01:04–01:25; 1490 · U7 · L24 · 02:34–03:42)
 - Choose fidelity for the question. Low-fidelity wireframes make structure easy to change; higher-fidelity wireframes can carry actual wording and interaction details for usability tests. (1490 · U7 · L25 · 00:00–01:00; 1490 · U7 · L25 · 01:00–02:58; 1490 · U7 · L26 · 03:13–04:26; 1490 · U7 · L26 · 04:26–05:16)
 - Reuse familiar design patterns when they fit the user's task; familiar conventions reduce the effort of learning a new interface. (1490 · U7 · L27 · 00:00–01:53; 1490 · U7 · L27 · 01:53–02:39)
-- Prototype early and include only the interactions needed to test the idea. The course treats paper screens, digital screens, storyboards, and other simple forms as possible prototypes. (1490 · U2 · L04 · 06:48–08:20; 1490 · U7 · L29 · 00:00–01:15)
+- Prototype and validate ideas as early as possible. (1490 · U2 · L04 · 06:48–08:20; 1490 · U7 · L29 · 00:00–01:15) For a paper prototype, the course uses photographed drawings linked by hotspots in POP (1490 · U7 · L29 · 00:00–01:15); include only the interactions needed for the test (1490 · U7 · L29 · 09:29–12:09).
 - Use real copy in wireframes. The UX writing course shows that both long and short content can change the layout, and that language expansion can break a button arrangement. (798 · U2 · L05 · 01:55–03:03)
 
 ## Keep structure and content in the same learning loop
@@ -30,11 +30,11 @@ The Lean UX course places final colors, type, imagery, and visual styling after 
 
 **Problem: a polished prototype that does not test the risky idea.**
 - **The failure:** time is spent on detail before the team knows what it needs to learn. (1490 · U2 · L04 · 04:41–05:12; 1490 · U2 · L04 · 06:48–08:20)
-- **The fix:** choose a low-fidelity form that exposes the relevant task, content, and interaction, then add detail only when a test needs it. (1490 · U7 · L25 · 00:00–01:00; 1490 · U7 · L25 · 01:00–02:58; 1490 · U7 · L29 · 00:00–01:15)
+- **The fix:** choose the fidelity the project needs (1490 · U7 · L26 · 05:16–06:30). Start with a hand sketch to plan screen structure (1490 · U7 · L25 · 00:00–01:00). Low-fidelity wireframes use boxes and text lines to work faster (1490 · U7 · L25 · 01:00–02:58), while high-fidelity wireframes can carry interface details and test content for users (1490 · U7 · L25 · 01:00–02:58; 1490 · U7 · L26 · 04:26–05:16).
 
 **Problem: realistic words are replaced by placeholders.**
 - **The failure:** the team cannot see whether the actual content fits or supports the visual task. (798 · U2 · L05 · 01:55–03:03)
-- **The fix:** include draft content, error and empty states, and plausible longer strings for the screens being tested. (798 · U2 · L05 · 01:55–03:03; 798 · U4 · L12 · 10:41–14:02)
+- **The fix:** include realistic copy where needed to check fit (798 · U2 · L05 · 01:55–03:03); include error and empty states in the relevant screens (798 · U4 · L12 · 05:50–10:41; 798 · U4 · L11 · 07:26–10:30); test longer localized wording in the wireframe to check layout (798 · U4 · L12 · 10:41–14:02).
 
 ## Check before moving on
 
