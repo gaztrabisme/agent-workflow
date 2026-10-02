@@ -1,7 +1,7 @@
 # Claim audit
 Writer: codex
 Auditor: glm
-Round: 9
+Round: 10
 
 Merged from the scope tables `audit/claim-audit-s*.md`, with re-audit rounds `claim-audit-r*.md` replacing earlier verdicts.
 
