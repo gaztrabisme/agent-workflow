@@ -14,7 +14,7 @@ Write a one-sentence Big Idea. [book:storytelling-with-data], “The 3‐minute 
 
 Add practical requirements such as slide count, locale, playback device, editing needs, captions, speaker notes, or screen-reader access only when they follow from the brief. (derived: these fields make the brief testable against each requested output medium.)
 
-Choose checks that can answer whether the message is accurate, readable, and usable in the intended setting. A data exploration is not itself an audience explanation; present the information the audience needs rather than all exploratory analysis. [book:storytelling-with-data], “Exploratory vs. explanatory analysis”; [book:storytelling-with-data], “Who, what, and how”.
+Choose checks that can answer whether the message is accurate, readable, and usable in the intended setting. (derived: this operationalizes the course’s audience, outcome, risk, and communication guidance into review criteria: [book:storytelling-with-data], “Who, what, and how”; [book:storytelling-with-data], “Consulting for context: questions to ask”.) A data exploration is not itself an audience explanation; present the information the audience needs rather than all exploratory analysis. [book:storytelling-with-data], “Exploratory vs. explanatory analysis”; [book:storytelling-with-data], “Who, what, and how”.
 
 ## Return when
 
