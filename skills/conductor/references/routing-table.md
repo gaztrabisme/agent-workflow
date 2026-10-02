@@ -32,13 +32,13 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 **Two rules:**
 
 1. **Choose the carrier in the Plan Block, not at the end.** "We'll turn it into a deck later" is false — knowing the output is 12 slides changes what the producers write. Carrier chosen late means the content gets rewritten.
-2. **A carrier skill never decides content.** `pptx` owns how the deck is built; `solution-architect` owns what it says. When a carrier skill starts making substantive calls, the routing was wrong.
+2. **A carrier skill never decides content.** `presentation` owns how the deck is built; `solution-architect` owns what it says. When a carrier skill starts making substantive calls, the routing was wrong.
 
 **Project route override.** If a current project decision retires or replaces a carrier or capability skill, follow that decision for this project and name the override and decision in the Plan Block's `ROUTE` row. Keep the default route intact for other projects. (derived: dogfood 2026-10-01)
 
 | The artifact is… | Skill |
 |---|---|
-| a slide deck | `pptx` |
+| a slide deck, PDF handout, editable PowerPoint, app demo or explainer video | `presentation` (renders through `scene-engine`; motion planning → `motion`) |
 | a Word document | `docx` |
 | a local spreadsheet (`.xlsx` / `.csv`) | `xlsx` |
 | a Google Sheet (over the network, acts as you) | `gsheets` — **not** `xlsx` |
