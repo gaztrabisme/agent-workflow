@@ -18,6 +18,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 DOMESTIKA_ANCHOR = r'\d+ · U\d+ · L\d{2,3} · \d{2}:\d{2}–\d{2}:\d{2}'
 LINK = re.compile(r'\]\(([^)#\s]+)(?:#[^)]*)?\)')
@@ -72,7 +73,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description='Check a skill package and optional source anchors.')
     ap.add_argument('root', type=Path, help='skill directory')
     ap.add_argument('--anchor', default=DOMESTIKA_ANCHOR, help='regex for one source anchor')
-    ap.add_argument('--sources', nargs='+', default=['references/course/*.md'],
+    ap.add_argument('--sources', nargs='+', default=['references/course*/*.md'],
                     help='globs of files that define the anchors')
     ap.add_argument('--files', nargs='+', default=['SKILL.md', 'references/**/*.md',
                                                    'tests/**/*.md'],
@@ -98,7 +99,8 @@ def main() -> int:
     if skill_file not in files:
         files.insert(0, skill_file)
     files = sorted(set(files))
-    source_files = glob_all(root, args.sources) if not args.no_anchor_check else []
+    configured_source_files = glob_all(root, args.sources)
+    source_files = configured_source_files if not args.no_anchor_check else []
     anchor = re.compile(args.anchor)
     known: set[str] = set()
     for path in source_files:
@@ -125,7 +127,7 @@ def main() -> int:
         for target in LINK.findall(text):
             if '://' in target or target.startswith('mailto:'):
                 continue
-            resolved = (path.parent / target).resolve()
+            resolved = (path.parent / unquote(target)).resolve()
             if resolved.exists():
                 continue
             if is_sibling(target):
@@ -161,12 +163,20 @@ def main() -> int:
 
     named_text = skill_text
     shipped: list[Path] = []
+    # A configured source corpus is input material, not an orphaned skill
+    # reference inventory. Its relevant lesson links live in the method
+    # digests; do not require every source PDF and frame to be repeated in
+    # SKILL.md. Source Markdown remains part of `files` and still gets link
+    # and anchor checks above.
+    source_roots = {path.parent.resolve() for path in configured_source_files}
     for directory in PACKAGE_DIRS:
         folder = root / directory
         if folder.is_dir():
             shipped.extend(path for path in folder.rglob('*')
                            if path.is_file() and '__pycache__' not in path.parts
-                           and path.suffix != '.pyc')
+                           and path.suffix != '.pyc'
+                           and not any(source_root in path.resolve().parents
+                                       for source_root in source_roots))
     print('Reference/script/test files shipped:')
     for path in sorted(shipped):
         rel = path.relative_to(root).as_posix()
