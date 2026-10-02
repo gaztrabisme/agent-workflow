@@ -2,7 +2,8 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { mkdtemp, access } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { CheckContext, Status } from '../model.ts';
 import { result } from './common.ts';
 
@@ -36,7 +37,7 @@ export async function run(ctx: CheckContext) {
   const edgeLimit = threshold(ctx, dataGraphic ? 'data_graphic_min_edge_share' : 'min_edge_share', dataGraphic ? 0.5 : 2);
   const maxAreaShare = threshold(ctx, 'max_focal_area_share', 0.5);
   const chromaMax = threshold(ctx, 'achromatic_chroma_max', 0.01);
-  const root = process.env.RK_COLOR_THEORY ?? resolve('../skills/color-theory'), script = join(root, 'scripts', 'checks.py');
+  const root = process.env.RK_COLOR_THEORY ?? fileURLToPath(new URL('../../../skills/color-theory/', import.meta.url)), script = join(root, 'scripts', 'checks.py');
   const temp = await mkdtemp(join(tmpdir(), 'rk-value-'));
   try { await access(script); } catch { return result(ctx, 'value', 'skipped', [], `color-theory script not found: ${script}`); }
 

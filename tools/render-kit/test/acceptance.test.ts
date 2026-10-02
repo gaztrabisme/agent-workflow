@@ -1,10 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, writeFile } from 'node:fs/promises';
+import { execFile as execFileCallback } from 'node:child_process';
+import { chmod, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+import { promisify } from 'node:util';
 import { prepare } from '../src/render.ts';
 import { rk, run, temp, pngSize, report } from './helpers.ts';
 
+const execFile=promisify(execFileCallback);
 async function onlyFailure(sample:string,id:string,env?:Record<string,string>){const r=await report(['check',`samples/bad/${sample}`,'--out-dir',join(await temp(),'out')],env);assert.equal(r.code,1,r.stderr);assert.deepEqual(r.data.checks.filter((c:any)=>c.status==='fail').map((c:any)=>c.id),[id]);return r.data.checks.find((c:any)=>c.id===id);}
 const required=(c:any,id:string)=>assert.equal(c.status,id);
 
@@ -22,6 +25,17 @@ test('AT11 deuteranopia pair distance is calibrated',async()=>{const c=await onl
 test('AT12 fidelity names only the misplaced bar',async()=>{const c=await onlyFailure('fidelity.svg','fidelity');assert.equal(c.items.length,1);assert.equal(c.items[0].selector,'#wrong');assert.ok(c.items[0].expected&&c.items[0].actual);});
 test('AT13 axe reports button-name and image-alt',async()=>{const c=await onlyFailure('a11y.html','a11y');assert.deepEqual(c.items.map((x:any)=>x.rule).filter(Boolean).sort(),['button-name','image-alt']);});
 test('AT14 value failure and missing-tool skip respect strict',async()=>{await onlyFailure('value.html','value',{RK_COLOR_THEORY:resolve('test/fixtures/color-theory')});const d=await temp(),args=['check','samples/bad/value.html','--checks','value','--out-dir',d],skip=await report(args,{RK_COLOR_THEORY:'/nonexistent'});assert.equal(skip.code,0);required(skip.data.checks[0],'skipped');const strict=await rk([...args,'--strict'],{RK_COLOR_THEORY:'/nonexistent'});assert.equal(strict.code,1);});
+test('AT35 value and chroma checks resolve outside the caller working directory',{timeout:90000},async()=>{
+  const d=await temp(),out=join(d,'out'),python=join(d,'python3'),expectedScript=resolve('../skills/color-theory/scripts/checks.py');
+  await writeFile(python,`#!/bin/sh\nif [ "$1" != "${expectedScript}" ]; then echo "unexpected script path: $1" >&2; exit 42; fi\ncase "$2" in\n  value) printf 'Focal box holds 2x its area share of value edges\\nT1 PASS\\n' ;;\n  chroma) printf 'T5 PASS\\n' ;;\n  *) exit 43 ;;\nesac\n`);
+  await chmod(python,0o755);
+  const env:Record<string,string|undefined>={...process.env,PATH:`${d}:${process.env.PATH??''}`};delete env.RK_COLOR_THEORY;
+  const {stdout}=await execFile(resolve('bin/rk'),['check',resolve('samples/good/data-graphic.svg'),'--checks','value','--out-dir',out],{cwd:d,env,encoding:'utf8',timeout:90000});
+  const data=JSON.parse(String(stdout)),value=data.checks.find((c:any)=>c.id==='value');
+  assert.ok(value);assert.equal(value.status,'incomplete');
+  assert.ok(value.items.some((item:any)=>item.check==='value'));
+  assert.ok(value.items.some((item:any)=>item.check==='chroma'));
+});
 test('AT15 PDF Type 3 font is rejected',async()=>{const d=await temp(),r=await report(['check','samples/bad/pdf-fonts.html','--pdf','--checks','pdf-fonts','--out-dir',d]);assert.equal(r.code,1,r.stderr);assert.equal(r.data.checks[0].status,'fail');assert.ok(r.data.checks[0].items.some((x:any)=>x.type.includes('Type 3')));});
 test('AT16 measured text wrapping handles width overflow and missing font',{timeout:60000},async()=>{const d=await temp(),text=(await readFile('test/fixtures/wrap.txt','utf8')).trim(),base=['text','wrap','--font','400 20px sans-serif','--text',text];const r=await rk([...base,'--width','300']);assert.equal(r.code,0,r.stderr);const lines=JSON.parse(r.stdout).lines;assert.ok(lines.every((x:any)=>x.width<300));const svg=await rk([...base,'--width','300','--format','svg']),path=join(d,'wrapped.svg');assert.equal(svg.code,0,svg.stderr);await writeFile(path,svg.stdout);const options={input:path,scale:1,at:'end' as const,settle:10000,boot:100,media:'screen' as const,timeout:30000,allowNetwork:false,pdf:false,strict:false,thresholds:{}};const session=await prepare(options);try{const width=await session.page.locator('text').evaluate((e:any)=>e.getBBox().width);assert.ok(width<=301);}finally{await session.stop();}const narrow=await rk([...base,'--width','20']);assert.equal(narrow.code,1);assert.equal(JSON.parse(narrow.stdout).overflow,true);const missing=await rk(['text','wrap','--font','400 20px "No Such Font"','--text',text,'--width','300']);assert.equal(missing.code,2);});
 test('AT17 brief contains each question and both render paths',{timeout:60000},async()=>{const d=await temp(),r=await rk(['brief','samples/good/slide.html','--questions','questions/slide.md','--out-dir',d,'--simulate','deuteranopia']);assert.equal(r.code,0,r.stderr);const md=await readFile(join(d,'brief.md'),'utf8'),template=JSON.parse(await readFile(join(d,'answers.template.json'),'utf8'));assert.match(md,/Q1\./);assert.match(md,/render-deuteranopia\.png/);assert.equal(template.answers.length,8);});
