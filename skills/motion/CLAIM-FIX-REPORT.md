@@ -1,3 +1,3 @@
-references/method/review-and-handoff.md · 3762 · U5 · L20 · 00:24–01:26 → unchanged · labeled the unverified rendered-output failure as derived from the course's pre-render settings check.
-references/method/storyboard-and-animatic.md · 433 · U4 · L09 · 00:00–00:48 → unchanged · narrowed this citation to the storyboard's rapid-prototyping purpose and separated claims supported by other sections.
-references/method/storyboard-and-animatic.md · 561 · U2 · L05 · 00:02–00:45 → unchanged · narrowed this citation to small story frames and per-frame animation reminders; removed the unsupported drawing-detail claim from its scope.
+references/method/storyboard-and-animatic.md · 433 · U5 · L15 · 00:00–01:29 → unchanged · Narrowed this part to voice-over testing and music/foley sketching; tone is assigned to music.
+references/method/storyboard-and-animatic.md · 433 · U5 · L15 · 03:25–04:22 → unchanged · Split out music’s rhythmic-base claim and limited rhythm and shot timing to music.
+references/method/storyboard-and-animatic.md · 433 · U5 · L15 · 04:22–05:09 → unchanged · Scoped foley to strengthening on-screen actions and sketching it as a narrative tool.

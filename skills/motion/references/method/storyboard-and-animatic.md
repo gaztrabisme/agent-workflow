@@ -22,7 +22,8 @@
 - Frame each moment for the information it needs: a close view can emphasize expression or detail; a wide view can establish context. (433 · U4 · L09 · 04:19–05:52)
 - Connect scenes through a shared form, color, speed, direction or camera movement; use a transition only when it strengthens continuity or narrative. (433 · U4 · L11 · 02:21–02:42; 433 · U4 · L11 · 02:42–03:52)
 - An animatic places the storyboard on a timeline, adds scene durations and rough camera or transition movement, and tests whether the story works in time. Replay and revise it. (433 · U5 · L14 · 00:00–00:30; 433 · U5 · L14 · 01:32–01:50; 433 · U5 · L14 · 02:57–03:26)
-- Sound can be prototyped alongside the animatic: voice, music and sound effects can change tone and provide a possible rhythmic base. (433 · U5 · L15 · 00:00–01:29; 433 · U5 · L15 · 03:25–04:22; 433 · U5 · L15 · 04:22–05:09)
+- Sound can be prototyped alongside the animatic: test voice-over factors such as intonation and pauses, and sketch music and foley as narrative tools. Music can set the overall tone; foley can strengthen on-screen actions. (433 · U5 · L15 · 00:00–01:29; 433 · U5 · L15 · 04:22–05:09)
+- Music can also provide a rhythmic base for animation, with a beat that can determine shot duration and support choreography timed to audio. (433 · U5 · L15 · 03:25–04:22)
 
 ## Idea that is best shown as a table
 
