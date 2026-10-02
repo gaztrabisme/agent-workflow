@@ -15,14 +15,39 @@ function fixtureBodyHashes(model, layer) {
   }));
 }
 function globRegex(glob) {
-  let source = '';
-  for (let index = 0; index < glob.length; index += 1) {
-    const char = glob[index];
-    if (char === '*' && glob[index + 1] === '*') { source += '.*'; index += 1; }
-    else if (char === '*') source += '[^/]*';
-    else source += char.replace(/[|\\{}()[\]^$+?.]/g, '\\$&');
-  }
-  return new RegExp(`^${source}$`);
+  const toSource = (pattern) => {
+    let source = '';
+    for (let index = 0; index < pattern.length; index += 1) {
+      const char = pattern[index];
+      if (char === '\\' && index + 1 < pattern.length) {
+        source += pattern[++index].replace(/[|\\{}()[\]^$+?.*]/g, '\\$&');
+      } else if (char === '*' && pattern[index + 1] === '*') {
+        if (pattern[index + 2] === '/') { source += '(?:.*/)?'; index += 2; }
+        else { source += '.*'; index += 1; }
+      } else if (char === '*') source += '[^/]*';
+      else if (char === '?') source += '[^/]';
+      else if (char === '{') {
+        let depth = 1; let close = index + 1; const alternatives = []; let part = '';
+        for (; close < pattern.length; close += 1) {
+          const item = pattern[close];
+          if (item === '\\' && close + 1 < pattern.length) { part += item + pattern[++close]; continue; }
+          if (item === '{') depth += 1;
+          else if (item === '}') {
+            depth -= 1;
+            if (depth === 0) { alternatives.push(part); break; }
+          }
+          if (item === ',' && depth === 1) { alternatives.push(part); part = ''; }
+          else part += item;
+        }
+        if (depth === 0 && alternatives.length > 1) {
+          source += `(?:${alternatives.map(toSource).join('|')})`;
+          index = close;
+        } else source += '\\{';
+      } else source += char.replace(/[|\\()[\]^$+?.{}]/g, '\\$&');
+    }
+    return source;
+  };
+  return new RegExp(`^${toSource(String(glob))}$`);
 }
 
 function locatorFor(page, locator) {
@@ -50,6 +75,7 @@ async function applyStep(page, step, index, layer) {
   const locator = await locateUnique(page, step.locator, timeout, index);
   if (step.action === 'click') await locator.click({ timeout });
   else if (step.action === 'fill') await locator.fill(step.value, { timeout });
+  else if (step.action === 'selectOption') await locator.selectOption(step.value, { timeout });
   else if (step.action === 'press') await locator.press(step.key, { timeout });
   else if (step.action === 'waitFor') await locator.waitFor({ state: 'visible', timeout });
   void layer;
@@ -83,7 +109,8 @@ async function updateOverlays(page, layer, time) {
     Object.assign(root.style, { position: 'fixed', inset: '0', zIndex: '2147483647', pointerEvents: 'none' });
     for (const rect of rects) {
       const box = document.createElement('div');
-      Object.assign(box.style, { position: 'absolute', left: `${rect.x}px`, top: `${rect.y}px`, width: `${rect.width}px`, height: `${rect.height}px`, border: `4px solid ${rect.color}`, borderRadius: '8px', boxShadow: `0 0 0 99999px ${rect.color}12` });
+      const padding = 6;
+      Object.assign(box.style, { position: 'absolute', left: `${rect.x - padding}px`, top: `${rect.y - padding}px`, width: `${rect.width + padding * 2}px`, height: `${rect.height + padding * 2}px`, boxSizing: 'border-box', border: `4px solid ${rect.color}`, borderRadius: '8px' });
       root.append(box);
     }
     if (cursorPose) {
@@ -133,13 +160,17 @@ export async function captureAppLayer(model, scene, layer, outDir, { timeoutMs =
     let fixtureCount = 0; let blockedUrl = null;
     await page.route('**/*', async (route) => {
       const request = route.request(); const url = request.url();
+      if (url.startsWith('data:') || url.startsWith('file:')) return route.continue();
+      const fixture = fixtures.find((item) => item.method === request.method().toUpperCase() && item.regex.test(url));
+      if (fixture) {
+        fixtureCount += 1;
+        return route.fulfill({ status: fixture.status, contentType: fixture.contentType ?? 'application/octet-stream', body: fs.readFileSync(path.resolve(model.root, fixture.bodyFile)) });
+      }
       let requestOrigin = '';
       try { requestOrigin = new URL(url).origin; } catch { }
-      if (requestOrigin === origin || url.startsWith('data:') || url.startsWith('file:')) return route.continue();
-      const fixture = fixtures.find((item) => item.method === request.method().toUpperCase() && item.regex.test(url));
-      if (!fixture) { blockedUrl = url; return route.abort('blockedbyclient'); }
-      fixtureCount += 1;
-      return route.fulfill({ status: fixture.status, contentType: fixture.contentType ?? 'application/octet-stream', body: fs.readFileSync(path.resolve(model.root, fixture.bodyFile)) });
+      if (requestOrigin === origin) return route.continue();
+      blockedUrl = url;
+      return route.abort('blockedbyclient');
     });
     const appTimeout = timeoutMs || layer.readyTimeoutMs || 30000;
     try {

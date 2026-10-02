@@ -168,3 +168,39 @@ Before each numbered command, its preceding `out/` was moved aside; no output di
 AT37 is the one documented PowerPoint owner-check skip in each test run. Both samples runs produced 32-second H.264 1920×1080, 30 fps videos through HyperFrames 0.8.78. The explainer and app-demo MP4, PNG and VTT output hashes matched across the two sample runs; both PPTX files passed their Open XML, python-pptx and LibreOffice round trips. The PPTX package hashes differ only because the embedded workbook's `docProps/core.xml` created/modified timestamps differ between run times.
 
 Artifact inspection of the second run's `out/app-demo.mp4` at 1,500 ms showed the filled `2026 Q2` period, the highlighted Compare periods button and the resulting “Compared 2026 Q2 with the prior period” status. Its probed duration is 32.000 seconds. Run logs are `npm-test-{1,2,3}.log` and `npm-run-samples-{1,2}.log` in the preserved rerun directory. Changes remain uncommitted.
+
+## Presentation dogfood fixes (F2, F3, F4, F5, F12; 2026-10-02)
+
+### Red baseline
+
+Before implementation, the added regressions reproduced the requested gaps:
+
+| Finding | Baseline evidence |
+|---|---|
+| F2 | The captured app was visible in the MP4 but absent from its check stage; full-frame MP4/check mean absolute RGB difference was 22.64, over the limit of 8. |
+| F3 | The reopened chart XML contained no authored series colors (`[]`); chart titles, number format, gridline color, chart font size and rounded-rectangle adjustment were also absent. |
+| F4 | `export-pptx`, `capture` and `check` returned exit code 2 when output destinations were outside the repository and command working directory. |
+| F5 | Schema validation rejected `selectOption` with exit code 2, so the same-origin fixture path could not reach the staged error state. |
+| F12 | The highlight overlay used a full-layer box-shadow tint and did not provide the requested padded outline-only treatment. |
+
+### Changes
+
+- F2 captures each active app-demo layer at the requested check time and embeds its matching frame in the check stage. The stage samples the scene-camera pose at that same time. A fallback MP4/check regression compares the full frame at 500 ms with the existing 8-level tolerance.
+- F3 writes authored chart style into chart XML, maps combo-series colors by authored series index, and writes `radiusPx` to the rounded rectangle DrawingML `adj`. The regression reopens both native charts with python-pptx and checks chart and slide XML.
+- F4 resolves `--out`, `--out-dir` and `--report` from the invoking process working directory without restricting their destination to the repository. PPTX temporary work is created next to its output so an external destination does not depend on repository writes.
+- F5 fixtures run before same-origin pass-through. The URL matcher handles Playwright `*`, `**`, `?`, brace alternatives and backslash escaping; `selectOption` is accepted by the schema and runs in the capture. F12 draws only a 6-pixel-padded outline, with no viewport tint.
+- The full suite initially exposed AT33/AT36 Keynote import timeouts after their Apple Events probe succeeded. The import/PDF call is now bounded at 30 seconds and reports that timeout as the documented nested Keynote owner-check; other import/PDF errors still fail. AT33 schema, python-pptx and LibreOffice checks and the AT36 LibreOffice render remain required.
+- SPEC and AGENTS document the output-path, check-stage, chart XML, fixture, select action, highlight and Keynote owner-check behavior.
+
+### Required clean validation
+
+Before the first run, the existing `out/` was moved to `/tmp/scene-engine-presentation-fixes-20261002/out-before-clean-validation`. Focused debugging output and each full-suite output were also moved aside; the samples build produced the current repository `out/`. Every full test run began with no `out/` directory. Commands used `PATH=/Users/GaryT/miniconda3/bin:$PATH HYPERFRAMES_NO_TELEMETRY=1`.
+
+| Gate | Recorded summary |
+|---|---|
+| `npm test` 1 | `# tests 53; # pass 52; # fail 0; # skipped 1; # todo 0; # duration_ms 259494.535542` |
+| `npm test` 2 | `# tests 53; # pass 52; # fail 0; # skipped 1; # todo 0; # duration_ms 259180.923667` |
+| `npm test` 3 | `# tests 53; # pass 52; # fail 0; # skipped 1; # todo 0; # duration_ms 296794.383917` |
+| `npm run samples` | `[samples] all requested artifacts are in out/` |
+
+The sole skip in each suite is AT37's documented Microsoft PowerPoint release-owner check. AT33 and AT36 pass; their Keynote portions report nested owner checks for the 30-second import/PDF timeout, while their LibreOffice checks pass. Logs and preserved test artifacts are under `/tmp/scene-engine-presentation-fixes-20261002/` (`npm-test-{1,2,3}.log`, `npm-run-samples.log`, and `out-test-{1,2,3}`). The sample artifacts remain in `out/`. Changes remain uncommitted.

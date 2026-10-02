@@ -11,12 +11,7 @@ import { frameCount, frameTimeMs } from './timeline.mjs';
 
 const ENGINE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-export function ensureInsideRepository(filePath, repo = process.cwd()) {
-  const absolute = path.resolve(filePath);
-  const relative = path.relative(path.resolve(repo), absolute);
-  if (relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) throw Object.assign(new Error('Build output paths must remain inside the repository.'), { code: 'PATH_OUTSIDE_ROOT', exitCode: 2 });
-  return absolute;
-}
+export function resolveOutputPath(filePath) { return path.resolve(filePath); }
 
 async function spawnLogged(command, args, { cwd, env = process.env, timeoutMs = 30000, label = command, streamOutput = false } = {}) {
   return await new Promise((resolve, reject) => {

@@ -136,13 +136,13 @@ function layerHtml(model, scene, layer, captureMap, captionMode, localParentStar
 
 function cameraCss(scene) {
   const camera = scene.camera;
-  if (!camera?.tracks?.length) return '';
+  if (!camera) return '';
   const properties = ['x', 'y', 'zoom', 'rotation'];
   const times = new Set([0, scene.durationMs - 1]);
-  for (const track of camera.tracks) for (const frame of track.keyframes ?? []) if (Number.isInteger(frame.atMs)) times.add(frame.atMs);
+  for (const track of camera.tracks ?? []) for (const frame of track.keyframes ?? []) if (Number.isInteger(frame.atMs)) times.add(frame.atMs);
   const frames = [...times].sort((a, b) => a - b).map((atMs) => {
     const value = { x: camera.x ?? 0, y: camera.y ?? 0, zoom: camera.zoom ?? 1, rotation: camera.rotation ?? 0 };
-    for (const track of camera.tracks) value[track.property] = sampleTrack(value[track.property], track, atMs);
+    for (const track of camera.tracks ?? []) value[track.property] = sampleTrack(value[track.property], track, atMs);
     const tx = -(value.x ?? 0); const ty = -(value.y ?? 0);
     return `${(atMs / scene.durationMs * 100).toFixed(5)}%{transform:translate(${tx}px,${ty}px) scale(${value.zoom ?? 1}) rotate(${value.rotation ?? 0}deg)}`;
   }).join('');
@@ -155,6 +155,13 @@ function mediaLayerHtml(model, scene, layer, captureMap, compositionDir, parent 
     x: parent.x + layer.x, y: parent.y + layer.y, start: parent.start + layer.startMs, z: parent.z + (layer.z ?? 0)
   })).join('');
   if (layer.type !== 'video' && layer.type !== 'appDemo') return '';
+  if (layer.type === 'appDemo' && layer.__checkFrameDataUrl) {
+    const startMs = scene._startMs + parent.start + layer.startMs;
+    const left = parent.x + layer.x; const top = parent.y + layer.y;
+    const z = parent.z + (layer.z ?? 0);
+    const entrance = entranceCss(layer.entrance, Number(layer.__entranceProgress ?? 0), layer.width, layer.height);
+    return `<div id="media-plane-${esc(scene.id)}-${esc(layer.id)}" class="scene-camera-plane" data-scene-id="${esc(scene.id)}"><img id="${esc(layer.id)}" class="stage-app-frame" data-layer-id="${esc(layer.id)}" data-scene-id="${esc(scene.id)}" data-scene-engine-start-ms="${startMs}" src="${esc(layer.__checkFrameDataUrl)}" alt="Captured app-demo frame" style="position:absolute;left:${left}px;top:${top}px;width:${layer.width}px;height:${layer.height}px;z-index:${z};object-fit:contain;pointer-events:none;${entrance}"/></div>`;
+  }
   const source = captureMap.get(layer.id) ?? (layer.type === 'video' ? path.resolve(model.root, layer.src) : null);
   if (!source) return '';
   const startMs = scene._startMs + parent.start + layer.startMs;
@@ -261,12 +268,18 @@ export function writeComposition(model, directory, options) {
   return path.join(directory, 'index.html');
 }
 
-function sampleLayerTree(layer, parentTime) {
+function sampleLayerTree(layer, parentTime, appCaptures = new Map()) {
   const state = sampleLayer(layer, parentTime);
   const localTime = parentTime - layer.startMs;
   if (state.entrance && state.entrance !== 'none') state.__entranceProgress = Math.max(0, Math.min(1, localTime / (state.entranceDurationMs ?? 500)));
   if (state.type === 'video' || state.type === 'appDemo') state.__mediaTimeMs = Math.max(0, localTime);
-  if (layer.type === 'group') state.children = (layer.children ?? []).filter((child) => localTime >= child.startMs && localTime < child.startMs + child.durationMs).map((child) => sampleLayerTree(child, localTime));
+  if (layer.type === 'appDemo' && appCaptures.has(layer.id)) {
+    const capture = appCaptures.get(layer.id);
+    const index = Math.min(capture.frameCount - 1, Math.max(0, Math.floor(localTime * 30 / 1000)));
+    const filename = path.join(capture.directory, 'frames', `frame-${String(index).padStart(6, '0')}.png`);
+    state.__checkFrameDataUrl = `data:image/png;base64,${fs.readFileSync(filename).toString('base64')}`;
+  }
+  if (layer.type === 'group') state.children = (layer.children ?? []).filter((child) => localTime >= child.startMs && localTime < child.startMs + child.durationMs).map((child) => sampleLayerTree(child, localTime, appCaptures));
   delete state.tracks;
   delete state.build;
   delete state.rangeTracks;
@@ -274,13 +287,18 @@ function sampleLayerTree(layer, parentTime) {
   return state;
 }
 
-export function generateStaticHtml(model, atMs) {
+export function generateStaticHtml(model, atMs, { appCaptures = new Map() } = {}) {
   const activeScenes = model.scenes.filter((scene) => atMs >= scene._startMs && atMs < scene._startMs + scene.durationMs);
   const scenes = activeScenes.map((scene) => {
     const localTime = atMs - scene._startMs;
-    const activeLayers = (scene.layers ?? []).filter((layer) => localTime >= layer.startMs && localTime < layer.startMs + layer.durationMs).map((layer) => sampleLayerTree(layer, localTime)).map((layer) => ({ ...layer, startMs: 0, durationMs: 1000 }));
+    const camera = scene.camera ? { ...scene.camera, tracks: [] } : undefined;
+    if (camera) for (const track of scene.camera.tracks ?? []) {
+      const defaults = { x: 0, y: 0, zoom: 1, rotation: 0 };
+      camera[track.property] = sampleTrack(camera[track.property] ?? defaults[track.property], track, localTime);
+    }
+    const activeLayers = (scene.layers ?? []).filter((layer) => localTime >= layer.startMs && localTime < layer.startMs + layer.durationMs).map((layer) => sampleLayerTree(layer, localTime, appCaptures)).map((layer) => ({ ...layer, startMs: 0, durationMs: 1000 }));
     const captions = (scene.captions ?? []).filter((cue) => localTime >= cue.startMs && localTime < cue.endMs && !captionCoveredByAuthorLayer(scene, cue, localTime)).map((cue) => ({ ...cue, startMs: 0, endMs: 1000 }));
-    return { ...scene, _startMs: 0, startMs: 0, durationMs: 1000, layers: activeLayers, captions, camera: undefined };
+    return { ...scene, _startMs: 0, startMs: 0, durationMs: 1000, layers: activeLayers, captions, camera };
   });
   const staticModel = { ...model, durationMs: 1000, frameCount: 30, scenes, story: { ...model.story, durationMs: 1000 } };
   let html = generateHtml(staticModel, { captionMode: 'burn-in' });

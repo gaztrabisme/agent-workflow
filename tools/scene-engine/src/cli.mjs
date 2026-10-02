@@ -8,7 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { loadStoryboard, diagnostic, allLayers, canonicalHash } from './scene.mjs';
 import { ease, sampleTrack, sampleLayer, frameTimeMs, frameCount } from './timeline.mjs';
-import { renderStoryboard, ensureInsideRepository, defaultTimeoutForFrames } from './render.mjs';
+import { renderStoryboard, resolveOutputPath, defaultTimeoutForFrames } from './render.mjs';
 import { appLayers, captureAppLayer } from './capture.mjs';
 import { generateHtml, generateStaticHtml } from './html.mjs';
 import { exportWithKeynote, renderWithLibreOffice } from './pptx_smoke.mjs';
@@ -122,7 +122,7 @@ async function commandCapture(positional, options) {
   const { scene, matches } = appLayers(model, options.scene, options.layer);
   if (!scene) throwDiag('CLI_USAGE', `Unknown scene: ${options.scene}`, 2);
   if (matches.length !== 1) throwDiag('CLI_USAGE', matches.length ? 'Select exactly one app-demo layer with --layer.' : 'Scene has no matching app-demo layer.', 2);
-  const layer = matches[0]; const dir = ensureInsideRepository(options['out-dir']);
+  const layer = matches[0]; const dir = resolveOutputPath(options['out-dir']);
   const capture = await captureAppLayer(model, scene, layer, dir, { timeoutMs: Number(options.timeout ?? layer.readyTimeoutMs ?? 30000) });
   const files = [fileRecord('manifest', capture.manifestPath), fileRecord('video', capture.videoPath)];
   emit(resultDocument('capture', {
@@ -181,10 +181,10 @@ async function commandExportPptx(positional, options) {
   const model = modelFrom(requireStoryboard(positional), options);
   if (model.errors.length) { emit(resultDocument('export-pptx', resultDefaults('export-pptx'), { ok: false, exitCode: 2, errors: model.errors })); return; }
   if (!options.out) throwDiag('CLI_USAGE', 'export-pptx requires --out.', 2);
-  const output = ensureInsideRepository(options.out);
+  const output = resolveOutputPath(options.out);
   let embedVideo = null;
   if (options['embed-video']) {
-    embedVideo = ensureInsideRepository(options['embed-video']);
+    embedVideo = path.resolve(options['embed-video']);
     if (!fs.existsSync(embedVideo)) throwDiag('ASSET_MISSING', `Embedded video does not exist: ${embedVideo}`, 2, { path: embedVideo });
     let media;
     try { media = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_streams', '-of', 'json', embedVideo], { encoding: 'utf8' })); }
@@ -196,8 +196,7 @@ async function commandExportPptx(positional, options) {
     }
   }
   fs.mkdirSync(path.dirname(output), { recursive: true });
-  const scratch = path.join(ROOT, 'out', '.work'); fs.mkdirSync(scratch, { recursive: true });
-  const work = fs.mkdtempSync(path.join(scratch, 'pptx-'));
+  const work = fs.mkdtempSync(path.join(path.dirname(output), '.scene-engine-pptx-'));
   const modelFile = path.join(work, 'model.json'); const tempOutput = path.join(work, 'draft.pptx');
   const python = path.join(ROOT, '.venv', 'bin', 'python');
   try {
@@ -219,7 +218,7 @@ async function commandExportPptx(positional, options) {
     fs.renameSync(tempOutput, output);
     const files = [fileRecord('pptx', output)];
     if (options.report) {
-      const report = ensureInsideRepository(options.report); fs.mkdirSync(path.dirname(report), { recursive: true }); fs.writeFileSync(report, `${JSON.stringify(result, null, 2)}\n`); files.push(fileRecord('report', report));
+      const report = resolveOutputPath(options.report); fs.mkdirSync(path.dirname(report), { recursive: true }); fs.writeFileSync(report, `${JSON.stringify(result, null, 2)}\n`); files.push(fileRecord('report', report));
     }
     emit(resultDocument('export-pptx', result, { files }));
   } finally { fs.rmSync(work, { recursive: true, force: true }); }
@@ -234,11 +233,34 @@ async function commandCheck(positional, options) {
   for (const value of (options.at ?? '').split(',').filter(Boolean)) times.add(Number(value));
   const sortedTimes = [...times].sort((a, b) => a - b);
   const rk = options.rk ?? process.env.SCENE_ENGINE_RK ?? 'rk';
-  const work = ensureInsideRepository(options['out-dir'] ?? path.join(ROOT, 'out', 'check')); fs.mkdirSync(work, { recursive: true });
+  const work = resolveOutputPath(options['out-dir'] ?? path.join(ROOT, 'out', 'check')); fs.mkdirSync(work, { recursive: true });
+  const appCaptures = new Map();
+  const collectAppDemos = (scene, layers, parentStartMs = 0) => {
+    const entries = [];
+    for (const layer of layers ?? []) {
+      const startMs = parentStartMs + layer.startMs;
+      if (layer.type === 'appDemo') entries.push({ scene, layer, startMs });
+      if (layer.type === 'group') entries.push(...collectAppDemos(scene, layer.children, startMs));
+    }
+    return entries;
+  };
+  for (const scene of model.scenes) {
+    const appDemos = collectAppDemos(scene, scene.layers);
+    for (const [index, entry] of appDemos.entries()) {
+      const isChecked = sortedTimes.some((time) => {
+        const sceneTime = time - scene._startMs;
+        return sceneTime >= entry.startMs && sceneTime < entry.startMs + entry.layer.durationMs;
+      });
+      if (!isChecked) continue;
+      const captureDir = path.join(work, '.app-captures', `${scene.id}-${index}-${entry.layer.id}`);
+      const capture = await captureAppLayer(model, scene, entry.layer, captureDir, { timeoutMs: Number(entry.layer.readyTimeoutMs ?? 30000) });
+      appCaptures.set(entry.layer.id, { directory: captureDir, frameCount: capture.frameCount });
+    }
+  }
   const reports = []; let exitCode = 0;
   for (const time of sortedTimes) {
     const htmlFile = path.join(work, `stage-${time}.html`);
-    fs.writeFileSync(htmlFile, generateStaticHtml(model, time));
+    fs.writeFileSync(htmlFile, generateStaticHtml(model, time, { appCaptures }));
     const reportDir = path.join(work, `at-${time}`); fs.mkdirSync(reportDir, { recursive: true });
     try {
       const output = await new Promise((resolve, reject) => {
@@ -254,7 +276,7 @@ async function commandCheck(positional, options) {
   }
   const pptxDiagnostics = {};
   if (options.pptx) {
-    const pptxPath = ensureInsideRepository(options.pptx);
+    const pptxPath = path.resolve(options.pptx);
     if (!fs.existsSync(pptxPath)) throwDiag('ASSET_MISSING', `PPTX file does not exist: ${pptxPath}`, 2, { path: pptxPath });
     const pptxWork = path.join(work, 'pptx-slides'); fs.mkdirSync(pptxWork, { recursive: true });
     const converted = await runProcess('soffice', ['--headless', '--convert-to', 'pdf', '--outdir', pptxWork, pptxPath], 60000);

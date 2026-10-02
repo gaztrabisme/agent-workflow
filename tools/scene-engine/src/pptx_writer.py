@@ -144,6 +144,20 @@ def add_shape(slide, layer, mapping):
         shape.line.width = Pt(float(layer.get('strokeWidth', 1)) * 0.5)
     else:
         shape.line.fill.background()
+    if layer.get('shape') == 'roundRect' and 'radiusPx' in layer:
+        short_side = min(float(layer['width']), float(layer['height']))
+        adjustment = round(min(0.5, float(layer['radiusPx']) / short_side) * 100000) if short_side else 0
+        geometry = shape._element.spPr.prstGeom
+        av_list = geometry.find(qn('a:avLst'))
+        if av_list is None:
+            av_list = OxmlElement('a:avLst')
+            geometry.append(av_list)
+        guide = av_list.find(qn('a:gd'))
+        if guide is None:
+            guide = OxmlElement('a:gd')
+            av_list.append(guide)
+        guide.set('name', 'adj')
+        guide.set('fmla', f'val {adjustment}')
     mapping.append({'layerId': layer['id'], 'representation': 'native-shape', 'reason': None, 'alt': layer.get('alt', ''), 'decorative': layer.get('decorative', False)})
     return shape
 
@@ -246,6 +260,74 @@ def configure_combo_chart(chart, layer):
     for offset, element in enumerate(chart_elements): plot_area.insert(insert_at + offset, element)
 
 
+def apply_chart_style(chart, layer):
+    style = layer.get('style') or {}
+    font_size = style.get('fontSize')
+    font_family = style.get('fontFamily')
+    font_points = Pt(float(font_size) * 0.5) if font_size is not None else None
+    if font_size is not None:
+        chart.font.size = font_points
+    if font_family:
+        chart.font.name = str(font_family)
+    if chart.has_legend:
+        if font_size is not None: chart.legend.font.size = font_points
+        if font_family: chart.legend.font.name = str(font_family)
+
+    plot_area = chart._chartSpace.chart.plotArea
+    has_category_axis = plot_area.find(qn('c:catAx')) is not None
+    has_value_axis = plot_area.find(qn('c:valAx')) is not None
+    category_axis = chart.category_axis if has_category_axis or layer.get('kind') == 'scatter' else None
+    value_axis = chart.value_axis if has_value_axis else None
+    horizontal_bar = str(layer.get('kind', '')).startswith('bar')
+    x_axis, y_axis = (value_axis, category_axis) if horizontal_bar else (category_axis, value_axis)
+    if style.get('axisTitleX') and x_axis is not None:
+        x_axis.has_title = True
+        x_axis.axis_title.text_frame.text = str(style['axisTitleX'])
+    if style.get('axisTitleY') and y_axis is not None:
+        y_axis.has_title = True
+        y_axis.axis_title.text_frame.text = str(style['axisTitleY'])
+    if style.get('numberFormat') and value_axis is not None:
+        value_axis.tick_labels.number_format = str(style['numberFormat'])
+    if style.get('gridColor') and value_axis is not None:
+        value_axis.has_major_gridlines = True
+        value_axis.major_gridlines.format.line.color.rgb = color(style['gridColor'])
+
+    colors = style.get('seriesColors') or []
+    if colors:
+        series_nodes = plot_area.findall('.//c:ser', {'c': CHART_NS})
+        for traversal_index, series in enumerate(series_nodes):
+            index_node = series.find(qn('c:idx'))
+            try:
+                index = int(index_node.get('val')) if index_node is not None else traversal_index
+            except (TypeError, ValueError):
+                index = traversal_index
+            if index >= len(colors): continue
+            plot = series.getparent()
+            is_line = plot.tag in {qn('c:lineChart'), qn('c:scatterChart')}
+            properties = series.find(qn('c:spPr'))
+            if properties is None:
+                properties = OxmlElement('c:spPr')
+                series.insert(3, properties)
+            for fill in list(properties):
+                if fill.tag in {qn('a:noFill'), qn('a:solidFill'), qn('a:gradFill'), qn('a:blipFill'), qn('a:pattFill'), qn('a:grpFill')}:
+                    properties.remove(fill)
+            solid = OxmlElement('a:solidFill')
+            srgb = OxmlElement('a:srgbClr')
+            srgb.set('val', str(colors[index]).lstrip('#').upper())
+            solid.append(srgb)
+            if is_line:
+                line = properties.find(qn('a:ln'))
+                if line is None:
+                    line = OxmlElement('a:ln')
+                    properties.append(line)
+                for fill in list(line):
+                    if fill.tag in {qn('a:noFill'), qn('a:solidFill'), qn('a:gradFill'), qn('a:blipFill'), qn('a:pattFill'), qn('a:grpFill')}:
+                        line.remove(fill)
+                line.insert(0, solid)
+            else:
+                properties.insert(0, solid)
+
+
 def add_chart(slide, layer, mapping, workbook_checks):
     data = layer
     chart_type = CHART_TYPES.get(layer.get('kind'), XL_CHART_TYPE.COLUMN_CLUSTERED)
@@ -269,6 +351,7 @@ def add_chart(slide, layer, mapping, workbook_checks):
     if chart.has_legend:
         chart.legend.position = XL_LEGEND_POSITION.BOTTOM
     chart.has_title = False
+    apply_chart_style(chart, layer)
     if layer.get('showValues'):
         for series in chart.series:
             series.has_data_labels = True

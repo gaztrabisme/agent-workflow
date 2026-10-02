@@ -1306,6 +1306,7 @@
                       "goto",
                       "click",
                       "fill",
+                      "selectOption",
                       "press",
                       "waitFor"
                     ]
@@ -1389,6 +1390,21 @@
                       "properties": {
                         "action": {
                           "const": "fill"
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "locator",
+                        "value"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "action": {
+                          "const": "selectOption"
                         }
                       }
                     },

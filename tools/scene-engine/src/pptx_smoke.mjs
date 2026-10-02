@@ -108,8 +108,8 @@ export async function exportWithKeynote(inputPptx, outputPdf) {
       'tell application id "com.apple.iWork.Keynote"',
       `set sceneEngineDocument to open POSIX file "${source}"`,
       'set sceneEngineSlideCount to 0',
-      'with timeout of 100 seconds',
-      'repeat 60 times',
+      'with timeout of 25 seconds',
+      'repeat 20 times',
       'try',
       'set sceneEngineSlideCount to count of slides of sceneEngineDocument',
       'if sceneEngineSlideCount > 0 then exit repeat',
@@ -124,9 +124,11 @@ export async function exportWithKeynote(inputPptx, outputPdf) {
     ].join('\n');
     let output = '';
     try {
-      output = execFileSync('osascript', ['-e', script], { encoding: 'utf8', timeout: 120000, maxBuffer: 2 * 1024 * 1024 });
+      output = execFileSync('osascript', ['-e', script], { encoding: 'utf8', timeout: 30000, maxBuffer: 2 * 1024 * 1024 });
     } catch (error) {
-      throw new Error(`Keynote import/PDF export failed: ${(error.stderr || error.stdout || error.message).toString().trim()}`);
+      const detail = (error.stderr || error.stdout || error.message).toString().trim();
+      if (error.code === 'ETIMEDOUT') return { status: 'owner-check', manualSteps: [KEYNOTE_OWNER_CHECK], reason: `Keynote import/PDF export timed out after 30 seconds: ${detail}` };
+      throw new Error(`Keynote import/PDF export failed: ${detail}`);
     }
     if (!fs.existsSync(outputPdf) || fs.statSync(outputPdf).size === 0) throw new Error('Keynote returned without creating a non-empty PDF.');
     return { status: 'pass', pdf: path.resolve(outputPdf), warnings: output.trim() ? [output.trim()] : [] };

@@ -35,9 +35,9 @@ function runCli(args) {
   const stdout = execFileSync(process.execPath, [CLI, ...args], { cwd: ROOT, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
   return JSON.parse(stdout.trim());
 }
-function runCliAsync(args, env = process.env) {
+function runCliAsync(args, env = process.env, cwd = ROOT) {
   return new Promise((resolve) => {
-    const child = spawn(process.execPath, [CLI, ...args], { cwd: ROOT, env, stdio: ['ignore', 'pipe', 'pipe'] });
+    const child = spawn(process.execPath, [CLI, ...args], { cwd, env, stdio: ['ignore', 'pipe', 'pipe'] });
     let stdout = ''; let stderr = '';
     child.stdout.on('data', (chunk) => stdout += chunk);
     child.stderr.on('data', (chunk) => stderr += chunk);
@@ -82,6 +82,15 @@ function rawFrame(filename, timeMs = null) {
   if (result.status !== 0) throw new Error(`ffmpeg frame extraction failed: ${result.stderr?.toString()}`);
   assert.equal(result.stdout.length, RGB_FRAME_BYTES, `expected one 1920x1080 RGB frame from ${filename}`);
   return result.stdout;
+}
+function rawPng(filename) {
+  const result = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', filename, '-f', 'rawvideo', '-pix_fmt', 'rgb24', 'pipe:1'], { maxBuffer: 16 * 1024 * 1024 });
+  if (result.status !== 0) throw new Error(`ffmpeg PNG decode failed: ${result.stderr?.toString()}`);
+  return result.stdout;
+}
+function rgbPixel(frame, width, x, y) {
+  const offset = (y * width + x) * 3;
+  return [frame[offset], frame[offset + 1], frame[offset + 2]];
 }
 async function checkFrame(model, timeMs, filename) {
   fs.mkdirSync(path.dirname(filename), { recursive: true });
@@ -800,4 +809,118 @@ test('F8 resolves renderer assets from the install and writes --out outside the 
   assert.equal(result.code, 0, result.stderr);
   assert.equal(JSON.parse(result.stdout.trim()).ok, true);
   assert.ok(fs.statSync(output).size > 0);
+});
+
+test('F2 check composites the captured app-demo frame used by its MP4', async (t) => {
+  const appRoot = fs.mkdtempSync(path.join(WORK, 'f2-app-'));
+  fs.writeFileSync(path.join(appRoot, 'index.html'), '<!doctype html><html><head><style>html,body{margin:0;width:640px;height:360px;background:#244E72;color:white;font:700 32px Arial;display:grid;place-items:center}</style></head><body><main data-ready>App report 27</main></body></html>');
+  const port = await unusedPort(); const server = await startFixtureApp(port, appRoot);
+  t.after(() => { server.kill('SIGTERM'); fs.rmSync(appRoot, { recursive: true, force: true }); });
+  const app = layer('checked-dashboard', 'appDemo', { x: 500, y: 300, width: 640, height: 360, url: `http://127.0.0.1:${port}/`, readySelector: '[data-ready]', appBuildId: 'f2-fixture-v1', steps: [] });
+  const filename = storyFile('f2-app-demo.json', baseStory([app], 1000));
+  const model = loadStoryboard(filename, { root: appRoot });
+  assert.deepEqual(model.errors, []);
+  const movie = path.join(OUT, 'tests', 'f2-app-demo.mp4');
+  const rendered = await renderStoryboard(model, { out: movie, renderer: 'fallback', captions: 'none', timeoutMs: 60000 });
+  assert.equal(rendered.durationMs, 1000);
+  const checkDir = path.join(OUT, 'tests', 'f2-app-demo-check'); fs.rmSync(checkDir, { recursive: true, force: true });
+  const checked = await runCliAsync(['check', filename, '--root', appRoot, '--at', '500', '--rk', path.resolve(ROOT, '../render-kit/bin/rk'), '--out-dir', checkDir]);
+  assert.equal(checked.code, 0, checked.stderr);
+  const document = JSON.parse(checked.stdout.trim());
+  const report = document.result.reports.find((entry) => entry.target === 'frame:500');
+  assert.equal(report.status, 'pass');
+  const checkImage = report.rk.report.outputs.png;
+  assert.ok(fs.existsSync(checkImage));
+  assertMeanAbsoluteFrameDifference(rawFrame(checkImage), rawFrame(movie, 500), 'fallback app-demo', 500);
+});
+
+test('F2 static app-demo check samples the scene camera at its requested time', () => {
+  const story = baseStory([layer('camera-app', 'appDemo', { width: 320, height: 180, url: 'http://127.0.0.1:3000/', readySelector: '[data-ready]', appBuildId: 'f2-camera-v1' })]);
+  story.scenes[0].camera = { tracks: [{ property: 'x', keyframes: [{ atMs: 0, value: 0 }, { atMs: 999, value: 140 }] }] };
+  const model = loadStoryboard(storyFile('f2-camera-sample.json', story), { root: ROOT });
+  const captureDir = path.join(WORK, 'f2-camera-capture'); const frameDir = path.join(captureDir, 'frames');
+  fs.mkdirSync(frameDir, { recursive: true });
+  fs.writeFileSync(path.join(frameDir, 'frame-000015.png'), Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jf9sAAAAASUVORK5CYII=', 'base64'));
+  const html = generateStaticHtml(model, 500, { appCaptures: new Map([['camera-app', { directory: captureDir, frameCount: 30 }]]) });
+  assert.match(html, /class="stage-app-frame"/);
+  assert.match(html, /translate\(-70\.\d+px,-?0px\) scale\(1\) rotate\(0deg\)/);
+});
+
+test('F3 writes chartStyle and roundRect radius into the reopened PPTX XML', () => {
+  const filename = storyFile('f3-chart-style.json', baseStory([
+    layer('style-panel', 'shape', { shape: 'roundRect', x: 40, y: 40, width: 300, height: 140, radiusPx: 24, fill: '#F2F4F7' }),
+    layer('styled-chart', 'chart', {
+      x: 400, y: 40, width: 1200, height: 900, kind: 'line', categories: ['Step 1', 'Step 2', 'Step 3'],
+      series: [{ name: 'Training', values: [0.8, 0.5, 0.2] }, { name: 'Validation', values: [0.9, 0.6, 0.3] }],
+      style: { fontSize: 22, seriesColors: ['#0B6E4F', '#C44536'], axisTitleX: 'Step', axisTitleY: 'Loss', numberFormat: '0.00', gridColor: '#D9A441' }
+    }),
+    layer('combo-chart', 'chart', {
+      x: 400, y: 500, width: 1200, height: 500, kind: 'combo', categories: ['A', 'B'],
+      series: [
+        { name: 'First line', kind: 'line', values: [1, 2] },
+        { name: 'Middle bars', kind: 'column', values: [3, 4] },
+        { name: 'Last line', kind: 'line', values: [5, 6] }
+      ],
+      style: { seriesColors: ['#112233', '#445566', '#778899'] }
+    })
+  ]));
+  const output = path.join(OUT, 'tests', 'f3-chart-style.pptx');
+  const document = exportPptx(filename, output, ['--no-verify']);
+  assert.equal(document.ok, true);
+  assert.equal(document.result.openXmlValidation.status, 'pass');
+  let script = `import sys, zipfile, xml.etree.ElementTree as ET\nfrom pptx import Presentation\nfrom pptx.enum.shapes import MSO_AUTO_SHAPE_TYPE\npath=sys.argv[1]\np=Presentation(path)\nshapes=[s for slide in p.slides for s in slide.shapes]\nchart_shape=next(s for s in shapes if s.has_chart)\nassert len(chart_shape.chart.series)==2\nassert any(s.name=='style-panel' and s.auto_shape_type==MSO_AUTO_SHAPE_TYPE.ROUNDED_RECTANGLE for s in shapes)\nwith zipfile.ZipFile(path) as z:\n chart=ET.fromstring(z.read('ppt/charts/chart1.xml'))\n slide=ET.fromstring(z.read('ppt/slides/slide1.xml'))\nns={'c':'http://schemas.openxmlformats.org/drawingml/2006/chart','a':'http://schemas.openxmlformats.org/drawingml/2006/main','p':'http://schemas.openxmlformats.org/presentationml/2006/main'}\ncolors=[x.get('val') for x in chart.findall('.//c:ser/c:spPr/a:solidFill/a:srgbClr',ns)] + [x.get('val') for x in chart.findall('.//c:ser/c:spPr/a:ln/a:solidFill/a:srgbClr',ns)]\nassert '0B6E4F' in colors and 'C44536' in colors, colors\ntitles=[''.join(t.text or '' for t in x.findall('.//a:t',ns)) for x in chart.findall('.//c:catAx/c:title',ns)+chart.findall('.//c:valAx/c:title',ns)]\nassert any(t=='Step' for t in titles) and any(t=='Loss' for t in titles), titles\nassert any(x.get('formatCode')=='0.00' for x in chart.findall('.//c:valAx/c:numFmt',ns))\nassert any(x.get('val')=='D9A441' for x in chart.findall('.//c:valAx/c:majorGridlines/c:spPr/a:ln/a:solidFill/a:srgbClr',ns))\nassert any(x.get('sz')=='1100' for x in chart.findall('.//a:defRPr',ns)), 'chartStyle fontSize was not converted from px into PPTX points'\nshape=next(x for x in slide.findall('.//p:sp',ns) if any(n.get('name')=='style-panel' for n in x.findall('./p:nvSpPr/p:cNvPr',ns)))\nadj=shape.find('./p:spPr/a:prstGeom/a:avLst/a:gd',ns)\nassert adj is not None and adj.get('name')=='adj' and adj.get('fmla')=='val 17143', ET.tostring(shape,encoding='unicode')\nprint('python-pptx reopen + chartStyle XML + roundRect radius passed')`;
+  script=script.replace('assert len(chart_shape.chart.series)==2', 'assert len(chart_shape.chart.series)==2\nassert sum(1 for s in shapes if s.has_chart)==2');
+  script=script.replace(" slide=ET.fromstring(z.read('ppt/slides/slide1.xml'))", " slide=ET.fromstring(z.read('ppt/slides/slide1.xml'))\n combo=ET.fromstring(z.read('ppt/charts/chart2.xml'))");
+  script=script.replace("shape=next(x for x in slide.findall", "combo_colors={ser.find('c:idx',ns).get('val'): next((x.get('val') for x in ser.findall('./c:spPr/a:solidFill/a:srgbClr',ns)+ser.findall('./c:spPr/a:ln/a:solidFill/a:srgbClr',ns)),None) for ser in combo.findall('.//c:ser',ns)}\nassert combo_colors=={'0':'112233','1':'445566','2':'778899'}, combo_colors\nshape=next(x for x in slide.findall");
+  const inspect = execFileSync(path.join(ROOT, '.venv/bin/python'), ['-c', script, output], { encoding: 'utf8' });
+  assert.match(inspect, /python-pptx reopen \+ chartStyle XML/);
+});
+
+test('F4 export, capture and check outputs resolve outside both repository and caller cwd', async (t) => {
+  const callerCwd = fs.mkdtempSync(path.join(os.tmpdir(), 'scene-engine-foreign-cwd-'));
+  const outputRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'scene-engine-foreign-output-'));
+  const appRoot = path.join(callerCwd, 'app'); fs.mkdirSync(appRoot);
+  fs.writeFileSync(path.join(appRoot, 'index.html'), '<!doctype html><html><body><main data-ready>Foreign cwd app</main></body></html>');
+  t.after(() => { fs.rmSync(callerCwd, { recursive: true, force: true }); fs.rmSync(outputRoot, { recursive: true, force: true }); });
+  const exportStory = storyFile('f4-export.json', baseStory([layer('title', 'text', { text: 'External output' })]), callerCwd);
+  const deckPath = path.join(outputRoot, 'deck', 'external.pptx'); const reportPath = path.join(outputRoot, 'reports', 'export.json');
+  const exported = await runCliAsync(['export-pptx', exportStory, '--root', ROOT, '--out', path.relative(callerCwd, deckPath), '--report', path.relative(callerCwd, reportPath), '--no-verify'], process.env, callerCwd);
+  assert.equal(exported.code, 0, exported.stderr);
+  assert.ok(fs.statSync(deckPath).size > 0); assert.ok(JSON.parse(fs.readFileSync(reportPath, 'utf8')).slideCount > 0);
+
+  const port = await unusedPort(); const server = await startFixtureApp(port, appRoot); t.after(() => server.kill('SIGTERM'));
+  const appStory = baseStory([layer('foreign-app', 'appDemo', { width: 320, height: 180, url: `http://127.0.0.1:${port}/`, readySelector: '[data-ready]', appBuildId: 'f4-foreign-v1', steps: [] })]);
+  const appFilename = storyFile('f4-capture.json', appStory, callerCwd); const captureDir = path.join(outputRoot, 'capture');
+  const captured = await runCliAsync(['capture', appFilename, '--root', appRoot, '--scene', 'scene', '--layer', 'foreign-app', '--out-dir', path.relative(callerCwd, captureDir)], process.env, callerCwd);
+  assert.equal(captured.code, 0, captured.stderr); assert.ok(fs.existsSync(path.join(captureDir, 'manifest.json')));
+
+  const checkStory = storyFile('f4-check.json', baseStory([layer('checked', 'shape')]), callerCwd); const checkDir = path.join(outputRoot, 'check');
+  const checked = await runCliAsync(['check', checkStory, '--root', ROOT, '--rk', path.resolve(ROOT, '../render-kit/bin/rk'), '--out-dir', path.relative(callerCwd, checkDir)], process.env, callerCwd);
+  assert.equal(checked.code, 0, checked.stderr); assert.ok(fs.existsSync(path.join(checkDir, 'stage-500.html')));
+});
+
+test('F5 same-origin fixtures and selectOption drive a staged error state; F12 highlights stay outline-only', async (t) => {
+  const appRoot = fs.mkdtempSync(path.join(WORK, 'f5-app-'));
+  fs.mkdirSync(path.join(appRoot, 'fixtures'), { recursive: true });
+  fs.writeFileSync(path.join(appRoot, 'fixtures', 'error.json'), '{"message":"Staged error"}');
+  fs.writeFileSync(path.join(appRoot, 'index.html'), `<!doctype html><html><head><style>html,body{margin:0;width:640px;height:360px;background:#fff;font:20px Arial}#mode{position:absolute;left:80px;top:40px;width:220px;height:42px}#result{position:absolute;left:80px;top:120px;width:400px;height:100px;background:#888;color:#fff;padding:16px;box-sizing:border-box}</style></head><body><select id="mode" data-ready><option value="normal">Normal</option><option value="error">Error</option></select><div id="result">Waiting</div><script>const mode=document.querySelector('#mode'),result=document.querySelector('#result');async function load(){try{const response=await fetch('/api?mode='+mode.value);const value=await response.json();result.textContent=value.message;result.style.background=response.ok?'#287A4B':'#FF0000'}catch{result.textContent='No fixture';result.style.background='#888'}}mode.addEventListener('change',load);load()</script></body></html>`);
+  const port = await unusedPort(); const server = await startFixtureApp(port, appRoot);
+  t.after(() => { server.kill('SIGTERM'); fs.rmSync(appRoot, { recursive: true, force: true }); });
+  const app = layer('fixture-select', 'appDemo', {
+    width: 640, height: 360, url: `http://127.0.0.1:${port}/`, readySelector: '#mode', appBuildId: 'f5-fixture-v1',
+    fixtures: [{ urlPattern: `**/api\\?mode={error,success}`, status: 503, contentType: 'application/json', bodyFile: 'fixtures/error.json' }],
+    steps: [{ atMs: 200, action: 'selectOption', locator: { css: '#mode' }, value: 'error' }],
+    highlights: [{ locator: { css: '#mode' }, startMs: 300, durationMs: 500, color: '#FF3B30' }]
+  });
+  const filename = storyFile('f5-select-highlight.json', baseStory([app]));
+  const result = await runCliAsync(['capture', filename, '--root', appRoot, '--scene', 'scene', '--layer', 'fixture-select', '--out-dir', path.join(OUT, 'tests/f5-select-highlight')]);
+  assert.equal(result.code, 0, result.stderr);
+  const capture = JSON.parse(result.stdout.trim());
+  assert.equal(capture.result.fixtureCount, 1, 'the same-origin error request must be fulfilled by its fixture');
+  const frame = rawPng(path.join(OUT, 'tests/f5-select-highlight', 'frames', 'frame-000020.png'));
+  assert.deepEqual(rgbPixel(frame, 1280, 400, 320), [255, 0, 0], 'selectOption should reach the fixture-backed error state');
+  assert.deepEqual(rgbPixel(frame, 1280, 8, 8), [255, 255, 255], 'highlight overlay must not tint the rest of the app frame');
+  let orangeOutlinePixels = 0;
+  for (let offset = 0; offset < frame.length; offset += 3) if (frame[offset] > 240 && frame[offset + 1] > 30 && frame[offset + 1] < 100 && frame[offset + 2] > 20 && frame[offset + 2] < 90) orangeOutlinePixels += 1;
+  assert.ok(orangeOutlinePixels > 20, `expected a padded orange outline, found ${orangeOutlinePixels} pixels`);
 });
