@@ -6,11 +6,11 @@
 
 ## Set the direction before choosing the treatment
 
-- Decide what the photograph is for, who will see it, what it should communicate, where it will appear, and what format or crop it needs. The Instagram course starts from the account's character and values; the portrait course starts from a desired image and space. (227 · U1 · L02 · 00:00–00:56; 227 · U3 · L06 · 00:00–01:19; 227 · U3 · L06 · 01:19–03:19; 669 · U1 · L03 · 00:00–00:37)
+- Decide what the photograph is for, who will see it, what it should communicate, where it will appear, and what format or crop it needs. For an Instagram project, first consider which values to express; those values guide decisions when taking photographs. (227 · U3 · L06 · 00:00–01:19) The portrait course starts with what the photographer is looking for, then considers location, time of day, and equipment. (669 · U1 · L03 · 00:00–00:37)
 - Study work you admire and name the qualities you want to borrow, rather than treating a reference as a recipe. (227 · U1 · L02 · 00:00–00:56)
 - For a portrait session, choose a comfortable conversation routine. Listen, ask genuine questions, observe the person's gestures, and let them decide how much to share. The teacher describes her own manner as personal, not universal. (669 · U2 · L04 · 00:00–01:36; 669 · U2 · L04 · 01:36–03:24; 669 · U2 · L04 · 03:24–06:21; 669 · U2 · L04 · 06:21–08:07)
-- Plan location, time, light, equipment, and props around the intended image. A modest room can work when background and light support the picture; the portrait course uses 35 mm when place or several people matter and usually uses 50 mm for a closer single-person portrait. (669 · U2 · L05 · 00:00–01:39; 669 · U2 · L05 · 05:58–07:18; 669 · U2 · L06 · 00:00–01:22; 669 · U2 · L06 · 01:22–03:00)
-- For a brand or social account, let its existing visual identity guide colors and props; use neutral supports when product packaging varies. (227 · U3 · L06 · 01:19–03:19)
+- Plan a portrait around the intended image, location, time, light, and equipment. (669 · U1 · L03 · 00:00–00:37; 669 · U2 · L05 · 03:59–05:58) A modest room can work with a neutral background and a source of light (669 · U2 · L05 · 00:00–01:39); in an interior, move furniture so the light and space work together (669 · U2 · L05 · 05:58–07:18). The portrait teacher uses 35 mm when place or several people matter and most often uses 50 mm for a standard portrait where the space is secondary (669 · U2 · L06 · 00:00–01:22). She says to choose lenses that work for your kind of photography and treats her own choices as non-required (669 · U2 · L06 · 01:22–03:00).
+- For a brand or social account, let its existing visual identity guide colors; use neutral supports when product packaging varies. (227 · U3 · L06 · 01:19–03:19) Choose props to fit the project's photographic style. (227 · U3 · L06 · 03:19–05:01)
 
 ## Record the decisions
 
