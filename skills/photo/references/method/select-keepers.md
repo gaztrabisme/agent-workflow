@@ -10,7 +10,7 @@ The courses disagree about timing. The Instagram course marks favorites before e
 
 **Derived workflow:** first reject technical misses and mark promising frames before detailed retouch; after base edits, compare the finalists again and let them rest before a consequential final selection. This preserves the early-edit efficiency of course 227 and the deliberate late comparison in course 669. (derived from 227 · U4 · L11 · 00:08–01:38; 669 · U4 · L11 · 08:22–12:37; 669 · U4 · L11 · 12:37–15:44)
 
-Compare near-duplicates by expression, gaze, gesture, detail, background, and whether each viewpoint adds something. The portrait teacher compares smoke clarity and eye definition, head and shoulder position, gaze, and gestures that are still developing. (669 · U4 · L11 · 00:00–03:14; 669 · U4 · L11 · 03:14–06:44; 669 · U4 · L11 · 06:44–08:22; 669 · U4 · L11 · 08:22–12:37)
+The portrait teacher compares smoke clarity and eye definition, among other differences, when choosing photographs from a set. (669 · U4 · L11 · 00:00–03:14) For similar portraits, she considers centering, head and shoulder position, gaze, face angle, and gesture. (669 · U4 · L11 · 03:14–06:44) For the plastic-filtered photographs, she considers diffusion, whether Andrea looks at the camera, and gestures still in progress. (669 · U4 · L11 · 06:44–08:22) In the furniture, floor, and table photographs, she considers how much of the door is visible, hand and shoulder details, expression, and differences that can enrich the set. (669 · U4 · L11 · 08:22–12:37)
 
 | Pass | Keep | Set aside |
 |---|---|---|

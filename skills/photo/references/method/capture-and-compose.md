@@ -19,7 +19,7 @@
 
 ## Capture checks
 
-Inspect focus on the intended subject, the frame edges, visible highlights, background distractions, and alternate gestures or viewpoints. A camera preview can expose highlights before capture; after capture, compare sharpness and clipping in the rendered image. (227 · U3 · L07 · 05:41–06:28; 1343 · U13 · L16 · 03:57–05:16; 1343 · U13 · L16 · 06:44–08:10)
+On the phone, tap the screen to focus and expose; on an iPhone, raise exposure a little without overexposing the image, which the lesson identifies by part of the screen turning white. (227 · U3 · L07 · 05:41–06:28) For highlights, the Photoshop course says a gap at the histogram's right edge means the image captured highlight tones, and recommends checking the right side for highlight detail. (1343 · U13 · L16 · 03:57–05:16) Highlights need not reach the far right; without a light source, the histogram should typically end just before the edge. (1343 · U13 · L16 · 06:44–08:10)
 
 **Derived capture rule:** keep distinctive expressions and useful alternate views in the set, even when one frame is the initial favorite; later selection can compare what each image contributes. This combines the portrait teacher's developing gestures and viewpoint comparisons with the Instagram teacher's multiple angles. (derived from 669 · U4 · L10 · 05:57–08:53; 669 · U4 · L11 · 00:00–03:14; 669 · U4 · L11 · 03:14–06:44; 227 · U3 · L07 · 06:28–08:32)
 
