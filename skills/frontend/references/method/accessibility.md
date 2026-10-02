@@ -6,6 +6,8 @@ Use WCAG 2.2 AA as the default engineering target, unless the project brief or c
 
 Build access into structure and state: semantic HTML, visible labels, logical reading order, keyboard operation, clear focus, useful error feedback, and working zoom and reflow. For a custom widget, use the APG pattern as an interaction specification and test each required key and state. [book:wai-aria-apg], “Button Pattern”; [book:wai-aria-apg], “Dialog (Modal) Pattern”; [book:web-accessibility-cookbook], “6.2 Make Elements Focusable”; [book:practical-web-accessibility], “Semantic Markup.”
 
+When an action disables or removes its own control, move focus to the next logical available control or to the resulting status/heading, and assert the focus destination in the keyboard test. Native control keys can differ by operating system and browser: choose a supported path such as select type-ahead, assert value and focus, and manually test the platform's native popup behavior on each target platform. (derived: dogfood 2026-10-02, F10)
+
 ## Check the WCAG criteria that apply
 
 For text contrast, WCAG 2.2 SC 1.4.3 requires 4.5:1 for normal text and 3:1 for large-scale text, subject to the criterion's exceptions. SC 1.4.11 requires 3:1 for the visual information needed to identify active controls and states against adjacent colors. [book:wcag-22], “Success Criterion 1.4.3 Contrast (Minimum)”; [book:wcag-22], “Success Criterion 1.4.11 Non-text Contrast.”

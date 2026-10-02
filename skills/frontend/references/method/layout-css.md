@@ -6,6 +6,8 @@ Use the project's design tokens and styling conventions. Build the base layout w
 
 Keep source order meaningful and avoid CSS ordering that contradicts keyboard and reading order. Do not use absolute positioning as the main layout system for content that must grow, translate, or reflow. Check long labels, localization, zoom, and user text at narrow and wide viewports. [book:wcag-22], “Success Criterion 1.4.10 Reflow”; [book:css-in-depth-2e], “7 Responsive design”; (derived: stable order and content-driven sizing reduce layout surprises across user settings and form factors.)
 
+For responsive SVG charts, draw or lay out marks and labels at the chart container's measured width instead of shrinking a fixed `viewBox` until its text is tiny. Keep chart text at least as large as body text (normally 1rem / 16 CSS px). If a chart's two-dimensional relationships need more room, place it in a labelled horizontal scroll region under the SC 1.4.10 exception; do not scale chart text below the body minimum. Check chart labels at 320 CSS px. (derived: dogfood 2026-10-02, F9)
+
 ## Organize and enhance CSS
 
 Use custom properties for a small set of project tokens and variants. Keep specificity predictable; cascade layers can organize reset, vendor, theme, and component rules when the project already supports that approach. Progressive enhancement should leave the base experience complete when a newer selector or CSS feature is unavailable. [book:css-in-depth-2e], “2.6 Custom properties (aka CSS variables)”; [book:css-in-depth-2e], “8 Cascade layers and nesting”; [book:css-in-depth-2e], “1.5.1 Using the cascade for progressive enhancement.”

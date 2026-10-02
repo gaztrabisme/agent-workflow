@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Application states — starter</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #17212b;
+        background: #f3f5f7;
+      }
+
+      * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+      body { margin: 0; min-width: 0; min-height: 100vh; line-height: 1.5; }
+      main { width: min(100% - 2rem, 44rem); margin-inline: auto; padding-block: 3rem; }
+      h1 { margin: 0 0 1rem; font-size: clamp(1.75rem, 5vw, 2.4rem); line-height: 1.15; }
+      .state-panel {
+        padding: clamp(1rem, 4vw, 1.5rem);
+        background: #fff;
+        border: 1px solid #aeb9c3;
+        border-radius: .5rem;
+      }
+      .state-panel h2 { margin: 0 0 .5rem; font-size: 1.2rem; }
+      .state-panel p { margin: .35rem 0 0; }
+      .state-panel button {
+        min-height: 2.75rem;
+        margin-top: 1rem;
+        padding: .5rem .8rem;
+        border: 1px solid #0758a8;
+        border-radius: .3rem;
+        color: #fff;
+        background: #0758a8;
+        font: inherit;
+        font-weight: 700;
+      }
+      :focus-visible { outline: 3px solid #0758a8; outline-offset: 3px; }
+    </style>
+  </head>
+  <body data-rk-stage>
+    <main id="app" data-state="ready" aria-busy="false">
+      <h1>Account overview</h1>
+
+      <section class="state-panel" data-state-region="loading" aria-labelledby="loading-heading" role="status" aria-live="polite" hidden>
+        <h2 id="loading-heading">Loading your account</h2>
+        <p>Your account details are on the way.</p>
+      </section>
+
+      <section class="state-panel" data-state-region="empty" aria-labelledby="empty-heading" hidden>
+        <h2 id="empty-heading">No saved reports yet</h2>
+        <p>When you save a report, it will appear here.</p>
+        <button type="button">Create a report</button>
+      </section>
+
+      <section class="state-panel" data-state-region="ready" aria-labelledby="ready-heading" hidden>
+        <h2 id="ready-heading">Welcome back, Morgan</h2>
+        <p>Your account is ready. Two reports were updated today.</p>
+        <button type="button">Open reports</button>
+      </section>
+
+      <section class="state-panel" data-state-region="error" aria-labelledby="error-heading" role="alert" hidden>
+        <h2 id="error-heading">We could not load your account</h2>
+        <p>Check your connection, then try again.</p>
+        <button type="button">Try again</button>
+      </section>
+    </main>
+    <script>
+      const states = new Set(['loading', 'empty', 'ready', 'error']);
+      const requested = new URLSearchParams(location.search).get('state');
+      const state = states.has(requested) ? requested : 'ready';
+      const app = document.querySelector('#app');
+      app.dataset.state = state;
+      app.setAttribute('aria-busy', String(state === 'loading'));
+      for (const region of document.querySelectorAll('[data-state-region]')) {
+        region.hidden = region.dataset.stateRegion !== state;
+      }
+      if (state !== 'loading') app.dataset.rkReady = 'true';
+    </script>
+  </body>
+</html>

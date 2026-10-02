@@ -1,6 +1,6 @@
 ---
 name: frontend
-description: "Builds and reviews web front ends with semantic HTML, CSS, TypeScript, and the React or Angular stack already used by a project. USE WHEN creating a web page or application, implementing a tested flow, or auditing and improving an existing interface. Covers accessibility, performance, browser support, agent-ready affordances, and rendered verification. UX owns flows and words; information-design owns chart meaning; visual-design owns composition and type; color-theory owns palette decisions; motion owns motion plans. Keywords: frontend, front end, web UI, website, web app, React, Angular, semantic HTML, CSS, TypeScript, accessibility, responsive design, agent-ready web, redesign, UI audit."
+description: "Builds and reviews web front ends with semantic HTML, CSS, and TypeScript; preserves an existing framework or uses a no-framework greenfield default. USE WHEN creating a web page or application, implementing a tested flow, or auditing and improving an existing interface. Covers accessibility, performance, browser support, agent-ready affordances, and rendered verification. UX owns flows and words; information-design owns chart meaning; visual-design owns composition and type; color-theory owns palette decisions; motion owns motion plans. Keywords: frontend, front end, web UI, website, web app, React, Angular, semantic HTML, CSS, TypeScript, accessibility, responsive design, agent-ready web, redesign, UI audit."
 license: "Proprietary (private, not for redistribution)"
 ---
 
@@ -26,7 +26,7 @@ Build and improve production web interfaces in the project's existing environmen
 
 1. **Start with the task and environment.** Identify users, tasks, key states, target browsers and devices, content, data, project constraints, and success evidence before choosing implementation details. (derived: brief-baseline combines the client-context rules in [src:platform-apps/report.md], “Verdicts,” with responsive layout guidance in [book:css-in-depth-2e], “7 Responsive design.”)
 2. **Prefer native semantics and controls.** HTML elements carry browser and accessibility behavior; add ARIA only where native HTML cannot express the required role, name, or state. [book:whatwg-html], “Semantics, structure, and APIs of HTML documents”; [book:mdn-web-docs], “Before using ARIA.”
-3. **Follow the project before introducing a stack.** Detect the framework major, router mode, change-detection defaults, test runner, and TypeScript; keep the project's test runner, and upgrade only one major at a time with official tooling. [src:platform-apps/report.md], “F5. Principles that transfer across frameworks.”
+3. **Preserve an existing stack; name a default for greenfield.** Detect the framework major, router mode, change-detection defaults, test runner, and TypeScript; keep the project's test runner, and upgrade only one major at a time with official tooling. For a new small app, use the no-framework HTML/CSS/TypeScript and static Node default in [greenfield-default.md](references/method/greenfield-default.md), unless the brief names a framework. [src:platform-apps/report.md], “F5. Principles that transfer across frameworks.” (derived: dogfood 2026-10-02, F1)
 4. **Treat accessibility and performance as requirements.** Build to the agreed accessibility target and measure the product on representative screens and conditions; an automated score is one input, not a full review. [book:wcag-22], “5. Conformance”; [book:web-performance-engineering], “Chapter 2. Measuring What Matters.”
 5. **Make structure legible to people and software agents.** Expose accurate roles, names, states, and keyboard-operable actions in the page; visual styling alone is not an interaction contract. [src:agent-ready-web/report.md], “F4. The accessibility tree as the agent interface”; [book:wai-aria-apg], “What Are Accessibility Semantics?”
 6. **Render the actual artifact and fix what the render shows.** Code validity cannot establish visual fit, legibility, or task clarity. [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders”; [render-kit/AGENTS.md](../../render-kit/AGENTS.md).
@@ -38,7 +38,7 @@ Build and improve production web interfaces in the project's existing environmen
 | 1. Brief and baseline | Name audience, task, constraints, browser/device target, and key states | [brief-baseline.md](references/method/brief-baseline.md) | Brief plus a reproducible current-state baseline |
 | 2. Structure and semantics | Encode content, controls, labels, landmarks, and state in HTML | [structure-semantics.md](references/method/structure-semantics.md) | DOM and accessibility tree express the task |
 | 3. Layout and CSS | Build responsive, resilient layouts in the house style | [layout-css.md](references/method/layout-css.md) | Base and enhanced states render at target sizes |
-| 4. Components and state | Implement in the existing framework with explicit state | [components-state.md](references/method/components-state.md) | Project build and key state transitions pass |
+| 4. Components and state | Implement explicit state in the existing framework or the named greenfield default | [components-state.md](references/method/components-state.md) | Project build and key state transitions pass |
 | 5. Accessibility | Test conformance target, keyboard, names, focus, and preferences | [accessibility.md](references/method/accessibility.md) | Automated and manual checks are recorded |
 | 6. Performance | Measure loading, responsiveness, and layout stability | [performance.md](references/method/performance.md) | Agreed budgets or field thresholds are met |
 | 7. Agent-ready affordances | Make controls discoverable and safe for browser agents | [agent-ready.md](references/method/agent-ready.md) | Role-based task paths and any optional tools are checked |
@@ -49,9 +49,9 @@ For a redesign, start at stage 9, then run the relevant stages 1–8. For a smal
 
 ## Execution
 
-1. Read the repository guidance, package manifest, build scripts, test commands, installed framework version, existing design tokens, and representative routes. Use commands and dependency versions already chosen by the project.
+1. Read repository guidance, package scripts, framework version, design tokens, and representative routes. For an existing app, use its commands and versions. For greenfield, start from [greenfield-default.md](references/method/greenfield-default.md) and [templates/states.html](templates/states.html). (derived: dogfood 2026-10-02, F1)
 2. Turn the brief into a route/state inventory and acceptance checks. For redesigns, capture the current render and behavior before edits.
-3. Implement progressively: semantic document structure, CSS layout, then framework behavior. Keep the DOM order meaningful. Use TypeScript types that model domain values; narrow untrusted input before use.
+3. Implement progressively: semantic document structure, CSS layout, then typed behavior in the chosen framework or no-framework stack. Keep the DOM order meaningful. Use TypeScript types that model domain values; narrow untrusted input before use. (derived: dogfood 2026-10-02, F1)
 4. Run the project's lint, type-check, build, and focused behavior checks. Use Playwright role-based locators for user actions and state assertions; run the available accessibility analyzer.
 5. Mark each rendered page with render-kit capture metadata. Use data-rk-stage for the artifact region and data-rk-focal only when a particular area is the intended visual focal point.
 6. Run render-kit on every key page and state. Fix every fail, inspect skipped and incomplete findings, and rerun after each material visual change. Create a reviewer brief with concrete questions; verify answers. Keep vision review explicitly not-judged when no reviewer can see the renders.
@@ -67,7 +67,7 @@ Detailed procedures are in [render-check.md](references/method/render-check.md) 
 
 ## Anti-patterns (hard no-list)
 
-- Replacing a project's framework, router, CSS system, test runner, or component library before checking what is installed and why.
+- Replacing an existing project's framework, router, CSS system, test runner, or component library before checking what is installed and why.
 - Building visual controls from generic containers when native links, buttons, inputs, and disclosure elements express the behavior.
 - Adding ARIA that disagrees with what the interface does, or leaving checked, expanded, selected, busy, and invalid states stale.
 - Depending on a limited browser feature without a complete fallback when users open the site in other browsers.
@@ -96,9 +96,12 @@ Detailed procedures are in [render-check.md](references/method/render-check.md) 
 - [references/method/audit-first-redesign.md](references/method/audit-first-redesign.md) — evidence-first review of an existing interface.
 - [references/method/review-checklist.md](references/method/review-checklist.md) — T1–T20 pass conditions and return stages.
 - [references/method/measurement.md](references/method/measurement.md) — reproducible checks and sourced thresholds for T1–T20.
+- [references/method/greenfield-default.md](references/method/greenfield-default.md) — named no-framework greenfield stack and project scripts.
 - [references/method/claim-audit.md](references/method/claim-audit.md) — reserved for independent claim audit; evidence belongs in [audit/](audit/).
 - [audit/README.md](audit/README.md) — scope and storage rules for the later audit packet.
 - [templates/semantic-page.html](templates/semantic-page.html) and [templates/app-shell.html](templates/app-shell.html) — minimal pages marked for render-kit; both are checked with rk check.
+- [templates/states.html](templates/states.html) — URL-selectable loading, empty, ready, and error regions with an rk ready marker; checked with rk check.
+- [references/sources.md](references/sources.md) — maps every `book:` and `src:` citation; open a book by its exact ID in the local knowledge base and open a research source at its listed file path.
 - [NOTICE.md](NOTICE.md) — source and licence notices.
 - [EVOLUTION.md](EVOLUTION.md) — design-run birth and pending validation record.
 - [DISTILL-REPORT.md](DISTILL-REPORT.md) — source coverage, validation results, and outstanding auditor work.

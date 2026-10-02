@@ -6,6 +6,8 @@ Before choosing markup or a framework component, record who uses the interface, 
 
 Use the current product brief, UX findings, and project guidance as primary inputs. A visual reference can inform form, but it does not establish behavior or content. Record gaps as assumptions and ask for the evidence needed to resolve them. (derived: [book:css-in-depth-2e], “7 Responsive design”; [book:practical-web-accessibility], “Linear Layouts.”)
 
+When a decision owned by a sibling skill or product policy is missing, make the working choice a clearly labelled assumption, add the owner and question to unresolved questions, and avoid presenting it as a validated rule. Use the shared pushback gate to explain the impact and route the decision to its owner. (derived: dogfood 2026-10-02, F12)
+
 ## Inspect the project
 
 For an existing application, identify the framework major, router mode, change-detection defaults, test runner, and TypeScript before editing. Keep the project's test runner; use official tooling for one-major-at-a-time upgrades. [src:platform-apps/report.md], “F5. Principles that transfer across frameworks.”
