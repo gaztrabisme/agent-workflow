@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title slide — owner profile draft</title>
+  <style>
+    /* Token snapshot mirrored from ../tokens.css for a self-contained render-kit artifact. */
+:root {
+  /* Game-world palette: approximations selected from the 2024 submission deck. */
+  --color-game-void: #2D1B5C;
+  --color-game-lavender: #E5D9FF;
+  --color-game-sunflower: #FFE300;
+  --color-game-ink: #17131D;
+  --color-game-paper: #F7F2FF;
+  --color-game-pink: #EF38CC;
+  --color-game-cyan: #5CCDF3;
+  --color-game-violet: #575ED8;
+  --color-game-green: #4DE529;
+
+  /* Space-poster palette: approximations selected from the 2021 poster. */
+  --color-space-field: #102727;
+  --color-space-copper: #B7877E;
+  --color-space-cream: #F4F0E1;
+  --color-space-ground: #4A424D;
+
+  --font-display: "Menlo", "Monaco", "Courier New", monospace;
+  --font-heading: "Avenir Next", Avenir, "Trebuchet MS", Arial, sans-serif;
+  --font-body: "Avenir Next", Avenir, Poppins, Arial, sans-serif;
+
+  --type-caption: 18px;
+  --type-body-small: 24px;
+  --type-body: 30px;
+  --type-subhead: 40px;
+  --type-heading: 56px;
+  --type-display: 76px;
+  --type-hero: 92px;
+  --leading-tight: 1.25;
+  --leading-heading: 1.4;
+  --leading-body: 1.55;
+  --weight-regular: 400;
+  --weight-strong: 700;
+  --weight-heavy: 800;
+  --tracking-display: 0.035em;
+  --tracking-eyebrow: 0.12em;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --radius-square: 0px;
+  --radius-panel: 24px;
+  --radius-pill: 999px;
+  --stroke-pixel: 6px;
+  --pixel-step: 12px;
+
+  --stage-width: 1920px;
+  --stage-height: 1080px;
+  --panel-title-width: 1480px;
+  --panel-title-height: 560px;
+  --panel-content-width: 1640px;
+  --panel-content-height: 400px;
+  --grid-columns: 3;
+
+  --motion-instant: 0ms;
+  --motion-short: 160ms;
+  --motion-medium: 280ms;
+  --motion-long: 520ms;
+  --ease-linear: linear;
+  --ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+}
+  </style>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: var(--stage-width); height: var(--stage-height); }
+    body { background: var(--color-game-void); }
+    .stage {
+      position: relative;
+      display: grid;
+      width: var(--stage-width);
+      height: var(--stage-height);
+      overflow: hidden;
+      place-items: center;
+      background: var(--color-game-void);
+      color: var(--color-game-paper);
+      font-family: var(--font-body);
+      font-weight: var(--weight-regular);
+    }
+    .window {
+      position: relative;
+      display: flex;
+      width: var(--panel-title-width);
+      height: var(--panel-title-height);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-16);
+      border: var(--stroke-pixel) solid var(--color-game-ink);
+      border-radius: var(--radius-panel);
+      background: var(--color-game-sunflower);
+      box-shadow: var(--space-2) var(--space-2) 0 var(--color-game-ink);
+      color: var(--color-game-ink);
+      text-align: center;
+    }
+    .eyebrow {
+      margin: 0 0 var(--space-8);
+      font-family: var(--font-display);
+      font-size: var(--type-caption);
+      font-weight: var(--weight-strong);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: var(--panel-content-width);
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--type-hero);
+      font-weight: var(--weight-strong);
+      letter-spacing: var(--tracking-display);
+      line-height: var(--leading-tight);
+      text-transform: uppercase;
+    }
+    .subhead {
+      margin: var(--space-8) 0 0;
+      font-family: var(--font-heading);
+      font-size: var(--type-subhead);
+      font-weight: var(--weight-strong);
+      line-height: var(--leading-heading);
+    }
+    .badge {
+      position: absolute;
+      bottom: calc(var(--space-8) * -1);
+      display: inline-flex;
+      min-height: var(--space-16);
+      align-items: center;
+      padding: 0 var(--space-8);
+      border: var(--stroke-pixel) solid var(--color-game-ink);
+      border-radius: var(--radius-pill);
+      background: var(--color-game-pink);
+      box-shadow: var(--space-2) var(--space-2) 0 var(--color-game-ink);
+      color: var(--color-game-ink);
+      font-family: var(--font-heading);
+      font-size: var(--type-body-small);
+      font-weight: var(--weight-strong);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+    .pixel {
+      position: absolute;
+      width: var(--pixel-step);
+      height: var(--pixel-step);
+      background: var(--color-game-sunflower);
+      box-shadow:
+        var(--pixel-step) 0 0 var(--color-game-sunflower),
+        calc(var(--pixel-step) * 2) 0 0 var(--color-game-sunflower),
+        calc(var(--pixel-step) * 2) var(--pixel-step) 0 var(--color-game-sunflower),
+        calc(var(--pixel-step) * 3) var(--pixel-step) 0 var(--color-game-sunflower);
+    }
+    .pixel-a { top: var(--space-24); left: var(--space-24); }
+    .pixel-b {
+      right: var(--space-32);
+      bottom: var(--space-24);
+      background: var(--color-game-cyan);
+      box-shadow:
+        var(--pixel-step) 0 0 var(--color-game-cyan),
+        calc(var(--pixel-step) * 2) 0 0 var(--color-game-violet),
+        calc(var(--pixel-step) * 2) var(--pixel-step) 0 var(--color-game-violet);
+    }
+    .corner-mark {
+      position: absolute;
+      right: var(--space-24);
+      top: var(--space-24);
+      display: flex;
+      gap: var(--space-2);
+    }
+    .corner-mark span {
+      width: var(--pixel-step);
+      height: var(--pixel-step);
+      background: var(--color-game-pink);
+    }
+    .corner-mark span:nth-child(2) { margin-top: var(--space-2); background: var(--color-game-violet); }
+    footer {
+      position: absolute;
+      right: var(--space-24);
+      bottom: var(--space-16);
+      left: var(--space-24);
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-game-paper);
+      font-family: var(--font-display);
+      font-size: var(--type-caption);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" data-rk-stage="slide" aria-label="Title slide">
+    <div class="pixel pixel-a" aria-hidden="true"></div>
+    <div class="pixel pixel-b" aria-hidden="true"></div>
+    <div class="corner-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <section class="window" data-rk-focal="title-window">
+      <p class="eyebrow">Owner profile · Draft 01</p>
+      <h1>Give the idea<br>its own world.</h1>
+      <p class="subhead">One clear point. A world worth entering.</p>
+      <span class="badge">Visual field notes</span>
+    </section>
+    <footer><span>Personal visual language</span><span>Study 01 / 02</span></footer>
+  </main>
+</body>
+</html>

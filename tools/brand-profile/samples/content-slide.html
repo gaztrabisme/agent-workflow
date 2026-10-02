@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Content slide — owner profile draft</title>
+  <style>
+    /* Token snapshot mirrored from ../tokens.css for a self-contained render-kit artifact. */
+:root {
+  /* Game-world palette: approximations selected from the 2024 submission deck. */
+  --color-game-void: #2D1B5C;
+  --color-game-lavender: #E5D9FF;
+  --color-game-sunflower: #FFE300;
+  --color-game-ink: #17131D;
+  --color-game-paper: #F7F2FF;
+  --color-game-pink: #EF38CC;
+  --color-game-cyan: #5CCDF3;
+  --color-game-violet: #575ED8;
+  --color-game-green: #4DE529;
+
+  /* Space-poster palette: approximations selected from the 2021 poster. */
+  --color-space-field: #102727;
+  --color-space-copper: #B7877E;
+  --color-space-cream: #F4F0E1;
+  --color-space-ground: #4A424D;
+
+  --font-display: "Menlo", "Monaco", "Courier New", monospace;
+  --font-heading: "Avenir Next", Avenir, "Trebuchet MS", Arial, sans-serif;
+  --font-body: "Avenir Next", Avenir, Poppins, Arial, sans-serif;
+
+  --type-caption: 18px;
+  --type-body-small: 24px;
+  --type-body: 30px;
+  --type-subhead: 40px;
+  --type-heading: 56px;
+  --type-display: 76px;
+  --type-hero: 92px;
+  --leading-tight: 1.25;
+  --leading-heading: 1.4;
+  --leading-body: 1.55;
+  --weight-regular: 400;
+  --weight-strong: 700;
+  --weight-heavy: 800;
+  --tracking-display: 0.035em;
+  --tracking-eyebrow: 0.12em;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --radius-square: 0px;
+  --radius-panel: 24px;
+  --radius-pill: 999px;
+  --stroke-pixel: 6px;
+  --pixel-step: 12px;
+
+  --stage-width: 1920px;
+  --stage-height: 1080px;
+  --panel-title-width: 1480px;
+  --panel-title-height: 560px;
+  --panel-content-width: 1640px;
+  --panel-content-height: 400px;
+  --grid-columns: 3;
+
+  --motion-instant: 0ms;
+  --motion-short: 160ms;
+  --motion-medium: 280ms;
+  --motion-long: 520ms;
+  --ease-linear: linear;
+  --ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+}
+  </style>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: var(--stage-width); height: var(--stage-height); }
+    body { background: var(--color-game-void); }
+    .stage {
+      position: relative;
+      display: flex;
+      width: var(--stage-width);
+      height: var(--stage-height);
+      flex-direction: column;
+      overflow: hidden;
+      padding: var(--space-16) var(--space-24);
+      background: var(--color-game-void);
+      color: var(--color-game-paper);
+      font-family: var(--font-body);
+      font-weight: var(--weight-regular);
+    }
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-6);
+      font-family: var(--font-display);
+      font-size: var(--type-caption);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+    .meta-mark {
+      display: inline-block;
+      width: var(--pixel-step);
+      height: var(--pixel-step);
+      margin-right: var(--space-3);
+      background: var(--color-game-pink);
+      vertical-align: middle;
+      box-shadow: var(--space-2) var(--space-2) 0 var(--color-game-violet);
+    }
+    h1 {
+      max-width: var(--panel-content-width);
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--type-heading);
+      font-weight: var(--weight-strong);
+      letter-spacing: var(--tracking-display);
+      line-height: var(--leading-tight);
+      text-transform: uppercase;
+    }
+    .intro {
+      margin: var(--space-3) 0 var(--space-8);
+      font-family: var(--font-heading);
+      font-size: var(--type-body);
+      line-height: var(--leading-body);
+    }
+    .flow {
+      display: grid;
+      width: var(--panel-content-width);
+      height: var(--panel-content-height);
+      align-self: center;
+      grid-template-columns: repeat(var(--grid-columns), 1fr);
+      gap: var(--space-8);
+      padding: var(--space-6);
+      border: var(--stroke-pixel) solid var(--color-game-ink);
+      border-radius: var(--radius-square);
+      background: var(--color-game-sunflower);
+      box-shadow: var(--space-2) var(--space-2) 0 var(--color-game-ink);
+      color: var(--color-game-ink);
+    }
+    .step {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: var(--space-6);
+      border: var(--stroke-pixel) solid var(--color-game-ink);
+      border-radius: var(--radius-square);
+      background: var(--color-game-sunflower);
+      box-shadow: var(--space-2) var(--space-2) 0 var(--color-game-ink);
+    }
+    .step-primary { background: var(--color-game-pink); }
+    .step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .number {
+      display: grid;
+      width: var(--space-16);
+      height: var(--space-16);
+      place-items: center;
+      border: var(--stroke-pixel) solid var(--color-game-ink);
+      border-radius: var(--radius-square);
+      background: var(--color-game-pink);
+      color: var(--color-game-ink);
+      font-family: var(--font-display);
+      font-size: var(--type-body-small);
+      font-weight: var(--weight-strong);
+    }
+    .tag {
+      font-family: var(--font-display);
+      font-size: var(--type-caption);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: var(--space-6) 0 var(--space-2);
+      padding-bottom: var(--space-2);
+      border-bottom: var(--stroke-pixel) solid var(--color-game-ink);
+      font-family: var(--font-heading);
+      font-size: var(--type-subhead);
+      font-weight: var(--weight-strong);
+      line-height: var(--leading-heading);
+    }
+    .step p {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: var(--type-body-small);
+      line-height: var(--leading-body);
+    }
+    .artifact {
+      display: flex;
+      min-height: var(--space-24);
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      border: var(--stroke-pixel) solid var(--color-game-ink);
+      background: var(--color-game-paper);
+      font-family: var(--font-display);
+      font-size: var(--type-body-small);
+      font-weight: var(--weight-strong);
+    }
+    .artifact-mark {
+      width: var(--space-8);
+      height: var(--space-8);
+      flex: none;
+      background: var(--color-game-cyan);
+      box-shadow: var(--space-2) var(--space-2) 0 var(--color-game-violet);
+    }
+    .bottom-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+      font-family: var(--font-display);
+      font-size: var(--type-body-small);
+      font-weight: var(--weight-strong);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+    .bottom-line b { color: var(--color-game-sunflower); }
+    .ground {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: var(--space-2);
+      background: var(--color-game-green);
+      box-shadow: 0 var(--space-2) 0 var(--color-game-ink);
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: var(--space-8);
+      color: var(--color-game-paper);
+      font-family: var(--font-display);
+      font-size: var(--type-caption);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" data-rk-stage="slide" aria-label="Content slide">
+    <header>
+      <div class="meta"><span><i class="meta-mark" aria-hidden="true"></i>Personal visual language / Sample 02</span><span>Follow one case</span></div>
+      <h1>Show the path, then the proof.</h1>
+      <p class="intro">Make the idea easy to follow: put the real thing on screen, trace one case, and land on a measure.</p>
+    </header>
+    <section class="flow" data-rk-focal="three-step-content">
+      <article class="step">
+        <div>
+          <div class="step-top"><span class="number">01</span><span class="tag">Source</span></div>
+          <h2>Show the real input.</h2>
+          <p>Let the audience see what the process starts with.</p>
+        </div>
+        <div class="artifact"><span class="artifact-mark" aria-hidden="true"></span><span>raw-data.csv</span></div>
+      </article>
+      <article class="step step-primary">
+        <div>
+          <div class="step-top"><span class="number">02</span><span class="tag">Journey</span></div>
+          <h2>Follow one case.</h2>
+          <p>Keep the important steps visible from start to finish.</p>
+        </div>
+        <div class="artifact"><span class="artifact-mark" aria-hidden="true"></span><span>case → result</span></div>
+      </article>
+      <article class="step">
+        <div>
+          <div class="step-top"><span class="number">03</span><span class="tag">Evidence</span></div>
+          <h2>End with a measure.</h2>
+          <p>Give the conclusion a number the audience can point to.</p>
+        </div>
+        <div class="artifact"><span class="artifact-mark" aria-hidden="true"></span><span>10 runs · 1 result</span></div>
+      </article>
+    </section>
+    <div class="bottom-line">
+      <span>Evidence</span><b>→</b><span>Explanation</span><b>→</b><span>Measure</span>
+    </div>
+    <footer><span>Content study / 02</span><span>Owner review pending</span></footer>
+    <div class="ground" aria-hidden="true"></div>
+  </main>
+</body>
+</html>
