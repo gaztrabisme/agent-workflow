@@ -18,14 +18,18 @@ import argparse
 import re
 import sys
 from pathlib import Path
-from urllib.parse import unquote
+from urllib.parse import unquote, urlsplit
 
 DOMESTIKA_ANCHOR = r'\d+ · U\d+ · L\d{2,3} · \d{2}:\d{2}–\d{2}:\d{2}'
-LINK = re.compile(r'\]\(([^)#\s]+)(?:#[^)]*)?\)')
+LINK = re.compile(r'!?\[[^\]]*\]\(\s*(<[^>]+>|[^)\s]+)')
+FENCED_CODE = re.compile(r'(?ms)^ {0,3}(`{3,}|~{3,})[^\n]*\n.*?^ {0,3}\1[ \t]*$')
+CITATION_ID = re.compile(r'\[(book|src):([A-Za-z0-9_./-]+)')
+SOURCE_ROW = re.compile(r'^\|\s*`(book|src):([^`]+)`\s*\|')
 CODE_SPAN = re.compile(r'`([^`]+)`')
 LOCAL_DIRS = ('references/', 'scripts/', 'tests/', 'method/')
 ROOT_FILES = {'SKILL.md', 'EVOLUTION.md', 'LICENSE', 'LICENSE.md', 'NOTICE.md', 'README.md'}
 PATH_SUFFIXES = ('.md', '.py', '.sh', '.txt', '.json', '.yaml', '.yml', '.toml', '.csv', '.svg', '.png')
+PACKAGE_DIRS = ('references', 'scripts', 'tests')
 
 
 def glob_all(root: Path, patterns: list[str]) -> list[Path]:
@@ -72,11 +76,9 @@ def main() -> int:
     ap = argparse.ArgumentParser(description='Check a skill package and optional source anchors.')
     ap.add_argument('root', type=Path, help='skill directory')
     ap.add_argument('--anchor', default=DOMESTIKA_ANCHOR, help='regex for one source anchor')
-    ap.add_argument('--sources', nargs='+', default=['references/course/*.md'],
+    ap.add_argument('--sources', nargs='+', default=['references/course*/*.md'],
                     help='globs of files that define the anchors')
-    ap.add_argument('--files', nargs='+', default=['SKILL.md', 'references/method/**/*.md',
-                                                   'references/field-rules.md',
-                                                   'references/templates/**/*.md'],
+    ap.add_argument('--files', nargs='+', default=['**/*.md'],
                     help='globs of Markdown files whose links and citations are checked')
     ap.add_argument('--no-anchor-check', action='store_true',
                     help='explicitly skip anchors for a package with no source corpus')
@@ -95,11 +97,21 @@ def main() -> int:
         return 1
 
     skill_text = skill_file.read_text(encoding='utf-8')
-    files = glob_all(root, args.files)
+    # The private course corpus is the citation source, not authored package
+    # prose. Scan the skill's own Markdown and resolve its relative links.
+    files = [path for path in glob_all(root, args.files)
+             if not any(part.startswith('course-') for part in path.relative_to(root).parts)]
     if skill_file not in files:
         files.insert(0, skill_file)
     files = sorted(set(files))
     source_files = glob_all(root, args.sources) if not args.no_anchor_check else []
+    source_index = root / 'references' / 'sources.md'
+    mapped_ids: set[str] = set()
+    if source_index.is_file():
+        for line in source_index.read_text(encoding='utf-8').splitlines():
+            match = SOURCE_ROW.match(line)
+            if match:
+                mapped_ids.add(f'{match.group(1)}:{match.group(2)}')
     anchor = re.compile(args.anchor)
     known: set[str] = set()
     for path in source_files:
@@ -108,6 +120,8 @@ def main() -> int:
     problems = 0
     warnings = 0
     cited = 0
+    links_checked = 0
+    citation_locations: dict[str, list[Path]] = {}
     print('Files scanned:')
     for path in files:
         print(f'  {path.relative_to(root)}')
@@ -123,19 +137,29 @@ def main() -> int:
     for path in files:
         rel = path.relative_to(root)
         text = path.read_text(encoding='utf-8')
-        for target in LINK.findall(text):
-            if '://' in target or target.startswith('mailto:'):
+        markdown = FENCED_CODE.sub('', text)
+        markdown = CODE_SPAN.sub('', markdown)
+        for match in LINK.finditer(markdown):
+            target = match.group(1).strip('<>')
+            parsed = urlsplit(target)
+            if parsed.scheme or parsed.netloc or target.startswith('mailto:'):
                 continue
-            resolved = (path.parent / unquote(target)).resolve()
+            links_checked += 1
+            local_target = unquote(parsed.path)
+            resolved = ((root / local_target) if local_target.startswith('/')
+                        else (path.parent / local_target)).resolve() if local_target else path.resolve()
             if resolved.exists():
                 continue
-            if is_sibling(target):
+            if is_sibling(local_target):
                 warnings += 1
                 print(f'WARNING {rel}: sibling pointer unavailable in this workspace: {target}')
             else:
                 problems += 1
                 print(f'{rel}: broken local link {target}')
 
+        for kind, identifier in CITATION_ID.findall(markdown):
+            citation = f'{kind}:{identifier}'
+            citation_locations.setdefault(citation, []).append(rel)
         for found in anchor.findall(text):
             if args.no_anchor_check:
                 continue
@@ -144,9 +168,16 @@ def main() -> int:
                 problems += 1
                 print(f'{rel}: anchor not in sources: {found}')
 
+    for citation, locations in sorted(citation_locations.items()):
+        if citation not in mapped_ids:
+            problems += 1
+            print(f'{locations[0]}: citation missing from references/sources.md: {citation}')
+
     path_mentions = 0
     for value in CODE_SPAN.findall(skill_text):
-        value = value.strip()
+        # Inline command examples can start with a package path and then add
+        # arguments. Check the executable/path token, not the entire command.
+        value = value.strip().strip('<>').split()[0] if value.strip() else ''
         if not is_package_path(value):
             continue
         path_mentions += 1
@@ -162,25 +193,13 @@ def main() -> int:
 
     named_text = skill_text
     shipped: list[Path] = []
-    for directory in ('references', 'scripts'):
+    for directory in PACKAGE_DIRS:
         folder = root / directory
         if folder.is_dir():
-            for path in folder.rglob('*'):
-                if not path.is_file() or '__pycache__' in path.parts or path.suffix == '.pyc':
-                    continue
-                rel = path.relative_to(root)
-                parts = rel.parts
-                # Course exports are a separately indexed private source corpus, not
-                # authored references that need one-by-one links from SKILL.md.
-                if parts[0] == 'references' and len(parts) > 1 and parts[1].startswith('course-'):
-                    continue
-                # Public CLI entry points are named by SKILL.md. Their imported
-                # implementation modules are internal dependencies, like tests.
-                if parts[0] == 'scripts' and path.name not in {
-                    'check_refs.py', 'grade.py', 'roundtrip.py'
-                }:
-                    continue
-                shipped.append(path)
+            shipped.extend(path for path in folder.rglob('*')
+                           if path.is_file() and '__pycache__' not in path.parts
+                           and path.suffix != '.pyc'
+                           and not any(part.startswith('course-') for part in path.relative_to(root).parts))
     print('Reference/script/test files shipped:')
     for path in sorted(shipped):
         rel = path.relative_to(root).as_posix()
@@ -239,7 +258,7 @@ def main() -> int:
             print('public package: declare a frontmatter license or include LICENSE')
 
     if args.no_anchor_check:
-        print('WARNING: source-anchor check was explicitly skipped; no citation coverage is claimed.')
+        print('WARNING: source-anchor verification was explicitly skipped; citation IDs are still checked against references/sources.md.')
     elif not known:
         problems += 1
         print('ERROR: 0 known source anchors; the configured anchor corpus is empty. '
@@ -248,7 +267,8 @@ def main() -> int:
         warnings += 1
         print('WARNING: no source anchors were cited by the scanned files.')
 
-    print(f'{len(files)} files scanned, {path_mentions} local paths checked, '
+    print(f'{len(files)} files scanned, {links_checked} Markdown links checked, '
+          f'{path_mentions} inline paths checked, '
           f'{cited} anchors cited, {len(known)} known, {problems} problem(s), '
           f'{warnings} warning(s)')
     return 1 if problems else 0

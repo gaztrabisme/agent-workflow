@@ -16,6 +16,8 @@ This skill produces edited portrait and social-image files with a clear record o
 - **color-theory instead:** questions about color-science, palette relationships, color naming, contrast, or color-space conversions. Photo edits stay here; the sibling handles the broader color facts.
 - **visual-design instead:** graphic composition, layout, typography, or story/post overlays. This skill supplies the photograph placed into that design.
 
+**Replacement:** `photo` supersedes the former batch photo workflow for photo-editing requests. Unlink the retired skill from skill discovery so new photo tasks route here. (derived: dogfood 2026-10-02, F8)
+
 > **Disambiguation by artifact:** photo means a captured or edited raster photograph and its delivery set. Color-theory produces color decisions and factual answers; visual-design produces a graphic structure or layout.
 
 ## Principles / anchoring rules
@@ -57,8 +59,8 @@ The photograph is a raster deliverable: PNG, JPEG, or TIFF as required by the br
 
 1. Map source filenames in the user's supplied order and label each as target, reference, or support. For a batch, copy [session-ledger.md](references/templates/session-ledger.md) into the task workspace. Follow [field-rules.md](references/field-rules.md).
 2. Keep the requested edit scope explicit. Use a supported local or generative editing capability for the task; do not claim that a prompt or generated output preserved unedited pixels.
-3. Run exact checks first: use [TOOLS.md](TOOLS.md) for scripts/grade.py measure, scripts/grade.py compare, and scripts/roundtrip.py verify; check output dimensions, profiles, file counts, and masks. These tools expose their readings and limitations.
-4. For a comparison or contact sheet, use HTML/SVG with data-rk-stage and run the render-kit check. Fix code failures, render again, then prepare the specific visual questions from [measurement.md](references/method/measurement.md) for a fresh-context reviewer who can see the images.
+3. Use [TOOLS.md](TOOLS.md) for `scripts/grade.py measure`, `scripts/grade.py compare`, `scripts/grade.py deliver`, `scripts/roundtrip.py merge`, and `scripts/roundtrip.py verify`; check output dimensions, profiles, file counts, and masks. The outside-mask transition ring has a separate containment check with 0 px unchecked. (derived: dogfood 2026-10-02, F1) Choose a neutral rectangle or mask for local cast readings and check its selected-pixel share. (derived: dogfood 2026-10-02, F2) Compare pages include source-pixel close-ups and keep JSON collapsed. (derived: dogfood 2026-10-02, F4) Delivery code-checks the sRGB profile and dimensions, and the WB tool documents its direction and linear-light behavior. (derived: dogfood 2026-10-02, F3) Masked measurements include L*, C*, clipping, and a histogram. (derived: dogfood 2026-10-02, F6) White-balance gains are normalized in linear light, and crop round-trips can be merged through the mask. (derived: dogfood 2026-10-02, F7) (derived: dogfood 2026-10-02, F9)
+4. For a comparison or contact sheet, use the generated compare page or start a hand-built HTML/SVG page from [review-sheet.html](references/templates/review-sheet.html). Put `data-rk-stage="comparison"` on a full-width wrapper, do not declare a focal area, and run the render-kit check; `value` n/a is expected for a photo review grid. (derived: dogfood 2026-10-02, F10) The generated comparison page names its files, uses a neutral surround, and includes 100% close-ups. (derived: dogfood 2026-10-02, F4) Fix code failures, render again, then prepare the specific visual questions from [measurement.md](references/method/measurement.md) for a fresh-context reviewer who can see the images.
 5. Vision checks cover intent, likeness, expression, skin texture, plausible edits, composite seams, and gallery rhythm. Code checks cover measurable pixels, containment tolerances, crop/dimensions, profile, file presence, and render-kit resource/overflow issues. If a fresh visual review is unavailable, report it as **not judged**.
 6. Report which checks were measured, vision-judged, not judged, or skipped, with the actual readings and reasons. Cite course anchors in the critique or handoff.
 
@@ -109,6 +111,11 @@ The photograph is a raster deliverable: PNG, JPEG, or TIFF as required by the br
 - [references/method/coverage.md](references/method/coverage.md) — lessons not cited by a method digest and why.
 - [references/field-rules.md](references/field-rules.md) — input mapping, conservative edits, inspections, revisions, and delivery rules.
 - [references/templates/session-ledger.md](references/templates/session-ledger.md) — reusable input, edit, review, and delivery ledger.
+- [references/templates/review-sheet.html](references/templates/review-sheet.html) — render-kit-ready full-width photo review sheet with full-frame and 100% crop rows.
 - [TOOLS.md](TOOLS.md) — grading, comparison, guarded edit verification, outputs, and limits.
 - [scripts/check_refs.py](scripts/check_refs.py) — local-link and lesson-anchor validation.
+- `scripts/color_math.py`, `scripts/delivery.py`, `scripts/grade_color.py`, `scripts/grade_metrics.py`, `scripts/grade_ops.py`, `scripts/grade_tone.py`, `scripts/image_io.py`, `scripts/lut.py`, `scripts/make_samples.py`, `scripts/png16.py`, and `scripts/roundtrip_core.py` — implementation modules used by the public CLI entry points. (derived: dogfood 2026-10-02, F3, F4, F7, F9)
+- `tests/test_check_refs.py`, `tests/test_delivery.py`, `tests/test_grade.py`, and `tests/test_roundtrip.py` — tests for link checking, export, measurement, grading, comparison, and guarded round-trip behavior. (derived: dogfood 2026-10-02, F11)
 - [references/course-669/README.md](references/course-669/README.md), [references/course-227/README.md](references/course-227/README.md), [references/course-1343/README.md](references/course-1343/README.md) — source lesson indexes and exclusions.
+
+After changing this package, check its lesson anchors and relative links with the exact source-glob command: `python3 scripts/check_refs.py . --sources 'references/course*/*.md'`. (derived: dogfood 2026-10-02, F11)

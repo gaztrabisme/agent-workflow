@@ -7,7 +7,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from scripts.grade_metrics import compare_metrics, measure
+from scripts.grade_metrics import compare_metrics, measure, recipe_output_range_warnings
 from scripts.grade_ops import apply_recipe
 from scripts.image_io import read_mask, read_rgb, resize_rgb, write_compare_assets
 
@@ -34,14 +34,16 @@ def _apply(args):
     recipe_side.write_text(json.dumps(recipe, indent=2, sort_keys=True)+"\n", encoding="utf-8")
     hash_side.write_text(digest+"  "+source.name+"\n", encoding="utf-8")
     _json({"output": str(target), "recipe": str(recipe_side), "input_sha256": digest,
-           "size": [int(result.shape[1]), int(result.shape[0])]})
+           "size": [int(result.shape[1]), int(result.shape[0])],
+           "output_range_warnings": recipe_output_range_warnings(recipe)})
 
 
 def _measure(args):
     rgb = read_rgb(args.image)
     mask = read_mask(args.mask, rgb.shape) if args.mask else None
+    neutral_mask = read_mask(args.neutral_mask, rgb.shape) if args.neutral_mask else None
     _json({"image": str(Path(args.image).resolve()), "size": [rgb.shape[1], rgb.shape[0]],
-           **measure(rgb, mask)})
+           **measure(rgb, mask, neutral_mask, args.neutral_rect)})
 
 
 def _compare(args):
@@ -51,19 +53,29 @@ def _compare(args):
     if resized:
         b = resize_rgb(b, (a.shape[1], a.shape[0]))
     mask = read_mask(args.mask, a.shape) if args.mask else None
+    if mask is not None and args.region is not None:
+        raise ValueError("choose a comparison mask or a named region rectangle, not both")
     metrics = compare_metrics(a, b, mask)
     metrics["alignment"] = {"reference_size": before, "edited_size": after,
                             "edited_resized_to_reference": resized}
     out = Path(args.out).resolve()
     sources = {Path(args.a).resolve(), Path(args.b).resolve()}
     if args.mask: sources.add(Path(args.mask).resolve())
-    generated = {out/name for name in ("side-by-side.png", "difference.png", "compare.html")}
+    generated = {out/name for name in ("side-by-side.png", "difference.png", "close-up.png", "compare.html")}
     if sources & {p.resolve() for p in generated}:
         raise ValueError("comparison outputs must not overwrite an input or mask")
     if any(p.exists() for p in generated):
         raise FileExistsError("comparison output already exists; choose an empty directory")
+    after_path = Path(args.b).resolve()
+    recipe_path = Path(str(after_path)+".recipe.json")
+    if recipe_path.is_file():
+        recipe = json.loads(recipe_path.read_text(encoding="utf-8"))
+        metrics["recipe_output_range_warnings"] = recipe_output_range_warnings(recipe)
+    else:
+        metrics["recipe_output_range_warnings"] = None
     note = "Edited image resized to reference dimensions with bicubic interpolation." if resized else "Images already share dimensions."
-    write_compare_assets(a, b, out, metrics, note)
+    write_compare_assets(a, b, out, metrics, note, Path(args.a).name, Path(args.b).name,
+                         mask=mask, region=args.region, region_name=args.region_name)
     _json({"out": str(out), **metrics})
 
 
@@ -71,8 +83,9 @@ def main():
     parser = argparse.ArgumentParser(description="Deterministic photo grading and comparison")
     sub = parser.add_subparsers(dest="command", required=True)
     apply = sub.add_parser("apply"); apply.add_argument("input"); apply.add_argument("recipe"); apply.add_argument("output"); apply.set_defaults(run=_apply)
-    meas = sub.add_parser("measure"); meas.add_argument("image"); meas.add_argument("--mask"); meas.set_defaults(run=_measure)
-    comp = sub.add_parser("compare"); comp.add_argument("a"); comp.add_argument("b"); comp.add_argument("--mask"); comp.add_argument("--out", required=True); comp.set_defaults(run=_compare)
+    meas = sub.add_parser("measure"); meas.add_argument("image"); meas.add_argument("--mask"); meas.add_argument("--neutral-mask"); meas.add_argument("--neutral-rect", nargs=4, type=int, metavar=("X0", "Y0", "X1", "Y1")); meas.set_defaults(run=_measure)
+    comp = sub.add_parser("compare"); comp.add_argument("a"); comp.add_argument("b"); comp.add_argument("--mask"); comp.add_argument("--region", nargs=4, type=int, metavar=("X0", "Y0", "X1", "Y1")); comp.add_argument("--region-name"); comp.add_argument("--out", required=True); comp.set_defaults(run=_compare)
+    deliver = sub.add_parser("deliver"); deliver.add_argument("spec"); deliver.add_argument("--out", required=True); deliver.set_defaults(run=lambda args: _deliver(args))
     args = parser.parse_args()
     try:
         args.run(args)
@@ -80,6 +93,11 @@ def main():
     except Exception as exc:
         print(json.dumps({"error": str(exc)}), file=sys.stderr)
         return 2
+
+
+def _deliver(args):
+    from scripts.delivery import deliver
+    _json(deliver(args.spec, args.out))
 
 
 if __name__ == "__main__":

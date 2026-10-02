@@ -1,5 +1,7 @@
 import numpy as np
 
+from scripts.color_math import linear_to_srgb, srgb_to_linear
+
 
 def _rgb_to_hsl(rgb):
     mx, mn = rgb.max(-1), rgb.min(-1)
@@ -27,11 +29,23 @@ def _hsl_to_rgb(h, s, l):
 
 
 def white_balance(rgb, op):
-    out = np.asarray(rgb, float).copy()
-    if "neutral" in op:
+    out = np.asarray(rgb, float)
+    linear = srgb_to_linear(out)
+    if "neutral_rect" in op:
+        x0, y0, x1, y1 = map(int, op["neutral_rect"])
+        h, w = linear.shape[:2]
+        if x0 < 0 or y0 < 0 or x1 > w or y1 > h or x1 <= x0 or y1 <= y0:
+            raise ValueError("neutral_rect must be a non-empty in-bounds x0,y0,x1,y1 pixel box")
+        col = linear[y0:y1, x0:x1].mean(axis=(0, 1))
+        if np.any(col <= 1e-8):
+            raise ValueError("neutral_rect must have non-zero values in every RGB channel")
+        gains = np.mean(col)/(col+1e-8)
+    elif "neutral" in op:
         x, y = op["neutral"]
-        col = out[min(out.shape[0]-1, round(y*(out.shape[0]-1))),
-                  min(out.shape[1]-1, round(x*(out.shape[1]-1)))].copy()
+        col = linear[min(linear.shape[0]-1, round(y*(linear.shape[0]-1))),
+                     min(linear.shape[1]-1, round(x*(linear.shape[1]-1)))].copy()
+        if np.any(col <= 1e-8):
+            raise ValueError("neutral pixel must have non-zero values in every RGB channel")
         gains = np.mean(col)/(col+1e-8)
     else:
         kelvin = float(op.get("temperature", 6500))
@@ -39,11 +53,15 @@ def white_balance(rgb, op):
             raise ValueError("white-balance temperature must be 1000..40000 K")
         gains = _kelvin_gains(kelvin)
     gains[1] *= 1-float(op.get("tint", 0))/100
-    return out*gains
+    # Normalize the diagonal gains so an equal-channel neutral keeps its Rec.709
+    # linear-light luminance after the white-balance shift.
+    gains /= np.dot(gains, np.array([.2126, .7152, .0722]))
+    return linear_to_srgb(linear*gains)
 
 
 def _kelvin_gains(k):
-    return np.asarray(_kelvin_rgb(6500))/np.maximum(_kelvin_rgb(k), 1)
+    gains = np.asarray(_kelvin_rgb(6500))/np.maximum(_kelvin_rgb(k), 1)
+    return gains/np.dot(gains, np.array([.2126, .7152, .0722]))
 
 
 def _kelvin_rgb(k):

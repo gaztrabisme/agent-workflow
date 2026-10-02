@@ -1,11 +1,12 @@
 import struct
 import zlib
+from pathlib import Path
 
 import numpy as np
 
 
 def read_rgb16(path):
-    data = open(path, "rb").read()
+    data = Path(path).read_bytes()
     if data[:8] != b"\x89PNG\r\n\x1a\n":
         return None
     pos, chunks, dims = 8, [], None
