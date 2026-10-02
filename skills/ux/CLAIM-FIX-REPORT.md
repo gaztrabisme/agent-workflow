@@ -1,3 +1,5 @@
 references/method/03-synthesize-user-needs.md · 1490 · U4 · L14 · 00:00–01:04 → 1490 · U4 · L14 · 02:34–04:44 · Narrowed the fix to the course's instruction to invent details before research results are ready and update them once research is available.
 references/method/03-synthesize-user-needs.md · 798 · U2 · L06 · 05:52–08:19 → 798 · U2 · L06 · 05:52–08:19; added 1490 · U4 · L14 · 02:34–04:44 · Reworded the persona guidance and table row to state the course's fictional proto-persona example and how research from several people may inform it; added the update instruction's anchor.
 references/method/06-prototype-with-real-content.md · 798 · U4 · L12 · 10:41–14:02 → 798 · U4 · L13 · 13:18–14:20 · Corrected the anchor to the lesson that says to test longer localized wording in the wireframe.
+SKILL.md · 798 · U2 · L05 · 06:04–08:15 → added 798 · U2 · L06 · 01:30–03:08 · Added the course anchor for click tests; wording unchanged.
+references/method/measurement.md · 1490 · U6 · L22 · 04:14–04:45 → removed · Removed the unrelated SEO section citation; sitemap guidance remains anchored to 03:48–04:14.
