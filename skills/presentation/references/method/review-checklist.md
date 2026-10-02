@@ -25,6 +25,6 @@ Run only tests that apply to the requested output. Mark each result **pass**, **
 
 T1–T4 adapt the audience, outcome, short story, and storyboard practices. [book:storytelling-with-data], “Who, what, and how”; [book:storytelling-with-data], “The 3‐minute story & Big Idea”; [book:storytelling-with-data], “Storyboarding”.
 
-T5–T10 route visual-system and chart decisions to their owners and use render-kit for mechanical checks; automated accessibility scans cannot find every issue. [visual-design/SKILL.md](../visual-design/SKILL.md); [information-design/SKILL.md](../information-design/SKILL.md); [color-theory/SKILL.md](../color-theory/SKILL.md); [render-kit AGENTS.md](../../render-kit/AGENTS.md); [book:playwright-docs], “Accessibility testing”.
+T5–T10 route visual-system and chart decisions to their owners and use render-kit for mechanical checks; automated accessibility scans cannot find every issue. [visual-design/SKILL.md](../../../visual-design/SKILL.md); [information-design/SKILL.md](../../../information-design/SKILL.md); [color-theory/SKILL.md](../../../color-theory/SKILL.md); [render-kit AGENTS.md](../../../../render-kit/AGENTS.md); [book:playwright-docs], “Accessibility testing”.
 
-T11–T18 reflect the medium-specific limits and owner checks recorded by the output-pipeline research and scene-engine guide. [src:output-pipelines/report.md], “F5–F9”; [scene-engine AGENTS.md](../../scene-engine/AGENTS.md), “PowerPoint and Keynote owner checks”.
+T11–T18 reflect the medium-specific limits and owner checks recorded by the output-pipeline research and scene-engine guide. [src:output-pipelines/report.md], “F5–F9”; [scene-engine AGENTS.md](../../../../scene-engine/AGENTS.md), “PowerPoint and Keynote owner checks”.
