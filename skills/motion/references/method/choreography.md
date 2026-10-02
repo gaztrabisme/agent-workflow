@@ -21,10 +21,10 @@
 - Define the motion language by direction, scale, curve, duration and smoothness; when several elements or stages move, set a clear sequence and limit how many move at once. (503 · U3 · L10 · 02:42–04:08)
 - Use movement to inform, focus attention or express; eased acceleration and deceleration keep motion from feeling mechanically uniform. (503 · U3 · L10 · 01:21–02:42)
 - Retiming keyframes changes the movement's speed; curve shape affects acceleration, travel and arrival. (503 · U2 · L07 · 05:34–07:08; 503 · U2 · L08 · 06:22–09:12)
-- Choose a character or a few movement attributes that can guide a series. The course's Dirty Harry example uses reluctant starts followed by decisive movement; another piece can use a different personality. (503 · U3 · L11 · 00:00–01:21; 503 · U3 · L11 · 04:31–06:02; 503 · U5 · L20 · 10:46–12:26)
+- Choose a character whose body language and personality guide a series of animations and give it a coherent style. (503 · U3 · L11 · 00:00–01:21; 503 · U5 · L20 · 10:46–12:26) The course's Clint Eastwood/Dirty Harry character is tough, cocky, authoritarian and efficient (503 · U3 · L11 · 04:31–06:02); its movement starts with reluctance or hesitation and arrives abruptly or decisively (503 · U4 · L17 · 01:58–04:15; 503 · U4 · L17 · 04:55–06:27; 503 · U5 · L20 · 02:22–04:33). Another animation can use a different character. (503 · U5 · L20 · 02:22–04:33)
 - A choreography can assign one element as a trigger or leader and another as a response or follower. Adjust their timing until the cause-and-effect relationship reads. (503 · U4 · L17 · 04:15–04:55; 503 · U4 · L17 · 04:55–06:27; 503 · U5 · L20 · 04:33–06:31)
 - Principles such as anticipation, stretch and squash, secondary action, timing and follow-through can support the movement, but their use depends on the subject; the course warns that stretch and squash can make a serious subject feel cartoon-like. (561 · U4 · L13 · 02:47–05:54)
-- For the cocktail animation, shared ingredients carry the main path and the shapes' own properties add secondary floating movement; repeated opening and ending position/rotation makes the example loop. (3762 · U5 · L15 · 08:33–10:05; 3762 · U5 · L16 · 16:09–19:45)
+- The cocktail sequence morphs between cocktails that share an ingredient. (3762 · U5 · L15 · 00:00–03:19) Its main movement changes one cocktail into the next, while auxiliary movement makes the shapes float; at this first stage, animate only the null object. (3762 · U5 · L15 · 08:33–10:05) Later, animate the objects' Position and Rotation for secondary floating movement, and restore their starting Position and Rotation at the final keyframe to make a loop. (3762 · U5 · L16 · 16:09–19:45)
 
 ## Idea that is best shown as a table
 
@@ -52,7 +52,7 @@ For each animated element, record its purpose, start and end pose, trigger/follo
 - **The fix:** remove the principle or reduce its strength until it supports the intended tone.
 
 **Problem 3: the loop fails at its join.**
-- **The failure:** the loop reaches different opening and closing poses when a seamless join was intended. (3762 · U5 · L16 · 16:09–19:45; 503 · U5 · L20 · 10:46–12:26)
+- **The failure:** the loop reaches different opening and closing poses when a seamless join was intended. (derived: the course says to restore the starting Position and Rotation at the final keyframe to make a loop, and shows a perfect loop returning to its initial composition.) (3762 · U5 · L16 · 16:09–19:45; 503 · U5 · L20 · 10:46–12:26)
 - **The fix:** compare first and last pose values, then render and inspect the boundary.
 
 ## Check before moving on

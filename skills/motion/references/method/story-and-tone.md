@@ -27,7 +27,7 @@
 | Story decision | Question | Example from the course | Source |
 |---|---|---|---|
 | Form + function | What form and communicative role fit the input? | Honey production explained by bees; a network explained as a mechanism | 433 · U3 · L06 · 01:37–02:14; 433 · U3 · L06 · 02:14–03:08 |
-| Tone | What personality should the narration carry? | Mystery with epic touches in *El Viaje* | 433 · U3 · L07 · 02:55–03:42 |
+| Tone | What personality should the narration carry? | Mystery with epic touches in *El Viaje* | 433 · U3 · L07 · 02:08–02:55 |
 | Structure | In what order will events reveal the message? | A circular story can return to its opening call | 433 · U3 · L08 · 05:03–05:43 |
 
 ## A rule you derived (derived)

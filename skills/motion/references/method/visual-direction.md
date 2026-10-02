@@ -21,7 +21,7 @@
 - For information graphics, choose an encoding that suits the information and makes the visual code understandable. (3762 · U2 · L03 · 02:15–03:08; 3762 · U2 · L03 · 03:08–03:22; 3762 · U2 · L04 · 00:52–01:34; 3762 · U2 · L04 · 03:06–03:34; 3762 · U2 · L04 · 03:34–04:20)
 - Preserve data while adapting its appearance. Keep editable source data before separating graph elements; resizing can preserve proportions, while editing component points can distort them. (3762 · U4 · L12 · 08:41–11:07; 3762 · U4 · L13 · 00:00–01:11; 3762 · U4 · L13 · 01:12–02:49)
 - A repeatable information-plate system can use a consistent color, type, size, stroke and grid language, with titles and room for reading. (561 · U2 · L06 · 00:44–01:49; 561 · U2 · L06 · 01:49–03:07; 561 · U3 · L07 · 01:43–02:44; 561 · U3 · L07 · 02:45–06:02)
-- Texture can be limited to elements that benefit from emphasis; additional layers bring extra animation work. (561 · U3 · L09 · 00:02–00:40; 561 · U3 · L09 · 02:49–04:01)
+- Texture adds detail that can make the design distinctive. How much to add depends on taste; more layers mean more work and more animation. (561 · U3 · L09 · 00:02–00:40; 561 · U3 · L09 · 02:49–04:01)
 
 ## Idea that is best shown as a table
 

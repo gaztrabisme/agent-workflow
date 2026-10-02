@@ -21,7 +21,7 @@ Motion turns a brief, script or information set into a story plan, storyboard, t
 
 ## Principles / anchoring rules
 
-1. **Make movement serve the message.** Motion can inform, focus attention and express; decide which role each major movement serves. (503 · U3 · L10 · 01:21–02:42)
+1. **Make movement serve the message.** Motion should inform, focus attention and express. (503 · U3 · L10 · 01:21–02:42)
 2. **Keep the receiver's understanding in view.** Structure can be playful, but the recipient still needs to understand the message. (433 · U3 · L08 · 05:43–06:50)
 3. **Verify information before animating it.** Check data and links against their sources, and preserve the data proportions when adapting the artwork. (3762 · U2 · L03 · 04:58–05:50; 3762 · U4 · L13 · 01:12–02:49)
 4. **Keep a coherent movement language.** Define motion attributes and use a clear order when several elements move; the teacher's series uses a character to guide movement style. (503 · U3 · L10 · 02:42–04:08; 503 · U3 · L11 · 04:31–06:02)

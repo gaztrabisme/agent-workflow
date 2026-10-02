@@ -13,7 +13,7 @@
 ## First idea, stated as the rule
 
 - Replay a bounded sequence and refine its timing or transitions; if live playback is too heavy to judge, render a preview and review that output. (561 · U4 · L15 · 08:46–11:45; 561 · U4 · L17 · 09:01–10:18)
-- Review the rendered video and its format/settings, then prepare the requested output. The cocktail course checks format, duration, encoding and estimated file size before rendering. (3762 · U5 · L20 · 00:24–01:26)
+- Before rendering, review the export settings for format, duration, encoding details and estimated file size; then choose the filename and destination and render. (3762 · U5 · L20 · 00:24–01:26)
 - Course 561 shows a high-quality master followed by a compressed sharing version; output choice depends on the delivery context. (561 · U4 · L18 · 00:00–01:24; 561 · U4 · L18 · 01:24–03:15)
 - The storyboard and animatic remain useful handoff artifacts because they carry scene order, durations, camera or transition notes and sound ideas into animation. (433 · U5 · L16 · 03:32–04:40; 433 · U5 · L16 · 04:40–05:29; 433 · U5 · L16 · 05:29–07:06)
 

@@ -13,7 +13,7 @@
 
 - Plan the whole project: identify who speaks, who receives the message, how long it should run, how much production time exists, the response sought from the viewer and the maker's own objective. (433 · U2 · L04 · 00:00–01:03; 433 · U2 · L04 · 01:03–01:56; 433 · U2 · L04 · 01:56–02:46; 433 · U2 · L04 · 02:46–04:12)
 - Start from the input, such as a brief, script or voice-over, then decide how it will be told. (433 · U2 · L04 · 04:12–04:42; 433 · U3 · L05 · 00:50–01:41)
-- Check data and source links before using them. An infographic's story depends on facts that can be checked against their sources. (3762 · U2 · L03 · 00:08–00:44; 3762 · U2 · L03 · 04:58–05:50)
+- Check data and source links before using them; the course says they must be accurate and carefully validated. (3762 · U2 · L03 · 04:58–05:50)
 - A small selection of facts can support a short information sequence; the animated-infographics teacher suggests roughly five to ten panels for the course project. Treat that as this course's guidance, not a required length for other work. (561 · U2 · L04 · 01:25–02:33; 561 · U2 · L04 · 02:33–03:28)
 
 ## Idea that is best shown as a table

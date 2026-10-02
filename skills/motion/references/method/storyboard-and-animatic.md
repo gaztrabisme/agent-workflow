@@ -25,7 +25,8 @@
 
 | Prototype | What it carries | What it does not settle | Source |
 |---|---|---|---|
-| Storyboard | Story beats, framing, transition ideas and notes about movement | Final timing and detailed animation | 433 · U4 · L09 · 00:00–00:48; 561 · U2 · L05 · 00:02–00:45 |
+| Storyboard (433) | Rapid visual prototype of the story using quick sketches, framing, sequence and transition ideas | Scene timing is handled later in the animatic | 433 · U4 · L09 · 00:48–02:02; 433 · U4 · L09 · 04:19–05:52; 433 · U5 · L14 · 01:32–01:50 |
+| Storyboard (561) | Small frames for thinking through the story and presentation, with reminders about how to animate each frame | — | 561 · U2 · L05 · 00:02–00:45 |
 | Animatic | Timed panels, rough camera/transition moves, voice and optional sound | Final production design or polished motion | 433 · U5 · L14 · 01:32–01:50; 433 · U5 · L14 · 02:57–03:26; 433 · U5 · L15 · 00:00–01:29 |
 
 **Course difference:** course 561 suggests about five to ten panels in its infographic project; course 433 says animatic detail should fit complexity and production need. Keep the panel count and level of detail fitted to the actual brief. (561 · U2 · L04 · 02:33–03:28; 433 · U5 · L14 · 01:50–02:16)
