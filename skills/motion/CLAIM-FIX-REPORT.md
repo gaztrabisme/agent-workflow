@@ -1,13 +1,3 @@
-SKILL.md · 503 · U3 · L10 · 01:21–02:42 → unchanged · Removed the unsupported instruction to assign each major movement a role; retained the three movement aims.
-references/method/choreography.md · 3762 · U5 · L15 · 08:33–10:05 → 3762 · U5 · L15 · 00:00–03:19; 08:33–10:05; 3762 · U5 · L16 · 16:09–19:45 · Separated shared-ingredient sequence, null-object main/auxiliary movement, and later shape-property movement and looping.
-references/method/choreography.md · 3762 · U5 · L16 · 16:09–19:45 → unchanged · Labeled the mismatched-pose failure as derived from the course's loop instruction and example.
-references/method/choreography.md · 503 · U3 · L11 · 00:00–01:21 → unchanged; added 503 · U4 · L17 · 01:58–04:15 and 04:55–06:27; 503 · U5 · L20 · 02:22–04:33 · Narrowed the character guidance and cited the sections that describe reluctant/hesitant starts and decisive arrivals.
-references/method/choreography.md · 503 · U3 · L11 · 04:31–06:02 → unchanged · Replaced the unsupported movement description at this anchor with the course's stated character attributes.
-references/method/choreography.md · 503 · U5 · L20 · 10:46–12:26 → unchanged · Attached this anchor to the course's guidance to keep the character in mind for a coherent series.
-references/method/purpose-and-evidence.md · 3762 · U2 · L03 · 00:08–00:44 → removed; retained 3762 · U2 · L03 · 04:58–05:50 · Removed the infographic-definition citation from the source-checking claim.
-references/method/review-and-handoff.md · 3762 · U5 · L20 · 00:24–01:26 → unchanged · Narrowed the claim to reviewing export settings and choosing the filename and destination before rendering.
-references/method/story-and-tone.md · 433 · U3 · L07 · 02:55–03:42 → 433 · U3 · L07 · 02:08–02:55 · Corrected the citation to the section containing the “mystery with epic touches” example.
-references/method/storyboard-and-animatic.md · 433 · U4 · L09 · 00:00–00:48 → 433 · U4 · L09 · 00:48–02:02; 04:19–05:52; 433 · U5 · L14 · 01:32–01:50 · Narrowed the 433 row to rapid prototyping, framing and sequence, and cited the later animatic section for scene timing.
-references/method/storyboard-and-animatic.md · 561 · U2 · L05 · 00:02–00:45 → unchanged · Narrowed the 561 row to small story frames and animation reminders.
-references/method/visual-direction.md · 561 · U3 · L09 · 00:02–00:40 → unchanged · Replaced the unsupported emphasis rule with the course's statement that texture adds distinctive detail.
-references/method/visual-direction.md · 561 · U3 · L09 · 02:49–04:01 → unchanged · Kept the source-supported taste and extra-work guidance while removing the unsupported texture limit.
+references/method/review-and-handoff.md · 3762 · U5 · L20 · 00:24–01:26 → unchanged · labeled the unverified rendered-output failure as derived from the course's pre-render settings check.
+references/method/storyboard-and-animatic.md · 433 · U4 · L09 · 00:00–00:48 → unchanged · narrowed this citation to the storyboard's rapid-prototyping purpose and separated claims supported by other sections.
+references/method/storyboard-and-animatic.md · 561 · U2 · L05 · 00:02–00:45 → unchanged · narrowed this citation to small story frames and per-frame animation reminders; removed the unsupported drawing-detail claim from its scope.

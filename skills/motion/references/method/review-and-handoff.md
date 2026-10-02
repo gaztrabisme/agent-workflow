@@ -31,8 +31,8 @@ Keep code checks and vision judgments in separate report columns. The course exa
 
 ## Failures
 
-**Problem 1: a preview is mistaken for final delivery.**
-- **The failure:** the motion has been reviewed, but the requested rendered output has not been checked against its format or runtime. (3762 · U5 · L20 · 00:24–01:26)
+**Problem 1 (derived from the course's pre-render settings check): a preview is mistaken for final delivery.**
+- **The failure (derived):** the motion has been reviewed, but the requested rendered output has not been checked against its format or runtime. (3762 · U5 · L20 · 00:24–01:26)
 - **The fix:** render with scene-engine, inspect the actual output and measure delivery properties against the brief.
 
 **Problem 2: a check is reported as a pass without its evidence.**

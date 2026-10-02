@@ -14,7 +14,10 @@
 
 ## First idea, stated as the rule
 
-- Use storyboard panels as quick, movable prototypes. A panel can show what happens and include a reminder about how it will move; use enough drawing detail to explain the story, not to finish the art. (433 · U4 · L09 · 00:00–00:48; 433 · U4 · L09 · 02:02–02:58; 433 · U4 · L09 · 03:45–04:19; 561 · U2 · L05 · 00:02–00:45)
+- Use the storyboard as the first major tool for visualizing a story, treating it as a rapid-prototyping tool rather than only as an illustrated visualization. (433 · U4 · L09 · 00:00–00:48)
+- Keep the storyboard modular and provisional; no element is guaranteed a fixed place as the prototype develops. (433 · U4 · L09 · 02:58–03:45)
+- The point is the ideas and testing how they function in the story, not polished drawing; use only as much detail as needed to explain the story. (433 · U4 · L09 · 02:02–02:58; 433 · U4 · L09 · 03:45–04:19)
+- Use small squares to think through the story and how to present the information; include what you are thinking of doing to animate each frame. (561 · U2 · L05 · 00:02–00:45)
 - The panel order can follow the voice-over rather than event chronology. Keep previous panels visible while adding new ones so sequence and continuity can be reviewed together. (433 · U4 · L13 · 01:17–04:05)
 - Frame each moment for the information it needs: a close view can emphasize expression or detail; a wide view can establish context. (433 · U4 · L09 · 04:19–05:52)
 - Connect scenes through a shared form, color, speed, direction or camera movement; use a transition only when it strengthens continuity or narrative. (433 · U4 · L11 · 02:21–02:42; 433 · U4 · L11 · 02:42–03:52)
