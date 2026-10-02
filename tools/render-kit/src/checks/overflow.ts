@@ -2,7 +2,7 @@ import type { CheckContext } from '../model.ts';
 import { result, scanTextBoxes, stageRect, type TextBox } from './common.ts';
 
 export async function run(ctx: CheckContext) {
-  const tol = ctx.options.thresholds['overflow.tolerance_px'] ?? 1, boxes = await scanTextBoxes(ctx.session.page) as TextBox[], stage = await stageRect(ctx.session.page,ctx.session.svgInput);
+  const tol = ctx.options.thresholds['overflow.tolerance_px'] ?? 1, boxes = await scanTextBoxes(ctx.session.page) as TextBox[], stage = await stageRect(ctx.session.page,ctx.session.svgInput,ctx.options.height===undefined&&!ctx.session.svgInput);
   const measured = await ctx.session.page.evaluate((selectors: string[]) => selectors.map(selector => {
     const e = document.querySelector(selector)!;
     const pad = (n: Element) => { const r = n.getBoundingClientRect(), s = getComputedStyle(n); return { left:r.left+parseFloat(s.borderLeftWidth), top:r.top+parseFloat(s.borderTopWidth), right:r.right-parseFloat(s.borderRightWidth), bottom:r.bottom-parseFloat(s.borderBottomWidth) }; };

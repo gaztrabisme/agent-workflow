@@ -30,7 +30,7 @@ for r in rows:
 print(json.dumps(out))`;
 
 export async function run(ctx: CheckContext) {
-  const boxes=await scanTextBoxes(ctx.session.page), stage=await stageRect(ctx.session.page,ctx.session.svgInput);
+  const boxes=await scanTextBoxes(ctx.session.page), stage=await stageRect(ctx.session.page,ctx.session.svgInput,ctx.options.height===undefined&&!ctx.session.svgInput);
   const meta=await ctx.session.page.evaluate((rows:any[])=>rows.map(row=>{
     const e=document.querySelector(row.selector)!,s=getComputedStyle(e),svg=e.namespaceURI==='http://www.w3.org/2000/svg';
     const rgb=(s[svg?'fill':'color'].match(/[\d.]+/g)||[]).slice(0,3).map(Number);

@@ -57,9 +57,11 @@ export async function scanTextBoxes(page: CheckContext['session']['page']) {
   });
 }
 
-export async function stageRect(page: CheckContext['session']['page'],svgInput=false) {
-  return page.evaluate((useSvg:boolean) => {
+export async function stageRect(page: CheckContext['session']['page'],svgInput=false,fullDocument=false) {
+  return page.evaluate(({useSvg,fullDocument}:{useSvg:boolean;fullDocument:boolean}) => {
     const el = document.querySelector('[data-rk-stage]') ?? (useSvg?document.querySelector('body > svg'):null);
-    const r = el?.getBoundingClientRect(); return r ? { left: r.left, top: r.top, right: r.right, bottom: r.bottom } : { left: 0, top: 0, right: innerWidth, bottom: innerHeight };
-  },svgInput);
+    const r = el?.getBoundingClientRect();
+    const bottom = fullDocument ? Math.max(innerHeight, document.documentElement.scrollHeight, document.body?.scrollHeight ?? 0) : innerHeight;
+    return r ? { left: r.left, top: r.top, right: r.right, bottom: r.bottom } : { left: 0, top: 0, right: innerWidth, bottom };
+  },{useSvg:svgInput,fullDocument});
 }

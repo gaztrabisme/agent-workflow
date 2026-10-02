@@ -3,18 +3,27 @@ import { dirname, join } from 'node:path';
 import { jsonWrite } from './util.ts';
 
 export function parseQuestions(source:string){
- const headings:string[]=[],questions:string[]=[];
- for(const line of source.split(/\r?\n/)){if(line.startsWith('#'))headings.push(line);else if(/^(?:- |\d+\. )/.test(line))questions.push(line.replace(/^(?:- |\d+\. )/,''));}
- return {headings,questions};
+ const groups:{heading?:string;questions:string[]}[]=[];
+ let current:{heading?:string;questions:string[]}|undefined;
+ for(const line of source.split(/\r?\n/)){
+  if(line.startsWith('#')){current={heading:line,questions:[]};groups.push(current);}
+  else if(/^(?:- |\d+\. )/.test(line)){
+   if(!current){current={questions:[]};groups.push(current);}
+   current.questions.push(line.replace(/^(?:- |\d+\. )/,''));
+  }
+ }
+ const populated=groups.filter(group=>group.questions.length>0);
+ return {groups:populated,questions:populated.flatMap(group=>group.questions)};
 }
 
 export async function writeBrief(dir:string,questionPath:string,purpose:string,report:any,simulations:string[],pdfPages:string[]=[]){
- await mkdir(dir,{recursive:true});const {headings,questions}=parseQuestions(await readFile(questionPath,'utf8'));
+ await mkdir(dir,{recursive:true});const {groups,questions}=parseQuestions(await readFile(questionPath,'utf8'));
  if(!questions.length)throw new Error('Questions file has no questions');
  const images=['render.png',...simulations.map(t=>`render-${t}.png`),...(report.outputs?.pdf?['render.pdf',...pdfPages]:[])];
  const checks=report.checks.map((c:any)=>`- **${c.id}: ${c.status}**${c.reason?` — ${c.reason}`:''}`).join('\n');
- const qs=questions.map((q,i)=>`Q${i+1}. ${q}`).join('\n');
- const md=`# Visual review brief\n\n**Purpose:** ${purpose||'Review the rendered artifact.'}\n\n## Review files\n\n${images.map(p=>`- ${join(dir,p)}`).join('\n')}\n\n## Code checks\n\n${checks}\n\nThese checks report mechanical findings. Review the images for visual qualities the code cannot judge. The PDF and page images show the print output.\n\n## How to answer\n\nFor each question, answer yes, no, unsure, or not-judged. Use not-judged if you cannot see the image. Give one sentence explaining the answer. Set where to the region or element for yes and no. A yes means the artifact passes the question.\n\n${headings.join('\n')}\n\n${qs}\n`;
+ let questionNumber=0;
+ const qs=groups.map(group=>`${group.heading?`${group.heading}\n\n`:''}${group.questions.map(q=>`Q${++questionNumber}. ${q}`).join('\n')}`).join('\n\n');
+ const md=`# Visual review brief\n\n**Purpose:** ${purpose||'Review the rendered artifact.'}\n\n## Review files\n\n${images.map(p=>`- ${join(dir,p)}`).join('\n')}\n\n## Code checks\n\n${checks}\n\nThese checks report mechanical findings. Review the images for visual qualities the code cannot judge. The PDF and page images show the print output.\n\n## How to answer\n\nFor each question, answer yes, no, unsure, or not-judged. Use not-judged if you cannot see the image. Give one sentence explaining the answer. Set where to the region or element for yes and no. A yes means the artifact passes the question.\n\n${qs}\n`;
  await writeFile(join(dir,'brief.md'),md);await jsonWrite(join(dir,'answers.template.json'),{reviewer:null,answers:questions.map((question,i)=>({id:`Q${i+1}`,question,answer:null,where:null,reason:null}))});
  return {questions,images};
 }

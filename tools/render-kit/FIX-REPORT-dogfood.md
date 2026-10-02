@@ -18,3 +18,21 @@
 - Final requested `npm test && ./bin/rk selftest` (with the temporary venv first on `PATH`): passed. `npm test` reports 40 tests passed; `rk selftest` reports all 19 sample expectations passed.
 
 All changes remain uncommitted.
+
+## F13 follow-up — 2026-10-02
+
+### Findings and changes
+
+- **Brief question groups.** `parseQuestions` now keeps each heading and its following questions together in `brief.md`; question IDs remain globally numbered for `answers.template.json` and `--verify`.
+- **Whole-stage focal.** When the focal box covers the complete captured stage, `value` returns `incomplete` with a clear no-outside-pixels reason before calling color-theory. This avoids empty-array reductions for both the outside-value region and chroma rings.
+- **Tall HTML pages.** HTML capture and stage-based checks now use the document scroll height by default while preserving the 1920 × 1080 layout viewport. Passing `--height` retains a fixed-height viewport and capture. `SPEC.md` records the behavior.
+
+### Verification
+
+- Regression coverage: brief grouping, tall-page capture plus explicit `--height`, and the whole-stage value guard. The value test instruments `python3` and confirms it is not called.
+- `npm test`: exit 0, 44 tests passed.
+- `./bin/rk selftest`: exit 0, all 19 sample expectations passed.
+- Both acceptance commands used a temporary `/tmp/rk-f13-venv` with NumPy and Pillow because the default `python3` did not have the optional check dependencies.
+- `git diff --check`: passed.
+
+Current state: F13 complete; changes remain uncommitted.

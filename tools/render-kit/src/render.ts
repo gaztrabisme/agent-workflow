@@ -18,13 +18,16 @@ export async function prepare(options: RunOptions) {
 export async function capture(session: Session, options: RunOptions, out: string, format: 'png' | 'pdf') {
   await mkdir(dirname(out), { recursive: true });
   const page = session.page;
-  const stage = await page.evaluate((svgInput:boolean) => {
+  const fullDocument = options.height === undefined && !session.svgInput;
+  const stage = await page.evaluate(({svgInput,fullDocument}:{svgInput:boolean;fullDocument:boolean}) => {
     const element = document.querySelector('[data-rk-stage]') ?? (svgInput?document.querySelector('body > svg'):null);
-    if (!element) return { x: 0, y: 0, width: innerWidth, height: innerHeight };
-    const b = element.getBoundingClientRect(); return { x: Math.max(0, b.x), y: Math.max(0, b.y), width: Math.min(innerWidth, b.right) - Math.max(0, b.x), height: Math.min(innerHeight, b.bottom) - Math.max(0, b.y) };
-  },session.svgInput);
+    const pageHeight = fullDocument ? Math.max(innerHeight, document.documentElement.scrollHeight, document.body?.scrollHeight ?? 0) : innerHeight;
+    if (!element) return { x: 0, y: 0, width: innerWidth, height: pageHeight };
+    const b = element.getBoundingClientRect(), bottom = Math.min(pageHeight, b.bottom);
+    return { x: Math.max(0, b.x), y: Math.max(0, b.y), width: Math.max(0, Math.min(innerWidth, b.right) - Math.max(0, b.x)), height: Math.max(0, bottom - Math.max(0, b.y)) };
+  },{svgInput:session.svgInput,fullDocument});
   if (options.simulate) await session.cdp.send('Emulation.setEmulatedVisionDeficiency', { type: options.simulate as 'protanopia'|'deuteranopia'|'tritanopia'|'achromatopsia' });
-  if (format === 'png') await page.screenshot({ path: out, clip: stage, animations: 'allow' });
+  if (format === 'png') await page.screenshot({ path: out, clip: stage, fullPage: fullDocument, animations: 'allow' });
   else {
     await page.emulateMedia({ media: options.media });
     const hasPageRule = await page.evaluate(() => [...document.styleSheets].some(sheet => { try { return [...sheet.cssRules].some(rule => rule.cssText.startsWith('@page')); } catch { return false; } }));

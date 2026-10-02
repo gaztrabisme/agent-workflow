@@ -9,7 +9,7 @@ Grounded in the frontend research (`~/Documents/Work/lab/frontend-2026/`): `synt
 render-kit (command `rk`) turns an HTML or SVG file into the PNG or PDF a reader will see, then checks that output with code. Producer skills (frontend, presentation, information design, photo) call it in a loop: render, check, fix, render again. After the code checks pass, `rk brief` writes specific questions for a reviewer who can see images and did not make the artifact, and `rk brief --verify` checks that reviewer's answers. The kit never calls a model itself, so it works with any agent.
 
 Terms used below:
-- **Stage:** the area that is the artifact. It is the element marked `data-rk-stage` when one exists; otherwise the viewport for HTML input, or the SVG's own size for SVG input.
+- **Stage:** the area that is the artifact. It is the element marked `data-rk-stage` when one exists; otherwise, HTML uses the viewport width and full document height unless `--height` fixes the viewport, and SVG uses its own size.
 - **Check:** one code test. Its status is `pass`; `fail`; `incomplete` (it ran and found no failure, but could not measure some items, which it lists); `skipped` (it applies but could not run, for example because a tool is missing; a reason is always given); or `n/a` (the input has nothing for it to check, such as no chart markup or no PDF; a reason is always given).
 - **Mark:** an SVG element that encodes a data value: a bar, a point, a line.
 - **Data-graphic focal:** a focal area declared with `data-rk-focal="data-graphic"`; its value target is distinct from the ordinary composition target.
@@ -51,7 +51,7 @@ Used by `render`, `check` and `brief`.
 |---|---|---|
 | `<input>` | A local `.html` or `.svg` file, or a URL on `http://localhost:<port>/` or `http://127.0.0.1:<port>/` (a dev server). Any other URL, or a missing file, is exit 2 | required |
 | `--root <dir>` | Folder the local server serves | the input file's folder |
-| `--width`, `--height` | Viewport in CSS pixels | HTML: 1920 × 1080. SVG: its `width`/`height` attributes, else its `viewBox` size |
+| `--width`, `--height` | Browser viewport in CSS pixels | HTML: 1920 × 1080. If `--height` is omitted, capture extends to the full document height while the layout viewport remains 1080 px high. Passing `--height` fixes the capture to that viewport height. SVG: its `width`/`height` attributes, else its `viewBox` size |
 | `--scale <n>` | Device pixel ratio | 1 |
 | `--at <ms\|end>` | Scene time to render (section 5) | `end` |
 | `--settle <ms>` | Page-clock time given to script-driven animation when `--at end` | 10000 |
@@ -62,7 +62,7 @@ Used by `render`, `check` and `brief`.
 | `--allow-network` | Permit requests to other origins | off |
 
 ### 4.2 `rk render <input> --out <file.png|file.pdf> [render options] [--simulate <type>]`
-Renders the stage. PNG: a screenshot clipped to the stage. PDF: `page.emulateMedia({ media })` with `--media` (default `screen`, so the PDF shows what the PNG shows; `page.pdf()` on its own uses `print` styles), then `page.pdf({ preferCSSPageSize: true, printBackground: true, tagged: true, outline: true })`; when the page sets no `@page` size, the PDF page size equals the stage size. `--simulate protanopia|deuteranopia|tritanopia|achromatopsia` renders the PNG as seen with that colour-vision deficiency, through Chromium's `Emulation.setEmulatedVisionDeficiency`; it is refused (exit 2) for PDF.
+Renders the stage. PNG: a screenshot clipped to the stage, using full-page capture when HTML `--height` is omitted so content below the initial viewport is included. PDF: `page.emulateMedia({ media })` with `--media` (default `screen`, so the PDF shows what the PNG shows; `page.pdf()` on its own uses `print` styles), then `page.pdf({ preferCSSPageSize: true, printBackground: true, tagged: true, outline: true })`; when the page sets no `@page` size, the PDF page size equals the stage size. `--simulate protanopia|deuteranopia|tritanopia|achromatopsia` renders the PNG as seen with that colour-vision deficiency, through Chromium's `Emulation.setEmulatedVisionDeficiency`; it is refused (exit 2) for PDF.
 
 Output: `{"out", "format", "width", "height", "scale", "at_ms", "browser": {"version", "mode"}, "requests_blocked": []}`. `width` and `height` are the image's pixel size (PNG) or the page size in points (PDF).
 
@@ -106,7 +106,7 @@ Both `text measure` and `text wrap` first draw the text in a hidden element set 
    - `--at <ms>`: T = ms. Call `page.clock.runFor(T)`. Then pause every animation in the list (CSS animations, CSS transitions, Web Animations) and set its `currentTime` to boot + T, and call `pauseAnimations()` and `setCurrentTime((boot + T) / 1000)` on every `<svg>` root (SMIL). The page clock, the animations and SMIL then all stand at boot + T after `load`.
    - `--at end`: call `page.clock.runFor(settle)` with `--settle`, so script-driven animation completes. Then call `finish()` on every finite CSS or Web Animation, pause every infinite one at `currentTime` = boot + settle, and set SMIL time to (boot + settle) / 1000.
    - Animations are assumed to start at `load`. An animation a script starts later is seeked as if it had started at `load`; the kit cannot know its start.
-6. Capture. Do not wait on `requestAnimationFrame` after seeking: the page clock is paused.
+6. Capture. Do not wait on `requestAnimationFrame` after seeking: the page clock is paused. For HTML without `--height`, the stage extends to the maximum of the viewport and document scroll heights; capture it with full-page screenshot mode while keeping the layout viewport at its configured size. With explicit `--height`, the stage is limited to that viewport. A marked `data-rk-stage` remains the capture area, including when it extends below the viewport.
 7. SVG input is wrapped by the server in an HTML page (`<!doctype html>`, zero margins, transparent background) with the SVG inline, served from the SVG's own folder so relative references resolve. Nothing is written next to the input.
 8. When a second CDP session is opened (for font or vision-deficiency queries), send `Emulation.setDeviceMetricsOverride` on it with the same size and scale; otherwise screenshots from that session come back at scale 1 (research: output-pipelines F1 item 8; verified 2026-09-26). This includes `--simulate` at any `--scale` (AT01).
 
@@ -194,7 +194,7 @@ Runs color-theory's image checks on the rendered PNG: `python3 <color-theory>/sc
 
 For T1, the kit compares the measured value-edge ratio with `value.min_edge_share` (default 2×). When the focal element is marked `data-rk-focal="data-graphic"`, it uses `value.data_graphic_min_edge_share` (default 0.5×) instead, so the chart's data layer can be the focal area. The target used is included in the result line and both values are reported as thresholds. An ordinary focal area larger than `value.max_focal_area_share` (default 0.50 of the stage) makes T1 `incomplete` with the question “Does the focal area remain an effective visual entry point at this scale?” instead of failing the automatic test. The explicit data-graphic mode is exempt from this area rule.
 
-For chroma T5, `CHECK` on a data graphic becomes item status `n/a` when all reported ring and focal chroma values are at or below `value.achromatic_chroma_max` (default 0.01 OKLCH C). Other `CHECK` outcomes are `incomplete` with a vision question. The value check fails if any item fails, is incomplete if any item is incomplete or a partial tool error prevents a judgement, and passes when all returned T-lines pass or are `n/a`. Missing Python, numpy, Pillow or the script, a non-zero exit with no T-lines, or no result line is `skipped` with a reason. No `[data-rk-focal]`: `n/a`.
+For chroma T5, `CHECK` on a data graphic becomes item status `n/a` when all reported ring and focal chroma values are at or below `value.achromatic_chroma_max` (default 0.01 OKLCH C). Other `CHECK` outcomes are `incomplete` with a vision question. If the focal element covers the entire captured stage, the check is `incomplete` with a reason because no outside pixels exist for the value-rest or chroma-ring comparison. The value check fails if any item fails, is incomplete if any item is incomplete or a partial tool error prevents a judgement, and passes when all returned T-lines pass or are `n/a`. Missing Python, numpy, Pillow or the script, a non-zero exit with no T-lines, or no result line is `skipped` with a reason. No `[data-rk-focal]`: `n/a`.
 
 ### 6.11 `pdf-fonts` (when a PDF was produced)
 Runs `pdffonts <pdf>`. Fail when any font's type contains `Type 3` or its `emb` column is `no`. Chromium turns variable fonts and synthetic bold into Type 3 fonts, which render poorly and cannot be edited (research track 3, finding F6). Items: font name, type, embedded. No `pdffonts`: `skipped`. No PDF produced: `n/a`.
@@ -333,6 +333,9 @@ Each test names its sample or setup and its expected result. All run from the re
 | AT32 | `bin/rk check samples/bad/horizontal-series.svg` (two red and green horizontal stroked paths, each with zero-height bounds) | Exit 1; `cvd` fails with both series and the 0.039 deuteranopia distance; `fidelity` checks both marks and passes |
 | AT33 | Check `samples/bad/value.html` with `--threshold value.min_edge_share=0.1`; check a copy of `samples/good/data-graphic.svg` with its data-graphic marker removed; then check the original with `--threshold value.min_edge_share=100 --threshold value.data_graphic_min_edge_share=0.5` | The override is reported and T1 passes at 0.1; the ordinary focal area over 50% is `incomplete` with a vision question; the data graphic uses 0.5 and is not failed by the ordinary target; achromatic T5 is recorded as `n/a`, with the original `CHECK` line retained in its item |
 | AT34 | `bin/rk brief samples/good/pdf-pages.html --questions questions/slide.md --out-dir /tmp/rk-at34 --pdf` | Exit 0; the brief lists `render.pdf` and both page PNGs; the PDF has two pages and both page images exist |
+| AT35 | Write a questions file with two headings and one question under each, then call `writeBrief` | Exit 0; each heading immediately precedes its numbered question group, and numbering remains global |
+| AT36 | Check a 1,400 px HTML document without `--height`, then check it with `--height 900` | Default capture is 1,400 px tall and `overflow` passes for text at the bottom; the explicit-height capture is 900 px and reports the bottom text as offstage |
+| AT37 | Check an HTML artifact whose `[data-rk-focal]` covers `[data-rk-stage]` entirely while `python3` is instrumented to fail if called | `value` is `incomplete` with a clear no-outside-pixels reason; the external value/chroma script is not called |
 
 ## 12. Open questions
 

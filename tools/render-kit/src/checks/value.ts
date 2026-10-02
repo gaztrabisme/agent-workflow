@@ -23,16 +23,21 @@ export async function run(ctx: CheckContext) {
   if (!box) return result(ctx, 'value', 'n/a', [], 'no focal element');
   const marker = await focal.getAttribute('data-rk-focal');
   const hasChart = await focal.evaluate((el: Element) => el.matches('[data-rk-chart]') || !!el.querySelector('[data-rk-chart]') || !!el.closest('[data-rk-chart]'));
-  const stage = await ctx.session.page.evaluate((svgInput: boolean) => {
+  const stage = await ctx.session.page.evaluate(({svgInput,fullDocument}:{svgInput:boolean;fullDocument:boolean}) => {
     const r = (document.querySelector('[data-rk-stage]') ?? (svgInput ? document.querySelector('body > svg') : null))?.getBoundingClientRect();
-    return { x:r?.x ?? 0, y:r?.y ?? 0, width:r?.width ?? innerWidth, height:r?.height ?? innerHeight };
-  }, ctx.session.svgInput);
+    const height = fullDocument ? Math.max(innerHeight, document.documentElement.scrollHeight, document.body?.scrollHeight ?? 0) : innerHeight;
+    return { x:r?.x ?? 0, y:r?.y ?? 0, width:r?.width ?? innerWidth, height:r?.height ?? height };
+  }, {svgInput:ctx.session.svgInput,fullDocument:ctx.options.height===undefined&&!ctx.session.svgInput});
   const scale = ctx.options.scale;
   const x0 = Math.round((box.x - stage.x) * scale), y0 = Math.round((box.y - stage.y) * scale);
   const x1 = Math.round((box.x + box.width - stage.x) * scale), y1 = Math.round((box.y + box.height - stage.y) * scale);
   const visibleWidth = Math.max(0, Math.min(box.x + box.width, stage.x + stage.width) - Math.max(box.x, stage.x));
   const visibleHeight = Math.max(0, Math.min(box.y + box.height, stage.y + stage.height) - Math.max(box.y, stage.y));
   const focalShare = visibleWidth * visibleHeight / Math.max(1, stage.width * stage.height);
+  if (focalShare >= 1 - 1e-9) {
+    const reason = 'focal element covers the entire captured stage; there are no outside pixels for value and chroma comparisons';
+    return result(ctx, 'value', 'incomplete', [{ check:'value', status:'incomplete', reason }, { check:'chroma', status:'incomplete', reason }], reason);
+  }
   const dataGraphic = marker === 'data-graphic';
   const edgeLimit = threshold(ctx, dataGraphic ? 'data_graphic_min_edge_share' : 'min_edge_share', dataGraphic ? 0.5 : 2);
   const maxAreaShare = threshold(ctx, 'max_focal_area_share', 0.5);
