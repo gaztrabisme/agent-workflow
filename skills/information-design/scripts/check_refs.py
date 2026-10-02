@@ -5,7 +5,7 @@ Derived package-audit checks from skill-builder dogfood 2026-10-01. The default
 anchor pattern and source globs still suit a course-distilled skill; use
 --no-anchor-check explicitly for an authored package with no citation corpus.
 
-    check_refs.py <skill-root> [--sources 'references/course/*.md']
+    check_refs.py <skill-root> [--sources 'references/course*/*.md']
     check_refs.py <skill-root> --no-anchor-check --format --skeleton <path>
 
 Exit 0 when checks pass, 1 when a defect is found. Missing sibling pointers are
@@ -81,7 +81,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description='Check a skill package and optional source anchors.')
     ap.add_argument('root', type=Path, help='skill directory')
     ap.add_argument('--anchor', default=DOMESTIKA_ANCHOR, help='regex for one source anchor')
-    ap.add_argument('--sources', nargs='+', default=['references/course/*.md'],
+    ap.add_argument('--sources', nargs='+', default=['references/course*/*.md'],
                     help='globs of files that define the anchors')
     ap.add_argument('--files', nargs='+', default=['SKILL.md', 'references/**/*.md',
                                                    'tests/**/*.md'],
@@ -132,12 +132,14 @@ def main() -> int:
     else:
         print('  none')
 
+    path_mentions = 0
     for path in files:
         rel = path.relative_to(root)
         text = path.read_text(encoding='utf-8')
         for target in LINK.findall(text):
             if '://' in target or target.startswith('mailto:'):
                 continue
+            path_mentions += 1
             resolved = (path.parent / target).resolve()
             if resolved.exists():
                 continue
@@ -156,7 +158,6 @@ def main() -> int:
                 problems += 1
                 print(f'{rel}: anchor not in sources: {found}')
 
-    path_mentions = 0
     for value in CODE_SPAN.findall(skill_text):
         value = value.strip()
         if not is_package_path(value):

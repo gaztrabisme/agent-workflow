@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<svg data-rk-stage="chart" xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
   <title id="title">Bubble chart template</title>
   <desc id="desc">Example bubbles map two values to position and a third to area. Add a calibrated size key.</desc>
   <rect width="960" height="600" fill="#fff"/>
-  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+  <g font-family="Arial, sans-serif" fill="#191919">
     <text x="72" y="54" font-size="26" font-weight="700">Three measures, three channels</text>
     <text x="72" y="82" font-size="14">ILLUSTRATIVE VALUES — area is approximate; replace and add a size key</text>
     <g data-rk-chart="bubble" data-rk-x-scale="linear" data-rk-x-domain="0,100" data-rk-x-range="110,870" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="470,120">
-      <circle cx="262" cy="400" r="12" fill="#245c73" fill-opacity="0.75" data-rk-mark="point" data-rk-x="20" data-rk-y="20" data-rk-series="A" data-rk-size="10"/>
-      <circle cx="452" cy="330" r="24" fill="#245c73" fill-opacity="0.75" data-rk-mark="point" data-rk-x="45" data-rk-y="40" data-rk-series="B" data-rk-size="40"/>
-      <circle cx="642" cy="225" r="36" fill="#245c73" fill-opacity="0.75" data-rk-mark="point" data-rk-x="70" data-rk-y="70" data-rk-series="C" data-rk-size="90"/>
+      <circle cx="262" cy="400" r="12" fill="#245c73" fill-opacity="0.75" data-rk-mark="point" data-rk-x="20" data-rk-y="20" data-rk-series="Observations" data-rk-size="10"/>
+      <circle cx="452" cy="330" r="24" fill="#245c73" fill-opacity="0.75" data-rk-mark="point" data-rk-x="45" data-rk-y="40" data-rk-series="Observations" data-rk-size="40"/>
+      <circle cx="642" cy="225" r="36" fill="#245c73" fill-opacity="0.75" data-rk-mark="point" data-rk-x="70" data-rk-y="70" data-rk-series="Observations" data-rk-size="90" data-rk-focal="data-graphic"/>
     </g>
     <path d="M110 120V470H870" fill="none" stroke="#555" stroke-width="2"/>
     <text x="420" y="525" font-size="16">Horizontal measure (unit)</text><text x="30" y="300" font-size="16" transform="rotate(-90 30 300)">Vertical measure (unit)</text>

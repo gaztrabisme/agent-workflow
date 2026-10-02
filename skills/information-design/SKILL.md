@@ -44,7 +44,7 @@ This skill turns a reader's question and a trustworthy dataset into an explained
 
 - **Quick chart question:** stages 1 and 4; name the reader's comparison and the field mapped to each channel.
 - **Critique of existing work:** start at stage 6, run T1–T10 in order, then return to the stage named by each failure.
-- **Multi-chart dashboard or data story:** run all six stages; check cross-panel scales, ordering and labels together.
+- **Multi-chart dashboard or data story:** run all six stages, then apply the [dashboard method](references/method/dashboard.md); check shared scales, key numbers, alerts, missing-data states, ordering and labels together. (derived: dogfood 2026-10-02, F2)
 - **After a fix:** rerun affected code checks, then the vision questions for the repaired stage and any stage whose reading order changed.
 - **Domain-specific work:** apply the course-derived method to the brief, then follow the domain's required units, axis directions, terms and thresholds.
 
@@ -61,7 +61,7 @@ This skill turns a reader's question and a trustworthy dataset into an explained
 Templates use render-kit markup and are examples to adapt. The four drilling examples are marked **derived** because the courses do not teach drilling charts.
 
 - [Template index](templates/README.md) — choose a starting form and see its source or derived status.
-- [Line chart](templates/line-chart.svg) — sequential measures; includes depth against time (**derived** axis treatment).
+- [Line chart](templates/line-chart.svg) — sequential measures over time; use the derived drilling template for depth against report date. (derived: dogfood 2026-10-02, F6)
 - [Bar chart](templates/bar-chart.svg) — category comparisons and lost-time split (**derived** drilling example).
 - [Slope chart](templates/slope-chart.svg) — start-to-end change.
 - [Small multiples](templates/small-multiples.svg) — repeated comparisons on a shared scale; adapted for mud properties (**derived** drilling example).
@@ -69,14 +69,20 @@ Templates use render-kit markup and are examples to adapt. The four drilling exa
 - [Bubble chart](templates/bubble-chart.svg) — two positional fields plus size.
 - [Radial series](templates/radial-series.svg) — a custom repeated time-series form; preserve the reference scale and key, then manually review its polar mapping where render-kit skips fidelity.
 - [Drilling depth against time](templates/drilling-depth-time.svg), [lost-time split](templates/drilling-lost-time-split.svg), [mud properties](templates/drilling-mud-properties.svg) and [trajectory](templates/drilling-trajectory.svg) — derived domain views.
+- [Dashboard](templates/dashboard.html) — composed status, metric, alert, missing-data and aligned-chart example (**derived** from dogfood findings F2 and F3). (derived: dogfood 2026-10-02, F2)
 
 ### Render-and-check loop
 
-1. Mark the chart root with `data-rk-chart`, scale type, domain and range; give marks `data-rk-mark` and their source values. Use `data-rk-series` for categorical series and `data-rk-stage` / `data-rk-focal` for rendered regions. Use the render-kit markup contract.
-2. Render the HTML or SVG through render-kit and run `bin/rk check`. Fix every applicable failure and render again. Read each `skipped` or `incomplete` result; it is not a pass. (Owner decision 4; render-kit agent instructions)
-3. Run code checks first: resources, console errors, font fallback, overflow, text collisions, contrast, colour-vision deficiency, data fidelity, accessibility, value and chroma; PDF font checks apply when a PDF is produced.
-4. Send the render and the specific vision questions in [review-checklist.md](references/method/review-checklist.md) to a fresh-context reviewer who did not make it and can see images. Verify answers with render-kit. Without such a reviewer, mark vision checks **not judged**.
-5. Report each test as measured, vision-judged, not judged or skipped, including the result, reason and return stage. Code checks cannot establish that the story is understood.
+1. Mark the chart root with `data-rk-chart`, scale type, domain and range; give marks `data-rk-mark` and their source values. Use `data-rk-series` only for true color-coded categories, not one series name per bar or observation. Put `data-rk-stage` on the complete SVG root or rendered screen region. Use the render-kit markup contract. (derived: dogfood 2026-10-02, F1)
+2. For charts and dashboards, interpret value and chroma results in the context of the data layer: value helps assess emphasis within the plotted marks, while chroma tests distinguishability only where colour carries category meaning. Declare the primary data view with `data-rk-focal="data-graphic"` when render-kit supports it; report tool thresholds and inconclusive results without calling them passes. (derived: dogfood 2026-10-02, F3)
+3. Until render-kit treats stroked geometry as visible for colour-vision checks, include visible area swatches for declared categories so the check has a measurable region. (derived: dogfood 2026-10-02, F5)
+4. Render the HTML or SVG through render-kit and run `bin/rk check`. Fix every applicable failure and render again. Read each `skipped` or `incomplete` result; it is not a pass. (Owner decision 4; render-kit agent instructions)
+5. Run code checks first: resources, console errors, font fallback, overflow, text collisions, contrast, colour-vision deficiency, data fidelity, accessibility, value and chroma; PDF font checks apply when a PDF is produced.
+6. Send the render and the specific vision questions in [review-checklist.md](references/method/review-checklist.md) to a fresh-context reviewer who did not make it and can see images. For print delivery, include the required PDF as a separate review input and verify its pages and embedded fonts; a PNG alone does not establish PDF delivery or legibility. (derived: dogfood 2026-10-02, F10)
+7. Verify answers with render-kit. Without such a reviewer, mark vision checks **not judged**.
+8. Report each test as measured, vision-judged, not judged or skipped, including the result, reason and return stage. Code checks cannot establish that the story is understood.
+
+Before adapting a shipped starter, run [scripts/check_templates.sh](scripts/check_templates.sh); it runs `rk check` on every SVG and HTML template. (derived: dogfood 2026-10-02, F1)
 
 ## Gates (declared, inherited from core)
 
@@ -112,8 +118,11 @@ Templates use render-kit markup and are examples to adapt. The four drilling exa
 - [references/method/annotation-and-narrative.md](references/method/annotation-and-narrative.md) — write and place explanatory text and keys.
 - [references/method/render-and-review.md](references/method/render-and-review.md) — render, review and prepare delivery.
 - [references/method/review-checklist.md](references/method/review-checklist.md) — T1–T10 pass conditions and return stages.
+- [references/method/dashboard.md](references/method/dashboard.md) — dashboard composition, key-number and alert checks (**derived** from dogfood, not a course method).
 - [references/method/measurement.md](references/method/measurement.md) — course procedures, independent checks and thresholds for T1–T10.
 - [references/method/coverage.md](references/method/coverage.md) — lessons not cited by a method digest and why.
 - [templates/README.md](templates/README.md) — chart-template index and source mapping.
+- [questions/information-design-chart.md](questions/information-design-chart.md), [questions/information-design-dashboard.md](questions/information-design-dashboard.md) and [questions/information-design-print.md](questions/information-design-print.md) — ready-to-use, yes-means-pass vision questions (**derived** from dogfood finding F8).
+- [scripts/check_templates.sh](scripts/check_templates.sh) — run render-kit checks on all shipped SVG and HTML templates.
 - [references/course-2495/README.md](references/course-2495/README.md), [references/course-4217/README.md](references/course-4217/README.md), [references/course-3601/README.md](references/course-3601/README.md), [references/course-3069/README.md](references/course-3069/README.md) — checked source indexes and course-specific exclusions.
 - [scripts/check_refs.py](scripts/check_refs.py) — verify package links and course anchors.

@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<svg data-rk-stage="chart" xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
   <title id="title">Derived non-productive time by cause</title>
   <desc id="desc">Four causes sum to 28.5 hours in the fictional Larkspur-4 fixture. Replace with project records.</desc>
   <rect width="960" height="600" fill="#fff"/>
-  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+  <g font-family="Arial, sans-serif" fill="#191919">
     <text x="72" y="54" font-size="26" font-weight="700">Non-productive time by cause</text>
     <text x="72" y="82" font-size="14">DERIVED DRILLING VIEW · fixture total 28.5 h · replace before use</text>
-    <g data-rk-chart="bar" data-rk-x-scale="band" data-rk-x-domain="0,3" data-rk-x-range="140,850" data-rk-y-scale="linear" data-rk-y-domain="0,12" data-rk-y-range="455,130">
-      <rect x="205" y="238.3" width="100" height="216.7" fill="#245c73" data-rk-mark="bar" data-rk-x="0" data-rk-y="8" data-rk-y0="0" data-rk-series="Weather delay"/>
-      <rect x="370" y="197.7" width="100" height="257.3" fill="#245c73" data-rk-mark="bar" data-rk-x="1" data-rk-y="9.5" data-rk-y0="0" data-rk-series="Pump repair"/>
-      <rect x="535" y="319.6" width="100" height="135.4" fill="#245c73" data-rk-mark="bar" data-rk-x="2" data-rk-y="5" data-rk-y0="0" data-rk-series="Tight hole"/>
-      <rect x="700" y="292.5" width="100" height="162.5" fill="#245c73" data-rk-mark="bar" data-rk-x="3" data-rk-y="6" data-rk-y0="0" data-rk-series="Top drive"/>
+    <g data-rk-focal="data-graphic" data-rk-chart="bar" data-rk-x-scale="band" data-rk-x-domain="0,3" data-rk-x-range="140,850" data-rk-y-scale="linear" data-rk-y-domain="0,12" data-rk-y-range="455,130">
+      <rect x="205" y="238.3" width="100" height="216.7" fill="#245c73" data-rk-mark="bar" data-rk-x="0" data-rk-y="8" data-rk-y0="0" data-rk-series="Lost time"/>
+      <rect x="370" y="197.7" width="100" height="257.3" fill="#245c73" data-rk-mark="bar" data-rk-x="1" data-rk-y="9.5" data-rk-y0="0" data-rk-series="Lost time"/>
+      <rect x="535" y="319.6" width="100" height="135.4" fill="#245c73" data-rk-mark="bar" data-rk-x="2" data-rk-y="5" data-rk-y0="0" data-rk-series="Lost time"/>
+      <rect x="700" y="292.5" width="100" height="162.5" fill="#245c73" data-rk-mark="bar" data-rk-x="3" data-rk-y="6" data-rk-y0="0" data-rk-series="Lost time"/>
       <g font-size="13"><text x="185" y="482">Weather</text><text x="360" y="482">Pump</text><text x="530" y="482">Tight hole</text><text x="688" y="482">Top drive</text></g>
     </g>
     <path d="M140 130V455H850" fill="none" stroke="#555" stroke-width="2"/>

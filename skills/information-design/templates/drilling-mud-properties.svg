@@ -1,22 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<svg data-rk-stage="chart" xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
   <title id="title">Derived mud properties by measured depth</title>
-  <desc id="desc">Two aligned property panels use depth position. Units and vertical domains differ; values are illustrative.</desc>
+  <desc id="desc">Two horizontal property tracks use the same vertical measured-depth scale, direction and pixel range. Values and units are illustrative.</desc>
   <rect width="960" height="600" fill="#fff"/>
-  <g data-rk-stage="chart" data-rk-focal="true" font-family="Arial, sans-serif" fill="#191919">
+  <g font-family="Arial, sans-serif" fill="#191919">
     <text x="60" y="48" font-size="26" font-weight="700">Mud properties by measured depth</text>
-    <text x="60" y="75" font-size="14">DERIVED DRILLING VIEW · illustrative values only; separate units by panel</text>
-    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,4000" data-rk-x-range="140,480" data-rk-y-scale="linear" data-rk-y-domain="0.9,1.5" data-rk-y-range="450,140">
-      <text x="210" y="112" font-size="18" font-weight="700">Mud weight (sg)</text>
-      <path d="M140 383L225 331L310 269L395 217L480 176" fill="none" stroke="#245c73" stroke-width="3" data-rk-mark="line" data-rk-points="0,1.03 1000,1.13 2000,1.25 3000,1.35 4000,1.43" data-rk-series="Mud weight"/>
-      <path d="M140 140V450H480" fill="none" stroke="#555"/>
+    <text x="60" y="75" font-size="14">DERIVED DRILLING VIEW · illustrative values only; units differ by track</text>
+    <text x="250" y="112" font-size="18" font-weight="700">Mud weight (sg)</text>
+    <text x="625" y="112" font-size="18" font-weight="700">Funnel viscosity (s)</text>
+    <g>
+    <g data-rk-focal="data-graphic" data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0.9,1.5" data-rk-x-range="190,480" data-rk-y-scale="linear" data-rk-y-domain="0,4000" data-rk-y-range="120,470">
+      <path d="M252.833 120L301.167 207.5L359.167 295L407.5 382.5L446.167 470" fill="none" stroke="#245c73" stroke-width="4" data-rk-mark="line" data-rk-points="1.03,0 1.13,1000 1.25,2000 1.35,3000 1.43,4000"/>
+      <path d="M190 120V470H480" fill="none" stroke="#555" stroke-width="1.5"/>
     </g>
-    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,4000" data-rk-x-range="560,900" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="450,140">
-      <text x="610" y="112" font-size="18" font-weight="700">Funnel viscosity (s)</text>
-      <path d="M560 352L645 321L730 290L815 228L900 197" fill="none" stroke="#a64931" stroke-width="3" data-rk-mark="line" data-rk-points="0,32 1000,42 2000,52 3000,72 4000,82" data-rk-series="Funnel viscosity"/>
-      <path d="M560 140V450H900" fill="none" stroke="#555"/>
+    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,100" data-rk-x-range="560,850" data-rk-y-scale="linear" data-rk-y-domain="0,4000" data-rk-y-range="120,470">
+      <path d="M652.8 120L681.8 207.5L710.8 295L768.8 382.5L797.8 470" fill="none" stroke="#245c73" stroke-width="4" data-rk-mark="line" data-rk-points="32,0 42,1000 52,2000 72,3000 82,4000"/>
+      <path d="M560 120V470H850" fill="none" stroke="#555" stroke-width="1.5"/>
     </g>
-    <text x="320" y="495" font-size="15">Measured depth (m)</text><text x="690" y="495" font-size="15">Measured depth (m)</text>
-    <text x="60" y="540" font-size="13">Keep the shared depth scale; label each panel's distinct unit and value range.</text>
-    <text x="60" y="574" font-size="12">Source: replace with validated mud measurements; this dashboard form is derived</text>
+    </g>
+    <g stroke="#ddd" stroke-width="1"><path d="M190 207.5H480M560 207.5H850"/><path d="M190 295H480M560 295H850"/><path d="M190 382.5H480M560 382.5H850"/></g>
+    <g font-size="13"><text x="116" y="125">0 m</text><text x="105" y="212">1,000 m</text><text x="105" y="300">2,000 m</text><text x="105" y="387">3,000 m</text><text x="105" y="475">4,000 m</text></g>
+    <g font-size="12"><text x="185" y="490">0.9</text><text x="325" y="490">1.2</text><text x="468" y="490">1.5</text><text x="555" y="490">0</text><text x="695" y="490">50</text><text x="835" y="490">100</text></g>
+    <text x="45" y="300" font-size="14" transform="rotate(-90 45 300)">Measured depth (m; increases downward)</text>
+    <text x="400" y="515" font-size="15">Both tracks use measured depth increasing downward</text>
+    <text x="60" y="545" font-size="13">Share the depth domain, direction and pixel range with the depth-time view. (derived: dogfood 2026-10-02, F6)</text>
+    <text x="60" y="574" font-size="12">Source: replace with validated mud measurements; this aligned-depth form is derived</text>
   </g>
 </svg>

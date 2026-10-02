@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drilling status dashboard template</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; color: #19252d; background: #eef2f4; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    main { width: 100%; min-height: 100vh; padding: 22px 26px; }
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 16px; }
+    h1 { margin: 0; font-size: 27px; line-height: 1.15; }
+    h2 { margin: 0; font-size: 17px; }
+    h3 { margin: 0; font-size: 14px; }
+    p { margin: 0; }
+    .eyebrow { color: #435864; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .subhead { margin-top: 5px; color: #435864; font-size: 13px; }
+    .status { border: 2px solid #8a5a00; border-radius: 4px; padding: 7px 10px; color: #613f00; background: #fff8e7; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .status strong { margin-right: 5px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 14px; }
+    .metric, .panel { background: #fff; border: 1px solid #cbd5da; border-radius: 5px; }
+    .metric { padding: 12px 14px; min-height: 108px; }
+    .metric .value { margin: 5px 0 2px; font-size: 25px; font-weight: 700; line-height: 1.1; }
+    .metric .context, .metric .baseline { color: #435864; font-size: 11px; line-height: 1.35; }
+    .metric .baseline { margin-top: 3px; }
+    .views { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(330px, 1fr); gap: 12px; margin-bottom: 12px; }
+    .panel { padding: 12px 14px; }
+    .panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
+    .panel-note { color: #435864; font-size: 11px; }
+    .chart { display: block; width: 100%; height: 280px; }
+    .chart text { font-family: Arial, Helvetica, sans-serif; fill: #263841; }
+    .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 3px; color: #334650; font-size: 11px; }
+    .key { display: inline-flex; align-items: center; gap: 5px; }
+    .swatch { width: 17px; height: 10px; display: inline-block; background: none; }
+    .lower { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(330px, 1fr); gap: 12px; }
+    .alert-list { display: grid; gap: 8px; margin-top: 9px; }
+    .alert { border-left: 5px solid #d55e00; padding: 7px 9px; background: #fff5f0; font-size: 11px; line-height: 1.35; }
+    .alert.not-set { border-left-color: #566d7b; background: #f2f6f8; }
+    .level { display: block; margin-bottom: 2px; font-size: 10px; font-weight: 700; letter-spacing: .06em; }
+    .missing { margin-top: 9px; border: 1px dashed #586e7b; padding: 8px 10px; color: #334650; background: #f5f8f9; font-size: 11px; line-height: 1.35; }
+    .missing strong { display: block; margin-bottom: 2px; }
+    footer { margin-top: 10px; color: #435864; font-size: 10px; }
+    @media (max-width: 900px) {
+      main { padding: 16px; }
+      .views, .lower { grid-template-columns: 1fr; }
+      .views, .lower { gap: 10px; }
+    }
+    @media (max-width: 620px) {
+      header { display: block; }
+      .status { display: inline-block; margin-top: 10px; }
+      .metrics { grid-template-columns: 1fr; }
+      .metric { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main data-rk-stage="dashboard">
+    <header>
+      <div>
+        <p class="eyebrow">Illustrative dashboard template · Larkspur-4 · 28 March 2026</p>
+        <h1>Daily drilling status</h1>
+        <p class="subhead">Report 27 · Current depth, lost time and operational follow-up</p>
+      </div>
+      <p class="status"><strong>STATUS</strong> At 3,500 m · next action: review alerts</p>
+    </header>
+
+    <section class="metrics" aria-label="Key numbers">
+      <article class="metric">
+        <h2>Measured depth</h2>
+        <p class="value">3,500 <span>m</span></p>
+        <p class="context">Period: 28 Mar 2026 · Source: daily report</p>
+        <p class="baseline">Plan baseline: 3,600 m at report date</p>
+      </article>
+      <article class="metric">
+        <h2>Lost time</h2>
+        <p class="value">28.5 <span>h</span></p>
+        <p class="context">Period: 2–28 Mar 2026 · Source: daily reports</p>
+        <p class="baseline">Budget baseline: Not set</p>
+      </article>
+      <article class="metric">
+        <h2>8.5 in section rate</h2>
+        <p class="value">4.1 <span>m/h</span></p>
+        <p class="context">Period: 8.5 in section · Source: daily reports</p>
+        <p class="baseline">Comparison: previous section 22.0 m/h</p>
+      </article>
+    </section>
+
+    <section class="views" aria-label="Depth views">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>Depth against report date</h2>
+          <p class="panel-note">Measured depth increases downward</p>
+        </div>
+        <svg class="chart" viewBox="0 0 600 300" role="img" aria-labelledby="depth-title depth-desc">
+          <title id="depth-title">Measured and planned depth through the reporting period</title>
+          <desc id="depth-desc">A blue measured-depth line, green planned-depth line and orange lost-time segments on one depth scale.</desc>
+          <g data-rk-focal="data-graphic" data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,4" data-rk-x-range="48,560" data-rk-y-scale="linear" data-rk-y-domain="0,4000" data-rk-y-range="40,240">
+            <path d="M48 40L176 80L304 130L432 180L560 215" fill="none" stroke="#0072b2" stroke-width="4" data-rk-mark="line" data-rk-points="0,0 1,800 2,1800 3,2800 4,3500" data-rk-series="Measured depth"/>
+            <path d="M48 40L176 85L304 135L432 185L560 235" fill="none" stroke="#009e73" stroke-width="3" stroke-dasharray="8 5" data-rk-mark="line" data-rk-points="0,0 1,900 2,1900 3,2900 4,3900" data-rk-series="Plan"/>
+            <path d="M163.2 80L188.8 80" fill="none" stroke="#d55e00" stroke-width="7" data-rk-mark="line" data-rk-points="0.9,800 1.1,800" data-rk-series="Lost time"/>
+            <path d="M291.2 130L316.8 130" fill="none" stroke="#d55e00" stroke-width="7" data-rk-mark="line" data-rk-points="1.9,1800 2.1,1800" data-rk-series="Lost time"/>
+            <path d="M419.2 180L444.8 180" fill="none" stroke="#d55e00" stroke-width="7" data-rk-mark="line" data-rk-points="2.9,2800 3.1,2800" data-rk-series="Lost time"/>
+            <path d="M48 40V240H560" fill="none" stroke="#435864" stroke-width="1.5"/>
+            <path d="M48 90H560M48 140H560M48 190H560" stroke="#d9e0e3" stroke-width="1"/>
+          </g>
+          <g font-size="10">
+            <text x="18" y="44">0 m</text><text x="7" y="94">1,000</text><text x="7" y="144">2,000</text><text x="7" y="194">3,000</text><text x="7" y="244">4,000</text>
+            <text x="42" y="258">2 Mar</text><text x="166" y="258">9 Mar</text><text x="290" y="258">16 Mar</text><text x="414" y="258">23 Mar</text><text x="540" y="258">28 Mar</text>
+            <text x="240" y="283" font-size="11">Report date (2026)</text>
+          </g>
+        </svg>
+        <div class="legend" role="group" aria-label="Chart key">
+          <span class="key"><svg class="swatch" viewBox="0 0 17 10" aria-hidden="true"><rect x="0" y="3" width="17" height="4" fill="#0072b2" data-rk-series="Measured depth"/></svg>Measured depth</span>
+          <span class="key"><svg class="swatch" viewBox="0 0 17 10" aria-hidden="true"><rect x="0" y="3" width="17" height="4" fill="#009e73" data-rk-series="Plan"/></svg>Plan</span>
+          <span class="key"><svg class="swatch" viewBox="0 0 17 10" aria-hidden="true"><rect x="0" y="3" width="17" height="4" fill="#d55e00" data-rk-series="Lost time"/></svg>Lost time · dates shown on the time axis</span>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>Mud weight by depth</h2>
+          <p class="panel-note">Aligned depth domain and pixel range</p>
+        </div>
+        <svg class="chart" viewBox="0 0 360 300" role="img" aria-labelledby="mud-title mud-desc">
+          <title id="mud-title">Illustrative mud weight at measured depths</title>
+          <desc id="mud-desc">Mud weight changes across the same zero to four-thousand-metre depth range as the adjacent depth chart.</desc>
+          <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0.9,1.5" data-rk-x-range="68,330" data-rk-y-scale="linear" data-rk-y-domain="0,4000" data-rk-y-range="40,240">
+            <path d="M124.8 40L168.5 90L220.8 140L264.5 190L299.4 240" fill="none" stroke="#CC79A7" stroke-width="4" data-rk-mark="line" data-rk-points="1.03,0 1.13,1000 1.25,2000 1.35,3000 1.43,4000" data-rk-series="Mud weight"/>
+            <path d="M68 40V240H330" fill="none" stroke="#435864" stroke-width="1.5"/>
+            <path d="M68 90H330M68 140H330M68 190H330" stroke="#d9e0e3" stroke-width="1"/>
+          </g>
+          <g font-size="10">
+            <text x="13" y="44">0 m</text><text x="2" y="94">1,000</text><text x="2" y="144">2,000</text><text x="2" y="194">3,000</text><text x="2" y="244">4,000</text>
+            <text x="62" y="258">0.9</text><text x="186" y="258">1.2</text><text x="318" y="258">1.5</text>
+            <text x="145" y="283" font-size="11">Mud weight (sg)</text>
+          </g>
+        </svg>
+      </article>
+    </section>
+
+    <section class="lower" aria-label="Operational attention and data state">
+      <article class="panel">
+        <h2>Needs attention</h2>
+        <div class="alert-list">
+          <div class="alert"><span class="level">ACTION</span>Cause: the illustrative section rate is below the previous section. Action: review daily drilling hours and the section record before planning the next interval.</div>
+          <div class="alert not-set"><span class="level">NOT SET</span>Cause: no approved mud-weight window is supplied. Action: add the approved lower and upper limits before classifying this measurement.</div>
+        </div>
+      </article>
+      <article class="panel">
+        <h2>Missing-data state</h2>
+        <div class="missing"><strong>Alternate state — use when plan data are absent</strong>No approved depth-by-date plan is available. The plan comparison cannot be shown; add approved planned depths and dates to display it. The plan line above is illustrative only.</div>
+      </article>
+    </section>
+
+    <footer>Illustrative values and copy only. Replace with verified project data, policy limits and source definitions before use.</footer>
+  </main>
+</body>
+</html>
