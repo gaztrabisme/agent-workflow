@@ -2,7 +2,7 @@
 
 ## Establish the baseline before changing it
 
-Confirm the app runs with the project's own commands. Inspect its routes, representative content, responsive states, controls, loading and error paths, and installed framework and design conventions. Capture fixed-viewport renders and test the current behavior before making improvements. [src:platform-apps/report.md], “6. Working inside other people's codebases; greenfield”; [src:output-pipelines/report.md], “F9. Capturing demos of real apps with source access”; [book:playwright-docs], “Assertions.”
+For an existing app, keep its framework, installed version, and house style; upgrade only via official tooling, one major at a time, and check support windows before estimating. [src:platform-apps/report.md], “6. Working inside other people's codebases; greenfield.”
 
 Run the current build, focused tests, automated accessibility checks, and performance checks on the main routes. Inspect keyboard behavior and the accessibility tree manually. Automated results establish findings for the tested rules and state only; the research reports that tool coverage is partial and sources differ on the size of that coverage. [src:platform-apps/report.md], “F8. Quality: accessibility, testing, performance”; [src:gaps/report.md], “G2. Testing tools for the render-and-check loop”; [book:playwright-docs], “Accessibility testing.”
 

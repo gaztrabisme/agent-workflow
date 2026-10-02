@@ -8,7 +8,7 @@ Use the current product brief, UX findings, and project guidance as primary inpu
 
 ## Inspect the project
 
-For an existing application, identify the framework and installed version, router, CSS system, component primitives, test runner, build and lint commands, design tokens, and any route or state-specific conventions before editing. Use documentation matching the installed version. The research found that advice written for a newer framework major can break older applications; preserving the existing conventions is the safe default. [src:platform-apps/report.md], “F5. Principles that transfer across frameworks.”
+For an existing application, identify the framework major, router mode, change-detection defaults, test runner, and TypeScript before editing. Keep the project's test runner; use official tooling for one-major-at-a-time upgrades. [src:platform-apps/report.md], “F5. Principles that transfer across frameworks.”
 
 ## Set the browser and device target
 
