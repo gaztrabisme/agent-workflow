@@ -4,7 +4,7 @@ Each failed test returns to its named stage. A visual change returns through ren
 
 | ID | Stage | Pass condition |
 |---|---|---|
-| T1 | Brief and baseline | Audience, task, routes, key states, content/data source, constraints, and acceptance evidence are recorded. (derived: this skill's field list is a project-level checklist informed by the support-target guidance in [src:platform-apps/report.md], “Verdicts,” and responsive-design guidance in [book:css-in-depth-2e], “7 Responsive design”; those sections do not enumerate these fields.) |
+| T1 | Brief and baseline | Audience, task, routes, key states, content/data source, constraints, and acceptance evidence are recorded. (derived: this skill's field list is a project-level checklist; its audience/support-target prompt adapts the support-target guidance in [src:platform-apps/report.md], “Verdicts.” The section does not enumerate these fields.) |
 | T2 | Brief and baseline | Browser/device target and support-sensitive features are identified; current feature status is checked before adoption. (derived: [src:platform-apps/report.md], “Rule A: choose the support target by who opens the output”; [doc:https://web.dev/baseline/].) |
 | T3 | Structure and semantics | Heading hierarchy, landmarks, links, buttons, labels, and form relationships express their purpose in the DOM. [book:whatwg-html], “Semantics, structure, and APIs of HTML documents”; [book:wai-aria-apg], “Use ARIA Landmarks.” |
 | T4 | Structure and semantics | ARIA roles and states are needed, valid, and synchronized with the visible state. [book:mdn-web-docs], “Before using ARIA”; [src:agent-ready-web/report.md], “F4. The accessibility tree as the agent interface.” |
