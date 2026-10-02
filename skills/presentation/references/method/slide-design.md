@@ -18,7 +18,7 @@ Carry forward the QA habit of looking for overlap, overflow, wrapping, contrast,
 
 ## HTML slide markup
 
-Keep slide content as document text and mark the slide region with `data-rk-stage`; mark an intended focal region with `data-rk-focal` when it is useful to render-kit. Use meaningful headings and sequence in the HTML instead of hiding the communication inside a bitmap. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Markup the checks read”; [book:whatwg-html], “Conformance requirements for authors”. (derived: semantic source improves inspection and preserves content beyond the pixels.)
+Use semantic, media-independent, style-independent markup rather than presentational markup. [book:whatwg-html], “Conformance requirements for authors”. Keep slide content as document text, use meaningful headings and sequence instead of embedding the communication in a bitmap, and mark the slide region with `data-rk-stage` or an intended focal region with `data-rk-focal` when useful to render-kit. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Markup the checks read”. (derived from the source’s accessibility and maintenance rationale for semantic, media-independent markup.)
 
 ## Return when
 

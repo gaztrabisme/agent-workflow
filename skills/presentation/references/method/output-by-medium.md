@@ -1,12 +1,12 @@
 # Output by medium
 
-Choose a final format from the audience's use and editing needs; the research keeps HTML presentation, PDF, editable PowerPoint, explainer video, and app demo as distinct paths. [src:output-pipelines/report.md], “Use case 1”; [src:output-pipelines/report.md], “Use case 2”; [src:output-pipelines/report.md], “Use case 3”.
+Choose a final format from the audience's use and editing needs. The research groups a live HTML deck, PDF handout, and editable PowerPoint in one use case, and treats the MP4 app demo and narrated explainer as two more use cases with their own constraints. [src:output-pipelines/report.md], “Use case 1”; [src:output-pipelines/report.md], “Use case 2”; [src:output-pipelines/report.md], “Use case 3”. (derived: choose a path to match the audience’s use, timing, and reuse.)
 
 ## HTML slide deck
 
 Author one 1920×1080 HTML/SVG scene per slide. Select a static HTML shell for a one-off deck or a presenter shell when speaker notes, fragments, a second screen, or presentation controls are required; research sources disagree about a universal shell default, while agreeing on fixed-size scenes. [src:synthesis.md], “Contradictions”; [src:output-pipelines/report.md], “F7. HTML presentation frameworks”. (derived: choose the shell from the required live-presenting features instead of hiding the unresolved source disagreement.)
 
-Keep source text, headings, and reading order in the document, and use the shell's render-kit stage markers. [book:whatwg-html], “Conformance requirements for authors”; [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Markup the checks read”.
+Use semantic, media-independent, style-independent markup rather than presentational markup. [book:whatwg-html], “Conformance requirements for authors”. Keep source text, headings, and reading order in the document, and use the shell's render-kit stage markers. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Markup the checks read”. (derived from the source’s accessibility and maintenance rationale for semantic, media-independent markup.)
 
 ## PDF handout
 
