@@ -7,7 +7,7 @@ Use code for properties the artifact exposes exactly. Use a reviewer who can see
 Run the owning renderer from the render-kit installation. The HTML template is a local artifact; test it with the acceptance command below and retain its report and images for inspection. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Quick start” and “The loop”.
 
 ```sh
-/Users/GaryT/Documents/Work/tools/render-kit/bin/rk check templates/deck-shell.html --out-dir /tmp/presentation-shell
+/Users/GaryT/Documents/Work/tools/render-kit/bin/rk check templates/deck-shell.html --out-dir out/presentation-shell
 # Add --pdf when a PDF handout is part of the output.
 ```
 
@@ -82,6 +82,50 @@ for slide_no, slide in enumerate(prs.slides, 1):
 ```
 
 Compare that inventory with the export report: required title/body text must appear as text frames; intended chart objects and expected series must appear as charts; each picture fallback must be accounted for. [src:output-pipelines/report.md], “F8b. The design subset that maps one-to-one from a scene to native PowerPoint”.
+
+For an editable PPTX, add a throwaway edit/save/reopen check after the inventory. Use an output copy so the check never changes the delivered deck; include the chart branch when a native chart is expected. A surviving text edit and chart data edit establish that those objects remain editable through this file round-trip, not that every target application behaves the same. (derived: dogfood 2026-10-02, F13)
+
+```python
+from pathlib import Path
+from pptx import Presentation
+from pptx.chart.data import CategoryChartData
+
+source = Path("out/deck.pptx")
+roundtrip = Path("out/deck-roundtrip.pptx")
+roundtrip.parent.mkdir(parents=True, exist_ok=True)
+editable = Presentation(source)
+text_shape = next((shape for slide in editable.slides for shape in slide.shapes
+                   if shape.has_text_frame and shape.text.strip()), None)
+assert text_shape is not None, "no editable text frame found"
+marker = " [round-trip edit]"
+text_shape.text = text_shape.text + marker
+
+chart_shape = next((shape for slide in editable.slides for shape in slide.shapes
+                    if shape.has_chart), None)
+expected_chart_value = None
+if chart_shape:
+    chart = chart_shape.chart
+    data = CategoryChartData()
+    data.categories = list(chart.plots[0].categories)
+    for series_no, series in enumerate(chart.series):
+        values = list(series.values)
+        if series_no == 0:
+            expected_chart_value = float(values[0]) + 0.123
+            values[0] = expected_chart_value
+        data.add_series(series.name, values)
+    chart.replace_data(data)
+
+editable.save(roundtrip)
+reopened = Presentation(roundtrip)
+assert any(marker in shape.text for slide in reopened.slides for shape in slide.shapes
+           if shape.has_text_frame), "text edit did not survive reopen"
+if expected_chart_value is not None:
+    reopened_chart = next(shape.chart for slide in reopened.slides for shape in slide.shapes
+                          if shape.has_chart)
+    assert abs(float(reopened_chart.series[0].values[0]) - expected_chart_value) < 1e-9, \
+        "chart edit did not survive reopen"
+print("ROUNDTRIP text=pass chart=" + ("pass" if expected_chart_value is not None else "n/a"))
+```
 
 ## Owner checks
 

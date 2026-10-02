@@ -8,9 +8,11 @@ Author one 1920×1080 HTML/SVG scene per slide. Select a static HTML shell for a
 
 Use semantic, media-independent, style-independent markup rather than presentational markup. [book:whatwg-html], “Conformance requirements for authors”. Keep source text, headings, and reading order in the document, and use the shell's render-kit stage markers. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Markup the checks read”. (derived from the source’s accessibility and maintenance rationale for semantic, media-independent markup.)
 
+For a multi-slide deck, keep one HTML check file per slide, each with exactly one `data-rk-stage` and its own `data-rk-focal`. Run `rk check --root <project-root>` over that folder; `templates/deck-shell.html` is a one-slide starter to copy once per slide. Also build a combined deck file for browsing: use a screen grid whose captured width and height both remain below Chromium's 16,384 px limit, then use print CSS to stack one fixed-size slide per PDF page. The dogfood's 27 slides used three columns and `--width 5760` (5,760 × 9,720 px). Run `rk check <project-root>/deck.html --pdf --media print --width 5760`; deliver its `render.pdf` as the handout. If the deck grid would exceed the capture limit, divide the screen review into smaller grids while keeping the print document as one page per slide. (derived: dogfood 2026-10-02, F1)
+
 ## PDF handout
 
-Print fixed-size slide pages with Chromium using a zero-margin 1920×1080 page rule, `preferCSSPageSize`, `printBackground`, tagged output, and outline where the export interface supports them. Use static font files for every weight used; variable fonts and synthetic bold were measured as Type 3 fonts, and Chromium does not claim PDF/UA or PDF/A conformance. [src:output-pipelines/report.md], “F6. HTML to PDF with Chromium”; [src:output-pipelines/experiments/README.md], “05-html-pdf”.
+Print fixed-size slide pages with Chromium using a zero-margin 1920×1080 page rule, `preferCSSPageSize`, `printBackground`, tagged output, and outline where the export interface supports them. Use static font files for every weight used; variable fonts, synthetic bold, and colour emoji were measured as Type 3 fonts. Replace colour emoji with a monochrome SVG icon or a raster emoji image with meaningful alternative text, then recheck PDF fonts. Chromium does not claim PDF/UA or PDF/A conformance. [src:output-pipelines/report.md], “F6. HTML to PDF with Chromium”; [src:output-pipelines/experiments/README.md], “05-html-pdf”. (derived: dogfood 2026-10-02, F8)
 
 Avoid blur effects when vector output matters: the measured Chromium print path rasterizes box-shadow blur and CSS blur filters, while basic SVG and gradients remained vector in the tested file. [src:output-pipelines/report.md], “F6. HTML to PDF with Chromium”.
 
@@ -18,12 +20,16 @@ Avoid blur effects when vector output matters: the measured Chromium print path 
 
 Drive scene-engine's native PPTX export and verification path from its storyboard contract; do not substitute a screenshot converter when the brief requires editable text, shapes, or charts. [scene-engine AGENTS.md](../../../../scene-engine/AGENTS.md), “Commands”; [src:output-pipelines/report.md], “F8b. The design subset that maps one-to-one from a scene to native PowerPoint”.
 
-Run these from the scene-engine repository, passing the presentation project as root so inputs, assets, and outputs stay with that project. [scene-engine AGENTS.md](../../../../scene-engine/AGENTS.md), “Commands”.
+Run scene-engine with the presentation project as the current working directory. In the dogfood, invoking the CLI entry point directly from that folder kept export paths inside the CLI's working-directory guard; running the same command from the scene-engine checkout with absolute project output paths failed. Use this form from the presentation project folder: (derived: dogfood 2026-10-02, F4)
 
 ```sh
-npm run scene-engine -- validate <storyboard.json> --root <project-root>
-npm run scene-engine -- export-pptx <storyboard.json> --out <project-root>/out/deck.pptx --verify
+PROJECT=/path/to/presentation-project
+cd "$PROJECT"
+node /Users/GaryT/Documents/Work/tools/scene-engine/src/cli.mjs validate deck.storyboard.json --root .
+node /Users/GaryT/Documents/Work/tools/scene-engine/src/cli.mjs export-pptx deck.storyboard.json --root . --out out/deck.pptx --verify
 ```
+
+Keep `--out`, `--out-dir`, and report paths inside the project folder for this command form. Apply the same `node /Users/GaryT/Documents/Work/tools/scene-engine/src/cli.mjs <command> ... --root .` form to `capture` and `check`. [scene-engine AGENTS.md](../../../../scene-engine/AGENTS.md), “Commands”.
 
 Write an export report naming which items became native text, shapes, charts, SVG pictures, or raster pictures, and why any fallback was used. The research maps a one-to-one subset and documents picture fallbacks for complex effects and unsupported geometry. [src:output-pipelines/report.md], “F8b. The design subset that maps one-to-one from a scene to native PowerPoint”.
 
@@ -50,6 +56,12 @@ npm run scene-engine -- capture <storyboard.json> --scene <scene-id> --layer <la
 ```
 
 Use fixtures or approved demo data, replace sensitive values, and distinguish a concept mockup from a live product wherever the footage could imply a real capability. (field rule (screencast)); [src:output-pipelines/report.md], “F9. Capturing demos of real apps with source access”.
+
+Plan empty, loading, and error states explicitly. For empty, serve a valid empty response and drive the app's normal filter or route until its empty state appears. For loading, use a repeatable delayed response or controlled local server and capture while the real loading indicator is visible. For error, make the app's real request fail or return the documented error response, then capture its native error and recovery controls. Do not paint a fake state over the app. The dogfood-tested scene-engine fixture path only intercepted cross-origin requests; same-origin API calls reached the app server, and capture had no `selectOption` step. For those cases use buttons/keyboard navigation or an isolated local server/test copy, and record the limitation and fixture used. (derived: dogfood 2026-10-02, F5)
+
+Until scene-engine composites captured app frames into its check stages, a passing `scene-engine check` does not verify app content. For every app demo, decode and review frames from the final MP4: compare them with capture/storyboard expectations using motion's `measure_storyboard.py`, or cut representative frames with FFmpeg and pass the contact sheet to `rk brief`. Include the actual empty/loading/error or success states that the demo claims to show. (derived: dogfood 2026-10-02, F2)
+
+For a self-serve app demo, captions are required; narration is optional. A local macOS route is `say -o out/narration.aiff "..."` followed by `ffmpeg -i out/narration.aiff out/narration.wav`, then align/mix the WAV to storyboard cue times. Ask the project owner to listen to the final MP4 at normal playback speed and record intelligibility, pronunciation, pace, level, and caption/audio alignment; an image-only review cannot judge narration. (derived: dogfood 2026-10-02, F6)
 
 ## Return when
 

@@ -36,3 +36,19 @@ The loop turns real use into skill improvements. Harvest source: owner-produced 
 | Review the owner profile | Tokens and cues reflect owner-confirmed preferences | Owner review plus outside references | natural | Profile owner | When references arrive | PENDING |
 
 **Verdict: PENDING** — source-grounded methods and package checks do not settle real production use.
+
+## Evolution 2 — design run dogfood (2026-10-02)
+
+### Harvest scope
+- **Grounded:** the runs-3-5 presentation report and working `src/` deck build, including per-slide render-kit output, PPTX inventory/round trip, decoded MP4 frames, and the explicitly noted app-layer and Office-font limitations.
+- **Applied:** F1–F11 and F13 skill-side guidance, checker, questions, and template corrections; F2, F3, F5, F9, and F12 retain scene-engine or brand-profile handoffs where tool/profile behavior owns the remaining work.
+- **Evidence limits:** this entry records one design-run dogfood. New guidance remains unvalidated until at least two independent uses; external engine and brand-profile changes require their owners' evidence.
+
+### Open verdicts
+| Change | Evidence so far | Evidence still needed | Status |
+|---|---|---|---|
+| Multi-slide checks, export limits, app-demo review, rebuild, questions, and round-trip guidance | One 27-slide deck and one app-demo run; requested package checks | Two independent real uses and reviewer answers | PENDING |
+| Engine-owned app-frame composites, app fixtures/steps, and PPTX chart fidelity | Handoff requested from this dogfood | Scene-engine owner implementation and acceptance evidence | PENDING |
+| Office-safe font pair | Handoff requested from this dogfood | Brand-profile owner adds and validates the pair | PENDING |
+
+**Verdict: PENDING** — one dogfood is a useful correction source, not enough evidence to settle the skill's learning loop.

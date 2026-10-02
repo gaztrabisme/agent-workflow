@@ -16,6 +16,16 @@ Do not force a fixed font scale, color recipe, layout variety rule, or visual on
 
 Carry forward the QA habit of looking for overlap, overflow, wrapping, contrast, alignment, and placeholder content, then fixing and verifying the affected slides. (field rule (pptx))
 
+## Focal marking for checks
+
+Set `data-rk-focal` on the element that carries the main point: on a headline panel for an illustration-plus-copy slide when the illustration is supporting imagery; on the screenshot or meaningful crop when the interface evidence is the point; and on the action title or short takeaway/callout on a dense-text slide. Mark the illustration itself only when the image is the evidence or takeaway. Keep long text as readable evidence without making the whole slide its own focal. A required focal larger than half the stage can make render-kit's `value` result `incomplete`; this is acceptable only as a documented limitation with a vision review, not as an automatic pass. (derived: dogfood 2026-10-02, F7)
+
+If the owner approves changing the `value.min_edge_share` threshold for a documented slide type, pass `--threshold value.min_edge_share=<number>` to `rk check`; record the default result, override value, reason, owner, and affected slides in the review notes, then judge the affected slide visually. Do not silently normalize a threshold change across the deck. (derived: dogfood 2026-10-02, F7)
+
+## Fonts for PowerPoint
+
+HTML font choices do not guarantee the same fonts in PPTX: scene-engine's PowerPoint writer has a limited font set, and unsupported glyphs may fall back. Once the brand profile publishes its Office-safe display/body pair, use that pair for editable PPTX text and verify the exported fonts; until then, record the chosen PPTX fallback and use a native shape or vector asset for a required glyph that does not render reliably. (derived: dogfood 2026-10-02, F9)
+
 ## HTML slide markup
 
 Use semantic, media-independent, style-independent markup rather than presentational markup. [book:whatwg-html], “Conformance requirements for authors”. Keep slide content as document text, use meaningful headings and sequence instead of embedding the communication in a bitmap, and mark the slide region with `data-rk-stage` or an intended focal region with `data-rk-focal` when useful to render-kit. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Markup the checks read”. (derived from the source’s accessibility and maintenance rationale for semantic, media-independent markup.)

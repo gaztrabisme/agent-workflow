@@ -89,7 +89,8 @@ Scale the stages to the task: a quick slide critique starts at render and check;
 - [references/method/claim-audit.md](references/method/claim-audit.md) — source decisions and limits, with evidence index in [audit/](audit/).
 - [review-checklist.md](references/method/review-checklist.md) — T1–T18 pass conditions and return stages.
 - [measurement.md](references/method/measurement.md) — reproducible code checks and vision questions.
-- [templates/deck-shell.html](templates/deck-shell.html) — standalone 1920×1080 HTML slide shell with render-kit markup and copied draft tokens.
+- [templates/deck-shell.html](templates/deck-shell.html) — standalone one-slide 1920×1080 HTML shell with render-kit markup and copied draft tokens.
+- [questions/deck.md](questions/deck.md), [questions/demo.md](questions/demo.md), and [questions/pptx.md](questions/pptx.md) — ready yes-means-pass review questions for deck, demo, and PowerPoint briefs.
 - [NOTICE.md](NOTICE.md) — private status and source notices.
 - [EVOLUTION.md](EVOLUTION.md) — design-run birth and pending real-use validation.
 - [DISTILL-REPORT.md](DISTILL-REPORT.md) — source coverage, validation results, and open review items.

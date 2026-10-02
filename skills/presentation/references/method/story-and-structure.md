@@ -16,6 +16,17 @@ Include more detail in a written, self-serve communication than in a live presen
 
 For a narrated piece, give motion an established message and sequence. Let the required reading or listening time shape holds, and use movement to direct attention or explain a transition. [motion/SKILL.md](../../../motion/SKILL.md#principles--anchoring-rules). (derived: a video shares the deck's message and adds time as a design constraint.)
 
+## Rebuild an existing deck
+
+Choose a rebuild scale before editing. Preserve facts, source wording where exact quotation matters, required content, evidence, caveats, and any owner-fixed order. Titles, density, explanatory notes, and visual framing may change to improve comprehension; split a dense slide when the material needs room, then update numbering and transitions. For each proposed slide-count change, ask the owner: “May I change the slide count to improve clarity? Which content must stay together, and are there fixed length, timing, numbering, or submission constraints?” Record the answer before merging or splitting. (derived: dogfood 2026-10-02, F10)
+
+| Keep stable | May change with the rebuild brief |
+|---|---|
+| Sourced facts, claims, caveats, and required content | Action titles and explanatory phrasing, while preserving the source claim |
+| Exact quotations and wording that carries legal or technical meaning | Text density, spacing, captions, and speaker notes |
+| Content the owner marks as mandatory or fixed in order | Splitting or combining slides after the owner answers the slide-count question |
+| Evidence-to-claim traceability | Story order, when audience needs and owner constraints allow it |
+
 ## Return when
 
 Return to the brief if reviewers cannot state the main point, a slide has no clear job, or a caveat is detached from the fact it limits. Return to data-slides if the evidence changes the argument. [book:storytelling-with-data], “The 3‐minute story & Big Idea”; [book:storytelling-with-data], “Storyboarding”. (derived from the source’s stateable Big Idea and need-aligned storyboard, combined with the data-evidence handoff: use these as return triggers before polishing.)
