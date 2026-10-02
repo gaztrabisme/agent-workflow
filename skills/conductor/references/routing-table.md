@@ -57,6 +57,7 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 | composition and form | `visual-design` |
 | charts, infographics, dashboards and data stories: reader, chart choice, encoding, annotation, narrative | `information-design` |
 | product UX and interface words: research, scope, flows, wireframes, microcopy, empty/error/status states | `ux` |
+| motion: animated explainers, animated infographics, storyboards and animatics, easing and choreography (rendered by `scene-engine`) | `motion` |
 
 **Boundary by artifact:** colour choices → `color-theory`; composition and form → `visual-design`; what a chart or dashboard shows and how it reads → `information-design`; what a screen asks of its user and what it says → `ux`.
 
