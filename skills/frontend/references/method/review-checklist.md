@@ -1,6 +1,6 @@
 # Review checklist
 
-Each failed test returns to its named stage. A visual change returns through render-check even when its originating stage is elsewhere. (derived: [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders”; [render-kit/AGENTS.md](../../render-kit/AGENTS.md).)
+Each failed test returns to its named stage. A visual change returns through render-check even when its originating stage is elsewhere. (derived: [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders”; [render-kit/AGENTS.md](../../../../render-kit/AGENTS.md).)
 
 | ID | Stage | Pass condition |
 |---|---|---|
@@ -20,7 +20,7 @@ Each failed test returns to its named stage. A visual change returns through ren
 | T14 | Agent-ready affordances | Primary actions are findable by role and accessible name, and state assertions reflect what the user sees. [book:playwright-docs], “Frame.getByRole”; [src:agent-ready-web/report.md], “F4. The accessibility tree as the agent interface.” |
 | T15 | Agent-ready affordances | Each drag or slider interaction has a typed alternative. [src:agent-ready-web/report.md], “F4. The accessibility tree as the agent interface.” |
 | T16 | Agent-ready affordances | Optional page tools are feature-detected, permission-scoped, and cannot bypass confirmation for consequential actions. [src:agent-ready-web/report.md], “F1. WebMCP: tools that a web page declares for in-browser agents”; [src:agent-ready-web/report.md], “F6. Security of agent-facing interfaces.” |
-| T17 | Render and check | Every key route and state has a render-kit result; no fail remains unresolved and every skipped/incomplete result is reviewed. [render-kit/AGENTS.md](../../render-kit/AGENTS.md). |
-| T18 | Render and check | A vision reviewer answers concrete questions or the relevant dimensions are marked not-judged; no visual “pass” is inferred from code. [render-kit/AGENTS.md](../../render-kit/AGENTS.md); [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders.” |
+| T17 | Render and check | Every key route and state has a render-kit result; no fail remains unresolved and every skipped/incomplete result is reviewed. [render-kit/AGENTS.md](../../../../render-kit/AGENTS.md). |
+| T18 | Render and check | A vision reviewer answers concrete questions or the relevant dimensions are marked not-judged; no visual “pass” is inferred from code. [render-kit/AGENTS.md](../../../../render-kit/AGENTS.md); [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders.” |
 | T19 | Audit-first redesign | Audit the existing interface before edits: run Lighthouse agentic-browsing and accessibility categories, fix names, labels, and native controls first, and use framework MCP servers. [src:agent-ready-web/report.md], “UC6 — Existing Angular and React codebases.” |
 | T20 | Audit-first redesign | Findings have evidence, impact, an owning stage, and a regression check; changes preserve the project system unless a blocker justifies a change. [src:platform-apps/report.md], “F5. Principles that transfer across frameworks”; [src:graphics-motion/report.md], “6. Existing codebases.” |

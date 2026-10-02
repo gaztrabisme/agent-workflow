@@ -14,4 +14,4 @@ Keep the framework, installed version, router, CSS system, chart and motion libr
 
 ## Report honestly
 
-State which routes and states were inspected, which findings were fixed, which checks were measured, which received vision review, and what remains uncertain. A screenshot-only review cannot establish runtime behavior, and a code-only review cannot establish rendered fit. (derived: [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders”; [render-kit/AGENTS.md](../../render-kit/AGENTS.md).)
+State which routes and states were inspected, which findings were fixed, which checks were measured, which received vision review, and what remains uncertain. A screenshot-only review cannot establish runtime behavior, and a code-only review cannot establish rendered fit. (derived: [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders”; [render-kit/AGENTS.md](../../../../render-kit/AGENTS.md).)
