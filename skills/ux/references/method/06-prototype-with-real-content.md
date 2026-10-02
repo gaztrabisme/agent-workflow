@@ -34,7 +34,7 @@ The Lean UX course places final colors, type, imagery, and visual styling after 
 
 **Problem: realistic words are replaced by placeholders.**
 - **The failure:** the team cannot see whether the actual content fits or supports the visual task. (798 · U2 · L05 · 01:55–03:03)
-- **The fix:** include realistic copy where needed to check fit (798 · U2 · L05 · 01:55–03:03); include error and empty states in the relevant screens (798 · U4 · L12 · 05:50–10:41; 798 · U4 · L11 · 07:26–10:30); test longer localized wording in the wireframe to check layout (798 · U4 · L12 · 10:41–14:02).
+- **The fix:** include realistic copy where needed to check fit (798 · U2 · L05 · 01:55–03:03); include error and empty states in the relevant screens (798 · U4 · L12 · 05:50–10:41; 798 · U4 · L11 · 07:26–10:30); test longer localized wording in the wireframe to check layout (798 · U4 · L13 · 13:18–14:20).
 
 ## Check before moving on
 

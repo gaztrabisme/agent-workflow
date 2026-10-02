@@ -17,7 +17,7 @@
 
 - Synthesize research with one concept per note, group similar observations, then name the themes together. Retain source cues when useful and keep repeated findings traceable to their sources. (1490 · U3 · L12 · 01:10–03:41; 1490 · U3 · L12 · 05:37–07:53)
 - Select the most important findings for a dated research summary that shows categories, user statements, data sources, and sample sizes; put the findings before decoration. (1490 · U3 · L12 · 08:54–10:04; 1490 · U3 · L12 · 10:04–11:01)
-- A persona is an archetype based on researched behavior patterns. The UX writing course also demonstrates a proto-persona made before research; treat that as a provisional hypothesis, then update it when evidence arrives. (1490 · U4 · L14 · 00:00–01:04; 798 · U2 · L06 · 05:52–08:19)
+- A persona is an archetype based on researched behavior patterns. The UX writing course's proto-persona is fictional and, before research, made from what seems most obvious. The product-design course says we can invent details when interview or survey results are not ready, then update them once research is available. (1490 · U4 · L14 · 00:00–01:04; 798 · U2 · L06 · 05:52–08:19; 1490 · U4 · L14 · 02:34–04:44)
 - An empathy map records what the team thinks one person sees, hears, says, does, thinks, and feels; the course distinguishes it from a way to collect data. (1490 · U4 · L15 · 00:00–01:22)
 
 ## Keep evidence and hypotheses visibly separate
@@ -25,7 +25,7 @@
 | Statement type | Record it as | Use it for | Source |
 |---|---|---|---|
 | Observation or research finding | Finding with source and context | Explain what people did, said, or experienced | 1490 · U3 · L12 · 01:10–03:41 |
-| Early user picture without research | Provisional persona or assumption | Identify questions for research, not proof of a segment | 798 · U2 · L06 · 05:52–08:19 |
+| Early user picture without research | Fictional proto-persona made from what seems most obvious | Gives a clearer idea of who you are writing and designing for; with research information about several people, it could combine those findings | 798 · U2 · L06 · 05:52–08:19 |
 | Research insight | Discovery or insight found by asking users or researching | Use the evidence to redefine the real problem, then prototype ideas with real users | 1490 · U2 · L04 · 05:12–06:48 |
 
 ## A rule you derived (derived)
@@ -36,7 +36,7 @@ Label provisional user profiles and emotional interpretations explicitly. This p
 
 **Problem: presenting an imagined user as a research result.**
 - **The failure (derived):** treating an invented proto-persona as evidence about actual users. The UX writing course calls its example fictional; the product-design course allows invented details before research and says they can be updated when research is available. (derived from 798 · U2 · L06 · 05:52–08:19; 1490 · U4 · L14 · 02:34–04:44)
-- **The fix:** mark the profile as provisional, add sources as findings arrive, and revise the goals and behavior from observed patterns. (1490 · U4 · L14 · 00:00–01:04)
+- **The fix:** if interview or survey results are not ready, the teacher says we can invent the details and update them easily once research is available. (1490 · U4 · L14 · 02:34–04:44)
 
 ## Check before moving on
 
