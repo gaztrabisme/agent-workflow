@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { startStaticServer } from '../src/static-server.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = path.join(root, 'out');
@@ -24,16 +25,6 @@ function command(args, name) {
   });
 }
 
-async function waitForApp(child) {
-  const deadline = Date.now() + 12000;
-  while (Date.now() < deadline) {
-    if (child.exitCode !== null) throw new Error(`fixture app exited ${child.exitCode}`);
-    try { const response = await fetch('http://127.0.0.1:4178/'); if (response.ok) return; } catch { }
-    await new Promise((resolve) => setTimeout(resolve, 150));
-  }
-  throw new Error('fixture app did not start on port 4178');
-}
-
 const explainer = JSON.parse(fs.readFileSync(path.join(root, 'samples/explainer/storyboard.json'), 'utf8'));
 const csv = parseCsv(path.join(root, 'samples/explainer/chart.csv'));
 const chart = explainer.scenes.flatMap((scene) => scene.layers).find((layer) => layer.id === 'signal-chart');
@@ -47,11 +38,16 @@ fs.writeFileSync(explainerStory, `${JSON.stringify(explainer, null, 2)}\n`);
 await command([path.join(root, 'src/cli.mjs'), 'render', explainerStory, '--root', path.join(root, 'samples/explainer'), '--out', path.join(outDir, 'explainer.mp4'), '--renderer', 'auto', '--captions', 'both', '--timeout', '180000'], 'render explainer MP4 with CSV-backed chart');
 await command([path.join(root, 'src/cli.mjs'), 'export-pptx', explainerStory, '--root', path.join(root, 'samples/explainer'), '--out', path.join(outDir, 'explainer.pptx'), '--verify'], 'export editable explainer PPTX');
 
-const app = spawn(process.execPath, [path.join(root, 'src/static-server.mjs'), path.join(root, 'samples/fixture-app'), '4178'], { cwd: root, stdio: 'ignore' });
+const app = await startStaticServer(path.join(root, 'samples/fixture-app'));
 try {
-  await waitForApp(app);
-  await command([path.join(root, 'src/cli.mjs'), 'render', path.join(root, 'samples/app-demo/storyboard.json'), '--root', path.join(root, 'samples/app-demo'), '--out', path.join(outDir, 'app-demo.mp4'), '--renderer', 'auto', '--captions', 'both', '--timeout', '180000'], 'capture fixture app and render app-demo MP4');
+  const appDemo = JSON.parse(fs.readFileSync(path.join(root, 'samples/app-demo/storyboard.json'), 'utf8'));
+  const appDemoLayer = appDemo.scenes.flatMap((scene) => scene.layers).find((layer) => layer.type === 'appDemo');
+  if (!appDemoLayer) throw new Error('app-demo storyboard has no appDemo layer');
+  appDemoLayer.url = `http://127.0.0.1:${app.address().port}/`;
+  const appDemoStory = path.join(workDir, 'app-demo.storyboard.json');
+  fs.writeFileSync(appDemoStory, `${JSON.stringify(appDemo, null, 2)}\n`);
+  await command([path.join(root, 'src/cli.mjs'), 'render', appDemoStory, '--root', path.join(root, 'samples/app-demo'), '--out', path.join(outDir, 'app-demo.mp4'), '--renderer', 'auto', '--captions', 'both', '--timeout', '180000'], 'capture fixture app and render app-demo MP4');
 } finally {
-  app.kill('SIGTERM');
+  await new Promise((resolve, reject) => app.close((error) => error ? reject(error) : resolve()));
 }
 process.stderr.write('\n[samples] all requested artifacts are in out/\n');

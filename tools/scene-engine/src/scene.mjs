@@ -138,6 +138,9 @@ function semanticChecks(story, scenes, errors, root) {
           }
         }
         if (layer.type === 'chart') {
+          for (const feature of ['build', 'dataStates']) if (layer[feature] !== undefined) {
+            errors.push(diagnostic('FEATURE_UNSUPPORTED', `Chart ${feature} is not supported by scene-engine in this release.`, { pointer: `${pointer}/${feature}`, sceneId: scene.id, layerId: layer.id, hint: 'Remove this field or render the chart as a prepared image.' }));
+          }
           const isScatter = layer.kind === 'scatter';
           for (const [si, series] of (layer.series ?? []).entries()) {
             if (isScatter ? series.xValues?.length !== series.values?.length : series.values?.length !== layer.categories?.length) {
@@ -160,7 +163,9 @@ function semanticChecks(story, scenes, errors, root) {
         if (layer.effects?.mask) {
           const source = (layers ?? []).find((item) => item.id === layer.effects.mask.sourceLayerId);
           if (!source || source.type !== 'shape') errors.push(diagnostic('MASK_SOURCE_INVALID', 'Mask source must name a shape layer in the same scene.', { pointer: `${pointer}/effects/mask/sourceLayerId`, sceneId: scene.id, layerId: layer.id }));
+          errors.push(diagnostic('FEATURE_UNSUPPORTED', 'Shape masks are not supported by scene-engine in this release.', { pointer: `${pointer}/effects/mask`, sceneId: scene.id, layerId: layer.id, hint: 'Remove the mask or prepare the masked shape as an image.' }));
         }
+        if (layer.type === 'shape' && layer.shape === 'path' && !layer.path) errors.push(diagnostic('SCHEMA_INVALID', 'Path shapes require an SVG path in path.', { pointer: `${pointer}/path`, sceneId: scene.id, layerId: layer.id }));
         if (layer.type === 'adapter' && layer.adapterId !== 'lottie' && !layer.adapterId.startsWith('builtin:')) errors.push(diagnostic('ADAPTER_NOT_REGISTERED', `Adapter '${layer.adapterId}' is not registered by this build.`, { pointer: `${pointer}/adapterId`, sceneId: scene.id, layerId: layer.id }));
         if (layer.type === 'group') visit(layer.children, `${pointer}/children`, layer.durationMs, absoluteLayerStart);
       }
@@ -270,6 +275,10 @@ export function loadStoryboard(storyboardPath, { root } = {}) {
   if (fs.existsSync(realRoot)) checkAssets(story, realRoot, errors);
   const layerCount = semanticChecks(story, timeline.scenes, errors, realRoot);
   const scenes = timeline.scenes.map((scene, index) => ({ ...scene, captions: generatedCaptions(scene, realRoot, errors, index) }));
+  for (const [sceneIndex, scene] of scenes.entries()) for (const [cueIndex, cue] of (scene.captions ?? []).entries()) {
+    const lines = String(cue.text ?? '').split('\n');
+    if (lines.length > 2 || lines.some((line) => [...line].length > 42)) errors.push(diagnostic('CAPTION_LINT', 'Caption text must use at most two explicit lines of no more than 42 characters each.', { pointer: `/scenes/${sceneIndex}/captions/${cueIndex}/text`, sceneId: scene.id }));
+  }
   if (story.scenes) {
     for (const scene of timeline.scenes) {
       if (scene.pptxAtMs !== undefined && (scene.pptxAtMs < 0 || scene.pptxAtMs >= scene.durationMs)) errors.push(diagnostic('SCHEMA_INVALID', 'pptxAtMs must be within the scene interval.', { pointer: `/scenes/${story.scenes.indexOf(scene)}/pptxAtMs`, sceneId: scene.id }));

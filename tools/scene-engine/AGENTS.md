@@ -10,7 +10,22 @@
 - Check key frames: `npm run scene-engine -- check <storyboard.json> --at 500,1000 --rk ../render-kit/bin/rk`.
 - Build both samples: `npm run samples`; run acceptance tests: `npm test`.
 
-Each command writes one JSON result to stdout. Diagnostics use stable codes and JSON pointers. A storyboard's project root is its directory unless `--root` is supplied; asset paths resolve inside that root. Keep output paths inside the repository; the build and sample commands write under `out/`.
+Each command writes one JSON result to stdout. Diagnostics use stable codes and JSON pointers. A storyboard's project root is its directory unless `--root` is supplied; asset paths resolve inside that root. Render `--out` and `--poster` may be anywhere writable; build and sample commands write under `out/`.
+
+## What renders today
+
+| Storyboard feature | Video support today | Validation or rendering behavior |
+|---|---|---|
+| Text, rich text and counters | Supported; counters interpolate over the layer interval and keep the final value | Text uses engine-bundled Inter for the Arial/Inter aliases; HyperFrames returns `FONT_UNPINNED` for another requested family before render. |
+| Structured bullets | Supported with bullet, numbered or marker-free items and indentation levels 0–8 | Authored item order is preserved. |
+| Property tracks | Supported for registered properties; multiple properties on one layer are combined | Easing is evaluated per keyframe interval; values hold before/after their track; times stay layer-local within scene-local time. |
+| Shapes | Rectangles, rounded rectangles, ellipses, lines and SVG paths; solid/gradient fill, solid/dash/dot stroke, stroke offset and path trim | `effects.mask` is rejected by `validate` with `FEATURE_UNSUPPORTED`; an invalid mask source also reports `MASK_SOURCE_INVALID`. |
+| Charts | Base inline SVG charts render from their authored data | Chart `build` and `dataStates` are rejected by `validate` with `FEATURE_UNSUPPORTED`. |
+| Video layers | Supported with `fade`, `flyInLeft`, `flyInRight`, `flyInUp`, `flyInDown` and `wipeLeft` entrances | Media seek and entrance progress use the containing scene's local time. |
+| Captions | Burn-in cue visibility follows each scene-local `[startMs,endMs)` interval; sidecar and both modes write WebVTT | `validate` enforces at most two explicit lines and 42 characters per line. `check` omits a duplicate cue when matching author text is active in the bottom caption area. |
+| Long single-scene renders | `auto` selects the fallback renderer at 1,200 frames and above | Emits `HYPERFRAMES_LONG_SINGLE_SCENE`; default timeout scales with frame count and fallback progress is reported to stderr. |
+
+`tests/acceptance.test.mjs` compares FFmpeg-cut MP4 frames with `check` model frames for both available renderers. Full-frame mean absolute RGB difference must be at most 8; feature tests also check the moving layer or caption region at the same tolerance.
 
 ## PowerPoint and Keynote owner checks
 
@@ -58,8 +73,8 @@ Scenes occupy the deck timeline; layer and caption times are local to their scen
 ## Check loop
 
 1. Run `npm test`, then `npm run scene-engine -- validate <storyboard.json>`.
-2. Render a short clip while iterating. `auto` uses pinned HyperFrames when installed and the screenshot fallback otherwise; the engine always normalizes with FFmpeg.
-3. Run `npm run scene-engine -- check <storyboard.json> --at <ms,...> --rk ../render-kit/bin/rk` to check selected frames through render-kit.
+2. Render a short clip while iterating. `auto` uses pinned HyperFrames when installed, except single scenes of 1,200 frames or more use the screenshot fallback with a warning; the engine always normalizes with FFmpeg. Fonts are local and unbundled HyperFrames fonts fail closed.
+3. Run `npm run scene-engine -- check <storyboard.json> --at <ms,...> --rk ../render-kit/bin/rk` to check the default scene start/mid/end frames plus the requested times through render-kit.
 4. Probe the actual MP4 artifact:
 
    ```sh

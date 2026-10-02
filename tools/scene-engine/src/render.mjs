@@ -2,12 +2,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { spawn, execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { writeComposition, writeVtt } from './html.mjs';
 import { captureAppLayer, verifyReusableCapture } from './capture.mjs';
 import { allLayers } from './scene.mjs';
 import { frameCount, frameTimeMs } from './timeline.mjs';
+
+const ENGINE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 export function ensureInsideRepository(filePath, repo = process.cwd()) {
   const absolute = path.resolve(filePath);
@@ -16,13 +18,13 @@ export function ensureInsideRepository(filePath, repo = process.cwd()) {
   return absolute;
 }
 
-async function spawnLogged(command, args, { cwd, env = process.env, timeoutMs = 30000, label = command } = {}) {
+async function spawnLogged(command, args, { cwd, env = process.env, timeoutMs = 30000, label = command, streamOutput = false } = {}) {
   return await new Promise((resolve, reject) => {
     const child = spawn(command, args, { cwd, env, stdio: ['ignore', 'pipe', 'pipe'] });
     let stdout = ''; let stderr = '';
     const timer = setTimeout(() => { child.kill('SIGKILL'); reject(Object.assign(new Error(`${label} timed out after ${timeoutMs} ms`), { code: 'RENDER_TIMEOUT', exitCode: 3, stdout, stderr })); }, timeoutMs);
-    child.stdout.on('data', (chunk) => { stdout += chunk.toString(); });
-    child.stderr.on('data', (chunk) => { stderr += chunk.toString(); });
+    child.stdout.on('data', (chunk) => { const text = chunk.toString(); stdout += text; if (streamOutput) process.stderr.write(text); });
+    child.stderr.on('data', (chunk) => { const text = chunk.toString(); stderr += text; if (streamOutput) process.stderr.write(text); });
     child.once('error', (error) => { clearTimeout(timer); reject(Object.assign(error, { code: 'PROCESS_FAILED', exitCode: 3 })); });
     child.once('close', (code, signal) => {
       clearTimeout(timer);
@@ -43,7 +45,31 @@ function playwrightShell() {
 
 function hyperframesBinary() {
   const configured = process.env.SCENE_ENGINE_HYPERFRAMES_BIN;
-  return configured ? path.resolve(configured) : path.resolve('node_modules/.bin/hyperframes');
+  return configured ? path.resolve(configured) : path.join(ENGINE_ROOT, 'node_modules/.bin/hyperframes');
+}
+
+export function defaultTimeoutForFrames(frames) {
+  return Math.min(900000, Math.max(30000, 30000 + Math.max(0, Number(frames) || 0) * 125));
+}
+
+export function selectRenderer(model, requested = 'auto') {
+  if (requested !== 'auto') return { name: requested, warning: null };
+  if (!fs.existsSync(hyperframesBinary())) return { name: 'fallback', warning: null };
+  if (model.scenes.length === 1 && model.frameCount >= 1200) {
+    return { name: 'fallback', warning: {
+      code: 'HYPERFRAMES_LONG_SINGLE_SCENE',
+      message: `The ${model.frameCount}-frame single-scene composition exceeds the tested HyperFrames range; using the frame-by-frame fallback renderer. The 57.5-second, 95-layer dogfood case stalled in HyperFrames.`
+    } };
+  }
+  return { name: 'hyperframes', warning: null };
+}
+
+function assertFontsPinned(model) {
+  for (const layer of model.scenes.flatMap(allLayers)) {
+    const family = layer.style?.fontFamily;
+    if (!family || ['Arial', 'Inter'].includes(String(family).trim())) continue;
+    throw Object.assign(new Error(`Font '${family}' is not bundled with scene-engine; HyperFrames renders fail closed before attempting a font download.`), { code: 'FONT_UNPINNED', exitCode: 3, layerId: layer.id, fontFamily: String(family) });
+  }
 }
 
 function probe(ffprobe, file) {
@@ -138,10 +164,12 @@ async function fallbackRender(htmlFile, workDir, durationMs, timeoutMs) {
     await page.evaluate(() => window.__sceneEngine.ready());
     const seekability = await page.evaluate(() => window.__sceneEngine.verifyAdapters());
     if (seekability.status === 'fail') throw Object.assign(new Error(seekability.message), { code: 'UNSEEKABLE', exitCode: 1, adapterId: seekability.adapterId, layerId: seekability.layerId, frame: seekability.frame });
-    for (let i = 0; i < frameCount(durationMs); i += 1) {
+    const total = frameCount(durationMs); const progressStep = Math.max(1, Math.ceil(total / 20));
+    for (let i = 0; i < total; i += 1) {
       const time = frameTimeMs(i);
       await page.evaluate((t) => window.__sceneEngine.seek(t), time);
       await page.screenshot({ path: path.join(framesDir, `frame-${String(i).padStart(6, '0')}.png`), animations: 'allow', caret: 'hide' });
+      if ((i + 1) % progressStep === 0 || i + 1 === total) process.stderr.write(`[scene-engine] fallback render ${Math.round((i + 1) / total * 100)}% (${i + 1}/${total} frames)\n`);
     }
   } finally { await context.close(); }
   const raw = path.join(workDir, 'fallback.mp4');
@@ -168,14 +196,10 @@ async function hyperframesRender(htmlFile, raw, timeoutMs) {
   const env = { ...process.env, HYPERFRAMES_NO_TELEMETRY: '1', PRODUCER_HEADLESS_SHELL_PATH: shell };
   const compositionDir = path.dirname(htmlFile);
   try {
-    const lint = await spawnLogged(binary, ['lint', compositionDir], { env, timeoutMs, label: 'HyperFrames lint' });
-    if (lint.stdout) process.stderr.write(lint.stdout);
-    if (lint.stderr) process.stderr.write(lint.stderr);
+    const lint = await spawnLogged(binary, ['lint', compositionDir], { env, timeoutMs, label: 'HyperFrames lint', streamOutput: true });
   } catch (error) { throw Object.assign(error, { code: 'HYPERFRAMES_LINT_FAILED', exitCode: 1, message: `HyperFrames lint failed: ${error.message}` }); }
   try {
-    const render = await spawnLogged(binary, ['render', compositionDir, '-o', raw, '--quality', 'delivery'], { env, timeoutMs, label: 'HyperFrames render' });
-    if (render.stdout) process.stderr.write(render.stdout);
-    if (render.stderr) process.stderr.write(render.stderr);
+    const render = await spawnLogged(binary, ['render', compositionDir, '-o', raw, '--quality', 'delivery'], { env, timeoutMs, label: 'HyperFrames render', streamOutput: true });
   } catch (error) { throw Object.assign(error, { code: 'HYPERFRAMES_RENDER_FAILED', exitCode: 3, message: `HyperFrames render failed: ${error.message}` }); }
   return '0.8.78';
 }
@@ -225,17 +249,23 @@ async function transcode(raw, target, durationMs, timeoutMs, narration = []) {
   return { mode: 'two-pass-loudnorm', integratedTargetLufs: -16, truePeakTargetDbtp: -1.5, inputIntegratedLufs: Number(stats.input_i), inputTruePeakDbtp: Number(stats.input_tp), inputLra: Number(stats.input_lra) };
 }
 
-export async function renderStoryboard(model, { out, renderer = 'auto', captions = 'sidecar', poster, framesDir, timeoutMs = 30000 } = {}) {
-  const finalPath = ensureInsideRepository(out);
+export async function renderStoryboard(model, { out, renderer = 'auto', captions = 'sidecar', poster, framesDir, timeoutMs } = {}) {
+  const finalPath = path.resolve(out);
+  timeoutMs ??= defaultTimeoutForFrames(model.frameCount ?? frameCount(model.durationMs));
   fs.mkdirSync(path.dirname(finalPath), { recursive: true });
   const workParent = path.join(path.dirname(finalPath), '.work'); fs.mkdirSync(workParent, { recursive: true });
   const workDir = fs.mkdtempSync(path.join(workParent, 'render-'));
   const temporaryMp4 = path.join(workDir, 'delivery.mp4');
   const diagnostics = [];
-  let engine = renderer;
-  if (engine === 'auto') engine = fs.existsSync(hyperframesBinary()) ? 'hyperframes' : 'fallback';
+  const selection = selectRenderer(model, renderer);
+  const engine = selection.name;
+  if (selection.warning) {
+    diagnostics.push({ type: 'renderer-selection', ...selection.warning });
+    process.stderr.write(`[scene-engine] Warning ${selection.warning.code}: ${selection.warning.message}\n`);
+  }
   if (engine === 'hyperframes' && !fs.existsSync(hyperframesBinary())) throw Object.assign(new Error(`HyperFrames executable is unavailable: ${hyperframesBinary()}`), { code: 'HYPERFRAMES_MISSING', exitCode: 3, path: hyperframesBinary() });
   try {
+    if (engine === 'hyperframes') assertFontsPinned(model);
     const narration = narrationInputs(model);
     const captureMap = await captureLayerMap(model, workDir, timeoutMs, framesDir);
     const compositionDir = path.join(workDir, 'composition');
@@ -261,7 +291,7 @@ export async function renderStoryboard(model, { out, renderer = 'auto', captions
     const stat = fs.statSync(temporaryMp4);
     const profileErrors = assertProfile(probeResult, stat.size);
     if (profileErrors.length) throw Object.assign(new Error(profileErrors.join('; ')), { code: 'FFMPEG_PROFILE_MISMATCH', exitCode: 1, profileErrors });
-    const posterPath = poster ? ensureInsideRepository(poster) : finalPath.replace(/\.mp4$/i, '.png');
+    const posterPath = poster ? path.resolve(poster) : finalPath.replace(/\.mp4$/i, '.png');
     await spawnLogged('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', temporaryMp4, '-frames:v', '1', '-update', '1', posterPath], { timeoutMs, label: 'Poster extraction' });
     if (captions === 'sidecar' || captions === 'both') writeVtt(model, finalPath.replace(/\.mp4$/i, '.vtt'));
     fs.renameSync(temporaryMp4, finalPath);

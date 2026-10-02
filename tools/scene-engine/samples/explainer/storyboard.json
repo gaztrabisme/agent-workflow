@@ -61,7 +61,7 @@
           "id": "signal-chart", "type": "chart", "x": 190, "y": 235, "width": 1480, "height": 600,
           "startMs": 0, "durationMs": 12000, "kind": "column", "categories": ["Jan", "Feb", "Mar", "Apr", "May"],
           "series": [{ "name": "Visits", "values": [120, 158, 174, 212, 264] }, { "name": "Qualified", "values": [38, 51, 62, 83, 108] }],
-          "showLegend": true, "showValues": true, "build": { "mode": "grow", "durationMs": 1100, "staggerMs": 90 },
+          "showLegend": true, "showValues": true,
           "style": { "fontFamily": "Arial", "fontSize": 16, "seriesColors": ["#2563EB", "#F97316"], "axisTitleX": "Month", "axisTitleY": "Signals" },
           "alt": "Monthly visits and qualified signals rise together",
           "tracks": [{ "property": "opacity", "keyframes": [{ "atMs": 0, "value": 0, "easing": "ease-out" }, { "atMs": 1000, "value": 1 }] }]

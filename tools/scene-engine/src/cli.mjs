@@ -8,7 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { loadStoryboard, diagnostic, allLayers, canonicalHash } from './scene.mjs';
 import { ease, sampleTrack, sampleLayer, frameTimeMs, frameCount } from './timeline.mjs';
-import { renderStoryboard, ensureInsideRepository } from './render.mjs';
+import { renderStoryboard, ensureInsideRepository, defaultTimeoutForFrames } from './render.mjs';
 import { appLayers, captureAppLayer } from './capture.mjs';
 import { generateHtml, generateStaticHtml } from './html.mjs';
 import { exportWithKeynote, renderWithLibreOffice } from './pptx_smoke.mjs';
@@ -109,7 +109,7 @@ async function commandRender(positional, options) {
   if (!['none', 'sidecar', 'burn-in', 'both'].includes(captionMode)) throwDiag('CLI_USAGE', 'captions must be none, sidecar, burn-in or both.', 2);
   const captionErrors = checkVtt(model);
   if (captionErrors.length && ['sidecar', 'both', 'burn-in'].includes(captionMode)) { emit(resultDocument('render', resultDefaults('render'), { ok: false, exitCode: 1, errors: captionErrors })); return; }
-  const result = await renderStoryboard(model, { out: options.out, renderer: options.renderer ?? 'auto', captions: captionMode, poster: options.poster, framesDir: options['frames-dir'], timeoutMs: Number(options.timeout ?? 30000) });
+  const result = await renderStoryboard(model, { out: options.out, renderer: options.renderer ?? 'auto', captions: captionMode, poster: options.poster, framesDir: options['frames-dir'], timeoutMs: options.timeout === undefined ? defaultTimeoutForFrames(model.frameCount) : Number(options.timeout) });
   const files = rootFiles(result.files);
   emit(resultDocument('render', { durationMs: result.durationMs, frameCount: result.frameCount, renderer: result.renderer, streams: result.streams, diagnostics: result.diagnostics }, { files }));
 }
@@ -229,8 +229,9 @@ async function commandCheck(positional, options) {
   validateOptions(options, new Set(['root', 'at', 'pptx', 'out-dir', 'rk', 'strict']), 'check');
   const model = modelFrom(requireStoryboard(positional), options);
   if (model.errors.length) { emit(resultDocument('check', resultDefaults('check'), { ok: false, exitCode: 2, errors: model.errors })); return; }
-  const times = new Set((options.at ?? '').split(',').filter(Boolean).map((value) => Number(value)));
-  if (!options.at) for (const scene of model.scenes) { times.add(scene._startMs); times.add(scene._startMs + Math.floor(scene.durationMs / 2)); times.add(scene._startMs + scene.durationMs - 1); }
+  const times = new Set();
+  for (const scene of model.scenes) { times.add(scene._startMs); times.add(scene._startMs + Math.floor(scene.durationMs / 2)); times.add(scene._startMs + scene.durationMs - 1); }
+  for (const value of (options.at ?? '').split(',').filter(Boolean)) times.add(Number(value));
   const sortedTimes = [...times].sort((a, b) => a - b);
   const rk = options.rk ?? process.env.SCENE_ENGINE_RK ?? 'rk';
   const work = ensureInsideRepository(options['out-dir'] ?? path.join(ROOT, 'out', 'check')); fs.mkdirSync(work, { recursive: true });

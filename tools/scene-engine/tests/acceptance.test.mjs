@@ -2,14 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 import net from 'node:net';
 import { spawn, spawnSync, execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { loadStoryboard, diagnostic } from '../src/scene.mjs';
 import { ease, sampleTrack, sampleLayer, frameTimeMs, frameCount } from '../src/timeline.mjs';
-import { generateHtml, writeVtt } from '../src/html.mjs';
-import { renderStoryboard } from '../src/render.mjs';
+import { generateHtml, generateStaticHtml, writeVtt } from '../src/html.mjs';
+import { renderStoryboard, defaultTimeoutForFrames, selectRenderer } from '../src/render.mjs';
 import { exportWithKeynote } from '../src/pptx_smoke.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -70,6 +71,70 @@ async function startFixtureApp(port, root = path.join(ROOT, 'samples/fixture-app
   }
   child.kill('SIGTERM');
   throw new Error('fixture app did not start');
+}
+const MP4_RENDERERS = ['fallback', ...(fs.existsSync(path.join(ROOT, 'node_modules/.bin/hyperframes')) ? ['hyperframes'] : [])];
+const RGB_FRAME_BYTES = 1920 * 1080 * 3;
+function rawFrame(filename, timeMs = null) {
+  const args = ['-hide_banner', '-loglevel', 'error', '-i', filename];
+  if (timeMs !== null) args.push('-ss', (timeMs / 1000).toFixed(3));
+  args.push('-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', 'pipe:1');
+  const result = spawnSync('ffmpeg', args, { maxBuffer: RGB_FRAME_BYTES + 1024 * 1024 });
+  if (result.status !== 0) throw new Error(`ffmpeg frame extraction failed: ${result.stderr?.toString()}`);
+  assert.equal(result.stdout.length, RGB_FRAME_BYTES, `expected one 1920x1080 RGB frame from ${filename}`);
+  return result.stdout;
+}
+async function checkFrame(model, timeMs, filename) {
+  fs.mkdirSync(path.dirname(filename), { recursive: true });
+  fs.writeFileSync(filename.replace(/\.png$/, '.html'), generateStaticHtml(model, timeMs));
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
+    await page.goto(pathToFileURL(filename.replace(/\.png$/, '.html')).href, { waitUntil: 'load' });
+    await page.evaluate(() => window.__sceneEngine.ready());
+    await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    await page.screenshot({ path: filename, animations: 'disabled' });
+  } finally { await browser.close(); }
+  return rawFrame(filename);
+}
+function assertMeanAbsoluteFrameDifference(expected, actual, renderer, timeMs, tolerance = 8) {
+  let total = 0;
+  for (let i = 0; i < expected.length; i += 1) total += Math.abs(expected[i] - actual[i]);
+  const mean = total / expected.length;
+  assert.ok(mean <= tolerance, `${renderer} MP4 differs from check model at ${timeMs} ms: mean absolute RGB difference ${mean.toFixed(2)} > ${tolerance}`);
+}
+function assertRegionMeanDifference(expected, actual, region, renderer, timeMs, tolerance = 8) {
+  let total = 0;
+  for (let y = region.y; y < region.y + region.height; y += 1) for (let x = region.x; x < region.x + region.width; x += 1) {
+    const offset = (y * 1920 + x) * 3;
+    total += Math.abs(expected[offset] - actual[offset]) + Math.abs(expected[offset + 1] - actual[offset + 1]) + Math.abs(expected[offset + 2] - actual[offset + 2]);
+  }
+  const mean = total / (region.width * region.height * 3);
+  assert.ok(mean <= tolerance, `${renderer} MP4 content differs from check model at ${timeMs} ms in ${JSON.stringify(region)}: mean absolute RGB difference ${mean.toFixed(2)} > ${tolerance}`);
+}
+function assertRgbPixelNear(frame, x, y, expected, tolerance, label) {
+  const offset = (y * 1920 + x) * 3;
+  const actual = [frame[offset], frame[offset + 1], frame[offset + 2]];
+  assert.ok(actual.every((channel, index) => Math.abs(channel - expected[index]) <= tolerance), `${label}: expected RGB ${expected.join(',')} ±${tolerance}, received ${actual.join(',')}`);
+}
+async function compareMp4WithCheck(model, testId, timesMs, { captions = 'none', regions = [] } = {}) {
+  const failures = [];
+  const references = new Map();
+  for (const renderer of MP4_RENDERERS) {
+    const output = path.join(OUT, 'tests', 'mp4-comparison', `${testId}-${renderer}.mp4`);
+    const rendered = await renderStoryboard(model, { out: output, renderer, captions, timeoutMs: 120000 });
+    assert.equal(rendered.durationMs, model.durationMs);
+    for (const timeMs of timesMs) {
+      const reference = await checkFrame(model, timeMs, path.join(WORK, 'mp4-comparison', `${testId}-${renderer}-${timeMs}.png`));
+      references.set(`${renderer}:${timeMs}`, reference);
+      const actual = rawFrame(output, timeMs);
+      try {
+        assertMeanAbsoluteFrameDifference(reference, actual, renderer, timeMs);
+        for (const region of regions) assertRegionMeanDifference(reference, actual, region, renderer, timeMs);
+      } catch (error) { failures.push(error.message); }
+    }
+  }
+  assert.deepEqual(failures, [], failures.join('\n'));
+  return references;
 }
 function zipText(filename, entry) { return execFileSync('unzip', ['-p', filename, entry], { encoding: 'utf8' }); }
 function exportPptx(filename, output, extra = []) { return runCli(['export-pptx', filename, '--root', ROOT, '--out', output, ...extra]); }
@@ -208,7 +273,8 @@ test('AT11', () => {
   const model = loadStoryboard(path.join(ROOT, 'samples/explainer/storyboard.json'));
   const html = generateHtml(model, { captionMode: 'burn-in' });
   assert.match(html, /class="caption"/);
-  assert.match(html, /@keyframes cap-question-0/);
+  assert.match(html, /data-caption-start="1200" data-caption-end="4700"/);
+  assert.match(html, /cue\.style\.opacity=show\?'1':'0'/);
   assert.match(html, /useful question/);
 });
 
@@ -310,15 +376,22 @@ test('AT18', async () => {
 });
 
 test('AT19', () => {
-  const result = runCli(['check', 'samples/explainer/storyboard.json', '--at', '500,10000', '--rk', '../render-kit/bin/rk', '--out-dir', path.join(OUT, 'tests/at19')]);
-  assert.deepEqual(result.result.timesMs, [500, 10000]);
-  assert.equal(result.result.reports.length, 2);
-  assert.deepEqual(result.result.reports.map((item) => item.rk.report.at_ms), [500, 10000]);
+  const filename = storyFile('at19.json', baseStory([], 1000));
+  const result = runCli(['check', filename, '--root', ROOT, '--at', '800', '--rk', '../render-kit/bin/rk', '--out-dir', path.join(OUT, 'tests/at19')]);
+  const model = loadStoryboard(filename, { root: ROOT });
+  const expected = new Set([800]);
+  for (const scene of model.scenes) for (const time of [scene._startMs, scene._startMs + Math.floor(scene.durationMs / 2), scene._startMs + scene.durationMs - 1]) expected.add(time);
+  const expectedTimes = [...expected].sort((a, b) => a - b);
+  assert.deepEqual(result.result.timesMs, expectedTimes);
+  assert.equal(result.result.reports.length, expectedTimes.length);
+  assert.deepEqual(result.result.reports.map((item) => item.rk.report.at_ms), expectedTimes);
   assert.ok(result.result.reports.every((item) => item.status === 'pass'));
 });
 
 test('AT20', () => {
-  const result = runCli(['check', 'samples/explainer/storyboard.json', '--pptx', path.join(OUT, 'tests/at12.pptx'), '--at', '500', '--rk', '../render-kit/bin/rk', '--out-dir', path.join(OUT, 'tests/at20')]);
+  const filename = storyFile('at20.json', baseStory([], 1000));
+  const outDir = path.join(OUT, 'tests/at20'); fs.rmSync(outDir, { recursive: true, force: true });
+  const result = runCli(['check', filename, '--root', ROOT, '--pptx', path.join(OUT, 'tests/at12.pptx'), '--at', '500', '--rk', '../render-kit/bin/rk', '--out-dir', outDir]);
   assert.equal(result.result.pptxDiagnostics.status, 'rendered-and-checked');
   assert.equal(result.result.pptxDiagnostics.slides.length, 3);
   assert.ok(result.result.pptxDiagnostics.slides.every((slide) => slide.rk.report));
@@ -379,7 +452,7 @@ test('AT25', () => {
 });
 
 test('AT26', () => {
-  const story = baseStory([layer('bullets', 'text', { text: 'One\nTwo', bullets: ['One', 'Two'], split: 'word' })]);
+  const story = baseStory([layer('bullets', 'text', { text: 'One\nTwo', bullets: [{ text: 'One' }, { text: 'Two' }], split: 'word' })]);
   const html = generateHtml(loadStoryboard(storyFile('at26.json', story), { root: ROOT }));
   assert.match(html, /class="bullet"/);
 });
@@ -597,4 +670,134 @@ test('AT39', async (t) => {
   assert.equal(mismatch.code, 2);
   assert.equal(JSON.parse(mismatch.stdout.trim()).errors[0].code, 'CAPTURE_MANIFEST_MISMATCH');
   assert.equal(fs.existsSync(path.join(OUT, 'tests/at39/rejected.mp4')), false);
+});
+
+test('MP4 comparison: second-scene tracks and captions use scene-local time (F2)', async () => {
+  const story = { ...baseStory(), scenes: [
+    { id: 'first', startMs: 0, durationMs: 1000, background: '#172033', layers: [layer('first-layer', 'text', { durationMs: 1000, text: 'First scene' })] },
+    { id: 'second', startMs: 1000, durationMs: 1000, background: '#FFFFFF', captions: [{ startMs: 200, endMs: 800, text: 'Second scene caption' }], layers: [
+      layer('second-moving', 'shape', { x: 100, y: 100, width: 180, height: 120, durationMs: 1000, fill: '#2563EB', tracks: [{ property: 'x', keyframes: [{ atMs: 0, value: 100 }, { atMs: 800, value: 600 }] }] })
+    ] }
+  ] };
+  const model = loadStoryboard(storyFile('mp4-f2.json', story), { root: ROOT });
+  assert.deepEqual(model.errors, []);
+  await compareMp4WithCheck(model, 'f2-scene-local', [1500], { captions: 'burn-in' });
+});
+
+test('MP4 comparison: distinct tracks, easing, and end-value hold are rendered (F3)', async () => {
+  const story = baseStory([layer('tracked-shape', 'shape', {
+    x: 100, y: 120, width: 200, height: 140, fill: '#E4572E', durationMs: 1800,
+    tracks: [
+      { property: 'x', keyframes: [{ atMs: 0, value: 100, easing: 'ease-out' }, { atMs: 900, value: 600 }] },
+      { property: 'opacity', keyframes: [{ atMs: 0, value: 0 }, { atMs: 300, value: 1 }] }
+    ]
+  })], 1800);
+  const model = loadStoryboard(storyFile('mp4-f3.json', story), { root: ROOT });
+  assert.deepEqual(model.errors, []);
+  await compareMp4WithCheck(model, 'f3-tracks-easing-hold', [450, 1350], { regions: [{ x: 70, y: 80, width: 720, height: 260 }] });
+});
+
+test('MP4 comparison: supported schema motion features preserve visible content (F4)', async () => {
+  const videoPath = path.join(WORK, 'mp4-comparison', 'f4-color.mp4');
+  fs.mkdirSync(path.dirname(videoPath), { recursive: true });
+  execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=red:s=320x180:r=30:d=0.5', '-f', 'lavfi', '-i', 'color=c=blue:s=320x180:r=30:d=1.5', '-filter_complex', '[0:v][1:v]concat=n=2:v=1:a=0[v]', '-map', '[v]', '-an', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', videoPath]);
+  const story = baseStory([
+    layer('counter', 'text', { x: 40, y: 30, width: 300, height: 80, durationMs: 1800, text: 'Revenue', counter: { from: 0, to: 18, decimals: 0, prefix: '$', suffix: 'M' } }),
+    layer('bullets', 'text', { x: 40, y: 130, width: 400, height: 150, durationMs: 1800, text: 'Benefits', bullets: [{ text: 'First point', kind: 'bullet', level: 0 }, { text: 'Second point', kind: 'number', level: 1 }] }),
+    layer('path', 'shape', { x: 520, y: 60, width: 400, height: 220, durationMs: 1800, shape: 'path', path: 'M 10 190 C 100 20 280 20 390 190', fill: '#FFFFFF', stroke: '#2563EB', strokeWidth: 12, trimStart: 0.12, trimEnd: 0.82 }),
+    layer('line', 'shape', { x: 1000, y: 80, width: 260, height: 100, durationMs: 1800, shape: 'line', stroke: '#E4572E', strokeWidth: 10, strokeDash: 'dot', strokeDashOffset: 4 }),
+    layer('video-entrance', 'video', { src: 'out/.work/acceptance/mp4-comparison/f4-color.mp4', x: 1300, y: 320, width: 320, height: 180, durationMs: 1800, entrance: 'fade', entranceDurationMs: 500 })
+  ], 1800);
+  const model = loadStoryboard(storyFile('mp4-f4.json', story), { root: ROOT });
+  assert.deepEqual(model.errors, []);
+  const staticAt = generateStaticHtml(model, 900);
+  const references = await compareMp4WithCheck(model, 'f4-counter-bullets-shapes-video', [300, 900], { regions: [
+    { x: 20, y: 20, width: 430, height: 280 },
+    { x: 500, y: 40, width: 450, height: 260 },
+    { x: 980, y: 60, width: 300, height: 150 },
+    { x: 1280, y: 300, width: 380, height: 220 }
+  ] });
+  for (const renderer of MP4_RENDERERS) assertRgbPixelNear(references.get(`${renderer}:300`), 1470, 410, [255, 102, 102], 8, `${renderer} check frame must show the video at its authored 60% fade opacity`);
+  for (const renderer of MP4_RENDERERS) assertRgbPixelNear(references.get(`${renderer}:900`), 1470, 410, [0, 0, 255], 8, `${renderer} check frame must seek to the video source time sampled at 900 ms`);
+  assert.match(staticAt, /\$9M/);
+  assert.match(staticAt, /First point/);
+  assert.match(staticAt, /Second point/);
+  assert.match(staticAt, /<path/);
+
+  for (const unsupported of [
+    layer('chart-build', 'chart', { kind: 'column', categories: ['A'], series: [{ name: 'S', values: [4] }], build: { mode: 'grow' } }),
+    layer('chart-state', 'chart', { kind: 'column', categories: ['A'], series: [{ name: 'S', values: [4] }], dataStates: [{ atMs: 500, series: [{ name: 'S', values: [8] }] }] }),
+    layer('masked', 'shape', { effects: { mask: { sourceLayerId: 'mask-source' } } })
+  ]) {
+    const rejected = loadStoryboard(storyFile(`mp4-f4-rejected-${unsupported.id}.json`, baseStory([unsupported])), { root: ROOT });
+    assert.ok(rejected.errors.some((item) => item.code === 'FEATURE_UNSUPPORTED'), `${unsupported.id} must fail validation with FEATURE_UNSUPPORTED`);
+  }
+});
+
+test('MP4 comparison: one-scene burn-in captions follow each cue interval (F7)', async () => {
+  const authored = [layer('caption-test', 'text', { x: 100, y: 100, width: 500, height: 120, durationMs: 2000, text: 'Author layer' })];
+  for (let index = 0; index < 5; index += 1) authored.push(layer(`caption-neighbor-${index}`, 'shape', { x: 40 + index * 180, y: 300, width: 80, height: 70, durationMs: 2000, fill: '#2563EB' }));
+  const story = baseStory(authored, 2000);
+  story.scenes[0].captions = [
+    { startMs: 200, endMs: 600, text: 'First cue' },
+    { startMs: 800, endMs: 1200, text: 'Second cue' },
+    { startMs: 1400, endMs: 1700, text: 'Final cue' }
+  ];
+  const model = loadStoryboard(storyFile('mp4-f7.json', story), { root: ROOT });
+  assert.deepEqual(model.errors, []);
+  await compareMp4WithCheck(model, 'f7-burn-in-cues', [300, 900, 1350, 1800], { captions: 'burn-in', regions: [{ x: 120, y: 880, width: 1680, height: 180 }] });
+});
+
+test('check does not add a scene caption over an active author text layer (F7)', () => {
+  const story = baseStory([layer('author-caption', 'text', { x: 100, y: 920, width: 500, height: 100, durationMs: 1000, text: 'Same words' })], 1000);
+  story.scenes[0].captions = [{ startMs: 100, endMs: 900, text: 'Same words' }];
+  const model = loadStoryboard(storyFile('mp4-f7-no-duplicate.json', story), { root: ROOT });
+  const html = generateStaticHtml(model, 500);
+  assert.equal([...html.matchAll(/Same words/g)].length, 1);
+});
+
+test('validate rejects captions that violate the explicit two-line 42-character lint (F7)', () => {
+  const story = baseStory([], 1000);
+  story.scenes[0].captions = [{ startMs: 100, endMs: 900, text: 'This cue is far too long to fit on one line and has no authored line break.' }];
+  const model = loadStoryboard(storyFile('mp4-f7-lint.json', story), { root: ROOT });
+  assert.ok(model.errors.some((item) => item.code === 'CAPTION_LINT'));
+});
+
+test('F6 scales the default render timeout and chooses fallback for the 57.5-second single scene', () => {
+  assert.equal(defaultTimeoutForFrames(30), 33750);
+  assert.equal(defaultTimeoutForFrames(1725), 245625);
+  const fixture = loadStoryboard(path.join(ROOT, 'tests/fixtures/motion/storyboard.json'), { root: path.join(ROOT, 'tests/fixtures/motion') });
+  assert.deepEqual(fixture.errors, []);
+  assert.equal(fixture.frameCount, 1725);
+  const selection = selectRenderer(fixture, 'auto');
+  assert.equal(selection.name, 'fallback');
+  assert.equal(selection.warning?.code, 'HYPERFRAMES_LONG_SINGLE_SCENE');
+});
+
+test('F6 pins renderer fonts locally and fails closed on an unbundled HyperFrames font', async (t) => {
+  const story = baseStory([layer('font-check', 'text', { text: 'Pinned font', style: { fontFamily: 'Arial', fontSize: 36 } })]);
+  const model = loadStoryboard(storyFile('f6-fonts.json', story), { root: ROOT });
+  const html = generateHtml(model);
+  assert.match(html, /data:font\/woff2;base64,/);
+  assert.doesNotMatch(html, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
+  if (!fs.existsSync(path.join(ROOT, 'node_modules/.bin/hyperframes'))) return t.skip('HyperFrames is not installed');
+  const unpinned = loadStoryboard(storyFile('f6-unpinned-font.json', baseStory([layer('font-check', 'text', { text: 'Unpinned', style: { fontFamily: 'Avenir Next' } })])), { root: ROOT });
+  await assert.rejects(() => renderStoryboard(unpinned, { out: path.join(OUT, 'tests/f6-unpinned.mp4'), renderer: 'hyperframes' }), { code: 'FONT_UNPINNED' });
+});
+
+test('F8 resolves renderer assets from the install and writes --out outside the repository', async (t) => {
+  const storyPath = storyFile('f8-outside-cwd.json', baseStory([layer('outside-path', 'shape')], 1000));
+  const outDir = fs.mkdtempSync(path.join(os.tmpdir(), 'scene-engine-output-'));
+  const output = path.join(outDir, 'outside.mp4');
+  t.after(() => fs.rmSync(outDir, { recursive: true, force: true }));
+  const result = await new Promise((resolve) => {
+    const child = spawn(process.execPath, [CLI, 'render', storyPath, '--root', ROOT, '--renderer', 'fallback', '--captions', 'none', '--out', output], { cwd: os.tmpdir(), env: process.env, stdio: ['ignore', 'pipe', 'pipe'] });
+    let stdout = ''; let stderr = '';
+    child.stdout.on('data', (chunk) => stdout += chunk);
+    child.stderr.on('data', (chunk) => stderr += chunk);
+    child.once('close', (code) => resolve({ code, stdout, stderr }));
+  });
+  assert.equal(result.code, 0, result.stderr);
+  assert.equal(JSON.parse(result.stdout.trim()).ok, true);
+  assert.ok(fs.statSync(output).size > 0);
 });

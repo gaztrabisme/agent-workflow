@@ -76,6 +76,11 @@ export function sampleLayer(layer, localMs) {
   const tracks = state.tracks ?? [];
   delete state.tracks;
   for (const track of tracks) setPath(state, track.property, sampleTrack(track.property.split('.').reduce((v, k) => v?.[k], state), track, localMs - layer.startMs));
+  if (state.counter) {
+    const progress = Math.max(0, Math.min(1, (localMs - layer.startMs) / layer.durationMs));
+    const value = state.counter.from + (state.counter.to - state.counter.from) * progress;
+    state.__counterText = `${state.counter.prefix ?? ''}${value.toFixed(state.counter.decimals ?? 0)}${state.counter.suffix ?? ''}`;
+  }
   return state;
 }
 
