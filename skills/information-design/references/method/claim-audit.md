@@ -1,7 +1,7 @@
 # Claim audit
 Writer: codex
 Auditor: glm
-Round: 9
+Round: 10
 
 Merged from the scope tables `audit/claim-audit-s*.md`, with re-audit rounds `claim-audit-r*.md` replacing earlier verdicts.
 
@@ -180,8 +180,8 @@ Merged from the scope tables `audit/claim-audit-s*.md`, with re-audit rounds `cl
 | 171 | references/method/story-and-structure.md | 2495 · U4 · L15 · 00:00–01:26 | Explain unfamiliar visual forms with a clear key | supported | Section: "a clear legend is essential. It combines visual elements with words"; she "explain[s] what each visual element represents." |
 | 172 | references/method/story-and-structure.md | 3069 · U2 · L03 · 00:00–01:12 | Personal interest can start the project | supported | Section: "connect the subject to your own emotions and interests… What makes you sad or happy, angry or irritated?" |
 | 173 | references/method/story-and-structure.md | 3069 · U2 · L06 · 00:40–01:28 | Decide whether a single dataset or connected layers offer a useful direction | supported | Section: "You could try making something with a single dataset first… I will probably combine several sets, because adding layers can make the final project more interesting and give viewers more to explore." |
-| 174 | references/method/story-and-structure.md | 3069 · U2 · L06 · 01:28–02:44 | Compare totals, relative sizes, changes, relationships and outliers | overstated | The section compares totals (Dorothy 361 vs Uncle Henry 9), "relative sizes" and "possible relationships between characters and colors", and names the most-mentioned character; it never mentions change over time, and no section cited for this bullet does. The course list is totals, relative sizes, relationships, outliers — drop "changes" or re-cite. |
-| 175 | references/method/story-and-structure.md | 3069 · U2 · L06 · 02:44–03:25 | Compare totals, relative sizes, changes, relationships and outliers | supported | Section: "It is important to check the data for outliers", with the Emerald City count of 72 as the example. |
+| 174 | references/method/story-and-structure.md | 3069 · U2 · L06 · 01:28–02:44 | Compare totals, relative sizes, relationships and outliers | supported | Re-check of the round-9 overstated row: the writer dropped "changes". Section gives totals ("differences in the totals", Dorothy 361 vs Uncle Henry 9), "their relative sizes" and "possible relationships between characters and colors"; with row 3 it covers the full list. No change-over-time claim remains. |
+| 175 | references/method/story-and-structure.md | 3069 · U2 · L06 · 02:44–03:25 | Compare totals, relative sizes, relationships and outliers | supported | Section: "It is important to check the data for outliers", with the Emerald City count of 72 as the example. |
 | 176 | references/method/story-and-structure.md | 3069 · U3 · L07 · 00:00–03:36 | List people, places or objects and the features that could become marks | supported | Section: "Write down the characters you think matter… or look for a feature that could stand for them"; "The same process works for locations and objects." |
 | 177 | references/method/story-and-structure.md | 3069 · U3 · L07 · 03:36–05:02 | Storyline sketch considers how the marks work together in the layout | supported | Section: "consider how their marks can work together in the poster layout… I am already thinking about what goes where." |
 | 178 | references/method/story-and-structure.md | 3069 · U3 · L07 · 05:02–06:55 | Chapter sketch sets out how many characters appear in each chapter | supported | Section: "The central question is what the visualization should show: here, I want to show how many characters appear in each chapter"; 24 chapter bubbles sized by character count. |
