@@ -47,14 +47,7 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 | a published web page on claude.ai | `Artifact` + `artifact-design`; diagrams → `artifact-diagramming`; live/stateful → `artifact-capabilities` |
 | generated stills, clips, or synthetic training data | `media-gen` |
 
-**Frontend work has overlapping workflow and style owners. Pick on two axes, never one:**
-
-| Axis | Choice |
-|---|---|
-| **Workflow** | new interface → the new-design workflow · existing interface → the audit-first redesign workflow |
-| **Aesthetic direction** | agency/high-end · warm, flat editorial |
-
-One workflow skill **plus** one direction. Loading two directions produces a hybrid that reads as neither. `color-theory` fires beneath any of them when the task is genuinely about colour: planning or critiquing an image's colour with the course method, palettes, ramps, perceptual matching, accessibility. It carries the old `color-expert` library inside it as its science layer.
+**Frontend work** (web pages and apps: semantic HTML, CSS, TypeScript, the project's framework, accessibility, performance, agent-ready affordances, render-and-check) → `frontend`. It covers both a new interface (its greenfield path) and an audit-first redesign of an existing one; the owner's `brand-profile` supplies the visual direction when the work is the owner's own. `color-theory` fires beneath it when the task is genuinely about colour: planning or critiquing an image's colour with the course method, palettes, ramps, perceptual matching, accessibility. It carries the old `color-expert` library inside it as its science layer.
 
 `visual-design` fires the same way for form: planning, making or critiquing a graphic, poster, editorial page, presentation, package, campaign or visual identity — composition, visual hierarchy, negative space, Gestalt, balance, grids, typography, identity systems, visual weight.
 
