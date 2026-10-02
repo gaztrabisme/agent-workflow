@@ -106,6 +106,7 @@ This skill produces a research-grounded product brief, user journey and flow, pr
 
 ## References
 
+- [references/method/claim-audit.md](references/method/claim-audit.md) — the independent claim audit of every course citation (evidence per scope in `audit/`).
 - [references/method/01-frame-and-outcomes.md](references/method/01-frame-and-outcomes.md) — align the problem, outcome, and constraints.
 - [references/method/02-research-and-evidence.md](references/method/02-research-and-evidence.md) — choose research methods and preserve evidence.
 - [references/method/03-synthesize-user-needs.md](references/method/03-synthesize-user-needs.md) — synthesize findings and keep assumptions provisional.
