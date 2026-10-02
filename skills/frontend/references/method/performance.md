@@ -1,0 +1,15 @@
+# Performance
+
+## Set a product budget before optimizing
+
+Ask which pages and interactions matter, under what device and network conditions, and what performance budget the product owner accepts. Measure a representative baseline before tuning. Performance trade-offs depend on the workload and the people using it; a single synthetic score does not describe every user or route. [book:web-performance-engineering], “Evaluating UX Performance: Key Metrics”; [book:web-performance-engineering], “Setting Up Performance Budgets and Alerts”; [book:web-performance-in-action], “1.1.1 Web performance and the user experience.”
+
+Use the Core Web Vitals as field targets where real-user measurement is available: at the 75th percentile, LCP at or below 2.5 seconds, INP at or below 200 milliseconds, and CLS at or below 0.1. These are web.dev's good thresholds, not a substitute for a product-specific budget or test of a key interaction. [book:web-dev-baseline], “Defining the Core Web Vitals metrics thresholds”; [book:web-performance-engineering], “Largest Contentful Paint (LCP): Viewing Content Quickly”; [book:web-performance-engineering], “Interaction to Next Paint (INP): Ready to React”; [book:web-performance-engineering], “Cumulative Layout Shift (CLS): Visual Stability.”
+
+## Measure and correct causes
+
+Use Lighthouse or browser performance tooling for repeatable lab diagnostics; use field data for production experience when available. Separate the two in the report. If a route has poor loading, responsiveness, or stability, find the costly resources, scripts, layout shifts, or handlers before changing architecture. [book:web-performance-engineering], “Lighthouse: Performance Auditing”; [book:web-performance-engineering], “Chrome DevTools Performance Panel: Deep Diagnostics with AI Assistance”; [book:web-performance-engineering], “Chapter 6. Trade-Offs in Performance Optimizations.”
+
+Preserve image dimensions or aspect ratio to avoid layout shifts. Choose image sizes for their rendered contexts, defer non-critical media, avoid unnecessary client code, and measure the result on the target route. (derived: [book:web-performance-in-action], “6.4 Lazy loading images”; [book:web-performance-in-action], “7.4 Optimizing the loading of fonts”; [book:web-dev-baseline], “Responsive Images.”)
+
+Keep optimizations proportionate. The book covers CSS and script-loading techniques, but older implementation examples may not fit current browsers or bundlers; validate a proposed optimization in the project's current build and real rendered route. [book:web-performance-in-action], “3.3 Performance-tuning your CSS”; [book:web-performance-in-action], “8.1 Affecting script-loading behavior”; (derived: verify current toolchain behavior before adopting older examples.)
