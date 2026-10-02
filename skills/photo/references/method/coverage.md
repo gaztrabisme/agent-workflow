@@ -26,6 +26,7 @@ One row per exported lesson that no method digest cites. Unit overview files and
 | Course 1343 — Practice 2 | 1343 · U35 · L55 | The exercise is a submission prompt rather than a transferable method step. |
 | Course 1343 — Brightening Eyes 2 | 1343 · U39 · L61 | This specialized technique adds no distinct decision to portrait and social photo work. |
 | Course 1343 — Smooth Skin 2 | 1343 · U41 · L64 | This specialized technique adds no distinct decision to portrait and social photo work. |
+| Course 1343 — Setting up and Working With a Tablet | 1343 · U45 · L68 | Hardware-specific setup and shortcut assignments add no distinct method decision for this workflow. |
 | Course 1343 — Understanding CMYK Composition of Skin Tones | 1343 · U48 · L71 | The numeric skin-color examples are nonuniversal and belong with color-theory. |
 | Course 1343 — Create a Photo Logo 1 | 1343 · U55 · L83 | Signature and logo construction is optional branding output beyond photo finishing. |
 | Course 1343 — Create a Photo Logo 2 | 1343 · U55 · L84 | Signature and logo construction is optional branding output beyond photo finishing. |
