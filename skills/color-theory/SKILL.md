@@ -1,6 +1,6 @@
 ---
 name: color-theory
-description: "A course-distilled method for choosing and critiquing color in images, lighting and graphic design, with a color-science library for measurement, spaces, code and accessibility. USE WHEN planning or fixing color in illustration, painting, concept art, posters, brands, film, comics or UI themes; choosing or explaining a palette; critiquing an image's color; or answering color-science questions (OKLCH, CSS, contrast, naming, pigments, history). Not for photo edits (`batch-photo-retouching`), an interface's overall style, or choosing a chart type. Keywords: color theory, palette, harmony, complementary, value, contrast, saturation, temperature, mood, color script, focal point, OKLCH, WCAG, APCA."
+description: "A course-distilled method for choosing and critiquing color in images, lighting and graphic design, with a color-science library for measurement, spaces, code and accessibility. USE WHEN planning or fixing color in illustration, painting, concept art, posters, brands, film, comics or UI themes; choosing or explaining a palette; critiquing an image's color; or answering color-science questions (OKLCH, CSS, contrast, naming, pigments, history). Not for photo edits (`photo`), an interface's overall style, or choosing a chart type. Keywords: color theory, palette, harmony, complementary, value, contrast, saturation, temperature, mood, color script, focal point, OKLCH, WCAG, APCA."
 license: "Proprietary (private course-derived material, not for redistribution); references/color-science is CC BY 4.0 by meodai"
 ---
 
@@ -16,7 +16,7 @@ The method combines Domestika 1140, *Color Theory: How to Apply It to Your Image
 - **This skill:**
   - choosing, planning, explaining or critiquing color for an image, brand, sequence or theme;
   - any color-science question.
-- **`batch-photo-retouching` instead:** editing photographs (relighting, white balance, retouching) where the colors must stay true to the original.
+- **`photo` instead:** editing photographs (relighting, white balance, retouching) where the colors must stay true to the original. (derived: dogfood 2026-10-02, F8)
 - **Not this skill:** the overall visual style of an interface (layout, typography, component styling). That belongs to the skill building the interface. This skill still answers the interface's palette, ramp and contrast questions.
 - **Not this skill:** choosing a chart type and which data goes to which visual channel. This skill answers the color side of that choice: perceptual sequential and diverging ramps, color-vision deficiency and contrast.
 - **`visual-design` instead:** composition, form and layout — the visual structure of a graphic, page or identity. This skill answers that artifact's colour decisions.
@@ -108,7 +108,7 @@ Open `references/color-science/SKILL.md` first, then `references/color-science/r
 - **Inherits:** `core`.
 - **Contains:** `references/color-science/`, the upstream `meodai/skill.color-expert` vendored as a git subtree. It is the secondary source and is not edited here. Update it with `git subtree pull --prefix=references/color-science https://github.com/meodai/skill.color-expert main --squash`.
 - **Fed by:** course exports in their own folders. Course claims are merged into `method/` with lesson anchors.
-- **Hands off to:** `batch-photo-retouching` for photo edits. When the palette goes into a deck, document or interface, the skill that builds that deliverable applies it; this skill supplies the palette, the ramps and the contrast checks.
+- **Hands off to:** `photo` for photo edits. When the palette goes into a deck, document or interface, the skill that builds that deliverable applies it; this skill supplies the palette, the ramps and the contrast checks. (derived: dogfood 2026-10-02, F8)
 
 ## References
 - `references/method/intent-and-meaning.md`: feeling to value, color and saturation targets; mood recipes; identity; story payoff.
