@@ -1,1 +1,1 @@
-SKILL.md · 227 · U4 · L12 · 18:15–20:06 → unchanged · Replaced the absolute “only when conditions match” claim with the course’s “works best” guidance and recommendation to edit individually when conditions differ.
+SKILL.md · 1343 · U54 · L81 · 04:29–07:57 → unchanged · Scoped JPEG, sRGB conversion, and 2,000 px longer-side resizing to the low-resolution copy, preserving “usually”; the course does not specify the high-resolution file format.
