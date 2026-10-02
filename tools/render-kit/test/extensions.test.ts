@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import { prepare } from '../src/render.ts';
 import { rk, run, temp, report } from './helpers.ts';
 
-const base={scale:1,settle:10000,boot:100,media:'screen' as const,timeout:30000,allowNetwork:false,pdf:false,strict:false,thresholds:{}};
+const base={scale:1,settle:10000,boot:100,media:'screen' as const,timeout:30000,allowNetwork:false,pdf:false,strict:false,thresholds:{},expectedRequests:[]};
 test('AT23 boot and runFor advance every requestAnimationFrame',{timeout:30000},async()=>{for(const [at,want] of [[1000,110],[0,10]] as const){const session=await prepare({...base,input:'samples/good/raf.html',at});try{const x=await session.page.locator('#square').evaluate((e:any)=>parseFloat(getComputedStyle(e).left));assert.ok(Math.abs(x-want)<=1);assert.equal(await session.page.locator('#placeholder').count(),0);}finally{await session.stop();}}});
 test('AT24 PDF follows screen or print media',{timeout:60000},async()=>{const d=await temp();for(const [media,has] of [['screen',true],['print',false]] as const){const p=join(d,`${media}.pdf`),r=await rk(['render','samples/good/print-media.html','--out',p,'--media',media]);assert.equal(r.code,0,r.stderr);const text=await run('pdftotext',[p,'-']);assert.equal(text.stdout.includes('screen-only'),has);}});
 test('AT25 CVD threshold override is reported',async()=>{const r=await report(['check','samples/bad/cvd.svg','--checks','cvd','--threshold','cvd.min_distance=0.03','--out-dir',join(await temp(),'out')]);assert.equal(r.code,0,r.stderr);assert.equal(r.data.checks[0].status,'pass');assert.equal(r.data.checks[0].thresholds.min_distance,.03);});

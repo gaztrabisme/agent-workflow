@@ -36,3 +36,17 @@ All changes remain uncommitted.
 - `git diff --check`: passed.
 
 Current state: F13 complete; changes remain uncommitted.
+
+## Frontend follow-up — F2, F4, F11 — 2026-10-02
+
+### Findings and changes
+
+- **F2 — expected failed requests.** Added repeatable `--expect-request '<url-pattern>=<status>'` for `rk check` and `rk brief`. `*` matches any sequence in the full URL. A matching HTTP 4xx/5xx appears with item status `expected` and does not fail `resources`; mismatched status or URL, network errors, and blocked requests still fail. No markup attribute is required.
+- **F4 — accessibility patterns in visual scans.** Text scans and overflow checks skip closed `<details>` content while keeping its visible summary, positioned focusable content outside the viewport, and clipped visually-hidden text (`clip-path: inset(50%)` or the positioned 1 px clipped pattern). Wide descendants of an active horizontal scroller may pass beyond its left or right edge. The scroller itself and vertical overflow remain checked; axe still runs.
+- **F11 — multi-state briefs.** `rk brief --state '<label>=<input>'` accepts repeated labelled files or local URLs. Each state receives its own report, render, simulation images, and optional PDF page renders; the brief shows separate labels and check summaries with shared review questions. The PDF sentence is omitted without `--pdf`.
+
+### Verification
+
+- Added CLI acceptance tests for expected request matching and both mismatch axes, visual exclusions and horizontal scrolling, and a two-state brief without PDF guidance. Updated brief API and type fixtures, help coverage, and the PDF guidance assertion.
+- `npm test`: exit 0, 47 tests passed. `./bin/rk selftest`: exit 0, all 19 sample expectations passed. Both ran with `/tmp/rk-f13-venv/bin` first on `PATH` because the default `python3` lacks NumPy and Pillow; `AGENTS.md` lists these optional color-check dependencies.
+- `git diff --check`: passed. All changes remain uncommitted.

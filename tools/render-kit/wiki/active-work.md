@@ -5,8 +5,8 @@ Last reviewed: 2026-10-02
 
 ## Current state
 
-Motion dogfood finding F13 is complete. Brief question groups retain their headings, whole-stage focal checks report why outside comparisons are incomplete, and default HTML captures include the document height. The behavior and regression cases are recorded in `../SPEC.md` and `../FIX-REPORT-dogfood.md`.
+Frontend dogfood findings F2, F4, and F11 are complete. Expected HTTP failures can be declared by URL pattern and status; visual checks skip documented hidden patterns and accept wide content inside active horizontal scroll containers; and `rk brief` can include several labelled inputs in one review. The F13 motion fixes remain recorded in `../SPEC.md` and `../FIX-REPORT-dogfood.md`.
 
 ## Next steps
 
-No follow-up is required for F13.
+No follow-up is required for F2, F4, or F11.

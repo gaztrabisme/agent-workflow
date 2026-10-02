@@ -8,7 +8,7 @@ import { pngSize, report, temp } from './helpers.ts';
 test('F13 brief keeps each group heading with its questions', async () => {
   const d = await temp(), questions = join(d, 'questions.md');
   await writeFile(questions, '# First group\n- First question?\n\n# Second group\n- Second question?\n');
-  await writeBrief(join(d, 'brief'), questions, 'Grouped review', { checks: [], outputs: {} }, []);
+  await writeBrief(join(d, 'brief'), questions, 'Grouped review', [{ label: 'Ready', input: 'ready.html', report: { checks: [], outputs: {} }, files: ['render.png'] }]);
   const brief = await readFile(join(d, 'brief', 'brief.md'), 'utf8');
   const firstHeading = brief.indexOf('# First group'), firstQuestion = brief.indexOf('Q1. First question?');
   const secondHeading = brief.indexOf('# Second group'), secondQuestion = brief.indexOf('Q2. Second question?');

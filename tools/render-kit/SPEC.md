@@ -18,7 +18,7 @@ Terms used below:
 
 ## 2. Scope
 
-In scope: rendering one HTML page or one SVG file to PNG or PDF; the 11 checks in section 6; measuring and wrapping text; vision briefs; a self-test.
+In scope: rendering and checking one HTML page or SVG file per `render` or `check` invocation; a single `brief` can collect several labelled HTML or SVG inputs; the 11 checks in section 6; measuring and wrapping text; vision briefs; a self-test.
 
 Out of scope: video encoding and PowerPoint output (the separate `scene-engine`, later); multi-slide decks in one call (render each slide file separately); Firefox and WebKit; native desktop or mobile apps; calling any vision or language model; bundling fonts.
 
@@ -66,8 +66,9 @@ Renders the stage. PNG: a screenshot clipped to the stage, using full-page captu
 
 Output: `{"out", "format", "width", "height", "scale", "at_ms", "browser": {"version", "mode"}, "requests_blocked": []}`. `width` and `height` are the image's pixel size (PNG) or the page size in points (PDF).
 
-### 4.3 `rk check <input> [render options] [--checks <ids>] [--pdf] [--out-dir <dir>] [--strict]`
+### 4.3 `rk check <input> [render options] [--checks <ids>] [--expect-request <url-pattern>=<status>] [--pdf] [--out-dir <dir>] [--strict]`
 Renders once, runs the checks, and writes `report.json` and `render.png` (plus `render.pdf` with `--pdf`) into `--out-dir` (default: a new temporary folder). Prints the report (section 7). `--checks` takes comma-separated check ids; an unknown id is exit 2. By default all 11 checks run and each appears in the report; one with nothing to check in this input is `n/a` (section 7), and `pdf-fonts` is `n/a` without `--pdf`. `--threshold <check>.<name>=<value>` (repeatable) overrides one of the named thresholds in the table at the start of section 6, for example `--threshold cvd.min_distance=0.08`; an unknown name, or a value that is not a number, is exit 2.
+`--expect-request '<url-pattern>=<status>'` is repeatable. The pattern is matched against the full request URL; `*` matches any sequence and every other character is literal. The status must be a 4xx or 5xx HTTP status. A matching failed response is listed with item status `expected` and does not fail `resources`; every unmatched HTTP error, blocked request, and network failure still fails.
 
 ### 4.4 `rk text measure --font <css font> --text <string> [--font-file <path>]`
 Measures one line of text in the browser with canvas `measureText`, after `document.fonts.load(font)`. `--font` is a CSS font shorthand such as `600 32px "Source Sans 3"`. `--font-file` registers that file with the FontFace API under the family named in `--font`. Before measuring, rk applies the font rule in 4.9. Output: `{"width", "ascent", "descent", "font"}` in CSS pixels.
@@ -75,12 +76,17 @@ Measures one line of text in the browser with canvas `measureText`, after `docum
 ### 4.5 `rk text wrap --font <css font> --text <string> --width <px> [--line-height <multiplier>] [--max-lines <n>] [--format json|svg] [--x <n> --y <n>] [--font-file <path>]`
 Breaks text into lines no wider than `--width`, measuring in the browser (canvas `measureText`) and finding break opportunities with `Intl.Segmenter` (word granularity). A line may break at a whitespace segment, after a hyphen or slash, or between two adjacent word segments with no space between them, which is how Chinese and Japanese text breaks. Lines are filled greedily. Before measuring, rk applies the font rule in 4.9. Output JSON: `{"lines": [{"text", "width"}], "line_height", "height", "overflow": false}`; `--format svg` prints a `<text>` element with one `<tspan x=".." dy="..">` per line, positioned at `--x`, `--y` (defaults 0, 0), `font` set from `--font`. `overflow` is true, and the exit code 1, when one word is wider than `--width` or the line count exceeds `--max-lines`. Line height defaults to 1.2.
 
-### 4.6 `rk brief <input> --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--pdf] [render options]`
+### 4.6 `rk brief [<input> | --state <label>=<input> ...] --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--pdf] [render options]`
 Prepares a review for someone who can see images and did not make the artifact. It renders the PNG, plus one PNG per type in `--simulate` (comma-separated), runs `rk check`, and writes into `--out-dir`:
 - `render.png` and `render-<type>.png`; with `--pdf`, also `render.pdf` and `render-page-<n>.png` for every PDF page, rasterized with Poppler's `pdftoppm` at 96 dpi;
+- with repeated `--state '<label>=<file-or-local-URL>'`, one labelled input per state, each rendered and checked independently in a `state-<n>-<slug>/` subfolder; use these options instead of the positional `<input>`;
 - `report.json`, the code-check report;
 - `brief.md`: what the artifact is (`--purpose`), the image paths, a summary of the code checks (so the reviewer does not re-judge what code measured), the rules for answering, and the numbered questions `Q1`…`Qn`;
 - `answers.template.json`: `{"reviewer": null, "answers": [{"id": "Q1", "question": "...", "answer": null, "where": null, "reason": null}]}`.
+
+The PDF sentence is included in `brief.md` only when `--pdf` is supplied. With several inputs, each label, input, file list, and check summary appears in its own section; questions and answer numbering are shared across the brief.
+
+`--expect-request` is also accepted and applied to each input's `resources` check using its exact URL-pattern and HTTP-status matching rules from section 4.3.
 
 The questions file has one question per line starting with `- ` or `1. `; lines starting with `#` are group headings and are copied into the brief. Questions are phrased so that **yes means the artifact passes**. The kit ships default sets in `questions/chart.md` and `questions/slide.md`. A questions file with no questions is exit 2.
 
@@ -116,6 +122,8 @@ The same input and options must give a byte-identical PNG on repeated runs on on
 
 Every check skips elements inside `[data-rk-ignore]`, and elements that are not visible: zero area, `display: none`, `visibility: hidden`, or opacity 0. SVG geometry with a zero-width or zero-height bounding box remains visible when it has a computed stroke width above 0 and a stroke other than `none`.
 
+Visual text scans and the `overflow` offstage scan also skip descendants hidden by a closed `<details>` element, except for its visible direct `<summary>` subtree; focusable elements positioned outside the viewport before focus, such as an offscreen skip link; and clipped visually-hidden patterns using `clip-path: inset(50%)` or a positioned box of at most 1 px with `clip` or `clip-path`. These are visual-check exclusions, not accessibility exemptions: `a11y` still runs, and hidden states should be opened and checked in a browser when they are part of the product. A horizontal child that overflows an active `overflow-x: auto` or `scroll` ancestor is allowed beyond that scrollport's left or right edge; the scroll container itself and vertical overflow remain subject to the stage and clipping checks.
+
 - A **text element** is a visible HTML element with at least one non-empty text node as a *direct* child, or an SVG `<text>` element.
 - A **text box** is, for HTML, the union of the client rectangles of a DOM `Range` over the element's direct text nodes. For SVG, each `<tspan>` is its own text box, and a `<text>` without `<tspan>` children is one box. Boxes are in screen coordinates.
 
@@ -135,7 +143,9 @@ The thresholds below are the kit's defaults, set by judgment or calibration. Eac
 | `value.achromatic_chroma_max` | 0.01 OKLCH C | Judgment: maximum chroma treated as achromatic for T5 on data graphics |
 
 ### 6.1 `resources` (all inputs)
-Fail when any request was blocked by the network rule or failed (network error, or HTTP status 400 or above). Items: the URL and the reason.
+Fail when any request was blocked by the network rule or failed (network error, or HTTP status 400 or above), except for a request declared with `--expect-request` whose full URL pattern and HTTP status both match. Expected response items have `status: "expected"`, `expected_status` and the matching `pattern`; unmatched items have `status: "unexpected"`. The check passes when it has no unexpected items. Items include the URL and reason.
+
+`requests_blocked` in the report remains the raw record of all observed failed requests, including ones classified as expected by this check.
 
 ### 6.2 `console` (all inputs)
 Fail on any uncaught page exception or `console.error` message between navigation and capture. Items: the first 200 characters of each message.
@@ -155,6 +165,8 @@ Fail when any of these holds, by more than `overflow.tolerance_px`:
 - an element with `text-overflow: ellipsis` has `scrollWidth > clientWidth` (truncated text), unless it or an ancestor has `data-rk-allow-truncate`;
 - a visible element's box, or an SVG `<text>` box, extends beyond the stage (item kind `offstage`);
 - an SVG `<text>` box extends beyond its nearest `<svg>` viewport.
+
+An active horizontal scroll container (`overflow-x: auto` or `scroll` and `scrollWidth > clientWidth`) is a deliberate viewport for its wide descendants; its horizontal clipping is accepted.
 
 Items: kind, selector, the overflow in pixels on each side.
 
@@ -336,6 +348,9 @@ Each test names its sample or setup and its expected result. All run from the re
 | AT35 | Write a questions file with two headings and one question under each, then call `writeBrief` | Exit 0; each heading immediately precedes its numbered question group, and numbering remains global |
 | AT36 | Check a 1,400 px HTML document without `--height`, then check it with `--height 900` | Default capture is 1,400 px tall and `overflow` passes for text at the bottom; the explicit-height capture is 900 px and reports the bottom text as offstage |
 | AT37 | Check an HTML artifact whose `[data-rk-focal]` covers `[data-rk-stage]` entirely while `python3` is instrumented to fail if called | `value` is `incomplete` with a clear no-outside-pixels reason; the external value/chroma script is not called |
+| AT38 | Check a page that fetches a missing same-origin JSON file with `--expect-request '*/missing.json=404'`, then with a wrong URL pattern and a wrong status | The exact URL/status match is listed as `expected` and `resources` passes; either mismatch is `unexpected` and fails; malformed syntax exits 2 |
+| AT39 | Check a page containing a closed-details paragraph, an offscreen focusable skip link, both clipped visually-hidden patterns, and wide text in an active horizontal scroller | `fonts`, `overflow`, and `collision` pass for excluded hidden text and intentional horizontal scrolling; ordinary offstage content remains covered by AT08 |
+| AT40 | Build one brief from repeated labelled `--state` inputs without `--pdf` | Each state has its own labelled section, report and render; questions are shared; the PDF sentence is absent |
 
 ## 12. Open questions
 

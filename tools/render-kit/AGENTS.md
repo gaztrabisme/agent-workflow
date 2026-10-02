@@ -14,6 +14,7 @@ export RK_COLOR_THEORY=../skills/color-theory
 bin/rk selftest
 bin/rk check page.html --pdf --out-dir out/
 bin/rk brief page.html --questions questions/slide.md --out-dir out/review --purpose "Daily drilling report, slide 3" --pdf
+bin/rk brief --state 'Ready=ready.html' --state 'Empty=empty.html' --questions questions/slide.md --out-dir out/review
 ```
 
 The colour checks use Python 3, `numpy` and `Pillow`, plus `scripts/checks.py` in
@@ -23,8 +24,8 @@ the variable above when that skill folder is elsewhere.
 ## The loop
 
 1. Write the artifact as HTML or SVG, with the markup below.
-2. `bin/rk check <file> [--pdf]`. Fix every `fail`, and re-run until none is left. Read every `skipped` and `incomplete` item; incomplete `value` items can contain a question for a vision reviewer. `n/a` means the input had nothing for that check (no chart markup, no PDF).
-3. `bin/rk brief <file> --questions <set> --out-dir <dir> [--pdf]`. Give `brief.md` and its listed PNGs to a reviewer that did not make the artifact and can see images. With `--pdf`, the brief also lists the PDF and a PNG render for each page. It copies `answers.template.json` (which `rk brief` writes) to `answers.json` and fills it.
+2. `bin/rk check <file> [--pdf]`. Fix every `fail`, and re-run until none is left. For an intentional HTTP error, declare its URL pattern and exact status, for example `--expect-request '*/data/daily/012.json=404'`. A matching item is reported as `expected`; any other failed request remains a `fail`. Read every `skipped` and `incomplete` item; incomplete `value` items can contain a question for a vision reviewer. `n/a` means the input had nothing to check (no chart markup, no PDF).
+3. `bin/rk brief <file> --questions <set> --out-dir <dir> [--pdf]`. Give `brief.md` and its listed PNGs to a reviewer that did not make the artifact and can see images. With `--pdf`, the brief also lists the PDF and a PNG render for each page. It copies `answers.template.json` (which `rk brief` writes) to `answers.json` and fills it. To review several states together, repeat `--state '<label>=<file-or-local-URL>'`; each state gets a labelled section and its own output folder. The PDF sentence appears only when `--pdf` is used.
 4. `bin/rk brief --verify <dir>/answers.json`. A `no` is a failure to fix. When no reviewer can see images, the answers are `not-judged` and the report says so; they never count as passes.
 
 ## Markup the checks read
@@ -40,6 +41,8 @@ the variable above when that skill folder is elsewhere.
 | `data-rk-allow-overlap`, `data-rk-allow-truncate`, `data-rk-ignore` | Deliberate exceptions |
 
 Details and exact rules: `SPEC.md` sections 6 and 8.
+
+Visual scans omit content inside closed `<details>` (the visible `<summary>` remains checked), focusable elements positioned off-screen before focus such as skip links, and clipped visually-hidden patterns using `clip-path: inset(50%)` or a positioned 1 px clipped box. These are visual-check exclusions; test hidden states separately in a browser and keep axe accessibility checks enabled. Wide content inside an active `overflow-x: auto` or `scroll` container may extend horizontally beyond its scrollport without an overflow failure; the container itself and vertical overflow remain checked.
 
 For ordinary compositions, `value` T1 uses a 2× area-share target. A chart can use the data-graphic focal mode and its separate 0.5× target when the plotted data layer is the intended focal area; the report records which target it used. A non-data focal area over half the frame gets an `incomplete` value item with a vision question because the automatic prominence comparison is not reliable at that size. Chroma is `n/a` for an achromatic chart when its measured chroma is at or below the documented epsilon.
 

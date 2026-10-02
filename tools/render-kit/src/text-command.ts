@@ -8,7 +8,7 @@ import { wrapText, svgWrappedText } from './text.ts';
 const familyOf=(font:string)=>font.match(/\d+(?:\.\d+)?px\s+(.+)$/)?.[1].split(',')[0].trim().replace(/^['"]|['"]$/g,'')??'';
 async function sessionFor(font:string,text:string,fontFile?:string){
  const dir=await mkdtemp(join(tmpdir(),'rk-text-')),html=join(dir,'page.html');await writeFile(html,'<!doctype html><html lang="en"><title>Text measure</title><body></body></html>');
- const options:RunOptions={input:html,scale:1,at:0,settle:0,boot:0,media:'screen',timeout:30000,allowNetwork:false,pdf:false,strict:false,thresholds:{}};
+ const options:RunOptions={input:html,scale:1,at:0,settle:0,boot:0,media:'screen',timeout:30000,allowNetwork:false,pdf:false,strict:false,thresholds:{},expectedRequests:[]};
  const session=await prepare(options);
  try{
   const data=fontFile?(await readFile(fontFile)).toString('base64'):'';

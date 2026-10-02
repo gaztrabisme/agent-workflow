@@ -17,7 +17,7 @@ test('AT32 horizontal stroked series are visible to CVD and fidelity',{timeout:6
   const cvd=r.data.checks.find((c:any)=>c.id==='cvd');assert.equal(cvd.items.length,4);
   assert.ok(cvd.items.some((item:any)=>item.vision==='deuteranopia'&&Math.abs(item.distance-.039)<.002));
   assert.equal(r.data.checks.find((c:any)=>c.id==='fidelity').status,'pass');
-  const session=await prepare({input:resolve('samples/bad/horizontal-series.svg'),scale:1,at:'end',settle:10000,boot:100,media:'screen',timeout:30000,allowNetwork:false,pdf:false,strict:false,thresholds:{}});
+  const session=await prepare({input:resolve('samples/bad/horizontal-series.svg'),scale:1,at:'end',settle:10000,boot:100,media:'screen',timeout:30000,allowNetwork:false,pdf:false,strict:false,thresholds:{},expectedRequests:[]});
   try{const boxes=await session.page.locator('[data-rk-series]').evaluateAll((els:any[])=>els.map(e=>e.getBoundingClientRect().height));assert.deepEqual(boxes,[0,0]);}finally{await session.stop();}
 });
 
@@ -44,6 +44,7 @@ test('AT34 brief includes PDF and a PNG render for every PDF page',{timeout:1200
   const d=await temp(),r=await rk(['brief','samples/good/pdf-pages.html','--questions','questions/slide.md','--out-dir',d,'--pdf']);
   assert.equal(r.code,0,r.stderr);const md=await readFile(join(d,'brief.md'),'utf8');
   assert.match(md,/render\.pdf/);assert.match(md,/render-page-1\.png/);assert.match(md,/render-page-2\.png/);
+  assert.match(md,/PDF and page images show the print output/);
   for(const name of ['render.pdf','render-page-1.png','render-page-2.png'])assert.ok(await readFile(join(d,name)),name);
   assert.match((await run('pdfinfo',[join(d,'render.pdf')])).stdout,/Pages:\s+2/);
 });

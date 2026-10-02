@@ -16,10 +16,10 @@ const help: Record<string, string> = {
 
 Commands:
   render <input> --out <file.png|file.pdf> [render options] [--simulate <type>]
-  check <input> [render options] [--checks <ids>] [--threshold <id.name=n>] [--pdf] [--out-dir <dir>] [--strict]
+  check <input> [render options] [--checks <ids>] [--threshold <id.name=n>] [--expect-request <pattern>=<status>] [--pdf] [--out-dir <dir>] [--strict]
   text measure --font <css font> --text <string> [--font-file <path>]
   text wrap --font <css font> --text <string> --width <px> [--line-height <n>] [--max-lines <n>] [--format json|svg] [--x <n> --y <n>] [--font-file <path>]
-  brief <input> --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--checks <ids>] [--threshold <id.name=n>] [render options]
+  brief [<input> | --state <label>=<input> ...] --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--checks <ids>] [--threshold <id.name=n>] [--expect-request <pattern>=<status>] [--pdf] [render options]
   brief --verify <answers.json> [--strict]
   selftest [--strict]
 
@@ -34,25 +34,28 @@ ${common}`,
   --simulate <type>         PNG vision simulation: protanopia, deuteranopia, tritanopia, achromatopsia
 
 ${common}`,
-  check: `Usage: rk check <input> [render options] [--checks <ids>] [--pdf] [--out-dir <dir>] [--strict]
+  check: `Usage: rk check <input> [render options] [--checks <ids>] [--expect-request <pattern>=<status>] [--pdf] [--out-dir <dir>] [--strict]
 
   --checks <ids>            Comma-separated check ids
   --threshold <id.name=n>   Override a named check threshold (repeatable)
+  --expect-request <pattern>=<status>  Expect matching HTTP 4xx/5xx (repeatable)
   --pdf                     Also render and check PDF fonts
   --out-dir <dir>           Output directory (default: temporary directory)
   --strict                  Treat skipped checks as failures
 
 ${common}`,
-  brief: `Usage: rk brief <input> --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--checks <ids>] [--threshold <id.name=n>] [--pdf] [render options]
+  brief: `Usage: rk brief [<input> | --state <label>=<input> ...] --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--checks <ids>] [--threshold <id.name=n>] [--expect-request <pattern>=<status>] [--pdf] [render options]
        rk brief --verify <answers.json> [--strict]
 
   --questions <file>        Question set for the reviewer
   --out-dir <dir>           Directory for the brief, report, and images
   --purpose <text>          Short description of the artifact
+  --state <label>=<input>  Add a labelled input/state (repeatable; use instead of <input>)
   --simulate <types>        Comma-separated vision simulations
   --pdf                     Also render the PDF and one PNG per PDF page
   --checks <ids>            Comma-separated check ids
   --threshold <id.name=n>   Override a named check threshold (repeatable)
+  --expect-request <pattern>=<status>  Expect matching HTTP 4xx/5xx (repeatable)
   --verify <file>           Verify a completed answers file
   --strict                  Treat unsure and not-judged answers as failures
 

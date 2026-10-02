@@ -22,13 +22,26 @@ export async function checkCommand(input:string,v:Record<string,any>){
 
 export async function briefCommand(input:string|undefined,v:Record<string,any>){
  if(v.verify){const {value,code}=await verifyAnswers(resolve(v.verify),!!v.strict);return {value,code};}
- if(!input||!v.questions||!v['out-dir'])throw new Error('brief requires <input>, --questions and --out-dir');
+ if(!v.questions||!v['out-dir'])throw new Error('brief requires --questions and --out-dir');
+ const declared=v.state===undefined?[]:Array.isArray(v.state)?v.state:[v.state];
+ if(input&&declared.length)throw new Error('Use either <input> or --state, not both');
+ if(!input&&!declared.length)throw new Error('brief requires <input> or at least one --state <label>=<input>');
+ const states=declared.length?declared.map((entry:string)=>{const split=entry.indexOf('=');if(split<1||split===entry.length-1)throw new Error(`Invalid --state: ${entry} (expected <label>=<input>)`);return {label:entry.slice(0,split).trim(),input:entry.slice(split+1)};}):[{label:'Artifact',input:input!}];
+ if(states.some(state=>!state.label||!state.input))throw new Error('--state labels and inputs must not be empty');
+ if(new Set(states.map(state=>state.label.toLowerCase())).size!==states.length)throw new Error('--state labels must be unique');
  const simulations=String(v.simulate??'').split(',').filter(Boolean);for(const t of simulations)if(!visions.includes(t))throw new Error(`Unknown simulation: ${t}`);
- const options=await runOptions(input,v,!!v.pdf);validateChecks(options.checks);const dir=resolve(v['out-dir']);options.outDir=dir;options.simulate=undefined;
- const {report}=await checkInput(options);
- for(const type of simulations){const session=await prepare({...options,simulate:type});try{await capture(session,{...options,simulate:type},join(dir,`render-${type}.png`),'png');}finally{await session.stop();}}
- const pdfPages=options.pdf?await renderPdfPages(join(dir,'render.pdf'),dir):[];
- const written=await writeBrief(dir,resolve(v.questions),String(v.purpose??''),report,simulations,pdfPages);return {value:{out_dir:dir,images:written.images.map(x=>join(dir,x)),questions:written.questions.length},code:0};
+ const dir=resolve(v['out-dir']),labelled=declared.length>0,reviews=[];
+ for(let i=0;i<states.length;i++){
+  const state=states[i],options=await runOptions(state.input,v,!!v.pdf);validateChecks(options.checks);
+  const slug=state.label.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'state';
+  const stateDir=labelled?join(dir,`state-${i+1}-${slug}`):dir;options.outDir=stateDir;options.simulate=undefined;
+  const {report}=await checkInput(options);
+  for(const type of simulations){const session=await prepare({...options,simulate:type});try{await capture(session,{...options,simulate:type},join(stateDir,`render-${type}.png`),'png');}finally{await session.stop();}}
+  const pdfPages=options.pdf?await renderPdfPages(join(stateDir,'render.pdf'),stateDir):[];
+  const files=['render.png',...simulations.map(type=>`render-${type}.png`),...(options.pdf?['render.pdf',...pdfPages]:[])].map(file=>labelled?`${stateDir.slice(dir.length+1)}/${file}`:file);
+  reviews.push({label:state.label,input:state.input,report,files});
+ }
+ const written=await writeBrief(dir,resolve(v.questions),String(v.purpose??''),reviews);return {value:{out_dir:dir,images:written.images,questions:written.questions.length,states:reviews.map(state=>({label:state.label,input:state.input}))},code:0};
 }
 
 export async function selftestCommand(strict:boolean){return selftest(strict);}

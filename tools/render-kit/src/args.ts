@@ -5,7 +5,7 @@ import { CHECK_IDS, type RunOptions } from './model.ts';
 import { DEFAULT_THRESHOLDS } from './thresholds.ts';
 import { isUrl } from './util.ts';
 
-export const definitions={out:{type:'string'},root:{type:'string'},width:{type:'string'},height:{type:'string'},scale:{type:'string'},at:{type:'string'},settle:{type:'string'},boot:{type:'string'},media:{type:'string'},'wait-for':{type:'string'},timeout:{type:'string'},'allow-network':{type:'boolean'},simulate:{type:'string'},pdf:{type:'boolean'},'out-dir':{type:'string'},checks:{type:'string'},threshold:{type:'string',multiple:true},strict:{type:'boolean'},questions:{type:'string'},purpose:{type:'string'},verify:{type:'string'},font:{type:'string'},text:{type:'string'},'font-file':{type:'string'},'line-height':{type:'string'},'max-lines':{type:'string'},format:{type:'string'},x:{type:'string'},y:{type:'string'}} as const;
+export const definitions={out:{type:'string'},root:{type:'string'},width:{type:'string'},height:{type:'string'},scale:{type:'string'},at:{type:'string'},settle:{type:'string'},boot:{type:'string'},media:{type:'string'},'wait-for':{type:'string'},timeout:{type:'string'},'allow-network':{type:'boolean'},'expect-request':{type:'string',multiple:true},state:{type:'string',multiple:true},simulate:{type:'string'},pdf:{type:'boolean'},'out-dir':{type:'string'},checks:{type:'string'},threshold:{type:'string',multiple:true},strict:{type:'boolean'},questions:{type:'string'},purpose:{type:'string'},verify:{type:'string'},font:{type:'string'},text:{type:'string'},'font-file':{type:'string'},'line-height':{type:'string'},'max-lines':{type:'string'},format:{type:'string'},x:{type:'string'},y:{type:'string'}} as const;
 
 export function parseOptions(args:string[]){return parseArgs({args,options:definitions,allowPositionals:true,strict:true});}
 const number=(v:string|undefined,label:string,fallback:number)=>{const n=v===undefined?fallback:Number(v);if(!Number.isFinite(n))throw new Error(`${label} must be a number`);return n;};
@@ -17,7 +17,12 @@ export async function runOptions(input:string,v:Record<string,any>,pdf=false):Pr
  const root=v.root?resolve(v.root):undefined;if(root&&!(await stat(root).catch(()=>null))?.isDirectory())throw new Error(`Root directory does not exist: ${root}`);if(root&&!url&&!resolve(input).startsWith(root+sep))throw new Error('Input file must be inside --root');
  const at=v.at??'end',time=at==='end'?'end':number(at,'--at',0);if(time!=='end'&&time<0)throw new Error('--at must be non-negative or end');
  const media=v.media??'screen';if(!['screen','print'].includes(media))throw new Error('--media must be screen or print');
- return {input,root,width:v.width?positive(number(v.width,'--width',1),'--width'):undefined,height:v.height?positive(number(v.height,'--height',1),'--height'):undefined,scale:positive(number(v.scale,'--scale',1),'--scale'),at:time,settle:number(v.settle,'--settle',10000),boot:number(v.boot,'--boot',100),media,waitFor:v['wait-for'],timeout:positive(number(v.timeout,'--timeout',30000),'--timeout'),allowNetwork:!!v['allow-network'],simulate:v.simulate,pdf,strict:!!v.strict,outDir:v['out-dir'],checks:v.checks?String(v.checks).split(','):undefined,thresholds:parseThresholds(v.threshold)};
+ return {input,root,width:v.width?positive(number(v.width,'--width',1),'--width'):undefined,height:v.height?positive(number(v.height,'--height',1),'--height'):undefined,scale:positive(number(v.scale,'--scale',1),'--scale'),at:time,settle:number(v.settle,'--settle',10000),boot:number(v.boot,'--boot',100),media,waitFor:v['wait-for'],timeout:positive(number(v.timeout,'--timeout',30000),'--timeout'),allowNetwork:!!v['allow-network'],simulate:v.simulate,pdf,strict:!!v.strict,outDir:v['out-dir'],checks:v.checks?String(v.checks).split(','):undefined,thresholds:parseThresholds(v.threshold),expectedRequests:parseExpectedRequests(v['expect-request'])};
+}
+
+export function parseExpectedRequests(raw?:string|string[]){
+ const entries=raw===undefined?[]:Array.isArray(raw)?raw:[raw];
+ return entries.map(entry=>{const split=entry.lastIndexOf('='),pattern=entry.slice(0,split),statusText=entry.slice(split+1),status=Number(statusText);if(split<1||!pattern.trim()||!/^\d{3}$/.test(statusText)||status<400||status>599)throw new Error(`Invalid --expect-request: ${entry} (expected <url-pattern>=<4xx-or-5xx-status>)`);return {pattern,status};});
 }
 
 export function parseThresholds(raw?:string|string[]){

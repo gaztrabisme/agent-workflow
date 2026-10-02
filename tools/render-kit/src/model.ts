@@ -2,11 +2,12 @@ import type { Browser, BrowserContext, CDPSession, Page } from 'playwright';
 
 export type Status = 'pass' | 'fail' | 'incomplete' | 'skipped' | 'n/a';
 export type CheckResult = { id: string; status: Status; thresholds: Record<string, number>; items: unknown[]; reason?: string | null };
+export type ExpectedRequest = { pattern: string; status: number };
 export type RunOptions = {
   input: string; root?: string; width?: number; height?: number; scale: number; at: number | 'end';
   settle: number; boot: number; media: 'screen' | 'print'; waitFor?: string; timeout: number;
   allowNetwork: boolean; simulate?: string; pdf: boolean; strict: boolean; outDir?: string;
-  checks?: string[]; thresholds: Record<string, number>;
+  checks?: string[]; thresholds: Record<string, number>; expectedRequests: ExpectedRequest[];
 };
 export type Session = { browser: Browser; context: BrowserContext; page: Page; cdp: CDPSession; url: string;
   stop: () => Promise<void>; blocked: { url: string; reason: string }[]; errors: string[]; width: number; height: number; scale: number; svgInput:boolean; allowNetwork:boolean };
