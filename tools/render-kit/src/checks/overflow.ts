@@ -1,7 +1,16 @@
 import type { CheckContext } from '../model.ts';
+import { CHROMIUM_CAPTURE_LIMIT_PX } from '../capture-limit.ts';
 import { result, scanTextBoxes, stageRect, type TextBox } from './common.ts';
 
 export async function run(ctx: CheckContext) {
+  const captureSize = await ctx.session.page.evaluate(({ fullDocument, svgInput }: { fullDocument:boolean; svgInput:boolean }) => {
+    const stage = document.querySelector('[data-rk-stage]'), svg = stage || !svgInput ? null : document.querySelector('body > svg'), element = stage ?? svg;
+    if (element) {
+      const box = element.getBoundingClientRect();
+      return { target: stage ? 'first data-rk-stage' : 'SVG root', width: box.width, height: box.height };
+    }
+    return { target: 'document page', width: Math.max(innerWidth, document.documentElement.scrollWidth, document.body?.scrollWidth ?? 0), height: fullDocument ? Math.max(innerHeight, document.documentElement.scrollHeight, document.body?.scrollHeight ?? 0) : innerHeight };
+  }, { fullDocument: ctx.options.height === undefined && !ctx.session.svgInput, svgInput: ctx.session.svgInput });
   const tol = ctx.options.thresholds['overflow.tolerance_px'] ?? 1, boxes = await scanTextBoxes(ctx.session.page) as TextBox[], stage = await stageRect(ctx.session.page,ctx.session.svgInput,ctx.options.height===undefined&&!ctx.session.svgInput);
   const measured = await ctx.session.page.evaluate((selectors: string[]) => selectors.map(selector => {
     const e = document.querySelector(selector)!;
@@ -16,7 +25,10 @@ export async function run(ctx: CheckContext) {
     const svg = e.closest('svg'), v = svg?.getBoundingClientRect();
     return { selector, element: pad(e), clip, scroll, clipIsScroll:!!clipNode&&clipNode===scrollNode, truncated, scrollWidth:e.scrollWidth, clientWidth:e.clientWidth, svg: v && { left:v.left,top:v.top,right:v.right,bottom:v.bottom } };
   }), boxes.map(b => b.selector));
-  const items: unknown[] = [];
+  const width = Math.ceil(captureSize.width * ctx.options.scale), height = Math.ceil(captureSize.height * ctx.options.scale), oversized = [width > CHROMIUM_CAPTURE_LIMIT_PX ? 'width' : '', height > CHROMIUM_CAPTURE_LIMIT_PX ? 'height' : ''].filter(Boolean);
+  const axisVerb = oversized.length > 1 ? 'exceed' : 'exceeds';
+  const items: unknown[] = oversized.length ? [{ kind: 'capture-limit', target: captureSize.target, width_px: width, height_px: height, limit_px: CHROMIUM_CAPTURE_LIMIT_PX,
+    message: `The ${captureSize.target} capture is ${width.toLocaleString('en-US')} × ${height.toLocaleString('en-US')} px at scale ${ctx.options.scale}; its ${oversized.join(' and ')} ${axisVerb} Chromium's ${CHROMIUM_CAPTURE_LIMIT_PX.toLocaleString('en-US')} px screenshot capture limit.` }] : [];
   const excess = (b: any, r: any) => ({ left:Math.max(0,b.left-r.left), top:Math.max(0,b.top-r.top), right:Math.max(0,r.right-b.right), bottom:Math.max(0,r.bottom-b.bottom) });
   const add = (kind: string, selector: string, amount: any) => { if (Object.values(amount).some(v => Number(v) > tol)) items.push({ kind, selector, overflow: amount }); };
   for (let i = 0; i < boxes.length; i++) {

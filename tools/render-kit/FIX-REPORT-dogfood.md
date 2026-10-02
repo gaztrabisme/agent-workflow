@@ -1,4 +1,17 @@
-# Dogfood fixes: render-kit (F3, F5, F10, F11)
+# Dogfood fixes: render-kit (F1, F3, F5, F10, F11)
+
+## Presentation follow-up — F1 — 2026-10-02
+
+### Findings and changes
+
+- **F1 — oversized and multi-slide captures.** The `overflow` check now fails with a `capture-limit` item when the first stage, or the document page without a stage, exceeds Chromium's 16,384 px output bound in width or height. The item names the target, dimensions, and limit. `rk check` crops an oversized diagnostic PNG so it can finish writing the report. `AGENTS.md` documents that only the first stage is used and shows how to check a deck one slide file at a time.
+
+### Verification
+
+- Added good/bad capture-boundary samples and regression coverage for an exact-limit stage, an over-limit tall stage, an over-limit tall page, an over-limit wide page, and an HTML page with a top-level inline SVG.
+- `npm test`: exit 0, 48 tests passed. `./bin/rk selftest`: exit 0, all 21 sample expectations passed.
+- Both acceptance commands used `/tmp/rk-acceptance-venv/bin` first on `PATH` because the default `python3` lacks NumPy and Pillow.
+- `git diff --check`: passed. All changes remain uncommitted.
 
 ## Findings and changes
 

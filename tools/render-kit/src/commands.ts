@@ -36,7 +36,7 @@ export async function briefCommand(input:string|undefined,v:Record<string,any>){
   const slug=state.label.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'state';
   const stateDir=labelled?join(dir,`state-${i+1}-${slug}`):dir;options.outDir=stateDir;options.simulate=undefined;
   const {report}=await checkInput(options);
-  for(const type of simulations){const session=await prepare({...options,simulate:type});try{await capture(session,{...options,simulate:type},join(stateDir,`render-${type}.png`),'png');}finally{await session.stop();}}
+  for(const type of simulations){const session=await prepare({...options,simulate:type});try{await capture(session,{...options,simulate:type},join(stateDir,`render-${type}.png`),'png',true);}finally{await session.stop();}}
   const pdfPages=options.pdf?await renderPdfPages(join(stateDir,'render.pdf'),stateDir):[];
   const files=['render.png',...simulations.map(type=>`render-${type}.png`),...(options.pdf?['render.pdf',...pdfPages]:[])].map(file=>labelled?`${stateDir.slice(dir.length+1)}/${file}`:file);
   reviews.push({label:state.label,input:state.input,report,files});

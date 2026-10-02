@@ -168,7 +168,9 @@ Fail when any of these holds, by more than `overflow.tolerance_px`:
 
 An active horizontal scroll container (`overflow-x: auto` or `scroll` and `scrollWidth > clientWidth`) is a deliberate viewport for its wide descendants; its horizontal clipping is accepted.
 
-Items: kind, selector, the overflow in pixels on each side.
+The screenshot capture bound is 16,384 output pixels per dimension (presentation dogfood F1; Chromium full-page captures above this size can wrap). Measure the first `data-rk-stage` when present, otherwise the document page (or the SVG root for an SVG input); use full document height unless `--height` fixes the viewport, multiply by `--scale`, and round up. Fail with a `capture-limit` item when width or height exceeds the bound. The item names the target, measured dimensions, and limit. When the requested PNG capture exceeds the bound, `rk check` crops its diagnostic PNG to the bound so a report can still be written.
+
+Items: kind, selector, overflow in pixels on each side; `capture-limit` items carry `target`, `width_px`, `height_px`, `limit_px` and a message.
 
 ### 6.5 `collision` (all inputs)
 Fail when two text boxes overlap by more than `collision.min_overlap_px` in both width and height. Not compared: two boxes of the same element, `<tspan>` boxes of the same `<text>`, an element and its descendant, and any pair where either element or an ancestor has `data-rk-allow-overlap`. Find candidate pairs by sorting boxes by their left edge and sweeping, not by testing every pair. Items: both selectors and the overlap rectangle.

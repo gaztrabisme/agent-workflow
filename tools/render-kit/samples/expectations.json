@@ -1,5 +1,6 @@
 [
   { "input": "good/slide.html", "fail": [] },
+  { "input": "good/capture-limit.html", "fail": [] },
   { "input": "good/chart.svg", "fail": [] },
   { "input": "good/animated.html", "fail": [] },
   { "input": "good/raf.html", "fail": [] },
@@ -10,6 +11,7 @@
   { "input": "bad/console.html", "fail": ["console"] },
   { "input": "bad/fonts.html", "fail": ["fonts"] },
   { "input": "bad/overflow.html", "fail": ["overflow"] },
+  { "input": "bad/capture-limit.html", "fail": ["overflow"] },
   { "input": "bad/collision.svg", "fail": ["collision"] },
   { "input": "bad/contrast.html", "fail": ["contrast"] },
   { "input": "bad/cvd.svg", "fail": ["cvd"] },

@@ -42,7 +42,18 @@ the variable above when that skill folder is elsewhere.
 
 Details and exact rules: `SPEC.md` sections 6 and 8.
 
+Only the first `[data-rk-stage]` in a file is used for capture and stage-relative checks. To check a multi-slide deck, export one HTML file per slide, with one stage and focal element in each file, then run `rk check` on every slide. `--root` serves shared relative assets for each input; it does not batch files.
+
+```bash
+set -e
+for slide in slides/s*.html; do
+  bin/rk check "$slide" --root "$PWD" --out-dir "out/$(basename "$slide" .html)"
+done
+```
+
 Visual scans omit content inside closed `<details>` (the visible `<summary>` remains checked), focusable elements positioned off-screen before focus such as skip links, and clipped visually-hidden patterns using `clip-path: inset(50%)` or a positioned 1 px clipped box. These are visual-check exclusions; test hidden states separately in a browser and keep axe accessibility checks enabled. Wide content inside an active `overflow-x: auto` or `scroll` container may extend horizontally beyond its scrollport without an overflow failure; the container itself and vertical overflow remain checked.
+
+`overflow` also fails if the first stage, or the document page when no stage exists, exceeds Chromium's 16,384 px screenshot capture limit in either dimension after `--scale`. Page height uses the full document unless `--height` fixes the viewport. The report names the target, dimensions and limit. When the requested PNG capture exceeds this bound, `rk check` crops its diagnostic PNG to the bound so it can finish and write the report.
 
 For ordinary compositions, `value` T1 uses a 2× area-share target. A chart can use the data-graphic focal mode and its separate 0.5× target when the plotted data layer is the intended focal area; the report records which target it used. A non-data focal area over half the frame gets an `incomplete` value item with a vision question because the automatic prominence comparison is not reliable at that size. Chroma is `n/a` for an achromatic chart when its measured chroma is at or below the documented epsilon.
 
