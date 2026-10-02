@@ -6,6 +6,7 @@ import { checkInput } from './runner.ts';
 import { selftest } from './selftest.ts';
 import { textCommand } from './text-command.ts';
 import { jsonWrite } from './util.ts';
+import { renderPdfPages } from './pdf-pages.ts';
 
 const visions=['protanopia','deuteranopia','tritanopia','achromatopsia'];
 export async function renderCommand(input:string,v:Record<string,any>){
@@ -23,10 +24,11 @@ export async function briefCommand(input:string|undefined,v:Record<string,any>){
  if(v.verify){const {value,code}=await verifyAnswers(resolve(v.verify),!!v.strict);return {value,code};}
  if(!input||!v.questions||!v['out-dir'])throw new Error('brief requires <input>, --questions and --out-dir');
  const simulations=String(v.simulate??'').split(',').filter(Boolean);for(const t of simulations)if(!visions.includes(t))throw new Error(`Unknown simulation: ${t}`);
- const options=await runOptions(input,v,false);validateChecks(options.checks);const dir=resolve(v['out-dir']);options.outDir=dir;options.simulate=undefined;
+ const options=await runOptions(input,v,!!v.pdf);validateChecks(options.checks);const dir=resolve(v['out-dir']);options.outDir=dir;options.simulate=undefined;
  const {report}=await checkInput(options);
  for(const type of simulations){const session=await prepare({...options,simulate:type});try{await capture(session,{...options,simulate:type},join(dir,`render-${type}.png`),'png');}finally{await session.stop();}}
- const written=await writeBrief(dir,resolve(v.questions),String(v.purpose??''),report,simulations);return {value:{out_dir:dir,images:written.images.map(x=>join(dir,x)),questions:written.questions.length},code:0};
+ const pdfPages=options.pdf?await renderPdfPages(join(dir,'render.pdf'),dir):[];
+ const written=await writeBrief(dir,resolve(v.questions),String(v.purpose??''),report,simulations,pdfPages);return {value:{out_dir:dir,images:written.images.map(x=>join(dir,x)),questions:written.questions.length},code:0};
 }
 
 export async function selftestCommand(strict:boolean){return selftest(strict);}

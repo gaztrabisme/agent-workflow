@@ -24,7 +24,9 @@ export async function scanTextBoxes(page: CheckContext['session']['page']) {
       if (e.closest('[data-rk-ignore]')) return false;
       const r = e.getBoundingClientRect(), s = getComputedStyle(e);
       for(let n:Element|null=e;n;n=n.parentElement)if(Number(getComputedStyle(n).opacity)===0)return false;
-      return r.width > 0 && r.height > 0 && s.display !== 'none' && s.visibility !== 'hidden';
+      const geometry=e.namespaceURI==='http://www.w3.org/2000/svg'&&['path','line','polyline','polygon','rect','circle','ellipse'].includes(e.localName);
+      const stroked=geometry&&(r.width===0||r.height===0)&&s.stroke!=='none'&&parseFloat(s.strokeWidth)>0;
+      return (r.width > 0 && r.height > 0 || stroked) && s.display !== 'none' && s.visibility !== 'hidden';
     };
     const rects = (nodes: Node[]) => {
       const out = nodes.flatMap(node => { const r = document.createRange(); r.selectNodeContents(node); return [...r.getClientRects()]; });

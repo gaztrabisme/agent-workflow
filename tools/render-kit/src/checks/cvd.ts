@@ -7,8 +7,9 @@ export async function run(ctx: CheckContext) {
     const map = new Map<string, Map<string, number>>();
     for (const e of document.querySelectorAll('[data-rk-series]')) {
       const b=e.getBoundingClientRect(),style=getComputedStyle(e);let hidden=false;for(let n:Element|null=e;n;n=n.parentElement)if(Number(getComputedStyle(n).opacity)===0)hidden=true;
-      if (e.closest('[data-rk-ignore]')||b.width===0||b.height===0||style.display==='none'||style.visibility==='hidden'||hidden) continue;
-      const name = e.getAttribute('data-rk-series')!, s = style, color = s.fill !== 'none' ? s.fill : s.stroke;
+      const geometry=e.namespaceURI==='http://www.w3.org/2000/svg'&&['path','line','polyline','polygon','rect','circle','ellipse'].includes(e.localName),stroked=geometry&&(b.width===0||b.height===0)&&style.stroke!=='none'&&parseFloat(style.strokeWidth)>0;
+      if (e.closest('[data-rk-ignore]')||!(b.width>0&&b.height>0||stroked)||style.display==='none'||style.visibility==='hidden'||hidden) continue;
+      const name = e.getAttribute('data-rk-series')!, s = style, color = stroked || s.fill === 'none' ? s.stroke : s.fill;
       const counts = map.get(name) ?? new Map<string, number>(); counts.set(color, (counts.get(color) ?? 0) + 1); map.set(name, counts);
     }
     return [...map].map(([name, colors]) => [name, [...colors].sort((a,b)=>b[1]-a[1])[0][0]]);

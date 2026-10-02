@@ -23,7 +23,9 @@ export async function run(ctx: CheckContext) {
   }
   const visible = await ctx.session.page.evaluate(() => [...document.querySelectorAll('*')].filter(e => !e.closest('[data-rk-ignore]')).map(e => {
     const sel=(el:Element)=>{if(el.id&&document.querySelectorAll(`#${CSS.escape(el.id)}`).length===1)return `#${CSS.escape(el.id)}`;if(el===document.documentElement)return 'html';const parts:string[]=[];for(let n:Element|null=el;n&&n!==document.documentElement;n=n.parentElement){let i=1;for(let p=n.previousElementSibling;p;p=p.previousElementSibling)if(p.localName===n.localName)i++;parts.unshift(`${n.localName}:nth-of-type(${i})`);}return `html>${parts.join('>')}`;};
-    const r=e.getBoundingClientRect(), s=getComputedStyle(e);let hidden=false;for(let n:Element|null=e;n;n=n.parentElement)if(Number(getComputedStyle(n).opacity)===0)hidden=true;return { selector:sel(e), left:r.left,top:r.top,right:r.right,bottom:r.bottom,visible:r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&!hidden };
+    const r=e.getBoundingClientRect(), s=getComputedStyle(e);let hidden=false;for(let n:Element|null=e;n;n=n.parentElement)if(Number(getComputedStyle(n).opacity)===0)hidden=true;
+    const geometry=e.namespaceURI==='http://www.w3.org/2000/svg'&&['path','line','polyline','polygon','rect','circle','ellipse'].includes(e.localName),stroked=geometry&&(r.width===0||r.height===0)&&s.stroke!=='none'&&parseFloat(s.strokeWidth)>0;
+    return { selector:sel(e), left:r.left,top:r.top,right:r.right,bottom:r.bottom,visible:(r.width>0&&r.height>0||stroked)&&s.display!=='none'&&s.visibility!=='hidden'&&!hidden };
   }));
   for (const el of visible) if (el.visible) add('offstage', el.selector, excess(stage, el));
   return result(ctx, 'overflow', items.length ? 'fail' : 'pass', items);

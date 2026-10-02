@@ -13,6 +13,7 @@
   { "input": "bad/collision.svg", "fail": ["collision"] },
   { "input": "bad/contrast.html", "fail": ["contrast"] },
   { "input": "bad/cvd.svg", "fail": ["cvd"] },
+  { "input": "bad/horizontal-series.svg", "fail": ["cvd"] },
   { "input": "bad/fidelity.svg", "fail": ["fidelity"] },
   { "input": "bad/a11y.html", "fail": ["a11y"] },
   { "input": "bad/value.html", "fail": ["value"] },

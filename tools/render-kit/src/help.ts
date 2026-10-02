@@ -43,13 +43,14 @@ ${common}`,
   --strict                  Treat skipped checks as failures
 
 ${common}`,
-  brief: `Usage: rk brief <input> --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--checks <ids>] [--threshold <id.name=n>] [render options]
+  brief: `Usage: rk brief <input> --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--checks <ids>] [--threshold <id.name=n>] [--pdf] [render options]
        rk brief --verify <answers.json> [--strict]
 
   --questions <file>        Question set for the reviewer
   --out-dir <dir>           Directory for the brief, report, and images
   --purpose <text>          Short description of the artifact
   --simulate <types>        Comma-separated vision simulations
+  --pdf                     Also render the PDF and one PNG per PDF page
   --checks <ids>            Comma-separated check ids
   --threshold <id.name=n>   Override a named check threshold (repeatable)
   --verify <file>           Verify a completed answers file

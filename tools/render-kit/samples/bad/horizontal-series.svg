@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="120" viewBox="0 0 320 120">
+  <title>Two horizontal series with colours that merge for red-green colour vision deficiency</title>
+  <rect width="320" height="120" fill="#ffffff"/>
+  <g data-rk-chart data-rk-x-scale="linear" data-rk-x-domain="0,100" data-rk-x-range="20,300" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="20,100">
+    <path d="M20 28 L300 28" fill="none" stroke="#d62728" stroke-width="4" data-rk-series="Series A" data-rk-mark="line" data-rk-points="0,10 100,10"/>
+    <path d="M20 92 L300 92" fill="none" stroke="#2ca02c" stroke-width="4" data-rk-series="Series B" data-rk-mark="line" data-rk-points="0,90 100,90"/>
+  </g>
+</svg>

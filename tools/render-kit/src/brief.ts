@@ -8,13 +8,13 @@ export function parseQuestions(source:string){
  return {headings,questions};
 }
 
-export async function writeBrief(dir:string,questionPath:string,purpose:string,report:any,simulations:string[]){
+export async function writeBrief(dir:string,questionPath:string,purpose:string,report:any,simulations:string[],pdfPages:string[]=[]){
  await mkdir(dir,{recursive:true});const {headings,questions}=parseQuestions(await readFile(questionPath,'utf8'));
  if(!questions.length)throw new Error('Questions file has no questions');
- const images=['render.png',...simulations.map(t=>`render-${t}.png`)];
+ const images=['render.png',...simulations.map(t=>`render-${t}.png`),...(report.outputs?.pdf?['render.pdf',...pdfPages]:[])];
  const checks=report.checks.map((c:any)=>`- **${c.id}: ${c.status}**${c.reason?` — ${c.reason}`:''}`).join('\n');
  const qs=questions.map((q,i)=>`Q${i+1}. ${q}`).join('\n');
- const md=`# Visual review brief\n\n**Purpose:** ${purpose||'Review the rendered artifact.'}\n\n## Images\n\n${images.map(p=>`- ${join(dir,p)}`).join('\n')}\n\n## Code checks\n\n${checks}\n\nThese checks report mechanical findings. Review the images for visual qualities the code cannot judge.\n\n## How to answer\n\nFor each question, answer yes, no, unsure, or not-judged. Use not-judged if you cannot see the image. Give one sentence explaining the answer. Set where to the region or element for yes and no. A yes means the artifact passes the question.\n\n${headings.join('\n')}\n\n${qs}\n`;
+ const md=`# Visual review brief\n\n**Purpose:** ${purpose||'Review the rendered artifact.'}\n\n## Review files\n\n${images.map(p=>`- ${join(dir,p)}`).join('\n')}\n\n## Code checks\n\n${checks}\n\nThese checks report mechanical findings. Review the images for visual qualities the code cannot judge. The PDF and page images show the print output.\n\n## How to answer\n\nFor each question, answer yes, no, unsure, or not-judged. Use not-judged if you cannot see the image. Give one sentence explaining the answer. Set where to the region or element for yes and no. A yes means the artifact passes the question.\n\n${headings.join('\n')}\n\n${qs}\n`;
  await writeFile(join(dir,'brief.md'),md);await jsonWrite(join(dir,'answers.template.json'),{reviewer:null,answers:questions.map((question,i)=>({id:`Q${i+1}`,question,answer:null,where:null,reason:null}))});
  return {questions,images};
 }

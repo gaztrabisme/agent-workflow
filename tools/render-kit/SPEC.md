@@ -12,6 +12,7 @@ Terms used below:
 - **Stage:** the area that is the artifact. It is the element marked `data-rk-stage` when one exists; otherwise the viewport for HTML input, or the SVG's own size for SVG input.
 - **Check:** one code test. Its status is `pass`; `fail`; `incomplete` (it ran and found no failure, but could not measure some items, which it lists); `skipped` (it applies but could not run, for example because a tool is missing; a reason is always given); or `n/a` (the input has nothing for it to check, such as no chart markup or no PDF; a reason is always given).
 - **Mark:** an SVG element that encodes a data value: a bar, a point, a line.
+- **Data-graphic focal:** a focal area declared with `data-rk-focal="data-graphic"`; its value target is distinct from the ordinary composition target.
 - **OKLab distance:** the Euclidean distance between two colours in the OKLab colour space (Björn Ottosson, 2020), where lightness L runs from 0 to 1.
 - **Page clock:** Playwright's fake clock, which controls `Date`, timers and `requestAnimationFrame` inside the page.
 
@@ -28,8 +29,9 @@ Out of scope: video encoding and PowerPoint output (the separate `scene-engine`,
 - **Browser:** Playwright's Chromium launched with `channel: 'chromium'`: full Chromium in the new headless mode, with GPU rasterisation and WebGL through ANGLE on Metal (verified on the build Mac, 2026-09-26). Playwright's Chromium build exposes no WebGPU in any mode (`navigator.gpu` is undefined, verified the same day), so WebGPU content is out of scope. The headless shell is never used: it rasterises WebGL on the CPU, and its frames differ from the new mode's by 3.6–8.1% of pixels (research: graphics-motion). Pages come from `browser.newContext()`, which `@axe-core/playwright` requires. Every report records the browser version and the mode.
 - **Local server:** local files are never loaded over `file://`. For a file input, rk starts a static HTTP server (Node's `http` module, no dependency) on `127.0.0.1` with a free port, rooted at `--root` (default: the input file's folder), and loads the input over `http`. Requests for paths outside the root get 404. The server stops when the command ends. For a URL input, no server starts, `--root` is refused (exit 2), and the URL must serve an HTML page.
 - **Network:** blocked by default. The page may request only its own origin: the rk server's for a file input, the URL's for a URL input. Every other request is aborted and recorded. `--allow-network` lifts the block.
-- **Optional tools**, detected at run time; when one is missing, the check that needs it is `skipped` with the reason:
+- **Optional tools**, detected at run time; when a check dependency is missing, that check is `skipped` with the reason. A missing page-render tool makes `rk brief --pdf` exit 2 with the tool error:
   - `pdffonts` from poppler, for `pdf-fonts`;
+  - `pdftoppm` from poppler, for PDF page previews in `rk brief --pdf`;
   - Python 3 with numpy and Pillow, plus `color-theory`'s `scripts/checks.py`, for `value`. The color-theory folder is the env var `RK_COLOR_THEORY` if set, else `../skills/color-theory` relative to the render-kit folder.
 - **Platforms:** developed on macOS (Apple Silicon); must also run on Linux.
 
@@ -73,9 +75,9 @@ Measures one line of text in the browser with canvas `measureText`, after `docum
 ### 4.5 `rk text wrap --font <css font> --text <string> --width <px> [--line-height <multiplier>] [--max-lines <n>] [--format json|svg] [--x <n> --y <n>] [--font-file <path>]`
 Breaks text into lines no wider than `--width`, measuring in the browser (canvas `measureText`) and finding break opportunities with `Intl.Segmenter` (word granularity). A line may break at a whitespace segment, after a hyphen or slash, or between two adjacent word segments with no space between them, which is how Chinese and Japanese text breaks. Lines are filled greedily. Before measuring, rk applies the font rule in 4.9. Output JSON: `{"lines": [{"text", "width"}], "line_height", "height", "overflow": false}`; `--format svg` prints a `<text>` element with one `<tspan x=".." dy="..">` per line, positioned at `--x`, `--y` (defaults 0, 0), `font` set from `--font`. `overflow` is true, and the exit code 1, when one word is wider than `--width` or the line count exceeds `--max-lines`. Line height defaults to 1.2.
 
-### 4.6 `rk brief <input> --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [render options]`
+### 4.6 `rk brief <input> --questions <file> --out-dir <dir> [--purpose <text>] [--simulate <types>] [--pdf] [render options]`
 Prepares a review for someone who can see images and did not make the artifact. It renders the PNG, plus one PNG per type in `--simulate` (comma-separated), runs `rk check`, and writes into `--out-dir`:
-- `render.png` and `render-<type>.png`;
+- `render.png` and `render-<type>.png`; with `--pdf`, also `render.pdf` and `render-page-<n>.png` for every PDF page, rasterized with Poppler's `pdftoppm` at 96 dpi;
 - `report.json`, the code-check report;
 - `brief.md`: what the artifact is (`--purpose`), the image paths, a summary of the code checks (so the reviewer does not re-judge what code measured), the rules for answering, and the numbered questions `Q1`…`Qn`;
 - `answers.template.json`: `{"reviewer": null, "answers": [{"id": "Q1", "question": "...", "answer": null, "where": null, "reason": null}]}`.
@@ -112,7 +114,7 @@ The same input and options must give a byte-identical PNG on repeated runs on on
 
 ## 6. Checks
 
-Every check skips elements inside `[data-rk-ignore]`, and elements that are not visible: zero size, `display: none`, `visibility: hidden`, or opacity 0.
+Every check skips elements inside `[data-rk-ignore]`, and elements that are not visible: zero area, `display: none`, `visibility: hidden`, or opacity 0. SVG geometry with a zero-width or zero-height bounding box remains visible when it has a computed stroke width above 0 and a stroke other than `none`.
 
 - A **text element** is a visible HTML element with at least one non-empty text node as a *direct* child, or an SVG `<text>` element.
 - A **text box** is, for HTML, the union of the client rectangles of a DOM `Range` over the element's direct text nodes. For SVG, each `<tspan>` is its own text box, and a `<text>` without `<tspan>` children is one box. Boxes are in screen coordinates.
@@ -127,6 +129,10 @@ The thresholds below are the kit's defaults, set by judgment or calibration. Eac
 | `contrast.min_background_share` | 0.30 | Judgment: below it the background is an image or a gradient |
 | `cvd.min_distance` | 0.06 OKLab distance | Calibrated 2026-09-26 (6.7) |
 | `fidelity.tolerance_px` | 0.5 CSS px | Judgment: half a pixel at scale 1 |
+| `value.min_edge_share` | 2× area share | color-theory T1 default; focal value-edge energy compared with its area share |
+| `value.data_graphic_min_edge_share` | 0.5× area share | Judgment for a data-layer focal area: chart labels and surrounding copy also contribute value edges |
+| `value.max_focal_area_share` | 0.50 of the stage | Dogfood finding F3: a larger ordinary focal box cannot pass the general prominence comparison |
+| `value.achromatic_chroma_max` | 0.01 OKLCH C | Judgment: maximum chroma treated as achromatic for T5 on data graphics |
 
 ### 6.1 `resources` (all inputs)
 Fail when any request was blocked by the network rule or failed (network error, or HTTP status 400 or above). Items: the URL and the reason.
@@ -166,6 +172,8 @@ Items: selector, text colour, background colour, ratio, required ratio.
 ### 6.7 `cvd` (inputs with `[data-rk-series]`)
 Checks that categorical colours stay distinguishable for colour-vision deficiency. Each series' colour is the most common computed `fill` (else `stroke`) among elements with that `data-rk-series` value. Fewer than two series: `n/a`. For normal vision and for protanopia, deuteranopia and tritanopia (Machado, Oliveira and Fernandes 2009 matrices at severity 1.0, applied in linear sRGB and clamped to [0, 1]), compute the smallest OKLab distance between any two series. Fail when any is below `cvd.min_distance`. Normal vision is included on purpose: two series too close for anyone to tell apart is the same failure.
 
+A stroked SVG geometry with a zero-width or zero-height box counts as visible when its computed stroke width is above 0. For such a mark, the stroke supplies the series colour even if its computed fill is not `none`.
+
 The default, 0.06, was calibrated on 2026-09-26 with this method: the Okabe–Ito palette, designed for colour-vision deficiency, keeps at least 0.076 under all three (passes); the pair `#d62728`/`#2ca02c` falls to 0.039 under deuteranopia (fails); `#1f77b4`/`#ff7f0e` keeps 0.246 (passes). Items: vision type, the closest pair and its distance.
 
 ### 6.8 `fidelity` (inputs with `[data-rk-chart]`)
@@ -182,7 +190,11 @@ Items: selector, expected, actual.
 axe-core (the only engine; see section 12) with the tags `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa` and `wcag22aa`, with `color-contrast` disabled because `contrast` owns it. The check's result names the engine and its version. Fail on any violation. Items: rule id, impact, selectors. When there are no violations but axe-core reports incomplete results, the status is `incomplete` with those as items.
 
 ### 6.10 `value` (inputs with `[data-rk-focal]`)
-Runs color-theory's image checks on the rendered PNG: `python3 <color-theory>/scripts/checks.py value <png> --focal x0,y0,x1,y1 --out <tmpdir>` and `... chroma <png> --focal x0,y0,x1,y1`, where the box is the focal element's bounding box in PNG pixels (CSS pixels × scale). stdout lines matching `^(T\d+) (PASS|FAIL)\b` are the results. Fail when any is `FAIL`. Items: each T-line with the measurement lines printed before it. Missing Python, numpy, Pillow or the script, a non-zero exit, or no T-line: `skipped` with stderr's last 300 characters. No `[data-rk-focal]`: `n/a`.
+Runs color-theory's image checks on the rendered PNG: `python3 <color-theory>/scripts/checks.py value <png> --focal x0,y0,x1,y1 --out <tmpdir>` and `... chroma <png> --focal x0,y0,x1,y1`, where the box is the focal element's bounding box in PNG pixels (CSS pixels × scale). The kit records every `T<n> PASS`, `FAIL` or `CHECK` line and the measurement lines before it as an item.
+
+For T1, the kit compares the measured value-edge ratio with `value.min_edge_share` (default 2×). When the focal element is marked `data-rk-focal="data-graphic"`, it uses `value.data_graphic_min_edge_share` (default 0.5×) instead, so the chart's data layer can be the focal area. The target used is included in the result line and both values are reported as thresholds. An ordinary focal area larger than `value.max_focal_area_share` (default 0.50 of the stage) makes T1 `incomplete` with the question “Does the focal area remain an effective visual entry point at this scale?” instead of failing the automatic test. The explicit data-graphic mode is exempt from this area rule.
+
+For chroma T5, `CHECK` on a data graphic becomes item status `n/a` when all reported ring and focal chroma values are at or below `value.achromatic_chroma_max` (default 0.01 OKLCH C). Other `CHECK` outcomes are `incomplete` with a vision question. The value check fails if any item fails, is incomplete if any item is incomplete or a partial tool error prevents a judgement, and passes when all returned T-lines pass or are `n/a`. Missing Python, numpy, Pillow or the script, a non-zero exit with no T-lines, or no result line is `skipped` with a reason. No `[data-rk-focal]`: `n/a`.
 
 ### 6.11 `pdf-fonts` (when a PDF was produced)
 Runs `pdffonts <pdf>`. Fail when any font's type contains `Type 3` or its `emb` column is `no`. Chromium turns variable fonts and synthetic bold into Type 3 fonts, which render poorly and cannot be edited (research track 3, finding F6). Items: font name, type, embedded. No `pdffonts`: `skipped`. No PDF produced: `n/a`.
@@ -224,7 +236,7 @@ Producer skills and chart templates add these attributes; the checks read them.
 | Attribute | On | Meaning |
 |---|---|---|
 | `data-rk-stage` | one element | The artifact's area; PNG capture and the offstage test use it |
-| `data-rk-focal` | one element | The focal area, for `value` |
+| `data-rk-focal` | one element | The focal area, for `value`; set its value to `data-graphic` when the plotted data layer is the intended focal area and should use the separate T1 threshold |
 | `data-rk-series="<name>"` | marks, legend swatches | Categorical series, for `cvd` |
 | `data-rk-chart` | a `<g>` or `<svg>` | Chart root, with `data-rk-x-scale`, `data-rk-x-domain="d0,d1"`, `data-rk-x-range="r0,r1"` and the same three for y. Ranges are in the root's user units; a reversed range (for depth increasing downward) is allowed |
 | `data-rk-mark` | `<rect>`, `<circle>`, `<ellipse>`, `<polyline>`, `<path>` | A data mark, with `data-rk-x`, `data-rk-y`, `data-rk-x0`, `data-rk-y0` or `data-rk-points` as in 6.8 |
@@ -248,6 +260,7 @@ src/color.ts               sRGB, linear RGB, OKLab, WCAG luminance and ratio, Ma
 src/checks/<id>.ts         one file per check, each exporting run(ctx) → CheckResult
 src/report.ts              report assembly, validation, exit code
 src/brief.ts               brief writer and verifier
+src/pdf-pages.ts           PDF page rasterization for review briefs (`pdftoppm`)
 src/selftest.ts            runs samples/expectations.json
 questions/chart.md, questions/slide.md
 samples/good/              raf.html (a requestAnimationFrame loop, AT23), print-media.html (AT24), dense.svg (1,500 labels, AT26), slide.html (1920×1080: title, body text, an inline SVG chart with every data-rk attribute, a focal element), chart.svg, animated.html (a CSS animation, a Web Animation and a SMIL animation)
@@ -278,6 +291,7 @@ test/*.test.ts             node:test unit and integration tests
 | D13 | One accessibility engine, axe-core | Adding IBM Equal Access now: the evidence that two engines catch more is one 30-defect benchmark (synthesis claim audit: evidence only) |
 | D14 | The page clock is paused before navigation and run for a fixed boot period after `load` | Playwright's documented order (install the clock running, pause after load): how many frames run during load would then depend on load speed, so script-driven animation would differ between runs |
 | D15 | PDF uses `screen` media by default | `print` media, `page.pdf()`'s default: the PDF would differ from the checked PNG with no check noticing |
+| D16 | `rk brief --pdf` rasterizes every output PDF page with Poppler `pdftoppm` at 96 dpi | A viewport PNG alone cannot review page breaks or PDF content outside the first page |
 
 ## 11. Acceptance tests
 
@@ -316,6 +330,9 @@ Each test names its sample or setup and its expected result. All run from the re
 | AT29 | Brief the same slide with `--simulate protanopia`, then compare `render.png` and `render-protanopia.png` | Both files exist and differ; the base render is unsimulated |
 | AT30 | `bin/rk --help`, bare `bin/rk`, `bin/rk help`, and `bin/rk <command> --help` | Each exits 0 and prints usage listing all commands and their flags; command help lists that command's flags |
 | AT31 | `bin/rk check samples/good/cvd-12.svg` | Exit 0; `cvd` passes at its default `cvd.min_distance` of 0.06 for all 12 declared series |
+| AT32 | `bin/rk check samples/bad/horizontal-series.svg` (two red and green horizontal stroked paths, each with zero-height bounds) | Exit 1; `cvd` fails with both series and the 0.039 deuteranopia distance; `fidelity` checks both marks and passes |
+| AT33 | Check `samples/bad/value.html` with `--threshold value.min_edge_share=0.1`; check a copy of `samples/good/data-graphic.svg` with its data-graphic marker removed; then check the original with `--threshold value.min_edge_share=100 --threshold value.data_graphic_min_edge_share=0.5` | The override is reported and T1 passes at 0.1; the ordinary focal area over 50% is `incomplete` with a vision question; the data graphic uses 0.5 and is not failed by the ordinary target; achromatic T5 is recorded as `n/a`, with the original `CHECK` line retained in its item |
+| AT34 | `bin/rk brief samples/good/pdf-pages.html --questions questions/slide.md --out-dir /tmp/rk-at34 --pdf` | Exit 0; the brief lists `render.pdf` and both page PNGs; the PDF has two pages and both page images exist |
 
 ## 12. Open questions
 
