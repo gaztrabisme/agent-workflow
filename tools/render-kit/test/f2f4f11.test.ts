@@ -37,10 +37,10 @@ test('F4 visual checks skip closed details, offscreen skip links, and visually h
   assert.equal(result.code,0,result.stderr);assert.deepEqual(result.data.checks.map((check:any)=>check.status),['pass','pass','pass']);
 });
 
-test('F11 one brief includes labelled state inputs and omits PDF guidance without --pdf', { timeout: 120000 }, async () => {
+test('F11 and F12 one brief includes labelled states and per-state answer slots', { timeout: 120000 }, async () => {
   const d=await temp(),out=join(d,'review'),questions=join(d,'questions.md'),ready=join(d,'ready.html'),empty=join(d,'empty.html');
   await mkdir(out,{recursive:true});
-  await writeFile(questions,'# State clarity\n- Is the state clear?\n');
+  await writeFile(questions,'# State clarity\n- Is the state clear?\n- Is the content complete?\n');
   await writeFile(ready,'<!doctype html><html><body><main><h1>Ready</h1></main></body></html>');
   await writeFile(empty,'<!doctype html><html><body><main><h1>Nothing to review</h1></main></body></html>');
   const result=await rk(['brief','--state',`Ready=${ready}`,'--state',`Empty=${empty}`,'--questions',questions,'--out-dir',out,'--checks','resources,overflow']);
@@ -48,9 +48,27 @@ test('F11 one brief includes labelled state inputs and omits PDF guidance withou
   const brief=await readFile(join(out,'brief.md'),'utf8');
   assert.match(brief,/### Ready/);assert.match(brief,/### Empty/);assert.match(brief,/ready\.html/);assert.match(brief,/empty\.html/);
   assert.doesNotMatch(brief,/PDF and page images show the print output/);
+  const template=JSON.parse(await readFile(join(out,'answers.template.json'),'utf8'));
+  assert.deepEqual(template.answers.map((answer:any)=>[answer.id,answer.state]),[
+    ['Q1','Ready'],['Q2','Ready'],['Q1','Empty'],['Q2','Empty']
+  ]);
   for(const folder of ['state-1-ready','state-2-empty']){
     assert.ok(await readFile(join(out,folder,'render.png')));
     assert.ok(await readFile(join(out,folder,'report.json')));
   }
   assert.deepEqual(JSON.parse(result.stdout).states.map((state:any)=>state.label),['Ready','Empty']);
+
+  const answers=template.answers.map((answer:any)=>({...answer,answer:'yes',where:'main content',reason:'The reviewed content is clear.'}));
+  const answersPath=join(out,'answers.json');
+  await writeFile(answersPath,JSON.stringify({reviewer:'reviewer',answers}));
+  assert.equal((await rk(['brief','--verify',answersPath])).code,0);
+
+  answers[3].answer='no';
+  await writeFile(answersPath,JSON.stringify({reviewer:'reviewer',answers}));
+  const no=await rk(['brief','--verify',answersPath]);
+  assert.equal(no.code,1,`${no.stderr}${no.stdout}`);assert.match(no.stdout,/Empty/);assert.match(no.stdout,/Q2/);
+
+  await writeFile(answersPath,JSON.stringify({reviewer:'reviewer',answers:answers.slice(0,3)}));
+  const missing=await rk(['brief','--verify',answersPath]);
+  assert.equal(missing.code,2,missing.stderr);assert.match(missing.stdout,/state\/question/i);
 });

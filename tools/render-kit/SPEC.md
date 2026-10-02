@@ -82,9 +82,9 @@ Prepares a review for someone who can see images and did not make the artifact. 
 - with repeated `--state '<label>=<file-or-local-URL>'`, one labelled input per state, each rendered and checked independently in a `state-<n>-<slug>/` subfolder; use these options instead of the positional `<input>`;
 - `report.json`, the code-check report;
 - `brief.md`: what the artifact is (`--purpose`), the image paths, a summary of the code checks (so the reviewer does not re-judge what code measured), the rules for answering, and the numbered questions `Q1`…`Qn`;
-- `answers.template.json`: `{"reviewer": null, "answers": [{"id": "Q1", "question": "...", "answer": null, "where": null, "reason": null}]}`.
+- `answers.template.json`: for one input, one slot per question as `{"reviewer": null, "answers": [{"id": "Q1", "question": "...", "answer": null, "where": null, "reason": null}]}`. For several states, it repeats each question once per state in state order, adds that state's `state` label to each slot, and keeps the same question id within each state.
 
-The PDF sentence is included in `brief.md` only when `--pdf` is supplied. With several inputs, each label, input, file list, and check summary appears in its own section; questions and answer numbering are shared across the brief.
+The PDF sentence is included in `brief.md` only when `--pdf` is supplied. With several inputs, each label, input, file list, and check summary appears in its own section; questions are shown once and the reviewer answers every question for every state.
 
 `--expect-request` is also accepted and applied to each input's `resources` check using its exact URL-pattern and HTTP-status matching rules from section 4.3.
 
@@ -93,7 +93,7 @@ The questions file has one question per line starting with `- ` or `1. `; lines 
 Answering rules written into the brief: `answer` is `yes`, `no`, `unsure` or `not-judged` (for a reviewer that cannot see the image); `reason` is one sentence; `where` names the region or element for `yes` and `no`.
 
 ### 4.7 `rk brief --verify <answers.json> [--strict]`
-Checks a filled answers file against the questions in the same folder's `brief.md`. Exit 2 when the file is malformed, a question is missing, an answer is not one of the four values, a `reason` is empty, or a `yes`/`no` lacks `where`. Otherwise prints `{"no": [ids], "unsure": [ids], "not_judged": [ids]}`; exit 1 when any answer is `no` (or, with `--strict`, any `unsure` or `not-judged`), else 0.
+Checks a filled answers file against the questions and states in the same folder's `brief.md`. For several states, each `(state, question id)` pair must appear once in state and question order, with the state label matching the brief. Exit 2 when the file is malformed, a question/state pair is missing, an answer is not one of the four values, a `reason` is empty, or a `yes`/`no` lacks `where`. Otherwise prints `{"no": [ids], "unsure": [ids], "not_judged": [ids]}` for one input, or entries containing `state` and `id` for several states; exit 1 when any answer is `no` (or, with `--strict`, any `unsure` or `not-judged`), else 0. The one-input template and verification output stay unchanged.
 
 ### 4.8 `rk selftest [--strict]`
 Runs `rk check --pdf` on every sample listed in `samples/expectations.json` and compares the set of failing checks with the expected set. The comparison is by check, not by item. Good samples must fail nothing; each bad sample must fail exactly its expected checks. When a tool a check needs is missing on this machine, that check is `skipped`: on a good sample this is allowed, and on a bad sample that expects the check to fail it counts as an unmet but allowed expectation. Both are reported, and both fail the self-test under `--strict`. Prints `{"samples": [...], "ok": true|false}`; exit 0 when every expectation holds.
@@ -353,6 +353,7 @@ Each test names its sample or setup and its expected result. All run from the re
 | AT38 | Check a page that fetches a missing same-origin JSON file with `--expect-request '*/missing.json=404'`, then with a wrong URL pattern and a wrong status | The exact URL/status match is listed as `expected` and `resources` passes; either mismatch is `unexpected` and fails; malformed syntax exits 2 |
 | AT39 | Check a page containing a closed-details paragraph, an offscreen focusable skip link, both clipped visually-hidden patterns, and wide text in an active horizontal scroller | `fonts`, `overflow`, and `collision` pass for excluded hidden text and intentional horizontal scrolling; ordinary offstage content remains covered by AT08 |
 | AT40 | Build one brief from repeated labelled `--state` inputs without `--pdf` | Each state has its own labelled section, report and render; questions are shared; the PDF sentence is absent |
+| AT41 | Build a brief with two labelled states and two questions, then verify all answer rows | Template has one row for every state/question pair, with the state label on each; complete answers pass, a `no` in one state fails with that state and question, and a missing pair exits 2. A one-input template retains its original one-row-per-question shape without state fields |
 
 ## 12. Open questions
 

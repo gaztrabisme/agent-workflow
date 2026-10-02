@@ -1,5 +1,13 @@
 # Work log
 
+## 2026-10-02 — Photo F12 closed
+
+- Grounded in F12 from `/Users/GaryT/Documents/Work/lab/design-programme/dogfood/runs-3-5/photo/report.md` and the existing single-input answer contract in `../SPEC.md` §4.6–4.7.
+- Multi-state briefs now emit one answer slot for every state/question pair, in state order, with a `state` label on each row. `--verify` requires all pairs and reports state-specific `no`, `unsure`, and `not-judged` answers. Single-state template and verification output remain unchanged.
+- Added integration coverage for two states, two questions, a state-specific `no`, and a missing state/question pair; extended single-state template coverage. Updated `../SPEC.md` and `../AGENTS.md`.
+- Independent review findings were dispositioned: unresolved-answer exit behavior follows the existing `--strict` contract; duplicate labels cannot reach `writeBrief` through the CLI because `src/commands.ts` rejects them; question-text drift in a hand-edited template and empty `files` passed directly to the internal helper predate F12 and remain outside scope.
+- Verified with `npm test` (48 passed), `./bin/rk selftest` (21 sample expectations passed), and `git diff --check`. Changes remain uncommitted.
+
 ## 2026-10-02 — Presentation F1 closed
 
 - Grounded in F1 from `/Users/GaryT/Documents/Work/lab/design-programme/dogfood/runs-3-5/presentation/report.md`: a stacked stage could exceed Chromium's 16,384 px screenshot bound without a capture-limit diagnostic, and extra `[data-rk-stage]` elements were mistaken for separately checked slides.
