@@ -18,6 +18,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 DOMESTIKA_ANCHOR = r'\d+ · U\d+ · L\d{2,3} · \d{2}:\d{2}–\d{2}:\d{2}'
 LINK = re.compile(r'\]\(([^)#\s]+)(?:#[^)]*)?\)')
@@ -125,7 +126,7 @@ def main() -> int:
         for target in LINK.findall(text):
             if '://' in target or target.startswith('mailto:'):
                 continue
-            resolved = (path.parent / target).resolve()
+            resolved = (path.parent / unquote(target)).resolve()
             if resolved.exists():
                 continue
             if is_sibling(target):
@@ -164,9 +165,16 @@ def main() -> int:
     for directory in PACKAGE_DIRS:
         folder = root / directory
         if folder.is_dir():
-            shipped.extend(path for path in folder.rglob('*')
-                           if path.is_file() and '__pycache__' not in path.parts
-                           and path.suffix != '.pyc')
+            for path in folder.rglob('*'):
+                if not path.is_file() or '__pycache__' in path.parts or path.suffix == '.pyc':
+                    continue
+                rel = path.relative_to(root).as_posix()
+                # Paid course corpora are source libraries. Their lesson anchors
+                # and unused-lesson coverage are checked by the dedicated gates;
+                # do not require every image frame and PDF to be listed in SKILL.md.
+                if rel.startswith('references/course-'):
+                    continue
+                shipped.append(path)
     print('Reference/script/test files shipped:')
     for path in sorted(shipped):
         rel = path.relative_to(root).as_posix()
