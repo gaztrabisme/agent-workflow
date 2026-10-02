@@ -15,7 +15,7 @@ This skill produces a research-grounded product brief, user journey and flow, pr
 - **This skill:** research and scope for a digital product; task journeys and flows; wireframes and prototypes; interface content, errors, onboarding, voice and tone; word accessibility and localization.
 - **`information-design` instead:** chart and data presentation. UX can define a research question or success outcome; the data artifact and its encoding belong there.
 - **`visual-design` instead:** composition and visual form. UX can define screen content and structure; composition decisions belong there.
-- **`frontend` instead:** building the production UI. UX supplies the tested behavior, states, and content to implement.
+- **Planned sibling `frontend`:** building the production UI. UX supplies the tested behavior, states, and content to implement; add a package link after that skill exists. (derived: dogfood 2026-10-02, F12)
 
 > **Disambiguation by artifact:** route research, task behavior, content, and prototypes here; route a chart, composed visual artifact, or implemented interface to the skill that produces it.
 
@@ -49,6 +49,7 @@ This skill produces a research-grounded product brief, user journey and flow, pr
 - **Early product idea:** run stages 1–4 and prototype the riskiest assumption. Mark any persona or journey details that have not been researched as provisional.
 - **Single feature or short flow:** combine related stages when useful, but keep evidence, decision, and checks visible.
 - **Several audiences or connected flows:** run the full sequence and check shared navigation, voice, terminology, and error recovery across the experience.
+- **Dashboard or monitoring screen inside an existing data product:** treat the screen as a bounded UX review. Run T1, T5–T8 and T10; record T2–T4 as assumptions when source research, synthesis or an MVP decision is unavailable. Mark T9 and T11 unavailable when there are no participants or a target outcome, rather than treating those missing inputs as failed screen checks. Add status and alert content with a severity word, cause and next action, including an explicit “limit not configured” state; follow the color-theory functional-color signal policy for colour and redundant cues. (derived: dogfood 2026-10-02, F9)
 - **After a fix:** rerun the changed stage's checks and every downstream check the change could affect. A changed flow can affect copy, accessibility order, and localization context.
 
 ## Course crosswalk decisions
@@ -101,7 +102,7 @@ This skill produces a research-grounded product brief, user journey and flow, pr
 ## Composition
 
 - **Inherits:** [core](../core/SKILL.md) for shared gates.
-- **Hands off to:** [information-design](../information-design/SKILL.md) for chart and data artifacts; [visual-design](../visual-design/SKILL.md) for composition; [frontend](../frontend/SKILL.md) for production UI implementation.
+- **Hands off to:** [information-design](../information-design/SKILL.md) for chart and data artifacts; [visual-design](../visual-design/SKILL.md) for composition; planned sibling `frontend` for production UI implementation (link to be added when its package exists). (derived: dogfood 2026-10-02, F12)
 - **Domain rule:** product, platform, audience, accessibility, and legal conventions govern when they conflict with a course example.
 
 ## References

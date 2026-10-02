@@ -30,6 +30,7 @@
 | Notification | Context, user benefit near the beginning, and what to do next | 798 · U4 · L12 · 00:00–03:43 |
 | Error | Where it happened, what happened, and a way to recover; do not blame the user | 798 · U4 · L12 · 05:50–10:41 |
 | Button | A short active label that names the action that will actually happen | 798 · U4 · L12 · 10:41–14:02 |
+| Status or alert in a dashboard | A severity word, cause or reason, and next action; state explicitly when a limit is not configured. Use shape and words as well as colour, following the color-theory functional-color signal policy. (derived: dogfood 2026-10-02, F9) | Project alert policy and color-theory signal policy |
 
 ## Failures
 
