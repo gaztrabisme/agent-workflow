@@ -18,6 +18,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 DOMESTIKA_ANCHOR = r'\d+ · U\d+ · L\d{2,3} · \d{2}:\d{2}–\d{2}:\d{2}'
 LINK = re.compile(r'\]\(([^)#\s]+)(?:#[^)]*)?\)')
@@ -25,7 +26,6 @@ CODE_SPAN = re.compile(r'`([^`]+)`')
 LOCAL_DIRS = ('references/', 'scripts/', 'tests/', 'method/')
 ROOT_FILES = {'SKILL.md', 'EVOLUTION.md', 'LICENSE', 'LICENSE.md', 'NOTICE.md', 'README.md'}
 PATH_SUFFIXES = ('.md', '.py', '.sh', '.txt', '.json', '.yaml', '.yml', '.toml', '.csv', '.svg', '.png')
-PACKAGE_DIRS = ('references', 'scripts', 'tests')
 
 
 def glob_all(root: Path, patterns: list[str]) -> list[Path]:
@@ -74,8 +74,9 @@ def main() -> int:
     ap.add_argument('--anchor', default=DOMESTIKA_ANCHOR, help='regex for one source anchor')
     ap.add_argument('--sources', nargs='+', default=['references/course/*.md'],
                     help='globs of files that define the anchors')
-    ap.add_argument('--files', nargs='+', default=['SKILL.md', 'references/**/*.md',
-                                                   'tests/**/*.md'],
+    ap.add_argument('--files', nargs='+', default=['SKILL.md', 'references/method/**/*.md',
+                                                   'references/field-rules.md',
+                                                   'references/templates/**/*.md'],
                     help='globs of Markdown files whose links and citations are checked')
     ap.add_argument('--no-anchor-check', action='store_true',
                     help='explicitly skip anchors for a package with no source corpus')
@@ -125,7 +126,7 @@ def main() -> int:
         for target in LINK.findall(text):
             if '://' in target or target.startswith('mailto:'):
                 continue
-            resolved = (path.parent / target).resolve()
+            resolved = (path.parent / unquote(target)).resolve()
             if resolved.exists():
                 continue
             if is_sibling(target):
@@ -161,12 +162,25 @@ def main() -> int:
 
     named_text = skill_text
     shipped: list[Path] = []
-    for directory in PACKAGE_DIRS:
+    for directory in ('references', 'scripts'):
         folder = root / directory
         if folder.is_dir():
-            shipped.extend(path for path in folder.rglob('*')
-                           if path.is_file() and '__pycache__' not in path.parts
-                           and path.suffix != '.pyc')
+            for path in folder.rglob('*'):
+                if not path.is_file() or '__pycache__' in path.parts or path.suffix == '.pyc':
+                    continue
+                rel = path.relative_to(root)
+                parts = rel.parts
+                # Course exports are a separately indexed private source corpus, not
+                # authored references that need one-by-one links from SKILL.md.
+                if parts[0] == 'references' and len(parts) > 1 and parts[1].startswith('course-'):
+                    continue
+                # Public CLI entry points are named by SKILL.md. Their imported
+                # implementation modules are internal dependencies, like tests.
+                if parts[0] == 'scripts' and path.name not in {
+                    'check_refs.py', 'grade.py', 'roundtrip.py'
+                }:
+                    continue
+                shipped.append(path)
     print('Reference/script/test files shipped:')
     for path in sorted(shipped):
         rel = path.relative_to(root).as_posix()
