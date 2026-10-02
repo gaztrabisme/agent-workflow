@@ -12,7 +12,9 @@ For a multi-slide deck, keep one HTML check file per slide, each with exactly on
 
 ## PDF handout
 
-Print fixed-size slide pages with Chromium using a zero-margin 1920×1080 page rule, `preferCSSPageSize`, `printBackground`, tagged output, and outline where the export interface supports them. Use static font files for every weight used; variable fonts, synthetic bold, and colour emoji were measured as Type 3 fonts. Replace colour emoji with a monochrome SVG icon or a raster emoji image with meaningful alternative text, then recheck PDF fonts. Chromium does not claim PDF/UA or PDF/A conformance. [src:output-pipelines/report.md], “F6. HTML to PDF with Chromium”; [src:output-pipelines/experiments/README.md], “05-html-pdf”. (derived: dogfood 2026-10-02, F8)
+Print fixed-size slide pages with Chromium using a zero-margin 1920×1080 page rule, `preferCSSPageSize`, `printBackground`, tagged output, and outline where the export interface supports them. Use static font files for every weight used; a variable font and synthetic bold were measured as Type 3 fonts. Chromium does not claim PDF/UA or PDF/A conformance. [src:output-pipelines/report.md], “F6. HTML to PDF with Chromium”; [src:output-pipelines/experiments/README.md], “05-html-pdf”.
+
+Replace colour emoji with a monochrome SVG icon or a raster emoji image with meaningful alternative text, then recheck PDF fonts. (derived: dogfood 2026-10-02, F8)
 
 Avoid blur effects when vector output matters: the measured Chromium print path rasterizes box-shadow blur and CSS blur filters, while basic SVG and gradients remained vector in the tested file. [src:output-pipelines/report.md], “F6. HTML to PDF with Chromium”.
 
