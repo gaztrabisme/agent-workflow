@@ -21,6 +21,7 @@ This draft is based on one poster, one 27-slide deck, a first-read note, and sel
 - The poster pairs a wide geometric capital title with smaller sans-serif labels in the HUD, keeping the event title dominant (Space Race poster, single-page composition).
 - The deck sets opening and section headings in a pixel display face; the content panels use a rounded geometric sans, with Poppins noted for body copy in the first read (submission deck, slides 1, 7–9, 14). The title lettering is part of the game-world framing, while dense copy is sometimes given more space than it can comfortably use (slide 14).
 - Working producer cue: keep display lettering for short titles and transitions; set explanatory copy in a readable sans-serif at a generous size (deck, slides 7–9 and 14). The specific typeface names and fallbacks in tokens are implementation choices, not a verified font inventory.
+- PPTX text uses the chosen Office-safe pair: Verdana for display and Arial for body. Both are in scene-engine's PPTX writer-supported set (`scene-engine/SPEC.md`); presentation dogfood F9 selected them because the profile's Menlo and Avenir Next families are outside that set. Verdana's open, broad letterforms keep short display titles legible and distinct; Arial keeps explanatory copy readable in a familiar sans aligned with the profile's rounded geometric body direction.
 
 ### Layout and grid habits
 
