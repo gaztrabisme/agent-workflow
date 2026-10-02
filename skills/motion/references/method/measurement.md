@@ -25,3 +25,33 @@ For each test report **measured**, **vision-judged**, **not judged** or **skippe
 - Run `scene-engine validate` before rendering; it checks schema, IDs, scene/layer/track bounds, resolved keyframe order, chart compatibility, caption bounds, mask sources and asset containment.
 - Use `scene-engine check --at ... --rk ...` for selected key frames. Use HTML/SVG `data-rk-stage` and `data-rk-focal` where relevant to render-kit checks. Review exact failures before vision review.
 - Do not infer comfortable reading speed from a character-per-second number alone; ask a reviewer to read the actual rendered information at normal playback speed. (derived from 561 · U4 · L11 · 00:02–01:56; 433 · U5 · L16 · 03:32–04:40; 433 · U5 · L16 · 04:40–05:29)
+
+## Automated storyboard measurements
+
+Run the shipped helper after `scene-engine check` has written reference PNGs. It measures caption characters per second, panel holds after the final child track, tracks or layers extending past their boundaries, configured storyboard proportions, and MP4 frames against check renders. The frame check cuts the MP4 at each `at-<milliseconds>` directory time and uses FFmpeg/ffprobe to compare downsampled image differences; the default mean and pixel thresholds are starting tolerances and must be checked against a known-good render from the same renderer/codec. A missing check frame fails the measurement. (derived: dogfood 2026-10-02, F10)
+
+```bash
+python3 scripts/measure_storyboard.py storyboard.json evidence.json render.mp4 \
+  --check-dir checks/frames --output checks/measure.json
+```
+
+The evidence JSON may declare proportional bindings when facts and storyboard geometry are not connected by a shared schema. A direct binding compares one layer property to a fact times a scale; a ratio binding compares a layer property to a reference layer property and a fact ratio. Facts use dotted JSON paths, with `[index]` for arrays. (derived: dogfood 2026-10-02, F10)
+
+```json
+{
+  "facts": {"hours": 9.5, "cost": 25, "budget": 100},
+  "motionChecks": {
+    "captionCpsLimit": 20,
+    "minimumHoldMs": 1500,
+    "proportions": [
+      {"name": "lost-time bar", "layer": "lost-bar", "property": "width",
+       "fact": "facts.hours", "scale": 60, "tolerance": 0.01},
+      {"name": "budget share", "layer": "budget-fill", "property": "width",
+       "ratio": {"numerator": "facts.cost", "denominator": "facts.budget"},
+       "against": {"layer": "budget-track", "property": "width"}, "tolerance": 0.001}
+    ]
+  }
+}
+```
+
+If no proportion bindings are present, the tool reports `not_configured` and leaves the measurement incomplete; that is not a measured T5 pass. For work with no numeric encoding, put a short `proportionsNotApplicable` reason in `motionChecks`. The helper's unit tests are in `tests/test_measure_storyboard.py`. (derived: dogfood 2026-10-02, F10)

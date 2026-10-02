@@ -11,11 +11,13 @@ Run exact code checks first. Then ask a fresh-context reviewer who did not make 
 | T3 | Structure and message | A reviewer can explain the message from the event order; a non-linear structure still provides a comprehensible path. | Stage 2: story and tone |
 | T4 | Storyboard and continuity | Panels cover the necessary story beats; framing gives needed information; each transition has a continuity or narrative reason. | Stage 4: storyboard and animatic |
 | T5 | Visual system and encoding | Required facts map to declared visual forms, data values/proportions match their source, and repeated elements follow the declared system. | Stage 3: visual direction |
-| T6 | Timing and reading | The animatic meets the requested runtime, and a reviewer can read each information group before it changes. | Stage 4: storyboard and animatic |
-| T7 | Motion purpose and character | Every major movement has a stated purpose; the reviewer recognizes the intended movement character and attention path. | Stage 5: choreography |
-| T8 | Curves and choreography | The motion reaches intended poses without unwanted overshoot; triggers, leaders and followers occur in the stated order. | Stage 5: choreography |
-| T9 | Transition, loop and cutoff | Scene joins support the story; a seamless loop joins at the intended pose or a planned jump reads as intentional; no required motion is cut off. | Stage 5: choreography |
-| T10 | Render and delivery | `scene-engine validate` passes; rendered dimensions, frame rate, duration, audio/caption presence and file path match the delivery contract. | Stage 6: review and handoff |
+| T6 | Timing and reading **[PLAYBACK]** | The animatic meets the requested runtime, and a reviewer can read each information group at normal speed before it changes. | Stage 4: storyboard and animatic |
+| T7 | Motion purpose and character **[PLAYBACK]** | Every major movement has a stated purpose; the reviewer recognizes the intended movement character and attention path. | Stage 5: choreography |
+| T8 | Curves and choreography **[PLAYBACK]** | The motion reaches intended poses without unwanted overshoot; triggers, leaders and followers occur in the stated order. | Stage 5: choreography |
+| T9 | Transition, loop and cutoff **[PLAYBACK]** | Scene joins support the story; a seamless loop joins at the intended pose or a planned jump reads as intentional; no required motion is cut off. | Stage 5: choreography |
+| T10 | Render and delivery **[PLAYBACK for voice intelligibility/pronunciation]** | `scene-engine validate` passes; check renders and MP4 frames match at the selected times; rendered dimensions, frame rate, duration, audio/caption presence and file path match the delivery contract. | Stage 6: review and handoff |
+
+The **[PLAYBACK]** labels mark reviewer questions that need the clip at normal speed, including reading, movement and voice judgments. (derived: dogfood 2026-10-02, F11) T10 also requires the MP4-to-check-render comparison; storyboard-model checks alone do not verify the rendered video. (derived: dogfood 2026-10-02, F1)
 
 ## Recheck after a fix
 

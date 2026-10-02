@@ -25,6 +25,31 @@
 | Vision | Message, tone, reading, continuity, curve feel and visual coherence | Fresh-context reviewer answers checklist questions against rendered frames/clip |
 | Deferred | A judgment with no reviewer, unavailable source or inapplicable test | State **not judged** or **skipped** and give the reason |
 
+## Compare the MP4 with storyboard check frames
+
+`scene-engine check` renders from the storyboard model, so it cannot establish that the MP4 contains the same motion or captions. List the authored keyframe times, scene start/middle/end and any risky transition or caption moments in the explicit `--at` list; cut the MP4 at each of those times; then compare each cut with the matching check render using `scripts/measure_storyboard.py`. The MP4 comparison is required evidence for T10. Treat a difference outside the known-good renderer/codec floor as a failure, return to the owning storyboard or render decision, and render again. (derived: dogfood 2026-10-02, F1)
+
+```bash
+scene-engine check storyboard.json --at <milliseconds,...> --rk ../render-kit/bin/rk
+python3 scripts/measure_storyboard.py storyboard.json evidence.json render.mp4 \
+  --check-dir checks/frames --output checks/measure.json
+```
+
+## Brief a motion reviewer
+
+Prepare a contact sheet HTML containing four to six labeled frames from the MP4, chosen across the piece and around any uncertain transitions, then pass that one sheet to `rk brief`. Put the clip path in `--purpose` and give the reviewer access to the clip; the brief tool's single PNG cannot carry the playback file. Put `[PLAYBACK]` in questions that require normal-speed reading, movement character or trigger/follower judgment, whether the ending feels intentional, or voice intelligibility and pronunciation. Ask only for frame inspection on questions about composition, hierarchy, data encoding or isolated poses. Send the generated `brief.md`, its listed PNG, and the clip path together. (derived: dogfood 2026-10-02, F11)
+
+```bash
+bin/rk brief motion-contact-sheet.html --questions motion-questions.md \
+  --out-dir review/brief --purpose "Clip path: render.mp4; play for [PLAYBACK] questions"
+```
+
+## Render-kit limitations seen in dogfood
+
+- `rk brief` may print group headings separately from their questions; repeat the group or test label inside each question so its context survives. (derived: dogfood 2026-10-02, F13)
+- If a whole-stage focal element makes the `value` check incomplete or hit a zero-size error, set `data-rk-focal` on the actual focal content area. If the automated result remains incomplete, record it as incomplete and route the value judgment to a vision reviewer. (derived: dogfood 2026-10-02, F13)
+- For HTML pages taller than 1080 px, pass their full pixel height explicitly, for example `bin/rk check board.html --height 1600 --out-dir checks/board`. (derived: dogfood 2026-10-02, F13)
+
 ## A rule you derived (derived)
 
 Keep code checks and vision judgments in separate report columns. The course examples mix direct timeline inspection with judgments such as smoothness or readability; separating them makes each conclusion auditable. (derived from 561 · U4 · L15 · 08:46–11:45; 561 · U4 · L16 · 05:53–09:08; 433 · U5 · L16 · 05:29–07:06; 433 · U5 · L16 · 07:06–08:12)

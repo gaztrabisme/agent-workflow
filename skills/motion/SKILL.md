@@ -15,7 +15,7 @@ Motion turns a brief, script or information set into a story plan, storyboard, t
 - **This skill:** plan or critique an animated story, storyboard, animatic, timing, movement system, animation curves, transitions, loop or animated infographic.
 - **`information-design` instead:** choose and validate a static chart form or data encoding. Motion carries an established encoding through time.
 - **`visual-design` instead:** solve static composition, hierarchy, typography or visual identity. Motion can consult it for the frame's visual system.
-- **`presentation` instead:** design a deck or demo as a presentation artifact. Motion owns the moving sequence itself.
+- **[`presentation`](../presentation/SKILL.md) instead:** design a deck or demo as a presentation artifact. Motion owns the moving sequence itself. (derived: dogfood 2026-10-02, F12)
 
 > **Disambiguation by artifact:** choose the owner from the output being decided: motion sequence, static chart, composed graphic, or deck/demo.
 
@@ -38,7 +38,7 @@ Motion turns a brief, script or information set into a story plan, storyboard, t
 | 3. Visual direction | Reference attributes, information encoding and repeatable visual rules | The visual system carries the information without changing it | [visual-direction.md](references/method/visual-direction.md) |
 | 4. Storyboard and animatic | Panels, framing, transitions, scene time and sound cues | The timed rough version reads and resolves as intended | [storyboard-and-animatic.md](references/method/storyboard-and-animatic.md) |
 | 5. Choreography | Movement purpose, curve, trigger, follower and loop behavior | Timing and relationships read in the rendered motion | [choreography.md](references/method/choreography.md) |
-| 6. Review and handoff | Fixes, render settings and delivery evidence | Code checks pass; visual questions pass or are marked not judged | [review-and-handoff.md](references/method/review-and-handoff.md) |
+| 6. Review and handoff | Fixes, render settings and delivery evidence | Code checks pass; the rendered MP4 matches storyboard check frames; visual questions pass or are marked not judged (derived: dogfood 2026-10-02, F1) | [review-and-handoff.md](references/method/review-and-handoff.md) |
 
 ### Scale the flow
 
@@ -56,15 +56,27 @@ Motion turns a brief, script or information set into a story plan, storyboard, t
 - Use editable HTML/SVG for visual boards and artwork where useful. Add render-kit markup to those files and render/check them with the owner's `render-kit`; the final motion is rendered by `scene-engine`.
 - Keep project-specific artwork and assets in the project. Use stable scene and layer IDs, descriptive notes, and source references for factual content.
 
+### Scene-engine v1 capability notes
+
+Before choosing storyboard features, consult the **What renders today** table in [scene-engine/AGENTS.md](../../scene-engine/AGENTS.md), alongside the SPEC. Validation and `check` do not prove that the final renderer supports a feature. Until the engine owner updates that table, use these dogfood workarounds. (derived: dogfood 2026-10-02, F1)
+
+- Keep the panels in one scene, with one group per panel; multiple scenes currently render later scenes at their end pose and lose captions. (derived: dogfood 2026-10-02, F2)
+- Give a layer one track. Set its base property to the intended end pose; use `scaleX` for growth or wipes, and approximate easing with piecewise-linear keyframes. Multiple tracks can overwrite each other, easing can render linearly, and properties can return to their base after the last keyframe. (derived: dogfood 2026-10-02, F3)
+- Avoid `counter`, object-form `bullets`, chart `build` and `dataStates`, shape `path`, `line`, `trim*`, `strokeDash` and `mask`, and video `entrance` until the capability table says they render correctly. (derived: dogfood 2026-10-02, F4)
+- If a HyperFrames render stalls, retry with `--renderer fallback` and inspect that MP4. (derived: dogfood 2026-10-02, F6)
+- If burn-in captions stack or collide with check overlays, draw captions as storyboard text layers and create the VTT sidecar separately. Lint caption line count and explicit line breaks before rendering because `validate` may not catch them. (derived: dogfood 2026-10-02, F7)
+- If output containment or dependency lookup fails, run from the motion project root, keep `--out` under that root, and make the engine dependencies resolvable there; the dogfood workaround used a `node_modules` symlink in the project root. (derived: dogfood 2026-10-02, F8)
+- `scene-engine check --at` replaces its default frame times. Include authored keyframes, scene start/middle/end and any risk points in the explicit time list. (derived: dogfood 2026-10-02, F14)
+
 ### Render-and-check loop
 
 1. Draft the storyboard and any HTML/SVG visual boards. Keep each fact tied to its source and each planned movement tied to a story or reading purpose.
 2. Run `scene-engine validate` before rendering. Fix schema, bounds, timing, track and asset-path errors.
-3. Render with `scene-engine`; check key frames through its `check` command and render-kit. Probe the finished video's dimensions, frame rate, duration and streams against the requested delivery contract.
+3. Render with `scene-engine`; list check times explicitly, then check those storyboard frames through its `check` command and render-kit. Cut the same times from the rendered MP4 and compare each against its check render with `scripts/measure_storyboard.py`; a render pass is incomplete if a content difference remains. Probe the finished video's dimensions, frame rate, duration and streams against the requested delivery contract. (derived: dogfood 2026-10-02, F1)
 4. Run exact code checks first. Then give rendered frames or the clip plus the specific questions in [review-checklist.md](references/method/review-checklist.md) to a fresh-context reviewer who did not make the work and can see it. A vision check without that reviewer is **not judged**.
 5. Fix failures at their return stage, render again, and repeat dependent code and vision checks. Report each check as measured, vision-judged, not judged or skipped, with a reason for the last two.
 
-**Code checks:** storyboard schema and cross-field validation; resolved scene/layer/track timing; asset containment; data/value correspondence when data is exposed in structured source and output; render-kit checks for applicable HTML/SVG; output metadata and key-frame comparison.
+**Code checks:** storyboard schema and cross-field validation; resolved scene/layer/track timing; asset containment; data/value correspondence when data is exposed in structured source and output; render-kit checks for applicable HTML/SVG; output metadata; caption reading rate, panel holds, cut-offs and MP4-to-check-frame comparison through `scripts/measure_storyboard.py`. (derived: dogfood 2026-10-02, F10)
 
 **Vision checks:** message comprehension, tone, readable dwell time, transition continuity, movement character, useful cause/effect, and whether motion distracts from information. Use a concrete question for each; code results cannot establish these judgments.
 
@@ -96,7 +108,7 @@ Motion turns a brief, script or information set into a story plan, storyboard, t
 ## Composition
 
 - **Inherits:** `core`.
-- **Hands off:** `information-design` for static chart choice and data encoding; `visual-design` for static composition and visual systems; `presentation` for a deck or demo whose main artifact is a presentation.
+- **Hands off:** `information-design` for static chart choice and data encoding; `visual-design` for static composition and visual systems; [`presentation`](../presentation/SKILL.md) for a deck or demo whose main artifact is a presentation. (derived: dogfood 2026-10-02, F12)
 - **Execution owner:** `scene-engine` produces motion from its storyboard format; `render-kit` renders and checks HTML/SVG visual assets and selected frames.
 - **Grounded:** read `core` and its grounding, output and pushback references; `visual-design` for its staged method/checklist and `color-theory` for its method/measurement split; course notes and cited lessons for the motion workflow. Reused conventions: anchored method claims, stage-return tests, code before vision, tool-independent measures, and domain conventions over course taste.
 
@@ -113,8 +125,11 @@ Motion turns a brief, script or information set into a story plan, storyboard, t
 - [references/method/review-and-handoff.md](references/method/review-and-handoff.md) — run the code-first/render/vision loop and report evidence.
 - [references/method/coverage.md](references/method/coverage.md) — lesson inventory for lessons not cited in a method digest.
 - [scripts/check_refs.py](scripts/check_refs.py) — verify source anchors, links and package paths.
+- [scripts/measure_storyboard.py](scripts/measure_storyboard.py) — measure storyboard proportions, caption rate, panel holds and cut-offs, and compare MP4 frames against scene-engine check renders; uses FFmpeg/ffprobe and optional proportion bindings in the evidence JSON.
+- [tests/test_measure_storyboard.py](tests/test_measure_storyboard.py) — unit tests for the storyboard measurement script.
 - [references/course-3762/README.md](references/course-3762/README.md), [references/course-503/README.md](references/course-503/README.md), [references/course-433/README.md](references/course-433/README.md), [references/course-561/README.md](references/course-561/README.md) — reading-copy inventories.
 - Course status notes: [3762](references/course-3762/BLOCKED.md), [503](references/course-503/BLOCKED.md), [433](references/course-433/BLOCKED.md), and [561](references/course-561/BLOCKED.md); respect excluded lessons and caption-only limits.
 - Scene-engine contract: [scene-engine/AGENTS.md](../../scene-engine/AGENTS.md) and [scene-engine/SPEC.md §4](../../scene-engine/SPEC.md#4-scene-model).
 - Render-kit contract: [render-kit/AGENTS.md](../../render-kit/AGENTS.md).
+- Review the skill package with `python3 scripts/check_refs.py . --sources 'references/course*/*.md'`. (derived: dogfood 2026-10-02, F12)
 - [NOTICE.md](NOTICE.md) — private paid-course source notice.

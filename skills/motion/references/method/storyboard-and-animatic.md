@@ -49,6 +49,29 @@ Resolve story order and rough timing before detailed motion: course 433 treats t
 - **The failure:** a still sequence feels plausible but runs too long or gives a key idea too little time. (433 · U5 · L14 · 00:00–00:30; 433 · U5 · L14 · 00:30–01:32)
 - **The fix:** time the panels, replay with voice or narration, then remove, merge, shorten or expand scenes as the story needs. (433 · U5 · L14 · 00:30–01:32; 433 · U5 · L14 · 02:57–03:26)
 
+## Produce narration for scene-engine v1
+
+Use a local text-to-speech voice when no recorded narration is available. On macOS, list installed voices with `say -v '?'`, then render each caption cue to its own audio clip so cue start/end times come from measured audio rather than estimates. (derived: dogfood 2026-10-02, F5)
+
+```bash
+mkdir -p audio/cues
+say -v Daniel -o audio/cues/01.aiff "First narration cue."
+afinfo audio/cues/01.aiff
+say -v Daniel -o audio/cues/02.aiff "Second narration cue."
+afinfo audio/cues/02.aiff
+cat > audio/cues.txt <<'EOF'
+file 'audio/cues/01.aiff'
+file 'audio/cues/02.aiff'
+EOF
+ffmpeg -f concat -safe 0 -i audio/cues.txt -c:a pcm_s16le -ar 48000 audio/narration.wav
+```
+
+Measure every clip with `afinfo` or `ffprobe`; add any intended pauses to the timeline; set each caption cue's times from the cumulative measured durations; then concatenate the cue clips into the scene's narration asset. Keep the full scene duration long enough for the measured audio. `scene-engine` v1 accepts narration audio only: music beds are not supported, so do not plan one as a rendered track. (derived: dogfood 2026-10-02, F5)
+
+## Artwork assets for scene-engine
+
+Check each SVG artwork file on its own with `bin/rk check <asset.svg> --out-dir <check-dir>`. SVG image layers are parsed as XML: keep each file well-formed and write render-kit attributes with explicit values such as `data-rk-mark="true"`; a bare `data-rk-mark` can make the image fail silently. Render-kit cannot inspect the contents of an SVG once it is inside a scene-engine image layer, so use the storyboard-to-MP4 frame comparison in stage 6 for T5. (derived: dogfood 2026-10-02, F9)
+
 ## Check before moving on
 
 1. **T4 — Storyboard and continuity:** pass when the panels explain the story from beginning to end, required narration beats have panels, and each transition has a continuity or narrative reason.

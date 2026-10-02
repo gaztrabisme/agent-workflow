@@ -55,6 +55,10 @@ For each animated element, record its purpose, start and end pose, trigger/follo
 - **The failure:** the loop reaches different opening and closing poses when a seamless join was intended. (derived: the course says to restore the starting Position and Rotation at the final keyframe to make a loop, and shows a perfect loop returning to its initial composition.) (3762 · U5 · L16 · 16:09–19:45; 503 · U5 · L20 · 10:46–12:26)
 - **The fix:** compare first and last pose values, then render and inspect the boundary.
 
+## Scene-engine v1 residuals
+
+With the one-track-per-layer workaround, a `scaleX` growth track starting at `0.001` can leave a faint sliver before growth, and one-line caption text can sit at the top of its caption box. These are cosmetic residuals; after multi-track rendering is fixed, pair an opacity reveal with each growth track and recheck the caption baseline. (derived: dogfood 2026-10-02, F15)
+
 ## Check before moving on
 
 1. **T7 — Motion purpose and character:** pass when each major movement has a stated role and the reviewer recognizes the intended motion character.
