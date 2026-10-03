@@ -1,0 +1,75 @@
+:root {
+  /* Game-world palette: approximations selected from the 2024 submission deck. */
+  --color-game-void: #2D1B5C;
+  --color-game-lavender: #E5D9FF;
+  --color-game-sunflower: #FFE300;
+  --color-game-ink: #17131D;
+  --color-game-paper: #F7F2FF;
+  --color-game-pink: #EF38CC;
+  --color-game-cyan: #5CCDF3;
+  --color-game-violet: #575ED8;
+  --color-game-green: #4DE529;
+
+  /* Space-poster palette: approximations selected from the 2021 poster. */
+  --color-space-field: #102727;
+  --color-space-copper: #B7877E;
+  --color-space-cream: #F4F0E1;
+  --color-space-ground: #4A424D;
+
+  --font-display: "Menlo", "Monaco", "Courier New", monospace;
+  --font-heading: "Avenir Next", Avenir, "Trebuchet MS", Arial, sans-serif;
+  --font-body: "Avenir Next", Avenir, Poppins, Arial, sans-serif;
+
+  /* Chosen for PPTX from scene-engine's supported set (F9): Verdana keeps short display titles distinct; Arial keeps body copy readable. */
+  --font-pptx-display: Verdana;
+  --font-pptx-body: Arial;
+
+  --type-caption: 18px;
+  --type-body-small: 24px;
+  --type-body: 30px;
+  --type-subhead: 40px;
+  --type-heading: 56px;
+  --type-display: 76px;
+  --type-hero: 92px;
+  --leading-tight: 1.25;
+  --leading-heading: 1.4;
+  --leading-body: 1.55;
+  --weight-regular: 400;
+  --weight-strong: 700;
+  --weight-heavy: 800;
+  --tracking-display: 0.035em;
+  --tracking-eyebrow: 0.12em;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --radius-square: 0px;
+  --radius-panel: 24px;
+  --radius-pill: 999px;
+  --stroke-pixel: 6px;
+  --pixel-step: 12px;
+
+  --stage-width: 1920px;
+  --stage-height: 1080px;
+  --panel-title-width: 1480px;
+  --panel-title-height: 560px;
+  --panel-content-width: 1640px;
+  --panel-content-height: 400px;
+  --grid-columns: 3;
+
+  --motion-instant: 0ms;
+  --motion-short: 160ms;
+  --motion-medium: 280ms;
+  --motion-long: 520ms;
+  --ease-linear: linear;
+  --ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+}
