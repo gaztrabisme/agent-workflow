@@ -1,0 +1,5 @@
+1 · SKILL.md; references/method/brief-and-intent.md · Added sourced fact, status, unit and date verification before concept/layout, with chart semantics outside this method. (derived: run-2 dogfood, finding row 1)
+2 · scripts/measure_scale.py; references/method/measurement.md; tests/test_checks.py · Deduplicated repeated rendered sizes and added a repeated-instance regression test. (derived: run-2 dogfood, finding row 2)
+3 · references/method/measurement.md · Added panel-background occupancy guidance and required setting T6's target before reading its result. (derived: run-2 dogfood, finding row 3)
+4 · references/method/review-checklist.md; references/method/measurement.md · Mapped reported checklist IDs to VD-T1–VD-T12 beside color-theory checks while keeping local IDs stable. (derived: run-2 dogfood, finding row 4)
+5 · references/method/review-checklist.md · Added T11 n/a applicability when no variants are required. (derived: run-2 dogfood, finding row 5)
