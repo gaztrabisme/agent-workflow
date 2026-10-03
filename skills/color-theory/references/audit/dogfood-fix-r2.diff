@@ -1,0 +1,62 @@
+diff --git a/SKILL.md b/SKILL.md
+index 3c0b561..c0d8daf 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -39,10 +39,10 @@ The course teaches this in a deliberately reversed order: perception first, theo
+ 
+ | # | Stage | Decide | Check before moving on | Reference |
+ |---|---|---|---|---|
+-| 1 | Intent | The feeling, as keywords; the story and its payoff at the focal point; references | A mood board exists; the value, color and saturation targets are written down | `method/intent-and-meaning.md`, `method/artist-references.md` |
++| 1 | Intent | The feeling, as keywords; the story and its payoff at the focal point; references | A mood board exists when visual references are available; for a scene described only in text, record intent and color/value targets from the brief and mark T4 not run if no visual references exist; the value, color and saturation targets are written down (derived: run-2 dogfood, finding 3's text-only scene route). | `method/intent-and-meaning.md`, `method/artist-references.md` |
+ | 2 | Value plan | Focal hierarchy; value, detail and silhouette contrast; flows | Grayscale, fewer-levels and Dust & Scratches tests pass | `method/value-plan.md` |
+ | 3 | Light | Direction and source quality (1560 · U2 · L05 · 01:04–03:43); exposure (1560 · U2 · L06 · 00:08–01:48); ambient and light color, including stylized blue night light, warm lantern light and moonlight (1560 · U2 · L05 · 01:04–03:43; 1560 · U3 · L11 · 00:34–01:43, 02:56–03:38, 03:39–04:58) | Lit sides take the light's temperature and shadows the ambient's | `method/light.md` |
+-| 4 | Color plan | Main contrast pair or families; each color's role (representation, evocation or code; 5642 · U3 · L26 · 00:55–01:40); the focal color; palette type; a color script for sequences | Every value contrast has a matching color contrast; any semantic target is named before testing | `method/palettes.md`, `method/contrast-and-context.md`, `method/functional-color.md` |
++| 4 | Color plan | Main contrast pair or families; each color's role (representation, evocation or code; 5642 · U3 · L26 · 00:55–01:40); the focal color; palette type; a color script for sequences | Every value contrast has a matching color contrast; any semantic target is named before testing. For stateful UI signal colours, obtain domain-owner state-to-threshold policy, show metrics without policy as unconfigured, pair hue with a word, symbol, value, unit, limit and freshness, and check meanings with the intended audience (derived: run-2 dogfood, finding 1). | `method/palettes.md`, `method/contrast-and-context.md`, `method/functional-color.md` |
+ | 5 | Harmony | Blocks, then bridges (a third hue or desaturation), then spreading colors by bounced light and repetition | Each area is still clearly its own color | `method/harmony-bridges.md` |
+ | 6 | Rhythm, balance and flow | Placing colors with sound and silence; color counterweights; color families as paths to the focal point | Removing a key patch shows it is load-bearing | `method/rhythm-balance-flow.md` |
+ | 7 | Temperature and saturation | Warm and cold groups; the saturation layout rising toward the protagonist | S-mode saturation map; the focal point holds the strongest temperature and saturation contrast | `method/temperature-saturation.md` |
+diff --git a/references/method/functional-color.md b/references/method/functional-color.md
+index f48fec9..e3d033f 100644
+--- a/references/method/functional-color.md
++++ b/references/method/functional-color.md
+@@ -30,6 +30,14 @@ The course says these are not closed drawers: color in one graphic piece can per
+ | Sign | Signal | Strong visibility draws attention, while a code within a particular system gives the color a practical meaning. | 5642 · U3 · L39 · 02:06–02:18, 5642 · U3 · L39 · 02:18–02:36, 5642 · U3 · L39 · 02:36–03:20 |
+ | Sign | Emblematic | A conventional, culturally established color identifies an organization, place, institution or movement in social use. It may also serve as a signal. | 5642 · U3 · L40 · 00:22–00:50, 5642 · U3 · L40 · 00:50–01:35, 5642 · U3 · L40 · 01:52–02:44 |
+ 
++### Stateful-interface signal policy
++
++For a stateful interface that uses signal colour for status or alarms, obtain the state-to-threshold policy from the domain owner; show each metric with no policy as unconfigured (derived: run-2 dogfood, dashboard fixture lacked approved tiers and policy in finding 1).
++
++Hue must never be the only carrier of state: place a word, symbol, value, unit, limit and freshness beside the colour (derived: run-2 dogfood, finding 1's dashboard review identified these redundant state cues).
++
++Check the proposed state meanings with the intended audience (derived: run-2 dogfood, finding 1's requirement to validate operational state meanings).
++
+ **Derived decision:** name the primary function for the whole design, then mark secondary roles on individual elements. This turns the course's overlapping categories into a practical brief check. (derived from 5642 · U3 · L26 · 09:10–10:58 and 5642 · U3 · L38 · 12:31–13:01)
+ 
+ ## Color families as hypotheses, not fixed meanings
+diff --git a/references/method/measurement.md b/references/method/measurement.md
+index a6535e9..683a5c5 100644
+--- a/references/method/measurement.md
++++ b/references/method/measurement.md
+@@ -61,4 +61,8 @@ These are this skill's working defaults, not the teacher's numbers:
+ | T5 | The focal box's mean C is at least that of every ring outside it | The image uses an inverted saturation layout on purpose, as in the terrifying recipe (1140 · U4 · L16 · 05:37–07:21) |
+ | T6 | Fails if one range moves more than 80% of the image and no other range moves 5% | A restrained or pastel palette is the intent; the teacher allows it (1140 · U4 · L18 · 05:09–07:27) |
+ 
++For a deliberately small, named set of interface states with assigned state colours, mark T6 not applicable; apply this exception only to the state palette itself, not to other colours in the screen or an image palette (derived: run-2 dogfood, finding 2's four-state status palette and its T6 result).
++
++In place of T6 for that role-limited interface palette, verify separation for each required state pair, text contrast for each label/background pair, and state legibility in colour-vision-deficiency views (derived: run-2 dogfood, finding 2's proposed replacement checks).
++
+ For ramps and design tokens, use the ramp guidance in [color-science SKILL.md](../color-science/SKILL.md): flat perceptual steps in OKLCH, and every text pair verified. Check the numbers with `checks.py contrast`.
+diff --git a/references/method/mistakes-checklist.md b/references/method/mistakes-checklist.md
+index b21097d..aa7ae8c 100644
+--- a/references/method/mistakes-checklist.md
++++ b/references/method/mistakes-checklist.md
+@@ -11,7 +11,7 @@ Run the tests in this order. Each one names the stage of the method to go back t
+ | T1 | Grayscale | Black & White adjustment layer | `checks.py value IMG --focal x0,y0,x1,y1` (OKLab L, not HSL) | The focal point carries the strongest value contrast and the flows lead to it. Script default: the focal box holds at least 2× its area share of value edges. (1140 · U3 · L08 · 03:34–05:03, 1140 · U3 · L13 · 04:50–05:34) | Value plan |
+ | T2 | Fewer levels | Posterize the grayscale to 3–5 levels | The `-levels4.png` that `checks.py value` writes | The protagonists and contrasts are still where planned. (1140 · U3 · L08 · 05:03–06:31) | Value plan |
+ | T3 | Dust & Scratches | Filter > Noise > Dust & Scratches on a copy | A median filter on the grayscale at a radius of about 1% of the image width | The surviving hard edges cluster at the focal point. **Skip for flat or graphic styles**, where every edge is hard; T1's edge share replaces it. (1140 · U2 · L07 · 04:54–05:48) | Value plan |
+-| T4 | Mood board | Place the image beside references for the target feeling, with alternative versions | Same; needs reference images | The chosen version sits in the references' range. (1140 · U4 · L18 · 07:27–08:56) | Intent |
++| T4 | Mood board | Place the image beside references for the target feeling, with alternative versions | Same; needs reference images | The chosen version sits in the references' range. (1140 · U4 · L18 · 07:27–08:56) When no visual references exist, mark T4 not run (derived: run-2 dogfood, finding 3's text-only scene review). | Intent |
+ | T5 | Saturation map | Color picker in S mode, sampling from the edges inward (unreliable on dark colors) | `checks.py chroma IMG --focal …` (OKLCH C by ring) | Chroma rises toward the protagonist; saturated edges only frame. An inverted layout is allowed when deliberate, as in the terrifying recipe. (1140 · U4 · L16 · 01:56–04:24, 1140 · U4 · L16 · 05:37–07:21) | Temperature and saturation |
+ | T6 | Hue/Saturation spread | Adjustment layer: move the dominant range (for example Yellows), then a secondary range (Greens) | `checks.py spread IMG` (Photoshop's ranges: 30° core, 30° falloff) | The dominant range does not move almost everything, and a secondary range responds. Script default: fails if one range moves more than 80% and no other moves 5%. A deliberately restrained or pastel palette may fail; the teacher allows it. (1140 · U4 · L18 · 05:09–07:27) | Texture and variety |
+ | T7 | Light coherence | Sample a lit side and a shadow side of the key objects | `checks.py sample IMG x,y x,y` (warm h 20–100, cool 200–320) | Lit sides carry the light's temperature and shadows the ambient temperature; compare the pair, not absolute bands. (1140 · U4 · L18 · 10:26–12:20) | Light |
