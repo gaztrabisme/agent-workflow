@@ -1,0 +1,186 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/social-api/tham-khao/chinh-sach-nen-tang-cua-zalo
+# FETCHED: 2026-07-21
+# TITLE: Chính sách nền tảng của Zalo | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Chính sách nền tảng của Zalo
+Demonstrating Proof-of-Possession
+Tham khảoChính sách nền tảng của Zalo
+Chính sách nền tảng của Zalo
+
+Các điều khoản và điều kiện sau đây sẽ cấu thành nên một thoả thuận giữa Nhà phát triển và Công ty Cổ phần VNG (“Thoả thuận”). Nhà phát triển đồng ý đã đọc và hiểu và cam kết tuân thủ toàn bộ nguyên tắc được quy định trong Thoả thuận này và quy định, quy chế liên kết, tích hợp (nếu có). Thoả thuận này có hiệu lực ngay khi Nhà phát triển đăng ký tham gia chương trình Zalo for Developers và duy trì hiệu lực trong suốt quá trình phát hành và vận hành tính năng trên Platform.
+
+Để đáp ứng nhu cầu sử dụng của Nhà phát triển, hài hòa lợi ích của các Bên và tuân thủ các quy định của pháp luật, Chúng tôi có quyền điều chỉnh bất kỳ nội dung nào trong Thoả thuận này tại bất kỳ thời điểm nào bằng việc đăng tải bản cập nhật và bản cập nhật sẽ có hiệu lực ngay lập tức sau khi được đăng tải.
+
+A. ĐỊNH NGHĨA​
+Từ khóa	Định nghĩa
+VNG/Chúng tôi	Công ty Cổ Phần VNG hoặc Chúng tôi
+Platform	Nền tảng môi trường kỹ thuật số để vận hành nền tảng Zalo
+Người dùng	Cá nhân sử dụng các tính năng có liên quan đến nền tảng Zalo
+Nội dung	Tất cả các hình ảnh, âm thanh, chữ viết, ký tự, liên kết, hành động, biểu tượng được tích hợp, chia sẻ trên nền tảng Zalo hoặc được khởi tạo thông qua nền tảng Zalo
+API	Giao diện lập trình ứng dụng tích hợp trên hệ thống kỹ thuật của VNG
+Test	Thử nghiệm
+Zalo for Developers	là trang cung cấp tài liệu và hướng dẫn kỹ thuật về các giải pháp thuộc hệ sinh thái Zalo cho lập trình viên..
+Nhà phát triển	Là người đăng ký sử dụng trên chương trình Zalo for Developers.
+B. ĐIỀU KHOẢN CỤ THỂ​
+1. Đăng ký và khai báo thông tin Nhà Phát Triển​
+
+Zalo cho phép Nhà phát triển tích hợp và thử nghiệm tất cả các tính năng được công bố tại trang developers.zalo.me. Trong trường hợp sản phẩm của Nhà phát triển chưa được công bố, phát hành trên Platform, nếu muốn tích hợp các tính năng trên Platform vào sản phẩm, Nhà phát triển vui lòng gửi thông tin cho Chúng tôi tại địa chỉ developers@zalo.me để đuợc hỗ trợ. Các thông tin cần được cung cấp bao gồm:
+
+1.1. Tên sản phẩm;
+
+1.2. Đường dẫn đến sản phẩm (Nếu là ứng dụng di động vui lòng gửi đường dẫn cài đặt);
+
+1.3. Ngành hàng hoặc dịch vụ của sản phẩm;
+
+1.4. Mục đích tích hợp Zalo Platform;
+
+1.5. Các kênh đã và đang quảng bá cho sản phẩm của bạn (vui lòng gửi thông tin và đường dẫn nếu đó là một website);
+
+1.6. Đối tượng khách hàng mà bạn đang nhắm đến (Độ tuổi, giới tính, ngành nghề,...);
+
+1.7. Thị trường mà bạn đang phát hành (Zalo ưu tiên các sản phẩm phát hành tại thị trường Việt Nam);
+
+1.8. Ước tính lượng khách hàng tại một khoảng thời gian nhất định (Việc này nhằm mục đích tính toán mở rộng các giới hạn API cho sản phẩm của bạn nếu nhu cầu là hợp lý);
+
+1.9. Xác nhận đồng ý với Chính sách này (theo đường dẫn: https://developers.zalo.me/docs/social-api/tham-khao/chinh-sach-nen-tang-cua-zalo)
+
+1.10. Đường dẫn nhân thông báo từ Nền tảng Zalo (Webhook).
+
+2. Tạo ra môi trường thân thiện trên nền tảng Zalo theo chính sách cộng đồng​
+
+2.1 Nhằm tạo ra môi trường an toàn, giảm thiểu các thiệt hại về thể chất, tinh thần và tài chính cho người dùng và tuân thủ những quy định của pháp luật, Chúng tôi đã ban hành Chính sách cộng đồng nhằm định hướng, điều chỉnh và quy định các nội dung vi phạm không được phép đăng tải, chia sẻ cho các Nhà phát triển. Chính sách này được xây dựng dựa trên những phản hồi từ cộng đồng của Zalo, cũng như những lời khuyên của các chuyên gia. Nhà phát triển vui lòng xem tại Chính sách cộng đồng Zalo.
+
+2.2 Nhà phát triển cam kết tuân thủ chính sách của Nền tảng đối với tên, biểu tượng và mô tả ứng dụng của bạn.
+
+Tên, mô tả của Nhà phát triển không được chứa các từ ngữ phản cảm, xúc phạm, từ ngữ gây nhầm lẫn.
+
+Tên ứng dụng là các danh từ riêng của những tổ chức/cộng đồng sẽ được chúng tôi yêu cầu xác nhận về tính sở hữu. (Ví dụ: Zalo, Facebook, Samsung, Apple...)
+
+Biểu tượng của ứng dụng không được chứa các nội dung bạo lực, phản cảm, khỏa thân, xúc phạm tới bất kỳ cá nhân, tổ chức nào.
+
+3. Trách nhiệm của Nhà phát triển về giữ phản hồi tiêu cực về ứng dụng ở dưới ngưỡng kiểm soát của Nền tảng.​
+
+3.1. Chúng tôi có bảng giám sát về phản hồi của người dùng về ứng dụng của bạn. Ứng dụng của bạn không được có phản hồi tiêu cực quá mức. Đảm bảo rằng thông tin chi tiết về ứng dụng của bạn phản ánh trải nghiệm tích cực.
+
+3.2. Chúng tôi luôn khuyến kích ứng dụng xây dựng trải nghiệm người dùng tốt hơn. Các hoạt động gây phiền nhiễu tới người dùng sẽ được chúng tôi ghi nhận và tiến hành loại bỏ.
+
+3.3. Chúng tôi giới hạn định mức cho ứng dụng của bạn yêu cầu gửi tin nhắn tới bạn bè dưới danh nghĩa người dùng, đăng tin mới dưới danh nghĩa người dùng, chia sẻ ứng dụng của bạn dưới danh nghĩa người dùng. Mọi nhu cầu liên quan tới việc cập nhật định mức lớn hơn xin liên hệ trực tiếp với chúng tôi.
+
+4. Quy định về quyền riêng tư người dùng, quyền truy cập​
+
+4.1 Quy định chung
+
+Xin phép người dùng trước khi đăng nội dung nhân danh họ. Người dùng cần phải hiểu được điều mình đang thao tác với ứng dụng của bạn, không sử dụng những nút làm rối hoặc nhầm lẫn.
+
+Sử dụng quyền cho phép đăng bài để giúp mọi người chia sẻ trên Zalo, không được tự động gửi cho mọi người tin nhắn từ ứng dụng của bạn.
+
+Không được điền sẵn nội dung mà người dùng không tạo hoặc bài viết của người dùng cho dù có thể chỉnh sửa hoặc xóa nội dung trước khi gửi hoặc chia sẻ.
+
+Xóa tất cả dữ liệu của người dùng mà bạn đã nhận được từ chúng tôi (bao gồm dữ liệu bạn bè) (nếu có) nếu người dùng đó yêu cầu, trừ khi có yêu cầu bắt buộc phải lưu giữ dữ liệu đó theo luật, quy định hoặc thỏa thuận riêng với chúng tôi.
+
+Chúng tôi khuyến khích ứng dụng xây dựng dịch vụ hỗ trợ người dùng giúp người dùng liên hệ với bạn một cách dễ dàng.
+
+Nếu mọi người truy cập vào ứng dụng của bạn từ ứng dụng Zalo trên iOS, hãy cấp cho họ tùy chọn quay lại ứng dụng Zalo bằng cách sử dụng biểu ngữ “Quay lại Zalo” được cung cấp trong SDK của chúng tôi.
+
+Nếu mọi người truy cập vào ứng dụng của bạn từ ứng dụng Zalo trên Android, không được ngăn họ quay lại Zalo khi họ nhấn nút quay lại của hệ thống.
+
+4.2 Thu thập và lưu trữ dữ liệu
+
+Trước khi thu thập dữ liệu của người dùng, phải đảm bảo đã được sự đồng ý hợp pháp từ người dùng. Mục đích và phạm vi sử dụng dữ liệu phải thông báo rõ ràng cho người dùng.
+
+Trừ khi có sự đồng ý từ người dùng, không được yêu cầu người dùng nhập thông tin cá nhân (bao gồm nhưng không giới hạn số điện thoại, ngày sinh và các dữ liệu cá nhân theo quy định của pháp luật) để sử dụng các chức năng.
+
+Khi người dùng yêu cầu thực hiện các quyền của chủ thể dữ liệu về dữ liệu cá nhân, VNG và Nhà phát triển có trách nhiệm thông báo qua các kênh giao tiếp đã thống nhất và hỗ trợ bên còn lại thực hiện quyền của chủ thể dữ liệu.
+
+Hoạt động xử lý, lưu trữ dữ liệu của ứng dụng thuộc Nhà phát triển phải được thực hiện tại máy chủ trong lãnh thổ nước Cộng Hoà Xã Hội Chủ Nghĩa Việt Nam và đảm bảo lưu giữ phù hợp với quy định pháp luật.
+
+4.3 Sử dụng dữ liệu
+
+Không được phép sử dụng thông tin tài khoản Zalo và các quyền truy cập khác của người dùng cho bất kỳ mục đích nào khác nếu không được người dùng và nền tảng Zalo cho phép.
+
+Không được phép xử lý, sao chép, lưu trữ, sử dụng hoặc chuyển giao dữ liệu người dùng mà không có sự đồng ý rõ ràng của người dùng và không tiết lộ trung thực mục đích, phạm vi sử dụng và các thông tin liên quan khác cho người dùng.
+
+Không được xử lý dữ liệu cá nhân của trẻ em khi chưa có sự đồng ý của trẻ em và người giám hộ theo quy định của pháp luật. Mọi hoạt động xử lý dữ liệu cá nhân cần phải thực hiện trên nguyên tắc bảo vệ các quyền và vì lợi ích hợp pháp của trẻ em.
+
+Trong trường hợp Nhà phát triển cần xử lý dữ liệu cá nhân nhạy cảm thì cần phải thông báo cho chủ thể dữ liệu biết.
+
+Nhà phát triển cam kết và đảm bảo tuân thủ các quy định pháp luật về bảo vệ dữ liệu cá nhân, không tiếp nhận bất kỳ dữ liệu cá nhân được cung cấp từ Platform khi hệ thống xử lý dữ liệu của Nhà Phát Triển có địa chỉ IP tại ngoài lãnh thổ nước Cộng Hoà Xã Hội Chủ Nghĩa Việt Nam.
+
+4.4 Bảo mật dữ liệu
+
+Nếu không có sự cho phép của người dùng và nền tảng Zalo, ứng dụng thuộc Nhà phát triển và Nhà phát triển không được phép tiết lộ, cung cấp bất kỳ dữ liệu nào của người dùng đã thu thập cho bất kỳ bên thứ ba nào dưới mọi hình thức.
+
+Dữ liệu người dùng được thu thập trong một ứng dụng cụ thể, chỉ được sử dụng trong chính ứng dụng đó, không được sử dụng ngoài phạm vi của ứng dụng đó hoặc cho bất kỳ mục đích nào khác, ngay kể cả khi bạn đăng ký hai hoặc nhiều hơn hai ứng dụng.
+
+Sau khi ngừng sử dụng dịch vụ của nền tảng Zalo, hoặc dịch vụ này bị ngừng, bạn cần thực hiện xoá hoàn toàn dữ liệu người dùng đã thu thập trong vòng 24 giờ bằng các biện pháp hợp pháp và không thể khôi phục, trừ khi đã có sự đồng ý rõ ràng bằng văn bản từ người dùng để tiếp tục dữ lại dữ liệu của họ.
+
+Ứng dụng thuộc Nhà phát triển cần cung cấp cho người dùng cần phải có các cơ chế đảm bảo quyền của chủ thể dữ liệu theo quy định pháp luật, đảm bảo người dùng có thể tự thực hiện việc quyền dữ liệu của họ thông qua phương pháp này, và đảm bảo rằng dữ liệu liên quan sẽ được thực hiện và hoàn thành theo yêu cầu của chủ thể dữ liệu. Trong trường hợp Nhà phát triển nhận được bất kỳ yêu cầu thực hiện quyền nào của chủ thể dữ liệu thì phải ngay lập tức thông báo cho Chúng tôi và phối hợp thực hiện yêu cầu này của chủ thể dữ liệu.
+
+Áp dụng các biện pháp tổ chức và các biện pháp kỹ thuật bảo vệ dữ liệu cá nhân theo quy định của pháp luật. Nhà phát triển có trách nhiệm triển khai các phương án, cơ chế tiếp nhận thông tin từ Nền tảng Zalo về việc thực hiện quyền của Chủ Thể Dữ Liệu theo quy định của pháp luật. Trong trường hợp Người dùng yêu cầu rút lại sự đồng ý và xoá dữ liệu cá nhân, Nhà Phát Triển có trách nhiệm xoá toàn bộ các dữ liệu liên quan và thông báo với Chúng tôi cũng như phối hợp thực hiện yêu cầu này của chủ thể dữ liệu.
+
+Trong trường hợp Nhà Phát Triển dừng toàn bộ hoạt động vận hành, phát triển ứng dụng thì Nhà Phát Triển có trách nhiệm xoá toàn bộ Dữ Liệu Cá Nhân nhận từ Zalo.
+
+4.5 Các hành vi bị cấm liên quan tới xử lý dữ liệu.
+
+Hoạt động thu thập dữ liệu không có sự đồng ý của chủ thể dữ liệu
+
+Hoạt động đảm bảo quyền của chủ thể dữ liệu chưa rõ ràng, minh bạch, theo quy định pháp luật.
+
+Không đảm bảo các phương pháp kỹ thuật an toàn dữ liệu trong quá trình xử lý dữ liệu.
+
+Xử lý dữ liệu cá nhân trái với quy định pháp luật.
+
+Cung cấp không đúng, không đẩy đủ thông tin trong quá trình khai báo.
+
+Không thực hiện đúng các điều khoản được quy định trách nhiệm Nhà phát triển tại chính sách này.
+
+5. Hiệu lực, Giải quyết tranh chấp, khiếu nại​
+
+5.1 Thỏa Thuận này có hiệu lực trong toàn bộ thời gian ứng dụng thuộc Nhà phát triển còn sử dụng dịch vụ và tích hợp với Nền tảng Zalo. Khi cần thiết, Chúng tôi có thể sửa đổi, cập nhật hoặc điều chỉnh các nội dung trong Thoả Thuận này tại bất cứ thời điểm nào, và phiên bản mới nhất của Thoả Thuận sẽ được đăng tải trên Website, Platform của chúng tôi. Bạn đồng ý rằng sẽ định kỳ kiểm tra trên Website hoặc Platform để luôn được tiếp cận với phiên bản được cập nhật gần nhất.
+
+5.2 Bất kỳ tranh chấp phát sinh trong quá trình thực hiện Thoả thuận sẽ được giải quyết theo pháp luật hiện hành của nước Cộng hòa xã hội chủ nghĩa Việt Nam. Mọi tranh chấp liên quan tới việc thực hiện Thoả thuận này nếu không hòa giải được sẽ giải quyết tại Tòa án nhân dân có thẩm quyền.
+
+5.3 Bất kỳ khiếu nại nào phát sinh trong quá trình tham gia thực hiện Thoả thuận này phải được gửi đến VNG ngay sau khi xảy ra sự kiện phát sinh khiếu nại:
+
+Bộ phận Chăm sóc khách hàng Chương trình Zalo for Developers - Công ty Cổ Phần VNG
+
+Địa chỉ: VNG Campus, Đường số 13, KCX Tân Thuận, P. Tân Thuận Đông, Quận 7, TP.HCM - Email: feedback@zalo.me
+
+5.4 VNG sẽ căn cứ từng trường hợp cụ thể để có phương án giải quyết cho phù hợp. Khi thực hiện quyền khiếu nại, người khiếu nại có nghĩa vụ cung cấp các giấy tờ, bằng chứng, căn cứ có liên quan đến việc khiếu nại và phải chịu trách nhiệm về nội dung khiếu nại, giấy tờ, bằng chứng, căn cứ do mình cung cấp theo quy định pháp luật.
+
+5.5 Bạn đồng ý bảo vệ, bồi hoàn và loại trừ VNG khỏi những nghĩa vụ pháp lý, tố tụng, tổn thất, chi phí bao gồm nhưng không giới hạn án phí, chi phí luật sư, chuyên gia tư vấn có liên quan đến việc giải quyết hoặc phát sinh từ sự vi phạm của bạn.
+
+Trân trọng cảm ơn Người dùng đã sử dụng Sản phẩm và Dịch vụ của VNG.
+
+Trước
+Mã lỗi
+Kế tiếp
+Demonstrating Proof-of-Possession
+A. ĐỊNH NGHĨA
+B. ĐIỀU KHOẢN CỤ THỂ
+1. Đăng ký và khai báo thông tin Nhà Phát Triển
+2. Tạo ra môi trường thân thiện trên nền tảng Zalo theo chính sách cộng đồng
+3. Trách nhiệm của Nhà phát triển về giữ phản hồi tiêu cực về ứng dụng ở dưới ngưỡng kiểm soát của Nền tảng.
+4. Quy định về quyền riêng tư người dùng, quyền truy cập
+5. Hiệu lực, Giải quyết tranh chấp, khiếu nại
+©2023 Zalo for Developers

@@ -1,0 +1,61 @@
+# SOURCE: https://bot.zapps.me/docs/apis/getMe/
+# FETCHED: 2026-08-06
+# TITLE: getMe | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Trang chủ
+Bắt đầuTài liệuGiá góiGiải phápFAQ
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Trên trang này
+getMe
+Trước
+Kế tiếp
+Cập nhật lần cuối: 10/12/2025
+Sử dụng phương thức này để kiểm tra Bot Token, nếu token hợp lệ sẽ trả về các thông tin cơ bản về Bot của bạn.
+URL: https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/getMe
+Method: POST
+Response Type: application/json
+Sample code​
+Code demo fallback when rendering server side!
+Parameters​
+Không yêu cầu tham số đi kèm.
+Sample response​
+{
+"ok": true,
+"result": {
+"id": "1459232241454765289",
+"account_name": "bot.VDKyGxQvc",
+"account_type": "BASIC",
+"can_join_groups": false
+}
+}
+Trước
+Kế tiếp
+zi-chevron-up
+Parameters
+Sample response
+EN
+Zalo Bot Platform
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+Công Ty TNHH Zalo Platforms
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+© 2025 Zalo Platforms. All Rights Reserved.

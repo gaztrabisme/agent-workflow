@@ -1,0 +1,99 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/tin-nhan-chao-mung-tu-dong-2026
+# FETCHED: 2026-07-21
+# TITLE: Tin nhắn chào mừng tự động | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Tin nhắn chào mừng tự động
+
+Tin nhắn chào mừng tự động là công cụ gửi lời chào đến khách hàng ngay khi họ nhấn Quan tâm hoặc gửi tin nhắn đầu tiên đến OA, giúp doanh nghiệp tạo ấn tượng tốt và điều hướng khách hàng hiệu quả.
+
+📌 Các bước thiết lập chi tiết​
+
+Bước 1: Tại trang Quản lý OA, chọn mục Quản lý ➞ chọn Thiết lập tương tác ➞ chọn Tin nhắn chào mừng. Hoặc truy cập nhanh qua đường dẫn: https://oa.zalo.me/manage/message-welcome.
+
+Bước 2: Chọn Chỉnh sửa để bắt đầu thiết lập.
+
+Bước 3: Chọn Trạng thái Bật và cập nhật các thành phần trong tin nhắn chào mừng: hình ảnh, tiêu đề, nội dung tin nhắn.
+
+
+Bước 4: Thiết lập Nút bấm: OA hỗ trợ tối đa 3 nút bấm để điều hướng khách hàng thực hiện các hành động tiếp theo, gồm:
+
+Tư vấn
+Gửi biểu mẫu thu thập thông tin
+Mở danh sách bài viết
+Kích hoạt Zalo Chatbot
+Truy vấn tự động
+Gọi điện
+
+Bước 5: Chọn Lưu để hoàn tất.
+
+🔗 Sau khi hoàn tất thiết lập, admin thực hiện thiết lập có thể xem trước hiển thị của tin nhắn chào mừng bằng cách chọn Xem trong Zalo (bên phải màn hình).
+
+🔗 OA có thể tùy chỉnh Bật/Tắt tại mục Trạng thái tùy theo nhu cầu gửi tin Lời chào tự động của doanh nghiệp.
+
+💡 Gợi ý tối ưu tin nhắn chào mừng tự động​
+
+Để Tin nhắn chào mừng tự động dễ dàng tạo ấn tượng tốt của người dùng với OA, Doanh nghiệp có thể:
+
+Cá nhân hóa nội dung Tin nhắn: Sử dụng các trường thông tin (tên khách hàng,...) để tạo lời chào gần gũi, giúp thông điệp trở nên thân thiện và phù hợp với từng đối tượng.
+
+Thiết lập đa điểm chạm tương tác: Tích hợp nút Tư vấn, Gọi điện, Chatbot, Biểu mẫu để khách hàng chủ động gửi lại thông tin hoặc tương tác, giúp doanh nghiệp nhanh chóng nắm bắt nhu cầu và phản hồi chính xác hơn.
+
+Điều hướng và giữ chân: Dẫn dắt khách hàng khám phá Trang thông tin OA, bài viết OA, Mini App hoặc nhận ưu đãi trong lúc chờ đợi để tăng thời gian trải nghiệm trên OA và tối ưu cơ hội chốt đơn.
+
+-----------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Thanh menu
+Next
+Lấy OA ID
+📌 Các bước thiết lập chi tiết
+💡 Gợi ý tối ưu tin nhắn chào mừng tự động
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

@@ -1,0 +1,44 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/xoa-tai-khoan-oa_791591044402987922
+# FETCHED: 2026-08-06
+# TITLE: Xóa tài khoản OA | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thiết lập tài khoản OA
+Xóa tài khoản OA
+Xóa tài khoản OA
+Xóa tài khoản OA là thao tác sẽ xóa vĩnh viễn tài khoản OA và không thể khôi phục lại.
+Để xóa tài khoản Admin OA với phân quyền "Quản trị viên"" vui lòng thực hiện theo hướng dẫn sau:
+Bước 1: Truy cập trang thông tin chung của OA chọn mục Quản lý ➞ Quản lý tài khoản ➞ Thông tin tài khoản ➞ Chọn "Xóa".
+Bước 2: Nhấn "Xác nhận" để đồng ý xóa tài khoản OA.
+⚠ Lưu ý:
+Chỉ có admin với quyền “Quản trị viên” mới có thể thực hiện xóa OA, xem thêm bài viết về hướng dẫn quyền quản trị tại đây.
+Sau khi OA đã xóa, website sẽ tự động chuyển về trang https://oa.zalo.me/manage/oa và anh/chị sẽ không thể tìm thấy OA đã xóa.
+--
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT Zalo OA để được phản hồi sớm nhất.
+Previous
+Quản lý Admin OA
+Next
+Tạo bài viết

@@ -1,0 +1,72 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/TS/apis/callback
+# FETCHED: 2026-08-06
+# TITLE: Webhook nhận kết quả thanh toán | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Cấu hình API
+API Reference
+Khởi tạo giao dịch
+Giả lập thanh toán
+Truy vấn trạng thái giao dịch
+Webhook nhận kết quả thanh toán
+Bảng mã lỗi
+Trên trang này
+Webhook nhận kết quả thanh toán
+Merchant thiết lập Webhook để nhận kết quả thanh toán từ Transfer Service. Khi Transfer Service nhận trạng thái thanh toán từ ngân hàng, hệ thống sẽ gọi URL này để thông báo kết quả cho Merchant.
+URL: https://your-webhookurl.com
+Method: POST
+Response Type: application/json
+Request body​
+Transfer Service gửi body dạng JSON chứa đầy đủ thông tin giao dịch, cấu trúc tương tự response của API truy vấn trạng thái giao dịch. Merchant nên xác thực chữ ký (signature) trước khi xử lý để đảm bảo request đến từ Transfer Service.
+Sample callback payload​
+{
+"merchant_order_id": "251125_004904618",
+"ts_order_id": "1ea9544268078159d816",
+"created_time": 1764056578002,
+"order_time": 1764056578002,
+"expire_time": 1764057778002,
+"updated_time": 1764056609139,
+"bank_code": null,
+"amount": 50000,
+"description": "Nap DT 251125004904618",
+"embed_data": "{}",
+"qr_data": "0002010102123857....",
+"paid_amount": 50000,
+"paid_time": 1764056608000,
+"transaction_detail": "QAAUMI9446 ZTRANS47 4 59ee13.....",
+"status": "PAID",
+"status_code": 2,
+"signature": "5d592031dba0c9....",
+"app_id": "726e9484a8c1419f18d0",
+"timestamp": 1764056609169
+}
+Trước
+Truy vấn trạng thái giao dịch
+Kế tiếp
+Bảng mã lỗi
+Request body
+Sample callback payload
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,146 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/apis/purchase
+# FETCHED: 2026-08-06
+# TITLE: purchase | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+purchase
+Cập nhật lần cuối:5/8/2026
+Gửi thông tin thanh toán.
+Parameters​
+Object object​
+Property
+Type
+Required
+Description
+amount
+number
+true
+Số tiền cần thanh toán
+desc
+string
+true
+Mô tả giao dịch thanh toán
+method
+string
+true
+Mã phương thức thanh toán. Nếu phương thức được Checkout SDK hỗ trơ, vui lòng tham khảo tại đây
+success
+function
+Callback function khi gọi api thành công
+fail
+function
+Callback function khi gọi api thất bại
+Return Values​
+Promise <Object data>​
+Property
+Type
+Description
+orderId
+string
+Mã đơn hàng của yêu cầu thanh toán vừa tạo
+messageToken
+string
+Token dùng để sử dụng tin Mini App. Chi tiết về tin Mini App tham khảo tại đây
+Error code​
+Tham khảo tại đây.
+Sample Code​
+import { CheckoutSDK } from "zmp-sdk/apis";
+// tạo yêu cầu thanh toán 50.000VNĐ
+CheckoutSDK.purchase({
+desc: "Thanh toán 50.000",
+amount: 50000,
+method: "ZALOPAY_SANDBOX",
+success: (data) => {
+// Tạo đơn hàng thành công
+const { orderId } = data;
+console.log(orderId);
+},
+fail: (err) => {
+// Tạo đơn hàng lỗi
+console.log(err);
+},
+});
+// hoặc
+const purchase = async () => {
+try {
+const { orderId } = await CheckoutSDK.purchase({
+desc: "Thanh toán 50.000",
+amount: 50000,
+method: "ZALOPAY_SANDBOX",
+});
+} catch (error) {
+// xử lý lỗi
+console.log(error);
+}
+};
+Trước
+createOrder
+Kế tiếp
+checkTransaction
+Parameters
+Object object
+Return Values
+Promise <Object data>
+Error code
+Sample Code
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

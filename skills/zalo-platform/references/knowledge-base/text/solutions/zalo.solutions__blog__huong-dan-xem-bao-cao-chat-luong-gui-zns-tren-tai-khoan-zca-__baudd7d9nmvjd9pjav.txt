@@ -1,0 +1,41 @@
+# SOURCE: https://zalo.solutions/blog/huong-dan-xem-bao-cao-chat-luong-gui-zns-tren-tai-khoan-zca-/baudd7d9nmvjd9pjav
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn xem báo cáo chất lượng gửi ZNS trên tài khoản ZCA  | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Hướng dẫn xem báo cáo chất lượng gửi ZNS trên tài khoản ZCA
+Hướng dẫn xem báo cáo chất lượng gửi ZNS trên tài khoản ZCA
+26 tháng 11, 2025 17:41
+Khi bắt đầu hoạt động gửi thông báo ZNS, Zalo Official Account (OA) của doanh nghiệp sẽ chỉ được gửi ZNS có cấp độ thấp (Tag 1 và Tag 2). Sau đó, dựa theo chất lượng gửi ZNS, hệ thống sẽ tự động điều chỉnh cho phép OA gửi các loại nội dung ở cấp độ cao hơn. Trong bài viết này, đội ngũ hỗ trợ và chăm sóc khách hàng của Zalo Cloud sẽ hướng dẫn Quý khách kiểm tra báo cáo chất lượng gửi ZNS ngay trên tài khoản Zalo Cloud Account (ZCA).
+A. Các cấp độ gửi ZNS và cách thiết lập mục đích gửi​
+Nội dung gửi ZNS được chia thành những loại nội dung sau, với cấp độ tăng dần dựa trên tính chất phức tạp và rủi ro ảnh hưởng đến trảu nghiệm của người nhận. Việc lựa chọn mục đích gửi chỉ áp dụng cho loại ZNS dạng văn bản và ZNS dạng bảng.
+Quý khách vui lòng tham khảo tài liệu Quy định chung khi kiểm duyệt mẫu ZNS để biết thông tin chi tiết về các loại cấp độ gửi tin (Tag) và nội dung tương ứng cho từng cấp độ.
+B. Hướng dẫn xem báo cáo chất lượng gửi ZNS trên tài khoản ZCA​
+Quý khách có thể kiểm tra nhanh và xem báo cáo chi tiết chất lượng gửi ZNS, hướng dẫn chi tiết như sau:
+B.1 Hướng dẫn kiểm tra nhanh​
+Truy cập vào tài khoản Zalo Cloud Account (ZCA) → Chọn "Chất lượng gửi ZNS."
+Mỗi OA khi bắt đầu sử dụng dịch vụ ZNS đều có báo cáo nhanh về cấp độ được gửi hiện tại và hạn mức mỗi ngày.
+Hình minh hoạ: OA có tên là Qc Test ZNS 4 với OA ID là 3042881048992527255 đang được cấp phép gửi tin ở các cấp độ (Tag) 1, 2, 3 với hạn mức 20.000 ZNS/ngày
+B.2 Hướng dẫn kiểm tra chi tiết​
+Truy cập vào tài khoản Zalo Cloud Account (ZCA) → Chọn "Chất lượng gửi ZNS" → Nhấn "Xem báo cáo" để xem chi tiết báo cáo chất lượng gửi tin của từng OA đã liên kết với tài khoản ZCA.
+Tại đây, Quý khách sẽ xem được báo cáo chi tiết về chất lượng gửi của OA, đồng thời, hệ thống sẽ phân tích rõ các yếu tố cần để OA tăng/giảm hạn mức và chất lượng.
+C. Cơ chế đánh giá chất lượng và quyền lợi gửi ZNS​
+Trong hoạt động gửi thông báo chăm sóc khách hàng qua Zalo, tỉ lệ báo xấu (phản hồi tiêu cực) của người nhận thông báo ZNS sẽ ảnh hưởng đến quyền lợi của doanh nghiệp vì liên quan trực tiếp đến số lượng ZNS gửi mỗi ngày cũng như loại nội dung thông báo có thể gửi. Để có thể nắm các thông tin về cơ chế đánh giá chất lượng và quyền lợi gửi ZNS từ Zalo Cloud chính xác nhất, quý doanh nghiệp vui lòng tham khảo bài viết Cơ chế đánh giá chất lượng và quyền lợi gửi ZNS.
+Nếu có bất kì yêu cầu hỗ trợ, khách hàng có thể liên hệ với đội ngũ Chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud. Đội ngũ CSKH Zalo Cloud sẽ phản hồi cho khách hàng trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

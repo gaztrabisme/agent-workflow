@@ -1,0 +1,71 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/phu-luc/cac-loai-ma-su-dung-trong-oauth
+# FETCHED: 2026-08-06
+# TITLE: Các loại mã sử dụng trong OAuth | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Các loại mã sử dụng trong OAuth
+Authorization code​
+Là mã ủy quyền cho phép ứng dụng gọi API để lấy access token và refresh token.
+Authorization code sẽ được trả về qua callback URL của ứng dụng.
+Authorization code chỉ được sử dụng 1 lần và có hiệu lực trong vòng 10 phút.
+Access token​
+Token cho phép ứng dụng đại điện OA sử dụng API.
+Thời hạn hiệu lực: 25 giờ.
+Refresh token​
+Mỗi access token được tạo ra sẽ đi có một refresh token đi kèm. Refresh token dùng để tạo lại access token khi access token hết hiệu lực.
+Thời hạn hiệu lực: 3 tháng.
+rường hợp refresh token hết hạn, bạn cần thực hiện yêu cầu cấp lại authorization code và access token.
+Trước
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Kế tiếp
+Các tương tác của người dùng với OA
+Authorization code
+Access token
+Refresh token
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

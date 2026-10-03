@@ -1,0 +1,239 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/lfs/getSavedFileList
+# FETCHED: 2026-08-06
+# TITLE: getSavedFileList | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+getSavedFileList
+Cập nhật lần cuối:22/12/2025
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.51.0
+Android25.11.02
+IOS25.12.02
+Lấy thông tin tất cả các local data file đã được lưu của mini app.
+Parameters​
+Object object​
+Property
+Type
+Default
+Required
+Description
+Minimum Version
+success
+function
+Callback function khi gọi api thành công
+fail
+function
+Callback function khi gọi api thất bại
+Return Values​
+Promise <Object data>​
+Property
+Type
+Description
+Minimum Version
+list
+Array <FileInfo>
+Danh sách file đã lưu cục bộ
+Entities​
+FileInfo​
+Property
+Type
+Description
+Minimum Version
+filePath
+string
+Đường dẫn tới file trong folder cục bộ của mini app.
+size
+number
+Kích thước file (byte size)
+createTime
+number
+Thời gian file được tạo
+type
+string
+Type của file (Vd: image/jpeg, video/mp4)
+Sample Code​
+import { LFSStorage } from 'zmp-sdk/apis';
+LFSStorage.getSavedFileList({
+success: (data) => {
+// xử lý khi gọi api thành công
+const { list } = data;
+},
+fail: (error) => {
+// xử lý khi gọi api thất bại
+console.log(error);
+},
+});
+// hoặc
+import { LFSStorage } from 'zmp-sdk/apis';
+const getSavedFileList = async () => {
+try {
+const { list } = await LFSStorage.getSavedFileList({});
+} catch (error) {
+// xử lý khi gọi api thất bại
+console.log(error);
+}
+};
+Trước
+getFileInfo
+Kế tiếp
+removeSavedFile
+Parameters
+Object object
+Return Values
+Promise <Object data>
+Entities
+FileInfo
+Sample Code
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

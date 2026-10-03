@@ -1,0 +1,64 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/integration-setting/merchant-registration/
+# FETCHED: 2026-07-21
+# TITLE: Đăng ký với đối tác thanh toán | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Đăng ký với đối tác thanh toán
+Cấu hình thanh toán cho Mini App
+Cài Đặt Chung
+Cấu hình ZaloPay
+Cấu hình Momo
+Cấu hình VNPay
+Cấu hình Payme
+Thanh toán khi nhận hàng (COD)
+Chuyển khoản ngân hàng
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Đăng ký với đối tác thanh toán
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Để tích hợp thanh toán cho Mini App (đối với ZaloPay, Momo, VNPay), đầu tiên cần đăng ký tài khoản Merchant (Doanh nghiệp) với đối tác thanh toán, sau khi đăng ký thành công, đối tác thanh toán sẽ cung cấp cho đơn vị kinh doanh thông tin cấu hình để kết nối với API của đối tác.
+
+MẸO
+
+Đơn vị kinh doanh có thể dùng thông tin cấu hình cấu hình dùng thử (sandbox) của các đối tác thanh toán để trải nghiệm trong quá trình tích hợp.
+
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

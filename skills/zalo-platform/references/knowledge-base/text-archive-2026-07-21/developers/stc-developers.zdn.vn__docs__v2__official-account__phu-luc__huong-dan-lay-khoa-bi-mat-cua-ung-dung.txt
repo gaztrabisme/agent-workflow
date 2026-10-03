@@ -1,0 +1,63 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/phu-luc/huong-dan-lay-khoa-bi-mat-cua-ung-dung
+# FETCHED: 2026-07-21
+# TITLE: Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key) | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Phụ lụcHướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+
+Dưới đây là các bước để lấy khóa bí mật của ứng dụng (app secret key).
+
+Bước 1: Chọn Ứng dụng bạn muốn lấy khóa bí mật​
+Cách 1: chọn ngay tại giao diện thu gọn
+Cách 2: chọn Xem tất cả -> chọn Ứng dụng tạo giao diện danh sách ứng dụng đầy đủ
+Bước 2: Tại mục Cài đặt, click chọn copy secret key​
+Trước
+Mã tài sản (asset_id) là gì?
+Kế tiếp
+Các loại mã sử dụng trong OAuth
+Bước 1: Chọn Ứng dụng bạn muốn lấy khóa bí mật
+Bước 2: Tại mục Cài đặt, click chọn copy secret key
+©2023 Zalo for Developers

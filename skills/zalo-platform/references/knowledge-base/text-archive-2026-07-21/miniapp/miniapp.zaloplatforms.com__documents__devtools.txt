@@ -1,0 +1,87 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/devtools/
+# FETCHED: 2026-07-21
+# TITLE: Zalo Mini App Extension | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+Z
+Zalo Platforms
+Tài liệu
+Cộng đồng
+Liên hệ
+Tìm kiếm tài liệu...
+K
+Hỏi AI
+Mini App Platform
+DevTools
+Zalo Mini App Extension
+Cài đặt
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Cấu Hình Zalo Mini App
+Zalo Mini App Extension
+Cài đặt
+Tạo dự án
+Khởi động
+Xuất bản
+Zalo Mini App CLI
+Cài đặt
+Đăng nhập
+Tạo dự án
+Khởi động
+Xuất bản
+Open APIs
+eKYC APIs
+Checkout SDK
+Zalo Mini App Extension
+Cập nhật lần cuối:
+15/6/2026
+
+Zalo Mini App Extension là một tiện ích mở rộng cho Visual Studio Code cung cấp các công cụ hỗ trợ trực tiếp cho việc phát triển Zalo Mini App. Từ đây, các nhà phát triển có thể khởi tạo (init), khởi động (start), đóng gói (build) và xuất bản (deploy) các dự án Zalo Mini App ngay trên Visual Studio Code.
+
+Cài đặt​
+Từ Visual Studio Code​
+
+Truy cập menu Extensions, tìm kiếm theo từ khóa Zalo Mini App Extension và nhấn nút Install để cài đặt.
+
+Từ Extensions Marketplace​
+
+Truy cập Zalo Mini App Extension trên website chính thống Visual Studio Code Marketplace và nhấn nút Install để tải về và cài đặt.
+
+Thiết lập bố cục (không bắt buộc)​
+
+Mặc định, sau khi cài đặt, Zalo Mini App Extension sẽ được hiển thị ở panel bên trái (primary sidebar). Phần lớn thời gian các nhà phát triển sẽ muốn sử dụng các công cụ khác ở đây (chẳng hạn như Explorer, Search, Run and Debug,...). Bạn có thể làm theo hướng dẫn 3 bước bên trên để di chuyển Zalo Mini App Extension sang panel bên phải (secondary sidebar), hoặc bỏ qua nếu việc này không ảnh hưởng đến bạn.
+
+Mẹo: Khi panel bên phải (A) bị ẩn, bạn có thể nhấn vào nút Toggle Secondary Side Bar (B) hoặc sử dụng command View: Focus into Secondary Side Bar (C) để hiển thị lại.
+
+TRƯỚC
+Cấu Hình Zalo Mini App
+KẾ TIẾP
+Tạo dự án
+Cài đặt
+Thiết lập bố cục (không bắt buộc)
+Z
+Zalo Platforms
+
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+
+Sản phẩm
+Mini App Platform
+Zalo Business Solution
+Open APIs
+Social
+Transfer Service
+Zalo Bot
+Tài nguyên
+Tài liệu
+API Reference
+SDKs & Tools
+Changelog
+Hỗ trợ
+Liên hệ với chúng tôi
+
+© 2026 Zalo Platforms. All rights reserved.
+
+Build: 2026-07-21 15:14:46 +07 · ea1a6218

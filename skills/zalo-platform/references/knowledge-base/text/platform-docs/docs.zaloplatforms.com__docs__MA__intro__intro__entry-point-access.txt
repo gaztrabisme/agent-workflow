@@ -1,0 +1,95 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/intro/intro/entry-point-access
+# FETCHED: 2026-08-06
+# TITLE: Các điểm truy cập Zalo Mini App | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+1. Giới thiệu
+1. Vấn đề của Native App và Web
+2. Giới thiệu Zalo Mini App
+3. Tài khoản Nhà phát triển
+4. Các điểm truy cập Zalo Mini App
+2. Triển khai
+3. Xin cấp quyền trong Zalo Mini App
+4. Phát Hành Zalo Mini App
+5. Zalo Mini App Design Guidelines
+6. Chuyển đổi nhanh Web App có sẵn thành Zalo Mini App
+7. Các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App
+8. Best Practices
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+2. Yêu cầu theo dõi Official Account
+3. Call API
+4. Tương tác, điều hướng tới Zalo Mini App
+5. Cache dữ liệu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Các điểm truy cập Zalo Mini App
+Cập nhật lần cuối:5/8/2026
+Người dùng sẽ có nhiều cách khác nhau để truy cập ứng dụng Zalo Mini App.
+Với người dùng trên nền tảng Zalo​
+Trên nền tảng Zalo, người dùng sẽ tiếp cận Zalo Mini App thông qua:
+QR Code
+Mỗi Zalo Mini App sẽ có một mã QR, người dùng có thể truy cập Zalo Mini App bằng cách quét QR trên camera của điện thoại hoặc QR Scanner của Zalo, ngoài ra, khi QR Code được gửi qua Zalo, người dùng có thể truy cập trực tiếp Zalo Mini App tại tin nhắn mà không cần phải bật camera.
+Truy cập Mini App qua QR
+Shortcut trên màn hình
+Zalo Mini App có thể chủ động kêu gọi người dùng tạo Shortcut của Zalo Mini App trên màn hình điện thoại, sau đó người dùng có thể truy cập trực tiếp Zalo Mini App qua Shortcut này mà không cần phải vào Zalo. Chi tiết API:
+createShortcut.
+Truy cập Mini App qua shortcut
+Từ Zalo Mini App khác
+Zalo Mini App có thể được truy cập từ một Zalo Mini App khác, bằng cách sử dụng API sau: openMiniApp.
+Tin nhắn người dùng chia sẻ cho bạn bè/nhóm
+Zalo Mini App có thể được chia sẻ qua tin nhắn trên Zalo cho bạn bè, hoặc nhóm trên Zalo
+Truy cập Mini App qua tin nhắn
+Menu tùy chỉnh Zalo Official Account (OA)
+Zalo Mini App có thể truy xuất từ Menu tùy chỉnh trên cửa sổ chat với Zalo OA
+Truy cập Mini App qua OA
+Zalo Mini App Store
+Tất cả Zalo Mini App trên hệ thống sẽ được liệt kê và xếp hạng trên kho ứng dụng Zalo Mini App của Zalo, người dùng có thể dễ dàng tìm kiếm và duyệt Zalo Mini App theo danh mục.
+Truy cập Mini App qua Mini App Store
+Tìm kiếm
+Người dùng có thể tìm kiếm Zalo Mini App theo tên ngay trên thanh tìm kiếm chung của Zalo
+Truy cập Mini App thanh tìm kiếm của Zalo
+Và còn nhiều entry point đang được liên tục mở rộng
+Với người dùng ngoài nền tảng Zalo​
+Zalo Mini App cũng hỗ trợ điều hướng người dùng từ nền tảng khác bằng việc chia sẻ đường dẫn (link). Khi người dùng nhấn vào đường dẫn, sẽ được điều hướng thẳng đến Zalo Mini App trên Zalo.
+Vui lòng sử dụng đường dẫn truy cập theo cấu trúc sau:
+https://zalo.me/s/{mini-appId}/?variable=value
+Trong đó:
+appId: là Zalo Mini App của ứng dụng của bạn.
+variable: là các parameters bạn có thể tùy biến để truyền theo khi mở App.
+Xem Hướng dẫn tương tác và điều hướng tới Zalo Mini App để biết thêm chi tiết.
+Trước
+3. Tài khoản Nhà phát triển
+Kế tiếp
+2. Triển khai
+Với người dùng trên nền tảng Zalo
+Với người dùng ngoài nền tảng Zalo
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

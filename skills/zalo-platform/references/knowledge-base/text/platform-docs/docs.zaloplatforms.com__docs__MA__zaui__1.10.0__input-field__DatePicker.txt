@@ -1,0 +1,227 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.10.0/input-field/DatePicker
+# FETCHED: 2026-08-06
+# TITLE: DatePicker | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.10.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Layout
+Stack
+ZBox
+Center
+Cluster
+Grid
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+DatePicker
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.10.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Tạo giao diện cho phép người dùng lựa chọn ngày tháng
+Properties​
+DatePicker​
+Name
+Type
+Default
+Description
+value
+Date
+Ngày được chọn
+defaultValue
+Date
+Ngày mặc định
+startDate
+Date
+Ngày bắt đầu
+endDate
+Date
+Ngày kết thúc
+startYear
+number
+Năm bắt đầu
+endYear
+number
+Năm kết thúc
+locale
+string
+Giá trị locale sử dụng ngôn ngữ của DatePicer theo Intl.DateTimeFormat
+dateFormat
+string
+Date format hiển thị trên input. ví dụ: dd/mm/yyyy
+Ngày: dd
+Tháng: mm, m, MM (kiểu chữ), M (kiểu chữ tắt)
+Năm: yyyy, yy
+columnsFormat
+"MM-DD-YYYY" | "DD-MM-YYYY" | "YYYY-MM-DD"
+sắp xếp vị trí xuất hiện tương ứng của các column ngày (DD), tháng (MM), năm (YYYY)
+title
+string
+Đặt title cho date picker modal
+defaultOpen
+boolean
+Mặc định mở date picker modal hay không
+disabled
+boolean
+Vô hiệu hoá Picker input
+onChange
+(value: Date, pickedValue: {[name: string]: }) => void;
+Thêm event handler khi thay đổi lựa chọn
+onVisibilityChange
+(visibilityState: boolean) => void
+Thêm event handler khi modal thay đổi trạng thái mở/đóng
+formatPickedValueDisplay
+(date: Date) => string
+Format hiển thị ngày đã chọn trên input
+mask
+boolean
+Bật/tắt lớp overlay khi mở date picker modal
+maskCloseable
+boolean
+Click ra ngoài modal vào lớp overlay để đóng
+action
+DatePickerActionType
+Thêm action button cho date picker modal
+prefix
+ReactNode
+Prefix icon cho Input
+suffix
+ReactNode
+Suffix icon cho Input
+inputClass
+string
+thêm class cho Input
+label
+string
+Thêm Label hiển thị phía trên Input
+helperText
+string
+Helper text hiển thị phía dưới của field input.
+errorText
+string
+Text hiển thị khi status của field input là error
+status
+InputStatus
+Trạng thái của field input. Nhận các giá trị: success | error
+name
+string
+Thêm name cho input field
+placeholder
+string
+Thêm placeholder cho input trong trường hợp không có option nào đã được chọn
+Type​
+DatePickerActionType​
+Name
+Type
+Default
+Description
+text
+string
+Action button text
+onClick
+Thêm event handler cho sự kiện click button
+close
+boolean
+Click vào button để đóng date picker modal
+Example​
+import React from "react";
+import { Box, Text, DatePicker, Page } from "zmp-ui";
+export default function PageDatePicker() {
+return (
+<Text.Title size='small'>Date Picker</Text.Title>
+<Box mt={2}>
+<Text size='xSmall' className='input-desc'>
+Để chọn nội dung ngày/tháng/năm
+</Text>
+<Text size='xSmall' className='input-desc'>
+Bấm chỗ nào cũng trigger chung 1 action, ko cho nhập text
+</Text>
+</Box>
+<Box mt={6}>
+</Box>
+<Box mt={6}>
+</Box>
+<Box mt={6}>
+</Box>
+);
+}
+Properties
+DatePicker
+Type
+DatePickerActionType
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

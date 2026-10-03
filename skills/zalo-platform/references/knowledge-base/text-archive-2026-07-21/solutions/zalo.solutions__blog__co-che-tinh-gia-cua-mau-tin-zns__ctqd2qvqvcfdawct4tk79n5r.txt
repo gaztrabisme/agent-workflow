@@ -1,0 +1,74 @@
+# SOURCE: https://zalo.solutions/blog/co-che-tinh-gia-cua-mau-tin-zns/ctqd2qvqvcfdawct4tk79n5r
+# FETCHED: 2026-07-21
+# TITLE: Cơ chế tính giá của mẫu tin ZNS | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Home/Blog/Cơ chế tính giá của mẫu tin ZNS
+Cơ chế tính giá của mẫu tin ZNS
+26 tháng 11, 2025 17:38
+
+Với mục đích cam kết chất lượng gửi tin, dịch vụ ZNS sẽ không tính phí nếu thời gian gửi tin vượt quá một mốc thời gian nhất định. Vui lòng tham khảo thêm trong bài viết dưới đây. 
+ 
+
+1. Bảng giá dịch vụ ZNS:
+
+Thông tin chi tiết về bảng giá dịch vụ ZNS, Quý khách vui lòng tham khảo bảng giá ZNS tại ĐÂY.
+
+ 
+
+2. Cơ chế tính giá dựa trên timeout API:
+
+Với mục đích cam kết chất lượng gửi tin, dịch vụ ZNS sẽ chỉ được tính phí nếu thời gian gửi tin nằm trong khoảng thời gian timeout. Timeout của các loại tin ZNS như sau:
+
+Loại ZNS	Timeout (unit: giây/s)
+ZNS Xác thực	15
+Các ZNS còn lại	7200
+
+ 
+
+Cách xác định thời gian gửi tin ZNS:
+Khi gửi ZNS qua server Zalo thành công, nội dung response API sẽ bao gồm sent_time. (Xem hướng dẫn gửi ZNS qua API)
+Khi tin được gửi đến máy user, Zalo bắn event về webhook bao gồm delivery_time. 
+(Xem cách truy xuất trạng thái ZNS qua API)
+
+Thời gian gửi tin ZNS = delivery_time – sent time 
+ 
+
+Nếu Thời gian gửi tin ZNS > Timeout của loại ZNS, tin ZNS sẽ không bị tính phí. Còn lại, nếu gửi thành công trong thời gian timeout quy định, tin ZNS sẽ được tính phí như thường lệ.
+
+Nếu có bất kì yêu cầu hỗ trợ, khách hàng có thể liên hệ với đội ngũ Chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud. Đội ngũ CSKH Zalo Cloud sẽ phản hồi cho khách hàng trong vòng 24h làm việc tiếp theo. 
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

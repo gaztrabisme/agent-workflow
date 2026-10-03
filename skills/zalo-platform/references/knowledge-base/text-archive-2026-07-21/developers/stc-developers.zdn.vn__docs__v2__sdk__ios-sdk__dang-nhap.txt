@@ -1,0 +1,81 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/ios-sdk/dang-nhap/
+# FETCHED: 2026-07-21
+# TITLE: Đăng nhập | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+IOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Đăng nhậpĐăng nhập
+Đăng nhập
+Tổng quan các bước cần thực hiện để đăng nhập​
+Tạo code verifier và code challenge
+Đăng nhập Zalo và lấy được OauthCode. Vì mặc định thì oauthCode chỉ có hiệu lực chỉ trong 10 phút, nên ngay sau khi có được oauthCode thì cần thực hiện lấy AccessToken và RefreshToken ngay.
+Dùng OauthCode để lấy AccessToken và RefreshToken:
+AccessToken: dùng để gọi các Official Account API Hiệu lực: mặc định là 1 giờ, server sẽ trả về thời gian expired khi gọi API get AccessToken.
+RefreshToken: lưu lại RefreshToken ở phía app để kiểm tra đã đăng nhập hay chưa, và sử dụng để tạo lại AccessToken khi AccessToken hết hiệu lực. Hiệu lực: mặc định là 3 tháng
+Tạo code verifier và code challenge​
+
+Zalo sử dụng code challenge và code verifier (theo phương thức PKCE) để tăng độ bảo mật của quá trình xác thực và ủy quyền. Xem thêm về PKCE tại đây. Sau khi cấu hình Đăng nhập, bạn cần:
+
+Tạo một code verifier và lưu trữ trên hệ thống của bạn.
+Dùng mã hóa code verifier bằng bộ ký tự ASCII, tiếp đến dùng giải thuật SHA-256 để tạo mã băm, sau cùng encode Base64 mã băm để tạo ra code challenge từ code verifier.
+code_challenge = Base64.encode(SHA-256.hash(ASCII(code_verifier)))
+
+Lưu ý: 
+
+Yêu cầu sử dụng code verifier khác nhau cho từng request.
+Code verifier là 1 chuỗi bất kỳ, format có đủ chữ hoa, chữ thường, số và dài 43 ký tự.
+Code verifier là code dùng để xác minh quyền sở hữu của bạn với authorization code bạn nhận được từ hệ thống. Vui lòng không cung cấp code này cho bên thứ ba.
+Đăng nhập Zalo và lấy được OauthCode​
+ZaloSDK.sharedInstance().authenticateZalo(with: ZAZAloSDKAuthenTypeViaZaloAppAndWebView,
+                                          parentController: self,
+                                          codeChallenge: Constant.CODE_CHALLENGE,
+                                          extInfo: Constant.EXT_INFO) { (response) in
+    if response?.isSucess == true {
+        // Đăng nhập thành công, thực hiện get AccessToken bằng response?.oauthCode
+    } else if let response = response,
+              response.errorCode != kZaloSDKErrorCodeUserCancel { // not cancel
+        // Đăng nhập lỗi
+    }
+}
+
+enum ZAZaloSDKAuthenType để tùy chọn phương pháp đăng nhập
+ZAZaloSDKAuthenTypeViaZaloAppOnly : chỉ đăng nhập bằng app zalo, nếu ko có thì báo lỗi
+ZAZaloSDKAuthenTypeViaWebViewOnly: đăng nhập với ưu tiên WebView
+ZAZAloSDKAuthenTypeViaZaloAppAndWebView : Đăng nhập với thứ tự ưu tiên từ Zalo app, webview,
+codeChallenge: đã nêu ở trên.
+extInfo: optional, có thể dùng để truyền thêm thông tin lên server nếu cần.
+
+ZOOauthResponseObject chứa các thông tin
+
+Integer errorCode // mã lỗi trả về, thành công khi >= 0 String errorMessage // câu thông báo lỗi String oauthCode // code dùng để lấy AccessToken
+
+Trước
+XCode
+Kế tiếp
+Lấy Access Token
+Tổng quan các bước cần thực hiện để đăng nhập
+Tạo code verifier và code challenge
+Đăng nhập Zalo và lấy được OauthCode
+©2023 Zalo for Developers

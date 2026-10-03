@@ -1,0 +1,155 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/overlay/ActionSheet
+# FETCHED: 2026-08-06
+# TITLE: ActionSheet | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+ActionSheet
+Cập nhật lần cuối:5/8/2026
+import { Sheet } from "zmp-ui";
+const { Action } = Sheet;
+Dùng để hiển thị danh sách các hành động mà người dùng có thể chọn dưới dạng một Sheet.
+Ví dụ​
+Bảng thuộc tính​
+ActionSheetProps​
+Property
+Type
+Required
+Description
+divider
+boolean
+No
+Hiển thị viền phân cách giữa các nút action (default: false)
+actions
+ActionButton[] | ActionButton[][]
+No
+Mảng thiết lập các nút action. Có thể nhóm các action lại với nhau bằng cách khai báo nhiều mảng action, với các action liên quan nằm trong cùng một mảng.
+groupDivider
+boolean
+No
+Hiển thị viền phân cách giữa các nhóm action (default: false)
+ActionButton​
+Property
+Type
+Required
+Description
+text
+string
+No
+Chữ trên nút action.
+highLight
+boolean
+No
+Hiển thị action dưới dạng nút highlight (default: false)
+danger
+boolean
+No
+Hiển thị action dưới dạng nút danger (default: false)
+onClick
+(e: React.MouseEvent) => void
+No
+Callback được gọi khi người dùng click vào action.
+close
+boolean
+No
+Action này chỉ định việc đóng sheet khi được click (default: false)
+disabled
+boolean
+No
+Trạng thái vô hiệu hoá của action. (default: false)
+key
+string
+No
+Key định danh của action.
+Trước
+Sheet
+Kế tiếp
+SnackbarProvider
+Ví dụ
+Bảng thuộc tính
+ActionSheetProps
+ActionButton
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

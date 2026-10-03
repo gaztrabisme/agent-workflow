@@ -1,0 +1,284 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/mua-san-pham-dich-vu-oa/tao-don-hang
+# FETCHED: 2026-07-21
+# TITLE: Tạo đơn hàng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Luồng mua sản phẩm / dịch vụ OA
+Tạo đơn hàng
+Xác nhận thanh toán đơn hàng
+Danh sách sản phẩm
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýMua sản phẩm dịch vụ OATạo đơn hàng
+Tạo đơn hàng
+LƯU Ý
+
+Ứng dụng cần được cấp quyền quản lý Mua sản phẩm dịch vụ OA
+
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/purchase/create_order
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request 1: Tạo đơn hàng với “product_id”​
+curl 
+--location 'https://openapi.zalo.me/v3.0/oa/purchase/create_order' \ 
+--header 'access_token: <oa_access_token>' \ 
+--header 'Content-Type: application/json' \ 
+--data '{ 
+    "beneficiary": "OA", 
+    "product_id": 866836109767958135, 
+    "voucher_code": "DISCOUNT_100K" 
+}'
+
+Example request 2: Tạo đơn hàng với “redeem_code”​
+curl 
+--location 'https://openapi.zalo.me/v3.0/oa/purchase/create_order' \ 
+--header 'access_token: <oa_access_token>' \ 
+--header 'Content-Type: application/json' \ 
+--data '{ 
+    "beneficiary": "OA", 
+    "redeem_code": "GIFT_CODE_1" 
+}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+beneficiary
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Chứa các giá trị: OA hoặc APP Là đối tượng được thụ hưởng khi mua đơn hàng.
+- Lưu ý: Mỗi sản phẩm sẽ quy định đối tượng khả dụng riêng, đối tượng thụ hưởng phải tương ứng với đối tượng khả dụng của sản phẩm.
+- Tham khảo tài liệu về danh sách sản phẩm tại đây.
+
+
+
+
+product_id
+
+	
+
+long
+
+	
+
+yes
+
+	
+
+ID của sản phẩm muốn mua.
+- product_id và redeem_code chỉ được sử dụng 1 trong 2.
+- Tham khảo tài liệu về danh sách sản phẩm tại đây.
+
+
+
+
+redeem_code
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Mã quà tặng
+- product_id và redeem_code chỉ được sử dụng 1 trong 2.
+- Tham khảo tài liệu về danh sách sản phẩm tại đây.
+
+
+
+
+voucher_code
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Mã giảm giá (VD: Giảm 100K, Giảm 10%, …)
+
+Example respond​
+
+1/ Example respond cho trường hợp tạo đơn mua hàng (có áp dụng voucher)
+
+{ 
+    "error": 0, 
+    "message": "Success", 
+    "data": { 
+        "order_id": "22ffed32d17738296166", 
+        "beneficiary_type": "OA", 
+        "beneficiary_id": 607812198688816074, 
+        "product_id": 757295129578622372, 
+        "product_name": "Gói OA Premium 6 tháng", 
+        "zca_id": 227233554730318420, 
+        "voucher_code": "DISCOUNT_100K", // Không bắt buộc nhập voucher code
+        "discount": 100000, // Giá trị chiết khấu tương ứng của voucher
+        "amount": 2394000, 
+        "final_amount": 2394000, 
+        "created_time": 1706581122383, 
+        "verified_token": "30fVkXZd9j9zWmqQrBhO" 
+    } 
+}
+
+
+2/ Example respond cho trường hợp sử dụng redeem code (mã quà tặng)
+
+{ 
+    "error": 0, 
+    "message": "Success", 
+    "data": { 
+        "order_id": "22ffed32d17738296166", 
+        "beneficiary_type": "OA", 
+        "beneficiary_id": 607812198688816074, 
+        "product_id": 757295129578622372, 
+        "product_name": "Gói OA Premium 6 tháng", 
+        "zca_id": 227233554730318420, 
+        "redeem_code": "GIFT_CODE_1", // Mã quà tặng
+        "amount": 0, 
+        "final_amount": 0, 
+        "created_time": 1706581122383, 
+        "verified_token": "30fVkXZd9j9zWmqQrBhO" 
+    } 
+}
+
+Cấu trúc thuộc tính data​
+Tham số	Kiểu dữ liệu	Mô tả
+order_id	string	ID đơn hàng
+- Order chỉ được tạo từ 00:01 đến 23h54
+beneficiary_type	string	
+
+Chứa các giá trị: OA hoặc APP Là đối tượng được thụ hưởng khi mua đơn hàng.
+- Lưu ý: Mỗi sản phẩm sẽ quy định đối tượng khả dụng riêng, đối tượng thụ hưởng phải tương ứng với đối tượng khả dụng của sản phẩm.
+- Tham khảo tài liệu về danh sách sản phẩm tại đây.
+
+
+beneficiary_id	string	ID của OA (nếu beneficiary_type = OA)
+ID của App (nếu beneficiary_type = APP)
+product_id	long	ID sản phẩm
+product_name	string	Tên sản phẩm
+zca_id	long	Tài khoản ZCA thanh toán đơn hàng
+voucher_code	string	Voucher code đã được sử dụng (Nếu có truyền vào voucher_code)
+redeem_code	string	Mã quà tặng (nếu có truyền vào redeem_code)
+discount	string	Giá trị của voucher_code. VD: Giảm 10% hay Giảm 100K, ...
+amount	long	Giá tiền của đơn hàng (chưa áp dụng mã giảm giá)
+final_amount	long	Giá tiền chính thức sau khi đã sử dụng mã giảm giá
+created_time	long	Thời điểm tạo đơn hàng, tính bằng millisecond
+verified_token
+(OTT)	string	OTT - One Time Token
+- Mã xác thực dùng để xác nhận thanh toán đơn hàng
+- Sử dụng tại API xác nhận thanh toán đơn hàng.
+- OTT sẽ có hiệu lực trong vòng 5 phút kể từ khi Order được khởi tạo
+Trước
+Luồng mua sản phẩm / dịch vụ OA
+Kế tiếp
+Xác nhận thanh toán đơn hàng
+HTTP request
+Example request 1: Tạo đơn hàng với “product_id”
+Example request 2: Tạo đơn hàng với “redeem_code”
+Tham số header
+Cấu trúc body của request
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

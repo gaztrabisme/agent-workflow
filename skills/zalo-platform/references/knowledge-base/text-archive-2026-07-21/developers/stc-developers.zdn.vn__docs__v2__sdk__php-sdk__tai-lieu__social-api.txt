@@ -1,0 +1,58 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/php-sdk/tai-lieu/social-api
+# FETCHED: 2026-07-21
+# TITLE: Social API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+PHP SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API
+Social API
+Tích hợpSocial API
+Social API
+Khởi tạo​
+use Zalo\\Zalo;
+
+$config = array(
+    'app_id' => '1234567890987654321',
+    'app_secret' => 'AbC123456XyZ'
+);
+$zalo = new Zalo($config);
+
+Lấy link đăng nhập​
+$helper = $zalo -> getRedirectLoginHelper();
+$callbackUrl = "https://www.callbackack.com";
+$codeChallenge = "your code challenge";
+$state = "your state";
+$loginUrl = $helper->getLoginUrl($callBackUrl, $codeChallenge, $state);
+
+Lấy access token​
+
+Khi người dùng click vào link đăng nhập, Hệ thống sẽ thực hiện xử lý đăng nhập cho người dùng và chuyển hướng về link callback đã đăng ký với app, OAuth code sẽ được trả về và hiển thị trên đường dẫn của link callback , Hãy đặt đoạn mã dưới tại link callback bạn đã đăng ký với app, đoạn mã sẽ thực hiện lấy oauth code từ link callback và gửi yêu cầu lên hệ thống để lấy access token.
+
+$codeVerifier = "your code verifier";
+$zaloToken = $helper->getZaloToken($codeVerifier); // get zalo token
+$accessToken = $zaloToken->getAccessToken();
+
+Lấy thông tin người dùng​
+$accessToken = 'put_your_access_token_here';
+$params = ['fields' => 'id,name,picture'[];
+$response = $zalo->get(ZaloEndpoint::API_GRAPH_ME, $accessToken, $params);
+$result = $response->getDecodedBody(); // result
+
+Trước
+Official Account API
+Khởi tạo
+Lấy link đăng nhập
+Lấy access token
+Lấy thông tin người dùng
+©2023 Zalo for Developers

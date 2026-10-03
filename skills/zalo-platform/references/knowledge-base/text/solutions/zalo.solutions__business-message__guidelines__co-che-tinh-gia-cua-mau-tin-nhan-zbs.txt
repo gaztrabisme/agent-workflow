@@ -1,0 +1,83 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/co-che-tinh-gia-cua-mau-tin-nhan-zbs
+# FETCHED: 2026-08-06
+# TITLE: Cơ chế tính giá của Tin nhắn ZBS Template | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Quản lý tài khoản
+Business Message
+Giới thiệuTài liệu hướng dẫnBảng giáChính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hướng dẫn gửi API
+Hướng dẫn sử dụng tính năng gửi theo chiến dịch (không cần thông qua API)
+Hướng dẫn xử lý mã lỗi
+Cơ chế tính giá của Tin nhắn ZBS Template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hướng dẫn gửi API
+Hướng dẫn sử dụng tính năng gửi theo chiến dịch (không cần thông qua API)
+Hướng dẫn xử lý mã lỗi
+Cơ chế tính giá của Tin nhắn ZBS Template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+Cơ chế tính giá của Tin nhắn ZBS Template
+Gửi tin nhắn ZBS template
+Cơ chế tính giá của Tin nhắn ZBS Template
+Trên trang này
+Cơ chế tính giá của Tin nhắn ZBS Template
+Với mục đích cam kết chất lượng gửi tin, dịch vụ Tin nhắn ZBS Template sẽ không tính phí nếu thời gian gửi tin vượt quá một mốc thời gian nhất định. Vui lòng tham khảo thêm trong bài viết dưới đây.
+1. Bảng giá dịch vụ Tin nhắn ZBS Template:
+Thông tin chi tiết về bảng giá dịch vụ Tin nhắn ZBS Template, Quý khách vui lòng tham khảo bảng giá tại ĐÂY.
+2. Cơ chế tính giá dựa trên timeout API:
+Với mục đích cam kết chất lượng gửi tin, dịch vụ gửi tin nhắn ZBS template sẽ chỉ được tính phí nếu thời gian gửi tin nằm trong khoảng thời gian timeout. Timeout của các loại tin như sau:
+Loại Tin
+Timeout (unit: giây/s)
+Tin Xác thực
+15
+Các tin còn lại
+7200
+Cách xác định thời gian gửi tin:
+Khi gửi tin qua server Zalo thành công, nội dung response API sẽ bao gồm sent_time. (Xem hướng dẫn gửi tin nhắn ZBS Template qua API)
+Khi tin được gửi đến máy user, Zalo bắn event về webhook bao gồm delivery_time.
+(Xem cách truy xuất trạng thái gửi tin qua API)
+Thời gian gửi tin = delivery_time – sent_time
+Nếu Thời gian gửi tin > Timeout của loại tin, tin sẽ không bị tính phí. Còn lại, nếu gửi thành công trong thời gian timeout quy định, tin sẽ được tính phí như thường lệ.
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Chúng tôi có thể làm cho bài viết này hữu ích hơn bằng cách nào?
+Nội dung bài viết cần ví dụ chi tiết hơn.
+Nội dung bài viết cần diễn đạt dễ hiểu hơn.
+Nội dung bài viết chưa chính xác.
+Khác
+Trở lạiGửi đi
+Trước
+Hướng dẫn xử lý mã lỗi
+Kế tiếp
+Hướng dẫn xem báo cáo chi tiêu dịch vụ
+1. Bảng giá dịch vụ Tin nhắn ZBS Template:
+2. Cơ chế tính giá dựa trên timeout API:
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam

@@ -1,0 +1,185 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/overlay/SnackbarProvider
+# FETCHED: 2026-08-06
+# TITLE: SnackbarProvider | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+SnackbarProvider
+Cập nhật lần cuối:5/8/2026
+import { SnackbarProvider } from "zmp-ui";
+Dùng để tạo thông báo nhanh hiển thị lên trên giao diện ứng dụng, sự dụng thông báo về thông tin thêm, trạng thái thành công hoặc lỗi xảy ra khi sử dụng một hành động, quá trình download, trạng thái kết nối,...
+Ví dụ​
+Bảng thuộc tính​
+SnackbarProps​
+Property
+Type
+Required
+Description
+children
+ReactNode
+No
+Nội dung cần được hiển thị trong snackbar
+zIndex
+number
+No
+Tuỳ chỉnh độ sâu của snackbar, sử dụng khi có nhiều phần tử overlay lên nhau.
+SnackbarContext​
+Property
+Type
+Required
+Description
+openSnackbar
+(options: SnackbarOptions) => void
+No
+Hàm để tạo mới và mở một Snackbar. Có thể mở Snackbar với các
+closeSnackbar
+() => void
+No
+Hàm để đóng một Snackbar, có thể sử dụng để đóng nhanh khi chưa hết thời gian hiển thị.
+setDownloadProgress
+(completed: number) => void
+No
+Cập nhật phần trăm tiến trình download (0 - 100) khi sử dụng với `type` là `download`.
+SnackbarAction​
+Property
+Type
+Required
+Description
+close
+boolean
+No
+text
+string
+No
+onClick
+(event: React.MouseEvent) => void
+No
+SnackbarOptions​
+Property
+Type
+Required
+Description
+position
+SnackbarPosition
+No
+duration
+number
+No
+text
+string
+No
+type
+SnackbarType
+No
+action
+SnackbarAction
+No
+prefixIcon
+ReactNode
+No
+icon
+boolean
+No
+verticalAction
+boolean
+No
+zIndex
+number
+No
+onClose
+() => void
+No
+Trước
+ActionSheet
+Kế tiếp
+Cấu Hình Zalo Mini App
+Ví dụ
+Bảng thuộc tính
+SnackbarProps
+SnackbarContext
+SnackbarAction
+SnackbarOptions
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

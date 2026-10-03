@@ -1,0 +1,184 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-shop/api/danh-muc
+# FETCHED: 2026-07-21
+# TITLE: Danh mục | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Danh mục
+
+Cho phép đối tác bên thứ 3 tạo, cập nhật, xóa và lấy danh sách danh mục sản phẩm trên Zalo Shop.
+
+Yêu cầu cấp quyền​
+Lấy danh sách danh mục​
+URL: https://openapi.zalo.me/v2.0/mstore/cate/getcateofoa
+Method: GET
+Content Type: application/json
+Reponse Type: text/json
+Ví dụ​
+curl \
+ -X GET \
+ -H "Content-Type: application/json" \
+ -H "access_token: ACCESS_TOKEN" \
+ "https://openapi.zalo.me/v2.0/mstore/cate/getcateofoa"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Mô tả
+access_token	string	Xem hướng dẫn lấy access_token ở đây.
+Dữ liệu trả về​
+{
+    "error": Int, // error code
+    "message": String, // Error message
+    "data": JSON Array
+}
+
+
+Mỗi phần tử của chuỗi trong data là một đối tượng danh mục
+
+Cấu trúc đối tượng danh mục​
+Thuộc tính	Mô tả
+id
+String	Id của danh mục
+name
+String	Tên của danh mục. Tối đa 30 ký tự, không hỗ trợ các ký tự đặc biệt $,#,@...
+sequence
+Int	Thứ tự sắp xếp danh mục
+product_ids
+JSON Array	Danh sách ID sản phẩm thuộc danh mục. Một sản phẩm chỉ thuộc 1 danh mục hay không thuộc danh mục nào.["product_id1", "product_id2"]
+product_quantity
+Int	Tổng sản phẩm có trong danh mục.
+status
+String	Trạng thái ẩn/hiện của danh mục. Tham số này chỉ chấp nhận 2 giá trị 0 hoặc 1 tương ứng trạng thái hide hoặc show
+created_at
+Long	Thời gian tạọ (Timestamp)
+updated_at
+Long	Thời gian cập nhật cuối cùng (Timestamp)
+Tạo danh mục​
+
+Một cửa hàng chỉ có thể tạo tối đa 10 danh mục.
+
+URL: https://openapi.zalo.me/v2.0/mstore/cate/create
+Method: POST
+Content Type: application/json
+Reponse Type: text/json
+Ví dụ​
+curl \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "access_token: ACCESS_TOKEN" \
+ -d '{
+  "name": "Tên danh mục",
+  "sequence": 1,
+  "product_ids": [
+    "d2573d3086766f283667",
+    "56e76cedd7ab3ef567ba"
+  ],
+  "status": 1
+}' \
+ "https://openapi.zalo.me/v2.0/mstore/cate/create"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Mô tả
+access_token	string	Xem hướng dẫn lấy access_token ở đây.
+Tham số body​
+
+Dữ liệu trong Body là một đối tượng danh mục
+
+Dữ liệu trả về​
+{
+    "error": Int, // error code
+    "message": String, // Error message
+    "data": 
+     {
+         "id": String // Id danh mục
+     } 
+}
+
+Cập nhật danh mục​
+URL: https://openapi.zalo.me/v2.0/mstore/cate/update
+Method: POST
+Content Type: application/json
+Reponse Type: text/json
+Ví dụ:​
+curl \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "access_token: ACCESS_TOKEN" \
+ -d '{
+  "id": "41209412owihr319rqwrq",
+  "name": "Tên danh mục",
+  "sequence": 12,
+  "product_ids": [
+    "d2573d3086766f283667",
+    "56e76cedd7ab3ef567ba"
+  ],
+  "status": 1
+}' \
+ "https://openapi.zalo.me/v2.0/mstore/cate/update"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Mô tả
+access_token	string	Xem hướng dẫn lấy access_token ở đây.
+Tham số body​
+
+Dữ liệu trong Body là một đối tượng danh mục
+
+Dữ liệu trả về​
+{
+    "error": Int, // error code
+    "message": String, // Error message
+    "data": 
+     {
+         "id": String // Id danh mục
+     } 
+}
+
+Xóa danh mục​
+URL: https://openapi.zalo.me/v2.0/mstore/cate/remove
+Method: POST
+Content Type: application/json
+Reponse Type: text/json
+Ví dụ:​
+curl \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "access_token: ACCESS_TOKEN" \
+ -d '{
+  "id": "39302c193e5cd7028e4d"
+}' \
+ "https://openapi.zalo.me/v2.0/mstore/cate/remove"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Mô tả
+access_token	string	Xem hướng dẫn lấy access_token ở đây.
+Tham số body​
+
+Dữ liệu trong Body là một đối tượng danh mục
+
+Dữ liệu trả về​
+{
+    "error": Int, // error code
+    "message": String, // Error message
+    "data": 
+     {
+         "id": String // Id danh mục
+     } 
+}
+
+Yêu cầu cấp quyền
+Lấy danh sách danh mục
+Ví dụ
+Tạo danh mục
+Ví dụ
+Cập nhật danh mục
+Ví dụ:
+Tham số header
+Xóa danh mục
+Ví dụ:
+©2023 Zalo for Developers

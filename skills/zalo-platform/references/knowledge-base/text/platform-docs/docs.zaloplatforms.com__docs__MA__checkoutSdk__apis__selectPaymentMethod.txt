@@ -1,0 +1,151 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/apis/selectPaymentMethod
+# FETCHED: 2026-08-06
+# TITLE: selectPaymentMethod | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+selectPaymentMethod
+Cập nhật lần cuối:5/8/2026
+Đối tác sử dụng API này để gửi thông tin phương thức thanh toán mong muốn hiển thị và nhận kết quả phương thức thanh toán mà người dùng lựa chọn
+Parameters​
+Object object​
+Property
+Type
+Default
+Description
+Example
+channels
+Array<{method: string, subMethod?: string; subInfo?: string}>
+Phương thức thanh toán muốn hiển thị. Các phương thức này đảm bảo đã khai báo trên hệ thống
+[{method: "BANK", subMethod: "ABC Bank", subInfo: "4321***0123" }]
+selectedMethod
+Object<{method: string, subMethod?: string}>
+Phương thức thanh toán người dùng đã chọn trước đó.
+{method: "MOMO", subMethod: ""}
+success
+function
+Callback function khi gọi api thành công
+fail
+function
+Callback function khi gọi api thất bại
+Đối với subMethod
+subMethod được sử dụng trong trường hợp đối tác có 2, 3 thông tin con trong 1 phương thức. Ví dụ:
+Với phương thức "BANK", có 2 ngân hàng con là "MSB" và "Vietin", đối tác có thể truyền 2 phương thức như sau:
+[
+{ method: "BANK", subMethod: "MSB" },
+{ method: "BANK", subMethod: "Vietin" }
+];
+Return Values​
+Promise <Object data>​
+Property
+Type
+Description
+method
+string
+Mã phương thức thanh toán. Nếu phương thức được Checkout SDK hỗ trơ, vui lòng tham khảo tại đây
+isCustom
+boolean
+Loại phương thức thanh toán (Checkout SDK hỗ trợ hay phương thức riêng)
+logo
+string
+Logo của phương thức thanh toán tương ứng
+displayName
+string
+Tên phương thức thanh toán.
+subMethod
+string
+Thông tin phương thức con
+Sample Code​
+import { CheckoutSDK } from "zmp-sdk/apis";
+// Gọi API mở trang lựa chọn phương thức thanh toán
+CheckoutSDK.selectPaymentMethod({
+channels: [
+{ method: "ZALOPAY_SANDBOX", subInfo: "0123***789" },
+{ method: "MOMO_SANDBOX" },
+{
+method: "BANK_SANDBOX",
+subMethod: "bank1",
+subInfo: "This is bank sandbox method 1"
+},
+{
+method: "BANK_SANDBOX",
+subMethod: "bank2",
+subInfo: "This is bank sandbox method 2"
+}
+],
+success: (data) => {
+// Lựa chọn phương thức thành công
+const { method, isCustom, logo, displayName, subMethod } = data;
+},
+fail: (err) => {
+// Tắt trang lựa chọn phương thức hoặc xảy ra lỗi
+console.log(err);
+}
+});
+Trước
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Kế tiếp
+createOrder
+Parameters
+Return Values
+Sample Code
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

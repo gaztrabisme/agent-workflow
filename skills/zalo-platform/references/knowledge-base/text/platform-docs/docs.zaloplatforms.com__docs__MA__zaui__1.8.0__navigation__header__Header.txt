@@ -1,0 +1,151 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.8.0/navigation/header/Header
+# FETCHED: 2026-08-06
+# TITLE: Header | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.8.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Header
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.8.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Guidelines
+Implementation
+Header​
+Header của Mini App bao gồm phần nội dung và Mini App Control như button “menu” và “close”. Header bar được hiển thị ở trên cùng màn hình.
+Có 2 tùy chọn màu sắc riêng biệt
+Cụm title, icon có tùy chọn màu sắc là: trắng, đen
+Navigation bar có tùy chọn màu sắc: không giới hạn
+Lưu ý
+Nên lựa chọn, phối hợp đúng giữa màu sắc title, icon và màu sắc action bar để đảm bảo đủ độ tương phản cần thiết
+Black text, icon color
+White text, icon color
+Anatomy​
+Header bar bao gồm các thành phần sau:
+Left (back) button
+Title
+Mini App Control (cố định)
+Header bar container​
+Mặc định Header bar container sẽ có màu solid. Có thể ẩn header để thay thế bằng custom header, xem hướng dẫn kỹ thuật tại đây
+Lưu ý
+Không nên hiển thị thêm thanh điều hướng dưới navigation bar (headers) mặc định của Zalo Mini App
+Nếu tùy chỉnh ẩn header mặc định, chú ý hiển thị nội dung phù hợp với chiều cao của header bar
+Left Button​
+Bạn có thể thêm thành phần điều hướng ở khu vực này, thường là button “back” - chỉ nên thêm ở trang thứ cấp
+Lưu ý
+Hạn chế hiển thị button “home” ở phần ở phần này.
+Title​
+Tiêu đề thường dùng cho các mục đích sau:
+Hiển thị tên của màn hình
+Hiển chức năng hiện tại
+Hiển thị tên Mini App
+Tiêu đề nên ngắn gọn, dễ hiểu và tối ưu để hiển thị đầy đủ
+Mini App Control​
+Mini App Control là thành phần mặc định của Mini App. Người có thể dùng có thể mở menu Mini App hoặc đóng Mini App.
+Header component: Component Header cho Mini App, có thể sử dụng thay thế cho Header mặc định
+Example​
+import React from "react";
+import { Route } from "react-router-dom";
+import { SnackbarProvider, AnimationRoutes, App, ZMPRouter } from "zmp-ui";
+export default function MyApp(props) {
+return (
+<SnackbarProvider>
+<ZMPRouter>
+<AnimationRoutes>
+} />
+</AnimationRoutes>
+</ZMPRouter>
+</SnackbarProvider>
+);
+}
+import React from "react";
+import { Header, Page } from "zmp-ui";
+export default function HomePage() {
+return (
+);
+}
+Header
+Anatomy
+Header bar container
+Left Button
+Title
+Mini App Control
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

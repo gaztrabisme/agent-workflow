@@ -1,0 +1,136 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/eKYC/apis/getStatusInfo
+# FETCHED: 2026-08-06
+# TITLE: Get Status Info | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Introduction
+APIs
+Generate Session ID
+Image Upload
+Image Sanity Check
+Fraud Checking Result
+Logic Status Checking Result
+OCR Result
+Face Matching Result
+Selfie Face Matching Result
+Face Retrieval Result
+Face Search Upload
+Face Search Result
+Get Status Info
+Encryption
+Credentials
+IP Whitelist Policy
+Signature
+Appendix
+Checkout SDK
+Trên trang này
+Get Status Info
+Cập nhật lần cuối:5/8/2026
+API to get the status info.
+Request​
+Endpoint: /v1/api/ekyc-verify/get-status-info
+Method: POST
+Header
+Name
+Type
+Required
+Description
+api_key
+string
+yes
+The API key associated with your account to authenticate requests (for development, check the Credentials section).
+Response​
+Status: 200 OK
+Body: JSON
+{
+"code": 0,
+"message": "Successful",
+"data": "<ENCRYPTED_DATA_IN_BASE64>"
+}
+Field “data”: Decrypt the “data” field as described in the Decrypt response data section to get the JSON object with following fields.
+Name
+Type
+Description
+status_description
+json
+status infomation
+Sample Decrypted Results:
+{
+"status_description": {
+"4": "Có lỗi xảy ra, bạn vui lòng thử lại",
+"10": "Phát hiện nhiều khuôn mặt, bạn vui lòng thử lại",
+"5": "Giấy tờ quá mờ",
+"-1": "Kết nối internet không ổn định, bạn vui lòng nhấn thử lại",
+"22": "Hai mặt của giấy tờ không cùng loại",
+"61": "Hình selfie là ảnh thẻ, bạn vui lòng chụp lại khuôn mặt",
+"11": "Giấy tờ quá tối",
+"12": "Giấy tờ không được chụp trực tiếp",
+"62": "Hình khuôn mặt bị nhắm mắt ",
+"7": "Khuôn mặt trên giấy tờ không hợp lệ",
+"51": "Khuôn mặt bạn quá nhỏ, vui lòng để khuôn mặt gần camera hơn",
+"52": "Bạn chưa nhìn thẳng, vui lòng nhìn thẳng để xác thực",
+"13": "Giấy tờ bị chói đóm sáng",
+"14": "Giấy tờ bị chụp lại",
+"8": "Xác thực khuôn mặt thất bại",
+"53": "Khuôn mặt bạn không hợp lệ, vui lòng chụp lại khuôn mặt",
+"9": "Khuôn mặt bạn được chụp lại trên thiết bị khác, vui lòng thử lại",
+"6": "Giấy tờ quá sáng",
+"16": "Font giấy tờ không đúng định dạng quy định",
+"54": "Không phát hiện khuôn mặt, bạn vui lòng chụp lại",
+"58": "Khuôn mặt bạn quá mờ, vui lòng điều chỉnh lại",
+"55": "Bạn đang đeo khẩu trang, vui lòng tháo khẩu trang để xác thực",
+"56": "Bạn đang đeo kính mát, vui lòng tháo kính mát để xác thực",
+"59": "Không có hình ảnh khuôn mặt trong dữ liệu của Zalo",
+"57": "Bạn đang đội nón, vui lòng tháo nón để xác thực",
+"18": "Khuôn mặt trên giấy tờ là giả mạo",
+"0": "Xác thực khuôn mặt thành công",
+"1": "Đang xử lý",
+"101": "Thêm khuôn mặt vào blacklist thất bại",
+"100": "Khuôn mặt nằm trong danh sách đen",
+"60": "Hình selfie là ảnh screenshot, bạn vui lòng chụp lại khuôn mặt",
+"23": "Loại giấy tờ không được hệ thống chấp nhận",
+"15": "Giấy tờ bị khuyết góc",
+"3": "Không phát hiện giấy tờ trong ảnh",
+"19": "Hai mặt của giấy tờ không được chụp cùng hình nền",
+"2": "Phát hiện nhiều giấy tờ trong ảnh",
+"17": "Giấy tờ là hình chụp màn hình",
+"21": "Không nhận diện được đầy đủ thông tin trên giấy tờ",
+"20": "Phát hiện loại giấy tờ khác với loại giấy tờ khai báo"
+}
+}
+Trước
+Face Search Result
+Kế tiếp
+Encryption
+Request
+Response
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

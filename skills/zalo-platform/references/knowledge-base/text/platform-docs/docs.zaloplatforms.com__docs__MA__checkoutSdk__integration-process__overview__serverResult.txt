@@ -1,0 +1,84 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/integration-process/overview/serverResult
+# FETCHED: 2026-08-06
+# TITLE: Bước 4 - Xử lý kết quả thanh toán phía Server | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Cập nhật lần cuối:5/8/2026
+Xử lý callback từ Checkout SDK Server​
+Đối với các thanh toán qua ZaloPay, Momo, VNPay, PayMe. Khi hoàn tất quá trình thanh toán, Checkout SDK Server sẽ gửi dữ liệu kết quả cho Merchant Server theo CallbackURL . Merchant dùng PrivateKey để xác thực dữ liệu do Checkout SDK Server POST qua.
+CallbackURL và PrivateKey đã cấu hình trong cài đặt chung ở phần khai báo phương thức thanh toán.
+Chi tiết: tham khảo API callback
+Xử lý notify từ Checkout SDK Server​
+Đối với hai phương thức thanh toán sau khi nhận hàng (COD) và chuyển khoản ngân hàng, ứng dụng cần hiện thực API nhận thông báo khi người dùng chọn một trong hai phương thức này.
+Chi tiết: tham khảo API: notify
+Cập nhật kết quả thanh toán cho Checkout SDK Server​
+Đối với các thanh toán qua thanh toán khi nhận hàng (COD), chuyển khoản ngân hàng và thanh toán riêng. Khi hoàn tất quá trình thanh toán, đối tác cần chủ động gửi dữ liệu kết quả cho Checkout SDK qua API updateOrderStatus.
+Trước
+Bước 3 - Nhận kết quả trên Mini App
+Kế tiếp
+Bước 1 - Khai báo phương thức thanh toán
+Xử lý callback từ Checkout SDK Server
+Xử lý notify từ Checkout SDK Server
+Cập nhật kết quả thanh toán cho Checkout SDK Server
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,84 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/ngung-ho-tro/thong-bao-thay-doi-quota-cua-mau-tin-zns-rui-ro
+# FETCHED: 2026-07-21
+# TITLE: Thông báo thay đổi quota của mẫu tin ZNS rủi ro | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Thông báo thay đổi quota của mẫu tin ZNS rủi ro
+Lấy thông tin chi tiết template [v1]
+Ngừng hỗ trợThông báo thay đổi quota của mẫu tin ZNS rủi ro
+Thông báo thay đổi quota của mẫu tin ZNS rủi ro
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+THÔNG BÁO: Từ ngày 16/04/2024, ngưng trả về webhook thông báo thay đổi Quota của mẫu tin ZNS rủi ro
+
+Khi có sự kiện thay đổi về hạn mức của mẫu tin ZNS rủi ro có thể gửi được phát sinh từ hệ thống đánh giá chất lượng gửi tin, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau.
+
+LƯU Ý
+
+Quyền cần có: Sử dụng Zalo Notification Service
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+  "event_name": "change_template_quota",
+  "oa_id": "2352868362652028400",
+  "template_id": "123456",
+  "quota": {
+    "prev_value": 1000,
+    "new_value": 2000
+  },
+  "timestamp": "1602560967477"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Mô tả
+event_name
+String	Tên sự kiện
+Giá trị nhận về: change_template_quota
+oa_id
+String	ID của OA ủy quyền
+template_id
+String	ID của mẫu tin ZNS
+quota
+Json Object	Ví dụ:
+{
+  "prev_value": 1000,
+  "new_value": 2000
+}
+
+
+Trong đó:
+
+"prev_value": Hạn mức mẫu tin ZNS có thể gửi trước khi cập nhật
+"new_value": Hạn mức mẫu tin ZNS có thể gửi sau khi cập nhật
+
+timestamp
+String	Thời gian hệ thống gửi thông báo
+Trước
+Danh sách BIN CODE
+Kế tiếp
+Lấy thông tin chi tiết template [v1]
+Ví dụ:
+Mô tả thuộc tính
+©2023 Zalo for Developers

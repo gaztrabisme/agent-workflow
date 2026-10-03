@@ -1,0 +1,104 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/tin-nhan/tin-truyen-thong/dieu-kien-gui-tin-truyen-thong
+# FETCHED: 2026-08-06
+# TITLE: Điều kiện gửi tin Truyền thông | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Điều kiện gửi tin Tư vấn
+Gửi tin Tư vấn dạng văn bản
+Gửi tin Tư vấn đính kèm ảnh
+Gửi tin Tư vấn đính kèm file
+Gửi tin Tư vấn theo mẫu yêu cầu thông tin người dùng
+Gửi tin tư vấn trích dẫn
+Gửi tin tư vấn kèm Sticker
+Tin Giao dịch
+Điều kiện gửi tin Giao dịch
+Gửi tin giao dịch
+Tin Truyền thông
+Điều kiện gửi tin Truyền thông
+Gửi tin Truyền thông cá nhân
+Các loại tin khác
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Thả biểu tượng cảm xúc vào tin nhắn
+Quản lý tin nhắn
+Kiểm tra hạn mức gửi tin tới User cụ thể
+Lấy thông tin Tin nhắn gần nhất
+Lấy thông tin Tin nhắn trong một hội thoại
+Upload hình ảnh
+Upload file
+Upload ảnh GIF
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Điều kiện gửi tin Truyền thông
+Rule chung​
+App: đã bật quyền gửi tin và thông báo qua OA
+User (người nhận tin): ĐANG quan tâm OA
+Quota:
+Số lượng tin Truyền thông mà 01 người dùng có thể nhận từ 01 OA trong tháng áp dụng theo hạn mức Broadcast của Gói dịch vụ OA. Xem chi tiết về Gói & hạn mức tin Truyền thông theo gói tại đây
+Số lượng tin Truyền thông 01 người dùng có thể nhận từ 01 OA trong 01 ngày là 01 tin
+Daily limit request:
+Định nghĩa: Giới hạn số lượt (request) 01 OA được phép thực hiện gửi tin Truyền thông cá nhân trong 01 ngày
+Loại tin áp dụng: Chỉ áp dụng giới hạn này cho tin Truyền thông cá nhân (tin Truyền thông Broadcast sẽ không bị ảnh hưởng)
+Rule:
+Đối với OA có lượng follower <= 10,000 -> Daily limit request = 500 request
+Đối với các OA > 10,000 follower -> Daily limit request = 5% x [follower[] (Diễn giải bằng lời: "05 phần trăm số lượng follower")
+* Tại thời điểm OA gửi tin Truyền thông cá nhân đầu tiên trong ngày, số lượng [follower[] sẽ được ghi nhận và áp dụng daily limit request cho ngày hôm đó
+** Daily limit request sẽ được reset vào mỗi 00:00 hàng ngày
+Thời gian gửi tin:
+Từ 6h00 -> 21h59
+Notification:
+In-app: 6h00 -> 21h59
+Out-app: 6h00 -> 21h59
+Hiển thị tin trên thiết bị của User:
+Mobile: Có
+PC / Web: Coming soon
+Phương thức sử dụng:​
+Dùng qua API Gửi tin Truyền thông cá nhân
+Gửi tin Truyền thông cá nhân hóa theo từng UID (của người quan tâm)
+Dùng qua API Gửi tin Truyền thông Broadcast
+Gửi tin Truyền thông theo tập (người quan tâm)
+Lưu ý: Hệ thống Zalo sẽ xử lý Broadcast trong vòng 30 phút trước khi gửi đến người dùng.
+Trước
+Gửi tin giao dịch
+Kế tiếp
+Gửi tin Truyền thông cá nhân
+Rule chung
+Phương thức sử dụng:
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

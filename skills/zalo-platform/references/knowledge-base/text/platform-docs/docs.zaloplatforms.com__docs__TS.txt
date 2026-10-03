@@ -1,0 +1,94 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/TS
+# FETCHED: 2026-08-06
+# TITLE: Transfer Service | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Cấu hình API
+API Reference
+Bảng mã lỗi
+Trên trang này
+Transfer Service
+Giải pháp nhận thanh toán qua chuyển khoản ngân hàng cho Mini App.
+REST APIVietQRWebhookHTTPS
+Tổng quan​
+Transfer Service là giải pháp kết nối giữa Mini App của Merchant với các ngân hàng và tổ chức thanh toán, cung cấp:
+Xử lý thanh toán — tiếp nhận thông tin thanh toán từ khách hàng.
+Kết nối ngân hàng — giao tiếp với ngân hàng để tạo giao dịch và sinh VietQR.
+Thông báo kết quả — gửi thông tin giao dịch về hệ thống của Merchant.
+Đặc điểm kỹ thuật: Mọi truy vấn thực hiện qua HTTPS, hỗ trợ GET/POST, dữ liệu JSON. Mỗi request được xác thực bằng chữ ký (signature).
+Điểm nổi bật​
+Tích hợp nhanh
+REST API + JSON, ví dụ rõ ràng cho từng endpoint.
+Bảo mật bằng chữ ký
+Xác thực signature trên mọi request, bắt buộc HTTPS.
+Đối soát realtime
+Webhook + API truy vấn giúp đối soát chính xác trạng thái đơn.
+Tính năng chính​
+Khởi tạo giao dịch và sinh mã VietQR.
+Webhook thông báo kết quả thanh toán theo thời gian thực.
+Truy vấn trạng thái giao dịch chủ động.
+Bảng mã lỗi nghiệp vụ & HTTP đầy đủ để xử lý ngoại lệ.
+Ví dụ API​
+Request POST https://api-transfer.zaloplatforms.com/v1/order/create
+Request — order/create
+{
+"app_id": "0752a0528b1762493b06",
+"merchant_order_id": "251208_topup0000",
+"amount": 100000,
+"description": "test topup",
+"expire_duration": 5,
+"callback_url": "https://merchant.com/api/callback",
+"embed_data": "{\"promotion_code\":\"SALE2025\"}",
+"timestamp": 1764039951659,
+"signature": "xxxx"
+}
+Response (rút gọn)
+Response
+{
+"error_code": 0,
+"error_message": "Thành công",
+"data": {
+"ts_order_id": "291f1c09374cde12875d",
+"status": "QR_GENERATED",
+"status_code": 1,
+"expire_time": 1765259344980,
+"amount": 100000,
+"qr_data": "00020101021238570010A00000072701...6304A058"
+}
+}
+Sẵn sàng tích hợp?
+Liên hệ đội ngũ Transfer Service để đăng ký Merchant và nhận hướng dẫn tích hợp.
+Liên hệ tích hợp
+Cần hỗ trợ?
+Tham gia cộng đồng nhà phát triển hoặc liên hệ đội hỗ trợ của chúng tôi để được giúp đỡ.
+Cộng đồngHỗ trợ
+Kế tiếp
+Thông tin cấu hình
+Tổng quan
+Điểm nổi bật
+Tính năng chính
+Ví dụ API
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

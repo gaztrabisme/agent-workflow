@@ -1,0 +1,105 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/quan-ly-tai-san/upload-anh
+# FETCHED: 2026-07-21
+# TITLE: Upload ảnh | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+API tạo template ZNS
+API chỉnh sửa template ZNS
+Upload ảnh
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Quản lý tài sảnUpload ảnh
+Upload ảnh
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+API upload ảnh template ZNS cho phép tải lên ảnh/logo trên hệ thống Zalo. Sau khi tải lên thành công, hệ thống sẽ trả về một media_id để có thể đính kèm khi tạo mẫu tin nhắn ZNS qua API tạo template ZNS (Chi tiết xem tại đây) và API chỉnh sửa template ZNS (Chi tiết xem tại đây).
+
+Prequisite​
+Mã truy cập (Access Token) được doanh nghiệp (OA) ủy quyền cho App.
+Quyền cần có để sử dụng API: Quản lý tài sản.
+Giới hạn​
+File upload định dạng JPG hoặc PNG, có dung lượng tối đa 500 KB.
+Hạn mức mỗi tháng: Tối đa 5000 ảnh được upload cho mỗi ứng dụng (App).
+Lưu ý:​
+Quy định về Logo (Xem chi tiết):
+Định dạng: PNG
+Kích thước: 400x96 px
+Quy định về hình ảnh (Xem chi tiết):
+Định dạng: JPG, PNG
+Tỉ lệ: 16:9
+HTTP request​
+URL: https://business.openapi.zalo.me/upload/image
+Method: POST
+Content Type: form-data/multipart
+Response Type: text/json
+Example request​
+curl --location 'https://business.openapi.zalo.me/upload/image' \
+--header 'access_token: <access_token>' \
+--form 'file=@"/path/to/file.png"'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	String	Yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo.
+Tham số body request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+file	binary	Yes	
+Nội dung nhị phân của file ảnh
+Các định dạng ảnh hỗ trợ: jpg và png
+Dung lượng tối đa: 500 KB
+response​
+{
+    "data": {
+        "media_id": "wESbL53O_shdvIPILC7iR_JpC552r_fjukKg"
+    },
+    "error": 0,
+    "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+media_id	string	ID của ảnh được upload
+Trước
+API chỉnh sửa template ZNS
+Kế tiếp
+Gửi ZNS
+Prequisite
+Giới hạn
+Lưu ý:
+HTTP request
+Example request
+Tham số header
+Tham số body request
+response
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

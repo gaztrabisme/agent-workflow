@@ -1,0 +1,112 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/ekyc/
+# FETCHED: 2026-07-21
+# TITLE: Introduction | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+Z
+Zalo Platforms
+Tài liệu
+Cộng đồng
+Liên hệ
+Tìm kiếm tài liệu...
+K
+Hỏi AI
+Mini App Platform
+eKYC APIs
+Introduction
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Introduction
+APIs
+Generate Session ID
+Image Upload
+Image Sanity Check
+Fraud Checking Result
+Logic Status Checking Result
+OCR Result
+Face Matching Result
+Selfie Face Matching Result
+Face Retrieval Result
+Face Search Upload
+Face Search Result
+Get Status Info
+Encryption
+Credentials
+IP Whitelist Policy
+Signature
+Appendix
+Checkout SDK
+Introduction
+Cập nhật lần cuối:
+15/6/2026
+
+A procedure to identify and verify a customer’s identity, which includes sanity check, fraud check, logic status check, OCR, face matching, face retrieval and face search check. To use the service, users need to:
+
+Generate session ID
+Upload necessary images
+Check uploaded images sanity and re-upload if needed (when sanity checking fails)
+Get the processing results (OCR/Fraud Check/Logic Status Check/Liveness check/Face Match/Face Retrieval/Face Search) of the submitted images.
+Contact us​
+
+For additional information or to utilize these resources, please reach out to us at ekyc@fiza.ai.
+
+Host​
+Development​
+
+https://dev-ekyc-api.fiza.ai
+
+Production​
+
+https://ekyc-api.fiza.ai
+
+Response Codes​
+
+APIs always return HTTP Status Code 200 (OK). Detail error is specified by the "code" field inside JSON content.
+
+Code	Description
+0	Successful
+-1	Bad request (invalid input)
+-2	Unauthorized (wrong API key)
+-4	Rate limited
+-5	Internal server error
+-7	Forbidden (client is not allowed to request the resource. Ex: block ip)
+-8	Session Expired
+eKYC Flow​
+TRƯỚC
+Mã lỗi
+KẾ TIẾP
+Generate Session ID
+Contact us
+Host
+Development
+Production
+Response Codes
+eKYC Flow
+Z
+Zalo Platforms
+
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+
+Sản phẩm
+Mini App Platform
+Zalo Business Solution
+Open APIs
+Social
+Transfer Service
+Zalo Bot
+Tài nguyên
+Tài liệu
+API Reference
+SDKs & Tools
+Changelog
+Hỗ trợ
+Liên hệ với chúng tôi
+
+© 2026 Zalo Platforms. All rights reserved.
+
+Build: 2026-07-21 15:14:46 +07 · ea1a6218

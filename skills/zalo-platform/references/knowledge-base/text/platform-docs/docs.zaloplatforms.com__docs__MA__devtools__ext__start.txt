@@ -1,0 +1,68 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/devtools/ext/start
+# FETCHED: 2026-08-06
+# TITLE: Khởi động | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Cấu Hình Zalo Mini App
+Zalo Mini App Extension
+Cài đặt
+Tạo dự án
+Khởi động
+Xuất bản
+Zalo Mini App CLI
+Cài đặt
+Đăng nhập
+Tạo dự án
+Khởi động
+Xuất bản
+Open APIs
+eKYC APIs
+Checkout SDK
+Khởi động
+Cập nhật lần cuối:5/8/2026
+Bạn có thể sử dụng Zalo Mini App Extension để xem trước Mini App của bạn trong quá trình phát triển ứng dụng. Các thay đổi đối với mã nguồn sẽ có hiệu lực ngay lập tức (thông qua cơ chế hot reload). Truy cập menu Phát triển để khởi động ứng dụng:
+Các thiết lập khởi động bao gồm:
+Chế độ: Thiết lập này cho phép bạn chọn ứng dụng/thiết bị sẽ dùng để xem trước Mini App. Cụ thể:
+Device: Bạn sẽ sử dụng ứng dụng Zalo trên điện thoại thật để chạy ứng dụng của mình, khi đó bạn sẽ có thể sử dụng các chức năng liên quan đến Zalo (như getUserInfo, getPhoneNumber, followOA, openShareSheet,...) giống như khi bạn đã xuất bản ứng dụng lên hệ thống. Điện thoại của bạn không cần phải kết nối cùng mạng với máy tính để có thể sử dụng chế độ này.
+Simulator: Extension sẽ cung cấp cho bạn một hộp thoại mô phỏng giao diện Mini App của bạn ngay trên Visual Studio Code. Chế độ này cho phép bạn có thể vừa chỉnh sửa mã nguồn (Editor), xem giao diện (Simulator) (A) và sử dụng các công cụ phát triển (DevTools) (B) trên cùng một cửa sổ.
+Chrome/Edge Debugger: Extension sẽ sử dụng bộ công cụ gỡ lỗi có sẵn của Visual Studio Code để xem trước Mini App của bạn bên trong một Chrome/Edge debug session (A). Khi đó bạn có thể sử dụng các tính năng nâng cao để gỡ lỗi như Breakpoints (B), Step Over, Step Into, Step Out (C), và các công cụ hữu ích khác bên trong menu Run and Debug (D). Lưu ý: bạn sẽ cần phải tự cài đặt Google Chrome hoặc Microsoft Edge trên máy tính để sử dụng chế độ này.
+Trình duyệt mặc định: Extension sẽ mở trình duyệt web mặc định của bạn để xem trước giao diện của Mini App.
+Không sử dụng: Extension sẽ chỉ khởi động hot reload server, bạn sẽ tự quyết định cách thức bạn muốn xem trước Mini App của mình.
+Tuỳ vào Chế độ được sử dụng, một hoặc nhiều thiết lập bên dưới sẽ khả dụng hoặc không.
+Path: Thiết lập này cho phép bạn truy cập trực tiếp vào một đường dẫn cụ thể bên trong Mini App, thay vì mở ứng dụng ở / như mặc định. Thiết lập này hữu ích trong trường hợp bạn cần tích hợp các luồng liên quan đến mở Mini App từ tin nhắn hoặc xử lý kết quả thanh toán.
+Kết nối Bảo mật: Sử dụng https:// để xem trước Mini App. Lưu ý, khi bật thiết lập này, bạn sẽ cần phải thiết lập các plugin như @vitejs/plugin-basic-ssl cho Vite để không bị các lỗi chứng thực. Thiết lập này hữu ích trong trường hợp bạn cần tích hợp các API chỉ hoạt động trong secure context. Mini App được chạy trên thiết bị thật luôn sử dụng secure context.
+Tuỳ chỉnh Hostname: Thiết lập này cho phép bạn đổi hostname mặc định localhost thành một hostname khác. Khi bật thiết lập này, bạn sẽ cần phải map hostname đó về địa chỉ loopback 127.0.0.1 trong file hosts của máy tính.
+Tuỳ chỉnh Port: Chỉ định port mà bạn muốn sử dụng để khởi động Mini App. Mặc định Extension sẽ sử dụng port bất kỳ còn trống gần port 3000 nhất để khởi động. Tuy nhiên, khi sử dụng thiết lập này, Mini App sẽ không khởi động nếu port chỉ định đã được sử dụng bởi một dịch vụ khác.
+Tuỳ chỉnh User Agent: Thiết lập này cho phép thay đổi User Agent của Simulator. Bạn có thể nhập chuỗi User Agent tùy ý hoặc chọn User Agent ứng với thiết bị mô phỏng (Android/iOS) mà bạn đang chọn.
+Trước
+Tạo dự án
+Kế tiếp
+Xuất bản
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

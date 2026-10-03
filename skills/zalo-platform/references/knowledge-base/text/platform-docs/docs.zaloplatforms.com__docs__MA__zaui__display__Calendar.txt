@@ -1,0 +1,171 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/display/Calendar
+# FETCHED: 2026-08-06
+# TITLE: Calendar | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Calendar
+Cập nhật lần cuối:5/8/2026
+import { Calendar } from "zmp-ui";
+Dùng để hiển thị lịch theo các khoảng thời gian.
+Tips
+Nếu cần chọn ngày, vui lòng sử dụng DatePicker.
+Ví dụ​
+Bảng thuộc tính​
+Property
+Type
+Required
+Description
+disabledDate
+(date: Date) => boolean
+No
+Hàm được gọi để kiểm tra xem ngày tháng được chỉ định có cho phép chọn không
+cellRender
+CellRender
+No
+Hàm được gọi để render nội dung trong mỗi ô ngày tháng không bao gồm tiêu đề
+fullCellRender
+CellRender
+No
+Hàm được gọi để render nội dung trong mỗi ô ngày tháng bao gồm cả tiêu đề
+daysOfWeekRender
+(date: Date, info: CellRenderInfo) => React.ReactElement
+No
+Hàm được gọi để render mỗi thứ trong trạng thái fullscreen
+headerRender
+HeaderRender
+No
+Hàm được gọi để render tiêu đề của component
+value
+Date
+No
+defaultValue
+Date
+No
+Giá trị mặc định của ngày tháng
+locale
+string
+No
+Ngôn ngữ được sử dụng cho component
+fullscreen
+boolean
+No
+Kiểu hiển thị của component
+startOfWeek
+'0' | '1' | '2' | '3' | '4' | '5' | '6'
+No
+Ngày bắt đầu của tuần (từ 0 đến 6, tương ứng với từ CN đến thứ 2) (default: 0)
+numberOfWeek
+'auto' | number
+No
+Số lượng tuần hiển thị trong tháng (mặc định là "auto") (default: "auto")
+dayOfWeekNameFormat
+'short' | 'long'
+No
+Định dạng của tên ngày trong tuần (mặc định là "short") (default: "short")
+dayOfWeekNameRender
+(day: number) => string | React.ReactElement
+No
+Hàm được gọi để render tên ngày trong tuần
+onPanelChange
+(date: Date, mode: CalendarMode) => void
+No
+Hàm được gọi khi thay đổi giá trị và loại hiển thị của component
+onSelect
+(date: Date, selectInfo: SelectInfo) => void
+No
+Hàm được gọi khi người dùng chọn một ngày tháng
+autoHeight
+boolean
+No
+Chiều cao của Calendar sẽ hiển thị theo panel hiện tại
+Trước
+Avatar
+Kế tiếp
+Icon
+Ví dụ
+Bảng thuộc tính
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

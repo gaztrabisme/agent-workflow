@@ -1,0 +1,67 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/custom-method/intro/
+# FETCHED: 2026-07-21
+# TITLE: Giới thiệu | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Giới thiệu
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Với những phương thức thanh toán không nằm trong những phương thức mà Checkout SDK đã hỗ trợ, đối tác có thể cấu hình tuỳ chỉnh thêm một hoặc nhiều phương thức thanh toán riêng của đối tác. Phương thức này sẽ được hiển thị cùng với các phương thức mà Checkout SDK đã hỗ trợ tại trang lựa chọn phương thức thanh toán.
+
+Sơ đồ quy trình thanh toán​
+
+Dựa trên quy trình thanh toán của Checkout SDK, một số thay đổi nhỏ về luồng thanh toán được thay đổi như sau:
+
+Chi tiết​
+
+Đối tác chủ động tạo đơn hàng và đưa thông tin đơn hàng vào API createOrder.
+Gọi API createOrder để thực hiện thanh toán. Checkout SDK sẽ điều hướng người dùng tới trang lựa chọn phương thức thanh toán.
+Sau khi người dùng lựa chọn phương thức thanh toán riêng, thông tin đơn hàng sẽ được gửi về Mini App thông qua sự kiện thanh toán.
+Đối tác chủ động "điều hướng người dùng" tiếp tục thực hiện thanh toán với phương thức thanh toán riêng.
+Merchant Server nhận kết quả thanh toán, gọi api updateOrderStatus để cập nhật kết quả giao dịch cho Checkout SDK.
+
+LƯU Ý
+Việc thực hiện bước (1) và (2) là bắt buộc vì chưa xác định được phương thức thanh toán mà người dùng lựa chọn.
+Bước (5) giúp khách hàng có thể xem lại lịch sử giao dịch Mini Apps trên Zalo sau này
+Tham khảo​
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

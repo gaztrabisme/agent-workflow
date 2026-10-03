@@ -1,0 +1,79 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/bat-dau/gioi-thieu-zalo-notification-service-api
+# FETCHED: 2026-07-21
+# TITLE: Giới thiệu Zalo Notification Service API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Giới thiệu Zalo Notification Service API
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Bắt đầuGiới thiệu Zalo Notification Service API
+Giới thiệu Zalo Notification Service API
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+Zalo Notification Service API (ZNS API) là phương thức chính giúp doanh nghiệp (OA) sử dụng dịch vụ Zalo Notification Service, thông qua việc tích hợp ZNS API với hệ thống nội bộ của doanh nghiệp. ZNS API giúp doanh nghiệp gửi thông báo ZNS với số lượng lớn và hỗ trợ việc vận hành một cách tự động, đặc biệt trong việc nhận thông tin và truy xuất dữ liệu.
+
+Để sử dụng ZNS bằng ZNS API, doanh nghiệp cần có các tài khoản sau:
+
+Tài khoản	Định nghĩa	Khởi tạo và sử dụng
+Zalo Official Account (Zalo OA)	Zalo OA là tài khoản chính thức của Doanh nghiệp trên Zalo, giúp Doanh nghiệp tương tác với người dùng Zalo cá nhân. Thông báo ZNS sẽ được gửi tới người dùng Zalo dưới định danh của OA.	Doanh nghiệp chưa có tài khoản OA, có thể bắt đầu tạo OA theo hướng dẫn tại đây
+Ứng dụng trên nền tảng Zalo (Zalo App)	Ứng dụng của doanh nghiệp khởi tạo trên nền tảng Zalo, dùng để quản lý Zalo OA hoặc các dịch vụ của nền tảng Zalo (ZCA, Mini App,…).	Doanh nghiệp chưa có Zalo App có thể khởi tạo Ứng dụng theo hướng dẫn tại đây
+Sau khi tạo ứng dụng, Doanh nghiệp cần xác thực và cấp quyền cho ứng dụng theo hướng dẫn tại đây để có thể bắt đầu gửi thông báo ZNS
+Zalo Cloud Account (ZCA)	Zalo Cloud Account (ZCA) là công cụ quản lý số dư tiền để sử dụng tính năng tính phí của các tài khoản Zalo OA và ZNS.	Doanh nghiệp chưa có ZCA có thể khởi tạo ZCA theo hướng dẫn tại đây
+Sau đó liên kết ZCA với Zalo App theo hướng dẫn tại đây (Lưu ý: 1 ZCA có thể link với nhiều Zalo App).
+Mô hình sử dụng dịch vụ ZNS và vận hành bằng ZNS API​
+
+Để gửi thông báo ZNS và quản lý vận hành bằng ZNS API, doanh nghiệp cần tích hợp ZNS API với hệ thống (server) của doanh nghiệp thông qua việc cấp quyền cho ứng dụng Zalo App. Doanh nghiệp sẽ gọi các API tương ứng với các quyền quản lý OA và gửi thông báo ZNS dưới định danh OA thông qua ứng dụng. Khi có sự kiện về thông báo được gửi hoặc tương tác giữa người dùng và OA hoặc các thông báo từ Zalo, Zalo sẽ gửi các event webhook (method POST) đến webhook url của ứng dụng
+
+Luồng gửi ZNS, quản lý dữ liệu và vận hành thông qua ZNS API
+
+
+
+Các nhóm quyền của hệ thống ZNS API gồm: quyền gửi ZNS và quyền truy xuất thông tin. Mỗi nhóm quyền sẽ cho phép doanh nghiệp (Zalo App) sử dụng các dịch vụ tương ứng, và tương ứng với nó là webhook chứa thông tin sự kiện
+
+Nhóm tác vụ/Quyền	API hỗ trợ
+API/Webhook hỗ trợ	Gửi ZNS
+Gửi ZNS sử dụng hash phone
+Gửi ZNS sử dụng development mode
+Gửi ZNS với hệ mã hóa RSA
+Gửi ZNS journey
+API tạo template
+API chỉnh sửa template
+Truy xuất thông tin	Lấy thông tin trạng thái thông báo ZNS
+Lấy thông tin quota thông báo ZNS
+Lấy thông tin loại nội dung ZNS được phép gửi
+Lấy danh sách template
+Lấy thông tin chi tiết template
+Lấy dữ liệu mẫu của template
+Lấy thông tin đánh giá của khách hàng
+Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+Webhook	Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi về hạn mức gửi ZNS
+Sự kiện thay đổi về loại nội dung ZNS mà OA có thể gửi
+Sự kiện thay đổi về chất lượng gửi của mẫu tin ZNS
+Sự kiện Journey hết hạn
+Sự kiện Journey bắt đầu tính phí
+Sự kiện người dùng nhận thông báo ZNS
+Sự kiện thay đổi Template ZNS
+
+Mọi yêu cầu hỗ trợ kinh doanh vui lòng liên hệ đến email support@zalo.cloud hoặc để lại thông tin tại đây. Đội ngũ hỗ trợ sẽ liên lệ và tư vấn trong vòng 1~2 ngày làm việc.
+
+Kế tiếp
+API tạo template ZNS
+Mô hình sử dụng dịch vụ ZNS và vận hành bằng ZNS API
+©2023 Zalo for Developers

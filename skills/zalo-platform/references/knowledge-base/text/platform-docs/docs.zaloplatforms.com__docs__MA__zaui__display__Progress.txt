@@ -1,0 +1,134 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/display/Progress
+# FETCHED: 2026-08-06
+# TITLE: Progress | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Progress
+Cập nhật lần cuối:5/8/2026
+import { Progress } from "zmp-ui";
+Dùng để báo cáo tiến trình của một tác vụ dài.
+Ví dụ​
+Bảng thuộc tính​
+Property
+Type
+Required
+Description
+maxCompleted
+number
+No
+Giá trị tối đa của thanh tiến trình, cũng là mốc hoàn tất. (default: 100)
+completed
+number
+No
+Giá trị hiện tại của thanh tiến trình. (default: 0)
+formatLabel
+(current: number, maxCompleted: number) => React.ReactNode
+No
+Hàm được dùng để tuỳ chỉnh nội dung được hiển thị trên nhãn. Cần được sử dùng cùng với `showLabel`.
+showLabel
+boolean
+No
+Nhãn của tiến trình, được hiển thị bên phải thanh tiến trình. (default: false)
+strokeWidth
+number
+No
+Độ dày của thanh tiến trình, tính theo đơn vị px. (default: 4)
+strokeColor
+string
+No
+Màu của phần đã hoàn tất trên thanh tiến trình.
+trailColor
+string
+No
+Màu của phần chưa hoàn tất trên thanh tiến trình.
+Trước
+List
+Kế tiếp
+Spinner
+Ví dụ
+Bảng thuộc tính
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

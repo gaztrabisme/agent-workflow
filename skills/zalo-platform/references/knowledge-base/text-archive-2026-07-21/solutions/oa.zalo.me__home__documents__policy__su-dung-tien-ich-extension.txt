@@ -1,0 +1,108 @@
+# SOURCE: https://oa.zalo.me/home/documents/policy/su-dung-tien-ich-extension
+# FETCHED: 2026-07-21
+# TITLE: Chính sách sử dụng Tiện ích (Extension) | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+CHÍNH SÁCH
+Chính sách về đăng ký và sử dụng tài khoản OA
+Chính sách về đặt tên OA
+Chính sách về thông tin giới thiệu và hình ảnh OA
+Chính sách xác thực tài khoản
+Chính sách về tính năng quản lý nhóm (GMF)
+Chính sách về việc khóa Official Account (gọi tắt là OA)
+Chính sách phát triển Tiện ích (Extension)
+Chính sách kiểm duyệt thông tin Tiện ích (Extension)
+Chính sách sử dụng Tiện ích (Extension)
+Chính sách xử lý tranh chấp thương hiệu
+Chính sách đăng ký URL tùy biến
+Chính sách về tương tác của OA với người dùng
+Chính sách sử dụng Tiện ích (Extension)
+
+Tiện ích (Extension) phục vụ cho các hoạt động, tác vụ gắn liền với nền tảng Zalo OA, giúp doanh nghiệp ứng dụng Zalo OA hiệu quả.
+
+Quý Doanh nghiệp (là đơn vị chủ quản của tài khoản OA) khi sử dụng Tiện ích cần tuân thủ các quy định chung của Zalo/ Zalo Official Account và các điều khoản trong Chính sách này. Vui lòng đọc kỹ các điều khoản, bằng cách cài đặt và sử dụng Tiện ích, Quý Doanh nghiệp đồng ý rằng đã đọc hiểu và đồng ý với các điều khoản được đề cập, đồng thời, xác nhận sẽ tuân thủ đối với Chính sách này và các quy định, chính sách liên quan khác.
+
+Sau đây là một số định nghĩa được sử dụng trong bài viết:
+
+Zalo Official Account (Zalo OA): Bên cung cấp nền tảng cho Nhà phát triển xuất bản Tiện ích và Quý Doanh nghiệp sử dụng Tiện ích.
+Nhà phát triển Tiện ích (Extension Developer): Bên chịu trách nhiệm phát triển, xuất bản và quản lý vận hành các Tiện ích, sau đây gọi là ED.
+Tiện ích (Extension): Là các công cụ hỗ trợ do ED xuất bản và được Zalo OA kiểm duyệt xuất bản trên nền tảng Zalo/ Zalo OA, nhằm phục vụ cho các hoạt động, tác vụ gắn liền với nền tảng Zalo/ Zalo OA, giúp doanh nghiệp ứng dụng Zalo OA hiệu quả.
+1. Quy định sử dụng Tiện ích:​
+
+Quý Doanh nghiệp cần tuân thủ các điều kiện và quy định sau:
+
+Đã có tài khoản Official Account (OA) xác thực và cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+Tìm hiểu kỹ tính năng, chi phí, điều khoản sử dụng, quản lý cấp quyền và các thông tin của Tiện ích trước khi tiến hành cài đặt và sử dụng.
+Đảm bảo rằng việc sử dụng Tiện ích là đúng mục đích, hợp pháp và không vi phạm bất kỳ quy định nào của pháp luật hoặc quy định của Zalo/Zalo OA. Mọi dấu hiệu hoặc hành vi không tuân thủ quy định, Zalo OA sẽ tiến hành ngưng cung cấp một phần hoặc toàn bộ dịch vụ đối với Quý Doanh nghiệp mà không cần báo trước.
+2. Quy định khiếu nại Tiện ích:​
+Khi gặp vấn đề trong quá trình sử dụng Extension, Quý Doanh nghiệp cần gửi khiếu nại đến ED (Extension Developer) thông qua các kênh hỗ trợ chính thức của Nhà phát triển Tiện ích.
+ED có trách nhiệm tiếp nhận và xử lý các khiếu nại. Quý Doanh nghiệp sẽ được thông báo và phản hồi về kết quả xử lý trực tiếp từ ED.
+Nếu Quý Doanh nghiệp có các khiếu nại khác hoặc không hài lòng với kết quả xử lý của ED, có thể liên hệ với Zalo OA cung cấp các thông tin cụ thể, rõ ràng đến email oa@zalo.me để được hỗ trợ thêm.
+
+⚠️ Lưu ý: Zalo OA không chịu trách nhiệm về việc xử lý khiếu nại liên quan đến Tiện ích cho đến khi Quý Doanh nghiệp đã thực hiện đầy đủ thủ tục khiếu nại với ED.
+
+Ngoài ra, Quý Doanh nghiệp có thể gửi phản hồi, hoặc báo xấu các vấn đề liên quan trong quá trình sử dụng Tiện ích đến Nhà phát triển Tiện ích để được hỗ trợ.
+Nội dung email khiếu nại/ phản hồi/ báo xấu bao gồm:​
+Tiêu đề: Khiếu nại/Phản hồi/ Báo xấu Tiện ích [tên Tiện ích]
+Thông tin bên khiếu nại:
+Tên OA
+Official Account ID
+Họ và tên
+Email
+Số điện thoại liên hệ
+Thời gian sử dụng Tiện ích: từ ngày dd/mm/yyyy đến ngày dd/mm/yyyy
+Thông tin vi phạm:
+Tên Tiện ích
+Thông tin xác định dấu hiệu hoặc hành vi vi phạm: văn bản, hình ảnh, đường dẫn, video,…
+Giấy ủy quyền thực hiện báo cáo vi phạm (nếu có).
+Phản hồi từ ED (nếu có).
+
+Quý Doanh nghiệp cần cung cấp các thông tin và bằng chứng xác định dấu hiệu hoặc hành vi vi phạm một cách đầy đủ, hợp pháp và đúng sự thật. Trong trường hợp có bất kỳ thông tin sai lệch nào, Quý Doanh nghiệp chịu hoàn toàn trách nhiệm.
+
+3. Trách nhiệm của Nhà phát triển Tiện ích:​
+Nhà phát triển Tiện ích (ED) chịu trách nhiệm về việc phát triển, vận hành Tiện ích và hỗ trợ khách hàng trong quá trình sử dụng. Điều này bao gồm việc đảm bảo rằng Tiện ích hoạt động đúng như thông tin xuất bản, ổn định và xử lý các lỗi/ vấn đề kỹ thuật phát sinh, cũng như đảm bảo tính bảo mật và quyền riêng tư của bên sử dụng Tiện ích. Chi tiết về các điều khoản sử dụng của Tiện ích được hiển thị công khai trong phần thông tin Tiện ích.
+Thông báo tới khách hàng sử dụng Extension về bất cứ thay đổi nào liên quan đến Extension tối thiểu 45 ngày trước khi thay đổi diễn ra. Đối với thay đổi làm ảnh hưởng tới quyền lợi của tài khoản OA, cần có sự đồng ý hoặc chấp thuận bằng văn bản hoặc hình thức tương tự của ít nhất một (01) Quản trị viên OA trước khi áp dụng thay đổi.
+ED có trách nhiệm tiếp nhận và xử lý khiếu nại, tranh chấp từ bên (các bên) sử dụng Tiện ích của ED. Đảm bảo giải quyết nhanh chóng và bảo vệ mọi quyền lợi cho khách hàng sử dụng Extension.
+Tuân thủ theo Quy định chung và các chính sách liên quan đối với Nhà phát triển Tiện ích (Extension Developer).
+4. Vai trò của Zalo Official Account:​
+
+Zalo Official Account là bên cung cấp nền tảng cho Nhà phát triển xuất bản Tiện ích và Quý Doanh nghiệp sử dụng Tiện ích. Có trách nhiệm kiểm duyệt về mặt kỹ thuật, giao diện của Tiện ích dựa trên các thông tin do Nhà phát triển Tiện ích cung cấp trước khi xuất bản.
+
+Chúng tôi nghiêm cấm mọi hành vi xuất bản hoặc sử dụng Extension với các mục đích không tuân thủ pháp luật hoặc các quy định, chính sách của Zalo/ Zalo OA.
+
+----------------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Chính sách kiểm duyệt thông tin Tiện ích (Extension)
+Next
+Chính sách xử lý tranh chấp thương hiệu
+1. Quy định sử dụng Tiện ích:
+2. Quy định khiếu nại Tiện ích:
+Nội dung email khiếu nại/ phản hồi/ báo xấu bao gồm:
+3. Trách nhiệm của Nhà phát triển Tiện ích:
+4. Vai trò của Zalo Official Account:
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

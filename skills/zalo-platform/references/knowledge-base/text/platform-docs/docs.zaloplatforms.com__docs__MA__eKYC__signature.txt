@@ -1,0 +1,67 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/eKYC/signature
+# FETCHED: 2026-08-06
+# TITLE: Signature | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Introduction
+APIs
+Generate Session ID
+Image Upload
+Image Sanity Check
+Fraud Checking Result
+Logic Status Checking Result
+OCR Result
+Face Matching Result
+Selfie Face Matching Result
+Face Retrieval Result
+Face Search Upload
+Face Search Result
+Get Status Info
+Encryption
+Credentials
+IP Whitelist Policy
+Signature
+Appendix
+Checkout SDK
+Trên trang này
+Signature
+Cập nhật lần cuối:5/8/2026
+To verify both the data integrity and authenticity of a message.
+Mechanism​
+Source server creates HMAC(SHA256) field from data and secret key.
+Destination compares the response HMAC(SHA-256) field to the HMAC value created from response data and secret key.
+Trước
+IP Whitelist Policy
+Kế tiếp
+Appendix
+Mechanism
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

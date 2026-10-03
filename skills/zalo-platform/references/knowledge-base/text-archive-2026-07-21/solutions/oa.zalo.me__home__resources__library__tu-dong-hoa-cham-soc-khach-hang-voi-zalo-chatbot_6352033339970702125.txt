@@ -1,0 +1,171 @@
+# SOURCE: https://oa.zalo.me/home/resources/library/tu-dong-hoa-cham-soc-khach-hang-voi-zalo-chatbot_6352033339970702125
+# FETCHED: 2026-07-21
+# TITLE: Tự động hóa chăm sóc khách hàng với Zalo Chatbot | Zalo Official Account
+
+📢 [Chính thức] Quyền lợi và biểu phí các gói dịch vụ Zalo OA mới từ 1/6/2026
+Xem chi tiết
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+Chia sẻ cookie
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ.
+Từ chối
+Đồng ý
+Trang chủ
+Thư viện
+Tự động hóa chăm sóc khách hàng với Zalo Chatbot
+21/01/2026
+|
+Best practice
+Tự động hóa chăm sóc khách hàng với Zalo Chatbot
+
+Để tối ưu nguồn lực và giải quyết nhanh chóng các thắc mắc, tình huống mà khách hàng thường gặp trên Zalo OA, doanh nghiệp có thể ứng dụng Chatbot để tự động hóa quy trình chăm sóc khách hàng. Bài viết sau đây sẽ tổng hợp các tính năng then chốt và ứng dụng thực tế của Zalo Chatbot trong việc nâng cao hiệu quả tư vấn khách hàng.
+
+1. Zalo Chatbot là gì?
+
+Zalo Chatbot là một công cụ tự động hóa tương tác được tích hợp sẵn trên nền tảng Zalo OA, giúp doanh nghiệp dễ dàng sử dụng để giao tiếp hiệu quả với khách hàng 24/7 mà không đòi hỏi kỹ thuật (IT). Với Zalo Chatbot, bạn có thể:
+
+Tự động trả lời các câu hỏi thường gặp
+Cung cấp thông tin sản phẩm và dịch vụ
+Hỗ trợ khách hàng nhanh chóng
+Tạo chiến dịch marketing tự động
+Thu thập thông tin và phản hồi từ khách hàng
+
+Doanh nghiệp có thể tích hợp OA với chatbot bên thứ ba để kết hợp nhiều chatbot, phục vụ các mục đích khác nhau theo nhu cầu.
+
+Chatbot là tính năng trả phí trên Zalo OA, admin cần mua gói dịch vụ để sử dụng được tính năng này. Tham khảo các gói dịch vụ tại đây
+
+2. Lợi ích từ việc sử dụng Zalo Chatbot
+Tự động hóa thông minh: Chatbot phản hồi nhanh các yêu cầu phổ biến, tự động phân loại nhu cầu khách hàng và chuyển tiếp cho nhân viên phù hợp, giúp doanh nghiệp tối ưu nguồn lực. 
+Phản hồi tức thì 24/7: Khách hàng được hỗ trợ ngay khi tương tác với Zalo OA, kể cả ngoài giờ làm việc, góp phần nâng cao trải nghiệm và mức độ hài lòng.
+Duy trì & gia tăng tương tác: Tin nhắn tự động kết hợp nút CTA giúp dẫn dắt hành vi, giữ chân khách hàng và tăng thời gian tương tác với OA.
+Xin thông tin tự động: Chatbot có thể tự động thu thập thông tin khách hàng thông qua các mẫu hỏi. Thông tin có thể lấy từ dữ liệu cơ bản trên Zalo hoặc do khách hàng nhập thủ công theo kịch bản tương tác, dùng để phân nhóm khách hàng và cá nhân hóa nội dung trao đổi.
+Tiết kiệm chi phí vận hành: Tương tác liên tục với chatbot đồng nghĩa với việc khách hàng đang cấp quyền tương tác với doanh nghiệp. Từ đó doanh nghiệp có thể tiếp tục nhắn tin miễn phí đến khách hàng.
+Dễ dàng sử dụng: Zalo Chatbot được tích hợp sẵn trong Zalo OA, doanh nghiệp không cần phát triển mới hoặc tích hợp với một chatbot khác. 
+3. Các tính năng tương tác tự động của Zalo Chatbot
+
+Các định dạng tin nhắn hỗ trợ:
+
+Văn bản: Gửi nội dung text, hỗ trợ cá nhân hóa bằng các trường thông tin tùy biến giúp hội thoại tự nhiên hơn.
+Hình ảnh: Gửi ảnh kèm mô tả (tải lên từ máy tính hoặc qua URL).
+Album ảnh: Gửi tối đa 9 hình ảnh trong một tin nhắn.
+Danh sách: Tin nhắn dạng danh mục cho phép khách hàng bấm chọn tương tác trực tiếp.
+Typing: Hiển thị trạng thái "đang soạn tin" để tạo cảm giác thực tế và giúp khách hàng có thời gian đọc nội dung trước đó.
+Nhập liệu: Thu thập thông tin khách hàng (theo mẫu hoặc tự do nhập nội dung), dữ liệu được lưu trữ để tái sử dụng hoặc doanh nghiệp có thể đồng bộ lên hệ thống.
+Bộ sưu tập: Gửi chuỗi hình ảnh kèm tiêu đề và nút bấm tương tác (dạng slide lướt).
+Tập tin: Gửi file đính kèm với dung lượng tối đa 1MB.
+Bài viết: Gửi bài đăng từ Zalo OA (tùy chọn bài cụ thể hoặc bài mới nhất).
+Dynamic: Tích hợp dữ liệu thời gian thực từ hệ thống của doanh nghiệp. Điều này giúp chatbot có thể trả lời các câu hỏi cần tra cứu dữ liệu động như tình trạng đơn hàng, điểm tích lũy hay thông tin tài khoản.
+Sticker: Gửi nhãn dán sinh động từ kho sticker Zalo.
+
+4. Tự động hóa chăm sóc khách hàng
+
+Zalo Chatbot được xây dựng dựa trên hai thành phần cốt lõi: Kịch bản (Flow) và Quy tắc tự động (Rule).
+
+Kịch bản chatbot là luồng hội thoại được thiết kế sẵn, giúp doanh nghiệp chuẩn hóa trải nghiệm tư vấn, đảm bảo mọi khách hàng đều nhận được thông tin nhất quán, nhanh chóng và chính xác.
+Quy tắc tự động (Rule) là cơ chế kích hoạt kịch bản chatbot, giúp chatbot tự động nhận diện hành động của khách hàng và phản hồi phù hợp. Nếu kịch bản chatbot là nội dung trả lời, thì Rule chính là điều kiện quyết định khi nào nội dung đó được gửi đi.
+
+Quy tắc tự động có thể được thiết lập dựa trên:
+
+Khách hàng gửi tin nhắn đến OA
+Khách hàng quan tâm OA
+Khách hàng nhấn nút “Nhắn tin” trên trang OA
+Khách hàng được gắn nhãn (tag)
+Kích hoạt tại một thời điểm cụ thể
+
+Dưới đây sẽ là mẫu quy trình kích hoạt quy tắc tự động của 1 kịch bản chatbot
+
+Bước 1: Thiết lập kịch bản phản hồi
+
+Truy cập mục Chatbot ➞ Chọn Danh sách kịch bản, hoặc nhấn vào đường dẫn sau https://oa.zalo.me/chatbot/flows
+Chọn Thêm mới và bắt đầu tạo nội dung tin nhắn gửi cho khách hàng
+Chọn Xem trước để kiểm tra kịch bản
+Nhấn Xuất bản
+
+Bước 2: Thiết lập cơ chế kích hoạt
+
+Truy cập mục Chatbot ➞ Chọn Quy tắc tự động, hoặc nhấn vào đường dẫn sau https://oa.zalo.me/chatbot/rules
+Chọn Thêm mới hoặc nhấn chọn một quy tắc có sẵn, thao tác như sau:
+
+Thiết lập quy tắc ở mục "Khi"➞ Lựa chọn theo các loại tương tác của khách hàng như: Người dùng gửi tin nhắn đến OA, quan tâm OA, nhấn nút "Nhắn tin" trên trang OA, được gắn nhãn/tag hoặc vào thời điểm cụ thể.
+
+- Thiết lập thêm điều kiện ở mục "Điều kiện bổ sung" ➞ Lựa chọn thêm các điều kiện để Chatbot tự động lọc đối tượng khách hàng nhận tin, theo các trường thông tin có sẵn (ví dụ: trạng thái Quan tâm, hoặc các bộ nhãn khác, ...) hoặc trường thông tin tùy biến khác.
+
+- Thiết lập "Hành động" bằng cách gắn kịch bản đã tạo ở Bước 1.
+
+Nhấn Cập nhật
+
+Bước 3: Hoàn tất thiết lập
+
+Sau khi hoàn thành đầy đủ Bước 1 và Bước 2, admin OA cần kiểm tra đảm bảo:
+
+Kịch bản đang ở trang thái "Bật"
+Cơ chế kích hoạt quy tắc tự động ở trang thái "Bật" và đã được gắn kèm với kịch bản để kích hoạt.
+
+5. Cách lấy đường dẫn chia sẻ
+
+Đường dẫn chia sẻ kịch bản Zalo Chatbot được sử dụng để dẫn khách hàng truy cập trực tiếp vào cửa sổ chat với Zalo OA và tự động kích hoạt kịch bản chatbot. Doanh nghiệp có thể đặt đường dẫn này trên website, landing page, mạng xã hội hoặc trong email marketing nhằm chủ động khởi tạo hội thoại, đồng thời gắn nhãn khách hàng theo từng nguồn truy cập để phục vụ phân nhóm và chăm sóc sau này.
+
+Cách lấy URL của kịch bản zalo chatbot
+
+Truy cập vào trình quản lý OA Manager oa.zalo.me>Chatbot>Danh sách kịch bản> tại mục Hành động & chọn Chia sẻ kịch bản sau đó copy đường dẫn chia sẻ. 
+
+6. Ứng dụng Zalo chatbot trong chăm sóc khách hàng
+
+Xin thông tin khách hàng tự động
+
+Trong các tình huống cần thu thập thông tin khách hàng, doanh nghiệp có thể sử dụng chatbot để tự động hóa toàn bộ quy trình. Thông qua tính năng nhập liệu trong kịch bản, khách hàng có thể cung cấp thông tin trực tiếp khi tương tác với Zalo OA. Các dữ liệu này được chatbot sử dụng để cá nhân hóa nội dung chăm sóc và nâng cao trải nghiệm khách hàng.
+
+Doanh nghiệp có thể linh hoạt lựa chọn mẫu “Xin thông tin từ người dùng”, cho phép:
+
+Tự động điền thông tin cơ bản từ Zalo (Tên, SĐT,v.v)
+Hoặc nhập liệu thủ công bằng tay theo nhu cầu.
+
+Tính năng này phù hợp để xây dựng các kịch bản như đặt lịch hẹn, đặt bàn, đăng ký khóa học, gửi mã voucher…, giúp phản hồi nhanh cho khách hàng và tiết kiệm nguồn lực nhân viên.
+
+Tương tác tự động và phân nhóm khách hàng
+
+Khi khách hàng nhắn tin đến Zalo OA, chatbot có thể tự động phản hồi kèm các nút tương tác (CTA) để dẫn khách thực hiện hành động như truy cập website, xem bài viết hoặc tiếp tục nhận tư vấn. 
+
+Doanh nghiệp có thể gắn nhãn khách hàng trên từng CTA theo hành vi tương tác, giúp xác định chính xác nhu cầu và mối quan tâm (ví dụ: nhãn “túi xách”). 
+
+Bên cạnh đó, doanh nghiệp có thể thiết lập tính năng thông báo cho nhân viên. Khi khách hàng tương tác theo kịch bản đã thiết lập, chatbot sẽ tự động gửi thông báo đến nhân viên CSKH, giúp tiếp nhận và hỗ trợ khách hàng kịp thời, giảm thời gian chờ phản hồi.
+
+Anh/chị có thể xem chi tiết các hướng dẫn về Zalo Chatbot tại đây. Việc kết hợp Zalo Chatbot cùng các tính năng khác trên Zalo OA sẽ giúp doanh nghiệp xây dựng quy trình chăm sóc khách hàng tự động, đồng bộ và hiệu quả hơn. Để tối ưu trải nghiệm và gia tăng hiệu quả tương tác, anh/chị có thể tham khảo thêm các hướng dẫn liên quan và theo dõi các bài viết khác tại mục Thư viện.
+
+Bài viết này có hữu ích với bạn không?
+Không
+Có, nhưng...
+Có
+Search
+Nội dung liên quan
+Thể loại
+Tin tức
+13
+Thư viện
+23
+Tài nguyên khác
+0
+Tạo Zalo Official Account và kết nối với
+người dùng Zalo ngay!
+Tạo Official Account ngay
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

@@ -1,0 +1,105 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/quan-ly-template/template-webhook/su-kien-thay-doi-trang-thai-template
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện thay đổi trạng thái Template | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi trạng thái Template
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Quản lý TemplateTemplate WebhookSự kiện thay đổi trạng thái Template
+Sự kiện thay đổi trạng thái Template
+
+Khi có sự kiện mẫu tin (template) được thay đổi trạng thái, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng được cấp quyền và ứng dụng liên kết (nếu có) một HTTP request như sau.
+
+LƯU Ý
+
+Quyền cần có: Nhận sự kiện quản lý Message Template
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+
+{
+    "event_name": "change_template_status",
+    "oa_id": "23528683620520284",
+    "app_id": "26502567361042074",
+    "template_id": "123456",
+    "status":
+        {
+            "prev_status": "PENDING_REVIEW",
+            "new_status": "REJECT"
+        },
+    "reason": "Mẫu tin bị lặp; Mẫu tin có dấu hiệu spam; Logo không hợp lệ",
+    "timestamp": "1724921480327"
+}
+
+Mô tả thuộc tính:​
+Thuộc tính	Mô tả
+event_name
+string	Tên sự kiện
+Giá trị nhận về: change_template_status
+oa_id
+string	ID của OA ủy quyền
+app_id
+string	ID của App ủy quyền
+template_id
+string	ID của template ghi nhận thay đổi trạng thái
+status
+Json Object	Ví dụ:
+
+{
+    "prev_status": "PENDING_REVIEW",
+    "new_status": "REJECT"
+}
+
+
+
+Trong đó:
+new_status: Trạng thái template sau khi cập nhật
+prev_status: Trạng thái trước khi cập nhật
+Các trạng thái bao gồm:
+ENABLE: Trạng thái template được kích hoạt
+PENDING_REVIEW: Trạng thái template chờ duyệt
+DELETE: Trạng thái template bị xóa
+REJECT: Trạng thái template bị từ chối
+DISABLE: Trạng thái template bị hủy kích hoạt
+
+reason
+string	Lý do thay đổi trạng thái template
+timestamp
+string	Thời gian hệ thống gửi thông báo
+Trước
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Kế tiếp
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Ví dụ:
+Mô tả thuộc tính:
+©2023 Zalo for Developers

@@ -1,0 +1,99 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/BOT
+# FETCHED: 2026-08-06
+# TITLE: Zalo Bot | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+Webhook
+Best Practices
+Bảng mã lỗi
+Zalo Bot
+Xây dựng tác nhân hội thoại thông minh cho Zalo
+Stablev2.5.0AI Powered
+Bắt đầu nhanhXem ví dụAPI Reference
+Tổng quan
+Zalo Bot là nền tảng mạnh mẽ giúp bạn xây dựng các tác nhân hội thoại thông minh có thể tương tác với hàng triệu người dùng Zalo. Với xử lý ngôn ngữ tự nhiên tích hợp, hỗ trợ media phong phú và tích hợp liền mạch với hệ sinh thái Zalo, bạn có thể tạo trải nghiệm bot hấp dẫn cho dịch vụ khách hàng, e-commerce, giải trí và nhiều hơn nữa.
+Thiết lập nhanh
+Khởi chạy bot trong vài phút với SDK trực quan và tài liệu toàn diện.
+AI Powered
+Tận dụng NLP nâng cao để hiểu ý định người dùng và cung cấp phản hồi thông minh.
+Mở rộng dễ dàng
+Xử lý hàng triệu cuộc hội thoại đồng thời với hạ tầng mạnh mẽ.
+Tính năng chính
+Hiểu ngôn ngữ tự nhiên: NLP engine tích hợp để phân tích tin nhắn người dùng và trích xuất ý định
+Template tin nhắn phong phú: Gửi văn bản, hình ảnh, video, nút bấm, carousel và nhiều hơn nữa
+Phần tử tương tác: Quick reply, nút bấm và form cho tương tác người dùng liền mạch
+Tích hợp Webhook: Thông báo sự kiện thời gian thực cho tin nhắn đến và hành động người dùng
+Quản lý ngữ cảnh người dùng: Theo dõi trạng thái cuộc hội thoại và tùy chọn người dùng
+Bắt đầu
+1
+Tạo Zalo Bot
+Đầu tiên, tạo bot trong Zalo Bot Creator (xem hướng dẫn tạo bot):
+Mở ứng dụng Zalo, tìm OA "Zalo Bot Manager"
+Chọn "Tạo bot" trong menu chat để mở "Zalo Bot Creator"
+Nhập tên bot (bắt đầu bằng tiền tố Bot) và thông tin cần thiết
+Nhận "Bot Token" gửi qua tin nhắn Zalo cho bạn
+2
+Cài đặt SDK
+Cài đặt Zalo Bot SDK cho ngôn ngữ bạn muốn:
+Node.jsPythonJava
+Sao chép
+npm install node-zalo-bot
+3
+Khởi tạo bot
+Tạo instance bot cơ bản:
+index.js
+const ZaloBot = require("node-zalo-bot");
+const bot = new ZaloBot("YOUR_BOT_TOKEN", {
+polling: true,
+});
+// Xử lý tin nhắn đến
+bot.on("message", (msg) => {
+const chatId = msg.chat.id;
+// Phản hồi lại tin nhắn
+bot.sendMessage(chatId, `Bạn vừa nói: ${msg.text}`);
+});
+4
+Kiểm thử bot
+Chạy bot và kiểm thử trong ứng dụng Zalo:
+node index.js
+Mẹo kiểm thử
+Chạy bot ở máy local rồi nhắn tin tới bot để kiểm thử qua cơ chế getUpdates/polling trước khi triển khai webhook.
+API Gửi tin nhắn
+Gửi tin nhắn đến người dùng với nhiều loại nội dung bao gồm văn bản, hình ảnh, nút bấm và template.
+Tin nhắn văn bản cơ bản
+POST /bot<BOT_TOKEN>/sendMessage
+await bot.sendMessage(chatId, "Xin chào! Tôi có thể giúp gì cho bạn?");
+Tham số
+ParameterTypeRequiredMô tả
+chat_idstringYesID của người nhận hoặc cuộc trò chuyện.
+textstringYesNội dung văn bản của tin nhắn (1–2000 ký tự).
+Kế tiếp
+Tạo Bot
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

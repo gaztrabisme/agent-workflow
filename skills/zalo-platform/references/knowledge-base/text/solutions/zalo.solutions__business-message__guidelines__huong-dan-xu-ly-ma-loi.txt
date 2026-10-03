@@ -1,0 +1,65 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/huong-dan-xu-ly-ma-loi
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn xử lý mã lỗi | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Quản lý tài khoản
+Business Message
+Giới thiệuTài liệu hướng dẫnBảng giáChính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hướng dẫn gửi API
+Hướng dẫn sử dụng tính năng gửi theo chiến dịch (không cần thông qua API)
+Hướng dẫn xử lý mã lỗi
+Cơ chế tính giá của Tin nhắn ZBS Template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hướng dẫn gửi API
+Hướng dẫn sử dụng tính năng gửi theo chiến dịch (không cần thông qua API)
+Hướng dẫn xử lý mã lỗi
+Cơ chế tính giá của Tin nhắn ZBS Template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+Hướng dẫn xử lý mã lỗi
+Gửi tin nhắn ZBS template
+Hướng dẫn xử lý mã lỗi
+Hướng dẫn xử lý mã lỗi
+Trong quá trình thiết lập và sử dụng ZBS Template Message, việc gặp phải các lỗi là điều không thể tránh khỏi. Hiểu và xử lý chính xác những mã lỗi này sẽ giúp doanh nghiệp của bạn tận dụng tối đa khả năng của ZBS Template Message, đảm bảo quá trình chăm sóc khách hàng diễn ra suôn sẻ và hiệu quả. Bài viết này sẽ cung cấp hướng dẫn về cách xử lý các mã lỗi phổ biến nhất mà Quý khách có thể gặp phải trong quá trình sử dụng dịch vụ.
+Để xem danh sách đầy đủ các mã lỗi và cách khắc phục, Quý khách vui lòng truy cập vào ĐÂY.
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Chúng tôi có thể làm cho bài viết này hữu ích hơn bằng cách nào?
+Nội dung bài viết cần ví dụ chi tiết hơn.
+Nội dung bài viết cần diễn đạt dễ hiểu hơn.
+Nội dung bài viết chưa chính xác.
+Khác
+Trở lạiGửi đi
+Trước
+Hướng dẫn sử dụng tính năng gửi theo chiến dịch (không cần thông qua API)
+Kế tiếp
+Cơ chế tính giá của Tin nhắn ZBS Template
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam

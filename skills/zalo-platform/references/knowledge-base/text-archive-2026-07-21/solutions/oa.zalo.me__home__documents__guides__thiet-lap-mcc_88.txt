@@ -1,0 +1,103 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/thiet-lap-mcc_88
+# FETCHED: 2026-07-21
+# TITLE: Thiết lập Mini Call Center (MCC) | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Giới thiệu tính năng
+Thiết lập Mini Call Center (MCC)
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thiết lập Mini Call Center (MCC)
+
+Tính năng Gọi thoại của Zalo Official Account hỗ trợ Doanh nghiệp tương tác và chăm sóc khách hàng cho nhiều mục đích như đặt lịch, trao đổi thông tin, khảo sát chất lượng dịch vụ,v.v. Doanh nghiệp có thể dễ dàng sử dụng tính năng này qua thiết lập MCC với các bước thao tác đơn giản, nhanh chóng.
+
+🚩Lưu ý: Tính năng Gọi thoại chỉ khả dụng đối với các OA xác thực đang sử dụng Gói dịch vụ OA. Xem chi tiết về Gói dịch vụ OA tại đây.
+
+Hướng dẫn thao tác thiết lập MCC cho tính năng Gọi thoại (trên công cụ OA Manager phiên bản web)​
+
+Bước 1: Đăng nhập vào tài khoản OA tại https://oa.zalo.me/manage/oa ➞ Chọn tài khoản OA bạn muốn sử dụng tính năng Gọi thoại.
+
+Bước 2: Vào mục Quản lý, chọn Thiết lập cuộc gọi ➞ Chọn thiết lập MCC
+
+Thiết lập MCC gồm 3 phần cài đặt: Thiết lập cơ bản, Thiết lập mở rộng và Thiết lập nâng cao (phần Thiết lập nâng cao chỉ áp dụng cho OA sử dụng Gói Tăng trưởng và Toàn diện).
+
+Bước 3: Thiết lập cơ bản
+
+3.1. Tại mục Thiết lập chức năng gọi thoại, chọn Bật
+
+3.2. Tại mục Tổng đài viên, chọn biểu tượng  và cửa sổ phân công tổng đài viên sẽ xuất hiện ➞ Gán vai trò tổng đài viên cho từng quản trị viên OA → Lưu
+
+3.3. Tại mục Thời gian hoạt động của tổng đài, kéo thả chuột để chọn khung giờ phù hợp (có thể chọn tối đa 03 khung giờ khác nhau trong cùng một ngày).
+
+3.4. Chọn Lưu
+
+Số lượng Tổng đài viên tùy thuộc vào Gói dịch vụ OA đang sử dụng. Xem chi tiết tại đây.
+
+Bước 4: Tùy chỉnh Thiết lập mở rộng để tối ưu trải nghiệm của khách hàng khi Gọi thoại với OA. (Trong trường hợp Doanh nghiệp không tùy chỉnh, OA sẽ sử dụng Thiết lập mở rộng mặc định của hệ thống):
+
+4.1. Tùy chỉnh các thông tin: Tin nhắn thông báo tổng đài không hoạt động, Lời thoại chào mừng, Lời thoại chờ
+4.2. Chọn Lưu. Doanh nghiệp có thể chọn biểu tượng  để nghe thử các lời thoại chào mừng, lời thoại chờ.
+
+Bước 5: Thiết lập nâng cao (dành riêng cho OA sử dụng Gói Tăng trưởng/ Toàn diện).
+
+Doanh nghiệp có thể cài đặt phân nhánh với tối đa 04 nhánh Gọi thoại, và phân công tổng đài viên phụ trách từng nhánh gọi:
+
+Chọn Tạo nhánh mới ➞ Điền tên nhánh và chọn biểu tượng  để phân công Tổng đài viên cho nhánh ➞ Chọn Bật ➞ Chọn Lưu.
+
+⚠ Lưu ý:
+
+Doanh nghiệp cần thực hiện thao tác gán vai trò tổng đài viên ở Bước 3.2 trước khi thực hiện thao tác phân công tổng đài viên phụ trách nhánh gọi ở Bước 5.
+Tổng đài viên không được phân công phụ trách nhánh gọi cụ thể, sẽ không nhận được cuộc gọi đến.
+Doanh nghiệp có thể tùy chỉnh Bật/Tắt, xóa nhánh.
+Tên nhánh Gọi thoại sẽ được hiển thị với khách hàng.
+
+Hướng dẫn thao tác Bật/ Tắt chức năng nhận cuộc gọi (trên công cụ Mini App - OA Manager của từng Tổng đài viên)​
+
+Mỗi tổng đài viên có thể chủ động lựa chọn Bật/ Tắt chức năng nhận cuộc gọi trên điện thoại của cá nhân. Cách tiến hành: Vào Mini App - OA manager, chọn mục Cài đặt → chọn Bật/ Tắt nhận cuộc gọi.
+
+⚠ Lưu ý: Hệ thống mặc định bật chức năng nhận cuộc gọi cho tất cả Tổng đài viên.
+
+---------------------------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Giới thiệu tính năng
+Next
+Quản lý hội thoại
+Hướng dẫn thao tác thiết lập MCC cho tính năng Gọi thoại (trên công cụ OA Manager phiên bản web)
+Hướng dẫn thao tác Bật/ Tắt chức năng nhận cuộc gọi (trên công cụ Mini App - OA Manager của từng Tổng đài viên)
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

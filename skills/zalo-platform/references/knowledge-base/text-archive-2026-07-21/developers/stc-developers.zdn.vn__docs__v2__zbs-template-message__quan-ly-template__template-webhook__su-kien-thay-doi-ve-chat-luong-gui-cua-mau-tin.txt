@@ -1,0 +1,81 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/quan-ly-template/template-webhook/su-kien-thay-doi-ve-chat-luong-gui-cua-mau-tin
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện thay đổi về chất lượng gửi của mẫu tin | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi trạng thái Template
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Quản lý TemplateTemplate WebhookSự kiện thay đổi về chất lượng gửi của mẫu tin
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+
+Khi có sự kiện thay đổi về chất lượng của mẫu tin phát sinh theo hệ thống đánh giá, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau.
+
+LƯU Ý
+
+Quyền cần có: Nhận sự kiện quản lý Message Template
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+  "event_name": "change_template_quality",
+  "oa_id": "2352868362652028400",
+  "template_id": "123456",
+  "quality": "HIGH",
+  "timestamp": "1602560967477"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Mô tả
+event_name
+String	Tên sự kiện
+Giá trị nhận về: change_template_quality
+oa_id
+String	ID của OA ủy quyền
+template_id
+String	ID của mẫu tin
+quality
+String	Chất lượng sau khi cập nhật.
+HIGH – Mức độ chất lượng tốt
+MEDIUM – Mức độ chất lượng trung bình
+LOW – Mức độ chất lượng kém
+UNDEFINED – Mức độ chất lượng Template chưa được xác định (trường hợp Template chưa được gửi thông báo nào trong khung thời gian đánh giá)
+
+timestamp
+String	Thời gian hệ thống gửi thông báo
+Trước
+Sự kiện thay đổi trạng thái Template
+Kế tiếp
+API Gửi tin
+Ví dụ:
+Mô tả thuộc tính
+©2023 Zalo for Developers

@@ -1,0 +1,34 @@
+# SOURCE: https://zalo.solutions/blog/cap-nhat-kha-nang-sao-chep-doi-voi-mau-zns-xac-thuc/a73khxv3py264sshlwkhnm0l
+# FETCHED: 2026-08-06
+# TITLE: Cập nhật khả năng sao chép đối với mẫu ZNS Xác thực | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Cập nhật khả năng sao chép đối với mẫu ZNS Xác thực
+Cập nhật khả năng sao chép đối với mẫu ZNS Xác thực
+2 tháng 04, 2026 17:32
+Với tinh thần luôn luôn lắng nghe và thấu hiểu khách hàng, đội ngũ nghiên cứu và phát triển sản phẩm Zalo Notification Service (ZNS) chính thức ra mắt tính năng mới, cho phép người nhận thông báo ZNS (người dùng cuối) có thể sao chép (copy) Mã xác thực trực tiếp tại ZNS, không cần phải ghi nhớ hay nhập lại. Đây là một tính năng hữu ích và an toàn, giúp tránh nhầm lẫn khi nhập mã OTP.
+Cách cấu hình tính năng này?
+Tính năng này sẽ được tự động áp dụng cho tất cả các mẫu thông báo ZNS dạng ZNS Xác thực đang kích hoạt (áp dụng cho các mẫu ZNS được tạo mới và cũ đang kích hoạt).
+Xem thêm Hướng dẫn tạo mẫu thông báo ZNS
+Giao diện hiển thị đối với người dùng cuối (end-user) được thể hiện như thế nào?
+Với tất cả các mẫu thông báo ZNS Xác thực khả dụng, giao diện người dùng sẽ hiển thị biểu tượng "Sao chép" bên cạnh mã xác thực. Người dùng có thể thao tác nhấn vào biểu tượng này để sao chép đoạn mã và dán vào các ứng dụng/giao diện yêu cầu xác thực khi cần.
+Giao diện mẫu ZNS Xác thực hiển thị đối với người dùng cuối
+Lưu ý: Người dùng cuối (end-user) phải cập nhật ứng dụng Zalo phiên bản mới nhất để tính năng sao chép khả dụng.
+Nếu có bất kì yêu cầu hỗ trợ, khách hàng có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud. Đội ngũ CSKH Zalo Cloud sẽ phản hồi cho khách hàng trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

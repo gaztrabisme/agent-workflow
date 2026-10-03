@@ -1,0 +1,72 @@
+# SOURCE: https://oa.zalo.me/home/documents/vie/guides/huong-dan-lien-ket-oa-id-vao-zbs-account
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn liên kết OA ID vào ZBS Account | Zalo Official Account
+
+Nhảy tới nội dung
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Quản lý ZBS Account
+ZBS Account là gì?
+Hướng dẫn tạo ZBS Account
+Hướng dẫn liên kết OA ID vào ZBS Account
+Hướng dẫn liên kết App ID vào ZBS Account
+Hướng dẫn nạp tiền vào ZBS Account
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+Xuất hóa đơn Doanh nghiệp
+Quản lý Admin ZBS Account
+Quản lý chi tiêu
+Quản lý gói Zalo OA
+Chi phí vận hành tài khoản Zalo OA doanh nghiệp xác thực
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thanh toán
+Quản lý ZBS Account
+Hướng dẫn liên kết OA ID vào ZBS Account
+Trên trang này
+Hướng dẫn liên kết OA ID vào ZBS Account
+⚠ Lưu ý: Kể từ ngày 01/01/2026, Zalo Cloud Account (ZCA) chính thức đổi tên thành Zalo Business Solutions Account (ZBS Account).
+Hướng dẫn liên kết OA ID vào ZBS Account​
+Anh/ chị có thể liên kết nhiều OA ID vào ZBS Account để tối ưu hóa việc quản lý.
+Để có thể liên kết, anh/ chị cần phải là Quản trị viên/Quản trị viên cấp cao  của ZBS Account và là Quản trị viên/ Quản lý gói và liên kết của OA.
+Tham khảo hướng dẫn quản lý admin của ZBS Account tại đây.
+🔴 CÁCH 1: Liên kết ngay tại trang quản lý OA​
+Bước 1: Truy cập trang Quản lý liên kết
+Tại trang quản lý OA https://oa.zalo.me/manage/oa vào mục Quản lý → Chọn Quản lý tài khoản → Chọn tiếp Quản lý liên kết
+Hoặc truy cập trực tiếp bằng đường dẫn sau: https://oa.zalo.me/manage/apphavepermission
+Bước 2: Chọn Thêm ZBS Account muốn liên kết
+Bước 3: Thực hiện liên kết
+Người dùng chọn ZBS Account muốn liên kết → Chọn Liên kết → Hệ thống thực hiện liên kết ZBS Account với OA.
+Bước 4: Liên kết thành công
+Trang Quản lý liên kết ZBS Account sẽ hiện thông tin tài khoản đã liên kết bao gồm:
+Tên ZBS Account → Bấm vào sẽ mở trang quản lý ZBS Account
+Mã ZBS Account (ZBS ID)
+Tên Zalo người thực hiện thao tác liên kết
+Ngày thực hiện liên kết
+🔴 CÁCH 2: Liên kết tại trang quản lý ZBS Account​
+Bước 1: Truy cập vào link tại đây
+Chọn Cài đặt → Quản lý tài sản → Liên kết OA → Liên kết
+Các OA khả dụng sẽ hiển thị ở mục Liên kết OA mới. Nếu không tìm thấy OA cần liên kết, vui lòng liên hệ admin của OA để được cấp quyền admin.
+Bước 2: Xác nhận và hoàn tất
+Chọn OA cần liên kết mới → Liên kết → Xác nhận liên kết
+⚠️ Lưu ý: Chỉ OA xác thực mới có thể liên kết vào ZBS Account.
+Liên kết với ZBS Account khác:​
+Trong trường hợp doanh nghiệp có nhu cầu liên kết với ZBS Account khác, vui lòng nhấn vào biểu tượng ⚫⚫⚫ ở góc phải của ZBS Account đang liên kết và chọn Hủy liên kết với tài khoản này → Sau đó, thực hiện lại bước liên kết với ZBS Account khác.
+-------------------------------------
+Trong quá trình sử dụng Zalo Official Account, nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT Zalo OA để được phản hồi sớm nhất.
+Trước
+Hướng dẫn tạo ZBS Account
+Kế tiếp
+Hướng dẫn liên kết App ID vào ZBS Account
+Hướng dẫn liên kết OA ID vào ZBS Account
+🔴 CÁCH 1: Liên kết ngay tại trang quản lý OA
+🔴 CÁCH 2: Liên kết tại trang quản lý ZBS Account
+Liên kết với ZBS Account khác:

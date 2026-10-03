@@ -1,0 +1,36 @@
+# SOURCE: https://zalo.solutions/blog/bvbank-toi-uu-hoa-trai-nghiem-khach-hang-voi-su-ho-tro-dac-luc-cua-zns/ksgngej9rc2zdg71uvra8bwc
+# FETCHED: 2026-08-06
+# TITLE: BVBank tối ưu hóa trải nghiệm khách hàng với sự hỗ trợ đắc lực của ZNS | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/BVBank tối ưu hóa trải nghiệm khách hàng với sự hỗ trợ đắc lực của ZNS
+BVBank tối ưu hóa trải nghiệm khách hàng với sự hỗ trợ đắc lực của ZNS
+2 tháng 04, 2026 17:25
+50 hữu ích
+Trong bài toán cạnh tranh khốc liệt, các chính sách tài chính hay chương trình ưu đãi không còn là yếu tố duy nhất ảnh hưởng đến quyết định lựa chọn của khách hàng. Thay vào đó, trải nghiệm khách hàng, chất lượng dịch vụ, và sự tin tưởng đã trở thành những yếu tố quan trọng hơn bao giờ hết.
+Thấu hiểu được việc xây dựng và duy trì các kênh tương tác hiệu quả với khách hàng là vô cùng quan trọng. Ngân hàng Bản Việt (BVBank) đã không ngừng nỗ lực để tìm kiếm những giải pháp tối ưu nhằm cung cấp dịch vụ khách hàng xuất sắc và mang đến cho khách hàng những trải nghiệm tốt nhất. Tháng 06/2021, sau một thời gian tìm hiểu và đánh giá, Trung tâm chăm sóc Khách hàng BVBank đưa vào triển khai Zalo Notification Service (ZNS) trong hoạt động chăm sóc khách hàng. Việc tích hợp ZNS nằm trong công cuộc nâng cao trải nghiệm người dùng đã đánh dấu một bước tiến quan trọng để tạo nên kết nối vững chắc với khách hàng và xác lập vị thế BVBank trong thị trường ngân hàng.
+Nhận ra rằng việc tạo kết nối tốt với khách hàng ngoài việc nâng cao chất lượng dịch vụ mà còn phải tạo ra sự gắn kết sau khi khách hàng đã sử dụng dịch vụ. Và tính năng ZNS để gửi thông báo trực tiếp đến khách hàng thông qua ứng dụng Zalo đã được BVBank khai thác sử dụng. Từ đó, BVBank hoàn toàn có thể gửi thông báo chủ động và tương tác đến hàng triệu người dùng Zalo, mang đến một kênh giao tiếp hiệu quả, nhanh gọn và tiện ích.
+Ngoài những thông báo về mở tài khoản thành công hay thông báo giao dịch, khách hàng còn nhận được những thông báo cập nhật về tài khoản cá nhân như thông báo sao kê thẻ, thông báo thanh toán dư nợ thẻ, thông báo mở tài khoản tiền gửi,… Qua đó, khách hàng vừa dễ dàng theo dõi tình hình tài chính cá nhân vừa nhận được thông tin quan trọng và hữu ích từ ngân hàng một cách nhanh chóng và chính xác.
+Hình ảnh một số mẫu ZNS được BVBank gửi chăm sóc khách hàng
+Một trong những ưu điểm nổi bật của thông báo ZNS mà BVBank đã khai thác là khả năng tương tác hai chiều. Khách hàng không chỉ tiếp nhận thông tin từ ngân hàng mà còn có thể tương tác trực tiếp thông qua việc trả lời các thông báo ZNS. Điều này không chỉ tạo nên sự gần gũi mà còn giúp BVBank thu thập phản hồi trực tiếp từ khách hàng để cải thiện và tối ưu hóa dịch vụ.
+Tính đến tháng 9/2023, sau hơn 2 năm sử dụng, BVBank đã gửi ra hơn 10 triệu thông báo ZNS đến khách hàng. Tốc độ tăng trưởng người dùng theo dõi kênh OA của BVBank (Official Account) đạt hơn 65,23% so với trước khi triển khai. Ngoài tệp khách hàng đã và đang sử dụng dịch vụ của ngân hàng, tính năng gửi thông báo chủ động đến người dùng Zalo đã giúp ngân hàng tiếp cận được thêm nhiều khách hàng tiềm năng một cách nhanh chóng và hiệu quả. Điều này không chỉ giúp BVBank tăng cường tương tác hai chiều mà còn giúp thúc đẩy khách hàng quay lại sử dụng các dịch vụ và ứng dụng của ngân hàng thêm nhiều lần nữa.
+Thêm vào đó, việc sử dụng tính năng ZNS để gửi thông báo mang tên thương hiệu của BVBank đã tạo nên dấu ấn thương hiệu trong lòng khách hàng. Khách hàng không chỉ nhớ đến dịch vụ mà còn nhớ đến thương hiệu BVBank. Đây cũng nền tảng vững chắc cho một mối quan hệ lâu dài và bền chặt giữa khách hàng với ngân hàng.
+Đánh giá về việc triển khai ZNS, Bà Lê Thị Kim Trang - Giám đốc Trung tâm chăm sóc Khách hàng chia sẻ: "BVBank luôn chú trọng việc phát triển các tính năng, tiện ích mới nhằm chuyên biệt và phù hợp với nhu cầu của khách hàng. Trong đó, việc ứng dụng các công nghệ mới để nâng cao trải nghiệm và gia tăng sự thuận tiện của khách hàng luôn được BVBank đặc biệt chú trọng. Với việc triển khai Zalo Notification Service (ZNS) trong hoạt động chăm sóc khách hàng đã góp phần đưa BVBank đến gần hơn với khách hàng thông qua khả năng tương tác, tiếp cận và giao tiếp hiệu quả với khách hàng của ZNS. Tôi hy vọng rằng, trong thời gian tới, ZNS sẽ tiếp tục phát huy lợi thế để góp phần tích cực trong định hướng tối ưu hoạt động chăm sóc khách hàng nói riêng và nâng cao trải nghiệm người dùng BVBank nói chung."
+Bà Lê Thị Kim Trang - Giám đốc Trung tâm chăm sóc Khách hàng BVBank
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

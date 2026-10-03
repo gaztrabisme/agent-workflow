@@ -1,0 +1,138 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/v2/gui-lenh-phan-hoi-nguoi-dung
+# FETCHED: 2026-07-21
+# TITLE: Gửi lệnh phản hồi người dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Broadcast bài viết
+Các loại tin và định dạng được hỗ trợ
+Gửi lệnh phản hồi người dùng
+Gửi thông báo văn bản
+Gửi thông báo đính kèm file
+Gửi thông báo kèm sticker
+Gửi thông báo theo mẫu đính kèm ảnh
+Gửi thông báo theo mẫu đính kèm danh sách
+Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Lấy thông tin quota lệnh chủ động miễn phí
+Lấy thông tin quota lệnh phản hồi người dùng
+Thả biểu tượng cảm xúc vào tin nhắn
+Trả lời tin nhắn
+Lấy danh sách khách hàng quan tâm OA
+Lấy thông tin khách hàng quan tâm OA
+Cập nhật thông tin khách hàng quan tâm OA
+Lấy quota tin Tư vấn
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)Gửi lệnh phản hồi người dùng
+Gửi lệnh phản hồi người dùng
+
+Official Account API cho phép phản hồi tối đa 8 lệnh trong vòng 48 tiếng đối với một tin nhắn mà người dùng gửi đến (áp dụng cho cả người dùng quan tâm và chưa quan tâm Official Account).
+
+Lưu ý: Đối với lệnh thứ 9 trở đi hoặc lệnh gửi sau 48h, lệnh được tình là lệnh chủ động và áp dụng tính phí theo quy định. Các loại lệnh bạn có thể dùng để phản hồi lại tin từ người dùng:
+
+Lệnh định dạng văn bản
+Lệnh đính kèm ảnh
+Lệnh đính kèm danh sách
+Lệnh đính kèm file
+
+Để gửi lệnh phản hồi người dùng bằng API gửi tin nhắn, bạn cần có message ID của tin nhắn cần phản hồi. Để lấy được message ID, vui lòng xem tài liệu webhook sự kiện người dùng gửi tin nhắn.
+
+Quyền cần có: Quyền gửi tin và thông báo qua OA
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/message
+Method: POST
+Content Type: application/json
+Response Type:  text/json  
+Example request​
+curl
+-X POST
+-H 'Content-Type: application/json'
+-H 'access_token: <your_access_token>'
+-d '{
+  "recipient":{
+    "message_id":"468458835"
+  },
+  "message":{
+    "text":"Bạn cần hỗ trợ gì ạ?"
+  }
+}' "https://openapi.zalo.me/v2.0/oa/message"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số	Loại 	Tính bắt buộc	Mô tả
+recipient	object	yes	Thông tin người nhận
+message	object	yes	Nội dung cần gửi
+Cấu trúc thuộc tính recipient​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+message_id	string	yes	Reply token cho phép phản hồi tin nhắn đến từ người dùng (nhận được thông qua webhook sự kiện người dùng gửi tin nhắn)
+Example respond​
+{
+    "error": 0,
+    "message": "Success",
+    "data":{
+        "quota": {
+            "total": 8,
+            "remain": 7,
+            "type": "reply"
+        },
+        "message_id": "24684588352",
+        "user_id": "2512523625412515"
+    }
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+quota	object	Thông tin quota của lệnh phản hồi. Các giá trị trả về:
+total: Tổng số lượng lệnh phản hồi có thể gửi tới người dùng khi nhận tin từ người dùng trong vòng 48 giờ. Xem thêm Chính sách gửi tin.
+remain: Số lượng lệnh có thể dùng để phản hồi người dùng trong vòng 48 giờ.
+type: Giá trị trả về là reply cho biết đây là quota của lệnh phản hồi.
+
+message_id	int	ID định danh của lệnh phản hồi
+user_id	int	ID của người quan tâm cần phản hồi.
+Trước
+Các loại tin và định dạng được hỗ trợ
+Kế tiếp
+Gửi thông báo văn bản
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Cấu trúc thuộc tính recipient
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

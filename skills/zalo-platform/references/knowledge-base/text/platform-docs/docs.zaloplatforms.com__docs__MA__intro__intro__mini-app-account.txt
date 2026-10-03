@@ -1,0 +1,64 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/intro/intro/mini-app-account
+# FETCHED: 2026-08-06
+# TITLE: Tài khoản Nhà phát triển | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+1. Giới thiệu
+1. Vấn đề của Native App và Web
+2. Giới thiệu Zalo Mini App
+3. Tài khoản Nhà phát triển
+4. Các điểm truy cập Zalo Mini App
+2. Triển khai
+3. Xin cấp quyền trong Zalo Mini App
+4. Phát Hành Zalo Mini App
+5. Zalo Mini App Design Guidelines
+6. Chuyển đổi nhanh Web App có sẵn thành Zalo Mini App
+7. Các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App
+8. Best Practices
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+2. Yêu cầu theo dõi Official Account
+3. Call API
+4. Tương tác, điều hướng tới Zalo Mini App
+5. Cache dữ liệu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Tài khoản Nhà phát triển
+Cập nhật lần cuối:5/8/2026
+Để tạo và quản lý ứng dụng Zalo Mini App yêu cầu bạn đăng ký và tạo Ứng dụng trên Zalo Platform thông qua hệ thống Zalo For Developers.
+Mỗi Ứng dụng của bạn trên Zalo Platform có thể tạo được một hoặc nhiều Zalo Mini App.
+ID của người sử dụng Zalo Mini App sẽ được mã hóa theo Ứng dụng trên Zalo Platform.
+Zalo Mini App có thể thông qua ứng dụng Cha trên Zalo Platform để sử dụng các tính năng của Open API hệ thống Zalo cung cấp.
+Sau khi có Tài khoản nhà phát triển, bạn có thể xem hướng dẫn để triển khai một ứng dụng Zalo Mini App.
+Trước
+2. Giới thiệu Zalo Mini App
+Kế tiếp
+4. Các điểm truy cập Zalo Mini App
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

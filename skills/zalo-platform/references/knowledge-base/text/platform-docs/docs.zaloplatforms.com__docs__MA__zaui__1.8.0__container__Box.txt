@@ -1,0 +1,237 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.8.0/container/Box
+# FETCHED: 2026-08-06
+# TITLE: Box | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.8.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Box
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.8.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Box là component giúp bao bọc các element giúp thêm khoảng cách giữa các element một cách dễ dàng theo spacing system của Zalo Mini App.
+Ngoài ra box còn hỗ trợ tạo nhanh Flex Layout.
+Properties​
+Box​
+Name
+Type
+Default
+Description
+noSpace
+boolean
+Các element sẽ có margin: 0 và padding: 0
+inline
+boolean
+false
+Nhận giá trị true nếu muốn các element inline block
+m
+number
+Giá trị margin của box, nhận giá trị là level từ 0 đến 10, với giá trị margin tương ứng là level x 4px
+p
+number
+Giá trị padding của box, nhận giá trị là level từ 0 đến 10, với giá trị padding tương ứng là level x 4px
+mt
+number
+Giá trị margin top
+ml
+number
+Giá trị margin left
+mb
+number
+Giá trị margin bottom
+mr
+number
+Giá trị margin right
+pt
+number
+Giá trị padding top
+pl
+number
+Giá trị padding left
+pb
+number
+Giá trị padding bottom
+pr
+number
+Giá trị padding right
+mx
+number
+Giá trị margin left và margin right
+my
+number
+Giá trị margin top và margin bottom
+px
+number
+Giá trị padding left và padding right
+py
+number
+Giá trị padding top và padding bottom
+width
+number
+Chiều rộng của box
+height
+number
+Chiều dài của box
+verticalAlign
+VerticalAlignEnum
+Giá trị vertical-align
+textAlign
+string
+Giá trị text-align
+flex
+boolean
+Chuyển box sang flex layout
+flexDirection
+string
+Giá trị flex-direction
+flexWrap
+string
+Giá trị flex-wrap
+justifyContent
+string
+Giá trị justify-content
+alignItems
+string
+Giá trị align-items
+alignContent
+string
+Giá trị align-content
+children
+React.ReactNode
+ReactNode
+Type​
+VerticalAlignEnum​
+Name
+Description
+"baseline"
+The element is aligned with the baseline of the parent. This is default
+"sub"
+The element is aligned with the subscript baseline of the parent
+"super"
+The element is aligned with the superscript baseline of the parent
+"top"
+The element is aligned with the top of the tallest element on the line
+"text-top"
+The element is aligned with the top of the parent element's font
+"middle"
+The element is placed in the middle of the parent element
+"bottom"
+The element is aligned with the lowest element on the line
+"text-bottom"
+The element is aligned with the bottom of the parent element's font
+"initial"
+Sets this property to its default value
+"inherit"
+Inherits this property from its parent element
+TextAlignEnum​
+Name
+Description
+"left"
+text align left
+"right"
+text align right
+"center"
+text align center
+"justify"
+justify
+"initial"
+initital
+"inherit"
+inherit
+Example​
+import React from "react";
+import { Page, Box, Button } from "zmp-ui";
+export default function HomePage() {
+return (
+<Box mt={1}>
+<Button size="large">Button</Button>
+</Box>
+<Box mt={10}>
+<Button size="large">Button</Button>
+</Box>
+);
+}
+Properties
+Box
+Type
+VerticalAlignEnum
+TextAlignEnum
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

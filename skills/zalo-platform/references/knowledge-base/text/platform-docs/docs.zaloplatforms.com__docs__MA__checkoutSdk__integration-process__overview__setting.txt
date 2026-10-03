@@ -1,0 +1,132 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/integration-process/overview/setting
+# FETCHED: 2026-08-06
+# TITLE: Bước 1 - Khai báo phương thức thanh toán | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+Bước 1 - Khai báo phương thức thanh toán
+Cập nhật lần cuối:5/8/2026
+Để khai báo, đối tác truy cập vào trang quản lý ứng dụng. Lựa chọn Mini App mà đối tác muốn khai báo. Tại mục Checkout SDK, chọn Cấu hình chung. Tại đây sẽ có 2 phần:
+1. Thông tin chung​
+Bao gồm những thông tin sử dụng chung cho toàn bộ phương thức thanh toán.
+Callback URL: Đường dẫn nhận callback từ Checkout SDK Server khi trừ tiền user thành công.
+Private key: Dùng để tạo thông tin chứng thực của callback từ Checkout SDK Server.
+Security Method: phương thức bảo mật, mặc định là HmacSHA256.
+App Status: Trạng thái thanh toán của app, mặc định là ACTIVE.
+2. Cấu hình Phương thức thanh toán​
+Với mỗi phương thức thanh toán, đối tác cần cấu hình các thông tin riêng biệt. Đối tác có thể cấu hình nhiều phương thức thanh toán khác nhau cho một Mini App.
+Đối tác có thể cấu hình các phương thức thanh toán sau:
+Cấu hình ZaloPay
+Giao diện cấu hình thanh toán cho Mini App với ví điện tử ZaloPay
+Merchant App ID: Thông tin để định danh tài khoản doanh nghiệp.
+Key 1 (Mac key): Dùng để tạo thông tin chứng thực.
+Key 2 (Callback key): Dùng để kiểm tra tính hợp lệ của callback.
+Redirect Path: Đường dẫn về lại Zalo Mini App khi thanh toán thành công (Mặc định sẽ về home). **Lưu ý
+Cấu hình Momo
+Giao diện cấu hình thanh toán cho Mini App với ví điện tử Momo
+Partner Code: Thông tin để định danh tài khoản doanh nghiệp.
+Access Key: Cấp quyền truy cập vào hệ thống MoMo.
+Secret Key: Dùng để tạo chữ ký điện tử signature.
+Public Key: Sử dụng để tạo mã hoá dữ liệu bằng thuật toán RSA.
+Redirect Path: Đường dẫn về lại Zalo Mini App khi thanh toán thành công (Mặc định sẽ về home). **Lưu ý
+Cấu hình VNPay
+Giao diện cấu hình thanh toán cho Mini App với VNPay
+Terminal ID (vnp_TmnCode): Thông tin để định danh tài khoản doanh nghiệp.
+Version (vnp_Version): Phiên bản api mà doanh nghiệp kết nối với VNPay.
+Secret Key (vnp_HashSecret): Dùng để tạo checksum chứng thực.
+Redirect Path: Đường dẫn về lại Zalo Mini App khi thanh toán thành công (Mặc định sẽ về home). **Lưu ý
+Đối với môi trường Sandbox có thêm cấu hình sau:
+IPN Processing Notification Url (optional): Đường dẫn nhận thông báo về kết quả xử lý IPN từ VNPay Sandbox. Chi tiết xem tại VNPay IPN processing notification.
+Lưu ý:
+Khi doanh nghiệp cấu hình địa chỉ IPN (server call server) sử dụng cập nhật tình trạng thanh toán (trạng thái thanh toán) cho giao dịch với VNPay.
+Cần cấu hình theo URL sau https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/vnp-ipn
+Trong đó {Mini-App-ID} là Mini App ID tương ứng.
+Cấu hình Payme
+Giao diện cấu hình thanh toán cho Mini App với ví điện tử Payme
+Merchant ID: Thông tin để định danh tài khoản doanh nghiệp.
+X-Api-Client: Chuỗi định danh được Payme cung cấp cho merchant khi tiến hành kết nối.
+Secret Key: Dùng để mã hoá và kiểm tra tính hợp lệ dữ liệu.
+Redirect Path: Đường dẫn về lại Zalo Mini App khi thanh toán thành công (Mặc định sẽ về home). **Lưu ý
+Cấu hình Thanh toán khi nhận hàng (COD)
+Giao diện cấu hình thanh toán cho Mini App với COD
+Notify Url: Đường dẫn nhận thông báo của nền tảng khi người dùng chọn thanh toán COD.
+Redirect Path: Đường dẫn về lại Zalo Mini App khi thanh toán thành công (Mặc định sẽ về home). **Lưu ý
+Cấu hình Chuyển khoản ngân hàng
+Giao diện cấu hình thanh toán cho Mini App với chuyển khoản ngân hàng
+Notify Url: Đường dẫn nhận thông báo của nền tảng khi người dùng chọn thanh toán chuyển khoản ngân hàng.
+Ngân hàng: Danh sách ngân hàng cho phép thanh toán.
+Số tài khoản: Số tài khoản ngân hàng nhận tiền.
+Chủ tài khoản: Tên chủ tài khoản nhận tiền.
+Nội dung chuyển khoản: Nội dung chuyển khoản của các giao dịch thanh toán.
+Cấu hình Phương thức riêng
+Đối với những đối tác có liên kết các phương thức thanh toán mà Checkout SDK không hỗ trợ, có thể cấu hình phương thức riêng tại đây.
+Mã phương thức: Mã phương thức thanh toán riêng (Đối tác dùng mã này để phân biệt người dùng lựa chọn phương thức thanh toán riêng nào)
+Tên phương thức: Tên của phương thức thanh toán riêng
+Logo phương thức: Logo của phương thức thanh toán riêng
+Sandbox: Là phương thức sandbox hay production
+Trước
+Giới Thiệu
+Kế tiếp
+Bước 2 - Khởi tạo đơn hàng
+1. Thông tin chung
+2. Cấu hình Phương thức thanh toán
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

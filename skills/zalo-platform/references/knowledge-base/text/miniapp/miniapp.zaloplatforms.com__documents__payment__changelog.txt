@@ -1,0 +1,61 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/changelog/
+# FETCHED: 2026-07-21
+# TITLE: Change Log | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Change Log
+Trước
+Cập nhật lần cuối: 16/6/2025
+2024-04-26​
+Cập nhật thêm giá trị mac khi tạo đơn hàng​
+Cập nhật sơ đồ quy trình thanh toán Giới thiệu
+Cập nhật field mac tại API createOrder
+2024-04-24​
+Cập nhật danh sách địa chỉ IP của Checkout SDK Server​
+Cập nhật danh sách địa chỉ IP của Checkout SDK Server khi nhận callback
+2024-03-28​
+Thêm cấu hình phương thức thanh toán riêng​
+Giới thiệu
+Cấu hình phương thức riêng
+Sự kiện thanh toán
+2024-03-26​
+Thêm cấu hình phương thức thanh toán PayME​
+Cấu hình phương thức PayME
+Trước
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

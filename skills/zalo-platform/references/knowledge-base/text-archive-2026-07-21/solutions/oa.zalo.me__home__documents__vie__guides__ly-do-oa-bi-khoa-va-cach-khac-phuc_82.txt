@@ -1,0 +1,92 @@
+# SOURCE: https://oa.zalo.me/home/documents/vie/guides/ly-do-oa-bi-khoa-va-cach-khac-phuc_82
+# FETCHED: 2026-07-21
+# TITLE: Lý do OA bị khóa và cách khắc phục | Zalo Official Account
+
+Nhảy tới nội dung
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Khởi tạo Zalo Official Account
+Lựa chọn danh mục
+Hướng dẫn đặt tên Zalo OA
+Lý do OA bị khóa và cách khắc phục
+Hướng dẫn xác thực
+Các hình thức xác thực
+Hồ sơ xác thực
+Xác thực theo lĩnh vực hoạt động
+Xử lý hồ sơ bị từ chối
+Hỗ trợ tạo, xác thực, cài đặt OA cho chuỗi cửa hàng
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Lý do OA bị khóa và cách khắc phục
+1. Làm thế nào biết được tài khoản OA bị khóa?​
+
+Tài khoản OA bị khóa sẽ có ký hiệu “khóa” và nằm tại mục “Đang bị khóa” trên trang Quản trị OA (https://oa.zalo.me/manage/oa?status=0)
+
+
+2. Lí do OA bị khóa​
+1. OA không thực hiện cập nhật thông tin trong thời gian quy định. ​
+
+OA sẽ bị khóa nếu không thực hiện cập nhật thông tin theo yêu cầu từ BQT Zalo OA trong thời gian quy định. Chi tiết:
+
+Đối với yêu cầu cập nhật thông tin OA, OA cần thực hiện cập nhật thông tin trong vòng 7 ngày kể từ ngày nhận thông báo.
+Đối với yêu cầu xác thực, OA cần thực hiện xác thực trong vòng 14 ngày kể từ ngày nhận thông báo.
+
+Giải pháp: Tham khảo quy định đăng ký OA và tạo lại OA mới. Xem thêm Hướng dẫn đặt tên Official Account cho doanh nghiệp (OA doanh nghiệp). OA đã khóa sẽ không được mở lại.
+
+Dưới đây là 1 số lý do thường gặp dẫn đến việc OA cần cập nhật thông tin/ bị từ chối/ bị khóa khi đăng ký tạo mới:
+
+Tên OA không hợp lệ ➞ Tên OA không có tên doanh nghiệp/thương hiệu.
+Ảnh đại diện không hợp lệ ➞ OA có ảnh đại diện vi phạm quy định hình ảnh OA.
+Ảnh bìa không hợp lệ ➞ OA có ảnh bìa quy phạm quy định hình OA.
+Mô tả không phù hợp với nội dung đăng ký ➞ Mô tả có nội dung không liên quan đến ngành nghề đăng ký hoặc có chứa từ ngữ phản cảm.
+Sản phẩm bị cấm hiển thị trên Zalo ➞ Xem thêm các sản phẩm bị cấm hiển thị tại đây.
+OA thuộc danh mục dịch vụ tài chính nhưng không đăng tải giấy phép xác thực hợp lệ kèm theo ➞ OA có ngành nghề liên quan đến tài chính như tín dụng, ngân hàng, cầm đồ, chứng khoán,...đều phải nộp giấy phép xác thực cùng lúc tạo OA.
+Tên OA mới không được trùng với tên OA đã tạo thành công trước đó ➞ Đã có OA cùng tên được duyệt đăng ký từ cùng 1 số điện thoại tạo OA.
+2. OA đăng nội dung vi phạm quy định vận hành OA ​
+
+Đối với các OA đăng bài viết, gửi tin Truyền thông Broadcast có nội dung phạm pháp, buôn bán các sản phẩm bị cấm, nội dung phản cảm, nội dung mang tính thù địch/ tấn công hoặc nội dung gây ảnh hưởng đến hình ảnh cá nhân/tổ chức khác, Zalo Official Account sẽ xóa bài viết/ tin Broadcast và gửi cảnh báo đến OA. Nếu OA tiếp tục vi phạm, BQT Zalo OA sẽ khóa tài khoản.
+
+-------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+⚠ Lưu ý: Mọi yêu cầu xoá thông tin sẽ được thực hiện khi người dùng tạo phiếu yêu cầu hỗ trợ tại oa.zalo.me/lienhe. Vui lòng lưu ý rằng, chúng tôi sẽ xác thực danh tính của Người dùng nhằm mục đích bảo vệ quyền lợi Người dùng trước khi tiến hành xử lý.
+
+Trước
+Hướng dẫn đặt tên Zalo OA
+Kế tiếp
+Hướng dẫn xác thực
+1. Làm thế nào biết được tài khoản OA bị khóa?
+2. Lí do OA bị khóa
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

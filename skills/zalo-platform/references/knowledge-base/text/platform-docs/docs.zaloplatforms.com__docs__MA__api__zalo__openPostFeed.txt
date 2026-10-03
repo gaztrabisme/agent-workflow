@@ -1,0 +1,281 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/zalo/openPostFeed
+# FETCHED: 2026-08-06
+# TITLE: openPostFeed | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+openPostFeed
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.5.3
+import { openPostFeed } from "zmp-sdk";
+API cho phép ứng dụng mở giao diện chia sẻ để người dùng chia sẻ thông tin lên nhật ký Zalo.
+Ví dụ​
+Chia sẻ hình ảnh​
+const { status, shareType, numberOfUser } = await openPostFeed({
+type: "image",
+data: {
+imageUrls: ["link-to-image"],
+},
+});
+ShareData​
+Property
+Type
+Required
+Description
+imageUrls
+string[]
+Yes
+URL của các hình ảnh cần chia sẻ
+Chia sẻ liên kết​
+const { status, shareType, numberOfUser } = await openPostFeed({
+type: "link",
+data: {
+link: "http://news.zing.vn/Trung-uong-quyet-dinh-phuong-an-nhan-su-cap-cao-post632739.html",
+title: "Trung ương quyết định phương án nhân sự cấp cao",
+thumb: "link-to-thumb",
+description: "description",
+},
+});
+ShareData​
+Property
+Type
+Required
+Description
+link
+string
+Yes
+Liên kết cần chia sẻ
+thumb
+string
+No
+Thumbnail
+description
+string
+No
+Mô tả
+title
+string
+No
+Tiêu đề của liên kết
+Chia sẻ profile​
+const { status, shareType, numberOfUser } = await openPostFeed({
+type: "profile",
+data: {
+id: "765465772305886642",
+},
+});
+ShareData​
+Property
+Type
+Required
+Description
+id
+string
+Yes
+Id của OA
+Xem hướng dẫn xử lý lỗi và bảng mô tả chi tiết mã lỗi tại đây.
+Tham số​
+Truyền tham số vào API dưới dạng object chứa các thuộc tính:
+Property
+Type
+Required
+Description
+type
+"image" | "link" | "profile"
+Yes
+Nhận các giá trị sau:
+- image: Chia sẻ hình ảnh.
+- link: Chia sẻ liên kết.
+- profile: Chia sẻ profile OA.
+data
+ShareData
+Yes
+Nội dung cần chia sẻ, tùy thuộc vào type.
+Kết quả trả về​
+API trả về Promise chứa chứa thông tin kết quả chia sẻ.
+OpenPostFeedReturns​
+Property
+Type
+Required
+Description
+status
+'0' | '1'
+No
+Trạng thái chia sẻ:
+- 0: User nhấn hủy/cancel bài viết.
+- 1: Đăng bài viết thành công.
+shareType
+'0' | '1' | '2'
+No
+Trạng thái bài chia sẻ:
+- 0: Công khai.
+- 1: Chỉ mình tôi.
+- 2: Chia sẻ cho danh sách bạn.
+numberOfUser
+number
+No
+Số lượng user nhận được bài chia sẻ trong trường hợp shareType=2.
+Trước
+openChat
+Kế tiếp
+openProfile
+Ví dụ
+Chia sẻ hình ảnh
+Chia sẻ liên kết
+Chia sẻ profile
+Tham số
+Kết quả trả về
+OpenPostFeedReturns
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

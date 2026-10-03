@@ -1,0 +1,81 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/social-plugin/widget-cap-tuong-tac/cai-dat-widget-cap-tuong-tac
+# FETCHED: 2026-08-06
+# TITLE: Cài đặt Widget cấp tương tác | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Social Plugin
+Widget cấp tương tác
+Tổng quan
+Cài đặt Widget cấp tương tác
+Widget Quan tâm
+Nút Quan tâm
+Widget Chat
+Trên trang này
+Cài đặt Widget cấp tương tác
+Widget cấp tương tác cho phép Doanh nghiệp xin quyền tương tác từ người dùng truy cập website để gửi thông báo giao dịch đến Zalo của người dùng thông qua Official Account.
+Cài đặt​
+Đặt đoạn mã widget tại vị trí bạn muốn hiển thị, sau đó nạp Social Plugin SDK.
+<div class="zalo-consent-widget"
+data-callback="onZaloConsent"
+data-oaid="OA_ID"
+data-user-external-id=""
+data-appid="APP_ID"
+data-reason-msg="đơn hàng"
+data-status="show">
+</div>
+<script type="text/javascript" src="https://sp.zalo.me/plugins/sdk.js"></script>
+Cấu hình​
+Attribute
+Required
+Description
+data-oaid
+Có
+Zalo Official Account ID.
+data-appid
+Có
+ID của ứng dụng.
+data-status
+Có
+show để hiển thị widget, hide để ẩn widget.
+data-user-external-id
+Không
+ID khách hàng trong hệ thống của Doanh nghiệp. Giá trị này dùng để nhận biết khách hàng trên nền tảng Zalo OA.
+data-callback
+Không
+Tên hàm callback global. Hàm được gọi khi widget load hoặc khi người dùng thực hiện hành động cấp tương tác/quan tâm/bỏ qua.
+data-reason-msg
+Không
+Lý do cần khách hàng cấp quyền tương tác.
+Dùng ZaloSocialSDK.reload() để init lại widget khi cấu hình được thay đổi động trên trang.
+Trước
+Tổng quan
+Kế tiếp
+Widget Quan tâm
+Cài đặt
+Cấu hình
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

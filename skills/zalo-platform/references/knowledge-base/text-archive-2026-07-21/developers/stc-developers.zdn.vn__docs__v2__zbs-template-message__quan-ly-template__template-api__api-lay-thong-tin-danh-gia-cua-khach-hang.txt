@@ -1,0 +1,141 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/quan-ly-template/template-api/api-lay-thong-tin-danh-gia-cua-khach-hang
+# FETCHED: 2026-07-21
+# TITLE: API Lấy thông tin đánh giá của khách hàng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Quản lý TemplateTemplate APIAPI Lấy thông tin đánh giá của khách hàng
+API Lấy thông tin đánh giá của khách hàng
+
+API cho phép lấy thông tin đánh giá khách hàng đã phản hồi qua template đánh giá dịch vụ.
+
+LƯU Ý
+
+Quyền cần có: Quản lý Message Template Ứng dụng chỉ có thể lấy thông tin đánh giá từ template đánh giá dịch vụ được tạo bởi ứng dụng đó hoặc OA cấp quyền cho ứng dụng (Access token truyền vào phải ứng với template ID được tạo bởi app và OA).
+
+HTTP request​
+URL: https://business.openapi.zalo.me/rating/get
+Method: POST
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json"
+"https://business.openapi.zalo.me/rating/get?template_id=203972&from_time=1616673095659&to_time=1616673271320&offset=0&limit=1"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+template_id	String	yes	ID của template cần lấy thông tin.
+from_time	long	yes	Thời điểm bắt đầu của khoảng thời gian cần lấy dữ liệu được gửi lên hệ thống. Lưu ý: Định dạng timestamp (đơn vị: millisecond).
+to_time	long	yes	Thời điểm kết thúc của khoảng thời gian cần lấy dữ liệu được gửi lên hệ thống. Lưu ý: Định dạng timestamp (đơn vị: millisecond).
+offset	int	yes	Vị trí thứ tự của đánh giá đầu tiên được trả về.
+limit	int	yes	Số lượng đánh giá tối đa được trả về.
+Example respond​
+{
+    "data": {
+        "total": 2,
+        "data": [
+            {
+                "rating_type": "csat",
+                "option": "five_emotions",
+                "note": "Tôi rất hài lòng.",
+                "rate": 5,
+                "submitDate": "1616673095659",
+                "msgId": "7e4c33cfc20b05575c18",
+                "feedbacks": [
+                    "Nhân viên vui vẻ",
+                    "Quy trình đơn giản, hiệu quả",
+                    "Xử lý nhanh nhẹn",
+                    "Tác phong chuyên nghiệp",
+                    "Hướng dẫn tận tình"
+                ],
+                "trackingId": "1956"
+            },
+            {
+                "rating_type": "csat",
+                "option": "five_emotions",
+                "note": "Phục vụ chưa tốt",
+                "rate": 4,
+                "submitDate": "1616673164105",
+                "msgId": "4da9fb7506b1c1ed98a2",
+                "feedbacks": [
+                    "Cải thiện thái độ nhân viên",
+                    "Xử lý nhanh hơn"
+                ],
+                "trackingId": "729"
+            }
+        ]
+    },
+    "error": 0
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+total	int	Tổng số lượng đánh giá được trả về.
+data	array object	Dữ liệu đánh giá từ khách hàng được trả về theo dạng array. Xem cấu trúc data array bên dưới.
+Cấu trúc thuộc tính data object​
+Tên biến	Kiểu dữ liệu	Mô tả
+rating_type	string	Loại đánh giá
+csat (Default)
+
+option	string	
+three_emotions
+five_emotions
+five_stars
+
+note	string	Phần ghi chú thêm của khách hàng.
+rate	int	Mức đánh giá của khách hàng.
+submitDate	string	Thời điểm khách hàng submit đánh giá. Biến submitDate sẽ có giá trị trong khoảng thời gian từ from_time đến to_time (được truyền vào từ request).
+
+Lưu ý: Tính theo timestamp (millisecond).
+msgId	string	ID của thông tin đánh giá.
+feedback	array	Phần nhận xét từ khách hàng.
+trackingId	string	Tracking ID từ phía đối tác truyền vào khi gửi tin qua SĐT.
+Trước
+API Lấy dữ liệu mẫu của Template
+Kế tiếp
+API Tạo Template
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính data object
+©2023 Zalo for Developers

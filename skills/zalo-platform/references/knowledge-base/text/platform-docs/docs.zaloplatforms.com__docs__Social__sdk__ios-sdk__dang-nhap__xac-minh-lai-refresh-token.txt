@@ -1,0 +1,75 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/sdk/ios-sdk/dang-nhap/xac-minh-lai-refresh-token
+# FETCHED: 2026-08-06
+# TITLE: Xác minh lại RefreshToken | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+iOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Social Plugin
+Xác minh lại RefreshToken
+ZaloSDK hỗ trợ method validateRefreshToken để kiểm tra RefreshToken có còn hiệu lưu hay không:
+ZaloSDK.sharedInstance().validateRefreshToken(refreshToken, extInfo: Constant.EXT_INFO) { (response) in
+if response?.isSucess == true {
+// RefreshToken vẫn còn hiệu lực
+} else {
+// RefreshToken không còn hiệu lực
+}
+}
+Lưu ý: ZaloSDK không hỗ trợ việc lưu lại session đăng nhập mà phía app sẽ tự quản lí việc này. Có thể sử dụng hình thức lưu lại RefreshToken ở local, và dùng method validateRefreshToken để xác minh session đăng nhập có đang còn hiệu lực hay không.
+Trước
+Lấy Access Token
+Kế tiếp
+Đăng xuất
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

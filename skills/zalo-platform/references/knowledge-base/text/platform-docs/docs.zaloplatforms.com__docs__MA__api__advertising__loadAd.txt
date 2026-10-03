@@ -1,0 +1,321 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/advertising/loadAd
+# FETCHED: 2026-08-06
+# TITLE: loadAd | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+loadAd
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.37.0
+import { loadAd } from "zmp-sdk";
+API dùng để tải quảng cáo. Có các loại quảng cáo sau đây:
+ID
+Size
+ZMA_Masthead
+480x270
+ZMA_Middle
+300x250
+ZMA_Fullscreen
+Toàn màn hình
+ZMA_Reward
+Toàn màn hình
+ZMA_Bottom
+Tùy chỉnh
+Mặc định quảng cáo sẽ được hiển thị sau khi tải xong. Quảng cáo sẽ được hiển thị tại vị trí của phần tử mang ID tương ứng. Ví dụ:
+<div id="ZMA_Masthead">
+Ví dụ​
+Tải quảng cáo ZMA_Middle:
+import React, { useEffect } from "react";
+import { loadAd } from "zmp-sdk/apis";
+function HomePage() {
+useEffect(() => {
+loadAd({ ids: ["ZMA_Middle"] });
+}, []);
+return (
+<>
+...
+<div id="ZMA_Middle">
+</>
+);
+}
+export default HomePage;
+Xem hướng dẫn xử lý lỗi và bảng mô tả chi tiết mã lỗi tại đây.
+Tham số​
+Truyền tham số vào API dưới dạng object chứa các thuộc tính:
+Property
+Type
+Required
+Description
+ids
+string | string[]
+Yes
+ID của loại quảng cáo cần tải trong trang.
+config
+AdConfig
+No
+Cấu hình thêm.
+AdConfig​
+Property
+Type
+Required
+Description
+zoneId
+string
+Yes
+ID của quảng cáo do Adtima cung cấp
+type
+string
+No
+Định dạng quảng cáo đặc biệt, bao gồm các định dạng: 'masthead', 'reward', 'fullscreen'
+size
+[number, number]
+Yes
+Kích thước quảng cáo [width, height]
+attrs
+Object
+No
+Cấu hình thêm cho quảng cáo, liên hệ Adtima để cài đặt phù hợp cho vị trí quảng cáo.
+singleRequest
+boolean
+No
+Các vị trí quảng cáo được bật true sẽ được gộp chung 1 yêu cầu quảng cáo để chống trùng (default: false)
+plugins
+string[]
+No
+Danh sách plugins hỗ trợ dể tối ưu hiển thị QC:
+swiper: tối ưu QC khi hiển thị trong slider sử dụng thư viện swiper
+display
+boolean
+No
+Nhận các giá trị sau:
+true: Hiển thị quảng cáo sau khi tải
+false: Không hiển thị quảng cáo sau khi tải
+(default: true)
+onLoad
+function
+No
+Trả về trạng thái có quảng cáo hay không: true/false
+onShow
+function
+No
+Trả về trạng thái có quảng cáo hiển thị thành công hay không: true/false
+onClose
+function
+No
+Sau khi ZMA_Reward đóng sẽ gọi hàm này và trả về reward token của quảng cáo. Xem thêm Hướng dẫn verify reward token
+rewardConfig
+RewardConfig
+No
+Cấu hình hiển thị cho Ads Reward
+RewardConfig​
+Property
+Type
+Required
+Description
+displayType
+string
+No
+Kiểu hiển thị. Có 2 giá trị: "inline" hoặc "popup" (default: "popup")
+screenMode
+string
+No
+Hiển thị kiểu ngang hay dọc, chỉ hoạt động khi displayType: "popup". Có 2 giá trị "portrait" hoặc "landscape" (default: "portrait")
+Verify reward token​
+API được dùng để verify token được trả về trong hàm onClose khi mở quảng cáo loại ZMA_Reward
+Request​
+URL: https://h5.zalo.me/openapi/ads/verify-token
+Method: GET
+Parameters
+Name
+Type
+Required
+Description
+token
+string
+yes
+Reward token
+appId
+string
+yes
+Mini App ID
+Response​
+Status: 200 OK
+Body: JSON
+{
+"msg": "Success",
+"err": 0,
+"data": {
+"result": true
+}
+}
+Field "data":
+Name
+Type
+Description
+result
+boolean
+Kết quả kiểm tra
+Trước
+setupAd
+Kế tiếp
+displayAd
+Ví dụ
+Tham số
+AdConfig
+RewardConfig
+Verify reward token
+Request
+Response
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

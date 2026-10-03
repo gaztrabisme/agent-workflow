@@ -1,0 +1,65 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/plugin/widget-cap-tuong-tac/tong-quan
+# FETCHED: 2026-07-21
+# TITLE: Tổng quan | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Widget cấp tương tác
+Tổng quan
+Cài đặt Widget cấp tương tác
+Widget Quan tâm
+Nút Quan tâm
+Widget Chat
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+PluginWidget cấp tương tácTổng quan
+Tổng quan
+
+Widget cấp tương tác cho phép Doanh nghiệp dễ dàng xin quyền tương tác từ người dùng truy cập Website để gửi thông báo về giao dịch được thực hiện đến Zalo của người dùng thông qua Official Account.
+
+Gợi ý luồng Xin quyền và Gửi tin nhắn đến người dùng:​
+
+(1) Hiển thị Widget cấp tương tác: Hướng dẫn cài đặt widget tại đây.
+
+(2) Sự kiện người dùng đồng ý cấp tương tác, sự kiện Đồng bộ User_external_id
+
+(3) Thực hiện gửi thông báo đến người dùng bằng Tin giao dịch​
+
+(4) Hiển thị thông báo Quan tâm OA
+
+Các ứng dụng trong việc sử dụng Widget cấp tương tác để xin quyền từ người dùng:​
+Trước
+Lấy danh sách admin
+Kế tiếp
+Mã tài sản (asset_id) là gì?
+Gợi ý luồng Xin quyền và Gửi tin nhắn đến người dùng:
+Các ứng dụng trong việc sử dụng Widget cấp tương tác để xin quyền từ người dùng:
+©2023 Zalo for Developers

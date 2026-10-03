@@ -1,0 +1,156 @@
+# SOURCE: https://oa.zalo.me/home/documents/policy/kiem-duyet-thong-tin-tien-ich-extension
+# FETCHED: 2026-07-21
+# TITLE: Chính sách kiểm duyệt thông tin Tiện ích (Extension) | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+CHÍNH SÁCH
+Chính sách về đăng ký và sử dụng tài khoản OA
+Chính sách về đặt tên OA
+Chính sách về thông tin giới thiệu và hình ảnh OA
+Chính sách xác thực tài khoản
+Chính sách về tính năng quản lý nhóm (GMF)
+Chính sách về việc khóa Official Account (gọi tắt là OA)
+Chính sách phát triển Tiện ích (Extension)
+Chính sách kiểm duyệt thông tin Tiện ích (Extension)
+Chính sách sử dụng Tiện ích (Extension)
+Chính sách xử lý tranh chấp thương hiệu
+Chính sách đăng ký URL tùy biến
+Chính sách về tương tác của OA với người dùng
+Chính sách kiểm duyệt thông tin Tiện ích (Extension)
+
+Tiện ích (Extension) phục vụ cho các hoạt động, tác vụ gắn liền với nền tảng Zalo OA, giúp doanh nghiệp ứng dụng Zalo OA hiệu quả.
+
+Tiện ích do Nhà phát triển Tiện ích (Extension Developer - ED) phát triển và được Zalo OA kiểm duyệt xuất bản.
+
+Dưới đây là các quy định về kiểm duyệt thông tin Tiện ích mà ED cần tuân thủ.
+
+Lưu ý: Nhà phát triển Tiện ích (Extension Developer) vui lòng đọc kỹ các điều khoản trong Quy định này. Bằng cách đăng ký xuất bản Tiện ích, ED đồng ý rằng đã đọc hiểu và đồng ý với các điều khoản được đề cập, đồng thời, xác nhận sẽ tuân thủ đối với Quy định này và chính sách liên quan khác.
+
+1. Nguyên tắc kiểm duyệt thông tin Tiện ích​
+Thông tin Extension bao gồm: tên, thông tin giới thiệu, hình ảnh, thông tin liên hệ, điều khoản sử dụng (Terms & Conditions) sẽ được kiểm duyệt khi xuất bản hoặc khi cập nhật phiên bản mới.
+Nhà phát triển Tiện ích cam kết đảm bảo tính hợp pháp trong việc sở hữu hoặc được quyền sử dụng thương hiệu/ nhãn hiệu theo quy định của pháp luật Việt Nam để đăng ký thông tin Extension.
+Các thông tin của Extension phải có tính thống nhất, đồng bộ giữa các thông tin với nhau và thể hiện mối liên quan đến Extension.
+Extension không chứa thông tin sai lệch hoặc gây hiểu lầm, gây nhầm lẫn thương hiệu/ nhãn hiệu.
+Trong quá trình kiểm duyệt, chúng tôi có thể yêu cầu Nhà phát triển Tiện ích gửi bổ sung thêm giấy tờ hoặc thông tin khác.
+
+Extension được kiểm duyệt khi xuất bản hoặc khi cập nhật phiên bản mới theo nguyên tắc và tiêu chuẩn, thời gian kiểm duyệt trong vòng 3-5 ngày làm việc. Tuy nhiên trong một số trường hợp, có thể mất nhiều thời gian hơn.
+
+Trong vòng 30 ngày sau khi kiểm duyệt, Nhà phát triển Tiện ích phải xuất bản Extension. Quá thời hạn 30 ngày, Extension phải được kiểm duyệt lại.
+
+2. Quy định kiểm duyệt thông tin Tiện ích​
+2.1 Tên Tiện ích​
+
+Tên Tiện ích cần tuân thủ các quy định sau:
+
+Số lượng ký tự: từ 2 đến 50 ký tự;
+Không sử dụng các ký tự đặc biệt;
+Sử dụng chữ cái Latinh để đặt tên Extension;
+Tên Extension không được chứa các thông tin đường dẫn website, domain hoặc số điện thoại;
+Không sử dụng trùng tên Extension đã xuất bản HOẶC đã được xuất bản bởi Nhà phát triển Tiện ích khác;
+Không sử dụng tên thương hiệu/ nhãn hiệu đã được cấp văn bằng bảo hộ bản quyền nhưng không thuộc sở hữu hoặc được ủy quyền từ chủ sở hữu;
+Tên không được chứa các yếu tố giả mạo và mạo danh như Zalo/ Zalo OA hoặc các sản phẩm khác của Zalo hay VNG.
+
+Lưu ý: Tên Tiện ích không thể thay đổi sau khi đã được xuất bản.
+
+2.2 Hình ảnh đại diện​
+
+Hình ảnh đại diện của Tiện ích cần tuân thủ quy định sau:
+
+Định dạng PNG;
+Kích thước: 512 x 512 px;
+Dung lượng: tối đa 250KB;
+Hình ảnh phải là logo chính thức của Nhà phát triển và thể hiện mối liên quan đến tính năng mà Extension cung cấp;
+Không sử dụng logo thương hiệu/ nhãn hiệu đã được cấp văn bằng bảo hộ bản quyền nhưng không thuộc sở hữu hoặc được ủy quyền từ chủ sở hữu;
+Không sử dụng hình ảnh vi phạm pháp luật, hình ảnh cá nhân, phản cảm hay hình ảnh vi phạm thuần phong mỹ tục Việt Nam;
+Không sử dụng hình ảnh sao chép các tính năng hoặc phiên bản sửa đổi của Zalo/ VNG.
+2.3 Thông tin giới thiệu​
+
+Thông tin giới thiệu cần tuân thủ quy định sau:
+
+Số lượng: từ 20 – 500 ký tự;
+Ngôn ngữ: Tiếng Việt hoặc tiếng Anh;
+Chỉ viết hoa chữ cái đầu câu, tên riêng và chữ cái đầu sau dấu chấm câu, không lạm dụng viết in hoa toàn bộ chữ cái;
+Mô tả đầy đủ các tính năng liên quan có trong Extension và không đề cập các tính năng không có sẵn;
+Nội dung phải đồng nhất với các thông tin đăng ký Tiện ích khác (Tên, hình ảnh,…);
+Phải thể hiện đúng danh mục mà Nhà phát triển đăng ký và được viết rõ ràng, dễ hiểu, không gây nhầm lẫn về dịch vụ kinh doanh;
+Không chứa nội dung sao chép các tính năng hoặc phiên bản sửa đổi của Zalo/ VNG.
+2.4 Giao diện minh họa​
+
+Giao diện minh họa để thể hiện các chức năng, giao diện và trải nghiệm của Tiện ích cho tài khoản OA. Các giao diện này cần tuân thủ quy định sau:
+
+Định dạng: PNG/ JPG;
+Kích thước: Tối đa 5 MB/ảnh;
+Số lượng: Tối thiểu 4 ảnh, tối đa 6 ảnh, tỉ lệ 16:9;
+Hình ảnh phải thể hiện trải nghiệm thực tế, tập trung vào nội dung và tính năng cốt lõi để người dùng có thể dự đoán trải nghiệm khi dùng Tiện ích;
+Hình ảnh thể hiện các tính năng liên quan có trong Extension và không sử dụng hình ảnh hiển thị các tính năng không có sẵn.
+Không sử dụng hình ảnh vi phạm pháp luật, hình ảnh cá nhân, phản cảm hay hình ảnh vi phạm thuần phong mỹ tục Việt Nam;
+Không sử dụng hình ảnh sao chép các tính năng hoặc phiên bản sửa đổi của Zalo/ VNG.
+2.5 Điều khoản sử dụng​
+
+Nhà phát triển Tiện ích bắt buộc phải hiển thị công khai Điều khoản sử dụng của Tiện ích, bao gồm:
+
+Đối tượng sử dụng Tiện ích;
+Bảng giá và cách thức thanh toán;
+Quyền và trách nhiệm của Nhà phát triển Tiện ích;
+Quyền và trách nhiệm của tài khoản OA sử dụng Tiện ích;
+Thông tin về bảo mật dữ liệu;
+Thông tin về tính năng tích hợp với bên thứ ba (nếu có);
+Dịch vụ chăm sóc khách hàng, hỗ trợ thiết lập và sử dụng;
+Cam kết về chất lượng dịch vụ (thời gian xử lý sự cố kỹ thuật, hỗ trợ kỹ thuật, ...);
+Quy trình Giải quyết khiếu nại và tranh chấp;
+Lưu ý sử dụng hoặc khuyến nghị (nếu có).
+2.6 Thông tin liên hệ của Nhà phát triển Tiện ích​
+
+Nhà phát triển Tiện ích phải công khai các thông tin liên hệ trên Tiện ích, bao gồm:
+
+Tên doanh nghiệp;
+Địa chỉ doanh nghiệp;
+Mã số doanh nghiệp;
+Trang Zalo OA;
+Email liên hệ;
+SĐT liên hệ/ Hotline;
+Website.
+
+Nhà phát triển Tiện ích phải cung cấp cho tài khoản OA sự hỗ trợ thông qua: Tài khoản OA Doanh nghiệp của Nhà phát triển, điện thoại, email hoặc cổng hỗ trợ trên website trong quá trình tìm hiểu và sử dụng Tiện ích.
+
+Nhà phát triển Tiện ích cần tuân thủ để việc kiểm duyệt được thực hiện hiệu quả, đảm bảo tính chính xác, minh bạch và bảo vệ quyền lợi của người dùng.
+
+----------------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Chính sách phát triển Tiện ích (Extension)
+Next
+Chính sách sử dụng Tiện ích (Extension)
+1. Nguyên tắc kiểm duyệt thông tin Tiện ích
+2. Quy định kiểm duyệt thông tin Tiện ích
+2.1 Tên Tiện ích
+2.2 Hình ảnh đại diện
+2.3 Thông tin giới thiệu
+2.4 Giao diện minh họa
+2.5 Điều khoản sử dụng
+2.6 Thông tin liên hệ của Nhà phát triển Tiện ích
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

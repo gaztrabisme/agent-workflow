@@ -1,0 +1,127 @@
+# SOURCE: https://zalo.solutions/blog/co-che-danh-gia-chat-luong-va-quyen-loi-gui-zns/rzu6k97e8vkbnmereg
+# FETCHED: 2026-08-06
+# TITLE: Cơ chế đánh giá chất lượng và quyền lợi gửi tin nhắn ZBS Template | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Cơ chế đánh giá chất lượng và quyền lợi gửi tin nhắn ZBS Template
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin nhắn ZBS Template
+5 tháng 01, 2026 15:44
+32 hữu ích
+Trong hoạt động gửi thông báo chăm sóc khách hàng qua Zalo, tỷ lệ báo xấu (phản hồi tiêu cực) của người nhận tin nhắn ZBS Template sẽ ảnh hưởng đến quyền lợi của doanh nghiệp vì liên quan trực tiếp đến số lượng tin được gửi mỗi ngày. Để có thể nắm các thông tin về cơ chế đánh giá chất lượng và quyền lợi gửi tin nhắn ZBS Template, quý doanh nghiệp vui lòng tham khảo bài viết sau đây.
+A. Quyền lợi gửi tin nhắn ZBS Template của OA
+A.1 - Số lượng tin có thể gửi mỗi ngày (Daily quota)
+Quyền lợi gửi tin nhắn ZBS Template của OA sẽ được thể hiện theo từng mốc của chỉ số “Số lượng tin nhắn ZBS Template có thể gửi mỗi ngày (Daily quota)” , mỗi mốc sẽ có quyền lợi tương ứng như bảng bên dưới
+Mốc
+(= Daily quota)
+Quyền lợi về các mục đích (Tag) được gửi
+Mô tả
+1,000
+Tag 1 - Giao dịch (Transaction)
+Tag 2 - Chăm sóc khách hàng (Customer Care)
+Tag 3 - Hậu mãi (Promotion)
+Vùng phạt với những OA bị hạ mốc dưới mốc mặc định
+10,000
+20,000
+Tag 1 - Giao dịch (Transaction)
+Tag 2 - Chăm sóc khách hàng (Customer Care)
+Tag 3 - Hậu mãi (Promotion)
+Điểm bắt đầu mặc định
+(OA mới được khởi tạo mặc định nằm ở mốc này)
+50,000
+-
+Không giới hạn
+-
+Xem thêm Quy định chung khi kiểm duyệt mẫu tin nhắn ZBS Template
+A.2 - Cơ chế gửi và nhận Tin nhắn ZBS template tag Hậu mãi
+Phân loại
+Chi tiết cơ chế
+Diễn giải, ví dụ,…
+Hạn mức nhận tin nhắn ZBS Template tag Hậu mãi của User mỗi tháng
+Số lượng tin hậu mãi mỗi user nhận tối đa mỗi tháng từ OA:
+Tối đa 1 tin/ngày (30 tin/tháng)
+User A có SĐT 0123456789:
+User A nhận tối đa 30 Tin nhắn ZBS template tag Hậu mãi mỗi tháng từ OA Brand name X
+User A nhận tối đa 30 Tin nhắn ZBS template tag Hậu mãi mỗi tháng từ OA Ngân hàng Y
+Số lượng Tin nhắn ZBS template tag Giao dịch và Chăm sóc khách hàng mà user A có thể nhận mỗi tháng từ cả 2 OA X và OA Y là không giới hạn
+Phân luồng hiển thị khi OA gửi tin Hậu mãi
+User đang có “Tương tác hợp lệ” với OA => Nhận tin tại Tab Inbox như hiện tại
+User không tồn tại “Tương tác hợp lệ” với OA => Nhận tin tại Business Box
+“Tương tác hợp lệ” trong tin ZBS Template Message Hậu mãi được định nghĩa là hành động như sau:
+User đang giữ trạng thái follow OA
+B. Chất lượng gửi tin của Zalo Official Account (OA)
+B.1 - Cơ chế đánh giá chất lượng - xét duyệt tăng/giảm hạn mức
+Chất lượng gửi tin của OA sẽ được chia làm 3 mức độ, ứng với các quyền lợi như sau:
+Mức độ
+Tỷ lệ báo xấu của người nhận với tin nhắn ZBS Template đã gửi
+Quy định về quyền lợi
+Tốt
+Nhỏ hơn hoặc bằng mức tiêu chuẩn của hệ thống.
+Được xét duyệt tăng quyền lợi.
+Trung bình
+Cao hơn mức tiêu chuẩn nhưng vẫn nằm trong mức giới hạn cho phép.
+Giữ nguyên quyền lợi cho đến khi chất lượng được cải thiện. Nếu duy trì thời gian dài ở mức này có thể dẫn đến việc giảm quyền lợi.
+Kém
+Vượt mức giới hạn cho phép.
+Giảm quyền lợi. Ngoài ra, các mẫu tin ở mức kém sẽ bị vô hiệu hoá.
+Cơ chế tăng/giảm hạn mức
+Điều kiện
+Tăng 1 hạn mức
+Chất lượng gửi tin trong 7 ngày gần nhất ở mức Tốt. (= High)
+VÀ / AND
+Số lượng tin đã gửi thành công trong 7 ngày gần nhất = 2 x [Daily quota hiện tại của OA]
+Giảm 1 hạn mức
+Chất lượng gửi tin trong 7 ngày gần nhất ở mức Kém (= Low)
+Lưu ý đặc biệt:
+Quyền lợi gửi tin nhắn ZBS Template của OA sẽ được đánh giá mỗi ngày (trừ giai đoạn chờ sau khi thay đổi hạn mức).
+Khi có sự thay đổi về hạn mức quyền lợi (tăng hoặc giảm hạn mức/cấp độ gửi tin tối đa), sẽ áp dụng thời gian chờ cho lần đánh giá để xét duyệt thay đổi quyền lợi kế tiếp.
+Thời gian chờ kéo dài 7 ngày, từ ngày OA có sự thay đổi về hạn mức quyền lợi.
+Đây là khoảng thời gian vừa đủ để đội ngũ hỗ trợ khách hàng và phát triển sản phẩm của Zalo có thể đánh giá chính xác về khả năng gửi tin của doanh nghiệp tại hạn mức quyền lợi mới.
+Với OA chưa có lịch sử sử dụng dịch vụ Tin nhắn ZBS Template, việc gửi tin đầu tiên vào ngày D sẽ kích hoạt cơ chế đánh giá chất lượng từ D+1, đợt đánh giá đầu tiên sẽ thực hiện sau thời gian chờ (7 ngày) vào ngày D+8.
+Nếu chất lượng gửi tin của OA thường xuyên ở mức Kém, bên cạnh việc giảm quyền lợi gửi, Zalo có thể đưa ra quyết định tạm ngừng cung cấp dịch vụ Tin nhắn ZBS Template cho doanh nghiệp cho đến khi doanh nghiệp cam kết cải thiện chất lượng gửi thông báo.
+Chất lượng của OA được xác định bởi Tỉ lệ báo xấu trong khoảng thời gian đánh giá chất lượng tương ứng.
+Tỉ lệ báo xấu an toàn mỗi ngày được đề xuất là <0.1% để không bị giảm Chất lượng của OA
+Xem thêm: Báo xấu Tin nhắn ZBS Template được ghi nhận khi nào
+Các template ID có tỉ lệ báo xấu được hệ thống đánh giá là vượt mức báo xấu và mức độ báo xấu cho phép sẽ tự động bị khóa (disabled) để đảm bảo trải nghiệm của người dùng.
+Việc khóa các template này diễn ra độc lập với việc xác định Chất lượng OA.
+B.2 - Cơ chế xử lý vi phạm (penalty) tự động
+Với mục đích giảm thiểu rủi ro ảnh hưởng đến trải nghiệm của user trong các trường hợp tỉ lệ báo xấu (report) của OA tăng cao đột ngột trong thời gian ngắn, hệ thống sẽ có cơ chế phạt (penalty) với các trường hợp này.
+Điều kiện: Khi [Tổng số lượng report trong ngày] > [2% x Daily quota hiện tại của OA]​
+Action: OA sẽ bị hạ 1 mức daily quota (diễn ra tối đa 1 lần/ngày)​
+Chi tiết:​
+Hoạt động song song với cơ chế tăng/giảm hạn mức daily quota (Cơ chế ở mục B.1).​
+Không bị ảnh hưởng bởi thời gian chờ 7 ngày sau khi tăng/giảm hạn mức.​
+Trong khoảng thời gian 00:00 – 24:00 mỗi ngày, cơ chế penalty diễn ra tối đa 1 lần.​
+Tần suất đánh giá: Mỗi giờ.​
+Khung thời gian đánh giá: từ đầu ngày đến thời điểm hiện tại.
+C. Hướng dẫn xem báo cáo chất lượng gửi Tin nhắn ZBS trên tài khoản ZBS
+Xem thêm Hướng dẫn xem báo cáo chất lượng gửi tin trên tài khoản ZBS.
+D. Truy xuất thông tin chất lượng và quyền lợi gửi tin qua API
+Những thông tin về chất lượng và quyền lợi gửi tin của OA có thể được truy xuất qua các API như sau:
+Thông tin
+API
+Số lượng thông báo tin có thể gửi mỗi ngày
+Lấy thông tin quota tin nhắn ZBS Template
+Loại nội dung tin có thể gửi
+Lấy thông tin loại nội dung tin được phép gửi
+Chất lượng gửi tin của OA
+Lấy thông tin chất lượng gửi tin hiện tại của OA
+Chất lượng gửi tin của mẫu tin nhắn ZBS Template cụ thể
+Lấy thông tin chi tiết template
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

@@ -1,0 +1,265 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/form/Picker
+# FETCHED: 2026-08-06
+# TITLE: Picker | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Picker
+Cập nhật lần cuối:5/8/2026
+import { Picker } from "zmp-ui";
+Dùng để tạo giao diện cho phép người dùng chọn một lựa chọn trên từng cột dữ liệu
+Ví dụ​
+Bảng thuộc tính​
+PickerProps​
+Property
+Type
+Required
+Description
+label
+string
+No
+Nhãn của input được dùng làm phần tử kích hoạt hộp thoại picker. Được hiển thị phía trên input.
+helperText
+string
+No
+Helper text là phần văn bản ngắn nằm dưới các ô nhập liệu. Nội dung của các văn bản này thường chứa thông tin hướng dẫn giúp người dùng hiểu rõ hơn về tác dụng hoặc mô tả định dạng của dữ liệu được khuyến khích nhập vào.
+errorText
+string
+No
+Error text là phần văn bản ngắn nằm dưới các ô nhập liệu. Nội dung của các văn bản này thường chứa thông tin cảnh báo về lỗi của dữ liệu được nhập vào, cũng như hướng dẫn cách khắc phục.
+`errorText` sẽ được hiển thị thay cho `helperText` khi `status` có giá trị là `error`.
+status
+InputStatus
+No
+Trạng thái hiện tại của input date picker. Nếu là `error`, input sẽ có màu cảnh báo kèm theo `errorText`, ngược lại input sẽ có màu trung hoà kèm theo `helperText`.
+placeholder
+string
+No
+Placeholder của input của picker. Được hiển thị khi chưa có giá trị.
+title
+string
+No
+Tiêu đề được hiển thị ở đầu hộp thoại của picker.
+data
+PickerDataType[]
+No
+Mảng chứa các thiết lập cho các cột cần hiển thị trong picker panel. Mỗi phần tử trong mảng tương ứng với một cột trong picker panel, theo thứ tự từ trái sang phải.
+disabled
+boolean
+No
+Vô hiệu hóa picker cũng như input được dùng để kích hoạt picker. (default: false)
+defaultValue
+{ { [name: string]: OptionValueType } }
+No
+Giá trị mặc định của picker. Thay đổi giá trị của `defaultValue` sau khi picker đã được render sẽ không có tác dụng.
+Được truyền vào dưới dạng object chứa `value` của các lựa chọn cần được chọn sẵn, với key là tên của cột tương ứng.
+value
+{ { [name: string]: OptionValueType } }
+No
+Giá trị hiện tại của picker. Cần được sử dụng cùng với `onChange` để cập nhật lại giá trị lựa chọn.
+Được truyền vào dưới dạng object chứa `value` của các lựa chọn người dùng đã chọn, với key là tên của cột tương ứng.
+defaultOpen
+boolean
+No
+Mặc định hiển thị hộp thoại picker khi render. (default: false)
+onChange
+(value: { { [name: string]: PickerColumnOption } }) => void
+No
+Callback được gọi khi giá trị của các cột thay đổi. Cần phải cập nhật lại giá trị `value` nếu được truyền vào để đảm bảo lựa chọn được hiển thị đúng.
+onVisibilityChange
+(visibilityState: boolean) => void
+No
+Callback được gọi khi trạng thái hiển thị của hộp thoại picker thay đổi
+inputClass
+string
+No
+CSS class của input dùng để kích hoạt picker
+mask
+boolean
+No
+Mask là một lớp overlay màu xám được phủ lên các thành phần bên dưới hộp thoại của picker, ngăn không cho người dùng tương tác với các nội dung đó và tập trung vào hộp thoại được mở. (default: false)
+maskClosable
+boolean
+No
+Cho phép đóng hộp thoại của picker khi click vào mask. (default: false)
+formatPickedValueDisplay
+(value: { { [name: string]: PickerColumnOption } }) => string
+No
+Hàm dùng để format giá trị hiển thị của picker. Nhận vào một object chứa các thiết lập được chọn của các cột, và cần trả về một chuỗi để hiển thị trên input của picker.
+action
+PickerActionType
+No
+Các thiết lập cho nút xác nhận, hiển thị ở bên dưới hộp thoại của picker.
+prefix
+ReactNode
+No
+Phần tử nằm bên trái input của picker.
+suffix
+ReactNode
+No
+Phần tử nằm bên phải input của picker.
+name
+string
+No
+Tên định danh của picker, dùng với form để phân biệt các input với nhau.
+PickerColumnProps​
+Property
+Type
+Required
+Description
+prefixCls
+string
+No
+Tiền tố của các CSS class của cột
+options
+PickerColumnOption[]
+No
+Mảng các lựa chọn bên trong cột.
+name
+string
+No
+Tên định danh của cột, dùng để phân biệt các cột với nhau.
+value
+PickerColumnOption
+No
+Lựa chọn hiện tại. Giá trị được truyền vào phải trực tiếp nằm trong mảng `options`. Cần được sử dụng cùng với `onChange` để cập nhật lại giá trị lựa chọn.
+defaultValue
+PickerColumnOption
+No
+Giá trị mặc định của option được chọn. Tương tự với `value`, giá trị được truyền vào phải trực tiếp nằm trong mảng `options`.
+onChange
+(value: PickerColumnOption, name: string) => void
+No
+Callback được gọi khi lựa chọn được thay đổi. Cần phải cập nhật lại giá trị `value` nếu được truyền vào để đảm bảo lựa chọn được hiển thị đúng.
+PickerColumnOption​
+Property
+Type
+Required
+Description
+key
+string
+No
+Key phân biệt giữa các option
+value
+OptionValueType
+No
+Giá trị của option, dùng để xác định option được chọn
+displayName
+string
+No
+Tên hiển thị của option đối với người dùng
+selected
+boolean
+No
+Trạng thái được chọn ban đầu (default: false)
+PickerActionType​
+Property
+Type
+Required
+Description
+text
+string
+No
+Chữ trên nút
+onClick
+(event: React.MouseEvent) => void
+No
+Callback được gọi khi action được click
+close
+boolean
+No
+Action này chỉ định việc đóng picker khi được click (default: false)
+Trước
+Select
+Kế tiếp
+DatePicker
+Ví dụ
+Bảng thuộc tính
+PickerProps
+PickerColumnProps
+PickerColumnOption
+PickerActionType
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

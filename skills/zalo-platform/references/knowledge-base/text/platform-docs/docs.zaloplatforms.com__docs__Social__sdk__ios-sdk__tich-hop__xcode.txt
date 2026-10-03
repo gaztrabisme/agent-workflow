@@ -1,0 +1,112 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/sdk/ios-sdk/tich-hop/xcode
+# FETCHED: 2026-08-06
+# TITLE: XCode | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+iOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Social Plugin
+Trên trang này
+XCode
+Giới thiệu​
+Zalo SDK là bộ thư viện để các ứng dụng có thể tương tác với Zalo Platform. Zalo SDK hỗ trợ:
+iOS 9.0 trở lên
+CocoaPods 1.0 trở lên
+Tham khảo Demo
+Tạo ứng dụng trên trang developer của Zalo​
+Truy cập vào trang web developer của Zalo
+Tạo ứng dụng mới và đặt tên cho ứng dụng
+Thêm nền tảng iOS và nhập bundle id của App tích hợp
+Kích hoạt ứng dụng, chuyển trạng thái sang đang hoạt động
+Ghi nhớ ID của ứng dụng và lưu thay đổi.
+Cài đặt bằng CocoaPods​
+Thêm vào Podfile như sau
+pod 'ZaloSDK'
+Nếu chưa biết về CocoaPods có thể tham khảo hướng dẫn ở đây.
+Thêm LSApplicationQueriesSchemes​
+Để gọi qua Zalo App để cấp quyền truy cập, và khi share message hoặc feed, thì cần thêm các LSApplicationQueriesSchemes : Main target setting -> Info -> Custom iOS Target Properties -> click + để add thêm LSApplicationQueriesSchemes
+zalosdk: dùng để gọi qua Zalo App khi cần cấp quyền truy cập.
+zaloshareext: dùng để gọi qua Zalo App khi cần share message hoặc feed.
+Thêm URL Type​
+Để cho Zalo app, có thể gọi lại app của mình sau khi cấp quyền truy cập thì cần phải thêm một số URL types Main target setting -> info -> URL types -> click + để add thêm URL Type
+Zalo: identifier = “zalo”, URL Schemes = “zalo-yourappid”
+Khởi tạo ZaloSDK​
+Trước khi sử dụng ZaloSDK cần gọi phương thức initializeWithAppId: một lần duy nhất để khởi tạo SDK. AppId là ID của ứng dụng lấy từ trang developer của Zalo. Trong AppDelegate cần implement thêm phương thức application:handleOpenURL:sourceApplication:annotation: và gọi vào ZaloSDK.
+import UIKit
+import ZaloSDK
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+var window: UIWindow?
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any[]?) -> Bool {
+/// 0a. Init zalo sdk
+ZaloSDK.sharedInstance().initialize(withAppId: Constant.ZALO_APP_ID)
+return true
+}
+func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any[] = [:[]) -> Bool {
+/// 0b. Receive callback from zalo
+return ZDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+}
+}
+Trước
+Thay đổi quan trọng trên SDK V4
+Kế tiếp
+Đăng nhập
+Giới thiệu
+Tạo ứng dụng trên trang developer của Zalo
+Cài đặt bằng CocoaPods
+Thêm LSApplicationQueriesSchemes
+Thêm URL Type
+Khởi tạo ZaloSDK
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,93 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/v2/cac-loai-tin-va-dinh-dang-duoc-ho-tro
+# FETCHED: 2026-08-06
+# TITLE: Các loại tin và định dạng được hỗ trợ | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Broadcast bài viết
+Các loại tin và định dạng được hỗ trợ
+Gửi lệnh phản hồi người dùng
+Gửi thông báo văn bản
+Gửi thông báo đính kèm file
+Gửi thông báo kèm sticker
+Gửi thông báo theo mẫu đính kèm ảnh
+Gửi thông báo theo mẫu đính kèm danh sách
+Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Lấy thông tin quota lệnh chủ động miễn phí
+Lấy thông tin quota lệnh phản hồi người dùng
+Thả biểu tượng cảm xúc vào tin nhắn
+Trả lời tin nhắn
+Lấy danh sách khách hàng quan tâm OA
+Lấy thông tin khách hàng quan tâm OA
+Cập nhật thông tin khách hàng quan tâm OA
+Lấy quota tin Tư vấn
+Trên trang này
+Các loại tin và định dạng được hỗ trợ
+Tài khoản OA được hỗ trợ khả năng gửi thông báo để chủ động tương tác với người quan tâm của mình trên Zalo. Các thông báo này được gửi dưới tên tài khoản OA và hiển thị tại cửa sổ chat với người nhận tương tự một mẫu tin nhắn Zalo.
+Các loại tin và thông báo:​
+Tin broadcast Tin broadcast là loại tin được gửi hàng loạt đến người quan tâm OA. Bạn có thể phân nhóm người nhận broadcast bằng cách thiết lập theo giới tính, vị trí địa lý, độ tuổi, nền tảng thiết bị và nhóm khách hàng tùy chọn.
+Lệnh chủ động: Là lệnh cho phép OA chủ động gửi thông báo định danh đến người dùng đã quan tâm OA.
+Lệnh phản hồi: là lệnh OA dùng để phản hồi lại tin nhắn từ người dùng Zalo nhắn tin đến tài khoản của OA.
+OA có thể sử dụng các loại tin và thông báo này để:
+Gửi thông báo chăm sóc khách hàng qua Zalo
+Trả lời tin nhắn của người quan tâm
+Thông báo chương trình ưu đãi đến khách hàng miễn phí
+Các định dạng được hỗ trợ:​
+1. Thông báo dạng văn bản​
+Xem chi tiết tại đây
+2. Thông báo theo mẫu đính kèm ảnh Xem chi tiết tại đây.​
+3. Thông báo theo mẫu đính kèm danh sách​
+Xem chi tiết tại đây.
+4. Thông báo yêu cầu thông tin người dùng​
+Xem chi tiết tại đây.
+5. Thông báo đính kèm file​
+Xem chi tiết tại đây.
+Trước
+Broadcast bài viết
+Kế tiếp
+Gửi lệnh phản hồi người dùng
+Các loại tin và thông báo:
+Các định dạng được hỗ trợ:
+1. Thông báo dạng văn bản
+2. Thông báo theo mẫu đính kèm ảnh Xem chi tiết tại đây.
+3. Thông báo theo mẫu đính kèm danh sách
+4. Thông báo yêu cầu thông tin người dùng
+5. Thông báo đính kèm file
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

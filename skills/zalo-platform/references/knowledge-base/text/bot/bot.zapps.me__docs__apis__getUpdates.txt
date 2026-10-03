@@ -1,0 +1,67 @@
+# SOURCE: https://bot.zapps.me/docs/apis/getUpdates/
+# FETCHED: 2026-08-06
+# TITLE: getUpdates | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Trang chủ
+Bắt đầuTài liệuGiá góiGiải phápFAQ
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Trên trang này
+getUpdates
+Trước
+Kế tiếp
+Cập nhật lần cuối: 10/12/2025
+Hệ thống Zalo hỗ trợ 2 cách độc lập và loại trừ lẫn nhau để bot của bạn nhận được các tin nhắn mới:
+Sử dụng phương thức getUpdates, dựa trên cơ chế long polling.
+Sử dụng Webhook.
+Lưu ý
+Phương thức getUpdates sẽ không hoạt động nếu bạn đã thiết lập Webhook trước đó (khi đó, vui lòng sử dụng phương thức deleteWebhook để xóa cấu hình Webhook trước khi sử dụng API này).
+Chỉ nên sử dụng API này để chạy local, trong môi trường development, thử nghiệm, với môi trường production, bạn nên thiết lập Webhook để tránh bỏ lỡ event.
+URL: https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/getUpdates
+Method: POST
+Response Type: application/json
+Sample code​
+Code demo fallback when rendering server side!
+Parameters​
+Trường
+Kiểu dữ liệu
+Bắt buộc
+Mô tả
+timeout
+String
+false
+Thời gian timeout của HTTP Request tính theo giây. Mặc định hệ thống sẽ lấy thời gian timeout là 30 giây.
+Sample response​
+Dữ liệu tin nhắn nhận được sẽ là dạng JSON object, tham khảo dữ liệu mẫu tương tự tại Webhook.
+mẹo
+Xem hướng dẫn xây dựng Chatbot cơ bản với cơ chế getUpdates tại đây.
+Trước
+Kế tiếp
+zi-chevron-up
+Parameters
+Sample response
+EN
+Zalo Bot Platform
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+Công Ty TNHH Zalo Platforms
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+© 2025 Zalo Platforms. All Rights Reserved.

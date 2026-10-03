@@ -1,0 +1,273 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/v2/broadcast-bai-viet
+# FETCHED: 2026-07-21
+# TITLE: Broadcast bài viết | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Broadcast bài viết
+Các loại tin và định dạng được hỗ trợ
+Gửi lệnh phản hồi người dùng
+Gửi thông báo văn bản
+Gửi thông báo đính kèm file
+Gửi thông báo kèm sticker
+Gửi thông báo theo mẫu đính kèm ảnh
+Gửi thông báo theo mẫu đính kèm danh sách
+Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Lấy thông tin quota lệnh chủ động miễn phí
+Lấy thông tin quota lệnh phản hồi người dùng
+Thả biểu tượng cảm xúc vào tin nhắn
+Trả lời tin nhắn
+Lấy danh sách khách hàng quan tâm OA
+Lấy thông tin khách hàng quan tâm OA
+Cập nhật thông tin khách hàng quan tâm OA
+Lấy quota tin Tư vấn
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)Broadcast bài viết
+Broadcast bài viết
+
+Broadcast là chức năng cho phép OA gửi thông báo miễn phí đến người quan tâm. Mỗi lượt broadcast có thể bao gồm tối đa 5 bài viết (article) đi kèm. Nhóm người nhận broadcast có thể được phân loại tùy theo nhu cầu gửi thông báo, bao gồm giới tính, độ tuổi, vị trí địa lý và nền tảng di động của thiết bị. Để gửi broadcast, bạn cần chuẩn bị trước các nội dung bài viết cần gửi.
+
+Xem thêm về cách upload bài viết với Article API tại đây. Quyền cần có:
+
+Quyền gửi tin và thông báo qua OA để sử dụng API broadcast
+Quyền quản lý bài viết để sử dụng Article API
+
+Lưu ý: Nội dung broadcast sẽ cần được kiểm duyệt (mất khoảng 30 phút) trước khi gửi đến người dùng. Các tin broadcast sau khi được duyệt sẽ được đưa vào hàng đợi và được gửi đi theo thứ tự thời gian gửi.  
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/message
+Method: POST
+Content Type: application/json
+Response Type:  text/json  
+Example request​
+curl
+-X POST
+-H 'Content-Type: application/json'
+-H 'access_token: <your_access_token>'
+-d '{
+  "recipient": {
+    "target": {
+      "gender": "0",
+      "cities": "4"
+    }
+  },
+  "message": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "media",
+        "elements": [
+          {
+            "media_type": "article",
+            "attachment_id": "bd5ea46bb32e5a0033f"
+          }
+        ]
+      }
+    }
+  }
+}' "https://openapi.zalo.me/v2.0/oa/message"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+recipient	object	yes	Thông tin người nhận
+message	object	yes	Nội dung và các attachment cần gửi
+Cấu trúc thuộc tính recipient.target​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+ages	string	Optional	Danh sách các nhóm tuổi sẽ nhận thông báo. Các giá trị phân tách nhau bởi dấu “,”
+
+Các giá trị nhận vào:
+
+0: Tuổi từ 0-12
+1: Tuổi từ 13-17
+2: Tuổi từ 18-24
+3: Tuổi từ 25-34
+4: Tuổi từ 35-44
+5: Tuổi từ 45-54
+6: Tuổi từ 55-64
+7: Tuổi lớn hơn hay bằng 65
+
+gender	string	Optional	Danh sách nhóm giới tính sẽ nhận thông báo. Các giá trị phân tách nhau bởi dấu “,”
+
+Các giá trị nhận vào:
+
+0: Tất cả các giới tính
+1: Nam
+2: Nữ
+
+locations	string	Optional	Danh sách các địa điểm sẽ nhận thông báo. Các giá trị phân tách nhau bởi dấu “,”
+
+Các giá trị nhận vào:
+
+0: Miền Bắc Việt Nam
+1: Miền Trung Việt Nam
+2: Miền Nam Việt Nam
+
+cities	string	Optional	Danh sách các tỉnh, thành phố sẽ nhận thông báo. Các giá trị phân tách nhau bởi dấu “,”
+
+Các giá trị nhận vào: Xem bảng recipient.target.cities bên dưới.
+
+Lưu ý: nếu được thiết lập, thuộc tính này sẽ thay thế thuộc tính “locations” ở trên.
+platform	string	Optional	Danh sách các hệ điều hành di động sẽ nhận thông báo. Các giá trị phân tách nhau bởi dấu “,”
+
+Các giá trị nhận vào:
+
+1: IOS
+2: Android
+3: Window Phone
+Các giá trị của thuộc tính recipient.target.cities​
+Tên tỉnh, thành phố	Giá trị
+Đồng Tháp	0
+Bình Phước	1
+Ninh Bình	2
+Bạc Liêu	3
+Hồ Chí Minh	4
+Vĩnh Long	5
+Lâm Đồng	6
+Yên Bái	7
+Hà Nam	8
+Hà Nội	9
+Hải Dương	10
+Hậu Giang	11
+An Giang	12
+Trà Vinh	13
+Tiền Giang	14
+Tây Ninh	15
+Đồng Nai	16
+Đắk Lắk	17
+Bình Định	18
+Kon Tum	19
+Đà Nẵng	20
+Bắc Giang	21
+Bắc Kạn	22
+Điện Biên	23
+Hòa Bình	24
+Thái Bình	25
+Vĩnh Phúc	26
+Hà Giang	27
+Kiên Giang	28
+Bình Dương	29
+Bình Thuận	30
+Đắk Nông	31
+Khánh Hòa	32
+Gia Lai	33
+Quảng Nam	34
+Quảng Trị	35
+Hà Tĩnh	36
+Hưng Yên	37
+Quảng Ninh	38
+Thanh Hóa	39
+Phú Thọ	40
+Lai Châu	41
+Thái Nguyên	42
+Cao Bằng	43
+Cà Mau	44
+Cần Thơ	45
+Sóc Trăng	46
+Bến Tre	47
+Long An	48
+Bà Rịa Vũng Tàu	49
+Ninh Thuận	50
+Phú Yên	51
+Quãng Ngãi	52
+Thừa Thiên Huế	53
+Quảng Bình	54
+Nghệ An	55
+Nam Định	56
+Hải Phòng	57
+Lạng Sơn	58
+Lào Cai	59
+Sơn La	60
+Bắc Ninh	61
+Tuyên Quang	62
+Không Thuộc VN	63
+Cấu trúc thuộc tính message.attachment​
+Tham số	Loại	Tính bắt buộc	Mô tả
+type	string	yes	Loại attachment.
+
+Giá trị nhận vào bắt buộc:
+
+<type> = template
+
+payload	object	yes	Chứa payload của attachment muốn gửi. Xem cấu trúc payload tại mục bên dưới.
+Cấu trúc thuộc tính message.attachment.payload​
+Tham số	Loại	Tính bắt buộc	Mô tả
+template_type	string	yes	Loại template.
+
+Giá trị nhận vào bắt buộc:
+
+<template_type> = media
+
+elements	array	yes	Chứa các đối tượng của template.
+Cấu trúc thuộc tính message.attachment.payload.element​
+Tham số	Loại	Tính bắt buộc	Mô tả
+media_type	string	yes	Loại media
+
+Giá trị nhận vào bắt buộc:
+
+<media_type> = article
+
+attachment_id	string	yes	ID của bài viết bạn muốn broadcast.
+Example respond​
+{
+  "data": {
+    "message_id": "ec1cf390d7d53e8b67c4"
+  },
+  "error": 0,
+  "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+message_id	string	ID của tin broadcast
+Trước
+Mã lỗi Official Account API
+Kế tiếp
+Các loại tin và định dạng được hỗ trợ
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Cấu trúc thuộc tính recipient.target
+Các giá trị của thuộc tính recipient.target.cities
+Cấu trúc thuộc tính message.attachment
+Cấu trúc thuộc tính message.attachment.payload
+Cấu trúc thuộc tính message.attachment.payload.element
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

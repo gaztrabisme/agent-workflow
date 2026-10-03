@@ -1,0 +1,71 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/mua-san-pham-dich-vu-oa/luong-mua-san-pham-dich-vu-oa
+# FETCHED: 2026-07-21
+# TITLE: Luồng mua sản phẩm / dịch vụ OA | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Luồng mua sản phẩm / dịch vụ OA
+Tạo đơn hàng
+Xác nhận thanh toán đơn hàng
+Danh sách sản phẩm
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýMua sản phẩm dịch vụ OALuồng mua sản phẩm / dịch vụ OA
+Luồng mua sản phẩm / dịch vụ OA
+Diễn giải​
+Bước	Tên bước	Diễn giải
+1	Tạo đơn hàng
+(Create Order)	
+Nhà phát triển sử dụng API Create Order để khởi tạo 1 Order
+Hệ thống sẽ trả về thông tin thanh toán tạm tính + kèm theo OTT (One Time Token)
+
+Lưu ý: Ở bước này hệ thống chỉ mới tạo Order, chưa thực hiện mua sản phẩm cũng như chưa trừ tiền tài khoản ZCA
+
+
+2	Xác nhận đơn hàng
+(Confirm Order)	
+Nhà phát triển sử dụng OTT được trả về từ Order trước đó để thực hiện Confirm Order
+Lúc này hệ thống sẽ thực hiện mua sản phẩm và trừ tiền tài khoản ZCA.
+
+Vui lòng kiểm tra kỹ thông tin Order trước khi thực hiện Confirm Order
+
+Trước
+Lấy nội dung form Zalo Ads
+Kế tiếp
+Tạo đơn hàng
+Diễn giải
+©2023 Zalo for Developers

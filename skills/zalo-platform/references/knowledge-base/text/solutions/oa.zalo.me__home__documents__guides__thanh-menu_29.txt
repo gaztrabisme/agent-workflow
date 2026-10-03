@@ -1,0 +1,80 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/thanh-menu_29
+# FETCHED: 2026-08-06
+# TITLE: Thanh menu | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thiết lập tài khoản OA
+Thanh menu
+On this page
+Thanh Menu
+Thanh menu là công cụ hữu ích giúp người dùng dễ dàng truy cập nhanh các thông tin cần thiết từ trang thông tin OA hoặc ngay tại khung Chat với OA.
+⚠️ Lưu ý: Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+Truy cập “Thiết lập thanh Menu”:​
+Bước 1: Truy cập trang Official Account https://oa.zalo.me/manage/oa và chọn OA muốn điều chỉnh
+Bước 2: Chọn mục Quản lý ➞ Thiết lập tương tác ➞ Thiết lập menu
+Bước 3: Lựa chọn loại menu chính khi thiết lập (Chỉ được chọn 1 trong 3 menu khi thiết lập)
+Bước 4: Nhập thông tin thiết lập. Sau khi thiết lập thành công, thanh menu sẽ hiển thị ở 2 vị trí: Trang cửa sổ chat và Trang thông tin OA.
+Có 2 loại thiết lập menu là Menu V1 và Menu V2:​
+Menu V1: Hiển thị cho tất cả các phiên bản của ứng dụng Zalo.
+📌 Lưu ý: Menu nhanh sẽ không thể hiển thị khi menu chính là Menu v1.
+Menu V2 đầy đủ hoặc Menu V2 rút gọn: Chỉ hiển thị với ứng dụng Zalo phiên bản từ 20.05.01 r3 (Android) từ phiên bản Zalo 20.08.01 trên iOS
+Hướng dẫn chi tiết các thiết lập thanh menu​
+Đối với menu chính ​
+Tên menu (Tối đa 20 ký tự)
+Thanh menu có 3 vị trí: Trái – Giữa – Phải (OA có thể thiết lập tối đa 3 menu và tối thiểu 1 menu)
+Chọn loại hành động: OA có thể chọn 1 trong các loại sau:
+Mở menu con: Là một lựa chọn nằm trong bảng menu cho phép thiết lập thêm các menu con bên trong (Giới hạn số menu con được thiết lập là 20 nhằm tối ưa hóa giao diện người dùng, các OA đang có số menu con quá 20 vẫn tiếp tực sử dụng và khi lưu thay đối sẽ báo lỗi).
+Truy vấn tự động: Tính năng này nhằm mục đích tối ưu tương tác tự động giữa OA và khách hàng. Khi người dùng nhấn vào thanh menu, hệ thống sẽ ghi nhận là người dùng gửi yêu cầu truy vấn và sẽ phản hồi theo nội dung truy vấn đã thiết lập. Xem thêm Thiết lập truy vấn tự động.
+Mở trang web: Lựa chọn này cho phép OA chèn đường link dẫn đến Website Doanh nghiệp.
+Gọi điện: Tại đây OA có thể thiết lập số Hotline của doanh nghiệp để khách hàng có thể chủ động liên lạc.
+Mở danh sách bài viết: Khách hàng khi truy cập sẽ được chuyển trực tiếp đến danh sách bài viết của OA.
+Quét QR Code: Khi chọn khách hàng được trực tiếp chuyển đến trang quét mã QR của ứng dụng Zalo.
+Kích hoạt Zalo Chatbot: Chọn kịch bản mà OA đã tạo.
+Truy vấn hệ thống bên thứ 3: là cách kết hợp để lấy hoặc lưu dữ liệu giữa OA và hệ thống bên thứ 3 (có thể là hệ thống của chính doanh nghiệp hoặc của đối tác).
+Đối với menu nhanh​
+Tên menu nhanh: Hiển thị thanh menu ngay trong khung chat giúp người dùng dễ dàng tìm thấy thông tin (Tối đa 20 ký tự)
+Thanh menu: có thể tạo tối đa 6 menu nhanh.
+Chọn loại hành động: OA có thể chọn 1 trong các loại sau:
+Truy vấn tự động
+Gọi điện
+Mở danh sách bài viết
+Quét mã QR
+Kích hoạt chatbot (chọn kịch bản Chatbot đã tạo)
+Truy vấn hệ thống bên thứ 3
+Cách sử dụng thanh menu hiệu quả
+Quản trị viên nên chọn thiết lập menu chính là Menu V2 và thiết lập menu nhanh. Trong đó, tập trung 2 nút menu tương tác đầu tiên với các nội dung quan trọng thu hút sự quan tâm của khách hàng.
+Theo dõi hằng ngày hiệu quả tương tác thanh menu tại mục “Thống kê".
+--------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT ZOA để được phản hồi sớm nhất.
+Previous
+Truy vấn tự động
+Next
+Tin nhắn chào mừng tự động
+Truy cập “Thiết lập thanh Menu”:
+Có 2 loại thiết lập menu là Menu V1 và Menu V2:
+Hướng dẫn chi tiết các thiết lập thanh menu
+Đối với menu chính
+Đối với menu nhanh

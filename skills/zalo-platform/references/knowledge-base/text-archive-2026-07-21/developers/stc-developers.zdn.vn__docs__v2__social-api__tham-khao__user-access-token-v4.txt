@@ -1,0 +1,234 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/social-api/tham-khao/user-access-token-v4
+# FETCHED: 2026-07-21
+# TITLE: User Access Token V4 | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Chính sách nền tảng của Zalo
+Demonstrating Proof-of-Possession
+Tham khảoUser Access Token V4
+User Access Token V4
+Yêu cầu cấp mới OAuth Code​
+
+Để sử dụng hệ thống Social API, ứng dụng của bạn cần được cấp quyền bằng cách lấy mã access token (mã truy cập) từ User. Ứng dụng cần thực hiện các bước cấu hình ban đầu để có thể lấy access token. Bạn có thể xem hướng dẫn cấu hình ban đầu bên dưới.
+
+Trước khi thực hiện các bước bên dưới, bạn cần chú ý đến Một số lưu ý với User Access Token V4.
+
+Bước 1: Cấu hình thông tin đăng nhập​
+
+Callback URL là nơi bạn sẽ phải thực hiện xử lý để nhận được authorization code. Trình duyệt sẽ chuyển hướng User đến địa chỉ này sau khi quá trình ủy quyền từ phía User hoàn tất. Vui lòng cấu hình Callback URL tại trang Quản lý ứng dụng -> mục Đăng nhập
+
+Bước 2: Tạo code verifier và code challenge​
+
+Zalo sử dụng code challenge và code verifier (theo phương thức PKCE) để tăng độ bảo mật của quá trình xác thực và ủy quyền. Xem thêm về PKCE tại đây. Sau khi cấu hình Đăng nhập, bạn cần:
+
+Tạo một code verifier và lưu trữ trên hệ thống của bạn.
+Dùng mã hóa code verifier bằng bộ ký tự ASCII, tiếp đến dùng giải thuật SHA-256 để tạo mã băm, sau cùng encode Base64 (without Padding) mã băm để tạo ra code challenge từ code verifier.
+code_challenge = Base64.encode(SHA-256.hash(ASCII(code_verifier)))
+
+Lưu ý: 
+
+Yêu cầu sử dụng code verifier khác nhau cho từng request.
+Code verifier là 1 chuỗi bất kỳ, format có đủ chữ hoa, chữ thường, số và dài 43 ký tự.
+Code verifier là code dùng để xác minh quyền sở hữu của bạn với authorization code bạn nhận được từ hệ thống. Vui lòng không cung cấp code này cho bên thứ ba.
+Hãy dùng biến state hoặc một param tự định nghĩa truyền vào redirect_uri ở bước 3 để xác định authorization code mà bạn nhận được ứng với code verifier nào.
+Bước 3: Yêu cầu cấp authorization code​
+
+Gửi đường dẫn dưới đây đến user để bắt đầu quá trình nhận authorization code. 
+
+Web:
+https://oauth.zaloapp.com/v4/permission?app_id=<APP_ID>&redirect_uri=<CALLBACK_URL>&code_challenge=<CODE_CHALLENGE>&state=<STATE>
+
+
+Trong đó: oauth.zaloapp.com/v4/permission  là API Authorization Endpoint với các tham số
+
+Tham số	Kiểu dữ liệu	Tính bắt buộc 	Mô tả 
+app_id	long	yes	ID của ứng dụng. 
+redirect_uri	string	yes	Thông tin được cấu hình tại bước 1.
+code_challenge 	string	no	code challenge được tạo từ code verifier với giải thuật SHA-256 tại bước 2.
+state	string	yes	Dùng để chống CSRF. Được trả nguyên vẹn trong redirect_uri.
+Android:
+https://oauth.zaloapp.com/v4/permission?app_id=<APP_ID>&pkg_name=<PKG_NAME>&sign_key=<SIGN_KEY>&code_challenge=<CODE_CHALLENGE>&state=<STATE>
+
+
+Trong đó: oauth.zaloapp.com/v4/permission  là API Authorization Endpoint với các tham số
+
+Tham số	Kiểu dữ liệu	Tính bắt buộc 	Mô tả 
+app_id	long	yes	ID của ứng dụng. 
+pkg_name	string	yes	Thông tin được cấu hình tại bước 1.
+sign_key 	string	yes	Thông tin được cấu hình tại bước 1.
+os	string	yes	Truyền vào giá trị: 1 - Mục đích thông báo cho platform biết để check các trường được config cho login Android.
+code_challenge 	string	no	code challenge được tạo từ code verifier với giải thuật SHA-256 tại bước 2.
+state	string	yes	Dùng để chống CSRF. Được trả nguyên vẹn trong redirect_uri.
+IOS:
+https://oauth.zaloapp.com/v4/permission?app_id=<APP_ID>&bndl_id=<BNDL_ID>&code_challenge=<CODE_CHALLENGE>&state=<STATE>
+
+
+Trong đó: oauth.zaloapp.com/v4/permission  là API Authorization Endpoint với các tham số
+
+Tham số	Kiểu dữ liệu	Tính bắt buộc 	Mô tả 
+app_id	long	yes	ID của ứng dụng. 
+bndl_id	string	yes	Thông tin được cấu hình tại bước 1.
+os	string	yes	Truyền vào giá trị: 2 - Mục đích thông báo cho platform biết để check các trường đượ config cho login IOS.
+code_challenge 	string	no	code challenge được tạo từ code verifier với giải thuật SHA-256 tại bước 2.
+state	string	yes	Dùng để chống CSRF. Được trả nguyên vẹn trong redirect_uri.
+
+Đường dẫn sẽ mở trang cấp quyền cho ứng dụng, như sau:
+
+Tại đây, User sẽ chọn “Cho phép” để xác nhận gửi oauth code. Trình duyệt sẽ chuyển hướng và gửi oauth_code về callback URL đã được thiết lập trước đó (callback URL của bạn sẽ nhận được 1 HTTP get request có kèm oauth code). Ví dụ: callback URL của bạn là https://yourdomain.com/abc. HTTP get request sẽ gọi đến callback URL là:
+
+https://yourdomain.com/abc?code=<AUTHORIZATION_CODE>&state=xxxx&code_challenge=xxxx
+
+*Lưu ý:  code sẽ có hiệu lực trong vòng 10 phút.
+
+Bước 4: Gửi API để lấy user access token từ authorization code​
+
+Sử dụng API sau để lấy access token từ authorization code mà bạn nhận được.
+
+HTTP request
+
+URL:  https://oauth.zaloapp.com/v4/access_token 
+Method: POST
+Content Type: application/x-www-form-urlencoded
+Response Type:  json
+
+Example request
+
+curl \
+-X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-H "secret_key: <your_secret_key>" \
+--data-urlencode 'code=<your_oauth_code>' \
+--data-urlencode 'app_id=<your_app_id>' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'code_verifier=your_code_verifier' \
+'https://oauth.zaloapp.com/v4/access_token'
+
+
+Header
+
+HeaderName	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+secret_key	string	yes 	Khóa bí mật của ứng dụng (*). Xem hướng dẫn tại đây
+
+Body x-www-form-urlencoded
+
+Key	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+code	string	yes	Authorization code mà bạn nhận được ở bước 3
+app_id	long	yes	ID của ứng dụng
+grant_type 	string	yes	Thuộc tính cho biết thông tin để tạo access token. Giá trị truyền vào: authorization_codeđại diện cho việc tạo access token từ authorization code.
+code_verifier	string	yes nếu ở bước lấy oauth code có truyền code challenge	Code verifier được dùng để tạo code challenge ở bước 2.
+
+Ví dụ:
+
+Example respond
+
+{
+    "access_token": "RfBh5NdqsWzhcX8bDDe_1A463Z34Fhy1GVi63AoTU1InwujqF",
+    "refresh_token":"L2Y2BO9Prn_I1SkM08T4J99bZQYVbOBPfTVeRgrLdPK4ZqGX9G",
+    "expires_in": "3600",
+        "refresh_token_expires_in: string
+
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+access_token	string	Access token dùng để gọi các Official Account API Hiệu lực: 1 giờ
+refresh_token	string	Token được sử dụng để tạo lại access token khi access token hết hiệu lực.Mỗi access token được tạo sẽ có một refresh token đi kèm.Hiệu lực tối đa: 30 ngày
+expires_in	string	Thời hạn của access token (đơn vị tính: giây)
+Lấy user access token từ refresh token​
+
+HTTP request
+
+URL:  https://oauth.zaloapp.com/v4/access_token
+Method: POST
+Content Type: application/x-www-form-urlencoded
+Response Type:  json
+
+Example request
+
+curl \
+-X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-H "secret_key: <your_secret_key>" \
+--data-urlencode 'refresh_token=<your_refresh_token>' \
+--data-urlencode 'app_id=<your_app_id>' \
+--data-urlencode 'grant_type=refresh_token' \
+'https://oauth.zaloapp.com/v4/access_token'
+
+
+Header
+
+HeaderName	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+secret_key	string	yes	Khóa bí mật của ứng dụng (*). Xem hướng dẫn tại đây
+
+Body x-www-form-urlencode
+
+Key	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+refresh_token	string	yes	Refresh token dùng để tạo access token mới.
+app_id	long	yes	ID của ứng dụng.
+grant_type 	string	yes	Thuộc tính cho biết thông tin để tạo access token. Giá trị nhận vào: refresh_tokenĐại diện cho việc 1tạo access token từ refresh token.
+
+Ví dụ:
+
+Example respond
+
+{
+    "access_token":"E5sPAxHWmF9aYZeZzPczEcNRtdVIPCD3XyGXw1uLBZ3npsF-MUW",
+    "refresh_token": "DCcFKjWctu458dAU2FRbaNRPCcQGZ34zCmUF9aYEcNRtdVIaq",
+    "expires_in": "3600",
+        "refresh_token_expires_in: string
+}
+
+Thuộc tính	Kiểu dữ liệu	Mô tả
+access_token	string	Access token dùng để gọi các Official Account APIHiệu lực: 1 giờ
+refresh_token	string	Token được sử dụng để tạo lại access token khi access token hết hiệu lực. Mỗi access token được tạo sẽ có một refresh token đi kèm.Hiệu lực tối đa: 30 ngày
+expires_in	string	Thời hạn của access token (đơn vị tính: giây)
+
+*Lưu ý:  Trường hợp refresh token hết hạn, bạn cần thực hiện yêu cầu cấp lại authorization code và access token theo hướng dẫn tại bước 3 và 4.
+
+So sánh giữa oauth v2 và oauth v4​
+Thực thể	Oauth V2	Oauth V4
+OAuth Code	
+Hiệu lực: 3 tháng
+Số lần được sử dụng để gọi lấy access token: Vô hạn
+	
+Hiệu lực: 10 phút
+Số lần được sử dụng để gọi lấy access token: 1 lần
+
+Access Token	
+Hiệu lực: 1 tiếng
+Khi hết hiệu lực, dùng oauth code để lấy access token mới
+	
+Hiệu lực: 1 tiếng
+Khi hết hiệu lực, dùng refresh token để lấy access token mới
+Hướng dẫn lấy app secret key​
+
+Trước
+Cơ chế hết hạn của User Refresh Token
+Kế tiếp
+Một số lưu ý với User Access Token V4
+Yêu cầu cấp mới OAuth Code
+Bước 1: Cấu hình thông tin đăng nhập
+Bước 2: Tạo code verifier và code challenge
+Bước 3: Yêu cầu cấp authorization code
+Bước 4: Gửi API để lấy user access token từ authorization code
+Lấy user access token từ refresh token
+So sánh giữa oauth v2 và oauth v4
+Hướng dẫn lấy app secret key
+©2023 Zalo for Developers

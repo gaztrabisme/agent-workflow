@@ -1,0 +1,130 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/openApis/partner/webhook/verifysignature
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn verify signature | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+Tổng quan
+Tài liệu Open API
+Giới thiệu
+Cấu hình Open API
+Tài liệu API tích hợp
+Cài đặt client
+Thống kê
+Webhook
+Thiết lập webhook URL
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Hướng dẫn verify signature
+Tài liệu tích hợp cho đối tác giải pháp
+Giới thiệu
+Thông tin cấu hình
+Tài liệu API tích hợp
+Cài đặt client
+Lấy danh sách danh mục
+Tạo mini app
+Lấy thông tin Mini App
+Cập nhật loại hình
+Deploy mini app
+Lấy danh sách mini app
+Lấy danh sách phiên bản
+Publish mini app
+Gửi yêu cầu xét duyệt
+Tạo short link QR code
+Thống kê
+Cấu hình API Domain
+Checkout SDK
+Quản lý Quyền Mini App
+KYB - Giấy tờ doanh nghiệp
+Tổng quan
+Lấy danh sách loại giấy tờ cần thiết
+Nộp giấy tờ chủ sở hữu
+Tải lên tệp giấy tờ
+Nộp giấy tờ kinh doanh
+Lấy danh sách giấy tờ đã nộp
+Webhook
+Sự kiện xét duyệt app
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Hướng dẫn verify signature
+Gửi thông báo cho người dùng
+Mã lỗi
+eKYC APIs
+Checkout SDK
+Trên trang này
+Hướng dẫn verify signature
+Cập nhật lần cuối:5/8/2026
+Sử dụng Open API SDK​
+Để xác thực Signature của sự kiện, bạn có thể gọi hàm generateSignature như code mẫu bên dưới:
+JavaJavascript
+import com.vng.zalo.miniapp.sdk.utils.VerifySignature;
+// assuming data received from webhook is the below JSON object
+JsonObject data = new JsonObject();
+data.addProperty("event", "versions.review.done");
+data.addProperty("appId", "2646373759294038927");
+data.addProperty("versionId", 101);
+data.addProperty("status", 0);
+data.addProperty("description", "");
+data.addProperty("timestamp", 1670553442564L);
+// generate signature
+String signature = VerifySignature.generateSignature(data, "Your API Key");
+thông tin
+Xem hướng dẫn lấy API key tại đây
+Nếu bạn là đối tác giải pháp, API key là Partner API Key mà chúng tôi đã cung cấp khi bạn đăng ký đối giác giải pháp.
+Sau đó so sánh signature được build ra với signature trong header:
+JavaJavascript
+signature.equals(req.getHeader("x-zevent-signature"));
+Không sử dụng Open API SDK​
+Trong trường hợp server tích hơp Webhook không có sẵn SDK, bạn có thể tự build signature từ data theo hướng dẫn sau:
+Lấy tất cả danh sách fields dữ liệu trong data bạn nhận được sắp theo thứ tự Alphabet (A - Z)
+Build chuỗi content các giá trị theo thứ tự fields vừa sắp xếp được
+Signature được tính theo hàm hash sha256(content + API Key). Vui lòng tham khảo code mẫu bên dưới.
+Code mẫu:
+function generateSignature(data, apiKey) {
+const keys = Object.keys(data).sort();
+let content = "";
+for (let k of keys) {
+let value = data[k];
+if (typeof value == "object") {
+value = JSON.stringify(value);
+}
+content += value;
+}
+const signature = crypto
+.createHash("sha256")
+.update(`${content}${apiKey}`)
+.digest("hex");
+return signature;
+}
+Trước
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Kế tiếp
+Gửi thông báo cho người dùng
+Sử dụng Open API SDK
+Không sử dụng Open API SDK
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

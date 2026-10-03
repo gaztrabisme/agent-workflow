@@ -1,0 +1,316 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/media/camera/cameraContext/takePhoto
+# FETCHED: 2026-08-06
+# TITLE: CameraContext.takePhoto | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+CameraContext.takePhoto
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.39.0
+Chụp ảnh từ camera.
+Parameters​
+Property
+Type
+Default
+Required
+Description
+Minimum Version
+cameraFrameProps
+PhotoConstraint
+true
+Cấu hình cho ảnh chụp.
+PhotoConstraint object​
+Property
+Type
+Default
+Required
+Description
+Minimum Version
+width
+number
+Chiều rộng của ảnh
+height
+number
+Chiều cao của ảnh
+format
+PhotoFormat
+PhotoFormat.JPEG
+Định dạng ảnh.
+quality
+PhotoQuality
+PhotoQuality.NORMAL
+Chất lượng ảnh nén. Lưu ý: với ảnh PNG không nén, thông số này không có tác dụng
+useVideoSourceSize
+boolean
+Ảnh sẽ lấy theo kích thước của video
+minScreenshotWidth
+number
+Chiều rộng tối thiểu của khung ảnh
+minScreenshotHeight
+number
+Chiều cao tối thiểu của khung ảnh
+Lưu ý: để xác định kích thước ảnh sdk sẽ lấy theo thứ tự sau:
+width, height: ảnh sẽ theo đúng thông số này, không đảm bảo sẽ giữ đúng tỉ lệ ảnh so với video source.
+useVideoSourceSize: sẽ lấy kích thước của video element.
+minScreenshotWidth, minScreenshotHeight: ảnh đảm bảo giữ nguyên tỉ lệ ảnh so với video source, với kích thước tối thiểu theo thông số này. (Khuyến nghị dùng)
+PhotoFormat enum​
+WEBP: "image/webp" (ảnh nén)
+PNG: "image/png" (ảnh không nén)
+JPEG: "image/jpeg" (ảnh nén)
+PhotoQuality enum​
+HIGH: "high"
+NORMAL = "normal"
+LOW = "low"
+Return Values​
+PhotoFrame object​
+Property
+Type
+Default
+Required
+Description
+Minimum Version
+data
+string
+Data URL của ảnh
+width
+number
+Chiều rộng của ảnh
+height
+number
+Chiều cao của ảnh
+JSTS
+import React, { useEffect, useRef, useState } from "react";
+import { Box, Button, Page } from "zmp-ui";
+import { createCameraContext, FacingMode, PhotoFormat PhotoFrame, PhotoQuality } from "zmp-sdk/apis";
+const HomePage = () => {
+const cameraRef = useRef(null);
+const videoRef = useRef(null);
+const [data, setData] = useState("");
+useEffect(() => {
+const videoElement = videoRef.current;
+if (!videoElement) {
+console.log("Media component not ready");
+return;
+}
+if (!cameraRef.current) {
+cameraRef.current = createCameraContext({
+videoElement: videoElement,
+mediaConstraints: {
+width: 640,
+height: 480,
+facingMode: FacingMode.BACK,
+audio: false,
+},
+});
+}
+}, []);
+return (
+<Page>
+<Box>
+<img
+id="image"
+src={data}
+alt={""}
+style={{ width: "50vw", height: "auto", objectFit: "contain" }}
+></img>
+</Box>
+<Box mt={5} flex alignContent={"center"}>
+<Button
+size={"small"}
+className="mb-2"
+variant="primary"
+onClick={async () => {
+const camera = cameraRef.current;
+await camera?.start();
+}}
+>
+Start Stream
+</Button>
+</Box>
+<Box className="mb-2" flex alignContent={"center"}>
+<Button
+size={"small"}
+variant="primary"
+onClick={() => {
+let result: PhotoFrame = cameraRef.current?.takePhoto({
+quality: PhotoQuality.NORMAL,
+format: PhotoFormat.JPEG,
+minScreenshotHeight: 1000,
+});
+if (result) {
+setData(result.data);
+} else {
+console.log("No data");
+}
+}}
+>
+Take Photo
+</Button>
+</Box>
+</Page>
+);
+};
+export default HomePage;
+Trước
+CameraContext.updateMediaConstraints
+Kế tiếp
+CameraContext.flip
+Parameters
+PhotoConstraint object
+PhotoFormat enum
+PhotoQuality enum
+Return Values
+PhotoFrame object
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

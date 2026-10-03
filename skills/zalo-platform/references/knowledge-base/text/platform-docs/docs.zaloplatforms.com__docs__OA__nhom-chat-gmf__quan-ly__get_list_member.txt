@@ -1,0 +1,174 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/nhom-chat-gmf/quan-ly/get_list_member
+# FETCHED: 2026-08-06
+# TITLE: Lấy danh sách thành viên nhóm | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Điều kiện gửi tin nhắn nhóm
+Gửi tin nhắn nhóm dạng Text
+Gửi tin nhắn nhóm dạng File
+Gửi tin nhắn nhóm dạng Hình ảnh
+Gửi tin nhắn nhóm dạng Sticker
+Gửi tin nhắn Mention tới nhóm
+Quản lý nhóm
+Tạo nhóm mới
+Lấy thông tin nhóm
+Cập nhật nhóm
+Cập nhật dịch vụ cho Nhóm chat
+Mời tham gia nhóm
+Lấy danh sách thành viên chờ duyệt
+Đồng ý duyệt thành viên mới vào nhóm
+Từ chối duyệt thành viên mới vào nhóm
+Lấy danh sách thành viên nhóm
+Thêm phó nhóm
+Xóa phó nhóm
+Xóa thành viên khỏi nhóm
+OA Giải tán nhóm
+Lấy danh sách nhóm OA đang quản lý
+Kiểm tra hạn mức nhóm
+Lấy danh sách tin nhắn nhóm gần nhất
+Lấy thông tin tin nhắn trong một nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Lấy danh sách thành viên nhóm
+Lưu ý
+Ứng dụng cần được cấp quyền quản lý thông tin nhóm.
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/group/listmember
+Method: GET
+Response Type: text/json
+Example request​
+curl --request GET 'https://openapi.zalo.me/v3.0/oa/group/listmember?group_id=f414c8f76fa586fbdfb4&offset=0&count=5' \
+--header 'access_token: <your_access_token>'
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Tham số​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+group_id
+string
+yes
+ID của nhóm
+offset
+integer
+optional
+Offset muốn query.
+Mặc định: 0
+count
+integer
+optional
+Số lượng mong muốn query.
+Mặc định: 5
+Example respond​
+{
+"data": {
+"offset": 0,
+"count": 5,
+"total": 2,
+"member_count": 2,
+"members": [
+{
+"oa_id": "607812198688816074",
+"name": "Chủ Trại Mèo",
+"avatar": "https://s120-ava-talk.zadn.vn/d/e/f/d/7/120/380ffb601008ba5c58852a80cb635b79.jpg"
+},
+{
+"user_id": "8756287263669629130",
+"name": "Hoàng Trường Phước",
+"avatar": "https://s120-ava-talk.zadn.vn/8/0/d/7/2/120/59fc092d056c759a71fd16d3bc508458.jpg"
+}
+]
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Tham số
+Kiểu dữ liệu
+Mô tả
+offset
+integer
+offset muốn query
+count
+integer
+Số lượng muốn query
+total
+integer
+Tổng số lượng các thành viên trong nhóm
+members
+array
+Thông tin các thành viên trong nhóm
+member_count
+integer
+Số lượng các thành viên được trả về
+Cấu trúc thuộc tính members​
+Tham số
+Kiểu dữ liệu
+Mô tả
+name
+string
+Tên thành viên trong nhóm
+user_id
+string
+ID thành viên chờ trong nhóm
+oa_id
+string
+ID của OA
+avatar
+string
+Hình đại diện của thành viên trong nhóm
+Trước
+Từ chối duyệt thành viên mới vào nhóm
+Kế tiếp
+Thêm phó nhóm
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính members
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

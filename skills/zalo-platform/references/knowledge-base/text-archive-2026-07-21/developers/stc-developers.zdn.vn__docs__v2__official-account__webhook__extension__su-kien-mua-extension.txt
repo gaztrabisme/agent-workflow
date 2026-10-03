@@ -1,0 +1,91 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/extension/su-kien-mua-extension
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện mua Tiện ích | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Extension
+Sự kiện mua Tiện ích
+Quản lý
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookExtensionSự kiện mua Tiện ích
+Sự kiện mua Tiện ích
+
+Khi OA thanh toán tiện ích thành công
+
+Cho phép app config bật/tắt event này trong trang thiết lập webhook (https://developers.zalo.me/app/{appid}/webhook)
+
+Sự kiện: Sự kiện OA thanh toán tiện ích thành công
+Tên sự kiện: extension_purchased Event này chỉ fire về cho đúng appId được chỉ định (extension_id được mua)
+
+Khi quyền giữa ứng dụng và oa bị hủy, hệ thống Zalo sẽ gửi một request HTTP đến Webhook Url đã đăng ký của ứng dụng
+
+URL: Webhook Url của ứng dụng bên thứ 3
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+    "oa_id": "388613280879808645",
+    "event_name": "extension_purchased",
+    "extension_id": "36084652489903967",
+    "extension_sub_info":
+    {
+        "valid_start_date": "15/12/2023",
+        "valid_through_date": "14/12/2023",
+        "duration_month": "1"
+    }
+    "timestamp": "154397978274"
+}
+
+Mô tả thuộc tính​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+oa_id	String	Id của Official Account
+event_name	String	Giá trị là: extension_purchased
+extension_id	String	Id của tiện ích
+extension_sub_info	Object	Trong đó:
+valid_start_date: Ngày bắt đầu hiệu lực của gói tiện ích
+valid_through_date: Ngày hiệu lực cuối cùng của gói tiện ích
+duration_month: Thời gian hiệu lực của gói tiện ích, tính theo tháng
+
+timestamp	String	Thời điểm event được gửi, tính bằng milisecond
+Trước
+Sự kiện kết thúc cuộc gọi
+Kế tiếp
+Sự kiện người dùng đồng ý chia sẻ thông tin
+Ví dụ:
+Mô tả thuộc tính
+©2023 Zalo for Developers

@@ -1,0 +1,112 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/gioi-thieu
+# FETCHED: 2026-07-21
+# TITLE: Giới thiệu | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Giới thiệu
+Giới thiệu
+Extension là gì?​
+
+Extension là ứng dụng được tạo ra với mục đích giúp Official Account (OA) giải quyết các tác vụ trực quan, thân thiện, và hiệu quả ngay trên giao diện của người dùng. Đối tượng sử dụng và tương tác với Extension bao gồm:
+
+OA Admin: Cài đặt, quản lý, và sử dụng Extension từ OA Manager.
+Zalo User: Người dùng tương tác với OA thông qua OA Profile và các điểm chạm khác trong ứng dụng Zalo.
+OA Admin Chat
+OAM Admin Dashboard
+OA Profile
+OAM Extension Config
+Ưu điểm của Extension so với Zalo App​
+
+Zone hiển thị tùy biến:
+
+Khác với Zalo App chỉ hỗ trợ API, Extension cho phép hiển thị giao diện trực tiếp tới người dùng (OA admin / End-user) thông qua các extension zone.
+Các extension zone này có thể tùy chỉnh linh hoạt, giúp doanh nghiệp hiển thị nội dung và tương tác với người dùng theo cách phù hợp nhất.
+
+Xuất hiện trên Extension Hub:
+
+Extension sẽ xuất hiện trên Extension Hub, giúp nhà phát triển tiếp cận dễ dàng hơn đến các OA Admin đang tìm kiếm giải pháp mới.
+Ở chiều ngược lại, người dùng dễ dàng khám phá và cài đặt extension nhanh chóng chỉ với vài bước đơn giản.
+Workflow của Extension​
+
+Quy trình hoạt động của Zalo Extension bao gồm bốn giai đoạn chính:
+
+OA cài đặt Extension (Bước 1-12):
+
+OA Admin tìm kiếm extension tại Extension Hub và khởi tạo cài đặt (1).
+Quá trình bao gồm thanh toán (2-4) và cấp quyền (5-7).
+Extension nhận mã xác thực OAuth 2.0 (8), lưu trữ (9) và đổi lấy token truy cập (10-12).
+
+Khởi tạo Extension UI (Bước 13-16):
+
+Zalo User hoặc OA Admin truy cập OA Manager hoặc OA Profile (13).
+Extension UI được kích hoạt, gửi yêu cầu nội dung (14).
+Extension xác thực yêu cầu qua HMAC (15) và trả về nội dung tương ứng (16).
+
+Tương tác trong Extension UI (Bước 17-19):
+
+Người dùng tương tác với extension thông qua iframe (17).
+Extension xử lý tương tác (18) và cập nhật nội dung động (19), tạo trải nghiệm liền mạch.
+
+Mở rộng (Bước 20-23):
+
+Extension lắng nghe webhook events (20).
+Sử dụng zoaSDK (21) hoặc gọi Open API (22) để:
+Lấy thông tin bổ sung (ví dụ: thông tin người dùng).
+Thực hiện các chức năng phụ trợ (ví dụ: gửi tin nhắn).
+Cập nhật nội dung trong iframe nếu cần (23).
+
+Quy trình này tạo ra một hệ sinh thái linh hoạt, cho phép OA tùy chỉnh và nâng cao trải nghiệm người dùng trên nền tảng Zalo.
+
+📚 Tiếp theo: Chi tiết các bước phát triển Extension cho Zalo OA.
+
+Trước
+Sự kiện cập nhật thông tin người dùng
+Kế tiếp
+Đăng ký phát triển Extension
+Extension là gì?
+Ưu điểm của Extension so với Zalo App
+Workflow của Extension
+©2023 Zalo for Developers

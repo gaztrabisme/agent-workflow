@@ -1,0 +1,144 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/bat-dau/extension-zone/user-profile-config-block
+# FETCHED: 2026-07-21
+# TITLE: user-profile-config-block | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Bắt đầuExtension zoneuser-profile-config-block
+user-profile-config-block
+Tổng quan​
+
+Zone user-profile-config-block cho phép các tiện ích tùy biến hiển thị trên trang hồ sơ OA. Thích hợp cho việc hiển thị các thông tin như:
+
+Banner chương trình khuyến mãi (tĩnh/động).
+Thực hiện các tác vụ đơn giản như nhận voucher.
+Tạo các mini-game hoặc thử thách để thu hút người dùng.
+THÔNG TIN:
+Zone chỉ hiển thị khi OA chọn và thiết lập sử dụng tiện ích tại zone admin-profile-config-action.
+Khi người dùng tương tác với zone, tiện ích có thể điều hướng người dùng đến các tài nguyên sẵn có để thực hiện các tác vụ chuyên sâu như Trang cửa sổ Chat, MiniApp, Chatbot, v.v.
+Cấu hình​
+app-config.json​
+{
+  "zones": {
+    "user-profile-config-block": {
+      "enable": true,
+      "hideTitle": true,
+      "height": 800
+    }
+  }
+}
+
+zoaSDK.getSessionInfo(data)​
+
+Các thông tin được cung cấp:
+
+oa_id: ID của Official Account.
+user_id: ID của người dùng theo từng OA.
+user_is_follower: Trạng thái quan tâm OA của người dùng.
+user_last_interaction_timestamp: Thời gian tương tác gần nhất (millisecond). Giá trị 0 là chưa tương tác.
+Chi tiết hiển thị​
+Vị trí: Trang thông tin OA (zalo.me/oa_id)
+Kích thước:
+Chiều cao tối đa: 800px
+Chiều rộng: Tự động điều chỉnh theo màn hình điện thoại
+Hình ảnh minh họa​
+default
+hideTitle
+Hướng dẫn sử dụng​
+Thiết kế nội dung hiển thị phù hợp với chiều cao tối đa 800px và chiều rộng linh hoạt.
+Sử dụng thông tin từ zoaSDK.getSessionInfo(data) để cá nhân hóa nội dung cho từng người dùng.
+Tạo các tương tác đơn giản và hấp dẫn để thu hút người dùng.
+Tận dụng liên kết đến các tính năng khác của Zalo OA để tăng tương tác.
+Ứng dụng​
+
+Hiển thị banner khuyến mãi động:
+
+Tạo banner thay đổi theo thời gian thực, hiển thị các ưu đãi mới nhất.
+Cá nhân hóa banner dựa trên lịch sử tương tác của người dùng (ví dụ: hiển thị ưu đãi cho sản phẩm mà người dùng đã xem gần đây).
+
+Tạo nút "Nhận voucher" với hiệu ứng hấp dẫn:
+
+Thiết kế nút với animation bắt mắt để thu hút sự chú ý.
+Khi người dùng nhấn nút, hiển thị hiệu ứng "lật thẻ" để tiết lộ voucher, tạo trải nghiệm thú vị.
+
+Mini-game tương tác:
+
+Tạo trò chơi đơn giản như "Quay số may mắn" hoặc "Ghép hình" để tăng tương tác.
+Người dùng có thể nhận phần thưởng sau khi hoàn thành trò chơi.
+
+Tích hợp social proof:
+
+Hiển thị đánh giá và nhận xét mới nhất từ khách hàng.
+Tạo một section "Trending" hiển thị các sản phẩm hoặc bài viết đang được quan tâm nhiều nhất.
+
+Những ứng dụng này không chỉ làm cho trang hồ sơ OA trở nên sinh động và hấp dẫn hơn, mà còn tăng cường tương tác của người dùng, từ đó nâng cao hiệu quả marketing và bán hàng cho doanh nghiệp.
+
+Lưu ý​
+Đảm bảo nội dung hiển thị nhanh và mượt mà để tối ưu trải nghiệm người dùng.
+Thường xuyên cập nhật và làm mới nội dung để giữ cho zone luôn hấp dẫn.
+
+Cập nhật lần cuối: 2024-10-12
+
+Trước
+Tổng quan
+Kế tiếp
+admin-profile-config-action
+Tổng quan
+Cấu hình
+app-config.json
+zoaSDK.getSessionInfo(data)
+Chi tiết hiển thị
+Hình ảnh minh họa
+Hướng dẫn sử dụng
+Ứng dụng
+Lưu ý
+©2023 Zalo for Developers

@@ -1,0 +1,101 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/openApis/partner/intergration-process
+# FETCHED: 2026-08-06
+# TITLE: Thông tin cấu hình | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+Tổng quan
+Tài liệu Open API
+Giới thiệu
+Cấu hình Open API
+Tài liệu API tích hợp
+Cài đặt client
+Thống kê
+Webhook
+Thiết lập webhook URL
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Hướng dẫn verify signature
+Tài liệu tích hợp cho đối tác giải pháp
+Giới thiệu
+Thông tin cấu hình
+Tài liệu API tích hợp
+Cài đặt client
+Lấy danh sách danh mục
+Tạo mini app
+Lấy thông tin Mini App
+Cập nhật loại hình
+Deploy mini app
+Lấy danh sách mini app
+Lấy danh sách phiên bản
+Publish mini app
+Gửi yêu cầu xét duyệt
+Tạo short link QR code
+Thống kê
+Cấu hình API Domain
+Checkout SDK
+Quản lý Quyền Mini App
+KYB - Giấy tờ doanh nghiệp
+Tổng quan
+Lấy danh sách loại giấy tờ cần thiết
+Nộp giấy tờ chủ sở hữu
+Tải lên tệp giấy tờ
+Nộp giấy tờ kinh doanh
+Lấy danh sách giấy tờ đã nộp
+Webhook
+Sự kiện xét duyệt app
+Sự kiện user rút lại sự đồng ý và xoá dữ liệu
+Hướng dẫn verify signature
+Gửi thông báo cho người dùng
+Mã lỗi
+eKYC APIs
+Checkout SDK
+Thông tin cấu hình
+Cập nhật lần cuối:5/8/2026
+Khi trở thành đối tác giải pháp, bạn sẽ được cung cấp cặp giá trị Partner API Key - Partner Id để tương tác và sử dụng các API này từ Server của bạn.
+Sau đây là một số thông tin đi kèm khi bạn đăng ký sử dụng OpenAPI cho đối tác giải pháp:
+Danh sách IP Access: Danh sách IP Server hoặc Gateway của bạn bạn đã đăng ký để truy cập những API này.
+Webhook Url: URL nhận thông báo và cập nhật dữ liệu từ Zalo Mini App.
+Scopes (Phạm vi) API mà bạn có thể tương tác:
+apps.create: cho phép tạo Mini App.
+apps.getlist: cho phép lấy danh sách các Mini App của bạn.
+apps.deploy: cho phép deploy mới phiên bản Mini App lên hệ thống Zalo.
+apps.versions: lấy danh sách các phiên bản của Mini App.
+apps.request.publish: cho phép gửi yêu cầu xét duyệt Mini App.
+apps.publish: cho phép publish Mini App.
+apps.request.permission: cho phép gửi yêu cầu xin cấp quyền.
+apps.get.stats: Cho phép lấy số liệu thống kê của Mini App.
+apps.get.payment.channels: Cho phép lấy danh sách phương thức thanh toán của Mini App.
+apps.create.update.payment.channels: Cho phép tạo và cập nhật phương thức thanh toán của Mini App.
+Lưu ý, tất cả các API đều có rate limit theo từng Zalo App, bạn có thể xem thông tin chi tiết trong phần Quản lý APIs.
+Trước
+Giới thiệu
+Kế tiếp
+Cài đặt client
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,113 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.9.0/data-display/Progress
+# FETCHED: 2026-08-06
+# TITLE: Progress | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.9.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Header
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Progress
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.9.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Progress component: Component giúp hiển thị giao diện cho biết một tiến trình đang thực hiện
+Properties​
+Progress​
+Example​
+import React from "react";
+import { Page, Progress, Box, Text } from "zmp-ui";
+export default function HomePage() {
+return (
+<Text.Title size="small">Progress</Text.Title>
+<Box mt={6}>
+<Box mt={2}>
+<Box>
+<Text>Default</Text>
+</Box>
+</Box>
+<Box mt={6}>
+<Box>
+<Text>Show Label</Text>
+</Box>
+</Box>
+</Box>
+);
+}
+Properties
+Progress
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

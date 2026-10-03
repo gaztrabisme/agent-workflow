@@ -1,0 +1,80 @@
+# SOURCE: https://bot.zapps.me/docs/apis/sendSticker/
+# FETCHED: 2026-07-21
+# TITLE: sendSticker | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Bắt đầu
+Tài liệu
+Giá gói
+Giải pháp
+FAQ
+⌘
+K
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+sendSticker
+Trước
+Kế tiếp
+Cập nhật lần cuối: 10/12/2025
+
+API cho phép Bot của bạn gửi tin nhắn Sticker đến người dùng hoặc các cuộc trò chuyện.
+
+URL: https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/sendSticker
+Method: POST
+Response Type: application/json
+Sample code​
+Nodejs
+cURL
+const axios = require("axios");
+
+const entrypoint = `https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/sendSticker`;
+const response = await axios.post(entrypoint, {
+  chat_id: "abc.xyz",
+  sticker: "0e078a2fb66a5f34067b"
+});
+
+Parameters​
+Trường	Kiểu dữ liệu	Bắt buộc	Mô tả
+chat_id	String	true	ID của người nhận hoặc cuộc trò chuyện
+sticker	String	true	Truyền vào stricker lấy từ nguồn: https://stickers.zaloapp.com/. Vui lòng xem video hướng dẫn tại đây: https://vimeo.com/649330161
+Sample response​
+{
+  "ok": true,
+  "result": {
+    "message_id": "82599fa32f56d00e8941",
+    "date": 1749632637199
+  }
+}
+
+Trước
+Kế tiếp
+EN
+
+Zalo Bot Platform
+
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+
+Công Ty TNHH Zalo Platforms
+
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+
+© 2025 Zalo Platforms. All Rights Reserved.

@@ -1,0 +1,73 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/methods/
+# FETCHED: 2026-07-21
+# TITLE: Mã phương thức thanh toán | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Mã phương thức thanh toán
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+LƯU Ý
+
+Các phương thức thanh toán SANDBOX chỉ hiển thị cho người dùng có vai trò Administrator/Developer hoặc người dùng thử nghiệm.
+
+Bảng mô tả mã của các phương thức thanh toán
+
+Value	Description
+ZALOPAY	Phương thức thanh toán ZaloPay
+ZALOPAY_SANDBOX	Phương thức thanh toán ZaloPay Sandbox
+MOMO	Phương thức thanh toán Momo
+MOMO_SANDBOX	Phương thức thanh toán Momo Sandbox
+VNPAY	Phương thức thanh toán VNPay
+VNPAY_SANDBOX	Phương thức thanh toán VNPay Sandbox
+ATM	Phương thức thanh toán ZaloPay ATM
+ATM_SANDBOX	Phương thức thanh toán ZaloPay ATM Sandbox
+CC	Phương thức thanh toán ZaloPay CC
+CC_SANDBOX	Phương thức thanh toán ZaloPay CC Sandbox
+COD	Phương thức thanh toán COD
+COD_SANDBOX	Phương thức thanh toán COD Sandbox
+BANK	Phương thức thanh toán Chuyển khoản Ngân hàng
+BANK_SANDBOX	Phương thức thanh toán Chuyển khoản Ngân hàng Sandbox
+PAYME_CC	Phương thức thanh toán PayME CC
+PAYME_CC_SANDBOX	Phương thức thanh toán PayME CC Sandbox
+PAYME_ATM	Phương thức thanh toán PayME ATM
+PAYME_ATM_SANDBOX	Phương thức thanh toán PayME ATM Sandbox
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

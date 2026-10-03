@@ -1,0 +1,103 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/truong-hop-nao-duoc-ho-tro-dieu-chinh-hoa-don-doanh-nghiep
+# FETCHED: 2026-07-21
+# TITLE: Trường hợp nào được hỗ trợ điều chỉnh hóa đơn doanh nghiệp? | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Business Message
+Giới thiệu
+Tài liệu hướng dẫn
+Bảng giá
+Chính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Hướng dẫn xem báo cáo chi tiêu dịch vụ
+Hướng dẫn nạp tiền vào tài khoản zbs
+Những lưu ý quan trọng về việc xuất hoá đơn
+Trường hợp nào được hỗ trợ điều chỉnh hóa đơn doanh nghiệp?
+Câu hỏi thường gặp
+
+Trường hợp nào được hỗ trợ điều chỉnh hoá đơn doanh nghiệp?
+
+Nội dung trên hóa đơn được xuất tự động dựa trên thông tin Quý công ty cung cấp cho Zalo Business Solutions trước đó trong quá trình nạp tiền. Quý khách có thể đối chiếu lại mục "Thông tin xuất hóa đơn", vì vậy, trong quá trình nạp tiền, vui lòng kiểm tra/điều chỉnh lại chính xác các thông tin để tránh sai sót khi xuất hóa đơn thành công.
+
+Doanh nghiệp là người thao tác điền thông tin nhận hóa đơn trong quá trình nạp tiền
+
+Hiện tại, Zalo Business Solutions CHƯA HỖ TRỢ Điều chỉnh/Xuất lại/Hủy hóa đơn trong những trường hợp sau: 
+
+Khách hàng cung cấp sai thông tin sai mã số thuế;
+Khách hàng thay đổi thông tin pháp nhân (doanh nghiệp) thành doanh nghiệp khác, hoặc chuyển thông tin pháp nhân (doanh nghiệp) trên hóa đơn sang thông tin pháp nhân chi nhánh thuộc doanh nghiệp;
+Hóa đơn cá nhân muốn đổi thành hóa đơn doanh nghiệp.
+
+Nếu hóa đơn sai mã số thuế, thay đổi thông tin pháp nhân và các nội dung mặc định khác (tên hàng hóa/sản phẩm, đơn vị tính, số lượng,...) thì Zalo Business Solutions sẽ không hỗ trợ làm biên bản điều chỉnh trong bất kỳ trường hợp nào.
+
+Zalo Business Solutions sẽ chỉ hỗ trợ làm biên bản điều chỉnh hoá đơn đối với trường hợp thông tin trên hoá đơn sai tên công ty (Chỉ áp dụng loại hình hóa đơn doanh nghiệp), hoặc địa chỉ xuất hóa đơn,  Quý khách vui lòng thực hiện các bước sau:
+
+Bước 1: Tải mẫu Thông báo hóa đơn điện tử đã lập sai và điền thông tin yêu cầu điều chỉnh trong biên bản.
+
+Tải Mẫu Thông báo hóa đơn điện tử đã lập sai (Link đính kèm file)
+
+Bước 2: Gửi đến yêu cầu đến Kênh Chăm sóc khách hàng Zalo Business Solutions tại: Mẫu hỗ trợ Zalo Business Solutions
+
+Tiêu đề: [Tên doanh nghiệp] Thông báo điều chỉnh thông tin hóa đơn
+Nội dung:
+OA ID:
+ZBS ID:
+
+Lưu ý: 
+
+Khi gửi yêu cầu khách hàng vui lòng đính kèm Mẫu thông báo hóa đơn điện tử đã lập sai đã điền thông tin + hóa đơn cũ cần điều chỉnh
+
+Khách hàng sẽ nhận được Thông báo hóa đơn điện tử có sai sót có chữ kí điện tử bởi Cơ quan Thuế và VNG sau khi cung cấp đầu đủ thông tin hợp lệ sau tối đa 30 ngày làm việc
+
+Xem thêm những lưu ý quan trọng về việc xuất hoá đơn tại ĐÂY.
+
+Xem thêm tài liệu Hướng dẫn nạp tiền vào tài khoản ZBS.
+ 
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+Trước
+Những lưu ý quan trọng về việc xuất hoá đơn
+Kế tiếp
+Tại sao không chọn được OA trong quá trình tạo mẫu?
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

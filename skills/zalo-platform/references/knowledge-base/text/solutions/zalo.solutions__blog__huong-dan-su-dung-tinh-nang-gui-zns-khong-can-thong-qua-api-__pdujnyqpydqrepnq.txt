@@ -1,0 +1,37 @@
+# SOURCE: https://zalo.solutions/blog/huong-dan-su-dung-tinh-nang-gui-zns-khong-can-thong-qua-api-/pdujnyqpydqrepnq
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn sử dụng tính năng gửi tin nhắn ZBS template theo chiến dịch (không cần thông qua API) | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Hướng dẫn sử dụng tính năng gửi tin nhắn ZBS template theo chiến dịch (không cần thông qua API)
+Hướng dẫn sử dụng tính năng gửi tin nhắn ZBS template theo chiến dịch (không cần thông qua API)
+5 tháng 01, 2026 09:47
+126 hữu ích
+Tính năng “Gửi theo chiến dịch” trong trang Dịch vụ gửi tin tại tài khoản ZBS là một giải pháp giúp doanh nghiệp dễ dàng quản lý và chủ động hơn trong việc gửi các chiến dịch gửi tin chăm sóc khách hàng không cần thông qua tích hợp API. Trong bài viết này, đội ngũ hỗ trợ khách hàng của Zalo Business Solutions sẽ hướng dẫn quý khách quy trình gửi tin nhắn ZBS template không thông qua API. Chi tiết cụ thể như sau:
+Bước 1: Truy cập vào “Gửi theo chiến dịch” ở đường dẫn: https://account.zalo.solutions/tool/zns/campaign -> “Tạo chiến dịch”
+Bước 2: Đặt tên cho chiến dịch và nhấp vào “Tạo chiến dịch”
+Bước 3: Chọn Mẫu tin nhắn ZBS muốn gửi
+Lưu ý: Ở bước này, nếu quý khách chưa có Mẫu tin nhắn ZBS, quý khách cần khởi tạo và gửi duyệt Mẫu trước. Xem hướng dẫn tạo Mẫu tại ĐÂY.
+Bước 4: "Tải tệp mẫu" về và nhập liệu thông tin người nhận và các biến số (tương ứng với nội dung mẫu đã gửi duyệt) và "Tải danh sách" đã nhập đầy đủ thông tin lên
+Bước 5: Quý khách có thể Chọn Ứng dụng (AppID) và Thiết lập thời gian gửi chiến dịch mong muốn hoặc chọn “Gửi ngay”
+Bước 6: Kiểm tra lại các thông tin, xác nhận đã đọc và đồng ý với Điều khoản và chính sách sử dụng của Zalo. Sau đấy bấm "Hoàn tất và gửi"
+Sau khi nhấn “Hoàn tất và gửi”, quá trình gửi chiến dịch ZNS của quý khách có thể kéo dài đến 24 giờ. Quý khác có thể kiểm tra trạng thái (Thất bại, Đang gửi, Hoàn tất) của chiến dịch đã gửi tại trang Danh sách chiến dịch.
+Lưu ý: Khách hàng chỉ có thể tải về báo cáo của chiến dịch sau khi hệ thống báo “Hoàn tất”
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

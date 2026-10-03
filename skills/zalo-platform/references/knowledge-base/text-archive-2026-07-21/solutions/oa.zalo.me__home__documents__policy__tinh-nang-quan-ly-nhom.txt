@@ -1,0 +1,124 @@
+# SOURCE: https://oa.zalo.me/home/documents/policy/tinh-nang-quan-ly-nhom?utm_source=oapricing
+# FETCHED: 2026-07-21
+# TITLE: Chính sách về tính năng quản lý nhóm (GMF) | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+CHÍNH SÁCH
+Chính sách về đăng ký và sử dụng tài khoản OA
+Chính sách về đặt tên OA
+Chính sách về thông tin giới thiệu và hình ảnh OA
+Chính sách xác thực tài khoản
+Chính sách về tính năng quản lý nhóm (GMF)
+Chính sách về việc khóa Official Account (gọi tắt là OA)
+Chính sách phát triển Tiện ích (Extension)
+Chính sách kiểm duyệt thông tin Tiện ích (Extension)
+Chính sách sử dụng Tiện ích (Extension)
+Chính sách xử lý tranh chấp thương hiệu
+Chính sách đăng ký URL tùy biến
+Chính sách về tương tác của OA với người dùng
+Chính sách về tính năng quản lý nhóm (GMF)
+
+Quản lý nhóm ("Group Management Function” hoặc “GMF”) là tính năng giúp OA tương tác với một nhóm khách hàng.
+
+Tính năng Quản lý nhóm: Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+
+Các chi phí đề cập trong bài viết này đã gồm thuế GTGT (10%), đơn vị: VND
+
+Về tính năng Quản lý nhóm​
+Zalo Official Account có 04 loại nhóm là: GMF-10, GMF-50, GMF-100, GMF-1000 tương ứng với số lượng thành viên của nhóm
+Số lượng thành viên: Số lượng tối đa (bao gồm OA) tương ứng với loại nhóm OA sử dụng, chi tiết như sau:
+GMF-10: 10 thành viên
+GMF-50: 50 thành viên
+GMF-100: 100 thành viên
+GMF-1000: 1000 thành viên
+Công cụ hỗ trợ gửi tin từ OA: OA Manager (Web/Mini App), OA OpenAPI
+Thông tin chi phí cho từng loại nhóm: tham khảo tại đây (mục Chi phí nhóm).
+
+1. Điều kiện sử dụng: OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+
+2. Hạn mức sử dụng:
+
+Số lượng lệnh tương tác cơ bản (tin nhắn): Không giới hạn
+Tin được gửi từ OA đến nhóm sẽ được tính theo bảng giá dịch vụ tại đây (mục Chi phí nhóm)
+Không áp dụng với các nhóm được tạo theo hạn mức có sẵn trong Gói dịch vụ.
+Không tính phí tin nhắn gửi từ thành viên không phải OA.
+Quy định chung​
+
+1. Đặt tên nhóm
+
+Tên nhóm phải có ít nhất 01 ký tự và không được quá 30 ký tự.
+Tên nhóm cần đảm bảo không vi phạm các chính sách, quy định của Zalo Official Account, quy định của các Cơ quan Nhà nước và luật pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam. Tham khảo thêm tại đây.
+
+2. Thay đổi ảnh đại diện nhóm
+
+Không được sử dụng các yếu tố được bảo vệ bản quyền hoặc không phù hợp, vi phạm pháp luật.
+Không được sử dụng hình ảnh cá nhân, hình ảnh phản cảm, vi phạm thuần phong mỹ tục, pháp luật.
+
+3. Mời thành viên tham gia nhóm
+
+Chỉ có thể mời người dùng Zalo, không thể mời OA tham gia nhóm.
+Mời bằng link tham gia:
+Bất cứ người dùng nào có link nhóm đều có thể xin phê duyệt tham gia nhóm.
+Sau khi người dùng truy cập link và xác nhận tham gia thì cần Trưởng nhóm hoặc Phó nhóm phê duyệt.
+Mời qua trình quản trị OA (OA Manager):
+Chỉ mời được người dùng đã quan tâm OA.
+Người dùng được mời xác nhận tham gia sẽ trực tiếp được tham gia nhóm.
+
+4. Thời hạn sử dụng và gia hạn nhóm
+
+Mỗi nhóm đều có thời hạn sử dụng và cần được gia hạn khi hết hạn. Xem thêm về cách thức gia hạn tại đây.
+Tất cả các nhóm sẽ được tự động giải tán sau 45 ngày kể từ ngày nhóm hết hạn nếu không được gia hạn.
+Thời gian sử dụng được tính từ ngày thanh toán/gia hạn thành công.
+
+5. Rời nhóm
+
+OA không thể rời nhóm.
+
+6. Giải tán nhóm
+
+Nếu không còn nhu cầu quản lý nhóm, OA vui lòng giải tán nhóm.
+OA không thể hoàn tác lại nhóm đã giải tán.
+
+7. Bảo mật dữ liệu
+
+Doanh nghiệp có trách nhiệm và phải đảm bảo nhận được sự đồng ý của người dùng trong việc thu thập, lưu trữ hoặc chia sẻ thông tin người dùng qua các dịch vụ của Zalo OA cung cấp, bao gồm cả việc đảm bảo tuân thủ các chính sách quyền riêng tư và quy định của pháp luật.
+Không chia sẻ thông tin tương tác với người dùng trong nhóm với bất kỳ người dùng hoặc bên thứ 3 nào khác ở ngoài nhóm.
+Không sử dụng nhóm để chia sẻ hoặc yêu cầu người dùng chia sẻ thông tin cá nhân liên quan đến thẻ ngân hàng, tài khoản tài chính/ngân hàng, CMND, và bất kỳ thông tin nào khác liên quan đến bảo mật cá nhân của người dùng trên nền tảng Zalo OA.
+
+8. Xử lý vi phạm
+
+BQT Zalo OA tùy theo cấp độ sẽ ngừng cung cấp dịch vụ cho OA nếu nhận được phản hồi từ người dùng (hoặc) phát hiện Doanh nghiệp (là chủ thể OA) không tuân thủ các chính sách của Zalo OA gây ảnh hưởng tiêu cực đến người dùng.
+
+-----------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Chính sách xác thực tài khoản
+Next
+Chính sách về việc khóa Official Account (gọi tắt là OA)
+Về tính năng Quản lý nhóm
+Quy định chung
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

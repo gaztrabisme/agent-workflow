@@ -1,0 +1,203 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/routing/sendDataToPreviousMiniApp
+# FETCHED: 2026-08-06
+# TITLE: sendDataToPreviousMiniApp | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+sendDataToPreviousMiniApp
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.13.0
+import { sendDataToPreviousMiniApp } from "zmp-sdk";
+Gửi dữ liệu cho Zalo Mini App trước đó.
+Zalo Mini App trước đó cần lắng nghe sự kiện OnDataCallback để nhận dữ liệu.
+Nếu API được gọi nhiều lần thì dữ liệu cuối cùng sẽ được gửi đi.
+Ví dụ​
+Ví dụ có 2 Zalo Mini App A với id là 2953132499190403100 và B với id là 2953132499190403200. Để B có thể gửi dữ liệu cho A, chúng ta cần thực hiện những bước sau:
+Lắng nghe sự kiện OnDataCallback ở app A:
+import { events, EventName } from "zmp-sdk/apis";
+const callback = (data) => {
+console.log(data);
+};
+events.on(EventName.OnDataCallback, callback);
+Gọi API openMiniApp để chuyển đến app B:
+import { openMiniApp } from "zmp-sdk/apis";
+openMiniApp({
+appId: "2953132499190403200",
+});
+Ở app B, gửi dữ liệu cho app A:
+import { sendDataToPreviousMiniApp } from "zmp-sdk/apis";
+sendDataToPreviousMiniApp({
+data: "Success",
+});
+Tắt app B bằng bằng api closeApp hoặc nhấn nút bên dưới:
+Sau khi app B đóng hoàn toàn, app A sẽ nhận được dữ liệu đã gửi
+Xem hướng dẫn xử lý lỗi và bảng mô tả chi tiết mã lỗi tại đây.
+Tham số​
+Truyền tham số vào API dưới dạng object chứa các thuộc tính:
+Property
+Type
+Required
+Description
+data
+any
+Yes
+Dữ liệu cần gửi.
+Trước
+openWebview
+Kế tiếp
+setItem
+Ví dụ
+Tham số
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

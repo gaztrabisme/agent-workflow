@@ -1,0 +1,492 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.7.0/data-display/text/Text
+# FETCHED: 2026-08-06
+# TITLE: Text | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.7.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Header
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Router
+ZMPRouter
+AnimationRoutes
+Container
+App
+Box
+Page
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Text
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.7.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Guidelines
+Implementation
+Hiện tại, chưa có font chữ riêng cho Zalo.
+Font sans-serif mặc định của các OS được sử dụng cho chữ trên giao diện của Zalo.
+OS
+Font famiy
+iOS
+SF Pro Text
+SF Pro Display
+SF UI Text
+SF UI Display
+Android
+Roboto
+Header Text​
+Sử dụng heading cho banner, pop up, bottomsheet,...
+xLarge
+Title Text/ xLarge
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xLarge
+Size: 22px
+Line height: 26px
+Font weight: 500
+xLarge
+Title Text/ xLarge
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xLarge
+Size: 22px
+Line height: 26px
+Font weight: 500
+Normal
+Title Text/ Normal
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: Normal
+Size: 18px
+Line height: 24px
+Font weight: 500
+Small
+Title Text/ Small
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: Small
+Size: 15px
+Line height: 20px
+Font weight: 500
+Body Text​
+Body text là phần nội dung chính thường dùng để truyền đạt nội dung
+xLarge
+Body Text/ xLarge
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xLarge
+Size: 18px
+Line height: 24px
+Font weight: 400
+xLarge M
+Body Text/ xLarge M
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xLarge M
+Size: 18px
+Line height: 24px
+Font weight: 500
+Large
+Body Text/ Large
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: Large
+Size: 16px
+Line height: 22px
+Font weight: 400
+Large M
+Body Text/ Large M
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: Large M
+Size: 16px
+Line height: 22px
+Font weight: 500
+Normal
+Body Text/ Normal
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: Normal
+Size: 15px
+Line height: 20px
+Font weight: 400
+Normal M
+Body Text/ Normal M
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: Normal M
+Size: 15px
+Line height: 20px
+Font weight: 500
+Small
+Body Text/ Small
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: Small
+Size: 14px
+Line height: 18px
+Font weight: 400
+Small M
+Body Text/ Small M
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: Small M
+Size: 14px
+Line height: 18px
+Font weight: 500
+xSmall
+Body Text/ xSmall
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xSmall
+Size: 13x
+Line height: 18px
+Font weight: 400
+xSmall M
+Body Text/ xSmall M
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xSmall M
+Size: 13x
+Line height: 18px
+Font weight: 500
+xxSmall
+Body Text/ xxSmall
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xxSmall
+Size: 12x
+Line height: 16px
+Font weight: 400
+xxSmall M
+Body Text/ xxSmall M
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xxSmall M
+Size: 12x
+Line height: 16px
+Font weight: 500
+xxxSmall
+Body Text/ xxxSmall
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xxxSmall
+Size: 11x
+Line height: 16px
+Font weight: 400
+xxxSmall M
+Body Text/ xxxSmall M
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xxxSmall M
+Size: 11x
+Line height: 16px
+Font weight: 500
+xxxxSmall
+Body Text/ xxxxSmall
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xxxxSmall
+Size: 10x
+Line height: 14px
+Font weight: 400
+xxxxSmall M
+Body Text/ xxxxSmall M
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+Style: xxxxSmall M
+Size: 10x
+Line height: 14px
+Font weight: 500
+Component giúp hiển thị dữ liệu văn bản
+Properties​
+Text​
+Name
+Type
+Default
+Description
+size
+BodyTextSize
+Text size
+bold
+boolean
+Bold
+Text.Title​
+Name
+Type
+Default
+Description
+size
+TitleTextSize
+Text size
+Text.Header​
+Name
+Type
+Default
+Description
+size
+HeaderTextSize
+Text size
+Type​
+BodyTextSize​
+Name
+Description
+"xLarge"
+Size xLarge
+"large"
+Size large
+"normal"
+Size normal
+"small"
+Size small
+"xSmall"
+Size xSmall
+"xxSmall"
+Size xxSmall
+"xxxSmall"
+Size xxxSmall
+"xxxxSmall"
+Size xxxxSmall
+TitleTextSize​
+Name
+Description
+"xLarge"
+Size xLarge
+"large"
+Size large
+"normal"
+Size normal
+"small"
+Size small
+HeaderTextSize​
+Name
+Description
+"normal"
+Size normal
+"small"
+Size small
+Example​
+import React from "react";
+import { Page, Text, List, Box } from "zmp-ui";
+function TextSize({ size, lineHeight }) {
+return (
+<Box>
+<Text size="small">
+Size:
+{size}
+</Text>
+<Text size="small">
+Line height:
+{lineHeight}
+</Text>
+</Box>
+);
+}
+const { Item } = List;
+const data = {
+Header: ["normal", "small"],
+Title: ["xLarge", "large", "normal", "small"],
+Body: [
+"xLarge",
+"large",
+"normal",
+"small",
+"xSmall",
+"xxSmall",
+"xxxSmall",
+"xxxxSmall",
+],
+};
+const textStyles = {
+Header: {
+normal: {
+size: 16,
+lineHeight: 22,
+},
+small: {
+size: 15,
+lineHeight: 20,
+},
+},
+Title: {
+xLarge: {
+size: 22,
+lineHeight: 26,
+},
+large: {
+size: 20,
+lineHeight: 26,
+},
+normal: {
+size: 18,
+lineHeight: 24,
+},
+small: {
+size: 15,
+lineHeight: 20,
+},
+},
+Body: {
+xLarge: {
+size: 18,
+lineHeight: 24,
+},
+large: {
+size: 16,
+lineHeight: 22,
+},
+normal: {
+size: 15,
+lineHeight: 20,
+},
+small: {
+size: 14,
+lineHeight: 18,
+},
+xSmall: {
+size: 13,
+lineHeight: 18,
+},
+xxSmall: {
+size: 12,
+lineHeight: 16,
+},
+xxxSmall: {
+size: 11,
+lineHeight: 16,
+},
+xxxxSmall: {
+size: 10,
+lineHeight: 14,
+},
+},
+};
+export default function HomePage(props) {
+const { title } = props;
+return (
+<>
+{Object.keys(data).map((key) => (
+<Box p={4}>
+<Text.Header>{key} Text</Text.Header>
+</Box>
+<List>
+{data[key].map((size) => {
+if (key === "Header") {
+return (
+<Item key={`${key}-${size}`} className="mb-0">
+<Text bold size="small" className="text-style">
+{size}
+</Text>
+<Box mt={2}>
+<Text.Header size={size}>
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+</Text.Header>
+</Box>
+<Box>
+</Box>
+</Item>
+);
+}
+if (key === "Title") {
+return (
+<Item key={`${key}-${size}`} className="mb-0">
+<Text bold size="small" className="text-style">
+{size}
+</Text>
+<Box mt={2}>
+<Text.Title size={size}>
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+</Text.Title>
+</Box>
+<Box>
+</Box>
+</Item>
+);
+}
+return (
+<Item key={`${key}-${size}`} className="mb-0">
+<Box>
+<Text bold size="small" className="text-style">
+{size}
+</Text>
+</Box>
+<Box mt={2}>
+<Text size={size}>
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+</Text>
+</Box>
+<Box mt={6}>
+<Text size="small" bold className="text-style">
+{size} M
+</Text>
+</Box>
+<Box mt={2}>
+<Text bold size={size}>
+Bầu trời trong xanh thăm thẳm, không một gợn mây
+</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Item>
+);
+})}
+</List>
+))}
+</>
+);
+}
+Header Text
+Body Text
+Properties
+Text
+Text.Title
+Text.Header
+Type
+BodyTextSize
+TitleTextSize
+HeaderTextSize
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

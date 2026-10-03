@@ -1,0 +1,82 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/intro/public-mini-program
+# FETCHED: 2026-08-06
+# TITLE: Phát Hành Zalo Mini App | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+1. Giới thiệu
+1. Vấn đề của Native App và Web
+2. Giới thiệu Zalo Mini App
+3. Tài khoản Nhà phát triển
+4. Các điểm truy cập Zalo Mini App
+2. Triển khai
+3. Xin cấp quyền trong Zalo Mini App
+4. Phát Hành Zalo Mini App
+5. Zalo Mini App Design Guidelines
+6. Chuyển đổi nhanh Web App có sẵn thành Zalo Mini App
+7. Các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App
+8. Best Practices
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+2. Yêu cầu theo dõi Official Account
+3. Call API
+4. Tương tác, điều hướng tới Zalo Mini App
+5. Cache dữ liệu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Phát Hành Zalo Mini App
+Cập nhật lần cuối:5/8/2026
+Để phát hành ứng dụng Zalo Mini App của bạn, vui lòng truy cập Trang Quản Lý Zalo Mini App, chọn Danh sách phiên bản trong mục Quản lý phiên bản.
+Với các phiên bản đang ở trạng thái Testing bạn có thể gửi yêu cầu xét duyệt.
+Tại đây, bạn cần thực hiện các bước theo hướng dẫn để gửi yêu cầu xét duyệt.
+Sau khi gửi yêu cầu, trạng thái của phiên bản sẽ đổi thành Chờ xét duyệt. Zalo Team sẽ review ứng dụng của bạn với các chính sách của Zalo Mini App. Xem thông tin chi tiết tại đây.
+Với các phiên bản ở trạng thái Đã duyệt, bạn có thể chọn Publish để phân phối ứng dụng tới người dùng.
+Tiêu chí kiểm duyệt Mini App:
+Tên, Logo, Mô tả của Mini App cần thể hiện được tính năng của ứng dụng, đảm bảo nhất quán, rõ ràng, không vi phạm
+bản quyền và các nội dung cấm theo quy định của pháp luật.
+Các loại dịch vụ trong Mini App phải phù hợp với danh mục đã đăng ký.
+Các tính năng trong Mini App mà người dùng có thể sử dụng phải phù hợp với mô tả và không điều hướng tới liên kết của
+bên thứ 3 nếu chưa sự chấp thuận từ Zalo.
+Các nội dung trong Mini App không mang tính khuyến khích, điều hướng người dùng thực hiện chia sẻ, tải ứng dụng
+riêng mà không phải Mini App.
+Các nội dung trong Mini App không mang tính sai lệch, gian lận, lừa đảo, giả mạo, bị cấm theo quy định của pháp luật.
+Mini App không chứa nội dung mang tính quảng cáo và kiếm tiền mà chưa có sự chấp thuận từ Zalo.
+Mini App không chứa hoặc tạo điều kiện cho hành vi mua, bán các vật phẩm ảo, nội dung kỹ thuật số.
+Mini App cần đảm bảo hoạt động bình thường, không gặp sự cố khi chạy, bị crash hoặc gây crash lên Zalo.
+Mini App cần đảm bảo tốt về performance và thời gian load theo tiêu chuẩn từ Zalo.
+Mini App cần đảm bảo tốt về thiết kế giao diện (UI) và trải nghiệm (UX) cho người dùng theo tiêu chuẩn từ Zalo.
+Mini App cần đảm bảo quyền riêng tư và bảo mật cho người dùng, tuyệt đối không chứa mã độc hoặc dẫn qua các liên
+kết chứa mã độc.
+Mini App cần đảm bảo định danh người dùng theo chuẩn Authentication được cung cấp từ Zalo.
+Lưu ý: Nội dung trên là tóm tắt của các tiêu chí kiểm duyệt Mini App, chi tiết xem đầy đủ tại Thỏa Thuận Chương Trình Zalo Mini App
+Trước
+3. Xin cấp quyền trong Zalo Mini App
+Kế tiếp
+5. Zalo Mini App Design Guidelines
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

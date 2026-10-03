@@ -1,0 +1,190 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/webhook/quan-ly/su-kien-nguoi-dung-quan-tam-hay-bo-quan-tam-oa
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện người dùng quan tâm hay bỏ quan tâm OA | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Giới thiệu về Webhook
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Extension
+Quản lý
+Sự kiện người dùng đồng ý chia sẻ thông tin
+Sự kiện người dùng quan tâm hay bỏ quan tâm OA
+Sự kiện gắn nhãn cho người dùng
+Sự kiện gỡ nhãn khỏi người dùng
+Sự kiện tạo nhãn
+Sự kiện xóa nhãn
+Sự kiện người dùng đồng ý cấp quyền tương tác
+Sự kiện Đồng bộ user_external_id thất bại
+Sự kiện người dùng Zalo thực hiện quyền chủ thể dữ liệu
+Sự kiện cập nhật thông tin người dùng
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+WebhookQuản lýSự kiện người dùng quan tâm hay bỏ quan tâm OA
+Sự kiện người dùng quan tâm hay bỏ quan tâm OA
+
+Khi người dùng quan tâm hay bỏ quan tâm OA, hệ thống Zalo gửi đến webhook URL đã đăng ký của ứng dụng
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Example respond​
+{
+  "oa_id": "388613280879808645",
+  "follower": {
+    "id": "24684588352919792"
+  },
+  "user_id_by_app": "552172779717587730",
+  "event_name": "follow",
+  "source": "oa_profile",
+  "app_id": "36084652489903967",
+  "timestamp": "154397978274"
+}
+
+Mô tả thuộc tính​
+
+Thuộc tính
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+oa_id
+
+	
+
+String
+
+	
+
+Official Account Id mà user đã quan tâm/bỏ quan tâm
+
+
+
+
+follower
+
+	
+
+Json Object
+
+	
+
+Ví dụ:
+
+{
+    "id": "24684588352919792"
+}
+
+
+Trong đó:
+
+·        “id”: Id của User quan tâm/bỏ quan tâm Official Account
+
+
+
+
+event_name
+
+	
+
+String
+
+	
+
+Xác định loại event, gồm các giá trị sau:
+
+· event _name=”follow”: Người dùng quan tâm Official Account
+
+· event _name=”unfollow”: Người dùng bỏ quan tâm Official Account
+
+
+
+
+source
+
+	
+
+String
+
+	
+
+Xác định cách thức người dùng quan tâm Official Account:
+
+· oa_profile: Người dùng nhấn nút quan tâm trên trang chủ của Official Account
+
+· message_invite: Người dùng nhấn đồng ý trên tin nhắn mời quan tâm
+
+· social_plugin: Người dùng nhấn nút quan tâm của social_plugin (Thảm khảo cách lấy nút quan tâm tại đây)
+
+
+
+
+app_id
+
+	
+
+String
+
+	
+
+Id của ứng dụng bên thứ 3
+
+
+
+
+timestamp
+
+	
+
+String
+
+	
+
+Thời điểm request được gửi, tính bằng milisecond
+
+Trước
+Sự kiện người dùng đồng ý chia sẻ thông tin
+Kế tiếp
+Sự kiện gắn nhãn cho người dùng
+Example respond
+Mô tả thuộc tính
+©2023 Zalo for Developers

@@ -1,0 +1,146 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/ho-tro-tao-xac-thuc-cai-dat-oa-cho-chuoi-cua-hang_7533181939656049281
+# FETCHED: 2026-07-21
+# TITLE: Hỗ trợ tạo, xác thực, cài đặt OA cho chuỗi cửa hàng | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Khởi tạo Zalo Official Account
+Lựa chọn danh mục
+Hướng dẫn đặt tên Zalo OA
+Lý do OA bị khóa và cách khắc phục
+Hướng dẫn xác thực
+Các hình thức xác thực
+Hồ sơ xác thực
+Xác thực theo lĩnh vực hoạt động
+Xử lý hồ sơ bị từ chối
+Hỗ trợ tạo, xác thực, cài đặt OA cho chuỗi cửa hàng
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Hỗ trợ tạo, xác thực, cài đặt OA cho chuỗi cửa hàng
+
+Dựa trên nhu cầu ngày càng tăng của các doanh nghiệp về việc tạo và thao tác hàng loạt với số lượng lớn tài khoản Zalo OA cho chuỗi cửa hàng/nhà hàng/địa điểm kinh doanh cùng thuộc một doanh nghiệp, Zalo OA hướng dẫn và cung cấp dịch vụ hỗ trợ trực tiếp nhằm giúp đối tác tối ưu quá trình xây dựng thương hiệu trên nền tảng Zalo.
+
+A. Khi nào Doanh nghiệp nên cân nhắc tạo nhiều OA?​
+
+Trước khi đi vào các hướng dẫn cụ thể, chúng tôi muốn làm rõ một số điểm mà các doanh nghiệp thường thắc mắc trong quá trình tìm hiểu và cân nhắc về việc nên sử dụng bao nhiêu OA cho doanh nghiệp của mình.
+
+Doanh nghiệp chỉ nên cân nhắc tạo nhiều OA nếu thuộc một trong số các trường hợp sau:​
+
+(1) Doanh nghiệp có mô hình vận hành độc lập theo từng địa điểm kinh doanh. Theo đó, mỗi địa điểm kinh doanh có các hoạt động bán hàng cần giao tiếp và tương tác trực tiếp với khách hàng. Đồng thời, mỗi địa điểm kinh doanh có đủ điều kiện về nhân lực và/hoặc kỹ thuật đảm bảo duy trì tương tác với khách hàng hiệu quả.
+
+(2) Doanh nghiệp kinh doanh các sản phẩm, dịch vụ mang tính chuyên môn, phân hóa cao. Theo đó, mỗi sản phẩm, dịch vụ có phân khúc đối tượng riêng, hoặc có những đặc thù riêng mà việc sử dụng 01 tài khoản Doanh nghiệp không đáp ứng được hầu hết nhu cầu.
+
+Trong quá trình tiếp nhận yêu cầu tạo, xác thực, và/hoặc thao tác hàng loạt đối với tài khoản OA, chúng tôi có thể trao đổi làm rõ và có quyền từ chối nếu đánh giá nhu cầu là chưa phù hợp.
+
+Đối với Doanh nghiệp sở hữu nhiều tài khoản OA, doanh nghiệp có thể quản lý các OA bằng những cách thức như sau:​
+
+(1) Từng OA được quản lý độc lập: Mô hình này phù hợp với doanh nghiệp có cách thức vận hành hoàn toàn độc lập tại các điểm kinh doanh. Với cách quản lý này, nhân sự của từng điểm kinh doanh sẽ sử dụng các công cụ quản lý OA (OA Manager bản web, OA Manager bản Mini App) để vận hành OA và sử dụng các tính năng. Tham khảo Hướng dẫn vận hành OA trong các bài viết đã xuất bản tại đây.
+
+(2) Nhiều OA được quản lý tập trung thông qua tích hợp (API) với hệ thống của doanh nghiệp: Mô hình này phù hợp với doanh nghiệp có sử dụng các hệ thống quản lý/vận hành có thể tích hợp với hệ thống OpenAPI của Zalo OA. Với cách quản lý này, doanh nghiệp có thể vận hành nhiều OA cùng lúc, tự động hóa tương tác với khách hàng, và tập trung dữ liệu tại một hệ thống. Mô hình này yêu cầu doanh nghiệp có đội ngũ kỹ thuật (IT), hoặc thông qua bên thứ ba để thực hiện tích hợp và thiết lập theo tài liệu OpenAPI của Zalo OA tại đây.
+
+(3) Kết hợp cả hai cách trên: Doanh nghiệp có thể linh động kết hợp các phương thức quản lý OA để phù hợp với nhu cầu và khả năng của mình.
+
+B. Zalo hỗ trợ thao tác hàng loạt với doanh nghiệp sở hữu số lượng lớn OA​
+Hỗ trợ tạo & xác thực tài khoản OA cùng chuỗi/thương hiệu theo yêu cầu​
+Điều kiện tiếp nhận yêu cầu:​
+
+Doanh nghiệp có thể yêu cầu Zalo OA hỗ trợ tạo & xác thực tài khoản OA khi đáp ứng tất cả các điều kiện sau:
+
+(1) Số lượng OA cần hỗ trợ tạo và xác thực tối thiểu là 20 OA (vui lòng xem thêm lưu ý (1) và (2) tại cuối bài viết)
+
+(2) Đảm bảo tất cả OA đều thuộc sở hữu của 01 pháp nhân hoặc 01 thương hiệu (vui lòng xem thêm lưu ý (3) tại cuối bài viết)
+
+(3) Mỗi OA đều đáp ứng điều kiện để có thể xác thực. Xem thêm về quy định xác thực OA tại đây.
+
+Quy trình tiếp nhận yêu cầu tạo & xác thực OA:​
+
+Bước 1: Quý đối tác chuẩn bị bộ thông tin OA theo mẫu TẠI ĐÂY, gồm:
+
+(1) Danh sách OA, gồm: tên, mô tả, địa chỉ, các thông tin cần thiết khác,... Lưu ý: Quý đối tác vui lòng đọc kỹ các hướng dẫn và lưu ý nêu trong mẫu. Zalo OA chỉ tiếp nhận và hỗ trợ xử lý trong trường hợp thông tin cung cấp đúng và đầy đủ.
+
+(2) Hồ sơ xác thực, gồm: Công văn xác thực có xác nhận của Doanh nghiệp (dấu mộc/ký điện tử), Giấy tờ thể hiện quyền sở hữu hoặc được nhượng quyền thương hiệu đã đăng ký bảo hộ (Giấy chứng nhận đăng ký nhãn hiệu/Hợp đồng nhượng quyền,..)(vui lòng xem thêm lưu ý (4) tại cuối bài viết)
+
+Bước 2: Doanh nghiệp gửi email yêu cầu đến oa@zalo.me, đính kèm bộ thông tin OA. Zalo OA sẽ tiếp nhận yêu cầu, đánh giá và phản hồi trong thời gian 07 ngày làm việc. Trong trường hợp cần bổ sung hồ sơ, quy trình sẽ được lặp lại và trao đổi qua email với quý đối tác.
+
+Bước 3: Sau khi hỗ trợ hoàn tất, Zalo OA thông tin đến Quý đối tác về danh sách OA đã được hỗ trợ thành công.
+
+2. Hỗ trợ thao tác thiết lập/cài đặt đồng loạt cho các tài khoản OA theo yêu cầu​
+
+Trường hợp quý đối tác cần hỗ trợ trong quá trình cài đặt cho các OA cùng chi nhánh/thương hiệu, doanh nghiệp (từ 20 tài khoản OA trở lên), quý đối tác có thể liên hệ đến email oa@zalo.me và yêu cầu hỗ trợ từ Zalo OA trong việc thao tác hàng loạt, giúp giảm thiểu công sức vận hành so với việc cài đặt thủ công cho từng OA.
+
+BQT Zalo OA có thể xem xét hỗ trợ cho những yêu cầu sau:
+
+Sao chép cài đặt Menu/chatbot từ 01 OA mẫu cho nhiều OA khác cùng doanh nghiệp (lưu ý: OA mẫu đã được doanh nghiệp thiết lập/cài đặt)
+Cài đặt hiển thị (listing) chéo các chi nhánh tại trang OA Profile (ví dụ: Doanh nghiệp có 100 OA, cần cài đặt trên 100 OA này, mỗi OA hiển thị danh sách gồm 99 OA còn lại)
+...
+Điều kiện tiếp nhận yêu cầu: ​
+
+(1) Đối tác sử dụng email doanh nghiệp để yêu cầu hỗ trợ (email domain trùng khớp hoặc có liên quan đến tên của các tài khoản OA)
+
+(2) Người yêu cầu là chủ sở hữu/quản trị viên của các tài khoản OA
+
+(vui lòng xem thêm lưu ý (5), (6) tại cuối bài viết)
+
+Khi yêu cầu hỗ trợ, quý đối tác vui lòng cung cấp: ​
+
+(1) Danh sách các OA (OA ID, Tên OA,...) cần thực hiện thao tác
+
+(2) Mô tả yêu cầu cụ thể trong nội dung email
+
+Lưu ý đối với mục "Điều kiện tiếp nhận yêu cầu":​
+
+(1) Số lượng OA tối thiểu (20 OA) là áp dụng cho 01 yêu cầu tạo & xác thực OA tại 01 thời điểm. Yêu cầu tạo OA tại nhiều thời điểm khác nhau sẽ không được tiếp nhận. (Ví dụ: Trong 01 email yêu cầu, nếu Doanh nghiệp yêu cầu tạo 10 OA (Chi nhánh 1 đến chi nhánh 10) tại ngày X & tạo 10 OA (Chi nhánh 11 đến Chi nhánh 20) tại ngày Y, thì yêu cầu đó sẽ được Zalo từ chối).
+
+(2) Trường hợp Doanh nghiệp có nhu cầu tạo bổ sung OA (ví dụ: trường hợp khai trương Chi nhánh mới, và số lượng OA cần tạo bổ sung <20), vui lòng chủ động thực hiện các thao tác tạo & xác thực từng OA theo hướng dẫn tại đây.
+
+(3) Theo chính sách của nền tảng, Hộ kinh doanh hoặc Doanh nghiệp tư nhân chỉ được sở hữu 01 OA xác thực.
+
+(4) Trong trường hợp thông tin trong Hồ sơ chưa thể hiện đầy đủ, quý đối tác vui lòng làm rõ trong nội dung email yêu cầu hỗ trợ, về: hình thức vận hành của các cửa hàng/chi nhánh - vận hành theo mô hình nhượng quyền cho cá nhân/ doanh nghiệp khác; hay vận hành theo mô hình đối tác trực tiếp quản lý các địa điểm kinh doanh/chi nhánh, để BQT Zalo OA có cơ sở đánh giá và tư vấn phù hợp.
+
+(5) Đối với các yêu cầu hỗ trợ thao tác, trong các trường hợp cần thiết, BQT Zalo OA có thể yêu cầu quý đối tác cung cấp xác nhận bằng văn bản (công văn yêu cầu hỗ trợ có dấu mộc doanh nghiệp).
+
+(6) BQT Zalo OA chỉ tiếp nhận yêu cầu hỗ trợ thao tác, nhằm mục đích giảm tải việc cài đặt thủ công. Quý đối tác vui lòng chịu trách nhiệm đối với các cài đặt & nội dung trong OA của mình sở hữu (ví dụ: BQT Zalo OA hỗ trợ copy cài đặt chatbot từ 01 OA mẫu, nhưng không hỗ trợ kiểm tra nội dung/ logic kích hoạt chatbot của OA mẫu đó).
+
+(7) BQT Zalo OA không tiếp nhận các yêu cầu cung cấp thông tin/dữ liệu, hoặc các yêu cầu mà BQT đánh giá là không phù hợp.
+
+Previous
+Xử lý hồ sơ bị từ chối
+Next
+ZBS Account là gì?
+A. Khi nào Doanh nghiệp nên cân nhắc tạo nhiều OA?
+B. Zalo hỗ trợ thao tác hàng loạt với doanh nghiệp sở hữu số lượng lớn OA
+Hỗ trợ tạo & xác thực tài khoản OA cùng chuỗi/thương hiệu theo yêu cầu
+2. Hỗ trợ thao tác thiết lập/cài đặt đồng loạt cho các tài khoản OA theo yêu cầu
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

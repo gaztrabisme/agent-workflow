@@ -1,0 +1,61 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/phu-luc/cac-trang-thai-cua-video
+# FETCHED: 2026-07-21
+# TITLE: Các trạng thái của video | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Phụ lụcCác trạng thái của video
+Các trạng thái của video
+Mã trạng thái	Mô tả
+0	Trạng thái không xác định
+1	Video đã được xử lý thành công và có thể sử dụng
+2	Video đã bị khóa
+3	Video đang được xử lý
+4	Video xử lý thất bại
+5	Video đã bị xóa
+Trước
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Kế tiếp
+Hướng dẫn xác thực domain
+©2023 Zalo for Developers

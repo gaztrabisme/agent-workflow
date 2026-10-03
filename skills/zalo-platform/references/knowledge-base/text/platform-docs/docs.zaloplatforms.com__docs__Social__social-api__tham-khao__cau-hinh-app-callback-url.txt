@@ -1,0 +1,59 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/social-api/tham-khao/cau-hinh-app-callback-url
+# FETCHED: 2026-08-06
+# TITLE: Cấu hình App Callback Url | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Demonstrating Proof-of-Possession
+SDK
+Social Plugin
+Trên trang này
+Cấu hình App Callback Url
+Bài viết này sẽ hướng dẫn cách cấu hình redirect_uri dùng khi bạn tích hợp Login Zalo. Redirect_uri là đường dẫn mà Zalo sẽ redirect về sau khi người dùng đã đồng ý cấp quyền cho ứng dụng của bạn.
+Bước 1: Vào trang cấu hình ứng dụng và chọn mục "Đăng nhập":​
+Bước 2: Chọn mục "Thêm nền tảng":​
+Bước 3: Chọn nền tảng "Web":​
+Bước 4: Điền callback url (chính là redirect_uri) và chọn "Lưu":​
+Cảm ơn bạn đã quan tâm và sử dụng các tiện ích của Zalo Platform. Ngoài Social API, Zalo Platform còn hỗ trợ Official Account để bạn có thể tạo dựng một kênh liên lạc và chia sẻ giữa người quan tâm và doanh nghiệp, cửa hàng, câu lạc bộ,...... Bạn có thể tham khảo thêm Official Account API để quản lý và gửi tin nhắn từ Official Account đến người quan tâm.
+Trước
+Một số lưu ý với User Access Token V4
+Kế tiếp
+Hướng dẫn tạo liên kết để chia sẻ
+Bước 1: Vào trang cấu hình ứng dụng và chọn mục "Đăng nhập":
+Bước 2: Chọn mục "Thêm nền tảng":
+Bước 3: Chọn nền tảng "Web":
+Bước 4: Điền callback url (chính là redirect_uri) và chọn "Lưu":
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

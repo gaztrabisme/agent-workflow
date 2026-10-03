@@ -1,0 +1,164 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/quan-ly-template/template-api/api-lay-thong-tin-phan-hoi-nhanh-cua-khach-hang
+# FETCHED: 2026-08-06
+# TITLE: API Lấy thông tin phản hồi nhanh của khách hàng | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Bắt đầu
+Giới thiệu chung về Template
+Danh sách Components
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+API Lấy thông tin phản hồi nhanh của khách hàng
+Template Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi trạng thái Template
+Sự kiện thay đổi về chất lượng gửi của mẫu tin
+Sự kiện người dùng phản hồi template phản hồi nhanh
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+API Lấy thông tin phản hồi nhanh của khách hàng
+API cho phép lấy thông tin khách hàng đã phản hồi qua template phản hồi nhanh.
+Lưu ý
+Quyền cần có: Quản lý Message Template
+Ứng dụng chỉ có thể lấy thông tin phản hồi từ template phản hồi nhanh được tạo bởi ứng dụng đó hoặc OA cấp quyền cho ứng dụng (Access token truyền vào phải ứng với template ID được tạo bởi app và OA).
+HTTP request​
+URL: https://business.openapi.zalo.me/response/get
+Method: POST
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json"
+"https://business.openapi.zalo.me/response/get?template_id=203972&from_time=1616673095659&to_time=1616673271320&offset=0&limit=1"
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+template_id
+String
+yes
+ID của template cần lấy thông tin.
+from_time
+long
+yes
+Thời điểm bắt đầu của khoảng thời gian cần lấy dữ liệu được gửi lên hệ thống.
+Lưu ý: Định dạng timestamp (đơn vị: millisecond).
+to_time
+long
+yes
+Thời điểm kết thúc của khoảng thời gian cần lấy dữ liệu được gửi lên hệ thống.
+Lưu ý: Định dạng timestamp (đơn vị: millisecond).
+limit
+int
+yes
+Số lượng phản hồi tối đa được trả về.
+Example respond​
+{
+"data": {
+"total": 2,
+"data": [
+{
+"data": "Đồng ý",
+"submitDate": "1616673095658",
+"msgId": "7e4c33cfc20b05575c18",
+"oaId": "19319231302193091",
+"trackingId": "1956"
+},
+{
+"data": "Không đồng ý",
+"submitDate": "1616673095659",
+"msgId": "7e4c33cfc20b05575c19",
+"oaId": "19319231302193091",
+"trackingId": "1957"
+}
+]
+},
+"error": 0
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+total
+int
+Tổng số lượng phản hồi được trả về.
+data
+array object
+Dữ liệu phản hồi từ khách hàng được trả về theo dạng array. Xem cấu trúc data array bên dưới.
+Cấu trúc thuộc tính data object​
+Tên biến
+Kiểu dữ liệu
+Mô tả
+data
+string
+Nội dung dữ liệu phản hồi của khách hàng (là field "Nội dung nút").
+submitDate
+string
+Thời điểm khách hàng click nút phản hồi. Biến submitDate sẽ có giá trị trong khoảng thời gian từ from_time đến to_time (được truyền vào từ request).
+Lưu ý: Tính theo timestamp (millisecond).
+msgId
+string
+ID của thông báo trả về khi gửi tin.
+oaId
+string
+Official Account ID mà khách hàng đã click nút phản hồi.
+trackingId
+string
+Tracking ID từ phía đối tác truyền vào khi gửi tin.
+Trước
+API Chỉnh sửa Template
+Kế tiếp
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+Cấu trúc thuộc tính data object
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

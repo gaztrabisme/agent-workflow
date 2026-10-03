@@ -1,0 +1,479 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/tin-nhan/quan-ly-tin-nhan/lay-thong-tin-tin-nhan-trong-mot-hoi-thoai
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin Tin nhắn trong một hội thoại | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Kiểm tra hạn mức gửi tin tới User cụ thể
+Lấy thông tin Tin nhắn gần nhất
+Lấy thông tin Tin nhắn trong một hội thoại
+Upload hình ảnh
+Upload file
+Upload ảnh GIF
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tin nhắnQuản lý tin nhắnLấy thông tin Tin nhắn trong một hội thoại
+Lấy thông tin Tin nhắn trong một hội thoại
+LƯU Ý
+API hỗ trợ lấy thông tin tin nhắn giữa OA và một người dùng cụ thể.
+Mỗi request lấy tối đa được 10 tin nhắn
+Quyền cần có: Quyền quản lý tin nhắn người dùng
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/conversation
+Method: GET
+Response Type: text/json
+Example request​
+curl \
+-X GET \
+-H 'access_token: <your_access_token>' \
+'https://openapi.zalo.me/v2.0/oa/conversation?data={"user_id":2512523625412515,"offset":0,"count":5}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+
+Tham số​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+data
+
+	
+
+Json object
+
+	
+
+yes
+
+	
+
+Thông tin truyền vào để lấy tin nhắn
+
+Cấu trúc tham số data​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+long
+
+	
+
+yes
+
+	
+
+ID của người dùng cần lấy danh sách hội thoại
+
+
+
+
+offset
+
+	
+
+int
+
+	
+
+yes
+
+	
+
+Thứ tự của tin nhắn đầu tiên trong danh sách trả về
+
+Lưu ý: Tin nhắn gần nhất có thứ tự là 0.
+
+
+
+
+count
+
+	
+
+int
+
+	
+
+yes
+
+	
+
+Số lượng tin nhắn cần lấy
+
+Lưu ý: Mỗi request được lấy tối đa 10 tin nhắn.
+
+Example respond​
+
+{
+  "data": [
+    {
+      "src": 1,
+      "time": 1619401853770,
+      "type": "text",
+      "message": "Chào shop",
+      "message_id": "92e5d851aa8178dd2192",
+      "from_id": "2512523625412515",
+      "to_id": "3120036654733951760",
+      "from_display_name": "Khoa Pham",
+      "from_avatar": "https://s240-ava-talk.zadn.vn/e185bc8ca29ec5d79.jpg",
+      "to_display_name": "OA",
+      "to_avatar": "https://s240-ava-talk.zadn.vn/b07fb3e228e448c53d3e.jpg"
+    }
+  ],
+  "error": 0,
+  "message": "Success"
+}
+
+Cấu trúc thuộc tính data​
+
+Thuộc tính
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+message_id
+
+	
+
+string
+
+	
+
+ID của tin nhắn
+
+
+
+
+src
+
+	
+
+int
+
+	
+
+Thuộc tính cho biết tin nhắn được gửi từ OA hoặc người dùng. Các giá trị trả về:
+
+· 0: tin nhắn được gửi từ OA đến người dùng
+
+· 1: tin nhắn được gửi người dùng đến OA
+
+
+
+
+time
+
+	
+
+long
+
+	
+
+Thời gian tin nhắn được gửi (định dạng timestamp)
+
+
+
+
+type
+
+	
+
+string
+
+	
+
+Loại tin nhắn
+
+Các giá trị trả về:
+
+·        text: tin nhắn văn bản
+
+·        voice: tin nhắn thoại
+
+·        photo: tin nhắn ảnh
+
+·        GIF: tin nhắn GIF
+
+·        link: tin nhắn có nội dung là đường link
+
+·        links: tin nhắn theo mẫu đính kèm danh sách
+
+·        sticker: tin nhắn sticker
+
+·        location: tin nhắn chia sẻ location
+
+
+
+
+message
+
+	
+
+string
+
+	
+
+Nội dung tin nhắn
+
+
+
+
+links
+
+	
+
+string array
+
+	
+
+Thuộc tính trả về 1 danh sách các đường dẫn được đính kèm trong tin nhắn
+
+Lưu ý: thuộc tính chỉ được trả về khi loại tin nhắn là link hoặc links.
+
+
+
+
+thumb
+
+	
+
+string
+
+	
+
+URL của ảnh hoặc GIF.
+
+Lưu ý: thuộc tính chỉ được trả về khi loại tin nhắn là GIF hoặc photo
+
+
+
+
+url
+
+	
+
+string
+
+	
+
+Đường dẫn đến audio (trong trường hợp loại tin nhắn là voice), hoặc đường dẫn đến ảnh/GIF/nhãn dán (trong trường hợp loại tin nhắn là photo, GIF, nhãn dán)
+
+
+
+
+description
+
+	
+
+string
+
+	
+
+Mô tả của ảnh.
+
+Lưu ý: thuộc tính chỉ được trả về khi loại tin nhắn là photo.
+
+
+
+
+from_id
+
+	
+
+long
+
+	
+
+ID của đối tượng gửi tin nhắn (có thể là user_id hoặc oa_id)
+
+
+
+
+to_id
+
+	
+
+long
+
+	
+
+ID của đối tượng nhận tin nhắn (có thể là user_id hoặc oa_id)
+
+
+
+
+from_display_name
+
+	
+
+string
+
+	
+
+Tên hiển thị của đối tượng gửi tin nhắn
+
+
+
+
+from_avatar
+
+	
+
+string
+
+	
+
+Đường dẫn đến ảnh đại diện của đối tượng gửi tin nhắn
+
+
+
+
+to_display_name
+
+	
+
+string
+
+	
+
+Tên hiển thị của đối tượng nhận tin nhắn
+
+
+
+
+to_avatar
+
+	
+
+string
+
+	
+
+Đường dẫn đến ảnh đại diện của đối tượng nhận tin nhắn
+
+
+
+
+location
+
+	
+
+string
+
+	
+
+Thuộc tính trả về giá trị longitude và latitude của người dùng.
+
+Lưu ý: thuộc tính chỉ được trả về khi loại tin nhắn là location.
+
+Trước
+Lấy thông tin Tin nhắn gần nhất
+Kế tiếp
+Upload hình ảnh
+HTTP request
+Example request
+Tham số header
+Tham số
+Cấu trúc tham số data
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

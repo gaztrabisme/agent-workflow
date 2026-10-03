@@ -1,0 +1,233 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/specs/Modal
+# FETCHED: 2026-08-06
+# TITLE: Modal | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Modal
+Cập nhật lần cuối:5/8/2026
+1. Information Dialog​
+Hộp thoại:
+Yêu cầu user xác minh xem họ muốn tiếp tục hay hủy thao tác
+Hiển thị thông tin user cần được biết
+Hộp thoại cùng với dim background chen ngang trước khi hệ thống thực hiện lệnh của user
+Note: Max number of stacking modals = 2
+Components​
+Anatomy​
+1
+Container
+Required
+2
+Custom View
+Optional
+Có thể edit tuỳ ý trong view này
+3
+Main Items
+Required
+Include
+Title
+Description
+4
+Add-on Items
+Optional
+Can be these items
+5
+Divider
+Required
+6
+Action
+Required
+Hiển thị:
+Default: 1 primary action (blue or red)
+Optional: thêm tối đa 2 secondary actions
+Vị trí:
+Default: horizontal
+Trường hợp text dài, chiều ngang không đủ hiện -> đổi sang dạng vertical
+7
+7. Dim Background
+Required
+Specs​
+Max height of dialog = 80% screen height
+Behavior​
+Dismiss​
+User có thể tắt Modal bằng cách
+Tap out to dismiss (tapOutsideToDismiss)
+Có thể ON/OFF
+Default = ON
+Tap dismissive button (bên ngoài truyền vào)
+Focused Text Input with keyboard
+Trường hợp 1
+Modal được đẩy lên trên keyboard
+Modal cách keyboard 16px
+Trường hợp 2
+Modal được đẩy lên đã chạm status bar nhưng không đủ chỗ đẩy full modal
+Vùng Content thành Scrollview
+Focused Text Input cách keyboard 32px
+Điều kiện đóng keyboard
+Thoả 1 trong các điều kiện sau:
+Khi user bấm vào bất kì vùng nào trong InformationDialog, ngoài các InputField
+Khi user dismiss InformationDialog
+*Khi user scroll trong InformationDialog, không đóng keyboard.
+Usage​
+Confirmation Dialog​
+Normal
+Dialog xuất hiện sau khi user chọn hành động bất kì cần được confirm trước khi hành động được thực hiện
+Danger
+Dialog xuất hiện sau khi user chọn hành động mang tính destructive (Xóa, Thoát, Thu hồi, Đăng xuất,...) cần được confirm trước khi hành động được thực hiện
+Text Input
+Dialog xuất hiện sau khi user chọn hành động mà sau đó cần nhập thông tin để tiếp tục quá trình thực hiện hành động
+2. Promotion Popup​
+Hộp thoại được sử dụng cho mục đích promote, introduce, onboarding cho tính năng mới
+Nên được sử dụng đúng context vì mức độ interruption rất lớn
+Components​
+Anatomy​
+5
+Container
+Required
+6
+Content View
+Required
+7
+Action
+Required
+Hiển thị
+Default: 1 primary button (blue)
+Optional: thêm tối đa 1 secondary button
+8
+Dim Background
+Required
+Content View
+Gồm 2 phần:
+Content Page
+Page Indicator
+1
+Content Page
+Required
+Gồm 2 loại:
+1. Custom (vertical tự custom content)
+2. Default
+1
+Image View
+Required
+2
+Title
+Required
+Không limit số dòng
+Font-size: h-normal
+3
+Description
+Required
+Number of text rows
+Design: maximum 3 rows
+1 text row: do not use icon
+2 - 3 text rows: use icon as bullet point
+Dev: can add multiple
+Font-size: t-normal
+2
+Page Indicator
+Sử dụng khi có từ 2 content page trở lên được truyền vào
+Specs​
+Max height of dialog = 80% screen height
+Content Page
+1. Custom (Vertical tự custom)
+Recommended spacing specs
+2. Default
+Actions
+Behavior​
+Behavior​
+User có thể tắt Modal bằng cách
+Tap out to dismiss (maskClosable)
+Có thể ON/OFF
+Default = OFF
+Bấm dismissive button (bên ngoài truyền vào)
+Scroll​
+Khi Modal chứa content vượt quá max height, cần hiển thị scrollbar.
+Animation: dùng ScrollView của native
+Scrollbar Specs
+Usage​
+Transparent background
+Filled background
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

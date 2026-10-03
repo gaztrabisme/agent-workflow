@@ -1,0 +1,66 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/gui-tin-template-qua-uid/quy-dinh-gui-tin-qua-uid
+# FETCHED: 2026-08-06
+# TITLE: Quy định gửi tin qua UID | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+Quy định gửi tin qua UID
+App: đã bật quyền gửi tin và thông báo qua OA
+Quy định điều kiện gửi theo loại tin:​
+Tin Giao dịch:​
+ZBS Template Message qua UID sử dụng mẫu tin Tag 1 - TRANSACTION hoặc Tag 2 - CUSTOMER_CARE
+Tham khảo bài viết quy chuẩn kiểm duyệt mẫu ZBS
+Tin Hậu mãi:​
+ZBS Template Message qua UID sử dụng mẫu tin Tag 3 – PROMOTION
+Tham khảo bài viết quy chuẩn kiểm duyệt mẫu ZBS
+Hạn mức nhận tin:​
+Hạn mức nhận tin nhắn truyền thông của người quan tâm OA không được vượt quá hạn mức do nền tảng quy định theo chính sách từng thời kỳ.
+Hiển thị tin nhắn:​
+Công cụ OAM:
+OAM bản Web: Có
+OAM bản Mini App: Có
+Thiết bị của Người dùng:
+Mobile: Có
+PC / Web: Có
+Trước
+Sự kiện người dùng nhận tin qua SĐT
+Kế tiếp
+API gửi tin qua UID
+Quy định điều kiện gửi theo loại tin:
+Tin Giao dịch:
+Tin Hậu mãi:
+Hạn mức nhận tin:
+Hiển thị tin nhắn:
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

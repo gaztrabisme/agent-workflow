@@ -1,0 +1,141 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/apis/updateOrderStatus
+# FETCHED: 2026-08-06
+# TITLE: updateOrderStatus | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+updateOrderStatus
+Cập nhật lần cuối:5/8/2026
+API cho phép đối tác gọi để cập nhật tình trạng thanh toán của 1 đơn hàng
+Đối với API này, sẽ không được tích hợp sẵn trong Payment SDK. Đơn vị kinh doanh cần chủ động xây dựng phương án gọi API này (hoặc thực hiện việc cập nhật trên trang quản lý Mini App) để thực hiện việc cập nhật trạng thái thanh toán của đơn hàng khi người dùng đã trả tiền cho đơn vị kinh doanh.
+API specification​
+Method
+Headers
+Endpoint
+POST
+Với phương thức thanh toán khi nhận hàng (COD): https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/cod-callback-payment
+Với phương thức chuyển khoản ngân hàng: https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/bank-callback-payment
+Với phương thức thanh toán riêng: https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/custom-callback-payment
+Với các phương thức sử dụng API purchase: https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/purchase-payment
+Parameters​
+Object object​
+Property
+Type
+Required
+Description
+Use to build mac
+appId
+string
+true
+Id định danh của mini app
+true
+orderId
+string
+true
+Mã đơn hàng của yêu cầu thanh toán đã tạo
+true
+resultCode
+number
+true
+Trạng thái giao dịch của đơn hàng:
+1 : Thành công
+0 : Đã hoàn tiền
+-1 : Thất bại
+true
+mac
+string
+true
+Thông tin chứng thực của đơn hàng, xem cách tạo thông tin chứng thực cho đơn hàng ở dưới
+Tạo thông tin chứng thực​
+data =
+"appId={appId}&orderId={orderId}&resultCode={resultCode}&privateKey={privateKey}";
+mac = HMAC("HmacSHA256", privateKey, data);
+Return Values​
+Promise <Object data>​
+Property
+Type
+Description
+err
+int
+0 : Thành công
+Khác : Thất bại
+msg
+string
+Mô tả thông tin error
+error
+int
+Giá trị giống err
+Trường này tồn tại để tương thích với các phiên bản cũ, đối tác nên dùng trường err
+Error code​
+Tham khảo tại đây.
+Trước
+getOrderStatus
+Kế tiếp
+createRefund
+API specification
+Parameters
+Object object
+Tạo thông tin chứng thực
+Return Values
+Promise <Object data>
+Error code
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

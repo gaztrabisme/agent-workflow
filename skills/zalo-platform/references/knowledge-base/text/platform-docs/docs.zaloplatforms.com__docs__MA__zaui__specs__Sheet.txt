@@ -1,0 +1,172 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/specs/Sheet
+# FETCHED: 2026-08-06
+# TITLE: Sheet | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Sheet
+Cập nhật lần cuối:5/8/2026
+Sheet​
+Sheet là một khuôn chứa các items và content bổ sung, được neo bên dưới màn hình, nội dung bên trong có thể được bố trí theo dạng list, carousel hoặc grid. Các Items và content có thể bao gồm text, image, icon, button, selections, v.v...
+Usage​
+Cần một danh sách các lựa chọn hoặc cài đặt mở rộng
+Cần một bảng hiển thị nội dung bổ sung, nhưng sau đó có thể expand hoặc collapse trên màn hình
+Behavior​
+Display​
+Bottom sheet sẽ có 3 mức hiển thị, Initial appearance là bắt buộc, tuỳ theo
+nhu cầu sử dụng mà sheet sẽ có thêm mức expand và collapse
+Initial appearance (Required): Chiều cao ban đầu khi sheet vừa được mở lên
+Expanded sheet (Optional): Chiều cao tối đa của sheet sau khi được mở rộng
+Collapsed sheet (Optional): Chiều cao tối thiểu của sheet sau khi được thu
+gọn Mức giới hạn = Screen height - Status Bar
+Display
+Initial appearance
+•
+Để đảm bảo việc có thể tương tác trở lại với nội dung chính, khi bắt đầu mở:
+• Default sheet height = 50% screen height
+• Tuỳ theo trường hợp thì sheet height = custom (% screen height)
+•
+Có thể chọn sheet height = hug content (trong trường hợp này, không thể có
+dạng expand/collapse)
+•
+Không cho phép scroll inside khi chưa đạt
+mức giới hạn
+Expanded sheet
+Cao hơn so với khi vừa được mở, và là mức cao tối đa:
+Default max height = Screen height - Status Bar (mức giới hạn)
+Tuỳ theo trường hợp thì sheet height = custom (% screen height)
+Collapsed sheet
+Có thể dismiss hay không tuỳ vào nhu cầu sử dụng
+Có thể thêm Button để expand về kích thước ban đầu
+Default collapsed height = 20% screen height
+Tuỳ theo trường hợp thì collapsed height = custom (% screen height)
+Hidden sheet
+Sheet vẫn tồn tại nhưng không xuất hiện trên màn hình
+Anatomy​
+Các Content và thành phần trên Header có thể thay đổi tuỳ theo trường hợp:
+Message Reaction
+Post Reaction & Comment
+Menu Actions
+Login History
+Message
+Phonebook
+Post
+Selection List
+...
+Specs​
+Padding and spacing
+Padding top = 10px
+Padding left, right, bottom = 16px
+Spacing from handle to header = 8px
+Spacing from header to content = 16px
+Nếu content đã có sẵn padding
+Sheet padding = 0px
+Spacing from header to content = 0px
+Radius = 16px
+Type​
+Supplementary Bottom Sheet​
+Usage
+Giúp hiển thị bổ sung items hoặc content cho nội dung chính của màn hình, trong khi người dùng vẫn có thể tương tác với nội dung chính.
+Behavior
+Không thể bị dismiss khi tương tác với nội dung chính
+Không nên mở lên từ một Bottom Sheet khác
+Modal Bottom Sheet​
+Supplementary Bottom Sheet​
+Usage
+Giúp hiển thị một bảng với các tương tác, hoặc nội dung mô tả dài hơn. Sẽ bị dismiss khi tương tác với nội dung chính.
+Behavior
+Luôn bị dismiss khi tương tác với nội dung chính
+Sẽ không bao giờ có thể collapse
+List Bottom Sheet​
+List Bottom Sheet dùng để thay thế native sheet từ Android và iOS
+Display
+Sheet height = hug content
+Không có trạng thái expand hay collapse
+Padding bottom = 32px
+Type
+Default List: Dùng khi các danh sách các lựa chọn hoặc setting bình thường
+Section List: Dùng khi các danh sách được chia làm nhiều sections
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

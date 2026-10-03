@@ -1,0 +1,216 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/dotnet-sdk/tai-lieu/official-account-api
+# FETCHED: 2026-07-21
+# TITLE: Official Account API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Dotnet SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Social API
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tích hợpOfficial Account API
+Official Account API
+
+Thông tin chi tiết về các API vui lòng tham khảo tài liệu Official Account API. Hướng dẫn gọi Official Account API sử dụng DotNet SDK. Khai báo sử dụng Zalo DotNet SDK
+
+using ZaloDotNetSDK;
+
+Khởi tạo ZaloClient​
+ZaloClient client = new ZaloClient(access_token);
+
+Lấy danh sách người quan tâm​
+JObject result = client.getListFollower(0, 20);
+
+Lấy thông tin người quan tâm​
+JObject result = client.getProfileOfFollower("2468458835296197922");
+
+Gửi tin nhắn cho user id​
+JObject result = client.sendTextMessageToUserId("2468458835296197922", "this isn a message");
+
+Gửi tin nhắn hình ảnh cho user id​
+JObject result = client.sendImageMessageToUserIdByUrl("2468458835296197922", "this is a message", "https://stc-developers.zdn.vn/zalo.png");
+
+Gửi tin nhắn hình ảnh cho user id bằng attachment id​
+JObject result = client.sendImageMessageToUserIdByAttachmentId("2468458835296197922", "this is a messag", "a285de002301ca5f9310");
+
+Gửi tin nhắn ảnh gif cho user id bằng attachment id​
+JObject result = client.sendGifMessageToUserIdByAttachmentId("2468458835296197922", "this is a message", "KAyZCEjSFBaWeBw74O0OxX+w5DQ++3snJhi139F2zMk=");
+
+Gửi tin nhắn list element cho user id​
+List<Element> elements = new List<Element>();
+OpenUrlElement openUrlElement = new OpenUrlElement("openUrlButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "https://stc-developers.zdn.vn/zalo.png");
+OpenSMSElement openSMSElement = new OpenSMSElement("openSMSButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "0123456789", "message sms");
+OpenPhoneElement openPhoneElement = new OpenPhoneElement("openPhoneButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "0123456789");
+QueryHideElement queryHideElement = new QueryHideElement("queryHideButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "queryHideButton");
+QueryShowElement queryShowElement = new QueryShowElement("queryShowButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "queryShowButton");
+elements.Add(openUrlElement);
+elements.Add(openSMSElement);
+elements.Add(openPhoneElement);
+elements.Add(queryHideElement);
+elements.Add(queryShowElement);
+JObject result = client.sendListElementMessagetoUserId("2468458835296197922", "this is a message", elements);
+
+Gửi tin nhắn list button cho user id​
+List<Button> buttons = new List<Button>();
+OpenUrlButton openUrlButton = new OpenUrlButton("openUrlButton", "https://stc-developers.zdn.vn/zalo.png");
+OpenSMSButton openSMSButton = new OpenSMSButton("openSMSButton", "0123456789", "message sms");
+OpenPhoneButton openPhoneButton = new OpenPhoneButton("openPhoneButton", "0123456789");
+QueryHideButton queryHideButton = new QueryHideButton("queryHideButton", "queryHideButton");
+QueryShowButton queryShowButton = new QueryShowButton("queryShowButton", "queryShowButton");
+buttons.Add(openUrlButton);
+buttons.Add(openSMSButton);
+buttons.Add(openPhoneButton);
+buttons.Add(queryHideButton);
+buttons.Add(queryShowButton);
+JObject result = client.sendListButtonMessagetoUserId("2468458835296197922", "content", buttons);
+
+Gửi tin nhắn list element và button cho user id​
+List<Element> elements = new List<Element>();
+OpenUrlElement openUrlElement = new OpenUrlElement("openUrlButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "https://stc-developers.zdn.vn/zalo.png");
+OpenSMSElement openSMSElement = new OpenSMSElement("openSMSButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "0123456789", "message sms");
+OpenPhoneElement openPhoneElement = new OpenPhoneElement("openPhoneButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "0123456789");
+QueryHideElement queryHideElement = new QueryHideElement("queryHideButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "queryHideButton");
+QueryShowElement queryShowElement = new QueryShowElement("queryShowButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "queryShowButton");
+elements.Add(openUrlElement);
+elements.Add(openSMSElement);
+elements.Add(openPhoneElement);
+elements.Add(queryHideElement);
+elements.Add(queryShowElement);
+
+List<Button> buttons = new List<Button>();
+OpenUrlButton openUrlButton = new OpenUrlButton("openUrlButton", "https://stc-developers.zdn.vn/zalo.png");
+OpenSMSButton openSMSButton = new OpenSMSButton("openSMSButton", "0123456789", "message sms");
+OpenPhoneButton openPhoneButton = new OpenPhoneButton("openPhoneButton", "0123456789");
+QueryHideButton queryHideButton = new QueryHideButton("queryHideButton", "queryHideButton");
+QueryShowButton queryShowButton = new QueryShowButton("queryShowButton", "queryShowButton");
+buttons.Add(openUrlButton);
+buttons.Add(openSMSButton);
+buttons.Add(openPhoneButton);
+buttons.Add(queryHideButton);
+buttons.Add(queryShowButton);
+JObject result = client.sendListButtonAndElementMessagetoUserId("2468458835296197922", "content", elements, buttons);
+
+Gửi tin nhắn yêu cầu bổ sung thông tin​
+JObject result = client.sendRequestUserProfileToUserId("2468458835296197922", "we need more infomation", "this message is for testing", "https://stc-developers.zdn.vn/zalo.png");
+
+Gửi file cho user id​
+JObject result = client.sendFileToUserId("2468458835296197922", "3FWjM0iBVq05esuON0nwGqteOnWA3sHB4EXl4aiJTqPUkMX47HOb4GlkEqDA4tCLN_Ku5Hi5SHjO-JaO6GTo5bNvFnaGRmT_CUeuVWTqT7fAq5bxRdLb85dH8NnCA1icPz9V8oSj6Y0CrbKk6Iz9VGpKK7uTVnLuMT0CUneX52XStGjyIYnFAM9qoNqt44Ka7m");
+
+Gửi tin nhắn cho message id​
+JObject result = client.sendTextMessageToMessageId("9b1ba6daf7d0578f0ec0", "this is another message");
+
+Gửi tin nhắn hình ảnh cho message id bằng url​
+JObject result = client.sendImageMessageToMessageIdByUrl("9cb8cceb323c9063c92c", "content", "https://stc-developers.zdn.vn/zalo.png");
+
+Gửi tin nhắn hình ảnh cho message id bằng attachment id​
+JObject result = client.sendImageMessageToMessageIdByAttachmentId("9cb8cceb323c9063c92c", "content", "a285de002301ca5f9310");
+
+Gửi tin nhắn list button cho message id​
+List<Button> buttons = new List<Button>();
+OpenUrlButton openUrlButton = new OpenUrlButton("openUrlButton", "https://stc-developers.zdn.vn/zalo.png");
+OpenSMSButton openSMSButton = new OpenSMSButton("openSMSButton", "0123456789", "message sms");
+OpenPhoneButton openPhoneButton = new OpenPhoneButton("openPhoneButton", "0123456789");
+QueryHideButton queryHideButton = new QueryHideButton("queryHideButton", "queryHideButton");
+QueryShowButton queryShowButton = new QueryShowButton("queryShowButton", "queryShowButton");
+buttons.Add(openUrlButton);
+buttons.Add(openSMSButton);
+buttons.Add(openPhoneButton);
+buttons.Add(queryHideButton);
+buttons.Add(queryShowButton);
+JObject result = client.sendListButtonMessageToMessageId("9cb8cceb323c9063c92c", "content", buttons);
+
+Lấy danh sách nhãn​
+JObject result = client.getAllTagOfOfficialAccount();
+
+Gắn nhãn cho user​
+JObject result = client.tagFollower("2468458835296197922", "tagname");
+
+Gỡ nhãn khỏi user​
+JObject result = client.removeTagFromFollower("2468458835296197922", "tagname");
+
+Xòa nhãn​
+JObject result = client.deleteTag("tagname");
+
+Tải lên hình ảnh​
+JObject result = client.uploadImageForOfficialAccountAPI(new ZaloFile("C:\\\\Users\\\\CPU10932-local\\\\Desktop\\\\developers_zalo.png"));
+
+Tải lên ảnh gif​
+JObject result = client.uploadGifForOfficialAccountAPI(new ZaloFile("C:\\\\Users\\\\CPU10932-local\\\\Desktop\\\\minion.gif"));
+
+Tải lên file​
+ZaloFile file = new ZaloFile("C:\\\\Users\\\\CPU10932-local\\\\Desktop\\\\pdf_4mb.pdf");
+file.setMediaTypeHeader("application/pdf");
+JObject result = client.uploadFileForOfficialAccountAPI(file);
+
+Lấy thông tin của Official Account​
+JObject result = client.getProfileOfOfficialAccount();
+
+Lấy lịch sử chat gần nhất theo thời gian​
+JObject result = client.getListRecentChat(0, 10);
+
+Lấy lịch sử chat gần nhất theo user id​
+JObject result = client.getListConversationWithUser(2468458835296197922, 0, 10);
+
+Đăng ký ip​
+JObject result = client.registerIP("ip", "some_name");
+
+Hủy đăng ký ip​
+JObject result = client.removeIP("ip", "some_name");
+
+Cập nhật thông tin mở rộng của người quan tâm​
+JObject result = client.updateFollowerInfo("2468458835296197922", "name", "84123456789", "address", 0, 0);
+
+Broadcast tin nhắn danh sách element(chỉ hỗ trợ element oa.open.url)​
+List<Element> elements = new List<Element>();
+OpenUrlElement openUrlElement = new OpenUrlElement("openUrlButton", "subtitle", "https://stc-developers.zdn.vn/zalo.png", "https://stc-developers.zdn.vn/zalo.png");
+elements.Add(openUrlElement);
+elements.Add(openUrlElement);
+JObject result = client.broadcastLinks(elements, TargetBroadcastGender.ALL);
+
+Trước
+Social API
+Kế tiếp
+Article API
+Khởi tạo ZaloClient
+Lấy danh sách người quan tâm
+Lấy thông tin người quan tâm
+Gửi tin nhắn cho user id
+Gửi tin nhắn hình ảnh cho user id
+Gửi tin nhắn hình ảnh cho user id bằng attachment id
+Gửi tin nhắn ảnh gif cho user id bằng attachment id
+Gửi tin nhắn list element cho user id
+Gửi tin nhắn list button cho user id
+Gửi tin nhắn list element và button cho user id
+Gửi tin nhắn yêu cầu bổ sung thông tin
+Gửi file cho user id
+Gửi tin nhắn cho message id
+Gửi tin nhắn hình ảnh cho message id bằng url
+Gửi tin nhắn hình ảnh cho message id bằng attachment id
+Gửi tin nhắn list button cho message id
+Lấy danh sách nhãn
+Gắn nhãn cho user
+Gỡ nhãn khỏi user
+Xòa nhãn
+Tải lên hình ảnh
+Tải lên ảnh gif
+Tải lên file
+Lấy thông tin của Official Account
+Lấy lịch sử chat gần nhất theo thời gian
+Lấy lịch sử chat gần nhất theo user id
+Đăng ký ip
+Hủy đăng ký ip
+Cập nhật thông tin mở rộng của người quan tâm
+Broadcast tin nhắn danh sách element(chỉ hỗ trợ element oa.open.url)
+©2023 Zalo for Developers

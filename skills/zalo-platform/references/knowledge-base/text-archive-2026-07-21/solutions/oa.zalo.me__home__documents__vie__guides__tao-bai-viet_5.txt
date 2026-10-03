@@ -1,0 +1,156 @@
+# SOURCE: https://oa.zalo.me/home/documents/vie/guides/tao-bai-viet_5
+# FETCHED: 2026-07-21
+# TITLE: Tạo bài viết | Zalo Official Account
+
+Nhảy tới nội dung
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tạo bài viết
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Tạo bài viết/ video
+
+Nội dung là nhóm tính năng cho phép doanh nghiệp quản lý và xuất bản bài viết hoặc video hiển thị trực tiếp trên trang thông tin Zalo OA. Trong đó, xuất bản bài viết/ video là tính năng giúp doanh nghiệp soạn thảo và đăng tải nội dung nhằm cung cấp thông tin về sản phẩm, dịch vụ hoặc các dự án mới nhất tới khách hàng một cách đầy đủ, trực quan và sinh động.
+
+Bài viết/ video sau khi xuất bản có thể được sử dụng để chủ động tiếp cận người dùng qua tin Broadcast, duy trì tương tác với khách hàng thông qua tính năng bình luận, đồng thời thúc đẩy chuyển đổi nhờ các nút kêu gọi hành động (CTA) trong bài viết.
+
+⚠ Lưu ý: Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+
+Hướng dẫn tạo và xuất bản bài viết hoặc video​
+
+Bước 1: Đăng nhập tài khoản trang OA theo hướng dẫn https://oa.zalo.me/manage/oa ➞ Chọn tài khoản OA muốn thao tác.
+
+Bước 2: Truy cập mục Nội dung hoặc truy cập đường dẫn https://oa.zalo.me/manage/content/article/ 
+
+Bước 3: 
+
+a. Soạn bài viết mới bằng 2 cách sau: 
+
+Cách 1: Chọn Nội dung ➞ Danh sách bài viết ➞ Soạn bài viết mới
+
+ 
+
+Cách 2: Chọn Nội dung → tạo broadcast → Soạn bài viết mới
+
+b. Soạn video mới bằng cách sau:
+
+Chọn Nội dung ➞ Danh sách video ➞ Soạn video mới
+
+Bước 4: Điền thành phần cho bài viết/ video 
+
+Tiêu đề (*): (Tối đa 150 ký tự) Nhập tiêu đề cho bài viết. 
+Trích dẫn (*): (Tối đa 300 ký tự) Phần mô tả tóm tắt nội dung chính của bài viết, thu hút sự chú ý của người đọc. 
+Ảnh/Video đại diện (*): Hình ảnh hoặc video để làm nội dung đại diện cho bài viết, thu hút người xem. 
+Nội dung (*): Đây là phần chính của bài viết, cần nhập đầy đủ để bài viết hoàn chỉnh và có ý nghĩa. Doanh nghiệp lựa chọn tính năng “Soạn video mới” sẽ không bao gồm điền mục này.
+Tác giả: (Tối đa 50 ký tự) Tên người viết hoặc nguồn thực hiện bài viết. 
+Tin liên quan: Có thể chọn tối đa 06 bài viết hoặc 03 video khác có nội dung liên quan đến bài viết/ video đang được xuất bản. 
+Nút thao tác Call to action (CTA): (Tối đa 50 ký tự) nút giúp người dùng thực hiện hành động cụ thể như truy cập liên kết hoặc liên hệ, bao gồm tên nút và đường dẫn liên kết. Doanh nghiệp lựa chọn tính năng “Soạn video mới” sẽ không bao gồm điền mục này.
+
+⚠ Lưu ý:
+
+Đối với video: Dung lượng video tải lên tối đa là 50 MB. Hoặc chèn các đường dẫn, mã nhúng video từ các trang web Facebook, Zing MP3, Dailymotion, Vimeo, Zalo Video.
+Đối với hình ảnh: Định dạng .png hoặc .jpg với kích thước 500x320 pixel, dung lượng tối đa 1MB.
+Đối với đường dẫn (URL): Đã hỗ trợ tính năng chèn hyperlink. Chèn link trực tiếp vào Nội dung bài viết và không giới hạn số lượng.
+Hướng dẫn tạo nút thao tác (CTA) trong bài viết​
+
+Click vào biểu tượng ☑ Call to action ➞ Đặt tên cho CTA ➞ Nhập đường dẫn liên kết (link) tương ứng. 
+
+"Ảnh/ Video đại diện" cho bài viết​
+Đối với Video: Dung lượng video tải lên tối đa là 50 MB. 
+Đối với Ảnh: Định dạng .png hoặc .jpg, dung lượng tối đa 15MB.
+
+⚠ Lưu ý:  Để hình ảnh bài viết được hiển thị trọn vẹn, vui lòng sử dụng ảnh kích thước 16:9 với vùng hiển thị an toàn là 14:9 theo như ảnh sau: 
+
+Bước 5: Chọn "Xuất bản" để hoàn tất việc tạo bài viết/ video. 
+
+⚠ Lưu ý:
+
+Số lượng “Lượt xuất bản nội dung” theo Gói dịch vụ OA:
+
+Số lượt xuất bản nội dung tối đa trong tháng khác nhau phụ thuộc vào loại Gói dịch vụ OA đăng ký. Tham khảo chi tiết hạn mức xuất bản bài viết theo Gói tại đây.
+Các bài viết đã xuất bản sau khi xóa sẽ không được khôi phục và cũng được tính là 1 bài viết thành công.
+Hạn mức được thiết lập lại cùng ngày đăng ký Gói của tháng kế tiếp. Ví dụ: đăng ký Gói ngày 22/06, hạn mức được thiết lập lại vào 0h ngày 22/07.
+Để kiểm tra bài viết đã xóa hoặc Quản trị viên xóa bài viết: truy cập mục Quản lý  ➞ Lịch sử hoạt động và Lọc mục “Xóa bài viết”.
+💡 Tip thu hút người quan tâm OA xem bài viết:​
+
+Để bài viết tiếp cận tốt hơn với những người quan tâm, Quý Doanh nghiệp có thể tham khảo hướng dẫn gửi tin Broadcast đến người quan tâm OA tại đây. 
+
+Hướng dẫn quản lý bài viết/ video​
+
+Chọn Nội dung → chọn Danh sách bài viết/ Danh sách video  
+
+1. Tìm kiếm bài viết/ video: Có thể tìm kiếm bài viết/ video theo Tiêu đề.
+
+Trạng thái bài viết/ video và Lọc các bài viết/ video theo thời gian: Kiểm tra được danh sách các bài viết/ video ở Tất cả trạng thái/ Đã xuất bản/ Nháp/ Đặt lịch hoặc Đã ẩn. 
+
+2. Sắp xếp theo mức độ tương tác: Bài viết có thể được xếp thứ tự tăng dần/ giảm dần theo số Lượt xem hoặc Chia sẻ.
+
+3. Thao tác cho từng bài viết: 
+
+Ẩn bài viết: Trạng thái ẩn thì mọi người sẽ không thể xem được bài viết.
+Sửa bài viết: Bài viết sau khi xuất bản có thể chỉnh sửa
+Sao chép bài viết: Bài viết sau khi Xuất bản có thể sao chép toàn bộ bài viết
+Lấy URL bài viết: Lấy link bài viết
+Tắt/Bật bình luận: Quản lý trạng thái tính năng bình luận sau khi bài viết đã được xuất bản
+Xóa bài viết: Bài viết sau khi xóa không thể khôi phục lại
+Quảng cáo bài viết: Chạy quảng cáo để giúp bài viết tiếp cận được nhiều người hơn
+Huớng dẫn trả lời bình luận​
+
+Cách 1: Truy cập đường link: https://oa.zalo.me/manage/comment
+
+Cách 2: Truy cập từ danh mục Chat ➞ Quản lý bình luận
+
+Cách 3: Truy cập bình luận của từng bài viết từ danh mục Nội dung ➞ Danh sách bài viết: Tại cột “Bình luận”, nhấn vào biểu tượng “Xem bình luận của bài viết” màu xanh nằm ngay kế số lượt bình luận của mỗi bài viết.
+
+⚠ Lưu ý: 
+
+OA có thể chủ động quản lý trạng thái của bình luận (xoá, ẩn,...), tuỳ chỉnh có thể được thiết lập tại mục Chat ➞ Quản lý bình luận.
+Khi OA tắt tính năng bình luận, OA vẫn có thể thực hiện các thao tác như bình luận, thích và xoá bình luận trên bài viết. Tuy nhiên người dùng Zalo sẽ không thể bình luận hoặc trả lời trên bài viết đó.
+Khi người dùng bình luận vào bài viết đồng nghĩa với người dùng phát sinh tương tác, từ đó OA có thể gửi tin tư vấn/giao dịch đến khách hàng theo quy định về Tin nhắn của nền tảng Zalo OA.
+Người dùng sẽ nhận được thông báo bằng tin nhắn thông qua cửa sổ chat của người dùng với OA khi có phản hồi bình luận từ OA và người dùng khác.
+
+-----------------------------------------------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Trước
+Xóa tài khoản OA
+Kế tiếp
+Tổng quan các loại tin nhắn trên Zalo Official Account
+Hướng dẫn tạo và xuất bản bài viết hoặc video
+Hướng dẫn tạo nút thao tác (CTA) trong bài viết
+"Ảnh/ Video đại diện" cho bài viết
+Hướng dẫn quản lý bài viết/ video
+Huớng dẫn trả lời bình luận
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

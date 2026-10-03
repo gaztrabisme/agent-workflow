@@ -1,0 +1,149 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/extension/advanced/get-admin-list
+# FETCHED: 2026-08-06
+# TITLE: Lấy danh sách admin | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Tổng quan
+user-profile-config-block
+admin-profile-config-action
+admin-chat-message-profile-block
+admin-chat-message-toolbar-action
+admin-dashboard-primary-area-block
+admin-extension-config-block
+Figma flow demo
+Nâng cao
+zoaSdk tích hợp sẵn trong zoa-cli
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Lấy danh sách admin
+API này cho phép bạn lấy danh sách admin của Official Account (OA) với các quyền quản lý khác nhau.
+Thông tin Request​
+HTTP
+cURL
+GET https://EXTENSION.zalo.me/v1.0/oa/admin/getlist
+curl --location --globoff 'https://openapi.zalo.me/v1.0/oa/admin/getlist?data={"user_id":"186729651760683225","role_name": "MANAGER"}' \ --header 'access_token: <your_oa_accesstoken>'
+Headers​
+Tham số
+Kiểu dữ liệu
+Bắt buộc
+Mô tả
+access_token
+string
+Có
+Token cho phép ứng dụng đại diện OA gọi API
+Query Parameters​
+Tham số
+Kiểu dữ liệu
+Bắt buộc
+Mô tả
+role_name
+string
+Không
+Quyền quản lý OA, hỗ trợ lọc các giá trị: MANAGER, MODERATOR, INSIGHT_ANALYST, ADVERTISER, CUSTOMER SERVICE, AGENCY
+user_id
+string
+Không
+ID của admin cụ thể cần truy xuất thông tin
+Thông tin:
+Tham khảo danh sách các quyền quản lý OA tại đây.
+Response​
+Cấu trúc Response​
+{
+"data": [
+{
+"admin_id": "186729651760683225",
+"role_name": "MANAGER"
+}
+],
+"error": 0,
+"message": "Success"
+}
+Các trường trong Response​
+Trường
+Kiểu dữ liệu
+Mô tả
+data
+array
+Danh sách tất cả admin thỏa điều kiện truyền vào
+data.admin_id
+string
+ID của admin
+data.role_name
+string
+Phân quyền của admin
+error
+number
+Mã lỗi (0 nếu thành công)
+message
+string
+Thông báo kết quả
+Ví dụ​
+Request
+Response
+curl --location --globoff 'https://openapi.zalo.me/v1.0/oa/admin/getlist?data={"role_name": "MANAGER"}' \ --header 'access_token: &lt;your_oa_accesstoken&gt;'
+{
+"data": [
+{
+"admin_id": "186729651760683225",
+"role_name": "MANAGER"
+}
+],
+"error": 0,
+"message": "Success"
+}
+Mẹo
+Sử dụng API này cùng với API Truy xuất danh sách người dùng để lấy thêm thông tin chi tiết của admin.
+Trước
+Phương thức xác thực user
+Kế tiếp
+Tổng quan
+Thông tin Request
+Headers
+Query Parameters
+Response
+Cấu trúc Response
+Các trường trong Response
+Ví dụ
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

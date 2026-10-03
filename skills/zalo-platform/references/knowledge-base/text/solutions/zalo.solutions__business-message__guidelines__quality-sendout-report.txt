@@ -1,0 +1,79 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/quality-sendout-report
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn xem báo cáo chất lượng gửi Tin nhắn ZBS Template trên tài khoản ZBS | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Quản lý tài khoản
+Business Message
+Giới thiệuTài liệu hướng dẫnBảng giáChính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin
+Hướng dẫn xem báo cáo chất lượng gửi Tin nhắn ZBS Template trên tài khoản ZBS
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin
+Hướng dẫn xem báo cáo chất lượng gửi Tin nhắn ZBS Template trên tài khoản ZBS
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+Hướng dẫn xem báo cáo chất lượng gửi Tin nhắn ZBS Template trên tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Hướng dẫn xem báo cáo chất lượng gửi Tin nhắn ZBS Template trên tài khoản ZBS
+Trên trang này
+Hướng dẫn xem báo cáo chất lượng gửi Tin nhắn ZBS Template trên tài khoản ZBS
+A. Các cấp độ gửi Tin nhắn ZBS Template và cách thiết lập mục đích gửi
+Nội dung gửi tin được chia thành những loại nội dung sau, với cấp độ tăng dần dựa trên tính chất phức tạp và rủi ro ảnh hưởng đến trải nghiệm của người nhận. Việc lựa chọn mục đích gửi chỉ áp dụng cho loại tin dạng văn bản và tin dạng bảng.
+Quý khách vui lòng tham khảo tài liệu Quy định chung khi kiểm duyệt mẫu tin nhắn ZBS để biết thông tin chi tiết về các loại cấp độ gửi tin (Tag) và nội dung tương ứng cho từng cấp độ.
+B. Hướng dẫn xem báo cáo chất lượng gửi tin trên tài khoản ZBS
+Quý khách có thể kiểm tra nhanh và xem báo cáo chi tiết chất lượng gửi tin, hướng dẫn chi tiết như sau:
+B.1 Hướng dẫn kiểm tra nhanh
+Truy cập vào tài khoản ZBS → Chọn "Chất lượng gửi tin."
+Mỗi OA khi bắt đầu sử dụng dịch vụ tin đều có báo cáo nhanh về cấp độ được gửi hiện tại và hạn mức mỗi ngày.
+Hình minh hoạ: OA có tên là Qc Test ZNS 4 với OA ID là 3042881048992527255 đang được cấp phép gửi tin ở các cấp độ (Tag) 1, 2, 3 với hạn mức 20.000 ZNS/ngày
+B.2 Hướng dẫn kiểm tra chi tiết
+Truy cập vào tài khoản ZCA → Chọn "Chất lượng gửi tin" → Nhấn "Xem báo cáo" để xem chi tiết báo cáo chất lượng gửi tin của từng OA đã liên kết với tài khoản ZBS.
+Tại đây, Quý khách sẽ xem được báo cáo chi tiết về chất lượng gửi của OA, đồng thời, hệ thống sẽ phân tích rõ các yếu tố cần để OA tăng/giảm hạn mức và chất lượng.
+C. Cơ chế đánh giá chất lượng và quyền lợi gửi Tin nhắn ZBS Template
+Trong hoạt động gửi thông báo chăm sóc khách hàng qua Zalo, tỉ lệ báo xấu (phản hồi tiêu cực) của người nhận tin sẽ ảnh hưởng đến quyền lợi của doanh nghiệp vì liên quan trực tiếp đến số lượng ZNS gửi mỗi ngày cũng như loại nội dung thông báo có thể gửi. Để có thể nắm các thông tin về cơ chế đánh giá chất lượng và quyền lợi gửi tin từ Zalo Business Solutions chính xác nhất, quý doanh nghiệp vui lòng tham khảo bài viết Cơ chế đánh giá chất lượng và quyền lợi gửi ZNS.
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Chúng tôi có thể làm cho bài viết này hữu ích hơn bằng cách nào?
+Nội dung bài viết cần ví dụ chi tiết hơn.
+Nội dung bài viết cần diễn đạt dễ hiểu hơn.
+Nội dung bài viết chưa chính xác.
+Khác
+Trở lạiGửi đi
+Trước
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin
+Kế tiếp
+Quy định chung khi kiểm duyệt mẫu tin nhắn ZBS
+A. Các cấp độ gửi Tin nhắn ZBS Template và cách thiết lập mục đích gửi
+B. Hướng dẫn xem báo cáo chất lượng gửi tin trên tài khoản ZBS
+B.1 Hướng dẫn kiểm tra nhanh
+B.2 Hướng dẫn kiểm tra chi tiết
+C. Cơ chế đánh giá chất lượng và quyền lợi gửi Tin nhắn ZBS Template
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam

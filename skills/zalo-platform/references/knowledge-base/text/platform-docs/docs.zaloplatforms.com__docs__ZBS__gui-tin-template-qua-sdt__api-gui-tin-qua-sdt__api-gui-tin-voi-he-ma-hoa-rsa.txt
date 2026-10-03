@@ -1,0 +1,227 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/gui-tin-template-qua-sdt/api-gui-tin-qua-sdt/api-gui-tin-voi-he-ma-hoa-rsa
+# FETCHED: 2026-08-06
+# TITLE: API Gửi tin với hệ mã hóa RSA | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API Gửi tin
+API Gửi tin sử dụng hash phone
+API Gửi tin sử dụng development mode
+API Gửi tin với hệ mã hóa RSA
+API Gửi tin Journey
+API truy xuất thông tin gửi tin qua SĐT
+API Lấy thông tin trạng thái gửi tin qua SĐT
+API Lấy thông tin quota gửi tin qua SĐT
+API Lấy thông tin chất lượng gửi tin qua SĐT hiện tại của OA
+Webhook gửi tin qua SĐT
+Sự kiện thay đổi về hạn mức gửi tin qua SĐT
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận tin qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+API Gửi tin với hệ mã hóa RSA
+API cho phép khách hàng của đối tác mã hóa nội dung thông báo trước khi truyền đến hệ thống của đối tác để thực hiện xử lý lệnh. Nội dung đã mã hóa sẽ được dịch lại ở phía Zalo.
+Lưu ý
+Quyền cần có: Gửi tin qua số điện thoại
+Tổng quan luồng mã hóa nội dung
+Bước 1: Tạo RSA key
+API tạo RSA key cho phép đối tác tạo 1 cặp key gồm public key và private key. Public key sẽ được trả về cho đối tác để cung cấp cho khách hàng. Private key sẽ được Zalo lưu trữ để giải mã nội dung nhận được từ phía đối tác trước khi gửi đến người dùng. Trong trường hợp đối tác đã tạo RSA key, vui lòng sử dụng API lấy public key để nhận được public key.
+Tạo public key​
+HTTP request​
+URL: https://business.openapi.zalo.me/rsa/key/gen
+Method: GET
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" -d "https://business.openapi.zalo.me/rsa/key/gen"
+Tham số header​
+Tên Header
+Kiểu dữ liệu
+Mô tả
+access_token
+string
+Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo.
+Example respond​
+{
+"data": {
+"public_key": "e6fa968f027"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc tham số data​
+Tên biến
+Kiểu dữ liệu
+Mô tả
+public_key
+string
+Public key để khách hàng của đối tác có thể mã hóa thông báo.
+Lưu ý: Public key này đã được Zalo chuyển đổi từ định dạng byte array sang string theo chuẩn mã hóa base64.
+Lấy public key​
+HTTP request​
+URL: https://business.openapi.zalo.me/rsa/key/get
+Method: GET
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" -d "https://business.openapi.zalo.me/rsa/key/get"
+Tham số header​
+Tên Header
+Kiểu dữ liệu
+Mô tả
+access_token
+string
+Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Example respond​
+{
+"data": {
+"public_key": "e6fa968f027"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc tham số data​
+Tên biến
+Kiểu dữ liệu
+Mô tả
+public_key
+string
+Public key để khách hàng của đối tác có thể mã hóa thông báo.
+Lưu ý: Public key này đã được Zalo chuyển đổi từ định dạng byte array sang string theo chuẩn mã hóa base64.
+Bước 2: Gửi public key cho khách hàng
+Đối tác vui lòng gửi public key cho khách hàng. Lưu ý:
+Public key mà đối tác nhận được ở bước 1 sẽ ở dạng string. Vui lòng sử dụng chuẩn mã hóa Base64 để chuyển đổi public key về định dạng byte array.
+Cipher Type khi encode: RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING
+Bước 3: Gửi nội dung đã được mã hóa
+Khách hàng của đối tác sẽ sử dụng public key để mã hóa số điện thoại của người nhận và từng nội dung trong template_data trước khi truyền cho đối tác thực hiện gửi.
+Ví dụ: Với nội dung tin nhắn gốc: “Đây là tin nhắn mẫu”, public key bạn nhận được có dạng như sau:
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAnoSa3FcFgH19rI7Emp5SoHthGjlwwgWDNc30h82Z1K/nGa6mxW4VLaSGQS3ykg070xAFL80x0Vadkt3K/EITacB3MUxouyqMpMD+a0SbSYw+u9nT0QUJRvRMTJ679QFm0g9V943wa8OTHNNHalEc2tl7B9MjBl3/I5YgYXp5oG2YocrIFMNwlaujd+yiYCsmTMVDB7VtRgBmN0nPFfebl6E2CTTbWfnJsUZaqp3Njph0ab7XM2QnaDyd9xACtRMGFm4EaXEuuqvqH4acz6eu3YfUgm669B87sC8s/7pFs62laoTf+uPeZt1o8pQ3uRvenbvSXMRkWhpNOmnka2UqdD4DhOCNl6Jba4oVgECnJCp6SudfsE17VuANAkeRJOcUhRcHoBt8zs57AzA8qmd6RG6eRtz/9EXTBoetaUwPMumfQmF55XV7r1cwGd8Vdtid4llXGqVdUkCky67a/zyoEsjNTN1q8uw0+0InSkypLp7UROgEMUnrI0DL5yyDmOhimn0eXNVtut8bEyvBorrNwsCxxr4G/gv0e6HSaSaHfhh94w2t0STEcykZYoIBz9HEcto+8glePAYxFLHs8ifj36skfTXdrDN64Z8rp/yRYlZ9IRu2bJnc/dM1AV9mwvebgWcr5KPPOipHMXWosbZl08N5Tu1AiJ/sZUykTi3hJF0CAwEAAQ==
+Sử dụng public key trên để mã hóa nội dung gốc. Nội dung sau khi được mã hóa theo chuẩn base64 sẽ có dạng như sau
+FsytVT99s5mBhvuBuJ4a9bZGkOcPesPYo/u0LctnWGTkkVK6NOcFQHhvkkK82HGBc0ybz6RvxQUIbpoJ1UGRwPNvcVWQ4w/VFJhA7ajU42S+ig2fI09k8OTqfhmvlriWdo4XpqQY7p3KwP0nV1N6MvQGB0Goc2OI8sLl9wk9/JAAs2SZzEypBdasxFWV5CW5uJ+nVo4DM3PoTn/OFtIf4GVmCu16pQJfaCl0hNt7pwZMPsVBy5PxEUegffYs/ru0IgSY6DVD8xNZC1FerhaLJAljWt03zO/hVUhqDmN3K2Ff7mu7nYvPMMPZWhGVKPafc+pRGzBIle96z9dmH8iruns8LUppA08x8AcHEmHqdMRtYzV3H+ss2x7YL2bu3OYNmvEGaSjhu7GCE3/R5GrtJi4mzgkTRkuyU8dCc5uj8g+UXqSwTV0OwGcGvXVqRMthkQ4BHnBNmxwT+7Awx5ARAm2u7s+PciYUNHH25Y83k1Ao38OSznt0iuet3kMF23JmDNWirbNEahHcHTxkASrd8MpdwY98nWTpu6q1RSvz8HO5CfV6i6jjpumPwm8dWeLkZiupg6EjPryXlNffjmedbhgGKdjAbcPS+7eBnxjvFzpFFZ0cJfkZ+IiktftraZjT6ird8alhSYrHd6f8a4nM1srklyh1bKeim0/eF4MzBA0=
+Sau khi nhận được nội dung đã mã hóa từ phía khách hàng, đối tác sử dụng API gửi nội dung đã mã hóa để gửi thông báo đến người quan tâm thông qua Zalo. Zalo sẽ sử dụng private key (được lưu trữ bảo mật phía Zalo) để giải mã nội dung và gửi đến cho người quan tâm.
+HTTP request​
+URL: https://business.openapi.zalo.me/rsa/message/template
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X POST
+-H "Content-Type: application/json"
+-d "https://business.openapi.zalo.me/rsa/message/template"
+Tham số header​
+Tên Header
+Kiểu dữ liệu
+Mô tả
+access_token
+string
+Là một đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Body​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+rsa_phone
+string
+yes
+SĐT của người nhận đã được mã hóa với public key (Theo chuẩn base64)
+Lưu ý: SĐT trước khi mã hóa phải được liên kết với tài khoản Zalo và được viết ở định dạng chuẩn hóa theo mã quốc gia (VD: SĐT 0987654321 viết theo định dạng chuẩn hóa của Việt Nam là 84987654321 hoặc +84987654321)
+template_id
+string
+yes
+ID của template muốn sử dụng.
+template_id sẽ được phía Zalo cung cấp riêng cho từng đối tác.
+template_data
+JSON object
+yes
+Các thuộc tính của template mà đối tác đã đăng ký với Zalo. Giá trị của param: Đã được mã hóa với public key (theo chuẩn Base64)
+Lưu ý: Cấu trúc template_data được quy định riêng ứng với từng template.
+tracking_id
+string
+yes
+Mã số đánh dấu lần gọi API của đối tác, do đối tác định nghĩa. Đối tác có thể dùng tracking_id để đối soát mà không phụ thuộc vào message_id của Zalo cung cấp.
+Lưu ý: Zalo khuyến khích sử dụng tham số có độ dài tối đa 48 ký tự và không chứa kí tự đặc biệt.
+Example body​
+{
+"rsa_phone": "YxLw/6km7vSKUZg3zH21lJNL2OQ4NIkirMD8P3vj+Vl1PhEdC+Dlnyo4s1mlpN24BmLuxVU1FdmAebV0vqLzrB4S1G9nGIqHh0uxKhIL8uSKxLqIiR5F+EDTZ/GUFDb9WB63p9a831Nd0NkMNFJgiJ6juhZ8NByy81rGfM+9Mx89kafK4nIGtCjvLuPy7daXPwpWpIBRnL5em31OnSAZswKxXN7LQyLrBJPbhOMZEfWTMexY7GGkA3ua654nVUSc2vs+YaUHTi/sn+1iyio5wnNiRErHV5lhId588aPMtSSIJFIUBlHFhma+nyApAVRK57NkYKAF7YOos9CImbUD+yOhbajBDhi9gSMvfvt/amASbVVGv6YRnndS4+09cAbUwiH3OR2VHlPIqU4rTuSuPmmEwoDoeQbQO6HarUvgud9breXIsctct9vmsyN4oodjS1/djzwgiEggs4rHt7eJmm3sLjXCCmxr9bQLFm9J5RQCooTRUVnaoXw0UOSc9qhUev1rhkoOTe+hq9Ush1FhE9HHmOzJ37Mq+vro/k26F72xB8cnlEieeLqDTOSCL4E2rcmpdeov5bH8Mp4WarnqMR2oldhFc3tTwAt3jZlOGrN6RpvdteqYx0VOTLoGzuUVv4HJ4qgV5FylLNEEEWbQSoZIVXO3uaqj9Q2ugvQ5BeE=",
+"template_id": "1234567",
+"template_data": {
+"param_1": "YxLw/6km7vSKUZg3zH21lJNL2OQ4NIkirMD8P3vj+Vl1PhEdC+Dlnyo4s1mlpN24BmLuxVU1FdmAebV0vqLzrB4S1G9nGIqHh0uxKhIL8uSKxLqIiR5F+EDTZ/GUFDb9WB63p9a831Nd0NkMNFJgiJ6juhZ8NByy81rGfM+9Mx89kafK4nIGtCjvLuPy7daXPwpWpIBRnL5em31OnSAZswKxXN7LQyLrBJPbhOMZEfWTMexY7GGkA3ua654nVUSc2vs+YaUHTi/sn+1iyio5wnNiRErHV5lhId588aPMtSSIJFIUBlHFhma+nyApAVRK57NkYKAF7YOos9CImbUD+yOhbajBDhi9gSMvfvt/amASbVVGv6YRnndS4+09cAbUwiH3OR2VHlPIqU4rTuSuPmmEwoDoeQbQO6HarUvgud9breXIsctct9vmsyN4oodjS1/djzwgiEggs4rHt7eJmm3sLjXCCmxr9bQLFm9J5RQCooTRUVnaoXw0UOSc9qhUev1rhkoOTe+hq9Ush1FhE9HHmOzJ37Mq+vro/k26F72xB8cnlEieeLqDTOSCL4E2rcmpdeov5bH8Mp4WarnqMR2oldhFc3tTwAt3jZlOGrN6RpvdteqYx0VOTLoGzuUVv4HJ4qgV5FylLNEEEWbQSoZIVXO3uaqj9Q2ugvQ5BeE="
+}
+}
+Example respond​
+{
+"data": {
+"sent_time": "1619595918601",
+"msg_id": "b15f0398cb7a1e264769"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+sent_time
+string
+Thời gian gửi tin qua SĐT (định dạng timestamp).
+msg_id
+string
+ID của tin qua SĐT.
+Trước
+API Gửi tin sử dụng development mode
+Kế tiếp
+API Gửi tin Journey
+Tạo public key
+HTTP request
+Example request
+Tham số header
+Example respond
+Cấu trúc tham số data
+Lấy public key
+HTTP request
+Example request
+Tham số header
+Example respond
+Cấu trúc tham số data
+HTTP request
+Example request
+Tham số header
+Body
+Example body
+Example respond
+Cấu trúc thuộc tính data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

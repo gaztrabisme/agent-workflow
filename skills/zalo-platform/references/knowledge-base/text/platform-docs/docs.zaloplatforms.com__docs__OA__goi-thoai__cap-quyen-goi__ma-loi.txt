@@ -1,0 +1,97 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/goi-thoai/cap-quyen-goi/ma-loi
+# FETCHED: 2026-08-06
+# TITLE: Mã lỗi | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Tổng quan
+Hướng dẫn kết nối ZCC
+Cấp quyền gọi
+Gửi yêu cầu cấp quyền gọi
+Kiểm tra người dùng đã cấp quyền gọi
+Mã lỗi
+Tạo link gọi thoại
+Tạo link gọi thoại outbound từ OA đến người dùng
+Tạo link gọi thoại inbound từ người dùng đến OA
+Lấy thông tin Agent, Branch
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Mã lỗi
+Giá trị
+Ý nghĩa
+0
+User approved the request
+1
+Already allowed to call
+2
+Request sent
+3
+User rejected the request
+4
+User blocked
+5
+The number of requests allowed is exceeded, please try again later
+6
+Insufficient permissions
+7
+A reason is required to request user consent
+8
+Waiting for user approval
+9
+The user has not yet interacted with this OA
+10
+Bad connection
+11
+Bad request
+12
+Something went wrong, please retry later
+13
+Invalid param
+14
+Failed
+16
+Consent expired
+18
+Outside working hours
+19
+Not in permitted time range
+20
+OA has not yet requested user consent
+21
+OA has turned off inbound call
+Trước
+Kiểm tra người dùng đã cấp quyền gọi
+Kế tiếp
+Tạo link gọi thoại outbound từ OA đến người dùng
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

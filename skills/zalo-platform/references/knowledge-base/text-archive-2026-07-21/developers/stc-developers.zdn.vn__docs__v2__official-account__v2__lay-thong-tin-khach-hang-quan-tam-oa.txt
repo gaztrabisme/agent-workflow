@@ -1,0 +1,386 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/v2/lay-thong-tin-khach-hang-quan-tam-oa
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin khách hàng quan tâm OA | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Broadcast bài viết
+Các loại tin và định dạng được hỗ trợ
+Gửi lệnh phản hồi người dùng
+Gửi thông báo văn bản
+Gửi thông báo đính kèm file
+Gửi thông báo kèm sticker
+Gửi thông báo theo mẫu đính kèm ảnh
+Gửi thông báo theo mẫu đính kèm danh sách
+Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Lấy thông tin quota lệnh chủ động miễn phí
+Lấy thông tin quota lệnh phản hồi người dùng
+Thả biểu tượng cảm xúc vào tin nhắn
+Trả lời tin nhắn
+Lấy danh sách khách hàng quan tâm OA
+Lấy thông tin khách hàng quan tâm OA
+Cập nhật thông tin khách hàng quan tâm OA
+Lấy quota tin Tư vấn
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)Lấy thông tin khách hàng quan tâm OA
+Lấy thông tin khách hàng quan tâm OA
+MẸO
+
+Sử dụng API lấy thông tin của người dùng khi đáp ứng một trong những điều kiện sau:
+
+Người dùng đã quan tâm OA.
+Người dùng là admin của OA.
+Người dùng là admin của App được OA cấp quyền gọi API.
+LƯU Ý
+
+Ứng dụng cần được cấp quyền quản lý thông tin OA
+
+API này được thay thế bởi API Lấy thông tin người dùng và sẽ dừng hỗ trợ OA Doanh nghiệp từ ngày 01/06/2024
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/getprofile
+Method: GET
+Response Type: text/json
+Example request​
+curl \
+-X GET \
+-H 'access_token: <your_access_token>' \
+'https://openapi.zalo.me/v2.0/oa/getprofile?data={"user_id":"567826391599986760"}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+
+Tham số​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+data
+
+	
+
+Json object
+
+	
+
+yes
+
+	
+
+Thông tin truyền vào để lấy dữ liệu
+
+Cấu trúc tham số data​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+ID của người quan tâm cần lấy thông tin.
+
+Example respond​
+
+{
+    "error": 0,
+    "message": “Success”,
+    "data": {
+        "user_id": 567826391599986760,
+        "user_id_by_app": 56782639,
+        "avatar": String,
+        "avatars": {
+            "120": String,
+            "240": String
+        },
+        "display_name": "Phạm Khoa",
+        "tags_and_notes_info": {
+            "tag_names":[
+                   "Khách VIP"
+              ],
+            "notes": [
+                   "Discount 10%"
+              ]
+        }
+    }
+}
+
+Cấu trúc thuộc tính data​
+
+Thuộc tính
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+user_gender
+
+	
+
+int
+
+	
+
+Giới tính của người quan tâm. Các giá trị trả về:
+
+· 0: Không xác định
+
+· 1: Nam
+
+· 2: Nữ
+
+LƯU Ý
+
+Zalo đã không còn trả về thông tin giới tính của người quan tâm.
+
+Vì lý do bảo vệ tính toàn vẹn của Object Json, biến này có thể vẫn còn nhưng sẽ luôn trả về giá trị = 0.
+
+
+
+
+user_id
+
+	
+
+long
+
+	
+
+ID của người quan tâm
+
+
+is_sensitive	
+
+boolean
+
+	
+
+Có 2 giá trị:
+
+true: tài khoản này dưới 18 tuổi.
+false: tài khoản này từ đủ 18 tuổi trở lên.
+
+
+
+user_id_by_app
+
+	
+
+long
+
+	
+
+ID của người quan tâm ứng với app
+
+
+
+
+avatar
+
+	
+
+string
+
+	
+
+Đường dẫn đến ảnh đại diện của người dùng (ảnh có kích thước đúng với size ảnh hiển thị trên app Zalo)
+
+
+
+
+avatars
+
+	
+
+string
+
+	
+
+Đường dẫn đến ảnh đại diện của người dùng.
+
+· 120: đường dẫn đến ảnh size nhỏ hơn kích thước chuẩn.
+
+· 240: đường dẫn đến ảnh size lớn hơn kích thước chuẩn.
+
+
+
+
+display_name
+
+	
+
+string
+
+	
+
+Tên hiển thị của người quan tâm
+
+
+
+
+shared_info
+
+	
+
+json
+
+	
+
+Thuộc tính trả về thông tin người dùng đã submit cho OA (qua API Gửi thông báo theo mẫu yêu cầu thông tin người dùng)
+
+VD:
+
+"shared_info": {
+    "address": "14 Phan Xích Long",
+    "city": "Hồ Chí Minh",
+    "district": "Quận Phú Nhuận",
+    "ward": "",
+    "phone": 84868602410,
+    "name": "Phạm Khoa"
+},
+
+
+Lưu ý: thuộc tính chỉ được trả về khi người dùng đã gửi thông tin cho OA. Tham khảo API Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+
+
+
+
+tags_and_notes_info
+
+	
+
+json
+
+	
+
+Thông tin nhãn và ghi chú OA gắn cho người quan tâm.
+
+"tags_and_notes_info": {
+  "notes": [
+        "Discount 10% mỗi đơn hàng."
+      ],
+  "tag_names": [
+        "Khách VIP",
+        "Phú Nhuận",
+        "Product"
+      ]
+}
+
+Trước
+Lấy danh sách khách hàng quan tâm OA
+Kế tiếp
+Cập nhật thông tin khách hàng quan tâm OA
+HTTP request
+Example request
+Tham số header
+Tham số
+Cấu trúc tham số data
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

@@ -1,0 +1,47 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/social-api/tham-khao/cau-hinh-app-callback-url
+# FETCHED: 2026-07-21
+# TITLE: Cấu hình App Callback Url | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Chính sách nền tảng của Zalo
+Demonstrating Proof-of-Possession
+Tham khảoCấu hình App Callback Url
+Cấu hình App Callback Url
+
+Bài viết này sẽ hướng dẫn cách cấu hình redirect_uri dùng khi bạn tích hợp Login Zalo. Redirect_uri là đường dẫn mà Zalo sẽ redirect về sau khi người dùng đã đồng ý cấp quyền cho ứng dụng của bạn.
+
+Bước 1: Vào trang cấu hình ứng dụng và chọn mục "Đăng nhập":​
+Bước 2: Chọn mục "Thêm nền tảng":​
+Bước 3: Chọn nền tảng "Web":​
+Bước 4: Điền callback url (chính là redirect_uri) và chọn "Lưu":​
+
+Cảm ơn bạn đã quan tâm và sử dụng các tiện ích của Zalo Platform. Ngoài Social API, Zalo Platform còn hỗ trợ Official Account để bạn có thể tạo dựng một kênh liên lạc và chia sẻ giữa người quan tâm và doanh nghiệp, cửa hàng, câu lạc bộ,...... Bạn có thể tham khảo thêm Official Account API để quản lý và gửi tin nhắn từ Official Account đến người quan tâm.
+
+Trước
+Một số lưu ý với User Access Token V4
+Kế tiếp
+Hướng dẫn tạo liên kết để chia sẻ
+Bước 1: Vào trang cấu hình ứng dụng và chọn mục "Đăng nhập":
+Bước 2: Chọn mục "Thêm nền tảng":
+Bước 3: Chọn nền tảng "Web":
+Bước 4: Điền callback url (chính là redirect_uri) và chọn "Lưu":
+©2023 Zalo for Developers

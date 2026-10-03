@@ -1,0 +1,314 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/media/camera/createCameraContext
+# FETCHED: 2026-08-06
+# TITLE: createCameraContext | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+createCameraContext
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.39.0
+Nhằm đơn giản hóa cách truy cập và sử dụng camera/micro trên nền tảng MiniApp, SDK cung cấp class ZMACamera với các
+chức năng như thay đổi động thông số streaming, tắt/bật camera/micro, chuyển camera, chụp ảnh với cấu hình tùy chọn, và
+lắng nghe các sự kiện liên quan đến camera (vd: frame realtime callback khi streaming camera).
+Lưu ý:
+Các hàm thay đổi trạng thái streaming (start, pause, resume, updateMediaConstraints, setDeviceId, flip) sẽ trả về một
+Promise, bạn cần sử dụng await hoặc .then() để đảm bảo không xung đột trạng thái dẫn đến các chức năng hoạt động không
+như mong đợi.
+Sau khi sử dụng xong, bạn nên gọi hàm stop để giải phóng camera/micro. Vì lý do privacy của
+user khi app xuống background sẽ stop streaming, nếu app muốn tiếp tục streaming khi quay lại foreground thì cần gọi
+lại hàm start.
+Parameters​
+Object object​
+Property
+Type
+Default
+Required
+Description
+Minimum Version
+videoElement
+HTMLVideoElement
+true
+thẻ video chính để render stream từ camera
+mediaConstraints
+MediaConstraints
+width: 1024,
+height: 768,
+facingMode: FacingMode.FRONT,
+mirrored: false,
+audio: false,
+video: true
+Cấu hình khởi tạo streaming. Mặc định chỉ lấy stream từ camera,
+MediaConstraints object​
+Property
+Type
+Default
+Required
+Description
+Minimum Version
+width
+number
+Chiều rộng của video
+height
+number
+Chiều cao của video
+facingMode
+FacingMode
+Hướng camera
+deviceId
+string
+deviceId camera cần sử dụng. DeviceId lấy từ getCameraList
+video
+boolean
+Bật/tắt stream camera
+audio
+boolean
+Bật/tắt stream micro
+mirrored
+boolean
+Chế độ gương, lật ngược ảnh
+FacingMode enum​
+FRONT: Camera trước
+BACK: Camera sau
+Return Values​
+<ZMACamera object>​
+Property
+Type
+Description
+Minimum Version
+start
+function
+Bắt đầu streaming từ camera
+stop
+function
+Kết thúc streaming từ camera
+pause
+function
+Tạm dừng streaming
+resume
+function
+Tiếp tục lại streaming
+isUsing
+function
+Kiểm tra trạng thái streaming
+updateMediaConstraints
+function
+Update cấu hình streaming
+takePhoto
+function
+Chụp ảnh từ camera
+flip
+function
+Chuyển camera trước/sau
+setMirror
+function
+Bật/tắt chế độ gương cho ảnh.
+getCameraList
+function
+Lấy danh sách camera đang active trên điện thoại
+getSelectedDeviceId
+function
+Lấy deviceId của camera đang active
+setDeviceId
+function
+Chuyển camera active bằng deviceId
+on
+function
+Lắng nghe các sự kiện CameraEvents
+off
+function
+Ngừng lắng nghe sự kiện CameraEvents
+Sample Code​
+JSTS
+import React, { useEffect, useRef } from "react";
+import { Box, Page } from "zmp-ui";
+import { createCameraContext, FacingMode } from "zmp-sdk/apis";
+const HomePage = () => {
+const videoRef = useRef(null);
+useEffect(() => {
+const videoElement = videoRef.current;
+if (!videoElement) {
+console.log("Media component not ready");
+return;
+}
+const camera = createCameraContext({
+videoElement: videoElement,
+mediaConstraints: {
+width: 640,
+height: 480,
+facingMode: FacingMode.BACK,
+audio: false,
+},
+});
+}, []);
+return (
+<Page>
+<Box>
+</Box>
+</Page>
+);
+};
+export default HomePage;
+Trước
+getLocation
+Kế tiếp
+CameraContext.start
+Parameters
+Object object
+MediaConstraints object
+FacingMode enum
+Return Values
+<ZMACamera object>
+Sample Code
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,74 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/truy-van-tu-dong_4451403806450074116
+# FETCHED: 2026-08-06
+# TITLE: Truy vấn tự động | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thiết lập tài khoản OA
+Truy vấn tự động
+On this page
+Truy vấn tự động
+Truy vấn là tính năng phản hồi tự động dựa theo các cú pháp truy vấn được thiết lập sẵn (Ví dụ #ten_cu_phap). Mỗi cú pháp khi thiết lập sẽ bao gồm:
+Tên cú pháp.
+Nội dung phản hồi.
+Các cú pháp này có thể được kích hoạt bởi thông qua hành động:
+Người dùng gửi tin truy vấn theo đúng cú pháp.
+Người dùng tương tác với thanh menu.
+Vui lòng xem thêm hướng dẫn dưới đây để thiết lập truy vấn tự động.
+Bước 1: Truy cập trang truy vấn​
+Truy cập trang Quản lý ➞ Thiết lập tương tác ➞ Thiết lập chat hoặc truy cập trực tiếp vào đường dẫn: https://oa.zalo.me/manage/setting
+Bước 2: Tạo Truy vấn tự động​
+Chọn "Thêm truy vấn" tại phần Truy vấn tự động.
+Bước 3: Nhập nội dung truy vấn gồm:​
+Tên cú pháp truy vấn: Cú pháp cần bắt đầu bằng kí tự #, viết liền không dấu, tối đa 40 ký tự.
+Nội dung phản hồi: Anh/chị có thể chọn 1 trong 3 dạng nội dung sau đây.
+Tin nhắn văn bản
+Cú pháp bắt đầu bằng # và có tối đa 40 ký tự, viết liền không dấu.
+Nội dung tối đa 500 ký tự.
+Tin nhắn hình ảnh
+Cú pháp bắt đầu bằng # và có tối đa 40 ký tự, viết liền không dấu.
+Hình ảnh nên có tỉ lệ 1:1
+Mô tả hình ảnh tối đa 150 ký tự.
+Tin nhắn liên kết
+Cú pháp bắt đầu bằng # và có tối đa 40 ký tự, viết liền không dấu.
+Hình ảnh nên có tỉ lệ 14:9
+Tiêu đề tối đa 150 ký tự.
+Mô tả tối đa 300 ký tự.
+Bước 4: Nhấn "Tạo truy vấn" để hoàn tất.​
+Cú pháp sẽ không thể thay đổi sau khi tạo.
+Nội dung truy vấn có thể thay đổi sau khi tạo.
+Truy vấn đã thiết lập sẽ có thể được kích hoạt bởi tất cả người dùng.
+Hệ thống sẽ tự động nhận diện người dùng gọi truy vấn khi tin gửi đến OA có ký tự bắt đầu là #. Trong trường hợp cú pháp truy vấn sai, hệ thống sẽ báo lỗi và liệt kê danh sách các truy vấn của OA như ví dụ sau:
+Ngoài việc người dùng gửi truy vấn theo đúng cú pháp, anh/chị có thể tích hợp yêu cầu truy vấn vào thanh menu. Khi người dùng nhấn vào thanh menu, hệ thống sẽ trả về nội dung phản hồi tự động tương ứng với cú pháp đã thiết lập. Xem thêm Thiết lập thanh menu cho Official Account.
+--------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT Zalo OA để được phản hồi sớm nhất.
+Previous
+Ảnh đại diện, ảnh bìa OA
+Next
+Thanh menu
+Bước 1: Truy cập trang truy vấn
+Bước 2: Tạo Truy vấn tự động
+Bước 3: Nhập nội dung truy vấn gồm:
+Bước 4: Nhấn "Tạo truy vấn" để hoàn tất.

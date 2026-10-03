@@ -1,0 +1,41 @@
+# SOURCE: https://bot.zapps.me/docs/
+# FETCHED: 2026-08-06
+# TITLE: Giới thiệu | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Trang chủ
+Bắt đầuTài liệuGiá góiGiải phápFAQ
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Giới thiệu
+Kế tiếp
+Cập nhật lần cuối: 24/7/2025
+Tài liệu hướng dẫn dành cho nhà phát triển muốn xây dựng và tích hợp chatbot vào hệ sinh thái Zalo thông qua nền tảng Zalo Bot Platform.
+Zalo Bot là một tài khoản tự động (bot) hoạt động trên nền tảng Zalo, cho phép doanh nghiệp hoặc nhà phát triển tương tác tự động với người dùng thông qua tin nhắn ngay trong cửa sổ chat.
+Zalo Bot hỗ trợ triển khai các giải pháp tự động hóa (automation) trên nền tảng Zalo.
+Giúp doanh nghiệp dễ dàng xây dựng quy trình gửi thông báo, kết nối với các hệ thống nội bộ như ERP, CRM, CDP... Từ đó giúp chuẩn hóa quy trình, tăng tốc vận hành và tối ưu chi phí.
+Kế tiếp
+EN
+Zalo Bot Platform
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+Công Ty TNHH Zalo Platforms
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+© 2025 Zalo Platforms. All Rights Reserved.

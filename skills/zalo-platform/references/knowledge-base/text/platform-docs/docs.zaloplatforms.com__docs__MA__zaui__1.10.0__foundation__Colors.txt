@@ -1,0 +1,345 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.10.0/foundation/Colors
+# FETCHED: 2026-08-06
+# TITLE: Colors | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.10.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Layout
+Stack
+ZBox
+Center
+Cluster
+Grid
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Colors
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.10.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Bảng màu và gợi ý sử dụng màu sắc chuẩn Zalo Mini App
+Primary Color
+B60
+Copied: #006AF5
+Brand-primary
+Text Color
+NG100
+Copied: #141415
+text-primary
+NG60
+Copied: #767A7F
+text-secondary
+NG40
+Copied: #B9BDC1
+text-disable
+WHT_A100
+Copied: #FFFFFF
+text-white
+B90
+Copied: #03316D
+text-blue
+Icon Color
+NG100
+Copied: #141415
+icon-01
+NG60
+Copied: #767A7F
+icon-02
+NG40
+Copied: #B9BDC1
+icon-03
+WHT_A100
+Copied: #FFFFFF
+icon-04
+Background Color
+NG20
+Copied: #E9EBED
+page-bg-default
+WHT_A100
+Copied: #FFFFFF
+page-bg-white
+NG10
+Copied: #F4F5F6
+page-bg-gray
+Divider Color
+NG20
+Copied: #E9EBED
+divider-01
+NG30
+Copied: #D6D9DC
+divider-02
+Border Color
+NG20
+Copied: #E9EBED
+border-01
+NG30
+Copied: #D6D9DC
+border-02
+R60
+Copied: #DC1F18
+border-danger
+B60
+Copied: #006AF5
+border-selected
+Interactive
+R60
+Copied: #DC1F18
+danger
+R70
+Copied: #A51712
+danger_pressed
+B60
+Copied: #006AF5
+link-01
+B50
+Copied: #52A0FF
+link-02
+B70
+Copied: #0250B6
+link-pressed
+B60
+Copied: #006AF5
+selected
+Gradient
+b60b50
+Copied: linear-gradient(0deg, #006af5 0%, #52a0ff 100%)
+vertical
+b60b50
+Copied: linear-gradient(90deg, #006af5 0%, #52a0ff 100%)
+horizontal
+b60b50
+Copied: linear-gradient(45deg, #006af5 0%, #52a0ff 100%)
+diagonal
+b60b40
+Copied: linear-gradient(0deg, #006af5 0%, #8fc1ff 100%)
+vertical
+b60b40
+Copied: linear-gradient(90deg, #006af5 0%, #8fc1ff 100%)
+horizontal
+b60b40
+Copied: linear-gradient(45deg, #006af5 0%, #8fc1ff 100%)
+diagonal
+b60skb50
+Copied: linear-gradient(0deg, #006af5 0%, #5fcbf2 100%)
+vertical
+b60skb50
+Copied: linear-gradient(90deg, #006af5 0%, #5fcbf2 100%)
+horizontal
+b60skb50
+Copied: linear-gradient(45deg, #006af5 0%, #5fcbf2 100%)
+diagonal
+skb60gr50
+Copied: linear-gradient(0deg, #12aee2 0%, #66d68f 100%)
+vertical
+skb60gr50
+Copied: linear-gradient(90deg, #12aee2 0%, #66d68f 100%)
+horizontal
+skb60gr50
+Copied: linear-gradient(45deg, #12aee2 0%, #66d68f 100%)
+diagonal
+gr60gr40
+Copied: linear-gradient(0deg, #34b764 0%, #99e5b5 100%)
+vertical
+gr60gr40
+Copied: linear-gradient(90deg, #34b764 0%, #99e5b5 100%)
+horizontal
+gr60gr40
+Copied: linear-gradient(45deg, #34b764 0%, #99e5b5 100%)
+diagonal
+gr60y50
+Copied: linear-gradient(0deg, #34b764 0%, #fdd949 100%)
+vertical
+gr60y50
+Copied: linear-gradient(90deg, #34b764 0%, #fdd949 100%)
+horizontal
+gr60y50
+Copied: linear-gradient(45deg, #34b764 0%, #fdd949 100%)
+diagonal
+or60y60
+Copied: linear-gradient(0deg, #de640d 0%, #e8ba02 100%)
+vertical
+or60y60
+Copied: linear-gradient(90deg, #de640d 0%, #e8ba02 100%)
+horizontal
+or60y60
+Copied: linear-gradient(45deg, #de640d 0%, #e8ba02 100%)
+diagonal
+r60or50
+Copied: linear-gradient(0deg, #dc1f18 0%, #f8954f 100%)
+vertical
+r60or50
+Copied: linear-gradient(90deg, #dc1f18 0%, #f8954f 100%)
+horizontal
+r60or50
+Copied: linear-gradient(45deg, #dc1f18 0%, #f8954f 100%)
+diagonal
+pu60b50
+Copied: linear-gradient(0deg, #6a40bf 0%, #52a0ff 100%)
+vertical
+pu60b50
+Copied: linear-gradient(90deg, #6a40bf 0%, #52a0ff 100%)
+horizontal
+pu60b50
+Copied: linear-gradient(45deg, #6a40bf 0%, #52a0ff 100%)
+diagonal
+pu70pu40
+Copied: linear-gradient(0deg, #513091 0%, #b69de7 100%)
+vertical
+pu70pu40
+Copied: linear-gradient(90deg, #513091 0%, #b69de7 100%)
+horizontal
+pu70pu40
+Copied: linear-gradient(45deg, #513091 0%, #b69de7 100%)
+diagonal
+pu60pk30
+Copied: linear-gradient(0deg, #6a40bf 0%, #f8bfec 100%)
+vertical
+pu60pk30
+Copied: linear-gradient(90deg, #6a40bf 0%, #f8bfec 100%)
+horizontal
+pu60pk30
+Copied: linear-gradient(45deg, #6a40bf 0%, #f8bfec 100%)
+diagonal
+pk60pk30
+Copied: linear-gradient(0deg, #df16b7 0%, #f8bfec 100%)
+vertical
+pk60pk30
+Copied: linear-gradient(90deg, #df16b7 0%, #f8bfec 100%)
+horizontal
+pk60pk30
+Copied: linear-gradient(45deg, #df16b7 0%, #f8bfec 100%)
+diagonal
+r50pk40
+Copied: linear-gradient(0deg, #f1645f 0%, #f49ae2 100%)
+vertical
+r50pk40
+Copied: linear-gradient(90deg, #f1645f 0%, #f49ae2 100%)
+horizontal
+r50pk40
+Copied: linear-gradient(45deg, #f1645f 0%, #f49ae2 100%)
+diagonal
+Black-alpha
+Copied: #000000
+BLK-A100
+Copied: #000000e6
+BLK-A90
+Copied: #000000cc
+BLK-A80
+Copied: #000000b3
+BLK-A70
+Copied: #00000099
+BLK-A60
+Copied: #00000080
+BLK-A50
+Copied: #00000066
+BLK-A40
+Copied: #0000004d
+BLK-A30
+Copied: #00000033
+BLK-A20
+Copied: #0000001a
+BLK-A10
+Copied: rgba(0, 0, 0, 0.05)
+BLK-A5
+Copied: #00000000
+BLK-A0
+White-alpha
+Copied: #ffffff
+WHT-A100
+Copied: #ffffffe6
+WHT-A90
+Copied: #ffffffcc
+WHT-A80
+Copied: #ffffffb3
+WHT-A70
+Copied: #ffffff99
+WHT-A60
+Copied: #ffffff80
+WHT-A50
+Copied: #ffffff66
+WHT-A40
+Copied: #ffffff4d
+WHT-A30
+Copied: #ffffff33
+WHT-A20
+Copied: #ffffff1a
+WHT-A10
+Copied: rgba(255, 255, 255, 0.05)
+WHT-A5
+Copied: #ffffff00
+WHT-A0
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

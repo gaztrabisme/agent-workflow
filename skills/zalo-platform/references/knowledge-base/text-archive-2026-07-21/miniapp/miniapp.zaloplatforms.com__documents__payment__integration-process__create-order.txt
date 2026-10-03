@@ -1,0 +1,58 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/integration-process/create-order/
+# FETCHED: 2026-07-21
+# TITLE: Tạo yêu cầu thanh toán | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Tạo yêu cầu thanh toán
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+LƯU Ý
+
+Đơn vị kinh doanh cần đảm bảo đã cung cấp thông tin cấu hình tại trang quản lý ứng dụng Mini App
+
+Để bắt đầu một quá trình thanh toán, chúng ta cần khởi tạo một đơn hàng.
+
+Sau khi khởi tạo thành công, hệ thống sẽ tự động mở webview và điều hướng người dùng sang trang thanh toán.
+
+Chi tiết: tham khảo API: createOrder
+
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

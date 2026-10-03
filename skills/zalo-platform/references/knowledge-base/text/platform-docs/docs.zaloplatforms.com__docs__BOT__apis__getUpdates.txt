@@ -1,0 +1,83 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/BOT/apis/getUpdates
+# FETCHED: 2026-08-06
+# TITLE: getUpdates | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendChatAction
+SendVoice
+Webhook
+Best Practices
+Bảng mã lỗi
+Trên trang này
+getUpdates
+Hệ thống Zalo hỗ trợ 2 cách độc lập và loại trừ lẫn nhau để bot của bạn nhận được các tin nhắn mới:
+Sử dụng phương thức getUpdates, dựa trên cơ chế long polling.
+Sử dụng Webhook.
+Lưu ý
+Phương thức getUpdates sẽ không hoạt động nếu bạn đã thiết lập Webhook trước đó (khi đó, vui lòng sử dụng phương thức deleteWebhook để xóa cấu hình Webhook trước khi sử dụng API này).
+Chỉ nên sử dụng API này để chạy local, trong môi trường development, thử nghiệm, với môi trường production, bạn nên thiết lập Webhook để tránh bỏ lỡ event.
+URL: https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/getUpdates
+Method: POST
+Response Type: application/json
+Sample code​
+NodejscURL
+const axios = require('axios');
+const entrypoint = `https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/getUpdates`;
+const response = await axios.post(entrypoint, {
+timeout: 30
+});
+Parameters​
+Trường
+Kiểu dữ liệu
+Bắt buộc
+Mô tả
+timeout
+String
+false
+Thời gian timeout của HTTP Request tính theo giây. Mặc định hệ thống sẽ lấy thời gian timeout là 30 giây.
+Sample response​
+Dữ liệu tin nhắn nhận được sẽ là dạng JSON object, tham khảo dữ liệu mẫu tương tự tại Webhook.
+mẹo
+Xem hướng dẫn xây dựng Chatbot cơ bản với cơ chế getUpdates tại đây.
+Trước
+getMe
+Kế tiếp
+setWebhook
+Parameters
+Sample response
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

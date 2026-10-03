@@ -1,0 +1,243 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/gui-tin-template-qua-sdt/api-gui-tin-qua-sdt/api-gui-tin-journey
+# FETCHED: 2026-07-21
+# TITLE: API Gửi tin Journey | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API Gửi tin
+API Gửi tin sử dụng hash phone
+API Gửi tin sử dụng development mode
+API Gửi tin với hệ mã hóa RSA
+API Gửi tin Journey
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Gửi tin Template qua SĐTAPI gửi tin qua SĐTAPI Gửi tin Journey
+API Gửi tin Journey
+
+Khi có nhu cầu gửi tin qua SĐT theo hành trình cho hành trình giao vận hoặc vé xe khách, bạn có thể sử dụng chuỗi tin Journey tương ứng với 1 trong 2 hành trình để tối ưu chi phí.
+
+LƯU Ý:
+
+Bạn cần liên hệ với bộ phận vận hành dịch vụ gửi tin qua SĐT thông qua Zalo Official Account/kênh email, hoặc đội ngũ chăm sóc khách hàng đang làm việc với doanh nghiệp của bạn để được cấp phép sử dụng loại API này và hướng dẫn các cài đặt template liên quan.
+
+LƯU Ý
+
+Quyền cần có: Gửi tin qua số điện thoại
+
+Mô hình gửi tin Journey qua SĐT
+
+Một tin Journey được định nghĩa là một chuỗi các tin gửi qua SĐT gửi đến 1 khách hàng, tính phí theo một mô hình riêng (thay vì theo từng tin).
+Tin Journey hiện tại được chia theo 2 industries chính:
+Logistics: Hành trình giao vận
+Coach bus: Hành trình xe khách
+Cần phải có Journey Token để thực hiện chuỗi gửi tin Journey đến khách hàng. Từng khách hàng, cho từng hành trình, sẽ có từng Journey Token khác nhau.
+Mỗi loại Journey Token cần được gửi bằng loại Template Journey tương ứng. Vui lòng liên hệ đội ngũ Chăm sóc khách hàng của Zalo Business Solutions qua email: support@zalo.solutions để khởi tạo các mẫu Template này.
+Các mẫu tin gửi qua SĐT trong bộ tin Journey cần phải được khai báo trước khi sử dụng.
+Khởi tạo Journey Token​
+HTTP request​
+URL:  https://business.openapi.zalo.me/journey/get-token
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl --location 
+--request POST 'https://business.openapi.zalo.me/journey/get-token' 
+--header 'Content-Type: application/json' 
+--header 'access_token: your_access_token' 
+--data-raw '{ "phone":"84987654321", "token_type":"token_logistics_7" }'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Cấu trúc body của request​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+phone	string	yes	SĐT của người nhận mẫu tin.
+
+Lưu ý: SĐT phải được liên kết với tài khoản Zalo và được viết ở định dạng chuẩn hóa theo mã quốc gia.
+
+VD: SĐT 0987654321 viết theo định dạng chuẩn hóa của Việt Nam là 84987654321 hoặc +84987654321
+token_type	string	no	Loại Journey token muốn khởi tạo, bao gồm
+token_logistics_7
+token_logistics_30
+token_coach_bus_7
+token_coach_bus_30
+LƯU Ý
+
+Journey token gồm 4 loại chính, bao gồm:
+
+Industry	Token type	Journey token
+Giao vận	token_logistics_7	Token hành trình giao vận 7 ngày
+token_logistics_30	Token hành trình giao vận 30 ngày
+Xe khách	token_coach_bus_7	Token hành trình xe khách 7 ngày
+token_coach_bus_30	Token hành trình xe khách 30 ngày
+
+Nếu tham số token_type không được truyền, mặc định token_type = token_logistics_7.
+
+journey_token có thời gian hiệu lực trong 7 ngày kể từ thời điểm được kích hoạt.
+
+Example respond​
+{
+    "error": 0,
+    "message": "Success",
+    "token": "8iCeIhJbTcPtLo0Kh1kS6rOVXl0Rgv2wZNPRaW61sKQaXTGth1KrhGwQrDVXHnJbckzcL8fG-k_X0h1IL-SyeBPfCtwyljtiKutpUQvih7P65AgvJiz9fYYSHkrdrVNuCdPAMeVCYgERu3UWmQOjKMfLWsII_u5E9ylCO46Z-_mFSJC7DstAkBxFVcJTlzduNMsQzxBVaUom9E_06p1cw7DKRtGjLAF0jkfKgj0ftMI=",
+    "journey_id": "123456789"
+}
+
+Cấu trúc tham số data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+token	string	Mã journey token được kích hoạt.
+journey_id	string	ID của journey
+Gửi tin qua SĐT với Journey Token​
+HTTP request​
+URL:  https://business.openapi.zalo.me/message/template
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl --location 
+--request POST 'https://business.openapi.zalo.me/message/template' 
+--header 'Content-Type: application/json' 
+--header 'access_token: your_access_token' 
+--header 'journey_token: 8iCeIhJbTcPtLo0Kh1kS6rOVXl0Rgv2wZNPRaW61sKQaXTGth1KrhGwQrDVXHnJbckzcL8fG-k_X0h1IL-SyeBPfCtwyljtiKutpUQvih7P65AgvJiz9fYYSHkrdrVNuCdPAMeVCYgERu3UWmQOjKMfLWsII_u5E9ylCO46Z-_mFSJC7DstAkBxFVcJTlzduNMsQzxBVaUom9E_06p1cw7DKRtGjLAF0jkfKgj0ftMI=' 
+--data-raw 
+'{
+    "template_data": {
+    },
+    "phone": "84987654321",
+   "template_id":217489
+}'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+journey_token	string	yes	Đoạn mã xác minh mẫu tin thuộc hành trình vừa kích hoạt
+Cấu trúc body của request​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+phone	string	yes	SĐT của người nhận mẫu tin.
+
+Lưu ý: SĐT phải được liên kết với tài khoản Zalo và được viết ở định dạng chuẩn hóa theo mã quốc gia.
+
+VD: SĐT 0987654321 viết theo định dạng chuẩn hóa của Việt Nam là 84987654321 hoặc +84987654321
+template_id	string	yes	ID của template muốn sử dụng.
+
+template_id sẽ được phía Zalo cung cấp riêng cho từng đối tác.
+template_data	JSON object	yes	Các thuộc tính của template mà đối tác đã đăng ký với Zalo.Lưu ý: Cấu trúc template_data được quy định riêng ứng với từng template.
+Example respond​
+{
+    "error": 0,
+    "message": "Success",
+    "data": {
+        "sent_time": "1640144305350",
+        "quota": {
+            "remainingQuota": "480",
+            "dailyQuota": "500"
+        },
+        "msg_id": "6e84304c259208ce5181"
+    }
+}
+
+Cấu trúc tham số data của respond​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+sent_time	string	Thời gian gửi tin qua SĐT (định dạng timestamp).
+msg_id	string	ID của tin qua SĐT.
+quota.remainingQuota	string	Số lượng tin qua SĐT có thể gửi còn lại trong 1 ngày.
+quota.dailyQuota	string	Số lượng tin qua SĐT có thể gửi trong 1 ngày.
+LƯU Ý
+Để gửi được tin qua SĐT Journey, cần đảm bảo sử dụng Journey Token và Journey Template cùng loại, cụ thể:
+Industry	Journey template	Journey token
+Giao vận	Template hành trình giao vận 7 ngày	Token hành trình giao vận 7 ngày
+Template hành trình giao vận 30 ngày	Token hành trình giao vận 30 ngày
+Xe khách	Template hành trình xe khách 7 ngày	Token hành trình xe khách 7 ngày
+Template hành trình xe khách 30 ngày	Token hành trình xe khách 30 ngày
+Kiểm tra Journey Token​
+HTTP request​
+URL:  https://business.openapi.zalo.me/journey/check-token
+Method: GET
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl --location --request GET 'https://business.openapi.zalo.me/journey/check-token'
+--header 'Content-Type: application/json'
+--header 'access_token: access_token'
+--header 'journey_token: journey_token'
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+journey_token	string	yes	Đoạn mã xác minh mẫu tin thuộc hành trình vừa kích hoạt
+Example respond​
+{
+    "error": 0,
+    "message": "Success",
+    "data": {
+        "appId": "4349311699477619340",
+        "oaId": "3886651700907664415",
+        "tokenType ": "token_logistics_7",
+        "createdAt": "1641269204370",
+        "expiredAt": "1641269384370"
+    }
+}
+
+Cấu trúc tham số data của respond​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+createdAt	string	Thời gian tạo Journey Token (định dạng timestamp)
+expiredAt	string	Thời gian Journey Token hết hạn sử dụng (định dạng timestamp)
+tokenType	string	Loại Journey token tương ứng, bao gồm
+token_logistics_7
+token_logistics_30
+token_coach_bus_7
+token_coach_bus_30
+
+appId	string	Id của ứng dụng
+oaId	string	Id của OA
+Mã lỗi liên quan​
+Mã lỗi	Mô tả lỗi	Thông tin lỗi
+-109	Template ID invalid	ID Template không hợp lệ
+-132	Parameter invalid	Tham số không hợp lệ
+-148	Missing journey token	Không tìm thấy journey token
+-149	Invalid journey token	Journey token không hợp lệ
+-150	Journey token has expired	Journey token đã hết hạn
+
+Các mã lỗi về gửi tin qua SĐT, vui lòng tham khảo Bảng mã lỗi.
+
+Trước
+API Gửi tin với hệ mã hóa RSA
+Kế tiếp
+API Lấy thông tin trạng thái gửi tin qua SĐT
+Khởi tạo Journey Token
+HTTP request
+Example request
+Example respond
+Gửi tin qua SĐT với Journey Token
+HTTP request
+Example request
+Example respond
+Kiểm tra Journey Token
+HTTP request
+Example request
+Example respond
+Mã lỗi liên quan
+©2023 Zalo for Developers

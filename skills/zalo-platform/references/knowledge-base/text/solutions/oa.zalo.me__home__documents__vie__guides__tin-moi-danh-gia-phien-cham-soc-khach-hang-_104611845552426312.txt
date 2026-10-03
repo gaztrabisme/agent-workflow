@@ -1,0 +1,59 @@
+# SOURCE: https://oa.zalo.me/home/documents/vie/guides/tin-moi-danh-gia-phien-cham-soc-khach-hang-_104611845552426312
+# FETCHED: 2026-08-06
+# TITLE: Tin mời đánh giá phiên chăm sóc khách hàng | Zalo Official Account
+
+Nhảy tới nội dung
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Quản lý hội thoại
+Quản lý nhãn
+Công cụ tìm kiếm
+Tin mời đánh giá phiên chăm sóc khách hàng
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Quản lý hội thoại
+Tin mời đánh giá phiên chăm sóc khách hàng
+Trên trang này
+Tin mời đánh giá phiên chăm sóc khách hàng
+📌 Tin mời đánh giá phiên chăm sóc khách hàng (CSKH) là tin nhắn do OA gửi đến người dùng sau mỗi phiên chăm sóc, nhằm thu thập phản hồi về trải nghiệm khi tương tác với OA. Từ đó, doanh nghiệp có thể theo dõi, đo lường và cải thiện chất lượng chăm sóc khách hàng.
+⚠️Lưu ý: Tin mời đánh giá phiên chăm sóc khách hàng (CSKH) chỉ khả dụng đối với OA đang sử dụng Gói dịch vụ Tiêu chuẩn/ Tăng trưởng/ Toàn diện.
+🕒 Phiên chăm sóc khách hàng là gì? ​
+Mỗi lần người dùng nhắn tin đến OA, một phiên chăm sóc khách hàng mới sẽ được khởi tạo. Phiên này sẽ kết thúc khi OA gửi tin mời đánh giá, hoặc hệ thống tự động kết thúc vào lúc 23h59 cùng ngày. Trong mỗi phiên, OA chỉ có thể gửi một tin mời đánh giá.
+Ví dụ:
+7h00: Người dùng nhắn tin đến OA → Hệ thống tạo phiên CSKH mới.
+8h00: OA gửi tin mời đánh giá → Phiên CSKH kết thúc.
+13h00 (cùng ngày): Người dùng tiếp tục nhắn tin đến OA → Hệ thống tạo phiên CSKH mới. OA không gửi tin mời đánh giá trong phiên này.
+Phiên sẽ được hệ thống tự động kết thúc vào 23h59 (cùng ngày). Sau thời điểm này, OA không thể gửi thêm tin mời đánh giá cho đến khi có tin nhắn mới từ người dùng để khởi tạo phiên tiếp theo.
+▶ Cách gửi tin mời đánh giá phiên chăm sóc khách hàng ​
+Admin của OA có thể gửi tin Tin mời đánh giá phiên CSKH bằng 1 trong 2 cách sau:
+(1) Gửi thủ công:
+Bước 1: Vào trang Chat của OA Manager → Chọn khách hàng cần gửi tin mời đánh giá phiên CSKH.
+Bước 2: Chọn biểu tượng mời đánh giá trong khung chat.
+(2) Gửi tự động bằng thiết lập Quy tắc tự động trong Chatbot:
+Bước 1: Truy cập Chatbot trên OA Manager (máy tính) → Chọn mục Quy tắc tự động.
+Bước 2: Tại quy tắc “Đánh giá phiên chăm sóc khách hàng”, bật trạng thái hoạt động.
+Khi Admin gắn nhãn cho hội thoại (mặc định là nhãn “hoàn thành”), hệ thống sẽ tự động gửi tin nhắn đánh giá đến khách hàng. OA có thể tùy chỉnh loại nhãn kích hoạt việc gửi tin bằng cách nhấn vào biểu tượng chỉnh sửa trong phần thiết lập Quy tắc tự động.
+⚠ Lưu ý: Gửi tin tự động thông qua Chatbot chỉ áp dụng cho các OA đang sử dụng các Gói dịch vụ Tiêu chuẩn/ Tăng trưởng/ Toàn diện.
+📈 Theo dõi mức độ hài lòng của người dùng sau phiên CSKH ​
+Để kiểm tra và theo dõi kết quả sau khi người dùng thực hiện đánh giá, Admin của OA có thể:
+Cách 1: Truy cập đường dẫn https://oa.zalo.me/manage/analytics/feedback
+Cách 2: Tại trang OA Manager https://oa.zalo.me/manage/oa → Chọn tài khoản OA → Chọn mục Thống kê → Chọn mục Đánh giá.
+⚠ Lưu ý: Admin OA cần có phân quyền Quản trị viên, Soạn nội dung, Phân tích viên để có thể xem được Trang Thống kê.
+------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+Trước
+Công cụ tìm kiếm
+Kế tiếp
+Quản lý nhóm (GMF)
+🕒 Phiên chăm sóc khách hàng là gì?
+▶ Cách gửi tin mời đánh giá phiên chăm sóc khách hàng
+📈 Theo dõi mức độ hài lòng của người dùng sau phiên CSKH

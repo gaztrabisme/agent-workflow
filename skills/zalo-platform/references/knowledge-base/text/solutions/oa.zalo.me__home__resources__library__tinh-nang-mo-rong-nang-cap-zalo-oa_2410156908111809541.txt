@@ -1,0 +1,74 @@
+# SOURCE: https://oa.zalo.me/home/resources/library/tinh-nang-mo-rong-nang-cap-zalo-oa_2410156908111809541
+# FETCHED: 2026-08-06
+# TITLE: Tính năng mở rộng nâng cấp Zalo OA | Zalo Official Account
+
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+Trang chủ
+Thư viện
+Tính năng mở rộng nâng cấp Zalo OA
+20/01/2026
+|
+Best practice
+Tính năng mở rộng nâng cấp Zalo OA
+Ngoài các công cụ sẵn có được phát triển trên OA Manager (công cụ quản lý Zalo OA mặc định), doanh nghiệp còn có thể sử dụng các tính năng nâng cao trong hệ sinh thái Zalo. Các công cụ trong bài viết này sẽ giúp doanh nghiệp tìm hiểu các tính năng mở rộng, từ đó doanh nghiệp có thể chủ động lựa chọn và sử dụng những giải pháp phù hợp với hệ thống quản lý của mình.
+Để triển khai các công cụ này, doanh nghiệp cần có đội ngũ kỹ thuật (IT) hoặc làm việc với các bên thứ 3 đã phát triển sản phẩm tích hợp sẵn với Zalo.
+1. Zalo OA Open API
+Zalo OA OpenAPI là bộ công cụ hỗ trợ vận hành tài khoản Zalo OA doanh nghiệp (Zalo Official Account), thông qua tích hợp Zalo OA với hệ thống nội bộ của doanh nghiệp. OpenAPI cung cấp bộ công cụ có thể xây dựng hệ thống quản lý Zalo OA đầy đủ tính năng như OA Manager nhưng mạnh mẽ hơn, cho phép doanh nghiệp quản lý nhiều tài khoản OA, tập trung thông tin dữ liệu khách hàng, vận hành tự động dựa trên tương tác của khách hàng với OA và với doanh nghiệp.
+Doanh nghiệp có thể tích hợp Zalo OA với nhiều hệ thống ngoài Zalo, để phục vụ nhiều hoạt động kinh doanh và nhiều mục đích, như: các nền tảng Marketing, phần mềm bán hàng, CRM, ERP, Omni channel, Chatbot,...
+OpenAPI là tính năng trả phí trên Zalo OA, admin cần mua gói dịch vụ để sử dụng được tính năng này. Tham khảo các gói dịch vụ tại đây
+Lợi ích khi sử dụng Zalo OpenAPI
+Quản lý tập trung: Tập trung dữ liệu của tất cả các OA, và tất cả khách hàng của doanh nghiệp quản lý trên cùng 1 hệ thống. Giúp doanh nghiệp dễ dàng quản lý hàng loạt OA, và thông tin khách hàng từ các nguồn khác nhau.
+Tích hợp linh hoạt: Dựa trên các công cụ của OpenAPI doanh nghiệp có thể linh hoạt tích hợp các luồng vận hành tùy theo nhu cầu của doanh nghiệp mà không bị giới hạn bởi các tính năng quản lý được phát triển sẵn trên OA Manager.
+Ứng dụng tại doanh nghiệp
+Tương tác tự động, cá nhân hóa: Với Zalo OA OpenAPI, doanh nghiệp có thể tương tác với người dùng dựa trên dữ liệu Zalo OA, hoặc dựa trên tương tác trên các nền tảng khác (website, cửa hàng, ứng dụng,...) của doanh nghiệp. Các thông tin sẽ được gửi tức thời ngay khi người dùng tương tác, và cá nhân hóa nội dung dựa trên thông tin của người dùng tại doanh nghiệp. API có thể sử dụng: Nhắn tin, Gọi thoại, Nhóm chat GMF
+Quản lý OA: Doanh nghiệp có thể đồng bộ thông tin OA về hệ thống quản lý dữ liệu của doanh nghiệp hoặc kiểm tra các hạn mức tin nhắn sử dụng của OA. Với tính năng này, doanh nghiệp có thể quản lý hàng loạt OA cùng lúc nếu như doanh nghiệp có nhiều OA. API có thể sử dụng: Quản lý thông tin OA
+Đồng bộ dữ liệu khách hàng: doanh nghiệp có thể đồng bộ thông tin khách hàng từ OA về hệ thống quản lý của doanh nghiệp, hoặc tải lên các thông tin từ hệ thống doanh nghiệp lên OA, cho phép doanh nghiệp đồng bộ hóa thông tin và tương tác chính xác với khách hàng của mình. API có thể sử dụng: Quản lý thông tin người dùng
+Mua sản phẩm, dịch vụ OA: Doanh nghiệp có thể sử dụng API để quản lý và mua các gói dịch vụ trên Zalo OA. Đối với agency (doanh nghiệp cung cấp dịch vụ) có thể sử dụng các API này để quản lý, kiểm soát dịch vụ & chi phí thay cho khách hàng (chi phí gói, chi phí tin nhắn,…). Các chi phí sử dụng thông qua API được cấn trừ từ tài khoản ZCA liên kết với APP, độc lập với các chi phí sử dụng thông qua OA Manager (portal)​. API có thể sử dụng: Mua sản phẩm dịch vụ Zalo OA
+Tương ứng với các API sẽ có các webhook giúp doanh nghiệp chủ động trong vận hành. Doanh nghiệp có thể sử dụng các webhook này để xây dựng hệ thống báo cáo về tương tác từ Zalo OA trên hệ thống thông tin của doanh nghiệp. Các thông tin về tương tác sẽ được cập nhật tức thời (realtime) từ Zalo OA về hệ thống thông tin quản lý của doanh nghiệp. Khi doanh nghiệp sở hữu nhiều OA, doanh nghiệp có thể đồng bộ tất cả các dữ liệu từ nhiều OA về một hệ thống quản lý dữ liệu chung của doanh nghiệp.
+Ví dụ: Doanh nghiệp sở hữu một chuỗi cửa hàng, mỗi cửa hàng có 1 OA riêng, khi đó doanh nghiệp có thể kết nối API với từng OA và đồng bộ thông tin về 1 hệ thống quản lý thông tin chung của doanh nghiệp.
+Xem thêm tài liệu tích hợp Zalo OA OpenAPI tại đây
+2. Zalo Mini App
+Zalo Mini App là những "chương trình nhỏ" chạy trực tiếp trên nền tảng Zalo. Zalo Mini App cho phép doanh nghiệp linh hoạt thiết kế các tính năng đa dạng và tối ưu dữ liệu từ tài khoản Zalo. Người dùng không cần phải tạo tài khoản mới mà chỉ cần sử dụng tài khoản Zalo để truy cập vào Zalo Mini App tạo trải nghiệm liền mạch cho khách hàng khi tương tác với doanh nghiệp.
+Lợi ích khi sử dụng Zalo Mini App
+Nâng cao trải nghiệm: Zalo Mini App giúp người dùng dễ dàng truy cập, trải nghiệm nhanh chóng đa dạng các dịch vụ mà không cần cài đặt thêm ứng dụng mới.
+Thúc đẩy tương tác với Zalo OA: Khi người dùng truy cập Zalo Mini App, nhà phát triển có thể thiết lập tính năng đề nghị người dùng cấp quyền cho phép doanh nghiệp tương tác thông qua Zalo OA. Từ đó tiếp nối các hoạt động chăm sóc, giao dịch, tiếp cận lại người dùng,... tại Zalo OA.
+Khép kín hành trình bán hàng tại hệ sinh thái Zalo: Zalo Mini App có thể được kết hợp với Zalo OA và các nền tảng thanh toán trên Zalo, giúp hành trình bán hàng của doanh nghiệp diễn ra nhanh chóng và dễ dàng.
+Ứng dụng tại doanh nghiệp
+Xây dựng tiện ích bán hàng của doanh nghiệp trên Zalo OA.
+Xây dựng hệ thống khách hàng thân thiết, tiện ích cho khách hàng (đặt lịch hẹn, ....)
+Xây dựng chương trình tương tác minigame, chương trình thu hút khách hàng,...
+Xem thêm hướng dẫn chi tiết về Zalo Mini App tại đây
+Kết hợp các sản phẩm trong cùng hệ sinh thái Zalo sẽ giúp doanh nghiệp gia tăng trải nghiệm cho khách hàng và tối ưu việc quản lý thông tin. Anh/chị có thể tham khảo thêm cách thiết lập tất cả các tính năng khác tại đây. Và có thể theo dõi các bài viết khác tại mục Thư viện.
+Bài viết này có hữu ích với bạn không?
+KhôngCó, nhưng...Có
+Chúng tôi có thể làm cho bài viết này hữu ích hơn bằng cách nào?
+Khác
+Trở lạiGửi đi
+Search
+Cảm ơn bạn đã góp ý cho chúng tôi!
+Tạo Zalo Official Account và kết nối với
+người dùng Zalo ngay!
+Tạo Official Account ngay
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+Nhấn vào đây để được tư vấn
+©2024 Zalo Official Account

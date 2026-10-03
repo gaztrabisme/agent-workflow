@@ -1,0 +1,279 @@
+# SOURCE: https://zalo.solutions/business-message/guidelines/phan-quyen-quan-li-zbs
+# FETCHED: 2026-07-21
+# TITLE: Phân quyền Quản lý thành viên trên tài khoản ZBS | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Business Message
+Giới thiệu
+Tài liệu hướng dẫn
+Bảng giá
+Chính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Quản lý tài khoản ZBS
+Thông tin tài khoản
+Phân quyền Quản lý thành viên trên tài khoản ZBS
+Quản lý thành viên
+Quản lý danh sách liên kết Ứng dụng/OA
+Tính Năng Quản Lý Thông Báo Cho Tài Khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+
+Phân quyền Quản lý thành viên trên tài khoản ZBS
+
+ZBS là tài khoản quản lý số dư để sử dụng các tính năng tính phí của các tài khoản Zalo Official Account - Doanh Nghiệp (OA) và dịch vụ tin nhắn ZBS Template. Lưu ý: Mỗi số điện thoại chỉ được làm Quản trị viên cấp cao của tối đa 1 tài khoản ZBS.
+
+1. Phân quyền thành viên trên tài khoản ZBS​
+
+Ký hiệu 
+
+	
+
+Lý giải 
+
+
+
+
+ 
+
+	
+
+Được quyền thao tác 
+
+
+
+
+ 
+
+	
+
+Không được truy cập 
+
+
+
+
+ 
+
+	
+
+Được quyền xem 
+
+ 
+
+	
+
+Quản trị viên 
+
+	
+
+Biên tập viên 
+
+	
+
+Tài chính viên 
+
+
+
+
+  1. Trang Chi tiêu 
+
+	
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+  2. Trang Công cụ 
+
+	
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+  3. Trang Giao dịch 
+
+	
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+  4. Trang Cài đặt 
+
+	
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+    a. Quản lí thành viên 
+
+	
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+    b. Quản lí tài sản 
+
+	
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+    c. Thông tin tài khoản 
+
+	
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+
+
+
+    d. Quản lý thông báo 
+
+	
+
+ 
+
+	
+
+ 
+
+	
+
+ 
+
+Trong trường hợp Quý khách cần thay đổi "Quản trị viên cấp cao" của tài khoản ZBS vì bất kì lý do nào, Quý khách vui lòng tham khảo tài liệu Hướng dẫn thay đổi quyền quản trị viên cấp cao của tài khoản ZBS.
+
+2. Hướng dẫn xem “Danh sách thành viên” trên tài khoản ZBS​
+
+Quý khách có thể kiểm tra Danh sách thành viên hiện tại trên tài khoản ZBS theo hướng dẫn chi tiết như sau:
+
+Bước 1: Truy cập vào trang tài khoản ZBS
+
+Bước 2: Chọn mục “Quản lý thành viên”
+
+Tại đây, Quý khách sẽ xem được danh sách các thành viên có thể truy cập vào tài khoản ZBS ở thời điểm hiện tại.
+
+Nếu Quý khách muốn thêm thành viên vào tài khoản ZBS, vui lòng thực hiện theo hướng dẫn sau đây:
+
+Bước 1: Tại trang Quản lý thành viên, chọn mục “Thêm thành viên”
+
+Bước 2: Nhập số điện thoại của thành viên muốn thêm vào và chọn Quyền thao tác cho thành viên muốn thêm vào
+
+Lưu ý: Số điện thoại muốn cấp quyền cho tài khoản ZBS phải là số điện thoại đã có tài khoản Zalo cá nhân và còn sử dụng.
+
+Nếu Quý khách muốn xoá thành viên khỏi tài khoản ZBS, tại trang Quản lý thành viên, chọn thành viên muốn xoá và nhấn “Xoá thành viên”
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+Trước
+Thông tin tài khoản
+Kế tiếp
+Quản lý thành viên
+1. Phân quyền thành viên trên tài khoản ZBS
+2. Hướng dẫn xem “Danh sách thành viên” trên tài khoản ZBS
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

@@ -1,0 +1,101 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/thu-hut-nguoi-dung-quan-tam-oa_8780855842292515824
+# FETCHED: 2026-08-06
+# TITLE: Thu hút người quan tâm | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thiết lập tài khoản OA
+Thu hút người quan tâm
+On this page
+Thu hút người quan tâm
+Người quan tâm Zalo OA của doanh nghiệp là tập người dùng đã chuyển đổi từ việc tương tác đơn lẻ lên mức độ theo dõi thường xuyên, đây là nhóm người dùng đang hoặc có tiềm năng trở thành khách hàng thân thiết.
+Một số lợi ích của việc OA có nhiều người quan tâm là: khả năng tiếp cận miễn phí thông qua tin Truyền thông, khả năng duy trì tương tác lâu dài,...
+Doanh nghiệp có thể sử dụng các công cụ sau để thu hút người quan tâm:
+Nhóm công cụ có sẵn*
+Nhóm công cụ nâng cao trong hệ sinh thái Zalo
+Mời bạn bè quan tâm Zalo OA
+Nút quan tâm đính kèm thông báo ZBS Template Message
+Quan tâm Zalo OA với mã QR
+Quảng cáo Zalo Ads
+Quan tâm Zalo OA với đường dẫn
+*Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+⚠️ Một số lưu ý khi triển khai chương trình tăng lượt quan tâm cho Zalo OA:
+Doanh nghiệp cần thực sự mang đến giá trị cho người quan tâm OA: doanh nghiệp cần gửi các thông tin liên quan, thông tin cá nhân hóa, thông tin hữu ích,... Tránh làm phiền người dùng dẫn đến hành động bỏ quan tâm hoặc ngừng tương tác.
+Người dùng cần lý do để quan tâm Zalo OA của doanh nghiệp: Khi thu hút người dùng quan tâm OA, doanh nghiệp nên đưa ra lý do thuyết phục. Đó có thể là một chương trình khuyến mãi, một phần quà nhỏ, hoặc bằng chính vai trò của Zalo OA doanh nghiệp (quan tâm Zalo OA để được hỗ trợ nhanh nhất, quan tâm Zalo OA để đặt lịch hẹn, quan tâm Zalo OA để đặt hàng,...)
+Nhấn vào đây để tải về tài liệu Hướng dẫn vận hành.
+Làm thế nào để thu hút nhiều người quan tâm tài khoản OA? ​
+A. Nhóm công cụ có sẵn:​
+Cách 1: Mời bạn bè quan tâm Zalo OA:
+Tính năng: Admin với vai trò "Quản trị viên" có thể mời bạn bè quan tâm Zalo OA bằng công cụ trên trình quản lý OA Manager.
+Điều kiện sử dụng: Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+⚠ Lưu ý:
+Chỉ gửi lời mời đến bạn bè với admin Zalo OA.
+Zalo OA có thể gửi tối da 100 lời mời quan tâm/ngày.
+Ứng dụng phù hợp:
+Doanh nghiệp vừa khởi tạo Zalo OA, đang có ít người quan tâm.
+Doanh nghiệp đang chăm sóc khách hàng qua các tài khoản cá nhân và muốn chuyển đổi qua Zalo OA.
+Hướng dẫn thao tác: Truy cập oa.zalo.me/manage > Khách hàng > Danh sách khách hàng > Biểu tượng mời quan tâm OA (Khuyến cáo nên truy cập trên PC để trải nghiệm được tốt nhất)
+⚠ Lưu ý:
+Để sử dụng tính năng hiệu quả doanh nghiệp cần tối ưu trang thông tin OA, đặc biệt là tên OA, ảnh bìa, ảnh đại diện và mô tả của OA. Vì đây là những thông tin người dùng nhận được trong tin nhắn mời quan tâm OA nên sẽ là yếu tố hưởng đến quyết định của người dùng. Để tối ưu các thông tin này Quản trị viên có thể xem thêm bài viết tại đây.
+Cách 2: Quan tâm Zalo OA với mã QR
+Tính năng: Mã QR Zalo OA là cách trực tiếp và nhanh nhất để người dùng truy cập và quan tâm Zalo OA.
+Ứng dụng phù hợp:
+Tại điểm bán: chuyển đổi khách hàng (offline) tại cửa hàng, sự kiện thành người quan tâm Zalo OA để tiếp tục chăm sóc (online).
+Trên các ấn phẩm: lan tỏa QR OA thông qua các sản phẩm in ấn.
+Hướng dẫn thao tác: Truy cập oa.zalo.me/manage > Quản lý > Quản lý tài khoản > Thông tin Tài khoản > Tải mã QR (Khuyến cáo nên truy cập trên PC để trải nghiệm được tốt nhất)
+Ví dụ thực tiễn:
+2.1 Đặt mã QR tại quầy thu ngân, lễ tân,... nơi nhân viên tiếp xúc với khách hàng
+Thời điểm nhân viên tiếp xúc với khách hàng là cơ hội giao tiếp hiệu quả. Lúc này nhân viên nên mời khách hàng quan tâm Zalo OA của doanh nghiệp, đồng thời giới thiệu các quyền lợi đi kèm nếu có.
+2.2 Đặt mã QR tại bàn, cửa ra vào và các vị trí dễ nhìn thấy
+Doanh nghiệp thuộc lĩnh vực nhà hàng hoặc các doanh nghiệp kinh doanh dịch vụ tại chỗ có thể in QR Zalo OA cùng các chương trình marketing và đặt tại các vị trí khách hàng thường chú ý tới, như tại bàn, cửa ra vào, lối đi,...
+2.3 In mã QR lên tờ rơi, leaflet, danh thiếp, standee, poster sự kiện, hóa đơn, nơi người dùng tìm kiếm và kết nối với doanh nghiệp
+Một cách dễ dàng để khách hàng liên hệ đến doanh nghiệp miễn phí qua Zalo OA, và doanh nghiệp có thể gửi tin nhắn, hình ảnh, tập tin qua Zalo OA cho khách hàng. Hãy in QR Zalo OA của doanh nghiệp lên các kênh truyền thông offline để khách hàng có thể liên lạc bất kì lúc nào.
+Cách 3: Quan tâm Zalo OA với đường dẫn
+Tính năng: Đường dẫn Zalo OA được dùng để truyền thông đến người dùng trên môi trường online, người dùng có thể bấm vào đường dẫn để đến trực tiếp Zalo OA của doanh nghiệp.
+Ứng dụng phù hợp: Truyền thông trên các kênh online, mạng xã hội, email, website, quảng cáo,...
+Hướng dẫn thao tác: Truy cập oa.zalo.me/manage > Quản lý> Quản lý tài khoản > Thông tin tài khoản > Đường dẫn Official Account (Khuyến cáo nên truy cập trên PC để trải nghiệm được tốt nhất)
+B. Nhóm công cụ nâng cao trong hệ sinh thái Zalo:​
+1. Nút quan tâm đính kèm thông báo ZBS Template Message
+Tính năng: Gửi tin nhắn thông báo đến số điện thoại người dùng có Zalo thông qua Zalo OA khi có phát sinh tương tác với doanh nghiệp. Doanh nghiệp có thể sử dụng ZBS Template Message thông qua API hoặc vận hành thông qua công cụ ZBS Account.
+Ứng dụng phù hợp: Gửi tin nhắn thông báo đến số điện thoại người dùng Zalo đồng thời khuyến khích người dùng quan tâm Zalo OA để nhận các thông tin hữu ích từ doanh nghiệp.
+Hướng dẫn thao tác: Truy cập https://zalo.solutions/business-message/guidelines/intro
+Ví dụ thực tiễn:
+Doanh nghiệp có thể đính kèm nút quan tâm Zalo OA vào thông báo ZBS Template Message, đồng thời kêu gọi người dùng quan tâm OA để nhận thêm giá trị từ doanh nghiệp.
+2. Quảng cáo Zalo Ads:
+Tính năng: Zalo Ads là công cụ để doanh nghiệp có thể quảng bá Zalo OA của mình đến tập người dùng lớn trên Zalo.
+Ứng dụng phù hợp: Tìm kiếm khách hàng mới, tiếp cận lại tập khách hàng có sẵn thông tin.
+Hướng dẫn thao tác: truy cập https://ads.zalo.me/business/
+Ví dụ thực tiễn:
+Doanh nghiệp có thể sử dụng quảng cáo Zalo OA để tìm kiếm khách hàng mới. Để tăng hiệu quả của quảng cáo doanh nghiệp nên kết hợp cùng chương trình ưu đãi riêng cho kênh Zalo OA như tặng voucher, giảm giá đặc biệt, quà tặng thương hiệu,...
+Trên đây là 5 công cụ giúp doanh nghiệp tăng người quan tâm Zalo OA. Ngoài ra, doanh nghiệp còn có thể áp dụng các hình thức khác như Widget Zalo Chat, plugin Quan tâm đặt trên website. Và đừng quên tạo ra giá trị cho người dùng trên mỗi hoạt động để giúp chuyển đổi và giữ chân người dùng ở lại với doanh nghiệp từ đó chuyển đổi thành khách hàng và xây dựng tập khách hàng thân thiết tốt hơn.
+---------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat/gọi thoại với BQT ZOA để được phản hồi sớm nhất.
+Previous
+Đăng ký URL tùy biến
+Next
+Quản lý Admin OA
+Làm thế nào để thu hút nhiều người quan tâm tài khoản OA?
+A. Nhóm công cụ có sẵn:
+B. Nhóm công cụ nâng cao trong hệ sinh thái Zalo:

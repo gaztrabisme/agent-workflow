@@ -1,0 +1,99 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/eKYC/intro
+# FETCHED: 2026-08-06
+# TITLE: Introduction | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Introduction
+APIs
+Generate Session ID
+Image Upload
+Image Sanity Check
+Fraud Checking Result
+Logic Status Checking Result
+OCR Result
+Face Matching Result
+Selfie Face Matching Result
+Face Retrieval Result
+Face Search Upload
+Face Search Result
+Get Status Info
+Encryption
+Credentials
+IP Whitelist Policy
+Signature
+Appendix
+Checkout SDK
+Trên trang này
+Introduction
+Cập nhật lần cuối:5/8/2026
+A procedure to identify and verify a customer’s identity, which includes sanity check, fraud check, logic status check, OCR, face matching, face retrieval and face search check. To use the service, users need to:
+Generate session ID
+Upload necessary images
+Check uploaded images sanity and re-upload if needed (when sanity checking fails)
+Get the processing results (OCR/Fraud Check/Logic Status Check/Liveness check/Face Match/Face Retrieval/Face Search) of the submitted images.
+Contact us​
+For additional information or to utilize these resources, please reach out to us at ekyc@fiza.ai.
+Host​
+Development​
+https://dev-ekyc-api.fiza.ai
+Production​
+https://ekyc-api.fiza.ai
+Response Codes​
+APIs always return HTTP Status Code 200 (OK). Detail error is specified by the "code" field inside JSON content.
+Code
+Description
+0
+Successful
+-1
+Bad request (invalid input)
+-2
+Unauthorized (wrong API key)
+-4
+Rate limited
+-5
+Internal server error
+-7
+Forbidden (client is not allowed to request the resource. Ex: block ip)
+-8
+Session Expired
+eKYC Flow​
+Trước
+Mã lỗi
+Kế tiếp
+Generate Session ID
+Contact us
+Host
+Development
+Production
+Response Codes
+eKYC Flow
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

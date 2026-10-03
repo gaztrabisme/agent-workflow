@@ -1,0 +1,43 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/phu-luc/co-che-danh-gia-chat-luong-va-quyen-loi-gui-tin-qua-sdt
+# FETCHED: 2026-07-21
+# TITLE: Cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT
+Danh sách BIN CODE
+Phụ lụcCơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT
+
+Tham khảo cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT tại đây.
+
+Trước
+Bảng mã lỗi
+Kế tiếp
+Danh sách BIN CODE
+©2023 Zalo for Developers

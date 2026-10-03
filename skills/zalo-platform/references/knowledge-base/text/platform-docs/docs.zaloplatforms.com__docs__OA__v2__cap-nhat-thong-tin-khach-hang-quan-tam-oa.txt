@@ -1,0 +1,136 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/v2/cap-nhat-thong-tin-khach-hang-quan-tam-oa
+# FETCHED: 2026-08-06
+# TITLE: Cập nhật thông tin khách hàng quan tâm OA | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Broadcast bài viết
+Các loại tin và định dạng được hỗ trợ
+Gửi lệnh phản hồi người dùng
+Gửi thông báo văn bản
+Gửi thông báo đính kèm file
+Gửi thông báo kèm sticker
+Gửi thông báo theo mẫu đính kèm ảnh
+Gửi thông báo theo mẫu đính kèm danh sách
+Gửi thông báo theo mẫu yêu cầu thông tin người dùng
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Lấy thông tin quota lệnh chủ động miễn phí
+Lấy thông tin quota lệnh phản hồi người dùng
+Thả biểu tượng cảm xúc vào tin nhắn
+Trả lời tin nhắn
+Lấy danh sách khách hàng quan tâm OA
+Lấy thông tin khách hàng quan tâm OA
+Cập nhật thông tin khách hàng quan tâm OA
+Lấy quota tin Tư vấn
+Trên trang này
+Cập nhật thông tin khách hàng quan tâm OA
+Lưu ý
+API hỗ trợ cập nhật thông tin của người quan tâm mà OA lưu trữ. Thay đổi chỉ áp dụng với thông tin lưu trữ ở phía OA và không làm thay đổi thông tin tài khoản Zalo của người quan tâm.
+API này được thay thế bởi API Cập nhật thông tin người dùng và sẽ dừng hỗ trợ OA Doanh nghiệp từ ngày 01/06/2024
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/oa/updatefollowerinfo
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'access_token: <your_access_token>' \
+-d '{ \
+"user_id": "2512523625412515",
+"name": "Huynh Hong Hien",
+"phone": "012345678",
+"address":"ho chi minh",
+"city_id": city_id,
+"district_id": district_id,
+}' "https://openapi.zalo.me/v2.0/oa/updatefollowerinfo"
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+user_id
+string
+yes
+ID của người quan tâm cần thay đổi thông tin.
+name
+string
+yes
+Tên cập nhật
+phone
+string
+yes
+Số điện thoại cập nhật
+address
+string
+yes
+Địa chỉ cập nhật
+city_id
+int
+yes
+Mã tỉnh, thành phố trực thuộc trung ương. Xem tại đây.
+district_id
+int
+yes
+Mã quận, huyện, thành phố trực thuộc tỉnh. Xem tại đây.
+Example respond​
+{
+"error": 0,
+"message": "Success"
+}
+Trước
+Lấy thông tin khách hàng quan tâm OA
+Kế tiếp
+Lấy quota tin Tư vấn
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

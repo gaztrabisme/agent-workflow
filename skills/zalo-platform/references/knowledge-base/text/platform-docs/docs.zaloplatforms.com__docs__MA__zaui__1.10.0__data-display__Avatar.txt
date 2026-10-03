@@ -1,0 +1,347 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.10.0/data-display/Avatar
+# FETCHED: 2026-08-06
+# TITLE: Avatar | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.10.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Layout
+Stack
+ZBox
+Center
+Cluster
+Grid
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Avatar
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.10.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Component hiển thị user avatar
+Properties​
+Avatar​
+Name
+Type
+Default
+Description
+online
+boolean
+false
+Hiển thị trạng thái online của Avatar
+story
+string
+Nhận các giá trị: default, seen
+size
+number
+Kích thước avatar
+src
+string
+src cho thẻ img của avatar
+backgroundColor
+GradientVariants
+Màu nền của avatar. Nhận các giá trị: BLUE-BLUELIGHT, PURPLE-BLUE, SKYBLUE-GREEN, GREEN-GREENLIGHT. Nếu không được chỉ định trước và Avatar là string thì giá trị sẽ được tính toán trước dựa trên nội dung Avatar
+blocked
+boolean
+Hiển thị trạng thái block của Avatar
+onClick
+MouseEventHandler
+Event click vào Avatar
+children
+React.ReactNode
+ReactNode
+Avatar.Group​
+Name
+Type
+Default
+Description
+maxCounter
+number
+Số lượng Avatar tối đa có thể hiển thị trong group
+total
+number
+cho phép đặt tổng số lượng avatar trong Group
+horizontal
+boolean
+Hiển thị các Avatar dạng ngang
+onCounterClick
+MouseEventHandler
+Sự kiện click vào counter
+children
+React.ReactNode
+ReactNode
+Example​
+import React from "react";
+import { Avatar, Text, Box, Page } from "zmp-ui";
+const { Group } = Avatar;
+function AvatarPage() {
+return (
+<>
+<Text.Title size="small">Size</Text.Title>
+<Box flex mt={6} className="avatar-scroll-sections">
+<Box mt={6} mr={6} flex flexDirection="column" alignItems="center">
+<Box>
+<Text size="xxSmall">16px</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column" alignItems="center">
+<Box>
+<Text size="xxSmall">24px</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column" alignItems="center">
+<Box>
+<Text size="xxSmall">32x</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column" alignItems="center">
+<Box>
+<Text size="xxSmall">40px</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column" alignItems="center">
+<Box>
+<Text size="xxSmall">48px</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column" alignItems="center">
+<Box>
+<Text size="xxSmall">64px</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column" alignItems="center">
+<Box>
+<Text size="xxSmall">80px</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+</Box>
+<Text.Title size="small">Variation</Text.Title>
+<Box flex flexWrap>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Group 1</Text>
+</Box>
+<Box mt={2}>
+<Group maxCounter={1}>
+</Group>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Group 2</Text>
+</Box>
+<Box mt={2}>
+<Group maxCounter={2}>
+</Group>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Group 3</Text>
+</Box>
+<Box mt={2}>
+<Group maxCounter={3}>
+</Group>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Group 4</Text>
+</Box>
+<Box mt={2}>
+<Group>
+</Group>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Group 4+</Text>
+</Box>
+<Box mt={2}>
+<Group>
+</Group>
+</Box>
+</Box>
+</Box>
+<Box flex flexWrap>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">
+Group 2
+<br />
+Horizontal
+</Text>
+</Box>
+<Box mt={2}>
+<Group maxCounter={2} horizontal>
+</Group>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">
+Group 3
+<br />
+Horizontal
+</Text>
+</Box>
+<Box mt={2}>
+<Group maxCounter={3} horizontal>
+</Group>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">
+Group 4
+<br />
+Horizontal
+</Text>
+</Box>
+<Box mt={2}>
+<Group horizontal>
+</Group>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">
+Group 4+
+<br />
+Horizontal
+</Text>
+</Box>
+<Box mt={2}>
+<Group horizontal>
+</Group>
+</Box>
+</Box>
+</Box>
+<Text.Title size="small">Add-on</Text.Title>
+<Box flex mt={6} flexWrap>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Online</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Online + Story</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Online + Story Seen</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+<Box mt={6} mr={6} flex flexDirection="column">
+<Box>
+<Text size="xxSmall">Blocked</Text>
+</Box>
+<Box mt={2}>
+</Box>
+</Box>
+</Box>
+</>
+);
+}
+export default AvatarPage;
+Properties
+Avatar
+Avatar.Group
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,222 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.10.0/navigation/bottom-navigation/BottomNavigation
+# FETCHED: 2026-08-06
+# TITLE: BottomNavigation | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.10.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Layout
+Stack
+ZBox
+Center
+Cluster
+Grid
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+BottomNavigation
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.10.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Guidelines
+Implementation
+Bottom Navigation​
+Bottom Navigation giúp di chuyển giữa các primary content trong một ứng dụng
+Usage​
+Giúp điều hướng đến các primary content của ứng dụng
+Sẽ sở hữu từ 4-6 mục
+Icon và label trên mỗi mục thể hiện primary content
+Behavior​
+Luôn mở mục đầu tiên khi ứng dụng bắt đầu hoạt động
+Mỗi lần sẽ chỉ mở 1 mục
+Bottom Navigation hoạt động giống nhau trên cả Android và iOS, thay vì sử dụng behavior mặc định của nền tảng. Khi chuyển đến một primary content thì sẽ hướng đến vị trí mà trước đó đã được tương tác bởi user. Nếu user trước đó đã tương tác hoặc đi đến một trang chi tiết như scroll, mở bottom sheet, mở page, lựa chọn tab, v.v... thì sẽ giữ nguyên khi user trở lại. (Trong một số trường hợp tương tác sẽ được đặt lại, user sẽ hướng đến vị trí đầu tiên của primary content)
+Điều hướng có thể được thay đổi khi cần cải thiện trải nghiệm của user. Có thể đưa user trở lại vị trí đầu tiên (hoặc đặt lại vị trí scroll, hay đặt lại tab đầu tiên) nếu nó phù hợp hơn cho việc trải nghiệm.
+Khi di chuyển bên trong một primary content, từ vị trí đầu tiên đến các trang chi tiết hơn, bottom navigation có thể được giữ lại để giúp điều hướng tốt hơn
+Vị trí đầu tiên: Screen hiển thị ban đầu. Trạng thái khi chưa từng có một tương tác nào được thực hiện (ví dụ như scroll, mở bottom sheet, mở page chi tiết, chuyển tab, v.v...)
+Anatomy​
+Bottom Navigation có bao gồm Badge ở góc trên bên phải của icon
+1
+Container
+Required
+2
+Icon
+Required
+3
+Label
+Required
+Text
+4
+Badge
+Optional
+5
+Divider
+Required
+Specs​
+Padding and spacing
+Padding left, right = 4px
+Padding top = 4px
+Padding bottom = 2px
+Spacing = 2px
+Badge sẽ luôn nằm ở góc trên bên phải của Icon và tạo ra phần giao nhau
+Phần giao nhau có w = 6px, h = 16px
+Badge neo ở góc trên bên trái của phần giao nhau
+BottomNavigation tạo giao diện nằm phía dưới giao diện ứng dụng, giúp dễ dàng điều hướng sang các trang khác
+Properties​
+BottomNavigation​
+Name
+Type
+Default
+Description
+activeKey
+string
+unique key của tab item đang active (controlled)
+defaultActiveKey
+string
+unique key của tab item active mặc định (uncontrolled)
+fixed
+boolean
+Vị trí fixed phía dưới mini app
+onChange
+function
+(activeKey: string) => void
+Gọi khi thay đổi tab item active thay đổi
+BottomNavigation.Item​
+Name
+Type
+Default
+Description
+Minimum version
+label
+ReactNode
+Label hiển thị.
+icon
+ReactNode
+Icon phía trên label.
+activeIcon
+ReactNode
+Thêm icon thay thế Icon mặc định (prop Icon) khi active
+itemKey
+string
+Unique key cho từng tab item
+onClick
+function
+Gọi khi click/press vào tab item
+linkTo
+string
+Dùng khi sử dụng ZMPRouter và AnimationRoutes, chuyển đến trang cụ thể với hiệu ứng chuyển trang như một tab layout
+1.5.1
+Example​
+import React, { useState } from "react";
+import { BottomNavigation, Icon, Page } from "zmp-ui";
+const BottomNavigationPage = (props) => {
+const [activeTab, setActiveTab] = useState("chat");
+const { title } = props;
+return (
+<BottomNavigation
+fixed
+activeKey={activeTab}
+onChange={(key) => setActiveTab(key)}
+>
+}
+activeIcon={}
+/>
+}
+activeIcon={}
+/>
+}
+activeIcon={}
+/>
+}
+activeIcon={}
+/>
+}
+activeIcon={}
+/>
+</BottomNavigation>
+);
+};
+export default BottomNavigationPage;
+Bottom Navigation
+Usage
+Behavior
+Anatomy
+Specs
+Properties
+BottomNavigation
+BottomNavigation.Item
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

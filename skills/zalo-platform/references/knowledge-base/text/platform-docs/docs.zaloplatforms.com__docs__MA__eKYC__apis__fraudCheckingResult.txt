@@ -1,0 +1,127 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/eKYC/apis/fraudCheckingResult
+# FETCHED: 2026-08-06
+# TITLE: Fraud Checking Result | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Introduction
+APIs
+Generate Session ID
+Image Upload
+Image Sanity Check
+Fraud Checking Result
+Logic Status Checking Result
+OCR Result
+Face Matching Result
+Selfie Face Matching Result
+Face Retrieval Result
+Face Search Upload
+Face Search Result
+Get Status Info
+Encryption
+Credentials
+IP Whitelist Policy
+Signature
+Appendix
+Checkout SDK
+Trên trang này
+Fraud Checking Result
+Cập nhật lần cuối:5/8/2026
+API to get the fraud checking result of the uploaded images.
+Request​
+Endpoint: /v1/api/ekyc-verify/result/fraud-check
+Method: POST
+Header
+Name
+Type
+Required
+Description
+api_key
+string
+yes
+The API key associated with your account to authenticate requests (for development, check the Credentials section).
+Parameters
+Name
+Type
+Required
+Description
+session_id
+string
+yes
+Current session ID.
+image_type
+string (enum)
+yes
+Supported image types (of submitted images):
+ID card front image: idcard
+ID card back image: back_idcard
+Driver license front image: driver_license
+Passport front image: passport
+Documentation front image (unknown type): front_id_doc
+Documentation back image (unknown type): back_id_doc
+Selfie image: selfie
+Selfie image 1 for selfie vs selfie matching: base_selfie
+Selfie image 2 for selfie vs selfie matching: query_selfie
+Response​
+Status: 200 OK
+Body: JSON
+{
+"code": 0,
+"message": "Successful",
+"data": "<ENCRYPTED_DATA_IN_BASE64>",
+"sign": "8f4642cdb4c555f9a6d5926f4df9b73e44da2e675512d65d44c0a212",
+"request_id": "12345678"
+}
+Field “request_id”: Request's identifier, used for auditing later.
+Field “data”: Decrypt the “data” field as described in the Decrypt response data section to get the JSON object with following fields.
+Name
+Type
+Description
+status
+number
+The current status of the image to verify. For details, check the Appendix eKYC Status Values section.
+msg
+string
+Message value corresponding to the status.
+photo_id
+string (128)
+ID of the uploaded image.
+prob
+number
+Probability of fraud result (0 → 1).
+Field “sign”: The “sign” field is created by encrypted data and a secret key, described in the Signature section.
+Trước
+Image Sanity Check
+Kế tiếp
+Logic Status Checking Result
+Request
+Response
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

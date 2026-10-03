@@ -1,0 +1,109 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/phu-luc/cac-tuong-tac-cua-nguoi-dung-voi-oa
+# FETCHED: 2026-08-06
+# TITLE: Các tương tác của người dùng với OA | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Các tương tác của người dùng với OA
+Các thuật ngữ và định nghĩa
+Thuật ngữ​
+Thuật ngữ
+Mô tả
+Zalo Official Account (OA)
+Zalo OA là tài khoản chính thức của Doanh nghiệp trên Zalo, giúp Doanh nghiệp tương tác với người dùng Zalo cá nhân.
+Xem thêm tại mục Khám phá.
+Zalo App (App)
+Ứng dụng của doanh nghiệp khởi tạo trên nền tảng Zalo, dùng để quản lý Zalo OA hoặc các dịch vụ của nền tảng Zalo (ZCA, Mini App,…)
+Xem thêm tại mục Khám phá.
+Zalo Cloud Account (ZCA)
+ZCA là công cụ quản lý chi tiêu cho dịch vụ Zalo OA và Zalo Notification Service (ZNS)
+Xem thêm tại mục Khám phá.
+OA ID
+ID của OA
+App ID
+ID của App
+Authorization code
+Mã ủy quyền cho phép ứng dụng gọi API để lấy access token và refresh token.
+Xem thêm tại Xác thực và ủy quyền.
+Access token
+Token cho phép ứng dụng đại điện OA sử dụng API
+Xem thêm tại Xác thực và ủy quyền.
+Refresh token
+Mã dùng để tạo lại access token khi access token hết hiệu lực
+Xem thêm tại Xác thực và ủy quyền.
+UID
+ID của người dùng gắn với OA
+UID by App
+ID của người dùng gắn với App
+Admin ID
+ID của quản trị viên OA
+Sender ID/ From_ID
+ID của đối tượng gửi, tùy API sẽ là UID hoặc OA ID
+Recipient ID / To_ID
+ID của đối tượng nhận, tùy API sẽ là UID hoặc OA ID
+Message ID / Msg ID
+ID của tin nhắn
+Button
+Nút đính kèm (CTA) của Tin nhắn. Xem chi tiết tại đây.
+Element
+Thành phần của Tin nhắn. Xem chi tiết tại từng API Tin nhắn.
+Định nghĩa Tương tác​
+OA chỉ có thể gửi Tin nhắn và Gọi tới người dùng sau khi người dùng chủ động tương tác với OA. Tương tác của người dùng với OA có thể gồm một trong các hành động:
+Quan tâm OA
+Gửi tin nhắn đến OA
+Chấp nhận cuộc gọi từ OA
+Nhấn nút Nhắn tin tại trang OA profile
+Nhấn biểu tượng hoặc nút Gọi OA
+Nhấn menu Tương tác nhanh hoặc Menu Dịch vụ chứa giá trị oa.query. Xem thêm các giá trị của button tại đây.
+Trước
+Các loại mã sử dụng trong OAuth
+Kế tiếp
+Giới hạn tốc độ gọi API
+Thuật ngữ
+Định nghĩa Tương tác
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

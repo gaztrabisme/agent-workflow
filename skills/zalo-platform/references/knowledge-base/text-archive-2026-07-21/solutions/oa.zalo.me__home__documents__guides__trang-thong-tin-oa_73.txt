@@ -1,0 +1,110 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/trang-thong-tin-oa_73
+# FETCHED: 2026-07-21
+# TITLE: Trang thông tin OA | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Trang thông tin OA
+
+Từ 03/07/2024, Zalo Official Account Doanh nghiệp (Zalo OA) cập nhật giao diện Trang thông tin OA mới.
+
+Trang thông tin OA - là tính năng giúp doanh nghiệp tăng độ nhận diện thương hiệu và sự tin tưởng của khách hàng thông qua việc hiển thị tên OA (brandname), thông tin về doanh nghiệp, các tài khoản chi nhánh trong cùng hệ thống - số lượng lên đến 500 OA - hay những thông tin bài viết đáng chú ý.
+
+A. Thông tin chung​
+
+Đây là trang cài đặt thông tin hiển thị để giới thiệu sơ bộ đến người dùng về trang thông tin OA của doanh nghiệp. 
+
+📌 Thông tin tài khoản: Các thông tin trong mục này khi OA chỉnh sửa sẽ do BQT Zalo OA phê duyệt. 
+
+Ảnh bìa: Kích thước tối thiểu 320x180 pixel, dung lượng <15MB
+Ảnh đại diện: Kích thước tối thiểu 320x180 pixel, dung lượng <15MB 
+Tên Official Account: Điều chỉnh tiền tố/ hậu tố. Trong trường hợp thay đổi tên chinh (tên OA thay đổi từ công ty ABC sang công ty XYZ) cần nộp kèm giấy tờ xác thực
+
+⚠ Lưu ý:
+
+Nếu tài khoản OA xác thực thay đổi thông tin sang tên doanh nghiệp/ tên thương hiệu/ tên giao dịch khác không giống với thông tin đăng ký hiện tại. 
+
+Ví dụ: Tên OA hiện tại “Công ty ABC”, tên OA thay đổi “Thời trang EFT". Quản trị viên OA cần đăng tải bộ hồ sơ xác thực mới cho tên OA thay đổi, ngay sau khi cập nhật thông tin.
+
+Thông tin sau khi được cập nhật sẽ được duyệt bởi BQT Zalo OA trong vòng 2-3 ngày làm việc. Có một số trường hợp thời gian sẽ lên tới 7 ngày làm việc.
+Thông tin giới thiệu: Tóm tắt giới thiệu về doanh nghiệp hoặc sản phẩm, dịch vụ, dự án
+
+📌 Thông tin doanh nghiệp: đây là thông tin đã được kiểm duyệt khi xác thực tài khoản OA & thông tin này không thể chỉnh sửa trừ khi OA nộp hồ sơ xác thực mới và được kiểm duyệt thành công
+
+B. Thiết lập trang thông tin​
+
+📌 Phân quyền: Chỉ Quản trị viên và Soạn nội dung có quyền xem và thao tác cập nhật thông tin
+
+Đây là nơi thiết lập các thông tin về tài khoản OA hiển thị trên Zalo App, có thể thay đổi vị trí giữa các mục (Thông tin OA/ Tương tác/ Chi nhánh/ Đáng chú ý/ Tài nguyên) - riêng mục Nút bấm được ghim cố định. 
+
+Nút bấm: Có tối đa 3 nút:
+Nhắn tin
+Quan tâm
+Nút thêm - chọn 1 trong 3: Gọi thoại, Miniapp, Website
+Thông tin OA: các thông tin trong mục này OA có thể tùy chỉnh cập nhật, cài đặt "Ẩn/Hiện":
+Địa chỉ: Địa chỉ doanh nghiệp hoạt động 
+Hotline: Đường dây nóng của doanh nghiệp
+Thời gian hoạt động: Thời gian doanh nghiệp hoạt động
+Website: Trang website chính thức của doanh nghiệp
+Tương tác: Ẩn/ Hiện menu chính và menu nhanh đã được OA thiết lập trước đó 
+Chi nhánh: Có thể gán tối đa 500 OA mà admin OA đang có, với phân quyền Quản trị viên và Soạn nội dung
+Đáng chú ý: Ghim (pin) tối đa 5 bài viết trong danh sách bài viết để hiện thị trên OA profile
+Tài nguyên: Danh sách bài viết
+Hình ảnh trang thông tin OA mới sau khi cài đặt hoàn tất:​
+
+------------- 
+
+Trong quá trình sử dụng Zalo Official Account, nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT Zalo OA để được phản hồi sớm nhất.
+
+Previous
+Chi phí vận hành tài khoản Zalo OA doanh nghiệp xác thực
+Next
+Ảnh đại diện, ảnh bìa OA
+A. Thông tin chung
+B. Thiết lập trang thông tin
+Hình ảnh trang thông tin OA mới sau khi cài đặt hoàn tất:
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

@@ -1,0 +1,439 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.10.0/Snackbar
+# FETCHED: 2026-08-06
+# TITLE: Snackbar | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.10.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Layout
+Stack
+ZBox
+Center
+Cluster
+Grid
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Snackbar
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.10.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Snackbar Giúp tạo thông báo nhanh hiển thị lên trên giao diện ứng dụng, sự dụng thông báo về thông tin thêm, trạng thái thành công hoặc lỗi xảy ra khi sử dụng một hành động, quá trình download, trạng thái kết nối,...
+Properties​
+SnackbarProvider​
+Name
+Type
+Default
+Description
+zIndex
+number
+Tuỳ chỉnh z-index cho snackbar
+SnackbarContext​
+SnackbarProvider cung cấp các hooks
+Name
+Type
+Default
+Description
+openSnackbar
+function
+Function để trigger tạo mới và mở một Snackbar. Có thể mở Snackbar với các SnackbarOptions
+closeSnackbar
+function
+Function để đóng một Snackbar, có thể sử dụng để đóng nhanh khi chưa hết thời gian hiển thị
+setDownloadProgress
+function
+Set phần trăm tiến trình download (0 - 100) khi type="download"
+SnackbarAction​
+Name
+Type
+Default
+Description
+close
+boolean
+Action close
+text
+string
+Phần text hiển thị cho action
+onClick
+function
+Thêm event handler cho click event khi user nhấn vào action
+SnackbarOptions​
+Name
+Type
+Default
+Description
+position
+SnackbarPosition
+Vị trí snackbar
+duration
+number
+Thời gian tồn tại của snackbar tính theo ms
+text
+string
+Phần text hiển thị trên snackbar
+type
+SnackbarType
+Loại snackbar
+action
+SnackbarAction
+Thêm action cho snackbar
+prefixIcon
+ReactNode
+Thêm lead icon cho snackbar
+icon
+boolean
+Hiển thị icon cho snackbar trường hợp type default
+verticalAction
+boolean
+Hiển thị action tại hàng mới, thường sử dụng khi action có độ dài text dài
+zIndex
+number
+Tuỳ chỉnh z-index cho snackbar
+onClose
+function
+Thêm event handler khi snackbar đóng
+Type​
+SnackbarPosition​
+Name
+Description
+"top"
+Mở Snackbar phía trên
+"bottom"
+Mở Snackbar phía dưới
+SnackbarType​
+Name
+Description
+"default"
+Snackbar mặc định
+"success"
+Snackbar dùng hiển thị khi thực hiện một tác vụ thành công
+"info"
+Snackbar dùng để hiển thị thông tin
+"error"
+Snackbar dùng để hiển thị phản hồi một tác vụ thực hiện bị lỗi
+"warning"
+Snackbar dùng để đưa ra cảnh báo
+"loading"
+Snackbar dùng để hiển thị trạng thái loading
+"download"
+Snackbar hiển thị tiến trình download
+"countdown"
+Snackbar hiển thị với countdowwn
+"wifi-connected"
+Snackbar hiển thị khi network kết nối
+"wifi-disconnected"
+Snackbar hiẻn thị khi network ngắt kết nối
+Example​
+import React from "react";
+import { Route } from "react-router-dom";
+import { SnackbarProvider, AnimationRoutes, App, ZMPRouter } from "zmp-ui";
+export default function MyApp(props) {
+return (
+<SnackbarProvider>
+<ZMPRouter>
+<AnimationRoutes>
+} />
+</AnimationRoutes>
+</ZMPRouter>
+</SnackbarProvider>
+);
+}
+import React, { useRef, useEffect } from "react";
+import { useSnackbar, Button, Page, Box, Text } from "zmp-ui";
+export default function HomePage() {
+const { openSnackbar, setDownloadProgress, closeSnackbar } = useSnackbar();
+const timmerId = useRef();
+useEffect(
+() => () => {
+closeSnackbar();
+clearInterval(timmerId.current);
+},
+[]
+);
+return (
+<Text.Title size='small'>Snackbar</Text.Title>
+<Box mr={2} mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+icon: true,
+text: " Snackbar",
+action: {
+text: "close",
+close: true
+},
+duration: 10000000
+});
+}}
+>
+Default with Action
+</Button>
+</Box>
+<Box mr={2} mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "text"
+});
+}}
+>
+Text Only
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "Vertical action",
+action: {
+text: "close",
+close: true
+},
+verticalAction: true,
+icon: true,
+duration: 10000000
+});
+}}
+>
+Vertical action
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "Default top snackbar",
+position: "top"
+});
+}}
+>
+Default Top
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "Error",
+type: "error"
+});
+}}
+>
+Error
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "Success",
+type: "success"
+});
+}}
+>
+Success
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "Waring",
+type: "warning",
+duration: 10000
+});
+}}
+>
+Warning
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "Loading...",
+type: "loading"
+});
+}}
+>
+Loading
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "loading...",
+type: "countdown",
+duration: 5000
+});
+}}
+>
+Countdown
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+let i = 0;
+timmerId.current = setInterval(() => {
+if (i === 0) {
+openSnackbar({
+text: "download...",
+type: "download",
+duration: 10000000,
+onClose() {
+clearInterval(timmerId.current);
+}
+});
+}
+if (i < 100) {
+// eslint-disable-next-line no-plusplus
+setDownloadProgress(++i);
+}
+if (i === 100) {
+setTimeout(() => {
+closeSnackbar();
+clearInterval(timmerId.current);
+}, 1000);
+}
+}, 100);
+}}
+>
+Download
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "Connected!",
+type: "wifi-connected"
+});
+}}
+>
+Connect Wifi
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+variant='secondary'
+type='highlight'
+onClick={() => {
+openSnackbar({
+text: "Disconnected!",
+type: "wifi-disconnected"
+});
+}}
+>
+Disconnect Wifi
+</Button>
+</Box>
+);
+}
+Properties
+SnackbarProvider
+SnackbarContext
+SnackbarAction
+SnackbarOptions
+Type
+SnackbarPosition
+SnackbarType
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

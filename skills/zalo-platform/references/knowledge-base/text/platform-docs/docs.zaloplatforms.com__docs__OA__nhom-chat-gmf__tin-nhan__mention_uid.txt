@@ -1,0 +1,161 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/nhom-chat-gmf/tin-nhan/mention_uid
+# FETCHED: 2026-08-06
+# TITLE: Gửi tin nhắn Mention tới nhóm | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Điều kiện gửi tin nhắn nhóm
+Gửi tin nhắn nhóm dạng Text
+Gửi tin nhắn nhóm dạng File
+Gửi tin nhắn nhóm dạng Hình ảnh
+Gửi tin nhắn nhóm dạng Sticker
+Gửi tin nhắn Mention tới nhóm
+Quản lý nhóm
+Tạo nhóm mới
+Lấy thông tin nhóm
+Cập nhật nhóm
+Cập nhật dịch vụ cho Nhóm chat
+Mời tham gia nhóm
+Lấy danh sách thành viên chờ duyệt
+Đồng ý duyệt thành viên mới vào nhóm
+Từ chối duyệt thành viên mới vào nhóm
+Lấy danh sách thành viên nhóm
+Thêm phó nhóm
+Xóa phó nhóm
+Xóa thành viên khỏi nhóm
+OA Giải tán nhóm
+Lấy danh sách nhóm OA đang quản lý
+Kiểm tra hạn mức nhóm
+Lấy danh sách tin nhắn nhóm gần nhất
+Lấy thông tin tin nhắn trong một nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Gửi tin nhắn Mention tới nhóm
+Lưu ý
+Ứng dụng cần được cấp quyền quản lý thông tin nhóm.
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/group/message
+Method: POST
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl --location --request POST 'https://openapi.zalo.me/v3.0/oa/group/message' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+"recipient": {
+"group_id": "f414c8f76fa586fbdfb4",
+},
+"message": {
+"text": "hello [@186729651760683225] and [@7967320986128691935] from GroupAPI"
+}
+}
+'
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+recipient
+json object
+yes
+Thông tin người nhận
+message
+json object
+yes
+Nội dung tin nhắn
+Cấu trúc body của recipient​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+group_id
+string
+yes
+ID của nhóm
+Cấu trúc body của message​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+text
+string
+yes
+Nội dung tin nhắn cần gửi
+Nếu muốn mention user_id thì sẽ sử dụng cú pháp [@user_id]
+Nếu muốn mention cả nhóm thì sẽ sử dụng cú pháp [@group_id]
+Example respond​
+{
+"data": {
+"message_id": "81d74a9cd71d6f473608",
+"group_id": "f414c8f76fa586fbdfb4"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Tham số
+Kiểu dữ liệu
+Mô tả
+message_id
+string
+ID của tin nhắn mới được gửi
+group_id
+string
+ID của nhóm
+Trước
+Gửi tin nhắn nhóm dạng Sticker
+Kế tiếp
+Tạo nhóm mới
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Cấu trúc body của recipient
+Cấu trúc body của message
+Example respond
+Cấu trúc thuộc tính data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

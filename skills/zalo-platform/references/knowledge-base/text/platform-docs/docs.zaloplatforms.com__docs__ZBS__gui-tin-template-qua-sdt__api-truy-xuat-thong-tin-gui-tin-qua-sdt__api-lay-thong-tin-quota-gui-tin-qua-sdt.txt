@@ -1,0 +1,124 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/gui-tin-template-qua-sdt/api-truy-xuat-thong-tin-gui-tin-qua-sdt/api-lay-thong-tin-quota-gui-tin-qua-sdt
+# FETCHED: 2026-08-06
+# TITLE: API Lấy thông tin quota gửi tin qua SĐT | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API Gửi tin
+API Gửi tin sử dụng hash phone
+API Gửi tin sử dụng development mode
+API Gửi tin với hệ mã hóa RSA
+API Gửi tin Journey
+API truy xuất thông tin gửi tin qua SĐT
+API Lấy thông tin trạng thái gửi tin qua SĐT
+API Lấy thông tin quota gửi tin qua SĐT
+API Lấy thông tin chất lượng gửi tin qua SĐT hiện tại của OA
+Webhook gửi tin qua SĐT
+Sự kiện thay đổi về hạn mức gửi tin qua SĐT
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận tin qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Trên trang này
+API Lấy thông tin quota gửi tin qua SĐT
+API cho phép đối tác truy xuất thông tin quota (số lượng) gửi tin qua SĐT của OA được gửi mỗi ngày.
+Lưu ý
+Quyền cần có: Gửi tin qua số điện thoại
+HTTP request​
+URL: https://business.openapi.zalo.me/message/quota
+Method: GET
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" "https://business.openapi.zalo.me/message/quota"
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Example respond​
+{
+"data": {
+"dailyQuota": 500,
+"remainingQuota": 499,
+"dailyQuotaPromotion": null,
+"remainingQuotaPromotion": null,
+"monthlyPromotionQuota": 125,
+"remainingMonthlyPromotionQuota": 124,
+"estimatedNextMonthPromotionQuota" :2000
+},
+"error": 0,
+"message": "success"
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+dailyQuota
+long
+Số tin qua SĐT của OA được gửi trong 1 ngày.
+Lưu ý: Hạn mức gửi tin qua SĐT mỗi ngày của OA sẽ tự động được điều chỉnh dựa theo chất lượng và nhu cầu gửi. Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT tại đây.
+remainingQuota
+long
+Số tin qua SĐT còn lại của OA được gửi trong ngày.
+dailyQuotaPromotion
+string
+Số tin hậu mãi của OA được gửi trong ngày.
+Ghi chú: Từ ngày 1/11, thuộc tính này sẽ trả về giá trị null
+remainingQuotaPromotion
+string
+Số tin hậu mãi còn lại của OA được gửi trong ngày.
+Ghi chú: Từ ngày 1/11, thuộc tính này sẽ trả về giá trị null
+monthlyPromotionQuota
+long
+Số tin hậu mãi của OA được gửi trong tháng.
+remainingMonthlyPromotionQuota
+long
+Số tin hậu mãi còn lại của OA được gửi trong tháng.
+estimatedNextMonthPromotionQuota
+long
+Số tin hậu mãi dự kiến mà OA có thể gửi trong tháng tiếp theo.
+Trước
+API Lấy thông tin trạng thái gửi tin qua SĐT
+Kế tiếp
+API Lấy thông tin chất lượng gửi tin qua SĐT hiện tại của OA
+HTTP request
+Example request
+Tham số header
+Example respond
+Cấu trúc thuộc tính data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

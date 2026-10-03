@@ -1,0 +1,136 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/TS/apis/queryOrder
+# FETCHED: 2026-08-06
+# TITLE: Truy vấn trạng thái giao dịch | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Cấu hình API
+API Reference
+Khởi tạo giao dịch
+Giả lập thanh toán
+Truy vấn trạng thái giao dịch
+Webhook nhận kết quả thanh toán
+Bảng mã lỗi
+Trên trang này
+Truy vấn trạng thái giao dịch
+API cho phép Merchant chủ động truy vấn trạng thái giao dịch trên Transfer Service.
+URL: https://api-transfer.zaloplatforms.com/v1/order/query
+Method: POST
+Response Type: application/json
+Parameters​
+Trường
+Kiểu dữ liệu
+Bắt buộc
+Mô tả
+Yêu cầu
+app_id
+String
+true
+ID ứng dụng merchant đăng ký với Transfer Service
+Phải là app_id đã đăng ký với Transfer Service
+ts_order_id
+String
+true
+Mã giao dịch do Transfer Service cấp (trả về khi tạo đơn)
+Mã hợp lệ, tồn tại trên hệ thống
+timestamp
+Long
+true
+Thời điểm tạo request (timestamp)
+Dùng để validate request
+signature
+String
+true
+Thông tin xác thực request
+Chữ ký dùng để xác thực request. Xem tài liệu
+Sample request​
+{
+"app_id": "0752a0528b1762493b06",
+"ts_order_id": "9a03a90382466b183257",
+"app_time": 0,
+"timestamp": 1764041335432,
+"signature": "81d0afa7b1c4754d7db7703726159c697cbd74cdeafced0aa8c039854becfac7"
+}
+Sample response​
+{
+"error_code": 0,
+"error_message": "Thành công",
+"data": {
+"merchant_order_id": "251209_24fbc663-f83",
+"ts_order_id": "5e096d1f465aaf04f64b",
+"order_time": 1765257674274,
+"created_time": 1765257674312,
+"expire_time": 1765257974312,
+"expire_duration": 5,
+"updated_time": 1765257850060,
+"amount": 100000,
+"description": "1765257674274",
+"qr_data": "00020101021238570010A000000727012700069704220113VQRQAAUMJ54040208QRIBFTTA530370454061000005802VN62280107NPS6869081317652576742746304EC5F",
+"paid_amount": "0",
+"paid_time": 1765257712000,
+"transaction_detail": "QAAUMI9446 ZTRANS47 4 59ee13....",
+"status": "PAID",
+"status_code": 2
+}
+}
+Error codes​
+Error code
+Error message
+Ghi chú
+-105
+Invalid signature
+Lỗi chữ ký xác thực request
+-402
+Invalid order id
+Mã giao dịch không hợp lệ
+-501
+Invalid application id
+Application id không hợp lệ
+-510
+Application not exist
+Application không tồn tại
+Order status​
+Status code
+Status message
+Mô tả
+1
+QR_GENERATED
+Đang chờ thanh toán
+2
+PAID
+Đã thanh toán
+3
+EXPIRED
+Đã hết hạn chờ thanh toán từ ngân hàng. Merchant tự kiểm tra sao kê tài khoản để biết trạng thái thực tế.
+Trước
+Giả lập thanh toán
+Kế tiếp
+Webhook nhận kết quả thanh toán
+Parameters
+Sample request
+Sample response
+Error codes
+Order status
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,552 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-truong-thong-tin-nguoi-dung/tao-moi-truong-thong-tin-tuy-bien
+# FETCHED: 2026-07-21
+# TITLE: Tạo mới trường thông tin tùy biến | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Lấy danh sách trường thông tin
+Tạo mới trường thông tin tùy biến
+Cập nhật trường thông tin
+Xóa trường thông tin tùy biến
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý trường thông tin người dùngTạo mới trường thông tin tùy biến
+Tạo mới trường thông tin tùy biến
+LƯU Ý
+Ứng dụng cần được OA cấp quyền "Quản lý trường thông tin người dùng" để sử dụng API này.
+Key và data_type là thông tin không thể thay đổi sau khi tạo.
+Không thể tạo trường thông tin với data_type đặc biệt của hệ thống (id, tag, gender, location).
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/userfield/create
+Method: POST
+Response Type: text/json
+Example request​
+curl --location --request POST 'https://openapi.zalo.me/v3.0/oa/userfield/create' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "key" : "ngay_dat_hang",
+    "name": "Ngày đặt hàng",
+    "data_type": "datetime",
+    "description": "Ngày khách hàng đặt đơn hàng", 
+    "status": "active",
+    "additional_format": "dd/MM/yyyy"
+}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+key
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Khóa của trường thông tin
+
+Thông tin này sẽ không thể thay đổi sau khi khởi tạo thành công
+
+
+
+
+name
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Tên trường thông tin
+
+
+
+
+data_type
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Loại dữ liệu của trường thông tin. Chi tiết xem bảng Mô tả data_type bên dưới.
+
+Thông tin này sẽ không thể thay đổi sau khi khởi tạo thành công
+
+
+
+
+description
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Mô tả trường thông tin
+
+
+
+
+status
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Trạng thái của trường thông tin
+
+- "active": Đang hoạt động
+
+- "inactive": Tạm ngưng
+
+Mặc định là "active" nếu không được khai báo
+
+
+
+
+additional_format
+
+	
+
+string
+
+	
+
+no
+
+	Cài đặt bổ sung cho data_type là datetime. Chi tiết xem bảng Format datetime bên dưới.
+
+Ví dụ:
+"additional_format": "dd/MM/yyyy"
+
+
+
+
+additional_fields
+
+	
+
+object
+
+	
+
+no
+
+	Cài đặt bổ sung cho data_type là table
+
+Ví dụ:
+"additional_fields": [
+    {
+        "key": "da_thanh_toan_chua",
+        "data_type": "boolean"
+    },
+    {
+        "key": "ngay_thanh_toan",
+        "data_type": "datetime",
+        "additional_format": "dd/MM/yyyy"
+    }
+]
+
+Mô tả data_type​
+
+Data Type
+
+	
+
+Mô tả
+
+	
+
+Giới hạn
+
+
+
+
+boolean
+
+	
+
+Đúng/Sai
+
+	
+
+Giá trị: true/false
+
+
+
+
+number
+
+	
+
+Số
+
+	
+
+Cho phép chứa giá trị:
+
+- Số nguyên (integer)
+
+- Số thập phân (float) tối đa 3 chữ số sau dấu phẩy
+
+
+
+
+text
+
+	
+
+Văn bản
+
+	
+
+Tối đa 255 kí tự
+
+
+
+
+datetime
+
+	
+
+Thời gian
+
+	
+
+Xem bảng Format datetime bên dưới
+
+
+
+
+table
+
+	
+
+Bảng
+
+	
+
+- JSON (1 cấp)
+
+- Tối đa 5 cặp key-value
+
+- Các key thuộc bảng sẽ không thể xóa/sửa sau khi khởi tạo, chỉ cho phép thêm mới key
+
+
+
+
+email
+
+	
+
+Email
+
+	
+
+Ví dụ: abc@example.com
+
+
+
+
+phone
+
+	
+
+Số điện thoại
+
+	
+
+Format: country_code + phone_number
+Ví dụ: 849xxxxxxxx
+
+
+
+
+url
+
+	
+
+Đường dẫn
+
+	
+
+Ví dụ: https://example.com
+
+Format datetime​
+
+Format
+
+	
+
+Ví dụ
+
+	
+
+Mô tả
+
+
+
+
+dd/MM/yyyy
+
+	
+
+31/12/2023
+
+	
+
+Ngày tháng với dấu gạch chéo
+
+
+
+
+dd/MM/yyyy HH:mm:ss
+
+	
+
+31/12/2023 23:59:59
+
+	
+
+Ngày tháng và giờ với dấu gạch chéo
+
+
+
+
+dd-MM-yyyy
+
+	
+
+31-12-2023
+
+	
+
+Ngày tháng với dấu gạch ngang
+
+
+
+
+dd-MM-yyyy HH:mm:ss
+
+	
+
+31-12-2023 23:59:59
+
+	
+
+Ngày tháng và giờ với dấu gạch ngang
+
+
+
+
+yyyy-MM-dd
+
+	
+
+2023-12-31
+
+	
+
+Định dạng ISO8601 cho ngày
+
+
+
+
+yyyy-MM-ddTHH:mm:ss
+
+	
+
+2023-12-31T23:59:59
+
+	
+
+Định dạng ISO8601 cho ngày và giờ
+
+Example response​
+{
+    "error": 0,
+    "message": "success",
+    "data": {
+        "name": "Ngày đặt hàng",
+        "key": "ngay_dat_hang",
+        "data_type": "datetime",
+        "description": "Ngày khách hàng đặt đơn hàng",
+        "status": "active",
+        "additional_format": "dd/MM/yyyy"
+    }
+}
+
+Cấu trúc response​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+error
+
+	
+
+integer
+
+	
+
+Mã lỗi (0 nếu thành công)
+
+
+
+
+message
+
+	
+
+string
+
+	
+
+Thông báo kết quả
+
+
+
+
+data
+
+	
+
+object
+
+	
+
+Thông tin trường đã tạo
+
+Trước
+Lấy danh sách trường thông tin
+Kế tiếp
+Cập nhật trường thông tin
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Mô tả data_type
+Format datetime
+Example response
+Cấu trúc response
+©2023 Zalo for Developers

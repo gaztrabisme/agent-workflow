@@ -1,0 +1,187 @@
+# SOURCE: https://oa.zalo.me/home/documents/policy/phat-trien-tien-ich-extension
+# FETCHED: 2026-07-21
+# TITLE: Chính sách phát triển Tiện ích (Extension) | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+CHÍNH SÁCH
+Chính sách về đăng ký và sử dụng tài khoản OA
+Chính sách về đặt tên OA
+Chính sách về thông tin giới thiệu và hình ảnh OA
+Chính sách xác thực tài khoản
+Chính sách về tính năng quản lý nhóm (GMF)
+Chính sách về việc khóa Official Account (gọi tắt là OA)
+Chính sách phát triển Tiện ích (Extension)
+Chính sách kiểm duyệt thông tin Tiện ích (Extension)
+Chính sách sử dụng Tiện ích (Extension)
+Chính sách xử lý tranh chấp thương hiệu
+Chính sách đăng ký URL tùy biến
+Chính sách về tương tác của OA với người dùng
+Chính sách phát triển Tiện ích (Extension)
+1. Đối tượng​
+
+Extension phục vụ cho các hoạt động, tác vụ gắn liền với nền tảng Zalo OA, giúp doanh nghiệp ứng dụng Zalo OA hiệu quả.
+
+Doanh nghiệp xuất bản Extension sau đây gọi là Nhà phát triển Tiện ích (Extension Developer). Bằng cách đăng ký làm Nhà phát triển Tiện ích và khởi tạo, xuất bản Extension, Quý Doanh nghiệp đồng ý rằng đã đọc, hiểu, chấp nhận và đồng ý với các điều khoản được đề cập trong Chính sách này.
+
+2. Điều kiện​
+
+Nhà phát triển Tiện ích đảm bảo đã đăng ký kinh doanh theo quy định pháp luật của Việt Nam, đăng ký mã ngành nghề kinh doanh là một trong các mã 6201; 6202; 6209; 6311 và bảo đảm duy trì đủ điều kiện đó trong suốt quá trình hoạt động xuất bản Tiện ích.
+
+Nếu Extension có bất kỳ hoạt động hoặc nội dung nào cần phải đăng ký hoặc thông báo cho Cơ quan Nhà nước có thẩm quyền theo quy định của pháp luật, Nhà phát triển Tiện ích có nghĩa vụ thực hiện và duy trì đầy đủ các điều kiện này trong suốt quá trình hoạt động của Extension.
+
+Nhà phát triển Tiện ích thực hiện ký Thỏa thuận để xuất bản Extension. Vui lòng liên hệ mail oa@zalo.me để được hướng dẫn.
+
+3. Quy định chung​
+
+Tuân thủ các quy định của nền tảng Zalo, các quy định của Zalo Official Account và các chính sách liên quan khác.
+
+Tuân thủ các quy định kỹ thuật của Zalo for Developers và các chính sách liên quan tại trang https://developers.zalo.me/
+
+Nhà phát triển Tiện ích đảm bảo cung cấp các thông tin một cách đầy đủ, chính xác, hợp pháp và đúng sự thật. Trong trường hợp có bất kỳ thông tin sai lệch nào, Nhà phát triển Tiện ích hoàn toàn chịu trách nhiệm.
+
+Mối quan hệ giữa Nhà phát triển Tiện ích – OA xác thực Extension – Extension:
+
+Nhà phát triển có thể có nhiều OA xác thực để tạo và xuất bản cho nhiều Extension.
+Một (01) Extension chỉ được sở hữu bởi một (01) OA xác thực cùng doanh nghiệp.
+
+Nguyên tắc đảm bảo quyền lợi cho tài khoản OA (Bên sử dụng Extension):
+
+Extension có hỗ trợ sử dụng các sản phẩm tính phí (như phí gửi tin nhắn, phí gọi điện thoại, phí sử dụng nhóm GMF,...), cần thông tin rõ cho tài khoản OA về khả năng phát sinh chi phí trước khi bắt đầu sử dụng.
+Thông báo tới OA về bất cứ thay đổi nào liên quan đến Extension tối thiểu 45 ngày trước khi thay đổi diễn ra. Đối với thay đổi làm ảnh hưởng tới quyền lợi của tài khoản OA, cần có sự đồng ý hoặc chấp thuận bằng văn bản hoặc hình thức tương tự của ít nhất một (01) Quản trị viên OA trước khi áp dụng thay đổi.
+Trong trường hợp phát sinh sự cố kỹ thuật từ phía Extension, Nhà phát triển Tiện ích cần nỗ lực xử lý nhanh nhất có thể và giảm tối thiểu thiệt hại cho tài khoản OA.
+Chịu trách nhiệm mọi chi phí trong trường hợp có lỗi trong việc thực hiện các thỏa thuận và/hoặc cam kết cung cấp dịch vụ liên quan đến Extension, bao gồm và không giới hạn ở các chi phí: hoàn tiền, đền bù, phạt vi phạm,…
+
+Nhà phát triển Tiện ích phải tuân thủ các quy định và chính sách của chúng tôi đối với việc phát triển, xuất bản và quản lý Extension. Vi phạm các quy định này có thể dẫn đến việc bị hạn chế về việc tiếp tục sử dụng dịch vụ này và các dịch vụ khác của Zalo.
+
+4. Quy định về lĩnh vực hoạt động của Extension​
+
+Nhà phát triển Tiện ích chỉ được phép tạo các Extension hỗ trợ các hoạt động kinh doanh phù hợp với quy định pháp luật Việt Nam.
+
+Các hạng mục bị hạn chế trên Zalo OA Extension:
+
+Giao dịch tài chính rủi ro, lừa đảo, bị cấm:
+Không được cung cấp khả năng giao dịch quyền chọn nhị phân (Binary Options), chứng khoán phái sinh, giao dịch ngoại tệ (Forex) hoặc các hoạt động tài chính khác không được phép giao dịch theo pháp luật Việt Nam.
+Không được chứa hoặc quảng bá các sản phẩm và dịch vụ tài chính lừa đảo hoặc có hại.
+Không được chứa các sản phẩm và dịch vụ tài chính mà Nhà phát triển Tiện ích chưa được cấp giấy phép kinh doanh từ cơ quan chức năng.
+Công nghệ Blockchain và tiền ảo: Không được phép là các sản phẩm dựa trên blockchain, tiền ảo (cryptocurrency), giao dịch tiền ảo hoặc NFT.
+Không đảm bảo an toàn thanh toán:
+Chứa các đường dẫn đến cổng thanh toán không đảm bảo an toàn thông tin, an toàn thanh toán.
+Chứa các đường dẫn đến cổng thanh toán không được cấp phép của cơ quan nhà nước có thẩm quyền hoặc phục vụ mục đích vi phạm pháp luật Việt Nam, quy ước quốc tế.
+Không bảo mật hoặc chứa các liên kết độc hại: Không được chứa các đường dẫn lừa đảo (phishing link) hoặc đường dẫn không an toàn cho người dùng.
+Hoạt động cá cược và trò chơi (game): Không được thực hiện trực tiếp các hình thức chơi game lĩnh thưởng tiền mặt hoặc cá cược dưới mọi hình thức, cá độ thể thao (sport betting).
+Không được là các công cụ gamification hoặc hỗ trợ tạo gamification trao thưởng cho người dùng các giải thưởng bằng tiền.
+
+Các Extension sử dụng gamification để triển khai chương trình khách hàng thân thiết (loyalty program) hỗ trợ tích điểm thành viên, tri ân khách hàng và tăng cường nhận diện thương hiệu, ... được phép hoạt động. Tuy nhiên, không được lạm dụng gamification để ngụy trang cho các trò chơi vi phạm pháp luật.
+
+Các Extension tạo hoặc hỗ trợ tạo nội dung bằng AI phải tuân thủ chính sách về nội dung của nền tảng Zalo và Zalo Official Account hiện có dành cho Nhà phát triển Tiện ích.
+
+Nội dung tạo bởi AI không được phép tạo ra nội dung bị hạn chế, chẳng hạn như nội dung xâm hại hoặc lạm dụng trẻ em, và nội dung mang tính chất lừa đảo.
+Các Extension tạo hoặc hỗ trợ tạo nội dung bằng AI phải tích hợp các tính năng báo cáo hoặc gắn cờ nội dung trong ứng dụng, cho phép người dùng báo cáo hoặc gắn cờ nội dung phản cảm.
+Nhà phát triển Tiện ích nên sử dụng các báo cáo từ người dùng để cải thiện việc lọc và kiểm duyệt nội dung trong Extension của mình.
+5. Quy định kiểm duyệt xuất bản Extension​
+
+Extension tuân thủ các quy định về lĩnh vực hoạt động.
+
+Chúng tôi không cho phép các Extension vi phạm quyền sở hữu trí tuệ của người khác (bao gồm nhãn hiệu, bản quyền, bằng sáng chế, bí mật thương mại và các quyền sở hữu khác...).
+
+Nguyên tắc kiểm duyệt kỹ thuật Extension:​
+Phiên bản của Extension mà Nhà phát triển Tiện ích muốn xuất bản trên Kho Tiện ích, quy định được liệt kê chi tiết tại trang Zalo for Developers.
+Nguyên tắc kiểm duyệt thông tin Extension:​
+Thông tin Extension bao gồm: tên, thông tin giới thiệu, hình ảnh, thông tin liên hệ, điều khoản sử dụng (Terms & Conditions) sẽ được kiểm duyệt khi xuất bản hoặc khi cập nhật phiên bản mới.
+Nhà phát triển Tiện ích cam kết đảm bảo tính hợp pháp trong việc sở hữu hoặc được quyền sử dụng thương hiệu/ nhãn hiệu theo quy định của pháp luật Việt Nam để đăng ký thông tin Extension.
+Các thông tin của Extension phải có tính thống nhất, đồng bộ giữa các thông tin với nhau và thể hiện mối liên quan đến Extension.
+Extension không chứa thông tin sai lệch hoặc gây hiểu lầm, gây nhầm lẫn thương hiệu/ nhãn hiệu.
+Trong quá trình kiểm duyệt, chúng tôi có thể yêu cầu Nhà phát triển Tiện ích gửi bổ sung thêm giấy tờ hoặc thông tin khác.
+Chi tiết tại Chính sách kiểm duyệt thông tin Extension.
+
+Extension được kiểm duyệt khi xuất bản hoặc khi cập nhật phiên bản mới theo nguyên tắc và tiêu chuẩn, thời gian kiểm duyệt trong vòng 3-5 ngày làm việc. Tuy nhiên trong một số trường hợp, có thể mất nhiều thời gian hơn.
+
+Trong vòng 30 ngày sau khi kiểm duyệt, Nhà phát triển Tiện ích phải xuất bản Extension. Quá thời hạn 30 ngày, Extension phải được kiểm duyệt lại.
+
+6. Quy định về bảo mật thông tin của Extension​
+
+Extension xuất bản cùng với các điều khoản sử dụng và chính sách bảo mật thông tin. Nghiêm cấm các Extension có mục đích hoặc dấu hiệu lừa đảo, tác động tiêu cực hoặc có ý định lạm dụng hay sử dụng sai mục đích bất kỳ dữ liệu, thông tin nào.
+
+Nhà phát triển Tiện ích có trách nhiệm bảo vệ dữ liệu cá nhân của người dùng cuối và doanh nghiệp chủ quản tài khoản OA, đảm bảo tuân thủ các quy định về bảo mật thông tin theo quy định của pháp luật Việt Nam.
+
+Tuân thủ các chính sách xin cấp quyền từ người dùng hoặc tài khoản OA trước khi bắt đầu truy cập, thu thập thông tin, dữ liệu của doanh nghiệp hoặc dữ liệu cá nhân.
+
+Nhà phát triển Tiện ích phải xử lý tất cả dữ liệu của tài khoản OA, dữ liệu người dùng một cách an toàn và bảo mật.
+
+Nếu Extension tích hợp sẵn mã (code) của bên thứ ba (ví dụ: SDK) được thiết kế để thu thập dữ liệu cá nhân của người dùng cuối thì Nhà phát triển Tiện ích phải đảm bảo Extension đáp ứng các yêu cầu về sự đồng ý và thể hiện rõ ràng của chính sách này, bao gồm cả việc truy cập, thu thập, sử dụng hoặc chia sẻ dữ liệu thông qua mã của bên thứ ba.
+
+7. Giới hạn trách nhiệm​
+
+Nhà phát triển Tiện ích có trách nhiệm thực hiện và hoàn thành các thỏa thuận và/ hoặc cam kết cung cấp dịch vụ liên quan đến Extension cho tài khoản OA.
+
+Chúng tôi giới hạn trách nhiệm đối với các Extension được xuất bản bởi Nhà phát triển Tiện ích trên nền tảng Zalo với các điểm cần lưu ý:
+
+Kiểm duyệt kỹ thuật và giao diện: Chúng tôi kiểm duyệt kỹ thuật và tầng giao diện của Extension theo các quy định, nguyên tắc và dựa trên các thông tin do Nhà phát triển Tiện ích cung cấp trước khi xuất bản. Các tính năng ẩn bên trong Extension do sự phức tạp của các tính năng và nội dung trong Extension nên không thể đảm bảo phát hiện mọi vi phạm.
+Sử dụng với mục đích xấu: Chúng tôi nghiêm cấm mọi hành vi sử dụng Extension sai mục đích hoặc phục vụ mục đích xấu, vi phạm pháp luật hoặc vi phạm chính sách chung của nền tảng.
+Báo cáo và xử lý vi phạm: Chúng tôi khuyến khích tài khoản OA hoặc người dùng cuối báo cáo bất kỳ vi phạm nào của các Extension để được xử lý nhanh chóng và hiệu quả.
+
+Việc giới hạn trách nhiệm của chúng tôi giúp định rõ trách nhiệm của cả hai bên và Nhà phát triển Tiện ích hoàn toàn chịu trách nhiệm trong việc phát triển, vận hành, quản lý các Extension trên nền tảng của Zalo và trong việc hỗ trợ, cũng như hoàn thành các thỏa thuận với tài khoản OA.
+
+8. Xử lý vi phạm​
+
+Chúng tôi sẽ tiến hành ngưng cung cấp dịch vụ cho Nhà phát triển Tiện ích (là doanh nghiệp chủ quản hoặc đơn vị chủ quản của Extension) nếu không tuân thủ quy định hoặc có các hành vi gây ảnh hưởng tiêu cực đến đối tác và người dùng cuối.
+
+Extension không tuân thủ quy định này.
+Exention có dấu hiệu hoạt động hoặc hỗ trợ các hoạt động trong các lĩnh vực kinh doanh bị cấm theo quy định của pháp luật.
+Extension truyền đạt các nội dung bị cấm theo quy định của pháp luật.
+Extension không gửi đầy đủ thông tin xác thực theo yêu cầu.
+Extension truyền đạt thông tin sai lệch, không rõ ràng, nội dung có dấu hiệu lừa đảo.
+Extension đang trong trường hợp bị khiếu nại; hoặc Extension đang trong quá trình xử lý vấn đề tranh chấp thương hiệu.
+Theo yêu cầu của cơ quan có thẩm quyền, hoặc theo quy định của pháp luật.
+
+Khi phát hiện dấu hiệu vi phạm hoặc vi phạm được xác định, tuỳ theo tính chất nghiêm trọng của vi phạm, chúng tôi sẽ triển khai các mức xử lý như sau:
+
+Mức độ 1: Gửi cảnh báo yêu cầu phối hợp rà soát, kiểm tra và khắc phục hoặc Extension bị hạn chế tiếp cận.
+Mức độ 2: Extension bị hủy xuất bản.
+Mức độ 3: Hạn chế Nhà phát triển Tiện ích sử dụng dịch vụ (bị hủy xuất bản tất cả hoặc hạn chế tạo mới Extension).
+
+Đối với mức độ vi phạm nghiêm trọng, chúng tôi tiến hành xử lý hủy xuất bản Extension hoặc hạn chế Nhà phát triển Tiện ích mà không cần báo trước.
+
+Với các khiếu nại liên quan đến tranh chấp thương hiệu, chúng tôi sẽ xử lý theo quy định của Zalo Official Account tại đây.
+
+----------------------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+Previous
+Chính sách về việc khóa Official Account (gọi tắt là OA)
+Next
+Chính sách kiểm duyệt thông tin Tiện ích (Extension)
+1. Đối tượng
+2. Điều kiện
+3. Quy định chung
+4. Quy định về lĩnh vực hoạt động của Extension
+5. Quy định kiểm duyệt xuất bản Extension
+Nguyên tắc kiểm duyệt kỹ thuật Extension:
+Nguyên tắc kiểm duyệt thông tin Extension:
+6. Quy định về bảo mật thông tin của Extension
+7. Giới hạn trách nhiệm
+8. Xử lý vi phạm
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

@@ -1,0 +1,206 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/sdk/android-sdk/references/ma-loi
+# FETCHED: 2026-08-06
+# TITLE: Mã lỗi | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+iOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Social Plugin
+Mã lỗi
+Mã lỗi
+Mô tả
+-5000
+App id is invalid
+-5001
+Invalid callback url
+-5002
+Invalid client secret
+-5003
+Invalid oauthorized code
+-5004
+Invalid access token
+-5005
+Invalid ios bundle id
+-5006
+Invalid android package
+-5007
+Invalid Session
+-5008
+Invalid android sign key
+-5009
+Invalid code challenge
+-5010
+Invalid code verifier
+-5011
+Invalid refresh token
+-5012
+Invalid oa id
+-5013
+Invalid body data
+-5014
+Invalid required params
+-5015
+Invalid grant type
+-5016
+Authorized code expired
+-5017
+Refresh token expired
+-5018
+Invalid state
+-5019
+Refresh token is not guest refresh token
+-6000
+user is invalid
+-6001
+Invalid Permission (not in white list)
+-6002
+User not login
+-6003
+User not consent
+-6004
+User not own OA
+-6005
+User banned
+-7000
+Invalid csrf token
+-7001
+Cannot create access token
+-7002
+Could not create Authorized code.
+-7003
+Had an error when verify session user
+-7004
+Your application might be not approve or disable by admin
+-7005
+Process forgot passwd guest account failed
+-7006
+Build redirect uri failed
+-7007
+WEB_VIEW_LOGIN_NOT_ALLOWED
+-7008
+USER_BACK
+-7009
+USER_REJECT
+-7010
+ZALO_WEBVIEW_COOKIE_ERROR
+-7011
+CANT_LOGIN_GOOGLE
+-7012
+CANT_LOGIN_FACEBOOK
+-7013
+CANT_LOGIN_ZINGME
+-8000
+There was an unknown error
+-8001
+NO_NETWORK
+-9000
+Invalid parameter
+-9001
+Invalid user id
+-9002
+Can’t resolve to a valid user ID
+-9003
+Your app don’t link with any Official Account
+-9004
+User not visible
+-9005
+Accessing friend requests requires the extended permission read_requests
+-9006
+Session key invalid. This could be because the session key has an incorrect format, or because the user has revoked this session
+-9007
+Sending of requests has been temporarily disabled for this application
+-9008
+Syntax error
+-9009
+Call fail
+-9010
+Method is not support for this api
+-9011
+Unkown exception
+-9012
+Item not exits
+-9013
+App Id in use is disabled or banded
+-9014
+Quota for your app is limited
+-9015
+Limit of friends list is too large. Maximum: 50
+-9016
+Quota daily for your app is limited
+-9017
+Quota weeky for your app is limited
+-9018
+Quota monthly for your app is limited
+-9019
+Quota monthly for your app is limited
+-9020
+User has not played game for 30 days ago
+-9021
+Do not disturb user. User hasn’t talked to friend for 30 days ago
+-9022
+Recipient was reached quota message recieve (1 message per 3 days)
+-9023
+Sender and Recipient is not friend
+-9024
+Quota daily per user for your app is limited
+-9025
+Your friend is not using app
+-9026
+Your friend is using app
+Trước
+Câu hỏi thường gặp
+Kế tiếp
+Tổng quan
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

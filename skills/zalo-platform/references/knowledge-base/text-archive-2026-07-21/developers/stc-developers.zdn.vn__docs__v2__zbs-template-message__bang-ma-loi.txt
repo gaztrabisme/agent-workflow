@@ -1,0 +1,130 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/bang-ma-loi
+# FETCHED: 2026-07-21
+# TITLE: Bảng mã lỗi | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Bảng mã lỗi
+Bảng mã lỗi
+Mã lỗi API quản lý Template​
+Mã lỗi	Mô tả lỗi	Thông tin lỗi	Hướng dẫn xử lý
+-1091	Can not edit this type of template	Template không có trạng thái Reject hoặc Template được tạo từ Admin tool	Xem chi tiết document về: API chỉnh sửa Template
+-112	template data type is not define	Dữ liệu của Template không hợp lệ	Data type chưa được định nghĩa. Sử dụng các loại data type được định nghĩa tại đây
+-1132	Missing required button: Template must contain at least 1 button	Template phải có tối thiểu 01 CTA/button	Thêm ít nhất 01 button khi tạo template
+Mã lỗi API chung khi gửi tin Template​
+Mã lỗi	Mô tả lỗi	Thông tin lỗi	Hướng dẫn xử lý
+-109	Template ID invalid	ID của Template không hợp lệ	Kiểm tra lại ID của Template
+-110	Zalo version unsupported	Phiên bản Zalo app không được hỗ trợ. Người dùng cần cập nhật phiên bản mới nhất	
+-111	Template data empty	Template không có dữ liệu	
+-1121	parameter_name data breaks max length	Dữ liệu tham số vượt quá giới hạn ký tự	Kiểm tra lại giới hạn ký tự của các tham số. Xem thêm tại đây
+-1122	template data is missing a parameter parameter_name	Dữ liệu của Template thiếu tham số	Bổ sung tham số còn thiếu.
+-1123	QR code cannot be generated	Không thể tạo QR code, vui lòng kiểm tra lại	
+-1124	parameter_name has invalid format	Dữ liệu tham số không đúng format	Truyển sai format dữ liệu - Kiểm tra lại và truyền đúng theo format dữ liệu của biến. Xem thêm tại đây
+-113	Button invalid	Button không hợp lệ	
+-1131	Invalid button content format	Đường dẫn liên kết không đúng định dạn	Kiểm tra lại đường dẫn liên kết tương ứng với loại nút thao tác
+-116	Text invalid	Nội dung tham số không hợp lệ	
+-117	OA or App does not have permission to access this template	OA hoặc ứng dụng gửi tin chưa được cấp quyền sử dụng Template này	KH đang sử dụng Template đăng ký bằng thông tin OAID hoặc AppID khác. KH cần kiểm tra lại AppID/OAID/tempID tương ứng tại đây
+-121	Body data empty	Template không có nội dung	Nhập nội dung mẫu Template
+-122	Body format invalid	Body request không đúng định dạng JSON	
+-130	Maximum character limit exceeded	Nội dung của Template vượt quá giới hạn kí tự	Lượng ký tự vượt quá 100k
+-131	Template not approved	Template chưa được phê duyệt	
+-132	Parameter invalid	Tham số không hợp lệ	
+-249	Template does not support send via UID	TemplateID đang sử dụng không hỗ trợ gửi qua UID.
+
+Hiện tại, ZBS gửi qua UID chưa hỗ trợ đối với các loại template sau:
+- Template ZBS được tạo trước ngày 10/12/2025 (template ZNS cũ)
+- Template xác thực (OTP)
+- Template chứa component Response (hiện chỉ thử nghiệm gửi qua SĐT)
+- Template Journey / gửi theo journey token	Vui lòng sử dụng các template có hỗ trợ gửi qua UID, bao gồm:
+- Template tùy chỉnh
+- Template đánh giá dịch vụ
+- Template yêu cầu thanh toán
+- Template Voucher
+
+Đối với các Template được tạo trước ngày 10/12/2025, khách hàng vui lòng tạo mới hoặc clone lại Template tương tự (qua API hoặc ZBS Account) để có thể sử dụng cho luồng gửi UID.
+Mã lỗi API gửi tin qua SĐT​
+Mã lỗi	Mô tả lỗi	Thông tin lỗi	Hướng dẫn xử lý
+0	Success	Gửi thành công	
+-100	Unknown error	Xảy ra lỗi không xác định, vui lòng thử lại sau	
+-101	Application invalid	Ứng dụng gửi tin không hợp lệ	Kiểm tra lại ID ứng dụng tại Zalo for Developers
+-103	Application not activated	Ứng dụng chưa được kích hoạt	B1: Truy cập Zalo for Developers và chọn ứng dụng cần kích hoạt. B2: Nhấn chọn kích hoạt ứng dụng ở góc trên bên phải.
+-104	App secret key invalid	Secret key của ứng dụng không hợp lệ	Kiểm tra lại Secret key trong ứng dụng tương ứng tại Zalo for Developers
+-106	Method unsupported	Phương thức không được hỗ trợ	Đối chiếu phương thức hiện tại với API đã cung cấp. Chi tiết các phương thức tại đây
+-107	Message ID invalid	ID thông báo không hợp lệ	
+-108	Phone number invalid	Số điện thoại không hợp lệ	Kiểm tra lại thông tin, định dạng số điện thoại người nhận tin SĐT hiện đã gửi tin được đến các định dạng số điện thoại sau: 84xxxx 0xxxx xxxx (Không có số 0 ở đầu do định dạng excel).
+-115	Out of quota	Tài khoản ZBS không đủ số dư	Truy cập ZBS Account để kiểm tra số dư tài khoản và thực hiện nạp tiền nếu không đủ số dư (Xem thêm: Hướng dẫn nạp tiền vào tài khoản ZBS )
+-118	Zalo account not existed	Tài khoản Zalo không tồn tại hoặc đã bị vô hiệu hoá	
+-120	OA does not have permission to use this feature	OA chưa được cấp quyền sử dụng tính năng này do chưa mua gói dịch vụ	Xem hướng dẫn mua gói tại đây.
+-1202	OA does not have permission to use this resource	OA không có quyền sử dụng media resources (image/logo)	
+-124	Access token invalid	Mã truy cập không hợp lệ	Tham khảo cách kiểm tra/ lấy lại access token tại đây
+-1241	Invalid appsecret_proof provided in the API argument	appsecret_proof không hợp lệ	Xem thêm về appsecret_proof tại đây
+-125	Official Account ID invalid	ID Official Account không hợp lệ	Kiểm tra lại OA ID tại đây
+-126	Out of quota (development mode)	Ví (development mode) không đủ số dư	
+-127	Test template messages can only be sent to admin	Template test chỉ có thể được gửi cho quản trị viên	
+-135	No permission to send message via phone number (not verified, in free subscription plan)	OA chưa có quyền gửi tin SĐT (chưa được xác thực, đang sử dụng gói miễn phí)	
+-1351	OA has no permission to send message via phone number (The system blocks due to violation detection)	OA không có quyền gửi tin SĐT (Hệ thống chặn do phát hiện vi phạm)	
+-136	ZBS Account association required	Cần kết nối với ZBS Account để sử dụng tính năng này	Ứng dụng cần kết nối với ZBS Account. KH xem chi tiết hướng dẫn tại đây
+-137	ZBS Account charge failure	Thanh toán ZBS Account thất bại (ví không đủ số dư, ...)	Kiểm tra lại số dư ZBS Account
+-138	App does not have permission to access this feature	Ứng dụng gửi tin SĐT chưa có quyền sử dụng tính năng này	Lựa chọn ứng dụng hiện tại tại đây và kiểm tra xét duyệt đăng ký sử dụng API tương ứng
+-1381	Extension does not have permission to access ZBS Account of OA	OA chưa cấp quyền cho Extension về quyền sử dụng ZBS Account của OA	Kiểm tra lại các quyền cần được xin từ OA, đảm bảo đã đồng ý với quyền Sử dụng ZBS Account đang kết nối với OA.
+-139	User refused to receive this type of Template message	Người dùng từ chối nhận loại tin SĐT này	
+-140	User not eligible to receive this Template Message type based on current delivery policy	Người dùng không đủ điều kiện để nhận loại tin SĐT này dựa trên chính sách gửi tin hiện tại	Xem chi tiết về quyền gửi tin cho người dùng tại đây
+-141	User refused to receive this message via phone	Người dùng từ chối nhận tin SĐT từ Official Account	
+-142	RSA key not exist	RSA key không tồn tại, vui lòng gọi API tạo RSA key	Kiểm tra/ khởi tạo lại RSA Key tại đây
+-143	RSA key already existed	RSA key đã tồn tại, vui lòng gọi API lấy RSA key	Kiểm tra lại RSA Key
+-144	Daily quota of Template Message via phone number exceeded	OA đã vượt giới hạn gửi tin SĐT trong ngày	Kiểm tra lại thông tin quota của OA hiện tại. Chi tiết xem tại đây
+-1441	OA exceeded the monthly promotion quota	OA request gửi vượt ngưỡng monthly promotion quota	Kiểm tra lại thông tin quota của OA hiện tại. Chi tiết xem tại đây
+-145	OA does not have permission to send this type of Template Message	OA không được phép gửi loại nội dung tin SĐT này	Kiểm tra xem lại nội dung tin SĐT có thể gửi tại đây
+-147	Template daily quota exceeded	Template đã vượt giới hạn gửi trong ngày	
+-1471	OA exceeded the limit of sending promotion messages to this user for this month	OA đã vượt giới hạn gửi tin hậu mãi qua SĐT cho người dùng này trong tháng.	
+-148	Journey token missing	Không tìm thấy journey token	Kiểm tra lại Journey token đã được cấp tại đây
+-149	Journey token invalid	Journey token không hợp lệ	Kiểm tra ID journey token tại đây
+-1491	Journey token type invalid	Journey token type không tương thích với template	Kiểm tra loại journey token type khởi tạo tại đây
+-150	Journey token expired	Journey token đã hết hạn	Kiểm tra/ khởi tạo lại Journey token tại đây
+-151	Not an E2EE template	Không phải Template E2EE	
+-152	Get E2EE key failed	Lấy E2EE key thất bại	
+-153	Data is invalid | <detail_reason>	Dữ liệu truyền vào sai quy định	Xem chi tiết document về: API tạo template API chỉnh sửa template
+-158	The uploaded file exceeds the allowed size	Dung lượng file vượt qua dung lượng cho phép	Xem chi tiết document về: API upload ảnh
+-159	The uploaded file does not meet the required format specifications	Định dạng file upload không được cho phép	
+-160	Out of quota	Số lượng tạo/edit template hoặc upload attachment vượt quá daily quota	Xem chi tiết document về: API tạo template API chỉnh sửa template
+-161	sending_mode has invalid value	sending_mode truyền sai giá trị cho phép	Kiểm tra lại giá trị sending_mode. Chi tiết các giá trị cho phé tại đây
+-162	Can not send this type of Template Message on this endpoint	Chế độ Gửi vượt hạn mức (sending_mode = 3) không hỗ trợ để gửi tin tag 1, 2	Kiểm tra lại loại tag của Template
+-1472	OA exceeded the limit of sending promotion messages to this user for the day	OA đã vượt giới hạn gửi tin promotion cho người dùng này trong ngày	
+Mã lỗi API gửi tin qua UID​
+
+Các lỗi liên quan đến điều kiện gửi tin qua UID, vui lòng tham khảo bộ mã lỗi Official Account API tại đây.
+
+Trước
+Webhook gửi tin qua UID
+Kế tiếp
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT
+Mã lỗi API quản lý Template
+Mã lỗi API chung khi gửi tin Template
+Mã lỗi API gửi tin qua SĐT
+Mã lỗi API gửi tin qua UID
+©2023 Zalo for Developers

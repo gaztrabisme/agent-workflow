@@ -1,0 +1,84 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/truy-xuat-thong-tin/lay-thong-tin-trang-thai-zns
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin trạng thái ZNS | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Lấy thông tin trạng thái ZNS
+Lấy thông tin quota ZNS
+Lấy thông tin loại nội dung ZNS được phép gửi
+Lấy danh sách template
+Lấy thông tin chi tiết template ZNS
+Lấy dữ liệu mẫu của template
+Lấy thông tin đánh giá của khách hàng
+Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Truy xuất thông tinLấy thông tin trạng thái ZNS
+Lấy thông tin trạng thái ZNS
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+API cho phép đối tác truy xuất trạng thái của thông báo.
+
+HTTP request​
+URL: https://business.openapi.zalo.me/message/status
+Method: GET
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" 
+"https://business.openapi.zalo.me/message/status?message_id=message_id&phone=phone"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+message_id	string	yes	ID của thông báo cần lấy thông tin trạng thái.
+Example respond​
+{
+   "message": "Success",
+   "data": {
+       "delivery_time": "1600328011517",
+       "message": "The message was delivered to the user's phone",
+       "status": 1
+   },
+   "error": 0
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+delivery_time	string	Thời gian thiết bị của người dùng nhận được thông báo ZNS.
+status	int	Trạng thái của thông báo.
+message	string	Mô tả trạng thái thông báo. Các giá trị trả về:
+-1: The message does not exist
+0: The message is pushed successfully to Zalo server but has not yet delivered to user’s phone
+1: The message was delivered to the user's phone
+Trước
+Gửi ZNS Journey
+Kế tiếp
+Lấy thông tin quota ZNS
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

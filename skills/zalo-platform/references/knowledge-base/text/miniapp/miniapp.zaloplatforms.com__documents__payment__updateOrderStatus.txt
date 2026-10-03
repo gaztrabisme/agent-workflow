@@ -1,0 +1,89 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/updateOrderStatus/
+# FETCHED: 2026-07-21
+# TITLE: updateOrderStatus | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+createOrder
+notify
+checkTransaction
+callback
+getOrderStatus
+updateOrderStatus
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+updateOrderStatus
+Trước
+Kế tiếp
+Cập nhật lần cuối: 16/6/2025
+
+API cho phép đối tác gọi để cập nhật tình trạng thanh toán của 1 đơn hàng, chỉ áp dụng với 3 phương thức thanh toán khi nhận hàng (COD), chuyển khoản ngân hàng và thanh toán riêng.
+
+Đối với API này, sẽ không được tích hợp sẵn trong Payment SDK. Đơn vị kinh doanh cần chủ động xây dựng phương án gọi API này (hoặc thực hiện việc cập nhật trên trang quản lý Mini App) để thực hiện việc cập nhật trạng thái thanh toán của đơn hàng khi người dùng đã trả tiền cho đơn vị kinh doanh.
+
+API specification​
+Method	Headers	Endpoint
+POST		
+Với phương thức thanh toán khi nhận hàng (COD): https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/cod-callback-payment
+Với phương thức chuyển khoản ngân hàng: https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/bank-callback-payment
+Với phương thức thanh toán riêng: https://payment-mini.zalo.me/api/transaction/{Mini-App-ID}/custom-callback-payment
+Parameters​
+Object object​
+Property	Type	Required	Description	Use to build mac
+appId	string	true	Id định danh của mini app	true
+orderId	string	true	Mã đơn hàng của yêu cầu thanh toán đã tạo	true
+resultCode	number	true	Trạng thái giao dịch của đơn hàng:
+1 : Thành công
+0 : Đã hoàn tiền
+-1 : Thất bại
+	true
+mac	string	true	Thông tin chứng thực của đơn hàng, xem cách tạo thông tin chứng thực cho đơn hàng ở dưới	
+Tạo thông tin chứng thực​
+data =
+  "appId={appId}&orderId={orderId}&resultCode={resultCode}&privateKey={privateKey}";
+mac = HMAC("HmacSHA256", privateKey, data);
+
+Return Values​
+Promise <Object data>​
+Property	Type	Description
+error	int	
+0 : Thành công
+Khác : Thất bại
+
+msg	string	Mô tả thông tin error
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

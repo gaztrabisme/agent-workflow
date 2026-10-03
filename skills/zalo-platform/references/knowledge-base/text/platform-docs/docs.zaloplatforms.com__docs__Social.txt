@@ -1,0 +1,95 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social
+# FETCHED: 2026-08-06
+# TITLE: Social | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Social Plugin
+Trên trang này
+Social
+Social APISDKOAuth 2.0Social Plugin
+Mới bắt đầu với Zalo Social?
+Bắt đầu với Hướng dẫn Social API để tích hợp tính năng đăng nhập và hồ sơ người dùng trong vài phút.
+Social API​
+Truy cập các tính năng xã hội của Zalo một cách lập trình thông qua các API RESTful. Xác thực người dùng, lấy thông tin hồ sơ và tích hợp các tương tác xã hội vào ứng dụng của bạn.
+Ví dụ về điểm cuối API
+GET https://graph.zalo.me/v2.0/me
+access_token: {access_token}
+Response:
+{
+"id": "1234567890",
+"name": "Nguyen Van A",
+"picture": {
+"data": {
+"url": "https://..."
+}
+},
+"gender": "male",
+"birthday": "01/01/1990"
+}
+SDK​
+SDK chính thức để đơn giản hóa việc tích hợp Zalo Social vào ứng dụng của bạn trên nhiều nền tảng.
+SDK Android
+SDK Android gốc với hỗ trợ Kotlin và Java. Tích hợp liền mạch đăng nhập xã hội và chia sẻ trong các ứng dụng Android.
+v2.5.0Xem tài liệu
+SDK iOS
+SDK iOS gốc với hỗ trợ Swift và Objective-C. Xây dựng các tính năng xã hội cho các ứng dụng iPhone và iPad.
+v2.4.3Xem tài liệu
+Luồng xác thực​
+Hiểu cách hoạt động của xác thực OAuth 2.0 với API xã hội Zalo.
+1
+Yêu cầu ủy quyền người dùng
+Chuyển hướng người dùng đến điểm cuối ủy quyền Zalo với thông tin xác thực ứng dụng của bạn và các quyền yêu cầu.
+https://oauth.zaloapp.com/v4/permission?
+app_id=APP_ID&redirect_uri=REDIRECT_URI&state=STATE
+2
+Người dùng cấp quyền
+Người dùng đăng nhập và chấp thuận các quyền yêu cầu trên trang ủy quyền Zalo.
+Người dùng xem xét và chấp nhận các phạm vi quyền
+3
+Nhận mã ủy quyền
+Zalo chuyển hướng trở lại ứng dụng của bạn với mã ủy quyền.
+YOUR_REDIRECT_URI?code=AUTH_CODE&state=STATE
+4
+Đổi lấy mã truy cập
+Đổi mã ủy quyền lấy mã truy cập bằng cách sử dụng bí mật ứng dụng của bạn.
+POST https://oauth.zaloapp.com/v4/access_token
+5
+Truy cập tài nguyên được bảo vệ
+Sử dụng mã truy cập để gọi các API xã hội Zalo và lấy dữ liệu người dùng.
+access_token: ACCESS_TOKEN
+Các thực tiễn bảo mật tốt nhất
+Luôn xác thực tham số trạng thái để ngăn chặn các cuộc tấn công CSRF.
+Lưu bí mật ứng dụng một cách an toàn trên máy chủ, không bao giờ tiết lộ trong mã phía khách.
+Sử dụng HTTPS cho tất cả các URI chuyển hướng và cuộc gọi API.
+Triển khai logic làm mới mã để xử lý các mã truy cập đã hết hạn.
+Kế tiếp
+Tổng quan
+Social API
+SDK
+Luồng xác thực
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,66 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/nhom-chat-gmf/general
+# FETCHED: 2026-07-21
+# TITLE: Tổng quan | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Quản lý nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Nhóm chat - GMFTổng quan
+Tổng quan
+
+Quản lý nhóm ("Group Management Function” hoặc “GMF”) là tính năng giúp OA tương tác với một nhóm khách hàng. Tính năng Quản lý nhóm chỉ dành riêng cho OA xác thực và đang sử dụng Gói Nâng cao hoặc Premium. Xem Chính sách GMF tại đây.
+
+	Tin nhắn nhóm
+Mục đích	Tư vấn cho khách hàng về sản phẩm, dịch vụ
+Đối tượng nhận tin	Nhóm chat còn hoạt động*
+Điều kiện cần có để gửi tin (Opt-in condition)	OA có được group_id của nhóm chat
+Công cụ gửi tin	
+OA OpenAPI
+OA Manager
+Bản Web
+Bản MiniApp
+
+Hình thức tin (Format)	Theo định dạng Tư vấn
+Chi phí	Xem chi tiết tại đây
+LƯU Ý
+
+Nhóm chat còn hoạt động là nhóm chat cho phép OA truy cập và thực hiện các thao tác quản lý.
+
+​
+Trước
+Upload ảnh GIF
+Kế tiếp
+Điều kiện gửi tin nhắn nhóm
+©2023 Zalo for Developers

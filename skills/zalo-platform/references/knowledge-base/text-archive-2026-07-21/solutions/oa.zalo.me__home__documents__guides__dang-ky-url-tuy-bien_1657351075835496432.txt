@@ -1,0 +1,102 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/dang-ky-url-tuy-bien_1657351075835496432
+# FETCHED: 2026-07-21
+# TITLE: Đăng ký URL tùy biến | Zalo Official Account
+
+Skip to main content
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Đăng ký URL tùy biến
+
+Từ ngày 20/06/2023, doanh nghiệp có thể đăng ký URL tùy biến (hay còn gọi là “đường dẫn Official Account”). Việc thiết lập URL tùy biến sẽ giúp doanh nghiệp:
+
+Tăng tính tin cậy và mức độ nhận diện thương hiệu.
+Tài khoản OA được tìm kiếm dễ dàng hơn trên Zalo.
+
+⚠️ Lưu ý: Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+
+Cấu trúc URL tùy biến (đường dẫn Oficial Account) được thay đổi từ mặc định https://zalo.me/ + [oa_id] sang tùy biến https://zalo.me/ + [tùy biến].
+
+Ví dụ: Từ mặc định https://zalo.me/4462152339089565647 sang URL tùy biến là  https://zalo.me/officialaccount
+Hướng dẫn khởi tạo URL tùy biến:​
+
+Bước 1: Truy cập trang https://oa.zalo.me/manage/oa → Chọn tài khoản OA cần chỉnh sửa
+
+Bước 2: Truy cập mục Thông tin tài khoản
+
+Tại trang quản lý OA, chọn Quản lý → Chọn Quản lý tài khoản → Chọn tiếp Thông tin tài khoản
+
+Hoặc truy cập trực tiếp bằng đường dẫn sau: https://oa.zalo.me/manage/account
+
+Bước 3: Chỉnh sửa URL bằng thao tác
+
+Nhấn chọn biểu tượng
+và chỉnh sửa → Sau đó, nhấn Lưu để gửi yêu cầu duyệt thay đổi đến Ban Quản Trị Zalo Official Account.
+
+Bước 4: Theo dõi kết quả
+
+BQT Zalo OA sẽ xét duyệt yêu cầu đăng ký URL tùy biến theo quy trình và chính sách trong vòng 3 ngày làm việc, tuy nhiên trong một số trường hợp, có thể mất nhiều thời gian hơn.
+Trong quá trình xét duyệt, BQT Zalo OA có thể yêu cầu OA cung cấp thêm thông tin hoặc các giấy tờ khác với mục đích đảm bảo Doanh nghiệp/HKD có quyền sở hữu đối với tên thương hiệu/nhãn hiệu đã được cấp bảo hộ theo quy định của pháp luật Việt Nam hoặc quốc tế.
+
+Bước 5: Nhận kết quả
+
+Kết quả xét duyệt đăng ký URL tùy biến sẽ được gửi tin nhắn thông báo đến Quản trị viên của OA và thông báo mục “Tin nhắn hệ thống” trên trang admin OA tại đây.
+
+Các bước cần thực hiện nếu OA bị từ chối đăng ký URL tùy biến
+
+Quản trị viên của OA đọc kĩ phản hồi trong tin nhắn từ BQT Zalo OA, tham khảo lại  Chính sách đăng ký URL tùy biến để thực hiện đăng ký lại URL tùy biến hợp lệ.
+Nếu có thắc mắc hoặc khiếu nại khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+
+⚠️ Lưu ý: BQT Zalo OA chỉ kiểm duyệt dựa trên các quy định chi tiết tại Chính sách đăng ký URL tùy biến; không hỗ trợ kiểm tra lỗi chính tả của URL tùy biến. Vì thế, OA vui lòng kiểm tra kỹ trước khi gửi duyệt.
+
+--------------
+
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT Zalo OA để được phản hồi sớm nhất.
+
+Previous
+Lấy OA ID
+Next
+Thu hút người quan tâm
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

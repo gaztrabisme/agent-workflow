@@ -1,0 +1,98 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/checkTransaction/
+# FETCHED: 2026-07-21
+# TITLE: checkTransaction | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+createOrder
+notify
+checkTransaction
+callback
+getOrderStatus
+updateOrderStatus
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+checkTransaction
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Sau khi giao diện thanh toán đóng, sẽ nhận được thông tin id giao dịch thông qua query param từ path trả về. Từ đó gọi API checkTransaction để lấy đầy đủ thông tin giao dịch.
+
+API CheckTransaction​
+Parameters​
+Object object​
+Property	Type	Required	Description
+data	Object | string | null		Dữ liệu nhận về từ query param
+success	function		Callback function khi gọi api thành công
+fail	function		Callback function khi gọi api thất bại
+Return Values​
+Promise <Object data>​
+Property	Type	Description
+orderId	string	Id của yêu cầu thanh toán đã tạo ở API createOrder
+transId	string	Id của yêu cầu thanh toán từ hệ thống đối tác thanh toán
+resultCode	number	Trạng thái giao dịch
+msg	string	Mô trả thông tin resultCode
+transTime	string	Thời gian thực hiện giao dịch thành công / thất bại
+createdAt	string	Thời gian tạo thanh toán
+Trạng thái giao dịch​
+
+Giá trị của resultCode ứng với các trạng thái sau đây:
+
+Thành công: 1
+Thất bại: -1
+Giao dịch đang thực hiện: 0
+
+Nếu trạng thái đang thực hiện, vui lòng gọi lại API CheckTransaction.
+
+Sample Code​
+import { Payment } from "zmp-sdk/apis";
+
+Payment.checkTransaction({
+  data: params,
+  success: (rs) => {
+    // Kiểm tra giao dịch thành công,
+    const { id, resultCode, msg, transTime, createdAt } = rs;
+  },
+  fail: (err) => {
+    // Kiểm tra giao dịch thất bại
+    console.log(err);
+  },
+});
+
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

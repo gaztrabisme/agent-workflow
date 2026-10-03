@@ -1,0 +1,185 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-truong-thong-tin-nguoi-dung/xoa-truong-thong-tin-tuy-bien
+# FETCHED: 2026-07-21
+# TITLE: Xóa trường thông tin tùy biến | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Lấy danh sách trường thông tin
+Tạo mới trường thông tin tùy biến
+Cập nhật trường thông tin
+Xóa trường thông tin tùy biến
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý trường thông tin người dùngXóa trường thông tin tùy biến
+Xóa trường thông tin tùy biến
+LƯU Ý
+Ứng dụng cần được OA cấp quyền "Quản lý trường thông tin người dùng" để sử dụng API này.
+API này chỉ cho phép xóa các trường có field_type là oa_custom.
+Không thể xóa các trường có field_type là system.
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/userfield/delete
+Method: POST
+Response Type: text/json
+Example request​
+curl --location --request DELETE 'https://openapi.zalo.me/v3.0/oa/userfield/delete' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+  "key": "ma_don_hang"
+}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+key
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Khóa của trường thông tin tùy biến cần xóa
+
+Example response​
+{
+  "error": 0,
+  "message": "success"
+}
+
+Cấu trúc response​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+error
+
+	
+
+integer
+
+	
+
+Mã lỗi (0 nếu thành công)
+
+
+
+
+message
+
+	
+
+string
+
+	
+
+Thông báo kết quả
+
+Trước
+Cập nhật trường thông tin
+Kế tiếp
+Kiểm tra hạn mức tin nhắn OA
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example response
+Cấu trúc response
+©2023 Zalo for Developers

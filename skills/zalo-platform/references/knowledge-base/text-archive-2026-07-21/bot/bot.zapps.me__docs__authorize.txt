@@ -1,0 +1,63 @@
+# SOURCE: https://bot.zapps.me/docs/authorize/
+# FETCHED: 2026-07-21
+# TITLE: Xác thực | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Bắt đầu
+Tài liệu
+Giá gói
+Giải pháp
+FAQ
+⌘
+K
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Xác thực
+Trước
+Kế tiếp
+Cập nhật lần cuối: 10/12/2025
+
+Zalo sử dụng mô hình Bot Token xác thực và cho phép bot sử dụng API.
+
+Bot Token​
+
+Được cung cấp sau khi tạo bot thành công, Token này sẽ không hết hạn cho tới khi bạn chủ động reset. Token sẽ có dạng 12345689:abc-xyz và được dùng để gọi tất cả các API với phương thức như sau:
+
+ https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/functionName
+
+MẸO
+
+Để cài đặt lại Bot Token, vui lòng truy cập Zalo Bot Creator, chọn thiết lập và làm theo hướng dẫn. Khi thay đổi thành công, hệ thống sẽ gửi Token mới cho bạn qua tin nhắn Zalo.
+
+Trước
+Kế tiếp
+EN
+
+Zalo Bot Platform
+
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+
+Công Ty TNHH Zalo Platforms
+
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+
+© 2025 Zalo Platforms. All Rights Reserved.

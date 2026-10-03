@@ -1,0 +1,231 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.8.0/router/ZMPRouter
+# FETCHED: 2026-08-06
+# TITLE: ZMPRouter | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.8.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+ZMPRouter
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.8.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+ZMPRouter component: Wrapper thay thế cho BrowserRouter của react-router, component này config sẵn basename để có thể định tuyến trên mini app
+Properties​
+ZMPRouter​
+Name
+Type
+Default
+Description
+children
+ReactNode
+là routes wrapper có thể là AnimationRoutes của zmp-ui hoặc Routes của react-router-dom
+memoryRouter
+boolean
+false
+Sử dụng Memory Router
+thông tin
+MemoryRouter tính năng mới của react-router (v6). Khác với BrowserRouter (Router mặc định được sử dụng bởi ZMPRouter), lịch sử trang phụ thuộc vào history stack của browser, MemoryRouter tự lưu trữ và xử lý lịch sử, sử dụng trong trường hợp muốn tự control history stack,...
+Khi sử dụng Memory Router, header mặc định sẽ không có back button, trường hợp này cần ẩn actionbar mặc định và tự implement Header cho Mini App
+useNavigate​
+useNavigate hook hoạt động giống như useNavigate hook của react-router-dom, tuy nhiên sẽ được bổ sung thêm các option để tuỳ chỉnh hiệu ứng chuyển trang khi dùng chung với ZMPRouter và AnimationRoutes của zmp-ui
+useNavigate hook trả về một function có chức năng giúp trang đến route path cụ thể
+(to: string | Path, options?: ZMPNavigationOptions): void
+Name
+Type
+Default
+Description
+to
+string | Path
+Route path cần chuyển đến
+options
+ZMPNavigationOptions
+một số tuỳ chọn cho việc chuyển trang
+Trong đó:
+Path là object chứa pathname, search, hash
+ZMPNavigationOptions là object với:
+replace - boolean, set true nếu muốn thay thế entry hiện tại trong history stack thay vì thêm mới
+state - any, có thể thêm data
+animate - boolean, set false để chuyển trang không sử dụng animation (Khi dùng AnimationRoutes)
+direction - "forward" | "backward", chuyển trang với hiệu ứng chuyển trang cụ thể (Khi dùng AnimationRoutes)
+(delta: number):void
+Name
+Type
+Default
+Description
+delta
+number
+Vị trí muốn chuyển đến trong history stack
+Example​
+import React from "react";
+import { Route } from "react-router-dom";
+import { AnimationRoutes, App, ZMPRouter } from "zmp-ui";
+export default function MyApp(props) {
+return (
+<ZMPRouter>
+<AnimationRoutes>
+} />
+} />
+} />
+</AnimationRoutes>
+</ZMPRouter>
+);
+}
+import React from "react";
+import { Page, Text, Box, Button, useNavigate } from "zmp-ui";
+export default function Page1(props) {
+const navigate = useNavigate();
+return (
+<Text.Title style={{ textAlign: "center" }}>Page 1</Text.Title>
+<Box mt={6}>
+<Button
+fullWidth
+variant="secondary"
+onClick={() => {
+navigate("/", {
+replace: true,
+animate: true,
+direction: "backward",
+});
+}}
+>
+Go To Home
+</Button>
+</Box>
+<Box mt={6}>
+<Button
+fullWidth
+variant="secondary"
+onClick={() => {
+navigate("/page2");
+}}
+>
+Not Found
+</Button>
+</Box>
+);
+}
+import React from "react";
+import { Page, Text, Box, Button, useNavigate } from "zmp-ui";
+export default function NotFound(props) {
+const navigate = useNavigate();
+return (
+<Text.Title style={{ textAlign: "center" }}>Coming Soon!</Text.Title>
+<Box mt={6}>
+<Text style={{ textAlign: "center" }} size="xxSmall">
+This feature is under development.
+</Text>
+</Box>
+<Box mt={6}>
+<Button
+fullWidth
+variant="secondary"
+onClick={() => {
+navigate(-1);
+}}
+>
+Go Back
+</Button>
+</Box>
+);
+}
+import React from "react";
+import { Page, Text, Box, Button, useNavigate } from "zmp-ui";
+export default function HomePage(props) {
+const navigate = useNavigate();
+return (
+<Text.Title style={{ textAlign: "center" }}>Home Page</Text.Title>
+<Box mt={6}>
+<Button
+fullWidth
+variant="secondary"
+onClick={() => {
+navigate("/page1");
+}}
+>
+Go To Page 1
+</Button>
+</Box>
+);
+}
+Properties
+ZMPRouter
+useNavigate
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

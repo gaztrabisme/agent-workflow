@@ -1,0 +1,87 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/quan-ly-template/template-api/api-lay-du-lieu-mau-cua-template
+# FETCHED: 2026-07-21
+# TITLE: API Lấy dữ liệu mẫu của Template | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+API Upload Ảnh
+API Lấy danh sách Template
+API Lấy thông tin chi tiết Template
+API Lấy dữ liệu mẫu của Template
+API Lấy thông tin đánh giá của khách hàng
+API Tạo Template
+API Chỉnh sửa Template
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Quản lý TemplateTemplate APIAPI Lấy dữ liệu mẫu của Template
+API Lấy dữ liệu mẫu của Template
+LƯU Ý
+
+Quyền cần có: Quản lý Message Template
+
+HTTP request​
+URL: https://business.openapi.zalo.me/template/sample-data
+Method: GET
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json"
+"https://business.openapi.zalo.me/template/sample-data?template_id=12345"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Tham số​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+template_id	string	yes	ID của template cần lấy thông tin.
+Example respond​
+{
+   "message": "Success",
+   "data": {
+       "balance_debt": 2000,
+       "due_date": "01/01/1970",
+       "number_debt": 2000,
+       "customer_name": "customer_name_sample"
+   },
+   "error": 0
+}
+
+Cấu trúc respond​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+data	object	Chứa tham số và dữ liệu mẫu của template bạn cần truy xuất.
+Trước
+API Lấy thông tin chi tiết Template
+Kế tiếp
+API Lấy thông tin đánh giá của khách hàng
+HTTP request
+Example request
+Tham số header
+Tham số
+Example respond
+Cấu trúc respond
+©2023 Zalo for Developers

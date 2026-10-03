@@ -1,0 +1,199 @@
+# SOURCE: https://zalo.solutions/news/cap-nhat-moi-zns-yeu-cau-thanh-toan-payment-request/qbu7mzk8yr8njzzav6
+# FETCHED: 2026-07-21
+# TITLE: Cập nhật mới: Mẫu Yêu cầu thanh toán (Payment Request) | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Home/Tin tức/Cập nhật mới: Mẫu Yêu cầu thanh toán (Payment Request)
+Cập nhật mới: Mẫu Yêu cầu thanh toán (Payment Request)
+5 tháng 01, 2026 16:32
+10 hữu ích
+
+Với tinh thần luôn luôn lắng nghe và thấu hiểu nhu cầu của khách hàng muốn trải nghiệm mua sắm thuận tiện và dễ dàng, đội ngũ nghiên cứu và phát triển sản phẩm Zalo Business Solutions chính thức ra mắt Mẫu Yêu cầu thanh toán (Payment Request) như một giải pháp toàn diện, mang lại giải pháp Yêu cầu thanh toán tiện lợi, dễ hiểu giữa Doanh nghiệp và khách hàng của mình. 
+
+1. Lợi ích khi sử dụng MẫuYêu cầu thanh toán (Payment Request)
+
+Với phương thức hay dạng template truyền thống, người dùng cuối (user) phải thao tác nhiều bước để thực hiện thao tác thanh toán. 
+Template Mẫu Yêu cầu thanh toán mới, hỗ trợ nút Thanh toán ngay, cho phép user thao tác thanh toán thuận lợi, hạn chế rủi ro do lỗi chủ quan.
+
+ 
+2. Cấu trúc của Mẫu Yêu cầu thanh toán (Payment Request)
+
+Cấu trúc của Mẫu Yêu cầu thanh toán bao gồm:
+
+Các thành phần logo, văn bản, bảng, CTA… tùy chọn.
+Card thanh toán với nút Thanh toán ngay vô cùng tiện dụng và dễ hiểu.
+
+Mẫu template này áp dụng các Quy định chung khi kiểm duyệt mẫu, quý khách có thể xem thêm tại đây.
+
+ 
+
+3. Thao tác của người dùng khi thanh toán với Mẫu Yêu cầu thanh toán (Payment Request)
+
+Để tiện lợi cho user tiến hành thanh toán bằng nhiều ngân hàng khác nhau, Zalo đã tiến hành liên kết với nhiều ngân hàng lớn tại Việt Nam.
+
+Khi user chọn thanh toán bằng một ngân hàng đã liên kết với Zalo, tất cả thông tin về tài khoản thụ hưởng như ngân hàng, số tài khoản, số tiền, ghi chú,… đều sẽ được tự động đồng bộ, đồng thời dẫn sang Ứng dụng của ngân hàng tương ứng. User sẽ không cần sao chép thủ công các thông tin này nữa.
+
+ 
+
+Các bước thao tác của người dùng (Người dùng chọn chuyển tiền bằng với ngân hàng đã liên kết Zalo)
+
+ 
+
+Các bước thao tác của người dùng (Người dùng chọn chuyển tiền bằng ngân hàng chưa liên kết Zalo)
+
+Lưu ý:
+
+Nếu user chọn thanh toán bằng ngân hàng chưa liên kết với Zalo, user sẽ cần chủ động thao tác để sao chép các thông tin thanh toán.
+Khi user click nút “Thanh toán ngay”, Zalo sẽ hiển thị những Ngân hàng có Ứng dụng (App) đã được cài đặt trên thiết bị của người dùng
+
+Các ngân hàng đã liên kết với Zalo sẽ có biểu tượng phía bên phải
+
+Danh sách các ngân hàng đã liên kết với Zalo (Cập nhật đến 18/07/2024, xem thêm tại LINK): 
+4. Cách đăng ký Mẫu Yêu cầu thanh toán
+
+Mẫu template này áp dụng các Quy định chung khi kiểm duyệt mẫu, quý khách có thể xem thêm tại đây.
+
+Hướng dẫn đăng ký Mẫu Yêu cầu thanh toán: 
+
+1. Tại trang Dịch vụ gửi tin > chọn Tạo Template >> Chọn Mẫu yêu cầu thanh toán
+ 
+
+2. Với Mẫu yêu cầu thanh toán, quý khách cần sử dụng Logo. Ngoài ra, quý khách có thể tùy chỉnh số lượng Văn bản và Bảng, sử dụng tùy chọn CTA theo nhu cầu.
+
+3. Điền thông tin thanh toán (thông tin tài khoản thụ hưởng):
+
+
+
+
+Mục điền thông tin thanh toán
+
+Chi tiết lưu ý như sau:
+Tài khoản thụ hưởng cần là thông tin tài khoản doanh nghiệp sở hữu OA. Trong trường hợp khác, vui lòng ghi chú vào phần Ghi chú kiểm duyệt và cung cấp giấy tờ chứng minh: Chủ tài khoản là chủ doanh nghiệp hoặc người đại diện pháp lý của doanh nghiệp/Chủ tài khoản được doanh nghiệp ủy quyền thu hộ. => Xem thêm tại LINK
+Ngân hàng:
+Chọn ngân hàng theo danh sách có sẵn
+Tên tài khoản:
+Tên tài khoản cần khớp với tên doanh nghiệp sở hữu OA
+Số tài khoản
+Lưu ý điền đúng format số tài khoản:
+33281826868 ✓
+3328 1826 868✗
+Số tiền:
+Format: 100000 ✓ 100.000 ✗
+Giới hạn: Lớn hơn 2.000 VND và nhỏ hơn 500.000.000 VND 
+Truyền tham số, hoặc điền số tiền cố định.
+ 
+Nội dung chuyển khoản:
+Format: Không chứa ký tự đặc biệt @[]^_!"•#$%¥&'()*+,€-./:;{|<}=~>?.)
+Truyền tham số, hoặc điền nội dung cố định.
+
+Lưu ý:  
+
+Thông tin tài khoản thụ hưởng cần là thông tin của chính doanh nghiệp sở hữu OA. Trong trường hợp khác, vui lòng ghi chú vào phần Ghi chú kiểm duyệt và cung cấp giấy tờ chứng minh: Chủ tài khoản là chủ doanh nghiệp hoặc người đại diện pháp lý của doanh nghiệp/Chủ tài khoản được doanh nghiệp ủy quyền thu hộ. 
+=> Xem thêm tại LINK
+Chỉ hỗ trợ sử dụng tham số cho thông tin tài khoản với một số khách hàng phù hợp (với các điều kiện liên quan đến ngành nghề kinh doanh, sản lượng và tần suất sử dụng,…).
+Quý khách vui lòng kiểm tra kĩ thông tin thanh toán, Zalo không chịu trách nhiệm nếu thông tin thanh toán không chính xác. 
+5. Chuẩn hóa các Mẫu phục vụ mục đích Yêu cầu thanh toán
+
+Để chuẩn hóa và tối ưu sản phẩm, với sự ra mắt Mẫu Yêu cầu thành toán, tất cả các mẫu có mục đích Yêu cầu thanh toán, trả cước, trả phí đến một số tài khoản ngân hàng nhất định bắt buộc sử dụng Mẫu Yêu cầu thanh toán.  
+
+Chi tiết quy định xem tại Quy định chung khi kiểm duyệt mẫu (Yêu cầu theo mục đích - Tag 1 - về Yêu cầu thanh toán, trả cước, trả phí,..)
+
+6. Danh sách mã BIN 
+
+BIN viết tắt cho Bank Identification Number - Mã định danh ngân hàng theo Ngân hàng Nhà nước Việt Nam. 
+
+BIN Code	Tên ngân hàng
+970425  	Ngân hàng TMCP An Bình (ABBANK)
+970416  	Ngân hàng TMCP Á Châu (ACB)
+970405  	Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam (Agribank)
+970409  	Ngân hàng TMCP Bắc Á (BacABank)
+970438  	Ngân hàng TMCP Bảo Việt (BaoVietBank)
+970418  	Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV)
+546034  	Ngân hàng số CAKE by VPBank (CAKE)
+970444  	Ngân hàng TM TNHH MTV Xây dựng Việt Nam (CBBank)
+422589  	Ngân hàng TNHH MTV CIMB Việt Nam (CIMB)
+970446  	Ngân hàng Hợp tác xã Việt Nam (COOPBANK)
+796500  	DBS Bank Ltd - Chi nhánh TP. Hồ Chí Minh (DBSBank)
+970406  	Ngân hàng TMCP Đông Á (DongABank)
+970431  	Ngân hàng TMCP Xuất Nhập khẩu Việt Nam (Eximbank)
+970408  	Ngân hàng Thương mại TNHH MTV Dầu Khí Toàn Cầu (GPBank)
+970437  	Ngân hàng TMCP PT Thành phố Hồ Chí Minh (HDBank)
+970442  	Ngân hàng TNHH MTV Hong Leong Việt Nam (HongLeong)
+458761  	Ngân hàng TNHH MTV HSBC (Việt Nam) (HSBC)
+970456  	Ngân hàng Công nghiệp Hàn Quốc - Chi nhánh TP. Hồ Chí Minh (IBKHCM)
+970455  	Ngân hàng Công nghiệp Hàn Quốc - Chi nhánh Hà Nội (IBKHN)
+970434  	Ngân hàng TNHH Indovina (IndovinaBank)
+668888  	Ngân hàng Đại chúng TNHH Kasikornbank (KBank)
+970452  	Ngân hàng TMCP Kiên Long (KienLongBank)
+970463  	Ngân hàng Kookmin - Chi nhánh Tp. Hồ Chí Minh (KookminHCM)
+970462  	Ngân hàng Kookmin - Chi nhánh Hà Nội (KookminHN)
+970449  	Ngân hàng TMCP Bưu Điện Liên Việt (LienVietPostBank)
+970422  	Ngân hàng TMCP Quân đội (MBBank)
+970426  	Ngân hàng TMCP Hàng Hải (MSB)
+970428  	Ngân hàng TMCP Nam Á (NamABank)
+970419  	Ngân hàng TMCP Quốc Dân (NCB)
+801011  	Ngân hàng Nonghyup - Chi nhánh Hà Nội (Nonghyup)
+970448  	Ngân hàng TMCP Phương Đông (OCB)
+970414  	Ngân hàng Thương mại TNHH MTV Đại Dương (Oceanbank)
+970430  	Ngân hàng TMCP Xăng dầu Petrolimex (PGBank)
+970439  	Ngân hàng TNHH MTV Public Việt Nam (PublicBank)
+970412  	Ngân hàng TMCP Đại Chúng Việt Nam (PVcomBank)
+970403  	Ngân hàng TMCP Sài Gòn Thương Tín (Sacombank)
+970400 	Ngân hàng TMCP Sài Gòn Công Thương (SaigonBank)
+970429  	Ngân hàng TMCP Sài Gòn (SCB)
+970440  	Ngân hàng TMCP Đông Nam Á (SeABank)
+970443  	Ngân hàng TMCP Sài Gòn - Hà Nội (SHB)
+970424  	Ngân hàng TNHH MTV Shinhan Việt Nam (ShinhanBank)
+970410  	Ngân hàng Standard Chartered Việt Nam (Standard Chartered)
+970407  	Ngân hàng TMCP Kỹ thương Việt Nam (Techcombank)
+970423  	Ngân hàng TMCP Tiên Phong (TPBank)
+546035  	Ngân hàng số Ubank by VPBank (Ubank)
+970458  	Ngân hàng United Overseas - Chi nhánh TP. Hồ Chí Minh (United Overseas)
+970441  	Ngân hàng TMCP Quốc tế Việt Nam (VIB)
+970427  	Ngân hàng TMCP Việt Á (VietABank)
+970433  	Ngân hàng TMCP Việt Nam Thương Tín (VietBank)
+970454  	Ngân hàng TMCP Bản Việt (BVBank)
+970436  	Ngân hàng TMCP Ngoại Thương Việt Nam (Vietcombank)
+970415  	Ngân hàng TMCP Công thương Việt Nam (VietinBank)
+970432  	Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank)
+970421  	Ngân hàng Liên doanh Việt - Nga (VRB)
+970457  	Ngân hàng TNHH MTV Woori Việt Nam (Woori)
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+ 
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

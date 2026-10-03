@@ -1,0 +1,237 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/form/DatePicker
+# FETCHED: 2026-08-06
+# TITLE: DatePicker | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+DatePicker
+Cập nhật lần cuối:5/8/2026
+import { DatePicker } from "zmp-ui";
+Dùng để cho phép người dùng lựa chọn ngày tháng.
+Ví dụ​
+Bảng thuộc tính​
+DatePickerProps​
+Property
+Type
+Required
+Description
+label
+string
+No
+Nhãn của input date picker. Sẽ được hiển thị phía trên input.
+helperText
+string
+No
+Helper text là phần văn bản ngắn nằm dưới các ô nhập liệu. Nội dung của các văn bản này thường chứa thông tin hướng dẫn giúp người dùng hiểu rõ hơn về tác dụng hoặc mô tả định dạng của dữ liệu được khuyến khích nhập vào.
+errorText
+string
+No
+Error text là phần văn bản ngắn nằm dưới các ô nhập liệu. Nội dung của các văn bản này thường chứa thông tin cảnh báo về lỗi của dữ liệu được nhập vào, cũng như hướng dẫn cách khắc phục.
+`errorText` sẽ được hiển thị thay cho `helperText` khi `status` có giá trị là `error`.
+status
+'' | 'error' | 'success'
+No
+Trạng thái hiện tại của input date picker. Nếu là `error`, input sẽ có màu cảnh báo kèm theo `errorText`, ngược lại input sẽ có màu trung hoà kèm theo `helperText`. (default: '')
+placeholder
+string
+No
+Placeholder của input date picker. Được hiển thị khi chưa có giá trị.
+title
+string
+No
+Tiêu đề của hộp thoại date picker.
+disabled
+boolean
+No
+Vô hiệu hóa input date picker. (default: false)
+startDate
+Date
+No
+Ngày bắt đầu của date picker. Người dùng sẽ không thể chọn ngày trước ngày này.
+endDate
+Date
+No
+Ngày kết thúc của date picker. Người dùng sẽ không thể chọn ngày sau ngày này.
+startYear
+number
+No
+Năm bắt đầu của date picker. Người dùng sẽ không thể chọn năm trước năm này.
+endYear
+number
+No
+Năm kết thúc của date picker. Người dùng sẽ không thể chọn năm sau năm này.
+formatPickedValueDisplay
+(date: Date) => string
+No
+Hàm dùng để định dạng nội dung hiển thị của input date picker dựa trên giá trị ngày đang chọn.
+Khác với `dateFormat` là một chuỗi định dạng ngày tháng năm, `formatPickedValueDisplay` là một hàm nhận vào giá trị ngày đang chọn và trả về chuỗi hiển thị, và chuối hiển thị này có thể không phải là ngày tháng năm.
+dateFormat
+string
+No
+Định dạng ngày tháng năm của date picker input.
+- Ngày: `dd`
+- Tháng: `mm`, `m`, `MM` (kiểu chữ), `M` (kiểu chữ tắt)
+- Năm: `yyyy`, `yy`
+columnsFormat
+'MM-DD-YYYY' | 'DD-MM-YYYY' | 'YYYY-MM-DD'
+No
+Sắp xếp vị trí xuất hiện tương ứng của các cột ngày, tháng, năm trong date picker.
+`DD` tương ứng với cột ngày, `MM` tương ứng với cột tháng, `YYYY` tương ứng với cột năm.
+defaultOpen
+boolean
+No
+Mặc định mở hộp thoại date picker khi khởi tạo. (default: false)
+defaultValue
+Date
+No
+Ngày mặc định được chọn sẵn khi khởi tạo date picker.
+_Lưu ý: thay đổi giá trị của `defaultValue` sau khi khởi tạo date picker sẽ không có tác dụng._
+value
+Date
+No
+Ngày được chọn. Cần được sử dụng cùng với `onChange` để cập nhật lại giá trị cho date picker sau khi người dùng thay đổi.
+onChange
+(value: Date, pickedValue: { { [name: string]: OptionValueType } }) => void
+No
+Callback được gọi khi người dùng thay đổi giá trị của date picker. Tham số truyền vào là giá trị mới của date picker.
+onVisibilityChange
+(visibilityState: boolean) => void
+No
+Callback được gọi khi người dùng mở / đóng hộp thoại date picker.
+mask
+boolean
+No
+Mask là một lớp overlay màu xám được phủ lên các thành phần bên dưới hộp thoại date picker, ngăn không cho người dùng tương tác với các nội dung đó và tập trung vào hộp thoại được mở. (default: true)
+maskClosable
+boolean
+No
+Tự động đóng hộp thoại date picker khi người dùng nhấn vào mask. Cần phải bật thuộc tính `mask` để sử dụng tính năng này. (default: true)
+action
+DatePickerActionType
+No
+Thêm action button cho hộp thoại date picker.
+inputClass
+string
+No
+Thêm CSS class cho input của date picker.
+prefix
+ReactNode
+No
+Thêm nội dung vào đầu input của date picker. Thường được sử dụng để hiển thị icon.
+suffix
+ReactNode
+No
+Thêm nội dung vào cuối input của date picker. Thường được sử dụng để hiển thị icon.
+locale
+string
+No
+Ngôn ngữ hiển thị của date picker, được truyền vào dưới dạng mã ngôn ngữ BCP 47, ví dụ: `vi-VN`, `en-US`.
+DatePickerActionType​
+Property
+Type
+Required
+Description
+text
+string
+No
+Chữ trên nút.
+close
+boolean
+No
+Nhấn vào nút sẽ đóng hộp thoại date picker. (default: false)
+onClick
+(event: React.MouseEvent) => void
+No
+Callback được gọi khi nhấn vào nút.
+Trước
+Picker
+Kế tiếp
+Switch
+Ví dụ
+Bảng thuộc tính
+DatePickerProps
+DatePickerActionType
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

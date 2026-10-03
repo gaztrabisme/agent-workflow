@@ -1,0 +1,76 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/intro/best-practices/widget-follow-oa
+# FETCHED: 2026-08-06
+# TITLE: Yêu cầu theo dõi Official Account | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+1. Giới thiệu
+1. Vấn đề của Native App và Web
+2. Giới thiệu Zalo Mini App
+3. Tài khoản Nhà phát triển
+4. Các điểm truy cập Zalo Mini App
+2. Triển khai
+3. Xin cấp quyền trong Zalo Mini App
+4. Phát Hành Zalo Mini App
+5. Zalo Mini App Design Guidelines
+6. Chuyển đổi nhanh Web App có sẵn thành Zalo Mini App
+7. Các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App
+8. Best Practices
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+2. Yêu cầu theo dõi Official Account
+3. Call API
+4. Tương tác, điều hướng tới Zalo Mini App
+5. Cache dữ liệu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Yêu cầu theo dõi Official Account
+Cập nhật lần cuối:5/8/2026
+Ứng dụng Zalo Mini App của bạn có khả năng tùy biến giao diện để kêu gọi người dùng quan tâm Zalo Official Account.
+Để sử dụng tính năng này yêu cầu:
+Zalo Official Account đã được liên kết với Ứng Dụng của bạn.
+Zalo Mini App đã được cấp quyền sử dụng API "Yêu cầu theo dõi Official Account" . (Truy cập phần cài đặt Zalo Mini App để gửi yêu cầu cấp quyền).
+Trên giao diện của bạn, tạo nút "Theo dõi" hoặc "Quan tâm".
+Khi người dùng click vào button, gọi hàm followOA để yêu cầu theo dõi. Ứng dung Zalo sẽ hiển thông báo để người dùng xác nhận.
+Sample Code​
+import { followOA } from "zmp-sdk/apis";
+followOA({
+id: "ID Official Account",
+success: (res) => {},
+fail: (err) => {}
+});
+Hình ảnh minh họa​
+Trước
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+Kế tiếp
+3. Call API
+Sample Code
+Hình ảnh minh họa
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

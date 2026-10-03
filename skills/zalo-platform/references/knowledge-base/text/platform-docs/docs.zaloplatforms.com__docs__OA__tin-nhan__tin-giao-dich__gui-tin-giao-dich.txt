@@ -1,0 +1,544 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/tin-nhan/tin-giao-dich/gui-tin-giao-dich
+# FETCHED: 2026-08-06
+# TITLE: Gửi tin giao dịch | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Điều kiện gửi tin Tư vấn
+Gửi tin Tư vấn dạng văn bản
+Gửi tin Tư vấn đính kèm ảnh
+Gửi tin Tư vấn đính kèm file
+Gửi tin Tư vấn theo mẫu yêu cầu thông tin người dùng
+Gửi tin tư vấn trích dẫn
+Gửi tin tư vấn kèm Sticker
+Tin Giao dịch
+Điều kiện gửi tin Giao dịch
+Gửi tin giao dịch
+Tin Truyền thông
+Điều kiện gửi tin Truyền thông
+Gửi tin Truyền thông cá nhân
+Các loại tin khác
+Gửi tin nhắn văn bản đến người dùng ẩn danh
+Gửi tin nhắn dạng ảnh đến người dùng ẩn danh
+Gửi tin nhắn dạng file đến người dùng ẩn danh
+Gửi tin nhắn dạng sticker đến người dùng ẩn danh
+Thả biểu tượng cảm xúc vào tin nhắn
+Quản lý tin nhắn
+Kiểm tra hạn mức gửi tin tới User cụ thể
+Lấy thông tin Tin nhắn gần nhất
+Lấy thông tin Tin nhắn trong một hội thoại
+Upload hình ảnh
+Upload file
+Upload ảnh GIF
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Gửi tin giao dịch
+🚩Lưu ý:
+Từ 01/01/2026, giải pháp tin nhắn với mẫu tin (template) được ra mắt gọi là ZBS Template Message. Dịch vụ Tin UID Giao dịch (165 vnd) và UID Truyền thông cá nhân sẽ được dừng cung cấp từ 01/03/2026.
+Xem chi tiết tại đây.
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/message/transaction
+Method: POST
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl --location 'https://openapi.zalo.me/v3.0/oa/message/transaction'
+--header 'access_token: <your_oa_access_token>'
+--header 'Content-Type: application/json'
+--data '{
+"recipient": {
+"user_id": "5373093274852641073"
+},
+"message": {
+"attachment": {
+"type": "template",
+"payload": {
+"template_type": "transaction_order",
+"language": "VI",
+"elements": [
+{
+"attachment_id": "a-JJEvLdkcEPxTOwb6gYTfhwm26VSBHjaE3MDfrWedgLyC0smJRiA8w-csdGVg1cdxZLPT1je7k4i8nwbdYrSCJact3NOVGltEUQTjDayIhTvf1zqsR-Ai3aboRERgjvm-cI8iqv-NoIxi0cdNBoE6SYVJooM6xKTBft",
+"type": "banner"
+},
+{
+"type": "header",
+"content": "Trạng thái đơn hàng",
+"align": "left"
+},
+{
+"type": "text",
+"align": "left",
+"content": "• Cảm ơn bạn đã mua hàng tại cửa hàng.<br>• Thông tin đơn hàng của bạn như sau:"
+},
+{
+"type": "table",
+"content": [
+{
+"value": "F-01332973223",
+"key":"Mã khách hàng"
+},
+{
+"style": "yellow",
+"value": "Đang giao",
+"key": "Trạng thái"
+},
+{
+"value": "250,000đ",
+"key": "Giá tiền"
+}
+]
+},
+{
+"type": "text",
+"align": "center",
+"content": "📱Lưu ý điện thoại. Xin cảm ơn!"
+}
+],
+"buttons": [
+{
+"title": "Kiểm tra lộ trình - default icon",
+"image_icon": "",
+"type": "oa.open.url",
+"payload": {
+"url": "https://oa.zalo.me/home"
+}
+},
+{
+"title": "Xem lại giỏ hàng",
+"image_icon": "wZ753VDsR4xWEC89zNTsNkGZr1xsPs19vZF22VHtTbxZ8zG9g24u3FXjZrQvQNH2wMl1MhbwT5_oOvX5_szXLB8tZq--TY0Dhp61JRfsAWglCej8ltmg3xC_rqsWAdjRkctG5lXzAGVlQe9BhZ9mJcSYVIDsc7MoPMnQ",
+"type": "oa.query.show",
+"payload": "kiểm tra giỏ hàng"
+}
+,
+{
+"title": "Liên hệ tổng đài",
+"image_icon": "gNf2KPUOTG-ZSqLJaPTl6QTcKqIIXtaEfNP5Kv2NRncWPbDJpC4XIxie20pTYMq5gYv60DsQRHYn9XyVcuzu4_5o21NQbZbCxd087DcJFq7bTmeUq9qwGVie2ahEpZuLg2KDJfJ0Q12c85jAczqtKcSYVGJJ1cZMYtKR",
+"type": "oa.open.phone",
+"payload": {
+"phone_code":"84123456789"
+}
+}
+]
+}
+}
+}
+}
+'
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+recipient
+object
+yes
+Thông tin người nhận
+message
+object
+yes
+Nội dung cần gửi
+Cấu trúc thuộc tính recipient​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+user_id
+string
+yes
+ID của người nhận (nhận được thông qua API truy xuất chi tiết người dùng, API truy xuất danh sách người dùng)
+Cấu trúc thuộc tính message​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+attachment
+object
+yes
+Attachment cần gửi
+Cấu trúc thuộc tính message.attachment​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+type
+string
+yes
+Loại attachment.
+Giá trị nhận vào bắt buộc:
+type = template
+payload
+object
+yes
+Chứa payload của attachment muốn gửi
+Cấu trúc thuộc tính message.attachment.payload​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+template_type
+string
+yes
+Loại template
+Các giá trị nhận vào: Xem bảng message.attachment.payload.template_type
+Lưu ý: "Loại tin" trong table sẽ hiển thị theo giá trị của template_type
+language
+string
+no
+Ngôn ngữ sử dụng của tin
+Giá trị nhận vào:
+language = VI
+hoặc
+language = EN
+Khi chọn ngôn ngữ các nội dung mặc định của mẫu tin sẽ chuyển sang ngôn ngữ tương ứng
+elements
+array
+yes
+Các đối tượng của template.
+Xem thêm mục message.attachment.payload.elements bên dưới
+buttons
+array
+no
+Các nút nhấn CTA (tùy chọn có hoặc không, tối đa 4 button) Xem thêm mục message.attachment.payload.buttons bên dưới
+Tham số message.attachment.payload.template_type​
+STT
+Mã template
+Loại tin (VN)
+Message Type (EN)
+Ngành áp dụng
+1
+transaction_billing
+Hóa đơn
+Billing
+Tất cả
+2
+transaction_order
+Đơn hàng
+Order
+Tất cả
+3
+transaction_reward
+Tích điểm
+Reward
+Tất cả
+4
+transaction_contract
+Hợp đồng
+Contract
+Tất cả
+5
+transaction_booking
+Lịch hẹn
+Booking
+Tất cả
+6
+transaction_membership
+Thành viên
+Membership
+Tất cả
+7
+transaction_event
+Sự kiện
+Event
+Tất cả
+8
+transaction_transaction
+Giao dịch
+Transaction
+Tất cả
+9
+transaction_account
+Tài khoản
+Account
+Tất cả
+10
+transaction_internal
+Nội bộ
+Internal
+Tất cả
+11
+transaction_partnership
+Đối tác
+Partnership
+Tất cả
+12
+transaction_education
+Học vụ
+Education
+Giáo dục và đào tạo
+13
+transaction_rating
+Đánh giá
+Rating
+Tất cả
+Cấu trúc tham số message.attachment.payload.elements​
+Type
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+banner
+image_url
+string
+yes
+image_url : Đường dẫn đến ảnh
+Các định dạng ảnh hỗ trợ: jpg và png
+Dung lượng tối đa: 1MB
+Tỉ lệ kích thước ảnh (height :width): từ 1:5 đến 1:1 (ảnh vuông)
+Lưu ý: chỉ sử dụng 1 trong 2 biến image_url hoặc attachment_id
+attachment_id
+string
+yes
+attachment_id: ID của ảnh bạn muốn sử dụng (nhận được thông qua API upload ảnh)
+Các định dạng ảnh hỗ trợ: jpg và png
+Dung lượng tối đa: 1MB
+Tỉ lệ kích thước ảnh (height :width): từ 1:5 đến 1:1 (ảnh vuông)
+Lưu ý: chỉ sử dụng 1 trong 2 biến image_url hoặc attachment_id
+header
+content
+string
+yes
+Nội dung của header, tối đa 100 ký tự.
+align
+string
+no
+Chấp nhận 3 giá trị
+left (hoặc để trống): canh lề bên trái
+center: canh lề giữa
+right: canh lề bên phải
+text
+Lưu ý: tối đa được 2 đoạn text
+content
+string
+yes
+Nội dung của text, tối đa 250 ký tự mỗi đoạn
+align
+string
+no
+Chấp nhận 3 giá trị
+left (hoặc để trống): canh lề bên trái
+center: canh lề giữa
+right: canh lề bên phải
+table
+content
+array
+yes
+Cấu trúc 1 phần tử trong table là:
+{
+"key": "giá trị của key", // maxlength = 35
+"value": "giá trị của value" // maxlength = 100
+}
+Trong đó bắt buộc phải có 1 trong 2 phần tử dưới đây:
+VN:
+{
+"key": "Mã...", // bắt đầu là "Mã", dùng định danh người nhận
+"value": "Giá trị tự do"
+}
+EN:
+{
+"key": "...Code...", // bắt buộc có chứa "Code" trong key
+"value": "Giá trị tự do"
+}
+hoặc
+VN:
+{
+"key": "Tên khách hàng", // key có giá trị cố định "Tên khách hàng"
+"value": "Giá trị tự do"
+}
+EN:
+{
+"key": "Customer Name", // key có giá trị cố định "Customer Name"
+"value": "Giá trị tự do"
+}
+Key "Trạng thái" / "Status" là key duy nhất hiện tại được phép sử dụng tham số "Style":
+VN:
+{
+"key": "Trạng thái" // key có giá trị cố định "Trạng thái"
+"value": "Giá trị tự do"
+"style": "yellow" // Giá trị hợp lệ: green, blue, yellow, red, grey
+}
+EN:
+{
+"key": "Status" // key có giá trị cố định "Status"
+"value": "Giá trị tự do"
+"style": "yellow" // Giá trị hợp lệ: green, blue, yellow, red, grey
+}
+Các giá trị của "style": green, blue, yellow, red, grey
+Ngoài các phần tử hệ thống quy định như trên, nhà phát triển có thể khai báo thêm tối đa 5 phần tử tùy ý.
+Cấu trúc tham số message.attachment.payload.buttons​
+Lưu ý
+Hỗ trợ tối đa 4 button
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+title
+string
+yes
+Tiêu đề của button
+Lưu ý: Tiêu đề không được vượt quá 35 ký tự
+image_icon
+string
+yes
+Có thể tryền:
+image url của hình ảnh
+attachment_id sau khi sử dụng API upload hình ảnh
+để trống hoặc “default”: để sử dụng imaeg icon mặc định của Zalo
+Lưu ý: Kích thước hình ảnh tối ưu: 100px * 100px
+type, payload
+object
+yes
+Tham khảo các loại action được hỗ trợ tại đây
+1. Tin gửi ra là tin nằm trong hạn mức gói tính năng lẻ​
+{
+"data": {
+"quota": {
+"quota_type": "purchase_quota",
+"owner_type": "OA",
+"owner_id": "4462152339089565647"
+},
+"message_id": "63ecf43f0df7dba892e6",
+"user_id": "2512523625412515"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+message_id
+string
+ID của thông báo
+user_id
+string
+ID của người nhận
+quota_type
+string
+Nguồn quota sử dụng
+Mang giá trị: “purchase_quota”
+owner_type
+string
+Thực thể sở hữu Quota Package
+Giá trị:
+OA: Thực thể sở hữu là OA
+App: Thực thể sở hữu là App
+owner_id
+string
+ID thực thể sở hữu Quota Package
+Giá trị: OA ID hoặc App ID
+2. Tin gửi ra là tin nằm trong hạn mức Redeem code​
+{
+"data": {
+"quota": {
+"quota_type": "reward_quota",
+"owner_type": "OA",
+"owner_id": "4462152339089565647"
+},
+"message_id": "63ecf43f0df7dba892e6",
+"user_id": "2512523625412515"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+message_id
+string
+ID của thông báo
+user_id
+string
+ID của người nhận
+quota_type
+string
+Nguồn quota sử dụng
+Mang giá trị: “reward_quota”
+owner_type
+string
+Thực thể sở hữu Quota Package
+Giá trị:
+OA: Thực thể sở hữu là OA
+App: Thực thể sở hữu là App
+owner_id
+string
+ID thực thể sở hữu Quota Package
+Giá trị: OA ID hoặc App ID
+3. Tin gửi ra là tin tính phí​
+{
+"data": {
+"message_id": "63ecf43f0df7dba892e6",
+"user_id": "2512523625412515"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Thuộc tính
+Kiểu dữ liệu
+Mô tả
+message_id
+string
+ID của thông báo
+user_id
+string
+ID của người nhận
+Trước
+Điều kiện gửi tin Giao dịch
+Kế tiếp
+Điều kiện gửi tin Truyền thông
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Cấu trúc thuộc tính recipient
+Cấu trúc thuộc tính message
+Cấu trúc thuộc tính message.attachment
+Cấu trúc thuộc tính message.attachment.payload
+Tham số message.attachment.payload.template_type
+Cấu trúc tham số message.attachment.payload.elements
+Cấu trúc tham số message.attachment.payload.buttons
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

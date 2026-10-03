@@ -1,0 +1,70 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/social-api/tai-lieu/tong-quan
+# FETCHED: 2026-07-21
+# TITLE: Tổng quan | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Social API
+Tổng quan
+Tài liệu
+Thông tin tên, ảnh đại diện
+Tham khảo
+Cơ chế hết hạn của User Refresh Token
+User Access Token V4
+Một số lưu ý với User Access Token V4
+Cấu hình App Callback Url
+Hướng dẫn tạo liên kết để chia sẻ
+Mã lỗi
+Chính sách nền tảng của Zalo
+Demonstrating Proof-of-Possession
+Tổng quan
+Tổng quan
+
+Cung cấp một cách thức để ứng dụng của bạn có thể truy cập dữ liệu trên nền tảng của Zalo. Thông qua giao thức HTTP ứng dụng có thể truy vấn dữ liệu người dùng, dữ liệu bạn bè, đăng tin mới và nhiều tác vụ khác. Để sử dụng Social API bạn cần phải tạo ứng dụng trên Zalo Platform (Click vào avatar ở góc trên bên phải màn hình và chọn "Thêm ứng dụng mới") và tuân thủ các điều khoản do Zalo phát hành. Hệ thống Social API chỉ hoạt động trên giao thức TLS 1.2 trở lên đảm bảo tính an toàn và bảo mật.
+
+Các khái niệm​
+
+Social API sử dụng phương thức xác thực OAuth2 để xác thực người dùng với một số định nghĩa cơ bản như sau: Trong đó:
+
+OAuth Code: Là đoạn mã xác thực phân quyền cho ứng dụng của bên thứ 3 được Zalo tạo ra sau khi user login và cấp quyền thành công.
+Access Token: là mã chứng nhận để được truy cập các thông tin được bảo vệ. Ứng dụng sẽ sử dụng đoạn mã này để gọi Open API.
+Sử dụng Social API​
+
+Chỉ cần tạo yêu cầu HTTP GET/POST tới endpoint phù hợp là bạn có thể truy xuất thông tin từ Zalo bằng Social API. Chẳng hạn, nếu muốn truy xuất thông tin về người dùng hiện tại, bạn sẽ tạo yêu cầu HTTP GET như sau:
+
+https://graph.zalo.me/v2.0/me?accesstoken={...}&fields=[...]
+
+Sử dụng tham số 'fields'​
+
+Mặc định API sẽ không trả về hết các dữ liệu có thể mà chỉ trả một số field nhất định. Tùy thuộc vào nhu cầu sử dụng ứng dụng có thể request thêm các data cần thiết với tham số fields. Chúng tôi khuyến khích ứng dụng chỉ lấy những dữ liệu cần thiết để đảm bảo tốc độ xử lý và tiết kiệm băng thông cho người dùng.
+
+Phân trang​
+
+Với API lấy một danh sách chúng tôi định nghĩa 2 tham số xác định vị trí hiện tại muốn lấy offset  và số phần tử muốn lấy limit. Với mỗi kết quả trả về chúng tôi sẽ thêm vào 1 giá trị paging để ứng dụng của bạn có thể request tới page tiếp theo hoặc page trước đó một cách dễ dàng hơn. Format trả về được định nghĩa như sau:
+
+"data": [
+    { "response data" },
+],
+"paging": {
+    "next": "link to next page with same data",
+    "previous": "link to previous page with same data",
+},
+"summary": {
+    "total_count": ["total item"]
+}
+
+
+Chú ý: Phần data có thể sẽ có số phần tử  ít hơn số limit ứng dụng request. Số phần tử tối đa mỗi request sẽ được giới hạn tùy thuộc vào API.
+
+Bạn có thể tìm hiểu thêm bằng cách bắt đầu nhanh hoặc thông tin chi tiết các API khác ở mục tài liệu.
+
+Kế tiếp
+Thông tin tên, ảnh đại diện
+©2023 Zalo for Developers

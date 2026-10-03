@@ -1,0 +1,43 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/ZBS/phu-luc/co-che-danh-gia-chat-luong-va-quyen-loi-gui-tin-qua-sdt
+# FETCHED: 2026-08-06
+# TITLE: Cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Quản lý Template
+Gửi tin Template qua SĐT
+Gửi tin Template UID
+Bảng mã lỗi
+Phụ lục
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT
+Danh sách BIN CODE
+Cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT
+Tham khảo cơ chế đánh giá chất lượng và quyền lợi gửi tin qua SĐT tại đây.
+Trước
+Bảng mã lỗi
+Kế tiếp
+Danh sách BIN CODE
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

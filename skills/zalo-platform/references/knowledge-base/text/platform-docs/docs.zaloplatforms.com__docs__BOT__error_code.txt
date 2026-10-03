@@ -1,0 +1,54 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/BOT/error_code
+# FETCHED: 2026-08-06
+# TITLE: Bảng mã lỗi | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+Webhook
+Best Practices
+Bảng mã lỗi
+Bảng mã lỗi
+Bảng mô tả mã lỗi có thể phát sinh khi sử dụng các APIs của hệ thống. Với các trường hợp lỗi, vui lòng tham khảo thông tin trong trường description trong dữ liệu nhận được để biết thêm chi tiết.
+Mã lỗi
+Ý nghĩa
+400
+Bad request - sai đường dẫn hoặc API Name không hợp lệ
+401
+Unauthorized - Token đã hết hạn hoặc không hợp lệ
+403
+Internal server error
+404
+Not found - Yêu cầu truy cập không lệ
+408
+Request timeout - Quá thời gian xử lý cho phép
+429
+Quota exceeded - Vượt quá giới hạn sử dụng API cho phép
+Trước
+4. Hướng dẫn sử dụng Zalo Bot tương tác với Nhóm Chat
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

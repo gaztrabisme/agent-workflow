@@ -1,0 +1,128 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/container/ZBox
+# FETCHED: 2026-08-06
+# TITLE: ZBox | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+ZBox
+Cập nhật lần cuối:5/8/2026
+import { ZBox } from "zmp-ui";
+Dùng để quản lý các layout mà có thể được coi là cố định cho từng phần tử. Các kiểu mà không được quy định, kế thừa, hoặc suy ra từ các layout tổng hợp cho một phần tử cụ thể.
+Hướng dẫn sử dụng
+Tiêu chuẩn thiết kế
+Ví dụ​
+Bảng thuộc tính​
+Property
+Type
+Required
+Description
+padding
+string
+No
+The amount by with the Box is padded on all sides (default: var(--s1))
+borderWidth
+string
+No
+The width of the (solid) border. If empty or 0, the transparent outline is instated for high contrast mode. (default: var(--border-thin))
+invert
+boolean
+No
+Whether to apply an inverted theme. Only recommended for greyscale designs. (default: false)
+children
+React.ReactNode
+No
+ReactNode
+ZBox​
+Chúng ta nên coi tất cả các phần tử hiển thị đều là một box. Tất cả các layout được cung cấp bởi ZaUI đều có nhiệm vụ sắp xếp các box lại với nhau để tạo thành một giao diện ứng dụng hoàn chỉnh. Ví dụ: Stack chỉ đơn giản là thêm khoảng cách theo chiều dọc giữa các box. Stack chỉ nên có nhiệm vụ thêm margin dọc, nếu nó làm chức năng khác thì sẽ gây ra lỗi không cần thiết cho các layout còn lại.
+ZBox trong hệ thống layout ZaUI có vai trò quản lý các kiểu mà có thể được coi là cố định cho từng phần tử. Các kiểu mà không được quy định, kế thừa, hoặc suy ra từ các layout tổng hợp cho một phần tử cụ thể.
+ZBox cung cấp các thuộc tính:
+padding​
+Padding sẽ thêm khoảng cách đều nhau ở các cạnh của ZBox, bởi vì nếu chỉ thêm ở một hoặc một số cạnh thì không phải là 1 box nữa. Thông thường, nếu cần thêm khoảng cách giữa các phần tử, thì nên dùng margin. Margin sẽ mở rộng ra ngoài đường viền của phần tử.
+borderWidth​
+Giống với padding, border cũng nên được thêm vào tất cả các cạnh của box. Nếu trong một số trường hợp cần dùng border để phân tách các phần tử riêng biệt thì nên được áp dụng theo ngữ cảnh, thông qua phần tử cha, giống như margin trong Stack. Nếu không những đường viền sẽ tiếp xúc với nhau và tăng lên gấp đôi.
+Ví dụ
+Bảng thuộc tính
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

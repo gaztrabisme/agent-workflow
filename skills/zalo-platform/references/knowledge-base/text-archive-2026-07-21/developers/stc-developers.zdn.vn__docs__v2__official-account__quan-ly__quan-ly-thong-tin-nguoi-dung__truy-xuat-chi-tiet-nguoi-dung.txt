@@ -1,0 +1,401 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-thong-tin-nguoi-dung/truy-xuat-chi-tiet-nguoi-dung
+# FETCHED: 2026-07-21
+# TITLE: Truy xuất chi tiết người dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Gắn nhãn người dùng
+Gỡ nhãn người dùng
+Lấy danh sách nhãn
+Xóa nhãn
+Truy xuất danh sách người dùng
+Truy xuất chi tiết người dùng
+Cập nhật chi tiết người dùng
+Xóa thông tin người dùng
+Truy xuất thông tin tùy biến của người dùng
+Cập nhật thông tin tùy biến của người dùng
+Quản lý trường thông tin người dùng
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý thông tin người dùngTruy xuất chi tiết người dùng
+Truy xuất chi tiết người dùng
+LƯU Ý
+
+Ứng dụng cần được cấp quyền quản lý thông tin người dùng
+
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/user/detail
+Method: GET
+Response Type: text/json
+Example request​
+curl --location --globoff 
+--request GET 'https://openapi.zalo.me/v3.0/oa/user/detail?data={"user_id":"4572947693969771653"}' \
+--header 'access_token: <your_access_token>'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API
+
+Tham số​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+data
+
+	
+
+Json object
+
+	
+
+yes
+
+	
+
+Thông tin truyền vào để lấy dữ liệu
+
+Cấu trúc tham số data​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+ID của người cần lấy thông tin.
+
+Example respond​
+{
+  "data": {
+    "user_id": "4572947693969771653",
+    "user_id_by_app": "4604138790644222978",
+    "user_external_id": "Id của người dùng trong hệ thống của Doanh nghiệp",
+    "display_name": "Tên hiển thị của người dùng",
+    "user_alias": "Tên alias của người dùng",
+    "is_sensitive": false,
+    "user_last_interaction_date": "06/07/2023",
+    "user_is_follower": false,
+    "avatar": "https://s120-ava-talk.zadn.vn/5/2/2/e/2/120/e7a622713a730e9c1aeb339343486a55.jpg",
+    "avatars": {
+      "120": "https://s120-ava-talk.zadn.vn/5/2/2/e/2/120/e7a622713a730e9c1aeb339343486a55.jpg",
+      "240": "https://s240-ava-talk.zadn.vn/5/2/2/e/2/240/e7a622713a730e9c1aeb339343486a55.jpg"
+    },
+    "dynamic_param":"value",
+    "tags_and_notes_info": {
+      "notes": [
+        ""
+      ],
+      "tag_names": []
+    },
+    "shared_info": {
+      "address": "123 Trần Hưng Đạo",
+      "city": "Hồ Chí Minh",
+      "district": "Quận 1",
+      "phone": "84385953xxx",
+      "name": "Tên người dùng"
+    }
+  },
+  "error": 0,
+  "message": "Success"
+}​
+
+Cấu trúc thuộc tính data​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+user_id
+
+	
+
+string
+
+	
+
+ID của người dùng
+
+
+
+
+user_id_by_app
+
+	
+
+string
+
+	
+
+ID của người dùng ứng với app
+
+
+
+
+user_external_id
+
+	
+
+string
+
+	
+
+user_id của người dùng trong hệ thống của Doanh nghiệp. Kết quả sẽ trả về "" nếu user chưa tồn tại user_external_id
+
+
+
+
+display_name
+
+	
+
+string
+
+	
+
+Tên hiển thị của người dùng
+
+
+
+
+user_alias
+
+	
+
+string
+
+	
+
+Tên alias của người dùng
+
+
+
+
+is_sensitive
+
+	
+
+boolean
+
+	
+Có 2 giá trị:
+- true: tài khoản này dưới 18 tuổi.
+- false: tài khoản này từ đủ 18 tuổi trở lên.
+
+
+
+user_last_interaction_date
+
+	
+
+string
+
+	
+Ngày cuối dùng người dùng có tương tác. Định dạng dd/MM/yyyy
+
+
+
+user_is_follower
+
+	
+
+boolean
+
+	
+Trạng thái quan tâm OA của người dùng
+
+
+
+avatar
+
+	
+
+string
+
+	
+Đường dẫn đến ảnh đại diện của người dùng (ảnh có kích thước đúng với size ảnh hiển thị trên app Zalo)
+
+
+
+avatars
+
+	
+
+string
+
+	
+Đường dẫn đến ảnh đại diện của người dùng:
+- 120: đường dẫn đến ảnh size nhỏ hơn kích thước chuẩn.
+- 240: đường dẫn đến ảnh size lớn hơn kích thước chuẩn.
+
+
+
+dynamic_param
+
+	
+
+string
+
+	
+Thông tin về dynamic_param cuối cùng mà người dùng truy cập thông qua Dynamic URL của OA
+
+
+
+tags_and_notes_info
+
+	
+
+json
+
+	Thông tin nhãn và ghi chú OA gắn cho người dùng
+
+"tags_and_notes_info": {          
+    "notes": ["Discount 10% mỗi đơn hàng."], 
+    "tag_names": [
+        "Khách VIP",        
+        "Phú Nhuận",       
+        "Product"      
+    ]
+}
+
+
+
+
+shared_info
+
+	
+
+json
+
+	Thuộc tính trả về thông tin người dùng đã chia sẻ cho OA. Nếu không có thông tin, data sẽ trả giá trị rỗng.
+
+Ví dụ:
+"shared_info": {
+    "address": "Z06 Đường số 13",    
+    "city": "Hồ Chí Minh",                    
+    "district": "Quận 7",     
+    "phone": 84868602410,          
+    "name": "Phạm Khoa",
+    "user_dob": "25/12/1999"
+}
+
+Trước
+Truy xuất danh sách người dùng
+Kế tiếp
+Cập nhật chi tiết người dùng
+HTTP request
+Example request
+Tham số header
+Tham số
+Cấu trúc tham số data
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

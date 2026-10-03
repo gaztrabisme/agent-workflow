@@ -1,0 +1,88 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/changelog
+# FETCHED: 2026-08-06
+# TITLE: Change Log | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+Change Log
+Cập nhật lần cuối:5/8/2026
+2025-04-24​
+Release ZMP SDK v2.45.0​
+Thêm sự kiện PaymentDone giúp nhận & xử lý kết quả thanh toán trên Mini App tiện lợi hơn. Xem hướng dẫn
+Kể từ phiên bản này, khi có lắng nghe sự kiện PaymentDone, Checkout SDK sẽ bỏ qua Redirect Path ở các phương thức có hỗ trợ.
+Đối tác có thể lắng nghe sự kiện PaymentDone để nhận kết quả thanh toán và điều hướng người dùng phù hợp cho từng phiên bản ứng dụng.
+Kể từ phiên bản này, đối tác cần bắt buộc phải truyền dữ liệu MAC vào API. Checkout SDK sẽ không xử lý những request bị thiếu MAC.
+2025-04-02​
+Cập nhật bảng mô tả mã lỗi API​
+2025-03-06​
+Release webhook VNPay IPN processing notification
+2024-04-26​
+Release Checkout SDK V2
+Trước
+Công cụ kiểm tra MAC
+2025-04-24
+Release ZMP SDK v2.45.0
+2025-04-02
+Cập nhật bảng mô tả mã lỗi API
+2025-03-06
+2024-04-26
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

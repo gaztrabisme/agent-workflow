@@ -1,0 +1,175 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/nhom-chat-gmf/quan-ly/create_group
+# FETCHED: 2026-08-06
+# TITLE: Tạo nhóm mới | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Tổng quan
+Tin nhắn nhóm
+Điều kiện gửi tin nhắn nhóm
+Gửi tin nhắn nhóm dạng Text
+Gửi tin nhắn nhóm dạng File
+Gửi tin nhắn nhóm dạng Hình ảnh
+Gửi tin nhắn nhóm dạng Sticker
+Gửi tin nhắn Mention tới nhóm
+Quản lý nhóm
+Tạo nhóm mới
+Lấy thông tin nhóm
+Cập nhật nhóm
+Cập nhật dịch vụ cho Nhóm chat
+Mời tham gia nhóm
+Lấy danh sách thành viên chờ duyệt
+Đồng ý duyệt thành viên mới vào nhóm
+Từ chối duyệt thành viên mới vào nhóm
+Lấy danh sách thành viên nhóm
+Thêm phó nhóm
+Xóa phó nhóm
+Xóa thành viên khỏi nhóm
+OA Giải tán nhóm
+Lấy danh sách nhóm OA đang quản lý
+Kiểm tra hạn mức nhóm
+Lấy danh sách tin nhắn nhóm gần nhất
+Lấy thông tin tin nhắn trong một nhóm
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Tạo nhóm mới
+Lưu ý
+Ứng dụng cần được cấp quyền quản lý thông tin nhóm.
+Luồng tạo nhóm​
+Giải thích:
+(1) Gửi request Lấy hạn mức nhóm của OA
+(2) Hệ thống Zalo trả về danh sách các gói kèm asset_id
+(3) Gửi request tạo nhóm chat kèm theo asset_id
+(3) Hệ thống Zalo trả về thông tin nhóm chat được tạo thành công
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/group/creategroupwithoa
+Method: POST
+Content Type: application/json
+Response Type: application/json
+Example request​
+curl --request POST 'https://openapi.zalo.me/v3.0/oa/group/creategroupwithoa' \
+--header 'access_token: <your_oa_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+"group_name": "Tư vấn nha khoa",
+"group_description": "Group tư vấn nha khoa cho các nhân viên",
+"asset_id": "326e977e4d3da463fd2c",
+"member_user_ids": [
+"186729651760683225"
+]
+}'
+Tham số header​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+access_token
+string
+yes
+Token cho phép ứng dụng đại diện OA gọi API. Xem chi tiết cách lấy access token tại đây.
+Cấu trúc body của request​
+Tham số
+Kiểu dữ liệu
+Tính bắt buộc
+Mô tả
+group_name
+string
+yes
+Tên nhóm
+group_description
+string
+optional
+Mô tả nhóm
+asset_id
+string
+yes
+ID gói GMF, sử dụng để làm dịch vụ hoạt động của Nhóm. (Lấy ID bằng cách gọi API Lấy hạn mức tạo nhóm GMF)
+member_user_ids
+array
+yes
+Danh sách các user trong nhóm (danh sách này không được để trống và không quá 99 người và có ít nhất 1 người là admin của OA)
+Example respond​
+{
+"data": {
+"name": "Group name",
+"avatar": "http://s120.ava.grp.talk.zdn.vn/default",
+"group_id": "8fba1979fa25137b4a",
+"group_link": "https://zalo.me/g/qsbexj32",
+"group_description": "",
+"total_member": 2,
+"status": "enabled"
+},
+"error": 0,
+"message": "Success"
+}
+Cấu trúc thuộc tính data​
+Tham số
+Kiểu dữ liệu
+Mô tả
+name
+string
+Tên nhóm
+avatar
+string
+Avatar của nhóm
+group_id
+string
+ID của nhóm
+group_link
+string
+Link để tham gia nhóm
+group_description
+string
+Mô tả nhóm
+total_member
+string
+Tổng số lượng thành viên trong nhóm
+status
+string
+Trạng thái nhóm
+enabled: OA có thể quản lý và gửi tin nhắn trong nhóm
+disabled: OA không thể quản lý và không thể gửi tin nhắn trong nhóm
+Trước
+Gửi tin nhắn Mention tới nhóm
+Kế tiếp
+Lấy thông tin nhóm
+Luồng tạo nhóm
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example respond
+Cấu trúc thuộc tính data
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

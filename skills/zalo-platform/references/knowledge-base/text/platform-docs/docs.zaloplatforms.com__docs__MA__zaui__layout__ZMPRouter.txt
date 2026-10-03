@@ -1,0 +1,136 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/layout/ZMPRouter
+# FETCHED: 2026-08-06
+# TITLE: ZMPRouter | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+ZMPRouter
+Cập nhật lần cuối:5/8/2026
+import { ZMPRouter } from "zmp-ui";
+Dùng để điều hướng giữa các trang trong Mini App, kết hợp với useNavigate.
+useNavigate​
+useNavigate (hook) hoạt động giống như useNavigate của react-router, tuy nhiên sẽ được bổ sung thêm các option để tuỳ chỉnh hiệu ứng chuyển trang khi dùng chung với ZMPRouter và AnimationRoutes của zmp-ui
+useNavigate trả về một function có chức năng giúp trang đến route path cụ thể:
+(delta: number) => void
+hoặc
+(to: string | Path, options?: ZMPNavigationOptions) => void
+Trong đó:
+delta – number, số bước di chuyển trong history stack. Ví dụ: navigate(-1) tương đương nút back.
+to – string | Path, đường dẫn đến trang cần đến.
+Path – object, gồm các field:
+pathname – string
+search – string
+hash – string
+ZMPNavigationOptions – object, gồm các field:
+replace - boolean, set true nếu muốn thay thế entry hiện tại trong history stack thay vì thêm mới.
+state - any, dùng để truyền extra data giữa các trang.
+animate - boolean, set false để chuyển trang không sử dụng animation (Khi dùng AnimationRoutes).
+direction - "forward" | "backward", chuyển trang với hiệu ứng chuyển trang cụ thể (Khi dùng AnimationRoutes).
+thông tin
+ZMPRouter là một wrapper của BrowserRouter. Bạn có thể sử dụng BrowserRouter trực tiếp từ react-router nhưng cần đảm bảo basename được thiết lập đúng.
+MemoryRouter là router mới trong react-router@6. MemoryRouter không dùng lịch sử trình duyệt như BrowserRouter mà quản lý riêng history stack — phù hợp khi muốn tự kiểm soát lịch sử điều hướng.
+Dùng MemoryRouter sẽ không có nút back mặc định trên header. Lúc này cần ẩn actionbar mặc định và tự tạo header riêng.
+Ví dụ​
+Bảng thuộc tính​
+Property
+Type
+Required
+Description
+children
+React.ReactNode
+No
+Nhận trực tiếp `` hoặc ``.
+memoryRouter
+boolean
+No
+Sử dụng `MemoryRouter` thay vì `BrowserRouter` (mặc định). (default: false)
+Trước
+Tabs
+Kế tiếp
+AnimationRoutes
+Ví dụ
+Bảng thuộc tính
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

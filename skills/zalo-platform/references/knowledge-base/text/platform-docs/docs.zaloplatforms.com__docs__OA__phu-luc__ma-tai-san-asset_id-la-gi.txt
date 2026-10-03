@@ -1,0 +1,85 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/phu-luc/ma-tai-san-asset_id-la-gi
+# FETCHED: 2026-08-06
+# TITLE: Mã tài sản (asset_id) là gì? | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Mã tài sản (asset_id) là gì?
+Định nghĩa:​
+Mã tài sản (asset_id) là mã định danh 1 quota mà thực thể sở hữu.
+Cấu trúc 1 mã tài sản:​
+1 asset_id sẽ đi kèm với các thông tin sau:​
+quota_owner: tài sản (quota) này thuộc sở hữu của thực thể nào?
+App
+OA
+product_type: tài sản (quota) này dùng cho tính năng nào?
+Tin nhắn
+Tạo GMF
+Tính năng khác
+quota_type: tài sản (quota) này có được từ đâu? Hay có thể hiểu là nguồn quota sử dụng.
+sub_quota: quota có được khi mua gói dịch vụ OA (xem thêm)
+purchase_quota: quota có được khi mua lẻ các hạn mức dịch vụ
+reward_quota: quota có được thông qua các chương trình, khuyến mãi, tặng thưởng
+Ứng dụng của mã tài sản (asset_id) trong hệ thống OA OpenAPI như thế nào?​
+Việc định danh 1 mã tài sản nhằm mục đích quy hoạch và hướng tới mở rộng các nguồn sử dụng quota, tính năng có thể sử dụng quota trong tương lai
+Giúp nhà phát triển chủ động trong việc quản lý và chỉ định sử dụng quota theo nhu cầu thực tế của doanh nghiệp
+Chi tiết ứng dụng của asset_id sẽ được đề cập trong các tài liệu liên quan của tính năng sử dụng asset_id (gửi tin nhắn / tạo GMF,...)
+Tham khảo:​
+Tạo GMF: xem chi tiết
+Gửi tin nhắn Tư vấn: xem chi tiết
+Gửi tin nhắn Giao dịch: xem chi tiết
+Trước
+Tổng quan
+Kế tiếp
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Định nghĩa:
+Cấu trúc 1 mã tài sản:
+1 asset_id sẽ đi kèm với các thông tin sau:
+Ứng dụng của mã tài sản (asset_id) trong hệ thống OA OpenAPI như thế nào?
+Tham khảo:
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

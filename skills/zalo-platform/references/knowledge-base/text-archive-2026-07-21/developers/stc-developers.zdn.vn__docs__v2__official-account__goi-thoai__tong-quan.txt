@@ -1,0 +1,76 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/goi-thoai/tong-quan
+# FETCHED: 2026-07-21
+# TITLE: Tổng quan | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Tổng quan
+Cấp quyền gọi
+Tạo link gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Gọi thoạiTổng quan
+Tổng quan
+
+Gọi thoại là một trong các tính năng tương tác giữa tài khoản OA của doanh nghiệp và khách hàng của doanh nghiệp là người dùng Zalo cá nhân. Gọi thoại qua Zalo OA giúp Doanh nghiệp tăng mức độ nhận diện thương hiệu (brandname), thiết lập và duy trì tương tác hai chiều bền vững với khách hàng, và tiết kiệm chi phí.
+
+Doanh nghiệp có thể thiết lập tính năng Gọi thoại qua Zalo OA bằng một trong hai cách: (1) sử dụng tổng đài Mini Call Center (MCC) được tích hợp sẵn tại công cụ OA Manager, hoặc (2) tích hợp tài khoản OA với tổng đài có sẵn của doanh nghiệp và vận hành qua API – thiết lập Zalo Cloud Connect (ZCC). Khái niệm “Gọi thoại” trong tài liệu này được hiểu là gọi thoại từ tài khoản OA đến số điện thoại người dùng thông qua thiết lập Zalo Cloud Connect (ZCC). Tìm hiểu thêm về tính năng Gọi thoại và các cách thiết lập tại đây.
+
+Để sử dụng tính năng Gọi thoại (ZCC), Doanh nghiệp cần:
+
+Có sẵn hệ thống Call Center, tổng đài IP, SBC, Gateway,…với khả năng hỗ trợ kết nối trung kế theo chuẩn SIP cho cuộc gọi thoại (audio) hoặc gọi video (nếu khách hàng có nhu cầu).
+
+Kết nối tổng đài với Zalo OA. Xem hướng dẫn kết nối tại đây.
+
+Có số điện thoại khách hàng (là người dùng Zalo).
+
+Với chiều gọi inbound, người dùng có thể gọi miễn phí tới OA bất kỳ lúc nào. Với chiều gọi outbound, để OA có thể thực hiện cuộc gọi tới người dùng, doanh nghiệp cần có quyền gọi và trả phí cho mỗi yêu cầu quyền gọi gửi tới người dùng. Khi đã được người dùng chấp thuận yêu cầu gọi, OA có thể gọi đến người dùng miễn phí trong vòng 30 ngày.
+
+Các trường hợp ứng dụng  
+
+Gọi thoại (hoặc gọi video) được sử dụng cho mục đích chăm sóc khách hàng trực tiếp, trao đổi thông tin hai chiều về sản phẩm, dịch vụ, có thể kể đến như:
+
+Tư vấn về sản phẩm, dịch vụ, chương trình, khóa học,…
+
+Tư vấn y tế, đào tạo từ xa,…
+
+Liên hệ khi giao hàng
+
+Tuyển dụng
+
+Với các cuộc gọi với nội dung đơn giản như đặt lịch và xác nhận lịch hẹn, hướng dẫn quy trình, hướng dẫn sử dụng dịch vụ, doanh nghiệp có thể kết hợp cài đặt tư vấn tự động và nhân viên tư vấn
+
+Mô hình thực hiện cuộc gọi
+Trước
+Lấy thông tin tin nhắn trong một nhóm
+Kế tiếp
+Gửi yêu cầu cấp quyền gọi
+©2023 Zalo for Developers

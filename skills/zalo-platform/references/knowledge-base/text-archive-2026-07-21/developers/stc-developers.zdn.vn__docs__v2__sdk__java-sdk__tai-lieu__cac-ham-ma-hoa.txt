@@ -1,0 +1,102 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/java-sdk/tai-lieu/cac-ham-ma-hoa
+# FETCHED: 2026-07-21
+# TITLE: Các hàm mã hóa thường dùng | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Java SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tích hợpCác hàm mã hóa thường dùng
+Các hàm mã hóa thường dùng
+
+build X-Event-Signature
+
+public static String buildMac(String appId, String data, String timeStamp, String secretKey) {
+    String[] lstParams = new String[]{appId, data, timeStamp, secretKey};
+    String mac = buildMacForAuthentication(lstParams);
+    return mac;
+}
+
+public static String buildMacForAuthentication(String[] lstParams) {
+    String res = "";
+    for (String temp : lstParams) {
+        res += temp;
+    }
+    return encodeSHA256(res);
+}
+
+public static String encodeSHA256(String input) {
+    StringBuilder sb = new StringBuilder();
+    try {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        md.update(input.getBytes());
+        byte byteData[] = md.digest();
+        for (int i = 0; i < byteData.length; i++) {
+            sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16)
+                    .substring(1));
+        }
+    } catch (NoSuchAlgorithmException e) {
+    }
+    return sb.toString();
+}
+
+
+PKCE Util (Code verifier và Code challenge)
+
+public String genCodeVerifier() {
+    SecureRandom sr = new SecureRandom();
+    byte[] code = new byte[32];
+    sr.nextBytes(code);
+    String verifier = Base64.getUrlEncoder().withoutPadding().encodeToString(code);
+    return verifier;
+}
+
+public String genCodeChallenge(String codeVerifier) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    String result = null;
+
+    byte[] bytes = codeVerifier.getBytes("US-ASCII");
+    MessageDigest md = MessageDigest.getInstance("SHA-256");
+    md.update(bytes, 0, bytes.length);
+    byte[] digest = md.digest();
+    result = Base64.getUrlEncoder().withoutPadding().encodeToString(digest);
+
+    return result;
+}
+
+
+appsecret_proof Util
+
+public static String calculateHMacSHA256(String key, String data) throws Exception {
+    Mac sha256_HMAC = Mac.getInstance(ALGORITHM);
+
+    SecretKeySpec secret_key = new SecretKeySpec(key.getBytes("UTF-8"), ALGORITHM);
+    sha256_HMAC.init(secret_key);
+
+    return Hex.encodeHexString(sha256_HMAC.doFinal(data.getBytes("UTF-8")));
+}
+
+public static void main(String[] args) throws Exception {
+    String appSecretKey = "appSecretKey";
+    String accessToken = "accessToken";
+
+    System.out.println(calculateHMacSHA256(appSecretKey, accessToken));
+
+    System.exit(0);
+}
+
+Trước
+Article API
+©2023 Zalo for Developers

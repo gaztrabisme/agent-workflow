@@ -1,0 +1,132 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.10.0/layout/ZBox
+# FETCHED: 2026-08-06
+# TITLE: ZBox | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.10.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Layout
+Stack
+ZBox
+Center
+Cluster
+Grid
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+ZBox
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.10.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Chúng ta nên coi tất cả các phần tử hiển thị đều là một box. Tất cả các layout được cung cấp bởi ZaUI đều có nhiệm vụ sắp xếp các box lại với nhau để tạo thành một giao diện ứng dụng hoàn chỉnh. Ví dụ: Stack chỉ đơn giản là thêm khoảng cách theo chiều dọc giữa các box. Stack chỉ nên có nhiệm vụ thêm margin dọc, nếu nó làm chức năng khác thì sẽ gây ra lỗi không cần thiết cho các layout còn lại.
+ZBox trong hệ thống layout ZaUI có vai trò quản lý các kiểu mà có thể được coi là cố định cho từng phần tử. Các kiểu mà không được quy định, kế thừa, hoặc suy ra từ các layout tổng hợp cho một phần tử cụ thể.
+ZBox cung cấp các thuộc tính:
+padding​
+Padding sẽ thêm khoảng cách đều nhau ở các cạnh của ZBox, bởi vì nếu chỉ thêm ở một hoặc một số cạnh thì không phải là 1 box nữa. Thông thường, nếu cần thêm khoảng cách giữa các phần tử, thì nên dùng margin. Margin sẽ mở rộng ra ngoài đường viền của phần tử.
+borderWidth​
+Giống với padding, border cũng nên được thêm vào tất cả các cạnh của box. Nếu trong một số trường hợp cần dùng border để phân tách các phần tử riêng biệt thì nên được áp dụng theo ngữ cảnh, thông qua phần tử cha, giống như margin trong Stack. Nếu không những đường viền sẽ tiếp xúc với nhau và tăng lên gấp đôi.
+Properties​
+Example​
+import React from "react";
+import { Page, Stack, Text, ZBox, Button } from "zmp-ui";
+export default function HomePage() {
+return (
+<Stack className='section-container' space='2rem'>
+<ZBox>
+<ZBox padding='1rem' borderWidth='1px'>
+<Text>Header</Text>
+</ZBox>
+<ZBox borderWidth='1px'>
+<Text>Body</Text>
+</ZBox>
+</ZBox>
+<ZBox>
+<ZBox padding='2rem' borderWidth='1px'>
+<Text>Header</Text>
+</ZBox>
+<ZBox borderWidth='1px'>
+<Text>Body</Text>
+</ZBox>
+</ZBox>
+</Stack>
+);
+}
+padding
+borderWidth
+Properties
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

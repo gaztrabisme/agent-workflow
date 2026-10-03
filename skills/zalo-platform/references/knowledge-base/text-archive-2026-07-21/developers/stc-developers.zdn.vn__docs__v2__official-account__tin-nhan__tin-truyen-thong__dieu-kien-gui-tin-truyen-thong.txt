@@ -1,0 +1,87 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/tin-nhan/tin-truyen-thong/dieu-kien-gui-tin-truyen-thong
+# FETCHED: 2026-07-21
+# TITLE: Điều kiện gửi tin Truyền thông | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Điều kiện gửi tin Truyền thông
+Gửi tin Truyền thông cá nhân
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tin nhắnTin Truyền thôngĐiều kiện gửi tin Truyền thông
+Điều kiện gửi tin Truyền thông
+Rule chung​
+
+App: đã bật quyền gửi tin và thông báo qua OA
+
+User (người nhận tin): ĐANG quan tâm OA
+
+Quota:
+
+Số lượng tin Truyền thông mà 01 người dùng có thể nhận từ 01 OA trong tháng áp dụng theo hạn mức Broadcast của Gói dịch vụ OA. Xem chi tiết về Gói & hạn mức tin Truyền thông theo gói tại đây 
+Số lượng tin Truyền thông 01 người dùng có thể nhận từ 01 OA trong 01 ngày là 01 tin
+
+Daily limit request:
+
+Định nghĩa: Giới hạn số lượt (request) 01 OA được phép thực hiện gửi tin Truyền thông cá nhân trong 01 ngày
+Loại tin áp dụng: Chỉ áp dụng giới hạn này cho tin Truyền thông cá nhân (tin Truyền thông Broadcast sẽ không bị ảnh hưởng)
+Rule:
+Đối với OA có lượng follower  <= 10,000 -> Daily limit request = 500 request
+Đối với các OA > 10,000 follower -> Daily limit request = 5% x [follower[]  (Diễn giải bằng lời: "05 phần trăm số lượng follower")
+* Tại thời điểm OA gửi tin Truyền thông cá nhân đầu tiên trong ngày, số lượng [follower[] sẽ được ghi nhận và áp dụng daily limit request cho ngày hôm đó
+** Daily limit request sẽ được reset vào mỗi 00:00 hàng ngày
+
+Thời gian gửi tin:
+
+Từ 6h00 -> 21h59
+
+Notification: 
+
+In-app: 6h00 -> 21h59
+Out-app: 6h00 -> 21h59
+
+Hiển thị tin trên thiết bị của User:
+
+Mobile: Có
+PC / Web: Coming soon
+Phương thức sử dụng:​
+Dùng qua API Gửi tin Truyền thông cá nhân
+Gửi tin Truyền thông cá nhân hóa theo từng UID (của người quan tâm)
+Dùng qua API Gửi tin Truyền thông Broadcast
+Gửi tin Truyền thông theo tập (người quan tâm)
+Lưu ý: Hệ thống Zalo sẽ xử lý Broadcast trong vòng 30 phút trước khi gửi đến người dùng.
+Trước
+Gửi tin giao dịch
+Kế tiếp
+Gửi tin Truyền thông cá nhân
+Rule chung
+Phương thức sử dụng:
+©2023 Zalo for Developers

@@ -1,0 +1,45 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/android-sdk/references/cau-hoi-thuong-gap
+# FETCHED: 2026-07-21
+# TITLE: Câu hỏi thường gặp | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+ReferencesCâu hỏi thường gặp
+Câu hỏi thường gặp
+
+Câu hỏi: thời gian expired mặc đinh của các thông tin OauthCode, AccessToken, RefreshToken là bao lâu? Trả lời:
+
+OauthCode: 10 phút.
+AccessToken: 1 giờ.
+RefreshToken: 3 tháng.
+
+Câu hỏi: làm thế nào để kiểm tra RefreshToken có còn hiệu lực hay không? Trả lời: RefreshToken có hiệu lực là 3 tháng. Tuy nhiên nếu 1 RefreshToken được dùng để lấy AccessToken, thì sẽ bị hết hiệu lực sau khi lấy. Do đó cần lưu lại RefreshToken mới mỗi khi lấy AccessToken bằng RefreshToken. Zalo SDK có cung cấp method để kiểm tra RefreshToken có còn hiệu lực hay không: xem tại Xác minh lại RefreshToken
+
+Câu hỏi: CodeChallenge và CodeVerifier là gì? Trả lời: Zalo sử dụng code challenge và code verifier (theo phương thức PKCE) để tăng độ bảo mật của quá trình xác thực và ủy quyền. Xem thêm về PKCE tại đây.
+
+Trước
+Lấy thông tin profile
+Kế tiếp
+Mã lỗi
+©2023 Zalo for Developers

@@ -1,0 +1,57 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zbs-template-message/bat-dau/gioi-thieu-zbs-template-message
+# FETCHED: 2026-07-21
+# TITLE: Giới thiệu ZBS Template Message | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+ZBS Template Message API
+Bắt đầu
+Giới thiệu ZBS Template Message
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Quản lý Template
+Bắt đầu
+Template API
+Template Webhook
+Gửi tin Template qua SĐT
+API gửi tin qua SĐT
+API truy xuất thông tin gửi tin qua SĐT
+Webhook gửi tin qua SĐT
+Gửi tin Template UID
+Quy định gửi tin qua UID
+API gửi tin qua UID
+Webhook gửi tin qua UID
+Bảng mã lỗi
+Phụ lục
+Bắt đầuGiới thiệu ZBS Template Message
+Giới thiệu ZBS Template Message
+
+ZBS Template Message API là phương thức chính giúp doanh nghiệp (OA) sử dụng dịch vụ ZBS Template Message, thông qua việc tích hợp Template Message API với hệ thống nội bộ của doanh nghiệp.
+
+ZBS Template Message API giúp doanh nghiệp gửi tin nhắn có sử dụng Template tới user với số lượng lớn và hỗ trợ việc vận hành một cách tự động, đặc biệt trong việc nhận thông tin và truy xuất dữ liệu.
+
+Để sử dụng ZBS Template Message bằng API, doanh nghiệp cần có các tài khoản sau:
+
+Tài khoản	Định nghĩa	Khởi tạo và sử dụng
+Zalo Official Account (Zalo OA)	Zalo OA là tài khoản chính thức của Doanh nghiệp trên Zalo, giúp Doanh nghiệp tương tác với người dùng Zalo cá nhân. Tin nhắn ZBS sẽ được gửi tới người dùng Zalo dưới định danh của OA.	Doanh nghiệp chưa có tài khoản OA, có thể bắt đầu tạo OA theo hướng dẫn tại đây.
+Ứng dụng trên nền tảng Zalo (Zalo App)	Ứng dụng của doanh nghiệp khởi tạo trên nền tảng Zalo, dùng để quản lý Zalo OA hoặc các dịch vụ của nền tảng Zalo (ZBS, Mini App,…).	Doanh nghiệp chưa có Zalo App có thể khởi tạo Ứng dụng theo hướng dẫn tại đây.
+Sau khi tạo ứng dụng, Doanh nghiệp cần xác thực và cấp quyền cho ứng dụng theo hướng dẫn tại đây để có thể bắt đầu gửi tin nhắn ZBS
+ZBS Account (ZBS)	ZBS Account (ZBS) là công cụ quản lý số dư tiền để sử dụng tính năng tính phí của các tài khoản Zalo OA và tin nhắn ZBS.	Doanh nghiệp chưa có ZBS có thể khởi tạo ZBS theo hướng dẫn tại đây.
+Sau đó liên kết ZBS với Zalo App theo hướng dẫn tại đây (Lưu ý: 1 ZBS có thể link với nhiều Zalo App).
+Mô hình sử dụng dịch vụ ZBS Template Message và vận hành bằng API​
+
+Để gửi thông báo Template và quản lý vận hành bằng Template Message API, doanh nghiệp cần tích hợp Template Message API với hệ thống (server) của doanh nghiệp thông qua việc cấp quyền cho ứng dụng Zalo App.
+
+Doanh nghiệp sẽ gọi các API tương ứng với các quyền quản lý OA và gửi tin nhắn ZBS dưới định danh OA thông qua ứng dụng. Khi có sự kiện về thông báo được gửi hoặc tương tác giữa người dùng và OA hoặc các thông báo từ Zalo, Zalo sẽ gửi các event webhook (method POST) đến webhook url của ứng dụng
+
+Luồng gửi, quản lý dữ liệu và vận hành thông qua API
+Kế tiếp
+Giới thiệu về các nhóm quyền thuộc ZBS Template Message
+Mô hình sử dụng dịch vụ ZBS Template Message và vận hành bằng API
+©2023 Zalo for Developers

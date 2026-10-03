@@ -1,0 +1,205 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/java-sdk/tai-lieu/article-api
+# FETCHED: 2026-07-21
+# TITLE: Article API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Java SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API V3
+Official Account API
+Article API
+Các hàm mã hóa thường dùng
+Tích hợpArticle API
+Article API
+
+Hướng dẫn gọi Article API mới sử dụng java SDK
+
+Tạo normal article​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+JsonObject photoCover = new JsonObject();
+photoCover.addProperty("cover_type", "photo");
+photoCover.addProperty("photo_url", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+photoCover.addProperty("status", "show");
+
+JsonObject textParagraph = new JsonObject();
+textParagraph.addProperty("type", "text");
+textParagraph.addProperty("content", "content");
+
+JsonObject imageParagraph = new JsonObject();
+imageParagraph.addProperty("type", "image");
+imageParagraph.addProperty("url", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+imageParagraph.addProperty("caption", "caption");
+
+JsonObject videoParagraph = new JsonObject();
+videoParagraph.addProperty("type", "video");
+videoParagraph.addProperty("url", "https://www.youtube.com/watch?v=mY4l5C5DDEE");
+videoParagraph.addProperty("thumb", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+
+JsonArray body = new JsonArray();
+body.add(textParagraph);
+body.add(imageParagraph);
+body.add(videoParagraph);
+
+JsonObject normalArticle = new JsonObject();
+normalArticle.addProperty("type", "normal");
+normalArticle.addProperty("title", "article test");
+normalArticle.addProperty("author", "Huỳnh Hồng Hiển");
+normalArticle.add("cover", photoCover);
+normalArticle.addProperty("description", "article test");
+normalArticle.add("body", body);
+normalArticle.addProperty("status", "hide");
+normalArticle.addProperty("comment", "show");
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/create", "POST", null, normalArticle, headers, null);
+
+Tạo video article​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+JsonObject videoArticle = new JsonObject();
+videoArticle.addProperty("type", "video");
+videoArticle.addProperty("title", "article test");
+videoArticle.addProperty("description", "description");
+videoArticle.addProperty("video_id", "video_id");
+videoArticle.addProperty("avatar", "https://developers.zalo.me/web/static/zalo.png");
+videoArticle.addProperty("comment", "show");
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/create", "POST", null, videoArticle, headers, null);
+
+Lấy article id từ token​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+JsonObject body = new JsonObject();
+body.addProperty("token", "fvXiHxFn+7lOd2E1LxOxh3cs2cu0KqwwKCQhbSE06b4XwSqinw7F8uwrSPt4fWAkwnloDVzM07tk0KiqvLudSA==");
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/verify", "POST", null, body, headers, null);
+
+Lấy thông tin chi tiết của bài viết​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+Map<String, Object> params = new HashMap<>();
+params.put("id", "article_id");
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/getdetail", "GET", params, null, headers, null);
+
+Cập nhật normal article​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+JsonObject photoCover = new JsonObject();
+photoCover.addProperty("cover_type", "photo");
+photoCover.addProperty("photo_url", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+photoCover.addProperty("status", "show");
+
+JsonObject textParagraph = new JsonObject();
+textParagraph.addProperty("type", "text");
+textParagraph.addProperty("content", "content");
+
+JsonObject imageParagraph = new JsonObject();
+imageParagraph.addProperty("type", "image");
+imageParagraph.addProperty("url", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+imageParagraph.addProperty("caption", "caption");
+
+JsonObject videoParagraph = new JsonObject();
+videoParagraph.addProperty("type", "video");
+videoParagraph.addProperty("url", "https://www.youtube.com/watch?v=mY4l5C5DDEE");
+videoParagraph.addProperty("thumb", "https://stc-developers.zdn.vn/images/bg_1.jpg");
+
+JsonArray body = new JsonArray();
+body.add(textParagraph);
+body.add(imageParagraph);
+body.add(videoParagraph);
+
+JsonObject normalArticle = new JsonObject();
+normalArticle.addProperty("id", "0b5c34017c44951acc55");
+normalArticle.addProperty("type", "normal");
+normalArticle.addProperty("title", "article test");
+normalArticle.addProperty("author", "Huỳnh Hồng Hiển");
+normalArticle.add("cover", photoCover);
+normalArticle.addProperty("description", "article test");
+normalArticle.add("body", body);
+normalArticle.addProperty("comment", "show");
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/update", "POST", null, normalArticle, headers, null);
+
+Cập nhật video article​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+JsonObject videoArticle = new JsonObject();
+videoArticle.addProperty("id", "article_id");
+videoArticle.addProperty("type", "video");
+videoArticle.addProperty("title", "article test");
+videoArticle.addProperty("description", "description");
+videoArticle.addProperty("video_id", "video_id");
+videoArticle.addProperty("avatar", "https://developers.zalo.me/web/static/zalo.png");
+videoArticle.addProperty("comment", "show");
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/update", "POST", null, videoArticle, headers, null);
+
+Lấy danh sách bài viết​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+Map<String, Object> params = new HashMap<>();
+params.put("offset", 0);
+params.put("limit", 2);
+params.put("type", "normal"); //"normal" or "video";
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/getslice", "GET", params, null, headers, null);
+
+Tải lên video cho article​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+Map<String, File> files = new HashMap<>();
+File file = new File("/path/to/file");
+files.put("file", file);
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/upload_video/preparevideo", "POST", null, null, headers, files);
+
+Kiểm tra trạng thái của video​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+headers.put("token", "video_token_get_by_upload_video");
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/upload_video/verify", "GET", null, null, headers, null);
+
+Xóa bài viết​
+Map<String, String> headers = new HashMap<>();
+headers.put("access_token", access_token);
+
+JsonObject body = new JsonObject();
+body.addProperty("id", "article_id");
+
+JsonObject excuteRequest = client.excuteRequest("https://openapi.zalo.me/v2.0/article/remove", "POST", null, body, headers, null);
+
+Trước
+Official Account API
+Kế tiếp
+Các hàm mã hóa thường dùng
+Tạo normal article
+Tạo video article
+Lấy article id từ token
+Lấy thông tin chi tiết của bài viết
+Cập nhật normal article
+Cập nhật video article
+Lấy danh sách bài viết
+Tải lên video cho article
+Kiểm tra trạng thái của video
+Xóa bài viết
+©2023 Zalo for Developers

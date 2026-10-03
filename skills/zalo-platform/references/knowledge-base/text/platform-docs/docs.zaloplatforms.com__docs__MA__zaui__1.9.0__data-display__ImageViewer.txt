@@ -1,0 +1,174 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.9.0/data-display/ImageViewer
+# FETCHED: 2026-08-06
+# TITLE: ImageViewer | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.9.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Header
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Container
+App
+Box
+Page
+Router
+ZMPRouter
+AnimationRoutes
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+ImageViewer
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+zmp-ui1.7.0
+Bạn đang xem tài liệu zmp-ui v1.9.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+ImageViewer component: Component giúp tạo một gallery để xem hình ảnh với kích thước của màn hình, người dùng có thể tương tác thu phóng, chuyển hình,...
+Properties​
+ImageViewer​
+ImageType​
+Example​
+import React, { useState } from "react";
+import { Page, ImageViewer, Box, Text } from "zmp-ui";
+const images = [
+{
+src: "https://stc-zmp.zadn.vn/zmp-zaui/images/e2e10aa1a6087a5623192.jpg",
+alt: "img 1",
+key: "1",
+},
+{
+src: "https://stc-zmp.zadn.vn/zmp-zaui/images/fee40cbea0177c4925061.jpg",
+alt: "img 2",
+key: "2",
+},
+{
+src: "https://stc-zmp.zadn.vn/zmp-zaui/images/82ca759bd932056c5c233.jpg",
+alt: "img 3",
+key: "3",
+},
+{
+src: "https://stc-zmp.zadn.vn/zmp-zaui/images/77f5b8cd1464c83a91754.jpg",
+alt: "img 4",
+key: "4",
+},
+];
+export default function HomePage() {
+const [visible, setVisible] = useState(false);
+const [activeIndex, setActiveIndex] = useState(0);
+return (
+<Text.Title size="small">ImageViewer</Text.Title>
+<Box mt={6}>
+<Box>
+<Text.Title size="small">Usage</Text.Title>
+</Box>
+<Box mt={2}>
+<Text size="xSmall" className="input-desc">
+Khi cần xem và tương tác với hình ảnh trên kích thước lớn hơn
+</Text>
+</Box>
+<Box mt={6}>
+<Text.Title size="small">Example</Text.Title>
+</Box>
+<Box mt={2}>
+<Box flex flexDirection="row" flexWrap="nowrap">
+{images.map((img, index) => (
+<Box
+mr={1}
+key={img.key}
+style={{
+width: "68px",
+height: "69px",
+borderRadius: "8px",
+overflow: "hidden",
+}}
+>
+<img
+style={{ width: "100%", height: "100%", objectFit: "cover" }}
+role="presentation"
+onClick={() => {
+setActiveIndex(index);
+setVisible(true);
+}}
+src={img.src}
+alt={img.alt}
+/>
+</Box>
+))}
+</Box>
+<ImageViewer
+onClose={() => setVisible(false)}
+activeIndex={activeIndex}
+images={images}
+visible={visible}
+/>
+</Box>
+</Box>
+);
+}
+Properties
+ImageViewer
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

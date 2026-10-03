@@ -1,0 +1,87 @@
+# SOURCE: https://zalo.solutions/news/cap-nhat-moi-bo-sung-lua-chon-danh-gia-bang-bieu-tuong-cam-xuc-cho-mau-tin-danh-gia-dich-vu/unzp8rskdtmb9llmkwl2n9d8
+# FETCHED: 2026-07-21
+# TITLE: Cập nhật mới: Bổ sung lựa chọn “Đánh giá bằng biểu tượng cảm xúc" cho Mẫu tin Đánh giá dịch vụ | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Home/Tin tức/Cập nhật mới: Bổ sung lựa chọn “Đánh giá bằng biểu tượng cảm xúc" cho Mẫu tin Đánh giá dịch vụ
+Cập nhật mới: Bổ sung lựa chọn “Đánh giá bằng biểu tượng cảm xúc" cho Mẫu tin Đánh giá dịch vụ
+11 tháng 06, 2026 14:35
+
+Nhằm đáp ứng đa dạng nhu cầu thu thập phản hồi khách hàng, đội ngũ ZBS Template Message bổ sung định dạng Đánh giá bằng Biểu tượng cảm xúc - lựa chọn mới song song với đánh giá bằng số sao trong Mẫu tin đánh giá dịch vụ hiện tại, cho phép doanh nghiệp linh hoạt chọn hình thức đánh giá phù hợp với từng kịch bản gửi tin. 
+
+1. Đặc điểm mới của lựa chọn “Đánh giá bằng biểu tượng cảm xúc”  
+
+Đây là định dạng mở rộng của Mẫu tin đánh giá dịch vụ, thay thế thang điểm sao bằng bộ “biểu tượng cảm xúc".
+
+Phù hợp hơn với các tương tác mang tính cảm xúc
+
+Thang điểm sao phù hợp khi doanh nghiệp cần đo lường mức độ hài lòng theo định lượng. Tuy nhiên, với các kịch bản giao tiếp cần sự thân thiện và cảm xúc hơn thì hình thức biểu tượng cảm xúc tạo ra trải nghiệm phản hồi tự nhiên và phù hợp với ngữ cảnh hơn.
+
+Tăng tỷ lệ hoàn thành đánh giá nhờ thang đo ngắn hơn
+
+Không phải kịch bản nào cũng cần đo lường chi tiết theo 5 mức. Với thang đo 3 mức, khách hàng chỉ cần chọn 1 trong 3 biểu tượng - ít lựa chọn hơn đồng nghĩa quyết định nhanh hơn, và tỷ lệ khách hàng hoàn thành đánh giá cao hơn.
+
+ 
+
+2. Hướng dẫn tạo mẫu tin sử dụng lựa chọn “Đánh giá bằng biểu tượng cảm xúc”
+
+2.1 Tạo mẫu tin qua ZBS Account 
+
+Bước 1: Chọn "Dịch vụ gửi tin"
+
+Bước 2: Chọn "Tạo Template" 
+
+Bước 3: Điền thông tin cần thiết
+
+Bước 4: Chọn "Mẫu tin đánh dịch vụ"
+
+Bước 5: Ở phần “Bình chọn" → Chọn Thang điểm phù hợp và điền các thông tin
+
+Ảnh: Thang điểm đánh giá 5 biểu tượng cảm xúc
+
+Ảnh: Thang điểm đánh giá 3 biểu tượng cảm xúc
+
+Bước 6: Sau khi setup hoàn tất → nhấn tiếp tục để thực hiện các bước tiếp theo quy trình tạo mẫu tin bình thường 
+
+2.2 Tạo mẫu tin qua API
+
+Đối với khách hàng tạo mẫu tin qua API, xem và làm theo hướng dẫn tại tài liệu này: Tại đây  
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý Khách hàng có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Cổng thông tin hỗ trợ ZBS. Đội ngũ ZBS sẽ phản hồi trong vòng 24 giờ làm việc tiếp theo.
+
+ 
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

@@ -1,0 +1,119 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/phu-luc/ma-loi
+# FETCHED: 2026-07-21
+# TITLE: Mã lỗi Official Account API | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Phụ lụcMã lỗi Official Account API
+Mã lỗi Official Account API
+Mã lỗi	Thông báo	Mô tả	Hướng dẫn xử lý
+0	Success	Request thành công	
+-32	Your application reached limit call api	Vượt quá giới hạn tốc độ request/phút	Kiểm tra và điều chỉnh tốc độ request theo yêu cầu
+-32	Your OA reached limit call api	Vượt quá giới hạn tốc độ của Official Account	Kiểm tra và điều chỉnh tốc độ request theo yêu cầu
+-100	attachment_id was expired	attachment_id đã hết hạn	Upload lại attachment (hình ảnh, file...) để lấy attachment_id mới
+-200	Send message failed	Gửi tin nhắn thất bại	
+-201	<data_field> is invalid!	Tham số không hợp lệ	Kiểm tra tham số được truyền trong request
+-204	Offical Account is disable	Official Account đã bị xóa	Kiểm tra trạng thái của tài khoản OA tương ứng
+-205	Offical Account is not exist	Official Account không tồn tại	Kiểm tra thông tin OA ID được truyền trong request
+-209	Not supported this api	API này không được hỗ trợ do ứng dụng chưa được kích hoạt	Kiểm tra và kích hoạt ứng dụng tại:
+Quản lý ứng dụng > Cài đặt > Bật "Chưa kích hoạt" sang "Đang hoạt động"
+-210	Parameter exceeds allowable limit	Tham số vượt quá giới hạn cho phép	Kiểm tra tham số & giới hạn cho phép của tham số được truyền trong request
+-211	Out of quota	Vượt quá quota sử dụng cho phép của tính năng	Kiểm tra giới hạn được cho phép của tính năng tương ứng. Kiểm soát giới hạn này cho những lần request tiếp theo
+-212	App has not registed this api	Official Account chưa đăng ký API này	Kiểm tra và thực hiện đăng ký API tại:
+Quản lý ứng dụng > Đăng ký sử dụng API > Official Account API
+-213	User has not followed OA	Người dùng chưa quan tâm Official Account	Kiểm tra điều kiện cho phép tương tác của loại tin đang sử dụng tại đây
+-214	Article is being processed	Bài viết đang được xử lý	Vui lòng chờ và gọi lại API sau một khoảng thời gian
+-216	Access token is invalid	Access token không hợp lệ	1. Kiểm tra tính khả dụng của Access Token
+
+2. Lấy Access token mới theo hướng dẫn
+-217	User has blocked invitation from OA	Người dùng đã chặn tin mời quan tâm	
+-218	Out of quota receive	Đã quá giới hạn gửi đến người dùng này	Tham khảo các giới hạn nhận của người dùng, từ OA
+-219	App is removed or disabled	Ứng dụng đã bị gỡ bỏ hoặc vô hiệu hóa	Kiểm tra lại quyền admin và trạng thái App tại https://developers.zalo.me/app/{AppID}/settings
+-220	access_token is expired or removed	access_token đã hết hạn hoặc không còn khả dụng	1. Kiểm tra tính khả dụng của Access Token
+
+2. Lấy Access token mới theo hướng dẫn
+-221	The OA needs to be verified to use this feature	Tài khoản Official Account chưa xác thực	Kiểm tra trạng thái xác thực và thực hiện nộp hồ sơ xác thực cho OA tương ứng
+-223	Official Account has not authorized this API	OA chưa cấp quyền để ứng dụng sử dụng API	Kiểm tra yêu cầu cấp quyền cho ứng dụng từ OA `https://developers.zalo.me/app/{AppID}/oa/settings`
+-223	Your OA has reach the limit quota create article	OA đã vượt hạn mức xuất bản Nội dung cho phép trong kỳ	Kiểm tra hạn mức xuất bản Nội dung
+-224	The OA needs to upgrade OA Tier Package to use this feature	Official Account chưa mua gói dịch vụ để sử dụng tính năng này	1. Kiểm tra thông tin Gói dịch vụ của OA tương ứng
+
+2. Thực hiện nâng cấp gói dịch vụ OA
+-227	User is banned or has been inactive for more than 45 days	Tài khoản người dùng đã bị khóa hoặc không online hơn 45 ngày. OA hiện không thể tương tác đến người dùng này	Tham khảo các quy định tạm thời vô hiệu hóa tài khoản Zalo cá nhân và khoá Zalo cá nhân
+-230	User has not interacted with the OA in the past 7 days	Người dùng không tương tác với OA trong 7 ngày qua	Tham khảo quy định, chính sách các loại tương tác OA
+-232	User has not interacted with the OA, or the last interaction has expired	Người dùng chưa phát sinh tương tác hoặc tương tác cuối đã quá hạn. OA hiện không thể tương tác đến người dùng này	Tham khảo quy định, chính sách các loại tương tác OA
+-233	message type is invalid or not support	Loại tin nhắn không được hỗ trợ hoặc không khả dụng	Kiểm tra loại tin nhắn được sử dụng trong request
+-234	This message cannot be sent at night (10:00PM - 6:00AM)	Loại tin nhắn này không được phép gửi vào buổi tối (từ 22 giờ - 6 giờ sáng hôm sau)	Tham khảo khung giờ gửi tin truyền thông
+-235	This API does not support this type of OA	API này không được hỗ trợ cho phân loại OA của bạn	Kiểm tra loại hình đăng ký của OA, phiên bản & điều kiện sử dụng của API tương ứng
+-237	The group is disabled	Nhóm chat GMF đã hết hạn	Kiểm tra & gia hạn dịch vụ cho nhóm chat
+-238	asset_id is already used / asset_id is disabled	asset_id đã được sử dụng hoặc không còn khả dụng	Kiểm tra & chọn asset_id phù hợp
+-240	MessageV2 API has been shut down, please switch to MessageV3. See instructions here https://go.zalo.me/api-v3	API gửi tin nhắn V2 đã không còn hoạt động, vui lòng chuyển qua API gửi tin nhắn V3. Xem hướng dẫn tại https://go.zalo.me/api-v3	Kiểm tra lại phiên bản & điều kiện sử dụng của API tương ứng
+-241	asset_id is already used	asset_id miễn phí (có sẵn trong Gói dịch vụ) đã được sử dụng	Kiểm tra & chọn asset_id phù hợp
+-242	Invalid appsecret_proof provided in the API argument	appsecret_proof cung cấp trong tham số API không hợp lệ	Xem hướng dẫn sử dụng appsecret_proof
+-244	User has restricted this message type from your OA	Người dùng đã hạn chế nhận loại tin nhắn này từ OA của bạn	
+-248	Violates our platform standards. Learn more: https://go.zalo.me/oa-policy	Vi phạm tiêu chuẩn nền tảng. Tìm hiểu thêm: https://go.zalo.me/oa-policy	Tuân thủ các quy định, tiêu chuẩn nền tảng
+-249	Template does not support send via UID	TemplateID đang sử dụng không hỗ trợ gửi qua UID.
+
+Hiện tại, ZBS gửi qua UID chưa hỗ trợ đối với các loại template sau:
+- Template ZBS được tạo trước ngày 10/12/2025 (template ZNS cũ)
+- Template xác thực (OTP)
+- Template chứa component Response (hiện chỉ thử nghiệm gửi qua SĐT)
+- Template Journey / gửi theo journey token	Vui lòng sử dụng các template có hỗ trợ gửi qua UID, bao gồm:
+- Template tùy chỉnh
+- Template đánh giá dịch vụ
+- Template yêu cầu thanh toán
+- Template Voucher
+
+Đối với các Template được tạo trước ngày 10/12/2025, khách hàng vui lòng tạo mới hoặc clone lại Template tương tự (qua API hoặc ZBS Account) để có thể sử dụng cho luồng gửi UID.
+-320	Your app needs to connect with Zalo Cloud Account to use paid features	Ứng dụng của bạn cần kết nối với Zalo Cloud Account để sử dụng tính năng trả phí	Tham khảo cách liên kết tài khoản ZCA
+-321	Zalo Cloud Account associated with this app is out of money or unable to be charged	Zalo Cloud Account liên kết với App đã hết tiền hoặc không thể thực hiện trả phí	1. Kiểm tra số dư tài khoản ZCA tương ứng
+
+2. Tham khảo cách nạp tiền ZCA
+-403	OA is not in group	Không thể tương tác với nhóm chat vì nhóm này không được sở hữu bởi OA	Kiểm tra danh sách nhóm chat thuộc sở hữu của OA
+-1340	Cannot find this form	Không tìm thấy Form	
+-1341	Official Account has no access to this form	OA không có quyền truy cập form này	
+Trước
+Hướng dẫn xác thực domain
+Kế tiếp
+Broadcast bài viết
+©2023 Zalo for Developers

@@ -1,0 +1,69 @@
+# SOURCE: https://zalo.solutions/blog/huong-dan-nap-tien-vao-zalo-cloud-account-bang-phuong-thuc-nap-truc-tuyen/8bujyrzbeg498j8jw4
+# FETCHED: 2026-07-21
+# TITLE: Hướng dẫn nạp tiền vào Zalo Cloud Account bằng phương thức nạp trực tuyến | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Home/Blog/Hướng dẫn nạp tiền vào Zalo Cloud Account bằng phương thức nạp trực tuyến
+Hướng dẫn nạp tiền vào Zalo Cloud Account bằng phương thức nạp trực tuyến
+26 tháng 11, 2025 17:43
+
+Ngoài phương thức chuyển khoản, Doanh nghiệp có thể nạp tiền vào tài khoản Zalo Cloud Account (ZCA) trực tuyến qua thẻ thanh toán quốc tế, thẻ ATM nội địa hoặc ví điện tử. Đây là phương thức nạp tiền mà đội ngũ Zalo Cloud khuyến khích Khách hàng sử dụng để có thể cập nhật ngay số tiền vào tài khoản ZCA nhanh chóng.
+
+Quy trình nạp tiền vào tài khoản Zalo Cloud Account (ZCA)
+
+Bước 1: Truy cập vào  tài khoản Zalo Cloud Account (ZCA), chọn “Nạp tiền” -> “Nạp tiền trực tuyến”.
+
+Bước 2: Lựa chọn cổng thanh toán phù hợp. Hiện tại, phương thức nạp tiền trực tuyến hỗ trợ 3 cổng thanh toán. 
+
+Chọn loại thẻ - > “Tiếp tục”
+
+Nhập số tiền nạp -> Chọn yêu cầu hóa đơn  -> “Thanh toán...”
+
+Lưu ý: Nếu Doanh nghiệp yêu cầu Xuất hóa đơn, tiếp tục điền đầy đủ thông tin xuất hóa đơn (Tên công ty, mã số thuế, họ tên, số điện thoại, email nhận hóa đơn điện tử.) - > “Lưu thông tin này” -> “Thanh toán...”
+
+Nhập thông tin thẻ (Số thẻ, ngày hết hạn, tên in trên thẻ, số CVV) -> “Thanh toán”
+
+Tương tự như các bước thanh toán bằng thẻ quốc tế, Doanh nghiệp lựa chọn Ngân hàng nội địa hoặc ví điện tử ZaloPay
+
+Những lưu ý chung khi nạp tiền vào ví ZCA bằng phương thức nạp trực tuyến
+Vui lòng giữ biên lai để đối chứng khi cần thiết.
+Tiền đã nạp vào thành công tài khoản Zalo Cloud Account sẽ không được hoàn trả.
+
+Ngoài ra, quý khách hàng có thể tham khảo hình thức Nạp tiền bằng phương thức chuyển khoản vào tài khoản ZCA. 
+
+Nếu cần hỗ trợ trong quá trình nạp tiền vào Zalo Cloud Account, khách hàng có thể liên hệ với đội ngũ chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

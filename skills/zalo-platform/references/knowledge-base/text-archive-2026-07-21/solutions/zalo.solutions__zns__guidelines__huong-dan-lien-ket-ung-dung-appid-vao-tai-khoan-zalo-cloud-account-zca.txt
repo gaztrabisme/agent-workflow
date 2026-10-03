@@ -1,0 +1,107 @@
+# SOURCE: https://zalo.solutions/zns/guidelines/huong-dan-lien-ket-ung-dung-appid-vao-tai-khoan-zalo-cloud-account-zca
+# FETCHED: 2026-07-21
+# TITLE: Hướng dẫn liên kết Ứng dụng (AppID) vào tài khoản ZBS | Hướng dẫn triển khai Business Message | Zalo Business Solutions
+
+Nhảy tới nội dung
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Quản lý tài khoản
+Business Message
+Giới thiệu
+Tài liệu hướng dẫn
+Bảng giá
+Chính sách dịch vụ
+Tài liệu hướng dẫn
+Thiết lập các tài khoản
+Giới thiệu về ZBS Template Message
+Hướng dẫn thiết lập tài khoản ZBS
+Hướng dẫn liên kết Ứng dụng (AppID) vào tài khoản ZBS
+Hướng dẫn liên kết Zalo OA vào tài khoản ZBS
+Hướng dẫn Uỷ quyền ứng dụng (AppID) cho OA
+Quản lý tài khoản ZBS
+Cơ chế đánh giá chất lượng
+Tiêu chuẩn phê duyệt
+Tạo mẫu tin nhắn ZBS
+Gửi tin nhắn ZBS template
+Hoá đơn và Chi tiêu
+Câu hỏi thường gặp
+
+Hướng dẫn liên kết Ứng dụng (AppID) vào tài khoản ZBS
+
+1. Giới thiệu về Ứng dụng (AppID)​
+
+Ứng dụng (AppID) là đơn vị đại diện của một hoặc nhiều Zalo Official Account (OA) để gửi thông báo ZNS và truy cập các API được cung cấp bởi Zalo.
+
+2. Thiết lập Ứng dụng​
+
+Bước 1: Tạo ứng dụng mới
+
+Truy cập trang Tạo ứng dụng mới → Điền đầy đủ các thông tin: Tên hiển thị, Danh mục, Mô tả và chọn "Tôi không phải là người máy" → "Tạo ID ứng dụng".
+
+Bước 2: Điền thông tin ứng dụng
+
+Sau khi tạo ứng dụng thành công, doanh nghiệp tiếp tục điền các thông tin theo yêu cầu như: số điện thoại, email, biểu tượng (icon ứng dụng) và miền ứng dụng (tùy chọn) để kích hoạt ứng dụng.
+
+Bước 3: Kích hoạt ứng dụng
+
+Doanh nghiệp tiến hành kích hoạt ứng dụng để có thể gửi thông báo ZNS đến người dùng thông qua các API được cung cấp bởi Zalo. Ứng dụng đã được kích hoạt chỉ có thể sử dụng những API đã được xét duyệt.
+
+3. Liên kết Ứng dụng (AppID) với tài khoản ZBS​
+
+Để liên kết nhiều ứng dụng (AppID) vào tài khoản ZBS để tối ưu hóa việc quản lý, khách hàng cần phải là Quản trị viên/Quản trị viên cao cấp của tài khoản ZBS, đồng thời là Quản trị viên của ứng dụng.
+
+Bước 1: Truy cập vào tài khoản ZBS tại ĐÂY
+
+Chọn “Cài đặt” ➡"Quản lý tài sản" ➡ “Liên kết ứng dụng” ➡ “Liên kết”
+
+Các ứng dụng khả dụng sẽ hiển thị ở mục "Liên kết ứng dụng mới". Nếu không tìm thấy ứng dụng cần liên kết, quý khách vui lòng liên hệ Admin của ứng dụng để được cấp quyền Admin.
+
+Bước 2: Xác nhận và hoàn tất
+
+Chọn “Liên kết ứng dụng”
+
+Tương tự, khách hàng có thể chủ động hủy liên kết AppID bằng cách nhấn “Hủy liên kết” và Xác nhận.
+
+Quý khách có thể tham khảo thêm tài liệu hướng dẫn quản lý Admin của tài khoản ZBS tại ĐÂY.
+
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+
+Bài viết này có hữu ích với bạn không?
+Bình thường
+Hữu ích, nhưng...
+Hữu ích
+Trước
+Hướng dẫn thiết lập tài khoản ZBS
+Kế tiếp
+Hướng dẫn liên kết Zalo OA vào tài khoản ZBS
+1. Giới thiệu về Ứng dụng (AppID)
+2. Thiết lập Ứng dụng
+3. Liên kết Ứng dụng (AppID) với tài khoản ZBS
+
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+
+© Zalo Platforms
+
+Giải pháp
+Zalo Official Account
+Business Message
+Zalo Mini App
+Zalo AI
+Tài nguyên
+Tin tức
+Hướng dẫn vận hành
+Ứng dụng thực tiễn
+Thông tin liên hệ
+
+Email: support@zalo.solutions
+
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Chia sẻ cookie
+
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ. Tìm hiểu về Chính Sách Bảo Mật tại đây
+
+Từ chối
+Đồng ý

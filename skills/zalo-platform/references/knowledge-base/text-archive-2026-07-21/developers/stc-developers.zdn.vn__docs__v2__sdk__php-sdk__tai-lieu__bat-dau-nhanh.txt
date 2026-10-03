@@ -1,0 +1,50 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/sdk/php-sdk/tai-lieu/bat-dau-nhanh
+# FETCHED: 2026-07-21
+# TITLE: Bắt đầu nhanh | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+PHP SDK
+Tổng quan
+Tích hợp
+Bắt đầu nhanh
+Official Account API
+Social API
+Tích hợpBắt đầu nhanh
+Bắt đầu nhanh
+GitHub​
+
+zaloplatform/zalo-php-sdk
+
+Hướng dẫn cài đặt​
+
+Zalo PHP SDK có thể được cài đặt bằng Composer. Hãy chạy lệnh bên dưới :
+
+composer require zaloplatform/zalo-php-sdk
+
+
+Import Autoload
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+Hướng dẫn sử dụng​
+
+Official Account API
+
+Social API
+
+Trước
+Tổng quan
+Kế tiếp
+Official Account API
+GitHub
+Hướng dẫn cài đặt
+Hướng dẫn sử dụng
+©2023 Zalo for Developers

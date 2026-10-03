@@ -1,0 +1,68 @@
+# SOURCE: https://bot.zapps.me/docs/create-bot/
+# FETCHED: 2026-07-21
+# TITLE: Tạo Bot | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Bắt đầu
+Tài liệu
+Giá gói
+Giải pháp
+FAQ
+⌘
+K
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Tạo Bot
+Trước
+Kế tiếp
+Cập nhật lần cuối: 17/12/2025
+
+Để tạo Zalo Bot, vui lòng thực hiện theo hướng dẫn sau:
+
+Bước 1: Truy cập Zalo OA​
+Mở ứng dụng Zalo
+Tìm kiếm OA Zalo Bot Manager
+Chọn Tạo bot trong menu cửa sổ chat để truy cập ứng dụng Zalo Bot Creator
+Bước 2: Thiết lập thông tin Bot​
+Nhập tên Bot (bắt buộc bắt đầu bằng tiền tố Bot, ví dụ: Bot MyShop) và các thông tin cần thiết.
+Nhấn Tạo Bot để xác nhận
+Sau khi tạo thành công, hệ thống sẽ gửi:
+Thông tin Bot
+Bot Token qua tin nhắn cho tài khoản Zalo của bạn.
+Bước 3: Lập trình Bot​
+Sử dụng Node.js, Python hoặc nền tảng không cần code (No-code) để tùy biến theo nhu cầu của bạn.
+Zalo Bot hỗ trợ 2 cơ chế giao tiếp để cập nhật thông tin:
+Long polling: gửi yêu cầu định kỳ để lấy tin nhắn mới. Để bắt đầu chạy thử và phát triển Bot, hãy sử dụng API getUpdates ở máy local, sau đó nhắn tin đến Bot của bạn. Bạn sẽ nhận được tin nhắn và có thể sendMessage ngược lại cho người dùng.
+Webhook: hệ thống Zalo sẽ gửi tin nhắn đến Webhook URL bạn đã thiết lập, tham khảo API setWebhook.
+Trước
+Kế tiếp
+EN
+
+Zalo Bot Platform
+
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+
+Công Ty TNHH Zalo Platforms
+
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+
+© 2025 Zalo Platforms. All Rights Reserved.

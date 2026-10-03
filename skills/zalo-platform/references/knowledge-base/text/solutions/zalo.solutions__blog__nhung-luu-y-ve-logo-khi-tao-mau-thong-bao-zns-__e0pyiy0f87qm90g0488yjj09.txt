@@ -1,0 +1,63 @@
+# SOURCE: https://zalo.solutions/blog/nhung-luu-y-ve-logo-khi-tao-mau-thong-bao-zns-/e0pyiy0f87qm90g0488yjj09
+# FETCHED: 2026-08-06
+# TITLE: Tiêu chuẩn cơ bản về logo khi tạo mẫu tin nhắn ZBS Template | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Tiêu chuẩn cơ bản về logo khi tạo mẫu tin nhắn ZBS Template
+Tiêu chuẩn cơ bản về logo khi tạo mẫu tin nhắn ZBS Template
+22 tháng 01, 2026 13:56
+17 hữu ích
+Logo doanh nghiệp là một thành phần không thể thiếu của Mẫu Tin nhắn ZBS. Để logo được xét duyệt nhanh chóng, Quý khách cần đáp ứng những tiêu chuẩn cơ bản về logo của ZBS như sau:
+A. Tiêu chuẩn logo trên Mẫu Tin nhắn ZBS
+Thiết kế logo theo tiêu chuẩn của ZBS sẽ giúp Mẫu Tin nhắn ZBS của doanh nghiệp được hiển thị đẹp hơn khi gửi đến người dùng cuối:
+1. Canh lề trái: thẳng hàng với các dòng đầu tiên của nội dung
+2. Kích thước như sau: đơn vị pixels
+3. Có hai logo cho giao diện sáng (Light Mode) và giao diện tối (Dark Mode) với kích thước và tỉ lệ tương đồng.
+4. Logo giao diện tối Dark Mode:
+BẮT BUỘC sử dụng logo trắng (logo âm bản) để tạo trải nghiệm tốt nhất đối với người dùng cuối.
+BẮT BUỘC có nền trong suốt (clear/transparent)
+B. Một số ví dụ về logo chưa đúng chuẩn và bị từ chối
+1. Nhầm lẫn logo với banner
+Logo là “biểu tượng thương hiệu”, là một phần tử đồ họa, ký hiệu, hoặc biểu tượng của một thương hiệu hoặc nhãn hiệu và đi cùng mặt chữ kiểu của nó. Mặt khác, Banner là thuật ngữ dùng để chỉ những biển hiệu, biển quảng cáo thương hiệu được sử dụng như một ấn phẩm truyền thông cho một sản phẩm, dịch vụ, sự kiện cụ thể của doanh nghiệp với mục đích thu hút người xem, khiến họ quan tâm, kích thích và tạo ra nhu cầu sử dụng.
+2. Logo Dark Mode không có nền trong suốt, không đồng nhất kích thước v.v..
+✔️ĐƯỢC DUYỆT✔️
+❌BỊ TỪ CHỐI❌
+LÝ GIẢI
+Light mode
+️
+Logo có nền xanh/nền trắng không phải nền trong suốt
+Logo lightmode đúng chuẩn sử dụng nền trong suốt
+Logo lightmode và darkmode bắt buộc có thiết kế, kích thước và tỉ lệ tương đồng
+Dark mode
+Logo darkmode có nền đen không phải nền trong suốt
+Logo darkmode đúng chuẩn
+(sử dụng logo âm bản, file .png và có nền trong suốt)
+Logo âm bản bắt buộc có màu trắng hoặc sáng màu và không có bất kì vùng màu tối, gây khó nhìn ở giao diện darkmode
+Logo lightmode và darkmode bắt buộc phải có thiết kế, kích thước và tỉ lệ tương đồng
+Khác
+Hình ảnh là Banner chứ không phải logo
+Chứa thông tin như một ấn phẩm truyền thông về dịch vụ của doanh nghiệp
+Logo không đính kèm SĐT hoặc đường dẫn (link)
+Ngoại trừ trường hợp: thiết kế của logo mặc định bao gồm có SĐT và/hoặc đường dẫn (thiết kế này được công khai tại website chính thức của doanh nghiệp)
+3. Quản lý logo
+Doanh nghiệp có thể theo dõi và quản lý các logo đã được tải lên ứng với tên hoặc ID của ứng dụng/OA trên tài khoản ZCA, bằng cách thực hiện các thao tác sau.
+Bước 1: Truy cập vào tài khoản ZBS tại đây. → “Công cụ” → “Dịch vụ gửi tin”
+Bước 2: Ở mục “Thiết kế nội dung”, chọn “Quản lý logo” để xem danh sách logo đã tải tương ứng với ứng dụng và OA.
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

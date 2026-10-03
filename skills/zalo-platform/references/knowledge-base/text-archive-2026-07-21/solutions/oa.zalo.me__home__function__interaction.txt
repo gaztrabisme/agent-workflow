@@ -1,0 +1,65 @@
+# SOURCE: https://oa.zalo.me/home/function/interaction?utm_source=ZOAwebsite&utm_source=%5BZOAwebsite%2CZOAwebsite%5D&utm_medium=blog&utm_medium=%5Bblog%2Cblog%5D&utm_campaign=releasenewOA&utm_campaign=%5BreleasenewOA%2CreleasenewOA%5D&utm_content=Quickannouncement&utm_content=%5BQuickannouncement%2CQuickannouncement%5D
+# FETCHED: 2026-07-21
+# TITLE: Tính năng tương tác | Zalo Official Account
+
+📢 [Chính thức] Quyền lợi và biểu phí các gói dịch vụ Zalo OA mới từ 1/6/2026
+Xem chi tiết
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+Chia sẻ cookie
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ.
+Từ chối
+Đồng ý
+TÍNH NĂNG TƯƠNG TÁC
+Tin nhắn
+Gọi thoại
+Menu, chatbot
+Nội dung
+Quản lý nhóm
+TÍNH NĂNG QUẢN LÝ
+TÍNH NĂNG MỞ RỘNG
+Tin nhắn
+Tin nhắn là tính năng tương tác hai chiều giữa Zalo OA của doanh nghiệp và người dùng Zalo
+Tin nhắn trên Zalo OA gồm 2 loại chính:
+
+Tin nhắn cơ bản gồm các loại tin tư vấn, tin chat nhóm GMF và tin broadcast
+Tin nhắn ZBS Template Message là tin nhắn doanh nghiệp theo mẫu được kiểm duyệt, gửi tới định danh User ID (UID) hoặc số điện thoại Zalo, bao gồm tin giao dịch và tin hậu mãi.
+
+
+Tương tác chuyên nghiệp và hiệu quả với 79 triệu người dùng Zalo
+Tin nhắn cơ bản
+Đáp ứng đa dạng nhu cầu giao tiếp cơ bản giữa OA doanh nghiệp và khách hàng.
+Đa dạng mẫu tin tư vấn: văn bản, hình ảnh, nút CTA, biểu mẫu...
+Tiếp cận 100% khách hàng quan tâm OA thông qua tin Broadcast hoàn toàn miễn phí.
+Xây dựng cộng đồng, chăm sóc nhóm khách hàng với OA Brandname và bảo toàn dữ liệu tương tác nhóm GMF thuộc về doanh nghiệp.
+Công cụ gửi tin đa dạng ngay tại OA Manager, Mini App OAM hoặc thông qua OpenAPI tích hợp với hệ thống của doanh nghiệp hoặc bên thứ ba.
+ZBS Template Message
+Tin nhắn mẫu chuyên nghiệp và cá nhân hóa giúp nâng cao trải nghiệm chăm sóc khách hàng.
+Đa dạng tùy chỉnh và định dạng sinh động (hình ảnh, văn bản, nút CTA, bảng, OTP...) giúp doanh nghiệp truyền tải nội dung trực quan và thu hút khách hàng.
+Tiếp cận chủ động và tự động hóa quy trình chăm sóc khách hàng tại mọi điểm chạm, dựa trên UID hoặc số điện thoại Zalo, nâng cao dịch vụ chăm sóc khách hàng.
+Chi phí hợp lý và minh bạch giúp doanh nghiệp dễ dàng thiết lập kế hoạch và tối ưu ngân sách sử dụng giải pháp.
+Tìm hiểu thêm
+Tạo Zalo Official Account và kết nối với
+người dùng Zalo ngay!
+Tạo Official Account ngay
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

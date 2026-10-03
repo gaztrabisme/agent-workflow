@@ -1,0 +1,155 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/phu-luc/co-che-danh-gia-chat-luong-va-quyen-loi-gui-zns
+# FETCHED: 2026-07-21
+# TITLE: Cơ chế đánh giá chất lượng và quyền lợi gửi ZNS | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Phụ lục
+Template components
+Cơ chế đánh giá chất lượng và quyền lợi gửi ZNS
+Bảng mã lỗi
+Danh sách BIN CODE
+Ngừng hỗ trợ
+Phụ lụcCơ chế đánh giá chất lượng và quyền lợi gửi ZNS
+Cơ chế đánh giá chất lượng và quyền lợi gửi ZNS
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+Zalo áp dụng chính sách điều chỉnh quyền lợi gửi ZNS dựa theo phản hồi của người dùng. Chi tiết về cách đánh giá chất lượng gửi ZNS:
+
+Chất lượng gửi của mỗi mẫu ZNS sẽ dựa trên tỷ lệ phản hồi tiêu cực của người nhận trên số ZNS đã gửi thuộc mẫu đó.
+Chất lượng gửi ZNS của OA sẽ dựa trên tỷ lệ phản hồi tiêu cực của người nhận trên tổng số ZNS mà OA đã gửi.
+Chất lượng gửi ZNS sẽ cập nhật theo thời gian thực.
+1. Chất lượng gửi ZNS của OA​
+
+Chất lượng gửi ZNS của OA sẽ được chia làm 3 mức độ, với các quyền lợi tương ứng:
+
+Mức độ	Tỷ lệ phản hồi tiêu cực của người nhận với ZNS đã gửi	Quy định về quyền lợi
+Tốt	Nhỏ hơn hoặc bằng mức tiêu chuẩn của hệ thống.	Được xét duyệt tăng quyền lợi.
+Trung bình	Cao hơn mức tiêu chuẩn nhưng vẫn nằm trong mức giới hạn cho phép.	Giữ nguyên quyền lợi cho đến khi chất lượng được cải thiện. Nếu duy trì thời gian dài ở mức này có thể dẫn đến việc giảm quyền lợi.
+Kém	Vượt mức giới hạn cho phép.	Giảm quyền lợi. Ngoài ra, các mẫu ZNS ở mức kém sẽ bị vô hiệu hoá.
+2. Quyền lợi gửi ZNS của OA​
+
+Quyền lợi gửi ZNS của OA sẽ được thể hiện qua một số yếu tố:
+
+Số lượng ZNS có thể gửi mỗi ngày (Daily quota)
+Nội dung ZNS có thể gửi (Mục đích - Tag tối đa có thể gửi)
+Số tin promotion có thể gửi mỗi tháng (Monthly promotion quota)
+Số tin promotion user có thể nhận mỗi tháng (User monthly promotion quota)
+Điều kiện gửi promotion cho mỗi user
+2.1 Số lượng ZNS có thể gửi mỗi ngày:​
+
+Từ 0H ngày 12/03/2024, Mỗi OA sẽ khởi đầu với hạn mức 5,000 ZNS/ngày. Dựa theo số lượng gửi và chất lượng gửi của OA trong một khoảng thời gian nhất định, hạn mức gửi ZNS mỗi ngày của OA sẽ tự động được điều chỉnh, cụ thể như sau:
+
+Mốc (= Daily quota)	Quyền lợi về các mục đích (Tag) được gửi	Mô tả
+500	Tag 1 -> Tag 2	Vùng phạt với những OA bị hạ mốc dưới mức mặc định
+2,000
+5,000	Điểm bắt đầu mặc định (OA mới được khởi tạo mặc định nằm ở mốc này)
+10,000	-
+20,000	Tag 1 -> Tag 3	Điểm Mở quyền gửi tin (Tag 3)
+50,000	-
+100,000	-
+500,000	-
+
+Điều kiện tăng giảm hạn mức (Daily Quota):
+
+Cơ chế	Điều kiện
+Tăng 1 hạn mức	Chất lượng gửi ZNS trong 7 ngày gần nhất ở mức Tốt. (= High)
+VÀ / AND
+Số lượng tin đã gửi thành công trong 7 ngày gần nhất = 2 x [Daily quota hiện tại của OA]
+Giảm 1 hạn mức	Chất lượng gửi ZNS trong 7 ngày gần nhất ở mức Kém (= Low)
+
+Cơ chế xử lý vi phạm tự động (Penalty)
+
+Điều kiện: Khi [Tổng số lượng report trong ngày] > [2% x Daily quota hiện tại của OA]
+Action: OA sẽ bị hạ 1 mức daily quota (diễn ra tối đa 1 lần/ngày)
+
+Chi tiết:
+
+Chạy song song với cơ chế tăng/giảm hạn mức daily quota (Cơ chế ở mục 1, 2.1).
+Không bị ảnh hưởng bởi thời gian chờ 7 ngày sau khi tăng/giảm hạn mức.
+Trong khoảng thời gian 00:00 – 24:00 mỗi ngày, cơ chế penalty diễn ra tối đa 1 lần.
+Tần suất đánh giá: Mỗi giờ.
+Khung thời gian đánh giá: từ đầu ngày đến thời điểm hiện tại
+2.2 Nội dung ZNS có thể gửi:​
+
+Tham khảo các mục đích gửi ZNS Xem thêm Quy định chung khi kiểm duyệt mẫu tin ZNS
+
+Nội dung gửi ZNS được chia thành những loại nội dung sau, với cấp độ tăng dần dựa trên tính chất phức tạp và rủi ro ảnh hưởng đến trải nghiệm của người nhận:
+
+Cấp độ	Loại nội dung ZNS	Code
+1	Giao dịch	TRANSACTION
+2	Chăm sóc khách hàng	CUSTOMER_CARE
+3	Hậu mãi	PROMOTION
+
+Lưu ý đặc biệt:
+
+Quyền lợi gửi ZNS của OA sẽ được đánh giá mỗi ngày.
+
+Sau khi tăng hoặc giảm hạn mức quyền lợi về số tin hoặc loại nội dung, OA sẽ phải đợi 7 ngày để có thể tiếp tục được thay đổi hạn mức của quyền lợi đó. Đây là khoảng thời gian vừa đủ để Zalo có thể đánh giá chính xác về khả năng gửi ZNS của OA tại hạn mức quyền lợi mới.
+
+Nếu chất lượng gửi ZNS của OA thường xuyên ở mức Kém, bên cạnh việc giảm quyền lợi gửi, Zalo có thể đưa ra quyết định tạm ngừng cung cấp dịch vụ ZNS cho doanh nghiệp cho đến khi doanh nghiệp cam kết cải thiện chất lượng gửi thông báo.
+
+2.3 Số tin promotion có thể gửi mỗi tháng (Monthly promotion quota)​
+
+Định nghĩa: Là số tin promotion mà OA có thể gửi trong vòng 1 tháng.
+
+Thực hiện reset monthly promotion quota tháng trước đó và grant mới monthly promotion quota vào đầu mỗi tháng.
+
+Monthly promotion quota được tính bằng công thức sau:
+
+Monthly promotion quota = 1/6 (tổng số tin transaction + customer care đã gửi 2 tháng trước đó)
+
+2.4. Số tin promotion user có thể nhận mỗi tháng (User monthly promotion quota)​
+
+Định nghĩa: Là số lượng tin promotion tối đa mà OA có thể gửi trong tháng, đối với mỗi end-user.
+
+Vào đầu mỗi tháng, mỗi cặp OA - user có số lượng quota tối đa cho tin promotion là 4 tin.
+
+Không áp dụng cộng dồn vào các tháng tiếp theo.
+
+2.5 Điều kiện gửi promotion cho mỗi user​
+Khi OA gửi tin promotion cho user cần thỏa mãn điều kiện user trước đó đã nhận tin transaction hoặc customer_care từ OA (trong 6 tháng gần nhất).
+3. Hướng dẫn xem báo cáo chất lượng gửi ZNS trên tài khoản ZCA​
+
+Khi bắt đầu hoạt động gửi thông báo ZNS, Zalo Official Account (OA) của doanh nghiệp sẽ chỉ được gửi ZNS có cấp độ thấp. Sau đó, dựa theo chất lượng gửi ZNS, hệ thống sẽ tự động điều chỉnh cho phép OA gửi các loại nội dung ở cấp độ cao hơn.
+
+Xem thêm: Hướng dẫn xem báo cáo chất lượng gửi ZNS trên tài khoản ZCA.
+
+4. Truy xuất thông tin chất lượng và quyền lợi gửi ZNS qua API:​
+
+Những thông tin về chất lượng và quyền lợi gửi ZNS của OA có thể được truy xuất qua các API như sau:
+
+Thông tin	API
+Số lượng ZNS có thể gửi mỗi ngày	Lấy thông tin quota thông báo ZNS
+Loại nội dung ZNS có thể gửi	Lấy thông tin loại nội dung ZNS được phép gửi
+Chất lượng gửi ZNS của OA	Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+Chất lượng gửi ZNS của mẫu ZNS cụ thể	Lấy thông tin chi tiết template
+Trước
+Template components
+Kế tiếp
+Bảng mã lỗi
+1. Chất lượng gửi ZNS của OA
+2. Quyền lợi gửi ZNS của OA
+2.1 Số lượng ZNS có thể gửi mỗi ngày:
+2.2 Nội dung ZNS có thể gửi:
+2.3 Số tin promotion có thể gửi mỗi tháng (Monthly promotion quota)
+2.4. Số tin promotion user có thể nhận mỗi tháng (User monthly promotion quota)
+2.5 Điều kiện gửi promotion cho mỗi user
+3. Hướng dẫn xem báo cáo chất lượng gửi ZNS trên tài khoản ZCA
+4. Truy xuất thông tin chất lượng và quyền lợi gửi ZNS qua API:
+©2023 Zalo for Developers

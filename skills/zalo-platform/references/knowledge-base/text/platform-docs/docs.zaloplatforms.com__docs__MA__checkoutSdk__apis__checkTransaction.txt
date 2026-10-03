@@ -1,0 +1,153 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/checkoutSdk/apis/checkTransaction
+# FETCHED: 2026-08-06
+# TITLE: checkTransaction | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Giới Thiệu
+Quy trình tích hợp
+Tích hợp toàn diện
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Khởi tạo đơn hàng
+Bước 3 - Nhận kết quả trên Mini App
+Bước 4 - Xử lý kết quả thanh toán phía Server
+Tích hợp tuỳ chỉnh
+Bước 1 - Khai báo phương thức thanh toán
+Bước 2 - Hiển thị phương thức thanh toán
+Bước 3 - Khởi tạo đơn hàng
+Bước 4 - Xử lý kết quả thanh toán phía Server
+APIs
+selectPaymentMethod
+createOrder
+purchase
+checkTransaction
+getOrderStatus
+updateOrderStatus
+createRefund
+getRefundStatus
+Webhooks
+callback
+notify
+VNPay IPN processing notification
+Mã phương thức thanh toán
+Mã lỗi
+Công cụ kiểm tra MAC
+Change Log
+Trên trang này
+checkTransaction
+Cập nhật lần cuối:5/8/2026
+Sau khi giao diện thanh toán đóng, sẽ nhận được thông tin id giao dịch thông qua query param từ path trả về. Từ đó gọi API checkTransaction để lấy đầy đủ thông tin giao dịch.
+API CheckTransaction​
+Parameters​
+Object object​
+Property
+Type
+Required
+Description
+data
+Object | string | null
+Dữ liệu nhận về từ query param
+success
+function
+Callback function khi gọi api thành công
+fail
+function
+Callback function khi gọi api thất bại
+Return Values​
+Promise <Object data>​
+Property
+Type
+Description
+orderId
+string
+Id của yêu cầu thanh toán đã tạo ở API createOrder
+transId
+string
+Id của yêu cầu thanh toán từ hệ thống đối tác thanh toán
+resultCode
+number
+Trạng thái giao dịch
+msg
+string
+Mô tả thông tin resultCode
+transTime
+string
+Thời gian thực hiện giao dịch thành công / thất bại
+createdAt
+string
+Thời gian tạo thanh toán
+Error code​
+Tham khảo tại đây.
+Trạng thái giao dịch​
+Giá trị của resultCode ứng với các trạng thái sau đây:
+1 - Thanh toán thành công
+0 - Giao dịch đang được thực hiện hoặc chờ xử lý
+-1 - Thanh toán thất bại
+-2 - Người dùng không chọn phương thức thanh toán và thoát Checkout SDK
+Nếu trạng thái đang thực hiện, vui lòng gọi lại API CheckTransaction.
+Sample Code​
+import { CheckoutSDK } from "zmp-sdk/apis";
+CheckoutSDK.checkTransaction({
+data: params,
+success: (data) => {
+// Kiểm tra thông tin giao dịch
+const { id, resultCode, err, msg, transTime, createdAt } = data;
+switch (resultCode) {
+case 1:
+// Thanh toán thành công
+break;
+case 0:
+// Giao dịch đang được thực hiện hoặc chờ xử lý
+break;
+case -1:
+// Thanh toán thất bại
+break;
+case -2:
+// Người dùng không chọn phương thức thanh toán và thoát Checkout SDK
+break;
+default:
+// Giao dịch không hợp lệ, kiểm tra `err` & `msg` để biết thêm thông tin
+break;
+}
+},
+fail: (err) => {
+// Có lỗi xảy ra khi gọi API
+console.log(err);
+},
+});
+Trước
+purchase
+Kế tiếp
+getOrderStatus
+API CheckTransaction
+Sample Code
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,347 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/noi-dung/noi-dung-dang-bai-viet/
+# FETCHED: 2026-07-21
+# TITLE: Nội dung dạng Bài viết | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Tổng quan
+Nội dung dạng bài viết
+Nội dung dạng Bài viết
+Tải video lên cho nội dung bài viết
+Kiểm tra kết quả tiến trình tạo nội dung
+Lấy chi tiết của nội dung dạng bài viết
+Lấy danh sách nội dung dạng bài viết
+Xóa nội dung dạng bài viết
+Cập nhật nội dung
+Nội dung dạng video
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Nội dungNội dung dạng bài viếtNội dung dạng Bài viết
+Nội dung dạng Bài viết
+
+API hỗ trợ doanh nghiệp tạo bài viết nhanh chóng trên OA của mình.
+
+LƯU Ý
+
+Dung lượng file ảnh sử dụng cho API Article không được quá 1MB. Sau khi gửi yêu cầu tạo bài viết thành công, bạn sẽ nhận được thông tin token ở response trả về. Vui lòng gọi api lấy id của bài viết để kiểm tra kết quả tiến trình tạo bài viết
+
+HTTP request​
+URL: https://openapi.zalo.me/v2.0/article/create
+Method: POST
+Content Type: application/json
+Reponse Type: text/json
+Sample​
+curl \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -H "access_token: <ACCESS_TOKEN>" \
+ -d '{
+  "type": "normal",
+  "title": "News",
+  "author": "News",
+  "cover": {
+    "cover_type": "photo",
+    "photo_url": "url",
+    "status": "show"
+  },
+  "description": "This is news",
+  "body": [
+    {
+      "type": "text",
+      "content": "This is news"
+    },
+    {
+      "type": "text",
+      "content": "This is news"
+    }
+  ],
+  "status":"show",
+  "comment": "show"
+}' \
+ 'https://openapi.zalo.me/v2.0/article/create'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+access_token	String	Yes	Xem hướng dẫn lấy access_token tại đây.
+Cấu trúc body​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+type	String	Yes	Nhận giá trị là “normal”
+title	String	Yes	Tiêu đề bài viết. Tối đa 150 ký tự.
+author	String	Yes	Tác giả bài viết. Tối đa 50 ký tự.
+cover	JSON object	Yes	Ví dụ:
+Khi  "cover_type": "photo". Ví dụ:
+{
+  "cover_type": "photo",
+  "photo_url": "photo_url",
+  "status": "hide"
+}
+
+
+
+Trong đó:
+
+· photo_url : Đường dẫn đến ảnh.
+
+· status : Nhận một trong 2 giá trị “show” hoặc “hide”. Dùng để thiết lập trạng thái ẩn hiện của cover khi hiển thị bài viết.
+
+Khi  "cover_type": "video" . Ví dụ:
+
+{
+  "cover_type": "video",
+  "cover_view": "horizontal",
+  "video_id": "video_id",
+  "status": "show"
+}
+
+
+Trong đó:
+
+· cover_view : Nhận 3 giá trị “horizontal” (video ngang), “vertical”(video dọc), “square”(video vuông).
+
+· video_id : id của video được lấy từ api upload.
+
+· status : Nhận một trong 2 giá trị “show” hoặc “hide”. Dùng để thiết lập trạng thái ẩn hiện của cover khi hiển thị bài viết.
+
+
+description	String	Yes	Mô tả về bài viết. Tối đa 300 ký tự.
+body	JSON Array	Yes	Chứa nội dung chính của bài viết. Mỗi phần tử là một JsonObject. Mỗi đối tượng thể hiện một đoạn (paragraph) của bài viết. Đối tượng có các loại sau:
+Thuộc tính  "type": "text"  (nội dung là text):
+{
+  "type": "text",
+  "content": "content"
+}
+
+
+
+Thuộc tính  "type": "image"  (nội dung là hình ảnh):
+
+{
+  "type": "image",
+  "url": "url_photo",
+  "caption": "thuoc tinh khong bat buoc"
+}
+
+
+
+Trong đó:
+url : đường dẫn đến hình ảnh.
+caption : Mô tả của hình. (Không bắt buộc).
+Thuộc tính  "type": "video"  (nội dung là video). Ví dụ:
+
+{
+  "type": "video",
+  "url": "url_video",
+  "thumb": "url_anh"
+}
+
+{
+  "type": "video",
+  "video_id": "video_id",
+  "thumb": "url_anh"
+}
+
+
+
+Trong đó:
+url : đường dẫn đến trang chứa video.
+video_id : id của video trả về từ api upload.
+thumb :Thumbnail của video. (Không bắt buộc).
+Thuộc tính  "type": "product"  (nội dung là sản phẩm của cửa hàng trên OA):
+
+{
+  "type": "product",
+  "id": "product_id"
+}
+
+
+Trong đó:
+
+· id : là id của sản phẩm trên cửa hàng của OA.
+
+
+related_medias	JSON Array	Yes	Ví dụ:
+["id_bai_viet_lien_quan_1", "id_bai_viet_lien_quan_2", ...]
+
+
+
+Chứa danh sách các id của bài viết liên quan đến bài viết chính.
+
+
+tracking_link	String	Yes	Đường dẫn sử dụng để track lượng người xem của bài viết.
+status	String	Yes	
+
+(Không bắt buộc, mặc định là “hide”)
+
+Gồm 2 giá trị:
+
+· “show”: Hiển thị bài viết này trên Official Account ngay sau khi được tạo.
+
+·  “hide”: Tạm ẩn bài viết này để kiểm tra lại nội dung trước khi hiển thị bài viết này trên Official Account – có thể dùng trang admin Official Account hoặc API update để chuyển status thành “show”.
+
+
+comment	String	Yes	
+
+(Không bắt buộc, mặc định là “show”)
+
+Gồm 2 giá trị:
+
+· “hide”: không cho phép comment trên bài viết này.
+
+· “show”: Cho phép comment trên bài viết này.
+
+Nội dung dạng bài viết có gắn video
+Sample​
+curl \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -d '{
+    "type": "video",
+    "title": "News",
+    "description": "This is news",
+    "video_id": "7f8c46bf7bfa94cbeb",
+    "avatar": "url_image",
+        "comment": "show"
+}' \
+ 'https://openapi.zalo.me/v2.0/article/create?access_token=<ACCESS_TOKEN>'
+
+Tham số​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+access_token	String	Yes	Xem hướng dẫn lấy access_token ở đây.
+Cấu trúc body​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+type	String	Yes	Nhận giá trị là “video”
+title	String	Yes	Tiêu đề bài viết. Tối đa 150 ký tự.
+description	String	Yes	Mô tả về bài viết. Tối đa 300 ký tự.
+video_id	String	Yes	id của video hiển thị trên bài viết.
+avatar	String	Yes	Đường dẫn url đến hình ảnh muốn dùng làm thumbnail .
+status	String	Yes	
+
+(Không bắt buộc, mặc định là “hide”)
+
+Gồm 2 giá trị:
+
+· “show”: Hiển thị bài viết này trên Official Account ngay sau khi được tạo.
+
+·  “hide”: Tạm ẩn bài viết này để kiểm tra lại nội dung trước khi hiển thị bài viết này trên Official Account – có thể dùng trang admin Official Account hoặc API update để chuyển status thành “show”.
+
+
+comment	String	Yes	
+
+(Không bắt buộc, mặc định là “show”)
+
+Gồm 2 giá trị:
+
+· “hide”: không cho phép comment trên bài viết này.
+
+· “show”: Cho phép comment trên bài viết này.
+
+Respond​
+{
+  "error": 0,
+  "message": "Success",
+  "data": {
+    "token": "9xk090B1ANibkhyg9ke8SZgMg39Pz7bNJvJvKrpA821_XVbaI-Dr9ME5ma44nqGPOw3dKmR2SreHY_yaUiOcMrkWX0XknWH0IOQtEY_N1r9Ahu8xJT9QEIU9paOpwc0QDhhqSmU3So8WmlqcEvDEKb_euG5CbKHp9kJS432-35aKsOzSQva30L2cabKwcZqJNwkvQ63M7Mf7bQml9SK5BZJyZ4O8jmT16OwbFNdmA4iIdQPETiq8EtUkhM0AYMCHDkNmJWs9CLPkgFuBJ9Gm536kw1DQb34I9xF_4qE2BX4fk_uJIOKl6ZIYuH9LdpaMPAxi5mILRn5XgxmNLi8v56VywqLGnJaGDJ4mKWZXC0_G15"
+  }
+}
+
+Trước
+Tổng quan
+Kế tiếp
+Tải video lên cho nội dung bài viết
+HTTP request
+Sample
+Tham số header
+Cấu trúc body
+Sample
+Tham số
+Cấu trúc body
+Respond
+©2023 Zalo for Developers

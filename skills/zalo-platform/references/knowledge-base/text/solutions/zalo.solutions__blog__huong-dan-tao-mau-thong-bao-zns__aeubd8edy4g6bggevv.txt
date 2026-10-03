@@ -1,0 +1,56 @@
+# SOURCE: https://zalo.solutions/blog/huong-dan-tao-mau-thong-bao-zns/aeubd8edy4g6bggevv
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn tạo mẫu thông báo ZNS | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Hướng dẫn tạo mẫu thông báo ZNS
+Hướng dẫn tạo mẫu thông báo ZNS
+26 tháng 11, 2025 17:43
+43 hữu ích
+ZNS Template API cho phép gửi thông báo CSKH thông qua API đến khách hàng của Doanh nghiệp đang sử dụng Zalo trong điều kiện đáp ứng đủ các tiêu chuẩn về chính sách dịch vụ được quy định. Để gửi được ZNS Teamplate API, quý khách cần tạo và gửi duyệt Mẫu ZNS trước. Trong bài viết này, đội ngũ chăm sóc khách hàng Zalo Cloud sẽ hướng dẫn quý khách chi tiết các bước tạo mẫu ZNS nhanh chóng và chuẩn nhất.
+Hướng dẫn tạo và gửi Template ZNS
+Bước 1: Truy cập vào công cụ Tạo mẫu ZNS -> “Tạo mẫu ZNS”
+Bước 2: Chọn OA và ứng dụng -> “Tiếp tục”
+Xem hướng dẫn tạo ứng dụng (App ID)
+Bước 3: Thiết lập các thông tin chung
+Đặt tên mẫu ZNS -> Chọn loại mẫu ZNS -> Chọn mục đích gửi ZNS -> Tiếp tục.
+Tìm hiểu thêm về cách thiết lập mục đích gửi ZNS tại đây.
+Lưu ý:
+Đặt tên mẫu ZNS giúp quý khách quản lý các mẫu đã tạo thuận tiện hơn, tên mẫu ZNS từ 10 – 60 ký tự.
+ZNS dạng bảng phù hợp với các nội dung có nhiều tham số.
+Quý khách sẽ có thể gửi nhiều loại nội dung ZNS hơn khi duy trì chất lượng gửi ở mức tốt.
+Bước 4: Nhấp vào khung logo dưới đây để upload Logo doanh nghiệp.
+Lưu ý:
+Thiết kế logo theo tiêu chuẩn của Zalo sẽ giúp mẫu ZNS hiển thị đẹp hơn.
+Cần upload cả phiên bản logo dùng cho Giao diện sáng và Giao diện tối để nâng cao trải nghiệm cho người dùng
+Logo nên được canh lề trái.
+Tiêu chuẩn về kích thước Logo
+Bước 5: Tạo nội dung template
+Quý khách có thể thêm nội dung (tối đa 3 nội dung). Bên phải màn hình là demo mẫu template sẽ gửi đến người dùng cuối (khách hàng của doanh nghiệp).
+Tùy chỉnh các tham số. Bạn có thể thêm “Nút thao tác” (Call To Action). Nút thao tác sẽ được duyệt bởi Zalo Cloud trước khi được sử dụng. -> “Tiếp tục”
+Bước 6: Kiểm tra lại nội dung
+Tick vào ô “Tôi đã đọc và đồng ý với Điều khoản và Chính sách sử dụng của Zalo” -> “Tiếp tục”
+Những lưu ý khi tạo và gửi mẫu thông báo ZNS
+Để đảm bảo trải nghiệm của người dùng cuối, đội ngũ phụ trách tại Zalo Cloud sẽ tiến hành kiểm duyệt mọi mẫu thông báo mới được đăng ký.
+Mẫu thông báo ZNS sẽ được duyệt trong từ 2-3 ngày làm việc.
+Mẫu thông báo sau khi được duyệt sẽ được thông báo đến tài khoản ZCA của quý khách
+Trong trường hợp mẫu ZNS bị từ chối, thông báo kèm lý do từ chối sẽ được gửi đến tài khoản ZCA của quý khách. Quý khách có thể điều chỉnh theo hướng dẫn và gửi duyệt lại.
+Quý khách có thể tiếp tục tạo thêm những mẫu ZNS khác trong khi mẫu hiện tại đang được chờ duyệt.
+Nếu có bất kì thắc mắc nào, quý khách có thể liên hệ với đội ngũ Chăm sóc khách hàng của Zalo Cloud qua email: support@zalo.cloud
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

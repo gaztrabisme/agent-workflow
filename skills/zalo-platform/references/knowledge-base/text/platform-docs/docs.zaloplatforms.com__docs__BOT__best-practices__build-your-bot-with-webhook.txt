@@ -1,0 +1,97 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/BOT/best-practices/build-your-bot-with-webhook
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn xây dựng Zalo Bot sử dụng cơ chế Webhook | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+Webhook
+Best Practices
+1. Xây dựng trợ lý cá nhân với OpenClaw
+2. Hướng dẫn xây dựng Zalo Bot đơn giản với cơ chế Polling
+3. Hướng dẫn xây dựng Zalo Bot với cơ chế Webhook
+4. Hướng dẫn sử dụng Zalo Bot tương tác với Nhóm Chat
+Bảng mã lỗi
+Trên trang này
+Hướng dẫn xây dựng Zalo Bot sử dụng cơ chế Webhook
+Dưới đây là hướng dẫn xây dựng Zalo Bot sử dụng cơ chế Webhook dành cho người mới bắt đầu:
+Mục tiêu​
+Tạo một bot Zalo sử dụng cơ chế Webhook để nhận sự kiện từ người dùng.
+Xử lý các sự kiện như nhận tin nhắn, gửi phản hồi, gửi ảnh,...
+Hiện thực bằng NodeJS hoặc Python sử dụng các SDK có sẵn.
+Bước 1: Tạo Bot​
+Để tạo Zalo Bot, vui lòng làm theo hướng dẫn tại đây. Sau khi tạo Bot, bạn sẽ có thông tin Bot Token để tích hợp API.
+Bước 2: Thiết lập Webhook​
+Bạn cần thiết lập Server với domain HTTPS để đăng ký Webhook nhận sự kiện. Bạn có thể dùng:
+Ngrok (dành cho dev local): ngrok http 3000
+Render, Railway, Vercel,... (có hỗ trợ HTTPS)
+Sau đó sử dụng API setWebhook để thiết lập Webhook cho Zalo Bot của bạn.
+Bước 3: Lập trình Bot​
+Sử dụng Zalo Bot SDK theo code mẫu bên dưới để hiện thực logic cho Bot của bạn.
+Python: Tham khảo thêm tài liệu tại python-zalo-bot.
+Nodejs: Tham khảo thêm tài liệu tại node-zalo-bot.
+PythonNodejs
+from flask import Flask, request
+from zalo_bot import Bot, Update
+from zalo_bot.ext import Dispatcher, CommandHandler, MessageHandler, filters
+TOKEN = 'YOUR_ZALO_BOT_TOKEN'
+bot = Bot(token=TOKEN)
+app = Flask(__name__)
+# Cấu hình webhook 1 lần khi chạy lần đầu
+@app.before_first_request
+def setup_webhook():
+webhook_url = 'https://your-ngrok-or-domain/webhook'
+bot.set_webhook(url=webhook_url)
+# Hàm xử lý /start
+def start(update: Update, context):
+update.message.reply_text(f"Xin chào {update.effective_user.first_name}!")
+# Hàm xử lý tin nhắn thường
+def echo(update: Update, context):
+update.message.reply_text(f"Bạn vừa nói: {update.message.text}")
+# Webhook endpoint
+@app.route('/webhook', methods=['POST'])
+def webhook():
+update = Update.de_json(request.get_json(force=True), bot)
+dispatcher.process_update(update)
+return 'ok'
+# Gắn dispatcher và handler
+from zalo_bot.ext import CallbackContext
+dispatcher = Dispatcher(bot, None, workers=0)
+dispatcher.add_handler(CommandHandler('start', start))
+dispatcher.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+if __name__ == '__main__':
+app.run(port=8443)
+Trước
+2. Hướng dẫn xây dựng Zalo Bot đơn giản với cơ chế Polling
+Kế tiếp
+4. Hướng dẫn sử dụng Zalo Bot tương tác với Nhóm Chat
+Mục tiêu
+Bước 1: Tạo Bot
+Bước 2: Thiết lập Webhook
+Bước 3: Lập trình Bot
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,393 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/1.7.0/button/Button
+# FETCHED: 2026-08-06
+# TITLE: Button | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.7.0
+Overview
+Introduction
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Header
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Input Field
+Input
+Checkbox
+DatePicker
+Picker
+Radio
+Select
+Slider
+Switch
+Sheet
+Modal
+Button
+Navigation
+Header
+BottomNavigation
+Tabs
+Router
+ZMPRouter
+AnimationRoutes
+Container
+App
+Box
+Page
+Display Data
+Avatar
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+SafeAreas
+Icon
+Snackbar
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Button
+Cập nhật lần cuối:5/8/2026
+Bạn đang xem tài liệu zmp-ui v1.7.0. Bản mới nhất là v1.11.0. Xem bản mới nhất →
+Guidelines
+Implementation
+Button​
+Button thể hiện hành động mà user có thể thực hiện trên UI.
+Anatomy​
+Element
+Description
+1. Leading Icon
+Optional
+2. Text
+Optional
+3. Trailing Icon
+Optional
+4. Container
+Optional
+Types​
+Label Button​
+Button thể hiện hành động mà user có thể thực hiện trên UI.
+Icon Button​
+Loại button chỉ chứa icon.
+Properties​
+Levels​
+Button gồm 3 levels: Primary, Secondary, Tertiary
+Primary Button
+Secondary Button
+Tertiary Button
+Sizes​
+Button gồm 3 sizes: Large, Medium, Small
+States​
+Button gồm 3 states:
+Pressed: Thể hiện trạng thái khi user nhấn giữ button
+Loading: Thể hiện trạng thái đang thực hiện hành động
+Disabled: Thể hiện trạng thái button không khả dụng tại thời điểm user đang sử dụng
+Primary Button
+Secondary Button
+Tertiary Button
+Usage​
+General Usage​
+LABEL BUTTON
+Button chứa text và có thể đi kèm icon, thường được sử dụng cho:
+Action mang tính chất confirmation
+Action có mức độ quan trọng cao
+ICON BUTTON
+Button chỉ chứa icon, thường được sử dụng cho:
+Action mang tính chất bổ trợ
+Action kém quan trọng hơn
+Sizes​
+LARGE
+Sử dụng Large size cho trường hợp Button nằm trên một page
+Lưu ý
+Sử dụng thêm divider khi Button dock to bottom of the screen
+SMALL
+Sử dụng Small size cho trường hợp Button nằm trong một section nhỏ hoặc một UI element có kích thước nhỏ
+Floating Action Button​
+Button được sử dụng nằm floating trên UI, thường được dock to top or bottom of the screen.
+Button Group​
+Button Group là một nhóm các Button đi chung với nhau
+Chỉ có một Primary Button trong một Button Group
+Đảm bảo độ tương phản về mức độ quan trọng giữa các Button
+DIRECTION
+Button Group gồm 2 hướng:
+Horizontal: Primary Button luôn nằm bên phải
+Vertical: Primary Button luôn nằm trên cùng
+Specs​
+General Specs
+Overall Specs
+Button Group
+Button tạo giao diện các nút bấm giúp người dùng tương tác thực hiện một hành động nào đó
+Properties​
+Button​
+Name
+Type
+Default
+Description
+variant
+ButtonVariants
+primary
+Độ đậm của background color
+loading
+boolean
+Hiển thị icon loading
+disabled
+boolean
+Trạng thái disable
+type
+ButtonType
+highlight
+Loại button
+htmlType
+ButtonHTMLType
+button
+HTML button type
+size
+ButtonSize
+Kích thước button
+fullWidth
+boolean
+Đặt kích thước button full parent width
+prefixIcon
+React.ReactNode
+Thêm prefix icon
+suffixIcon
+React.ReactNode
+Thêm suffix icon
+icon
+React.ReactNode
+Thêm icon cho button
+Type​
+ButtonType​
+Name
+Description
+"highlight"
+highlight
+"danger"
+danger
+"neutral"
+neutral
+ButtonHTMLType​
+Name
+Description
+"submit"
+submit
+"button"
+button
+"reset"
+reset
+ButtonSize​
+Name
+Description
+"large"
+large
+"medium"
+medium
+"small"
+small
+ButtonVariants​
+Name
+Description
+"primary"
+primary button
+"secondary"
+secondary button
+"tertiary"
+tertiary button
+Example​
+import React from "react";
+import { Page, Button, Box, Text, Icon } from "zmp-ui";
+export default function HomePage(props) {
+return (
+<>
+Variant: level</Text.Title>
+<Box mt={2}>
+<Text>Có 3 level button cơ bản: Primary, Secondary, Tertiary
+</Box>
+<Text className="italic-sub-title" size="xSmall">
+Primary
+</Text>
+<Button variant="primary" size="large">
+Button
+</Button>
+<Text className="italic-sub-title" size="xSmall">
+Secondary
+</Text>
+<Button variant="secondary" size="large">
+Button
+</Button>
+<Text className="italic-sub-title" size="xSmall">
+Tertiary
+</Text>
+<Button variant="tertiary" size="large">
+Button
+</Button>
+Type Primary / Secondary / Tertiary
+</Text.Title>
+<Box mt={6}>
+<Text className="italic-sub-title" size="xSmall">
+Highlight
+</Box>
+<Box mr={2} mt={6}>
+<Button variant="primary" type="highlight" size="large">
+Button
+</Button>
+<Button variant="secondary" type="highlight" size="large">
+Button
+</Button>
+<Button variant="tertiary" type="highlight" size="large">
+Button
+</Button>
+</Box>
+<Text className="italic-sub-title" size="xSmall">
+Danger
+</Text>
+<Box mr={2} mt={6}>
+<Button variant="primary" type="danger" size="large">
+Button
+</Button>
+<Button variant="secondary" type="danger" size="large">
+Button
+</Button>
+<Button variant="tertiary" type="danger" size="large">
+Button
+</Button>
+</Box>
+<Text className="italic-sub-title" size="xSmall">
+Neutral
+</Text>
+<Box mr={2} mt={6}>
+<Button variant="primary" type="neutral" size="large">
+Button
+</Button>
+<Button variant="secondary" type="neutral" size="large">
+Button
+</Button>
+<Button variant="tertiary" type="neutral" size="large">
+Button
+</Button>
+</Box>
+Size</Text.Title>
+<Box mt={6}>
+<Text className="italic-sub-title" size="xSmall">
+Large
+</Box>
+<Button size="large">Button</Button>
+<Text className="italic-sub-title" size="xSmall">
+Medium
+</Text>
+<Button size="medium">Button</Button>
+<Text className="italic-sub-title" size="xSmall">
+Small
+</Text>
+<Button size="small">Button</Button>
+<Text className="italic-sub-title" size="xSmall">
+Full-width
+</Text>
+<Button fullWidth>Button</Button>
+Anatomy</Text.Title>
+<Box mt={6}>
+<Text className="italic-sub-title" size="xSmall">
+Nút với biểu tượng ở đầu
+</Box>
+}>
+Button
+</Button>
+<Text className="italic-sub-title" size="xSmall">
+Nút với biểu tượng ở sau
+</Text>
+}>
+Button
+</Button>
+<Text className="italic-sub-title" size="xSmall">
+Nút
+</Text>
+<Button size="large">Button</Button>
+<Text className="italic-sub-title" size="xSmall">
+Nút biểu tượng
+</Text>
+}>
+Button
+</Button>
+State</Text.Title>
+<Box mt={6}>
+<Text className="italic-sub-title" size="xSmall">
+Default
+</Box>
+<Button size="large">Button</Button>
+<Text className="italic-sub-title" size="xSmall">
+Pressed
+</Text>
+<Button size="large">Button</Button>
+<Text className="italic-sub-title" size="xSmall">
+Loading
+</Text>
+<Button size="large" loading>
+Button
+</Button>
+<Text className="italic-sub-title" size="xSmall">
+Disabled
+</Text>
+<Button size="large" disabled>
+Button
+</Button>
+</>
+);
+}
+Button
+Anatomy
+Types
+Label Button
+Icon Button
+Properties
+Levels
+Sizes
+States
+Usage
+Sizes
+Floating Action Button
+Button Group
+Specs
+Properties
+Button
+Type
+ButtonType
+ButtonHTMLType
+ButtonSize
+ButtonVariants
+Example
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

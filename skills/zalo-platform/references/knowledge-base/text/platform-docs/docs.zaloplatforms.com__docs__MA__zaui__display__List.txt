@@ -1,0 +1,171 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/display/List
+# FETCHED: 2026-08-06
+# TITLE: List | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+List
+Cập nhật lần cuối:5/8/2026
+import { List } from "zmp-ui";
+Dùng để hiển thị dạng dữ liệu dạng danh sách.
+Ví dụ​
+Bảng thuộc tính​
+ListProps​
+Property
+Type
+Required
+Description
+dataSource
+T[]
+No
+Dùng `dataSource` kết hợp với `renderItem` để hiển thị danh sách các phần tử, thay vì truyền trực tiếp các phần tử dưới dạng children.
+Data source bắt buộc phải là một mảng các giá trị, kiểu giá trị có thể là bất kỳ kiểu dữ liệu nào.
+renderItem
+(item: T, index: number, loading: boolean) => React.ReactNode
+No
+Hàm dùng để render từng item trong `dataSource`. Hàm này nhận vào 3 tham số:
+- `item`: Giá trị cần được render, được lấy từ `dataSource`.
+- `index`: Vị trí hiện tại của item đang cần được render.
+- `loading`: Trạng thái loading của danh sách.
+Kết quả trả về một `ReactNode`, khuyến khích là ``.
+loading
+boolean
+No
+Trạng thái loading của danh sách. (default: false)
+divider
+boolean
+No
+Hiển thị viền ngăn cách giữa các phần tử trong danh sách. (default: true)
+noSpacing
+boolean
+No
+Không hiển thị khoảng cách giữa các phần tử trong danh sách. (default: false)
+children
+React.ReactNode
+No
+Các phần tử cần được hiển thị trong danh sách. _Không có tác dụng khi sử dụng cùng với `dataSource`._
+ListItemProps​
+Property
+Type
+Required
+Description
+title
+string
+No
+Tiêu đề của list item.
+subTitle
+string
+No
+Tiêu đề phụ của list item. Nằm bên dưới tiêu đề chính.
+prefix
+React.ReactNode
+No
+Phần tử cần được hiển thị ở đầu list item. Thường là icon.
+suffix
+React.ReactNode
+No
+Phần tử cần được hiển thị ở cuối list item. Thường là icon.
+brackets
+string
+No
+Nội dung nằm bên trong ngoặc, phía sau tiêu đề chính của list item. Thường được dùng để bổ sung thêm thông tin.
+children
+React.ReactNode
+No
+Phần tử cần được hiển thị trực tiếp bên trong list item. Nằm bên dưới tiêu đề chính và tiêu đề phụ.
+onClick
+React.MouseEventHandler
+No
+Callback được gọi khi list item được click / press.
+Trước
+ImageViewer
+Kế tiếp
+Progress
+Ví dụ
+Bảng thuộc tính
+ListProps
+ListItemProps
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

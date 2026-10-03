@@ -1,0 +1,74 @@
+# SOURCE: https://bot.zapps.me/docs/apis/sendVoice/
+# FETCHED: 2026-08-06
+# TITLE: sendVoice | Zalo Bot Platform
+
+Chuyển tới nội dung chính
+Trang chủ
+Bắt đầuTài liệuGiá góiGiải phápFAQ
+Giới thiệu
+Tạo Bot
+Xác thực
+Sử dụng API
+API Reference
+getMe
+getUpdates
+setWebhook
+deleteWebhook
+getWebhookInfo
+sendMessage
+sendPhoto
+sendSticker
+sendVoice
+sendChatAction
+Webhook
+Best Practices
+Bảng mã lỗi
+Điều khoản sử dụng
+Trên trang này
+sendVoice
+Trước
+Kế tiếp
+Cập nhật lần cuối: 15/6/2026
+API cho phép Bot của bạn gửi tin nhắn thoại đến người dùng trong cuộc trò chuyện 1-1. API này hiện không hỗ trợ gửi vào nhóm.
+URL: https://bot-api.zaloplatforms.com/bot${BOT_TOKEN}/sendVoice
+Method: POST
+Response Type: application/json
+Sample code​
+Code demo fallback when rendering server side!
+Parameters​
+Trường
+Kiểu dữ liệu
+Bắt buộc
+Mô tả
+chat_id
+String
+true
+ID của người nhận. Chỉ hỗ trợ trò chuyện 1-1, không hỗ trợ ID nhóm
+voice_url
+String
+true
+Đường dẫn tới tệp âm thanh sẽ được gửi. Bắt buộc là đường dẫn hợp lệ có phần mở rộng .aac
+Lưu ý
+Tin nhắn thoại chỉ gồm tệp âm thanh, không kèm chú thích (caption). Định dạng tệp được hỗ trợ hiện tại là .aac.
+Giới hạn
+API sendVoice chỉ hỗ trợ gửi trong cuộc trò chuyện 1-1 với người dùng. Hiện tại không hỗ trợ gửi tin nhắn thoại vào nhóm — nếu truyền vào chat_id của nhóm, yêu cầu có thể trả về thành công nhưng tin nhắn sẽ không được gửi tới nhóm.
+Sample response​
+{
+"ok": true,
+"result": {
+"message_id": "82599fa32f56d00e8941",
+"date": 1749632637199
+}
+}
+Trước
+Kế tiếp
+zi-chevron-up
+Parameters
+Sample response
+EN
+Zalo Bot Platform
+Giải pháp hỗ trợ phát triển Chatbot trên nền tảng Zalo.
+Công Ty TNHH Zalo Platforms
+Địa chỉ: Tầng 2, Tòa nhà Saigon Paragon, số 3 Nguyễn Lương Bằng, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Mã số doanh nghiệp: 0318836678 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh cấp lần đầu ngày 17/02/2025
+© 2025 Zalo Platforms. All Rights Reserved.

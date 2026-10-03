@@ -1,0 +1,90 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/truy-xuat-thong-tin/lay-thong-tin-chat-luong-gui-zns-hien-tai-cua-oa
+# FETCHED: 2026-07-21
+# TITLE: Lấy thông tin chất lượng gửi ZNS hiện tại của OA | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Lấy thông tin trạng thái ZNS
+Lấy thông tin quota ZNS
+Lấy thông tin loại nội dung ZNS được phép gửi
+Lấy danh sách template
+Lấy thông tin chi tiết template ZNS
+Lấy dữ liệu mẫu của template
+Lấy thông tin đánh giá của khách hàng
+Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+Webhook
+Phụ lục
+Ngừng hỗ trợ
+Truy xuất thông tinLấy thông tin chất lượng gửi ZNS hiện tại của OA
+Lấy thông tin chất lượng gửi ZNS hiện tại của OA
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+API cho phép đối tác truy xuất chất lượng gửi thông báo ZNS trong 48 giờ gần nhất của OA.
+
+HTTP request​
+URL: https://business.openapi.zalo.me/quality
+Method: GET
+Content Type: application/json
+Response Type: text/json
+Example request​
+curl
+-X GET
+-H "Content-Type: application/json" "https://business.openapi.zalo.me/quality"
+
+Tham số header​
+Tham số	Kiểu dữ liệu	Tính bắt buộc	Mô tả
+access_token	string	yes	Đoạn mã cần truyền vào để xác minh quyền sử dụng API. Xem thêm tài liệu tham khảo
+Example respond​
+{
+    "data": {
+        "oaCurrentQuality": "HIGH",
+        "oa7dayQuality": "HIGH"
+    },
+    "error": 0,
+    "message": "success"
+}
+
+Cấu trúc thuộc tính data​
+Thuộc tính	Kiểu dữ liệu	Mô tả
+oaCurrentQuality	string	Chất lượng gửi thông báo ZNS trong 48 giờ gần nhất của OA.
+
+Các giá trị trả về:
+
+HIGH - Mức độ chất lượng tốt
+MEDIUM - Mức độ chất lượng trung bình
+LOW - Mức độ chất lượng kém
+UNDEFINED - Mức độ chất lượng OA chưa được xác định (trường hợp OA không  gửi thông báo ZNS nào trong khung thời gian đánh giá)
+Lưu ý: Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi ZNS tại đây.
+oa7dayQuality	string	Chất lượng gửi thông báo ZNS trong 7 ngày gần nhất của OA.
+
+Các giá trị trả về:
+
+HIGH - Mức độ chất lượng tốt
+MEDIUM - Mức độ chất lượng trung bình
+LOW - Mức độ chất lượng kém
+UNDEFINED - Mức độ chất lượng OA chưa được xác định (trường hợp OA không gửi thông báo ZNS nào trong khung thời gian đánh giá)
+Lưu ý: Xem thêm chi tiết về cơ chế đánh giá chất lượng và quyền lợi gửi ZNS tại đây.
+Trước
+Lấy thông tin đánh giá của khách hàng
+Kế tiếp
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+HTTP request
+Example request
+Tham số header
+Example respond
+Cấu trúc thuộc tính data
+©2023 Zalo for Developers

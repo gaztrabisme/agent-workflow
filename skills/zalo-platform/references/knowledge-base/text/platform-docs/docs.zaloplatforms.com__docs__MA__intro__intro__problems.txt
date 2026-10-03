@@ -1,0 +1,68 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/intro/intro/problems
+# FETCHED: 2026-08-06
+# TITLE: Vấn đề của Native App và Web | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+1. Giới thiệu
+1. Vấn đề của Native App và Web
+2. Giới thiệu Zalo Mini App
+3. Tài khoản Nhà phát triển
+4. Các điểm truy cập Zalo Mini App
+2. Triển khai
+3. Xin cấp quyền trong Zalo Mini App
+4. Phát Hành Zalo Mini App
+5. Zalo Mini App Design Guidelines
+6. Chuyển đổi nhanh Web App có sẵn thành Zalo Mini App
+7. Các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App
+8. Best Practices
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+2. Yêu cầu theo dõi Official Account
+3. Call API
+4. Tương tác, điều hướng tới Zalo Mini App
+5. Cache dữ liệu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Vấn đề của Native App và Web
+Cập nhật lần cuối:5/8/2026
+Native Apps ngày càng phát triển và phổ biến trong cuộc sống, nhưng vẫn có một số hạn chế nhất định cho người sử dụng như:
+Tốn thời gian: Để sử dụng Native Apps, người dùng phải trải qua một quá trình Download -> Cài đặt -> Đăng ký tài khoản,... mất nhiều thời gian và dung lượng điện thoại.
+Tốn công sức, nguồn lực: Xây dựng một Native App cũng đòi hỏi nhà phát triển mất nhiều công sức và phải học nhiều ngôn ngữ mới, tốn chi khi phát triển song song trên các nền tảng khác nhau.
+Tương tự như vậy, Website là một nền tảng lý tưởng để tránh các vấn đề trên nhưng vẫn có một số hạn chế nhất định:
+Hiệu suất: So sánh với Native Apps, Website gặp hạn chế khi sử dụng các chức năng nâng cao của hệ thống cũng như hiệu suất và trải nghiệm người dùng.
+Quản lý tài khoản: Người dùng sẽ phải đăng nhập nhiều lần để sử dụng rất nhiều các dịch vụ Web khác nhau, như vậy sẽ khó khăn trong việc nhớ hoặc nhất quán tài khoản, trạng thái đăng nhập và tương tác của người dùng trên toàn hệ thống.
+Thiếu độ tin cậy: Người dùng sẽ khó khăn hơn trong việc đưa ra quyết định có chia sẻ các thông tin cá nhân như vị trí, số điện thoại, danh sách liên hệ,... cho nền tảng website. Các website bảo mật kém có thể làm lộ thông tin của người dùng.
+Bảng so sánh giữa web app, native app và Mini App
+Mini App Demo
+Trước
+Giới thiệu
+Kế tiếp
+2. Giới thiệu Zalo Mini App
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,235 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/api/user-interface/view/configAppView
+# FETCHED: 2026-08-06
+# TITLE: configAppView | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+Giới Thiệu
+Events
+Errors
+Basic
+getAppInfo
+getContextAsync
+getDeviceIdAsync
+getSystemInfo
+Routing
+closeApp
+getRouteParams
+openMiniApp
+openWebview
+sendDataToPreviousMiniApp
+Storage
+setItem
+getItem
+getStorageInfo
+removeItem
+clear
+Local File Storage
+Tổng quan về local file
+isSupportLFS
+getFileInfo
+getSavedFileList
+removeSavedFile
+saveFile
+UI
+Feedback
+closeLoading
+showToast
+View
+configAppView
+setNavigationBarColor
+setNavigationBarLeftButton
+setNavigationBarTitle
+Keyboard
+hideKeyboard
+Location
+getLocation
+Media
+Camera
+createCameraContext
+CameraContext
+CameraContext.start
+CameraContext.stop
+CameraContext.pause
+CameraContext.resume
+CameraContext.isUsing
+CameraContext.updateMediaConstraints
+CameraContext.takePhoto
+CameraContext.flip
+CameraContext.setMirror
+CameraContext.getCameraList
+CameraContext.getSelectedDeviceId
+CameraContext.setDeviceId
+CameraContext.on
+CameraContext.off
+CameraEvents
+requestCameraPermission
+checkZaloCameraPermission
+File
+chooseImage
+downloadFile
+openDocument
+openMediaPicker
+saveImageToGallery
+saveVideoToGallery
+User
+Authorization
+authorize
+User information
+getAccessToken
+getPhoneNumber
+getUserID
+getUserInfo
+Setting
+getSetting
+Device
+Scan
+scanQRCode
+Network
+getNetworkType
+onNetworkStatusChange
+Contact
+openPhone
+openSMS
+Screen
+keepScreen
+vibrate
+Biometric Authentication
+Quy trình tích hợp
+checkStateBioAuthentication
+openBioAuthentication
+Permission
+openPermissionSetting
+requestSendNotification
+Zalo
+addRating
+createShortcut
+favoriteApp
+followOA
+interactOA
+minimizeApp
+openChat
+openPostFeed
+openProfile
+openProfilePicker
+openShareSheet
+requestUpdateZalo
+unfollowOA
+viewOAQr
+Advertising
+setupAd
+loadAd
+displayAd
+refreshAd
+Widgets
+showFunctionButtonWidget
+showOAWidget
+Change Log
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+configAppView
+Cập nhật lần cuối:5/8/2026
+Bắt đầu hỗ trợ ở phiên bản:
+SDK2.25.0
+Android23.02.01.r2
+IOS23.02.01.r2
+import { configAppView } from "zmp-sdk";
+API tuỳ chỉnh các thành phần giao diện chính trên Mini App, bao gồm:
+Status bar
+Action bar
+Bottom Navigation (Android) / Safe Area Inset Bottom (iOS)
+Với api configAppView, bạn có thể ẩn/ hiện, tuỳ chỉnh màu sắc, kiểu hiển thị của các thành phần mặc định trên Mini App. Xem hình ảnh mô tả bên dưới để hiểu rõ các thành phần có thể tuỳ chỉnh trên Mini App của bạn.
+Ví dụ​
+Thay đổi tiêu đề action bar:
+configAppView({
+actionBar: {
+title: "Giỏ hàng",
+},
+});
+Để có được giao diện toàn màn hình:
+configAppView({
+hideAndroidBottomNavigationBar: true,
+hideIOSSafeAreaBottom: true,
+statusBarType: "transparent", // hoặc "hidden"
+actionBar: {
+hide: true,
+},
+});
+Xem hướng dẫn xử lý lỗi và bảng mô tả chi tiết mã lỗi tại đây.
+Tham số​
+Truyền tham số vào API dưới dạng object chứa các thuộc tính:
+Property
+Type
+Required
+Description
+headerColor
+string
+Yes
+Mã màu, có giá trị hợp lệ là màu thập lục phân, ví dụ #000000.
+headerTextColor
+"white" | "black"
+No
+Màu của text và icon trên thanh action bar và status bar.
+statusBarType
+"normal" | "hidden" | "transparent"
+No
+Kiểu hiển thị của status bar. (default: "normal")
+hideAndroidBottomNavigationBar
+boolean
+No
+Ẩn thanh navigation bar trên Android. (default: false)
+hideIOSSafeAreaBottom
+boolean
+No
+Ẩn thanh safe area inset bottom trên iOS. (default: false)
+hide
+boolean
+No
+Ẩn action bar.
+title
+string
+No
+Tiêu đề hiển thị trên action bar.
+leftButton
+"back" | "none"
+No
+Tuỳ chỉnh nút điều hướng bên trái action bar. Mặc định hiển thị nút back. Truyền none để ẩn nút. (default: "back")
+textAlign
+"left" | "center"
+No
+Tuỳ chỉnh vị trí tiêu đề hiển thị trên action bar. (default: "left")
+Trước
+showToast
+Kế tiếp
+setNavigationBarColor
+Ví dụ
+Tham số
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,117 @@
+# SOURCE: https://oa.zalo.me/home/resources/library/cham-soc-khach-hang-hieu-qua-voi-nhan-tin-va-goi-thoai_729563123387551711
+# FETCHED: 2026-07-21
+# TITLE: Chăm sóc khách hàng hiệu quả với nhắn tin và gọi thoại | Zalo Official Account
+
+📢 [Chính thức] Quyền lợi và biểu phí các gói dịch vụ Zalo OA mới từ 1/6/2026
+Xem chi tiết
+Trang chủ
+Tính năng
+Tương tác
+Quản lý
+Mở rộng
+Chính sách
+Bảng giá
+Tài nguyên
+Hướng dẫn vận hành
+Thư viện
+Tin tức
+Tài nguyên khác
+Hỗ trợ
+Danh sách OA của tôi
+Chia sẻ cookie
+Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn trong quá trình sử dụng dịch vụ.
+Từ chối
+Đồng ý
+Trang chủ
+Thư viện
+Chăm sóc khách hàng hiệu quả với nhắn tin và gọi thoại
+04/05/2026
+|
+Best practice
+Chăm sóc khách hàng hiệu quả với nhắn tin và gọi thoại
+
+Nhắn tin và gọi thoại là 2 tính năng quan trọng nhất trong việc chăm sóc khách hàng trên Zalo OA, vì vậy doanh nghiệp cần hiểu rõ và sử dụng hiệu quả 2 tính năng này để tạo trải nghiệm tốt nhất cho khách hàng. Zalo OA cung cấp nhiều định dạng tin nhắn, loại tin và các công cụ gọi thoại để giúp doanh nghiệp giao tiếp hiệu quả với khách hàng trong các tình huống khác nhau. Bài viết sau sẽ giúp doanh nghiệp nắm bắt được các công cụ nhắn tin, gọi thoại có thể sử dụng trong giao tiếp với khách hàng thông qua Zalo OA.
+
+1. Nhắn tin
+
+Zalo OA cung cấp công cụ nhắn tin qua OA Manager, công cụ quản lý vận hành OA, với 2 phiên bản website và Mini App trên Zalo cho phép doanh nghiệp phản hồi tin nhắn khách hàng nhanh chóng, mọi lúc mọi nơi, trên mọi thiết bị (điện thoại, máy tính bảng, PC, Laptop,...). Với OA Manager, doanh nghiệp có thể chủ động vận hành và phân công cho nhân viên quản lý mà không cần đội ngũ kỹ thuật.
+
+Ngoài ra, doanh nghiệp còn có thể quản lý OA thông qua OpenAPI, bộ công cụ hỗ trợ vận hành tài khoản Zalo OA, thông qua tích hợp Zalo OA với hệ thống nội bộ của doanh nghiệp hoặc hệ thống của bên thứ ba. OpenAPI giúp doanh nghiệp vận hành nhiều OA một cách tự động, đồng thời giúp đồng bộ thông tin và dữ liệu để doanh nghiệp chủ động lưu trữ và sử dụng. Tuy nhiên để triển khai OpenAPI doanh nghiệp cần có đội kỹ thuật hoặc sử dụng công cụ tích hợp sẵn từ bên thứ 3.
+
+Xem thêm tài liệu OpenAPI tin nhắn OA
+
+ 
+1.1 Phân loại tin nhắn Zalo OA
+
+Với mục đích giúp doanh nghiệp tương tác hiệu quả với khách hàng và tránh làm phiền khách hàng, tin nhắn từ Zalo OA được chia thành 2 loại chính: Tin nhắn Cơ bản (Tin Tư vấn, Tin gửi từ OA vào Nhóm chat GMF, Tin Broadcast) và ZBS Template Message (Tin Giao dịch và Tin Hậu mãi). Mỗi loại tin sẽ có mục đích, điều kiện sử dụng và định dạng khác nhau. Doanh nghiệp cần hiểu rõ đặc điểm của từng loại tin để ứng dụng hiệu quả trong chăm sóc khách hàng
+
+ 
+
+1.1. Tin nhắn Cơ bản
+Tin nhắn Cơ bản là tin nhắn cho phép OA sử dụng để giao tiếp với người dùng, bao gồm: Tin Tư vấn, Tin gửi từ OA vào Nhóm chat GMF, Tin Broadcast.
+
+1.2. ZBS Template Message
+ZBS Template Message là giải pháp tin nhắn cho Doanh nghiệp theo mẫu (template) được đăng ký và kiểm duyệt trước bởi Zalo, cho phép doanh nghiệp gửi các nội dung mang tính hệ thống, giao dịch và chăm sóc sau bán đến người dùng một cách chính thống và đúng chính sách. 
+
+ZBS Template Message có 2 loại chính: Tin Giao dịch và Tin Hậu mãi.
+
+Để đăng ký ZBS Template Message, OA có thể đăng ký bằng 02 cách sau:
+Công cụ Tạo mẫu tin tại tài khoản ZBS: xem chi tiết tại đây.
+Công cụ OpenAPI: xem chi tiết tại đây.
+Template được đăng ký và kiểm duyệt theo quy định có thể được gửi đến người dùng bằng hai phương thức: gửi qua UID hoặc gửi qua SĐT trên Zalo.
+👉 Cách gửi ZBS Template Message: Xem thêm tại đây và vui lòng theo dõi các thông báo tiếp theo trên trang Zalo for Developers tại đây.
+
+Xem thêm Tổng quan các loại tin nhắn trên Zalo Official Account.
+
+2. Gọi thoại
+
+Gọi thoại là tính năng tương tác hai chiều giữa Zalo OA và người dùng Zalo. Với tính năng gọi thoại, khách hàng có thể gọi đến OA miễn phí không giới hạn số lần và thời lượng cuộc gọi. Zalo OA có thể gọi tới Zalo người dùng (outbound) thông qua số điện thoại hoặc mã định danh người dùng (UID).
+
+Tính năng Gọi thoại bao gồm 2 thiết lập chính, doanh nghiệp linh động lựa chọn thiết lập phù hợp với nhu cầu và nguồn lực:
+
+Mini Call Center (MCC) là thiết lập Gọi thoại trực tiếp trên OA Manager, đơn giản, dễ sử dụng, không cần đội ngũ kỹ thuật.
+Zalo Cloud Connect (ZCC) là thiết lập Gọi thoại kết nối đến hệ thống tổng đài SIP của doanh nghiệp và vận hành qua OpenAPI. Cần có nhân sự phụ trách kỹ thuật và hiểu về hệ thống tổng đài để triển khai. Xem thêm Tài liệu tích hợp ZCC
+
+Thiết lập tổng đài đơn giản với Mini Call Center (MCC)
+
+Mini Call Center (MCC) cho phép doanh nghiệp thiết lập tổng đài đơn giản và nhanh chóng ngay trên trình quản lý OA Manager mà không cần phải đầu tư phần cứng. Các tổng đài viên có thể nhận cuộc cuộc từ khách hàng trên OA Manager phiên bản web và phiên bản Mini App trên Zalo. 
+
+Các tính năng Mini Call Center hỗ trợ:
+
+Tính năng cơ bản: Cho phép thêm tổng đài viên, thiết lập bật/tắt tổng đài, thiết lập khung thời gian hoạt động của tổng đài theo ngày và tuần.
+Tính năng mở rộng: Cho phép doanh nghiệp thiết lập thông báo tổng đài không hoạt động, lời thoại chào mừng, lời thoại chờ. Doanh nghiệp chỉ cần nhập thông tin dưới dạng văn bản, hệ thống AI sẽ tự động chuyển thành dạng lời thoại khi khách hàng gọi đến. 
+Tính năng nâng cao: Cho phép doanh nghiệp phân nhánh cuộc gọi tương ứng với các tổng đài viên khác nhau giúp tối ưu nguồn lực chăm sóc khách hàng của doanh nghiệp.
+
+Xem thêm Hướng dẫn thiết lập Mini Call Center
+
+Anh/chị đã đi qua giới thiệu về các tính năng nhắn tin, gọi thoại trong chăm sóc khách hàng trên Zalo OA. Anh/chị có thể kết hợp với các tính năng khác trên Zalo OA để tạo trải nghiệm tốt nhất cho khách hàng, tham khảo thêm cách thiết lập tất cả các tính năng khác tại đây. Và có thể theo dõi các bài viết khác tại mục Thư viện.
+
+ 
+
+Bài viết này có hữu ích với bạn không?
+Không
+Có, nhưng...
+Có
+Search
+Nội dung liên quan
+16/06/2025
+Thiết lập OA thu hút tương tác
+Thể loại
+Tin tức
+13
+Thư viện
+23
+Tài nguyên khác
+0
+Tạo Zalo Official Account và kết nối với
+người dùng Zalo ngay!
+Tạo Official Account ngay
+Nhà phát triển
+OA dành cho Cơ quan Hành chính công
+Thông tin liên hệ:
+Công Ty Cổ Phần Tập Đoàn VNG
+Địa chỉ: Z06, Đường số 13, Phường Tân Thuận, Thành phố Hồ Chí Minh
+Email: oa@zalo.me
+GPDKKD: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 09/09/2004.
+Quét QR để được tư vấn
+©2024 Zalo Official Account

@@ -1,0 +1,81 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/TS/usage/call_api
+# FETCHED: 2026-08-06
+# TITLE: Thông tin cấu hình | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Cấu hình API
+Thông tin cấu hình
+Xác thực request
+API Reference
+Bảng mã lỗi
+Trên trang này
+Thông tin cấu hình
+Để gửi yêu cầu đến hệ thống Transfer Service, vui lòng làm theo hướng dẫn sau.
+Định dạng URL​
+Tất cả các truy vấn đến Transfer Service phải được thực hiện qua giao thức HTTPS và có định dạng như sau:
+https://api-transfer.zaloplatforms.com/v1/<api>
+Ví dụ:
+https://api-transfer.zaloplatforms.com/v1/order/query
+Phương thức HTTP hỗ trợ​
+GET
+POST
+Cách truyền tham số​
+Transfer Service hỗ trợ API với các cách để truyền tham số như sau:
+application/json : Gửi dữ liệu dạng JSON-object
+Phản hồi từ API​
+Phản hồi từ Transfer Service luôn là dạng JSON-object, gồm các trường thông tin chính sau:
+Trường
+Ý nghĩa
+error_code
+Mã kết quả: 0 = thành công, giá trị âm = mã lỗi nghiệp vụ (xem Bảng mã lỗi)
+error_message
+Thông báo mô tả kết quả hoặc lỗi (tiếng Việt, ví dụ: "Thành công")
+data
+Đối tượng dữ liệu trả về khi thành công; không có hoặc null khi lỗi
+Ví dụ response thành công:
+{
+"error_code": 0,
+"error_message": "Thành công",
+"data": {}
+}
+Ví dụ response lỗi:
+{
+"error_code": -501,
+"error_message": "Invalid application id"
+}
+Lưu ý​
+Request body cần gửi đúng Content-Type: application/json.
+Các API đều yêu cầu xác thực bằng chữ ký (signature); tham khảo hướng dẫn từ đội kỹ thuật hoặc tài liệu Authorize khi được cung cấp.
+Trước
+Giới thiệu
+Kế tiếp
+Xác thực request
+Định dạng URL
+Phương thức HTTP hỗ trợ
+Cách truyền tham số
+Phản hồi từ API
+Lưu ý
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

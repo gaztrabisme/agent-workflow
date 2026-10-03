@@ -1,0 +1,65 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/devtools/cli/intro
+# FETCHED: 2026-08-06
+# TITLE: Zalo Mini App CLI | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Cấu Hình Zalo Mini App
+Zalo Mini App Extension
+Cài đặt
+Tạo dự án
+Khởi động
+Xuất bản
+Zalo Mini App CLI
+Cài đặt
+Đăng nhập
+Tạo dự án
+Khởi động
+Xuất bản
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Zalo Mini App CLI
+Cập nhật lần cuối:5/8/2026
+Zalo Mini App CLI là một công cụ dòng lệnh cung cấp các lệnh giúp bạn đăng nhập, kiểm tra và thử nghiệm Zalo Mini App, tương tự như Zalo Mini App Extension. Tuy nhiên, bạn có thể sử dụng Zalo Mini App CLI với bất kỳ IDE hoặc trình soạn thảo văn bản nào, hoặc tích hợp vào các hệ thống CI/CD để tự động hóa các bước trong quá trình phát triển Zalo Mini App.
+Cài Đặt​
+Để cài đặt Zalo Mini App CLI, bạn có thể thực hiện các bước sau:
+Lưu ý
+Bạn cần phải có Node.js được cài đặt trên máy tính của mình.
+Mở terminal hoặc command prompt trên máy tính của bạn.
+Chạy lệnh:
+npm install -g zmp-cli
+Bạn có thể kiểm tra xem quá trình cài đặt đã thành công hay không bằng cách chạy lệnh zmp --help.
+Trước
+Xuất bản
+Kế tiếp
+Đăng nhập
+Cài Đặt
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

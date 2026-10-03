@@ -1,0 +1,49 @@
+# SOURCE: https://zalo.solutions/blog/zalo-oa-xac-thuc-la-gi-huong-dan-lien-ket-zalo-oa-vao-tai-khoan-zca-/kguqjeadm9y4bnaya
+# FETCHED: 2026-08-06
+# TITLE: Zalo OA xác thực là gì? Hướng dẫn liên kết Zalo OA vào tài khoản ZBS | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Zalo OA xác thực là gì? Hướng dẫn liên kết Zalo OA vào tài khoản ZBS
+Zalo OA xác thực là gì? Hướng dẫn liên kết Zalo OA vào tài khoản ZBS
+20 tháng 01, 2026 10:44
+Để sử dụng tối ưu các tính năng của Zalo Official Account (Zalo OA), Doanh nghiệp cần xác thực tài khoản OA cũng như tiến hành mua Gói dịch vụ tương ứng. Đây cũng là một trong những điều kiện sử dụng dịch vụ Tin nhắn ZBS Template.
+Xem thêm về Tin nhắn ZBS Template tại Đây
+Vậy thế nào là một OA đã xác thực? Và làm thế nào để liên kết OA vào tài khoản ZCA? Trong bài viết này, đội ngũ hỗ trợ khách hàng của Zalo Business Solutions sẽ hướng dẫn quý khách chi tiết về những câu hỏi trên để doanh nghiệp có thể thực hiện nhanh chóng và tiếp tục các bước sau đó để tiến hành gửi tin nhắn ZBS Template.
+Zalo Official Account (OA) xác thực là gì?
+OA xác thực là tài khoản OA đã được xác thực bởi Zalo và hiển thị dấu tích vàng chứng nhận ở tên Zalo OA. Tài khoản Zalo OA được xác thực có những đặc điểm sau:
+Dành cho các Doanh nghiệp, Hộ kinh doanh đã nộp Giấy chứng nhận đăng ký kinh doanh đã được xác thực.
+Sử dụng được các tính năng của OA: Quảng cáo, Nhắn tin, Broadcast và Bài viết.
+Có thể nâng cấp hạn mức tính năng đang có và mở khóa các tính năng nâng cao: Chatbot, Gọi thoại và kết nối API.
+Để biết tài khoản đã được xác thực hay chưa, quý Doanh nghiệp vui lòng kiểm tra tại đây. Hoặc xem hướng dẫn xác thực Zalo OA tại đây.
+Các gói dịch vụ dành cho OA xác thực
+Gói miễn phí: Bất kỳ Doanh nghiệp, Thương hiệu, Hộ kinh doanh muốn tạo tài khoản OA xác thực để trải nghiệm các tính năng, dịch vụ cơ bản của Zalo OA.
+Gói trả phí bao gồm:
+Gói Dùng thử: Dành cho các OA muốn thử nghiệm đầy đủ các tính năng.
+Gói Nâng cao: Dành cho các OA là các doanh nghiệp vừa và nhỏ, có nhu cầu truyền thông và chăm sóc khách hàng. Mở ra nhiều cơ hội để OA xác thực chủ động tiếp cận khách hàng tiềm năng trong hệ sinh thái Zalo với hơn 70 triệu người dùng.
+Gói Premium: Được thiết kế linh hoạt theo nhu cầu của các doanh nghiệp có quy mô lớn.
+Chi tiết quyền lợi vui lòng tham khảo Bảng giá tại đây.
+Lưu ý: ZBS Template Message là dịch vụ gửi tin nhắn chăm sóc khách hàng qua API tới số điện thoại đang sử dụng Zalo. Vì vậy, doanh nghiệp cần mua gói OA để tích hợp API và tiến hành gửi tin.
+Hướng dẫn liên kết OA vào tài khoản ZBS
+Doanh nghiệp truy cập vào tài khoản ZBS tại đây.
+Trong mục Cài đặt chọn Quản lý tài sản → Liên kết OA. Sau đó xác định OA cần liên kết mới.
+Chọn OA cần liên kết mới -> Liên kết -> Xác nhận liên kết.
+Lưu ý: Chỉ OA xác thực mới có thể liên kết vào tài khoản ZBS
+Xem thêm hướng dẫn xác thực tài khoản Official Account Doanh nghiệp tại đây.
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24h làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

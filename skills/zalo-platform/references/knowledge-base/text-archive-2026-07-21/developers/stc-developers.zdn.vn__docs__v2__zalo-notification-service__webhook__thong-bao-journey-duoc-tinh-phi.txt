@@ -1,0 +1,77 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/zalo-notification-service/webhook/thong-bao-journey-duoc-tinh-phi
+# FETCHED: 2026-07-21
+# TITLE: Sự kiện journey được tính phí | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Zalo Notification Service API
+Bắt đầu
+Quản lý tài sản
+Gửi ZNS
+Truy xuất thông tin
+Webhook
+Sự kiện người dùng phản hồi template đánh giá dịch vụ
+Sự kiện thay đổi về hạn mức gửi ZNS
+Sự kiện thay đổi về loại nội dung ZNS có thể gửi
+Sự kiện thay đổi về chất lượng gửi của mẫu tin ZNS
+Sự kiện journey hết hạn
+Sự kiện journey được tính phí
+Sự kiện người dùng nhận thông báo ZNS
+Sự kiện thay đổi trạng thái Template ZNS
+Phụ lục
+Ngừng hỗ trợ
+WebhookSự kiện journey được tính phí
+Sự kiện journey được tính phí
+LƯU Ý: NỘI DUNG TẠI TRANG NÀY SẼ KHÔNG CÒN ĐƯỢC CẬP NHẬT.
+
+Từ ngày 01/01/2026, dịch vụ ZNS được hợp nhất vào ZBS Template Message. Vui lòng xem tài liệu mới tại: ZBS Template Message.
+
+Khi có sự kiện tin nhắn ZNS đầu tiên thuộc chuỗi hành trình (journey) được gửi thành công đến thiết bị người dùng và journey bắt đầu được tính phí, hệ thống Zalo sẽ gửi đến Webhook Url của ứng dụng một HTTP request như sau.
+
+LƯU Ý
+
+Quyền cần có: Sử dụng Zalo Notification Service
+
+URL: Webhook Url của ứng dụng
+Method: POST
+Content Type: application/json
+X-ZEvent-Signature:mac = sha256(appId + data + timeStamp + OAsecretKey), với data là chuỗi json trả về dưới đây.
+Ví dụ:​
+{
+     "event_name": "event_journey_acknowledged",
+     "journey_id": "928189878372556800",
+     "msg_id": "9c7bce8fc761fb3da272",
+     "app_id": "4349311699477619340",
+     "oa_id": "3886651700907664415",
+     "timestamp": "1641368111938"
+}
+
+Mô tả thuộc tính:​
+Thuộc tính	Mô tả
+event_name
+String	Tên sự kiện
+Giá trị nhận về: event_journey_acknowledged
+journey_id
+String	ID của journey
+msg_id
+String	ID của tin nhắn được gửi
+app_id
+String	ID của ứng dụng
+oa_id
+String	ID của OA
+timestamp
+String	Thời gian bắt đầu tính phí journey
+Trước
+Sự kiện journey hết hạn
+Kế tiếp
+Sự kiện người dùng nhận thông báo ZNS
+Ví dụ:
+Mô tả thuộc tính:
+©2023 Zalo for Developers

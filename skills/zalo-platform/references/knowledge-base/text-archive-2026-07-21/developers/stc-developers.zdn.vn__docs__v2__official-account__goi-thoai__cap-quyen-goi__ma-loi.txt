@@ -1,0 +1,236 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/goi-thoai/cap-quyen-goi/ma-loi
+# FETCHED: 2026-07-21
+# TITLE: Mã lỗi | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Tổng quan
+Cấp quyền gọi
+Gửi yêu cầu cấp quyền gọi
+Kiểm tra người dùng đã cấp quyền gọi
+Mã lỗi
+Tạo link gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Gọi thoạiCấp quyền gọiMã lỗi
+Mã lỗi
+
+Giá trị
+
+	
+
+Ý nghĩa
+
+
+
+
+0
+
+	
+
+User approved the request
+
+
+
+
+1
+
+	
+
+Already allowed to call
+
+
+
+
+2
+
+	
+
+Request sent
+
+
+
+
+3
+
+	
+
+User rejected the request
+
+
+
+
+4
+
+	
+
+User blocked
+
+
+
+
+5
+
+	
+
+The number of requests allowed is exceeded, please try again later
+
+
+
+
+6
+
+	
+
+Insufficient permissions
+
+
+
+
+7
+
+	
+
+A reason is required to request user consent
+
+
+
+
+8
+
+	
+
+Waiting for user approval
+
+
+
+
+9
+
+	
+
+The user has not yet interacted with this OA
+
+
+
+
+10
+
+	
+
+Bad connection
+
+
+
+
+11
+
+	
+
+Bad request
+
+
+
+
+12
+
+	
+
+Something went wrong, please retry later
+
+
+
+
+13
+
+	
+
+Invalid param
+
+
+
+
+14
+
+	
+
+Failed
+
+
+
+
+16
+
+	
+
+Consent expired
+
+
+
+
+18
+
+	
+
+Outside working hours
+
+
+
+
+19
+
+	
+
+Not in permitted time range
+
+
+
+
+20
+
+	
+
+OA has not yet requested user consent
+
+
+
+
+21
+
+	
+
+OA has turned off inbound call
+
+Trước
+Kiểm tra người dùng đã cấp quyền gọi
+Kế tiếp
+Tạo link gọi thoại outbound từ OA đến người dùng
+©2023 Zalo for Developers

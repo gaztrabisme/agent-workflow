@@ -1,0 +1,157 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/intro/getting-started/
+# FETCHED: 2026-07-21
+# TITLE: Triển khai | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+Z
+Zalo Platforms
+Tài liệu
+Cộng đồng
+Liên hệ
+Tìm kiếm tài liệu...
+K
+Hỏi AI
+Mini App Platform
+Bắt đầu
+2. Triển khai
+Giới thiệu
+Bắt đầu
+1. Giới thiệu
+1. Vấn đề của Native App và Web
+2. Giới thiệu Zalo Mini App
+3. Tài khoản Nhà phát triển
+4. Các điểm truy cập Zalo Mini App
+2. Triển khai
+3. Xin cấp quyền trong Zalo Mini App
+4. Phát Hành Zalo Mini App
+5. Zalo Mini App Design Guidelines
+6. Chuyển đổi nhanh Web App có sẵn thành Zalo Mini App
+7. Các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App
+8. Best Practices
+1. Hướng dẫn sử dụng tài khoản Zalo để đăng nhập trên Mini App
+2. Yêu cầu theo dõi Official Account
+3. Call API
+4. Tương tác, điều hướng tới Zalo Mini App
+5. Cache dữ liệu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Triển khai
+Cập nhật lần cuối:
+15/6/2026
+
+Để hiểu rõ hơn về quy trình xây dựng Mini App, sau đây là các bước cần thiết để khởi tạo và phát triển một Mini App
+
+1. Tạo Mini App​
+
+Đây là bước đầu tiên để triển khai một Zalo Mini App
+
+1.1 Đăng ký Zalo App​
+
+Để bắt đầu phát triển Mini App bạn cần phải có Zalo App. Đây là ứng dụng trên nền tảng Zalo, giúp tương tác với API OAuth và những API về dữ liệu khác trên nền tảng Zalo. Một Zalo App có thể chứa nhiều Mini App bên trong.
+
+LƯU Ý
+
+Nếu bạn đã có Zalo App thì có thể bỏ qua bước này
+
+Các bước thực hiện:
+
+Truy cập Zalo for Developer và đăng nhập tài khoản Zalo của bạn. Sau đó tạo ứng dụng trên nền tảng Zalo Platform hoặc sử dụng 1 ứng dụng có sẵn.
+Trong phần Cài đặt chọn Kích hoạt ứng dụng để người dùng bên ngoài có thể sử dụng ứng dụng của bạn.
+1.2. Tạo Mini App trong Zalo App​
+
+Tiếp theo bạn cần tạo mới một Mini App. Chúng tôi đã cung cấp một trang quản lý ứng dụng để nhà phát triển có thể quản lý các Mini App của mình như: Quản lý quyền, xem báo cáo, phát hành Mini App,...
+
+Các bước tạo Mini App:
+
+Vào trang quản lý ứng dụng
+Chọn một Zalo App mà bạn muốn tạo Mini App
+Chọn "Tạo Mini App"
+Điền các thông tin cần thiết. Sau đó, chọn "Tạo mới"
+
+Sau khi tạo Mini App, bạn sẽ nhận được Mini App ID. ID này sẽ được dùng cho bước tiếp theo.
+
+THAY ĐỔI THÔNG TIN SAU KHI TẠO MINI APP
+
+Trước khi tiến hành Tạo ứng dụng, vui lòng kiểm tra kỹ các thông tin bạn đã nhập. Nếu có yêu cầu thay đổi thông tin sau khi đã tạo ứng dụng, bạn cần tạo một ticket hỗ trợ thông qua hệ thống và chờ đợi xác nhận từ bộ phận kiểm duyệt.
+
+2. Xác thực Mini App​
+
+Để xây dựng Mini App, trước tiên cần phải xác thực Mini App, có thể xác thực thông qua 2 cách:
+
+Xác thực bằng OA: hướng dẫn theo link
+Xác thực bằng giấy tờ
+3. Xây dựng Mini App​
+
+Zalo Mini App mang lại cho bạn 2 giải pháp để có thể xây dựng Mini App của mình
+
+3.1. Liên hệ đối tác giải pháp​
+
+Hệ thống đối tác dày dặn kinh nghiệm của Zalo Mini App sẽ giúp bạn:
+
+Tư vấn và xây dựng Mini App.
+Hỗ trợ lên quy trình vận hành, kịch bản bán hàng và chăm sóc khách hàng.
+Tận dụng các ưu đãi mà Zalo và đối tác mang lại. Xem danh sách các đối tác tại đây.
+3.2. Tự xây dựng Mini App​
+
+Để xây dựng Mini App, bạn cần nắm rõ quy trình sau:
+
+Xin quyền Mini App: Xem hướng dẫn xin cấp quyền trong Zalo Mini App.
+Xây dựng Mini App: Xem hướng dẫn xây dựng Mini App với VSCode Zalo Mini App Extension.
+Gắn API: Xem tài liệu API.
+Tích hợp Checkout SDK: Xem hướng dẫn tại đây.
+Thiết kế giao diện, UI/UX: Xem Zalo Mini App Design Guidelines.
+Tham khảo cách khắc phục các lỗi kỹ thuật thường gặp trong quá trình phát triển Zalo Mini App.
+Chạy thử nghiệm Mini App: Xem hướng dẫn tại đây.
+4. Phát hành Mini App​
+
+Để phát hành thành công Mini App bạn cần phải nắm và hiểu rõ:
+
+Quy trình phát hành: Xem hướng dẫn phát hành Zalo Mini App.
+Thỏa thuận & Điều khoản: Xem chi tiết tại đây.
+Chính sách kiểm duyệt: Xem chi tiết chính sách tại đây.
+5. Gửi thông báo tới người dùng​
+
+Gửi tin là cách thức để tăng sự tương tác giữa Doanh nghiệp và khách hàng. Các doanh nghiệp có thể sử dụng nền tảng OA và ZNS để gửi tin cho khách hàng
+
+Quy định và quyền lợi về việc gửi thông báo cho người dùng: xem tại đây
+Hướng dẫn gửi tin ZNS: xem hướng dẫn gửi ZNS thông qua API và gửi ZNS theo chiến dịch
+TRƯỚC
+4. Các điểm truy cập Zalo Mini App
+KẾ TIẾP
+3. Xin cấp quyền trong Zalo Mini App
+1. Tạo Mini App
+1.1 Đăng ký Zalo App
+1.2. Tạo Mini App trong Zalo App
+2. Xác thực Mini App
+3. Xây dựng Mini App
+3.1. Liên hệ đối tác giải pháp
+3.2. Tự xây dựng Mini App
+4. Phát hành Mini App
+5. Gửi thông báo tới người dùng
+Z
+Zalo Platforms
+
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+
+Sản phẩm
+Mini App Platform
+Zalo Business Solution
+Open APIs
+Social
+Transfer Service
+Zalo Bot
+Tài nguyên
+Tài liệu
+API Reference
+SDKs & Tools
+Changelog
+Hỗ trợ
+Liên hệ với chúng tôi
+
+© 2026 Zalo Platforms. All rights reserved.
+
+Build: 2026-07-21 15:14:46 +07 · ea1a6218

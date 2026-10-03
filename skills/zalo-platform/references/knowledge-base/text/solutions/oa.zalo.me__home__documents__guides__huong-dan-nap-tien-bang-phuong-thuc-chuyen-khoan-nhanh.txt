@@ -1,0 +1,59 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/huong-dan-nap-tien-bang-phuong-thuc-chuyen-khoan-nhanh
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Quản lý ZBS Account
+ZBS Account là gì?
+Hướng dẫn tạo ZBS Account
+Hướng dẫn liên kết OA ID vào ZBS Account
+Hướng dẫn liên kết App ID vào ZBS Account
+Hướng dẫn nạp tiền vào ZBS Account
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+Xuất hóa đơn Doanh nghiệp
+Quản lý Admin ZBS Account
+Quản lý chi tiêu
+Quản lý gói Zalo OA
+Chi phí vận hành tài khoản Zalo OA doanh nghiệp xác thực
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thanh toán
+Quản lý ZBS Account
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+On this page
+Hướng dẫn nạp tiền bằng phương thức Chuyển khoản nhanh
+⚠ Lưu ý: Kể từ ngày 01/01/2026, Zalo Cloud Account (ZCA) chính thức đổi tên thành Zalo Business Solutions Account (ZBS Account).
+Quy trình nạp tiền qua phương thức chuyển khoản vào ZBS Account​
+Doanh nghiệp có thể chủ động nạp tiền vào ZBS Account bằng chuyển khoản trên app Internet Banking của mình thông qua hình thức chuyển khoản nhanh.
+Tiền sau khi chuyển khoản thành công, sẽ vào ZBS Account của anh/chị sau 30 phút.
+Bước 1: Đăng nhập vào ZBS Account -> Nạp tiền
+Nếu có nhu cầu xuất hóa đơn cho giao dịch nạp tiền, doanh nghiệp vui lòng chọn Xuất hóa đơn và điền đầy đủ thông tin xuất hóa đơn (Tên công ty, mã số thuế, họ tên, số điện thoại, email,v.v) → nhấn Lưu thông tin này → Tiếp tục
+Bước 2: Kiểm tra thông tin tài khoản của mình tại phần Chuyển khoản nhanh và tiến hành chuyển khoản trên hệ thống Internet Banking của các ngân hàng doanh nghiệp đang sử dụng theo hướng dẫn.
+Mỗi ZBS Account có một số tài khoản định danh khác nhau. Vì vậy, doanh nghiệp vui lòng nhập đúng số tài khoản thụ hưởng và kiểm tra kỹ thông tin trước khi chuyển khoản.
+⚠ Lưu ý quan trọng:
+Theo Nghị định 70/2025/NĐ-CP, tất cả các giao dịch nạp tiền ZBS Account sẽ được xuất hoá đơn. Nếu khách hàng quên chọn Nhận hoá đơn/ quên ghi "HDDN" tại nội dung chuyển khoản, Zalo Business Solutions sẽ lấy thông tin xuất hóa đơn theo Thông tin tài khoản ZBS hiện tại . Chi tiết xem tại bài viết: Thông báo: Về việc xuất hóa đơn GTGT theo Nghị định 70/2025/NĐ-CP.
+Doanh nghiệp vui lòng kiểm tra đúng thông tin số tài khoản thụ hưởng trước khi nạp tiền. Các giao dịch chuyển nhầm vào tài khoản định danh của khách hàng khác, Zalo Business Solutions sẽ không hỗ trợ hoàn lại.
+⚠
+Lưu ý khi xuất hóa đơn
+Zalo Business Solutions hỗ trợ khách hàng xuất hóa đơn cho số tiền nạp vào ZBS Account.
+Tất cả hóa đơn sẽ hiển thị trong mục Quản lý hóa đơn trên ZBS Account. Nếu doanh nghiệp có tick chọn "Xuất hóa đơn" thì sẽ được gửi thêm về địa chỉ email.
+Chỉ hỗ trợ làm biên bản điều chỉnh hoá đơn đối với trường hợp thông tin trên hoá đơn sai tên công ty (Chỉ áp dụng loại hình hóa đơn doanh nghiệp), hoặc địa chỉ xuất hóa đơn.
+Tham khảo đầy đủ các quy định về xuất hóa đơn tại đây.
+-------------------------------------------------------------------------
+Nếu có bất kì yêu cầu hỗ trợ, anh/chị có thể liên hệ với đội ngũ Zalo Business Solutions Support qua mail support@zalo.solutions . Bộ phận hỗ trợ sẽ phản hồi anh/chị trong vòng 24h làm việc tiếp theo.
+Previous
+Hướng dẫn nạp tiền vào ZBS Account
+Next
+Xuất hóa đơn Doanh nghiệp
+Quy trình nạp tiền qua phương thức chuyển khoản vào ZBS Account

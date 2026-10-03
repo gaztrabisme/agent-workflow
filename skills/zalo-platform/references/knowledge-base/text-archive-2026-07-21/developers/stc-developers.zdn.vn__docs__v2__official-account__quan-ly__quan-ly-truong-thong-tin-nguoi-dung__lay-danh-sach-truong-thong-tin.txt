@@ -1,0 +1,388 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/quan-ly/quan-ly-truong-thong-tin-nguoi-dung/lay-danh-sach-truong-thong-tin
+# FETCHED: 2026-07-21
+# TITLE: Lấy danh sách trường thông tin | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Tổng quan
+Quản lý thông tin người dùng
+Quản lý trường thông tin người dùng
+Lấy danh sách trường thông tin
+Tạo mới trường thông tin tùy biến
+Cập nhật trường thông tin
+Xóa trường thông tin tùy biến
+Quản lý thông tin OA
+Quản lý form Zalo Ads
+Mua sản phẩm dịch vụ OA
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Quản lýQuản lý trường thông tin người dùngLấy danh sách trường thông tin
+Lấy danh sách trường thông tin
+LƯU Ý
+
+Ứng dụng cần được OA cấp quyền "Quản lý trường thông tin người dùng" để sử dụng API này.
+
+HTTP request​
+URL: https://openapi.zalo.me/v3.0/oa/userfield/get
+Method: GET
+Response Type: text/json
+Example request​
+curl --location --request GET 'https://openapi.zalo.me/v3.0/oa/userfield/get' \
+--header 'access_token: <your_access_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "field_type": "system"
+}'
+
+Tham số header​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+access_token
+
+	
+
+string
+
+	
+
+yes
+
+	
+
+Token cho phép ứng dụng đại diện OA gọi API
+
+Cấu trúc body của request​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Tính bắt buộc
+
+	
+
+Mô tả
+
+
+
+
+field_type
+
+	
+
+string
+
+	
+
+no
+
+	
+
+Dùng để lọc loại trường thông tin (system hoặc oa_custom)
+
+
+
+
+fields_to_get
+
+	
+
+array
+
+	
+
+no
+
+	
+
+Dùng để lọc các khóa chỉ định
+
+Nếu không có tham số fields_to_get, API sẽ trả về tất cả các trường thông tin.
+
+Nếu có tham số fields_to_get, API sẽ chỉ trả về thông tin của các trường được chỉ định.
+
+Nếu một trường trong fields_to_get không tồn tại, trường này sẽ bị bỏ qua trong kết quả trả về.
+Example response​
+{
+    "error": 0,
+    "message": "success",
+    "data": {
+        "fields": [
+            {
+                "key": "user_id",
+                "name": "User ID",
+                "description": "ID của KH trên hệ thống Zalo OA, mỗi KH sẽ có 1 ID duy nhất",
+                "status": "active",
+                "data_type": "id",
+                "value_unique": true,
+                "field_type": "system"
+            },
+            {
+                "key": "ten_hien_thi",
+                "name": "Tên Hiển Thị",
+                "description": "Tên hiển thị của người dùng",
+                "status": "active",
+                "data_type": "text",
+                "value_unique": false,
+                "field_type": "oa_custom"
+            }
+        ]
+    }
+}
+
+Cấu trúc response​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+error
+
+	
+
+integer
+
+	
+
+Mã lỗi (0 nếu thành công)
+
+
+
+
+message
+
+	
+
+string
+
+	
+
+Thông báo kết quả
+
+
+
+
+data
+
+	
+
+array
+
+	
+
+Đối tượng chứa danh sách các trường thông tin
+
+Cấu trúc của mỗi trường trong data.fields​
+
+Tham số
+
+	
+
+Kiểu dữ liệu
+
+	
+
+Mô tả
+
+
+
+
+key
+
+	
+
+string
+
+	
+
+Khóa của trường thông tin
+
+
+
+
+name
+
+	
+
+string
+
+	
+
+Tên trường thông tin
+
+
+
+
+data_type
+
+	
+
+string
+
+	
+
+Loại dữ liệu của trường thông tin
+
+
+
+
+description
+
+	
+
+string
+
+	
+
+Mô tả trường thông tin
+
+
+
+
+status
+
+	
+
+string
+
+	
+
+Trạng thái của trường thông tin
+
+"active": Đang hoạt động
+
+"inactive": Tạm ngưng
+
+
+
+
+field_type
+
+	
+
+string
+
+	
+
+Loại trường thông tin (system hoặc oa_custom)
+
+
+
+
+value_unique
+
+	
+
+boolean
+
+	
+
+Có ràng buộc unique value hay không. Hiện tại chỉ có user_external_id và user_id có giá trị là true.
+
+
+
+
+additional_fields
+
+	
+
+object
+
+	Cài đặt bổ sung cho data_type là table. Mô tả chi tiết các trường dữ liệu con của table.
+
+Ví dụ:
+"additional_fields": [
+    {
+        "key": "da_thanh_toan_chua",
+        "data_type": "boolean"
+    },
+    {
+        "key": "da_thanh_toan_chua",
+        "data_type": "datetime",
+        "additional_format": "dd/MM/yyyy"
+    }
+]
+
+
+
+
+additional_format
+
+	
+
+string
+
+	Cài đặt bổ sung cho data_type là datetime. Format hiển thị cho kiểu datetime.
+
+Ví dụ:
+"additional_format": "dd/MM/yyyy"
+
+Trước
+Cập nhật thông tin tùy biến của người dùng
+Kế tiếp
+Tạo mới trường thông tin tùy biến
+HTTP request
+Example request
+Tham số header
+Cấu trúc body của request
+Example response
+Cấu trúc response
+Cấu trúc của mỗi trường trong data.fields
+©2023 Zalo for Developers

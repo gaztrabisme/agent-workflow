@@ -1,0 +1,75 @@
+# SOURCE: https://oa.zalo.me/home/documents/vie/guides/dai-ly-phan-phoi-hang-xe-thuong-hieu_513912040036319708
+# FETCHED: 2026-08-06
+# TITLE: Đại lý phân phối hãng xe, thương hiệu | Zalo Official Account
+
+Nhảy tới nội dung
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Khởi tạo Zalo Official Account
+Lựa chọn danh mục
+Hướng dẫn đặt tên Zalo OA
+Lý do OA bị khóa và cách khắc phục
+Hướng dẫn xác thực
+Các hình thức xác thực
+Hồ sơ xác thực
+Xác thực theo lĩnh vực hoạt động
+Y tế & Dược phẩm
+Nhà hàng & Quán
+Giáo dục & Đào tạo
+Đại lý phân phối hãng xe, thương hiệu
+Du lịch & Lưu trú
+Hàng tiêu dùng
+Truyền thông nội bộ
+Xử lý hồ sơ bị từ chối
+Hỗ trợ tạo, xác thực, cài đặt OA cho chuỗi cửa hàng
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Đăng ký và Xác thực
+Xác thực theo lĩnh vực hoạt động
+Đại lý phân phối hãng xe, thương hiệu
+Trên trang này
+Đại lý phân phối hãng xe, thương hiệu
+Zalo Official Account hướng dẫn đặt tên tài khoản OA doanh nghiệp và tài liệu xác thực hợp lệ dành cho tên OA sử dụng tên hãng xe thương hiệu, nhằm giúp các doanh nghiệp thực hiện quy trình xét duyệt xác thực được nhanh chóng, đồng thời đảm bảo quyền lợi của bên chủ sở hữu thương hiệu.
+Đầu tiên, OA cần xác định vai trò của doanh nghiệp muốn xác thực OA so với hãng xe thương hiệu:
+Doanh nghiệp là công ty hợp tác hoặc liên doanh của các thương hiệu xe nổi tiếng tại Việt Nam;
+Doanh nghiệp là đại lý/ showroom/ nhà phân phối/ cộng tác bán hàng chính hãng.
+Tiếp theo, Admin OA lựa chọn 1 trong 2 bộ hồ sơ tương ứng với vai trò của doanh nghiệp và gửi đến Ban quản trị Zalo Official Account (BQT ZOA) bộ hồ sơ xác thực OA phù hợp theo hướng dẫn dưới đây.
+I. Doanh nghiệp là công ty hợp tác hoặc liên doanh của các thương hiệu xe nổi tiếng tại Việt Nam​
+Định dạng tên OA: [Tên hãng xe thương hiệu] + [Tỉnh/ thành phố theo giấy ĐKKD]
+Ví dụ: Thaco Bình Định
+Nộp hồ sơ theo CÁCH 2: Xác thực theo tên thương hiệu; lựa chọn 1 trong 2 bộ hồ sơ 2A HOẶC 2B với các giấy phép hợp lệ theo bảng dưới đây.
+[Công văn xác thực theo mẫu tải tại đây]
+👉 Với Bộ hồ sơ 2A: Dựa trên thông tin mà admin OA cung cấp, Người đại diện pháp luật của doanh nghiệp sẽ nhận được yêu cầu xác nhận qua Zalo để đồng ý việc tạo và xác thực tài khoản OA.
+Giấy tờ chứng nhận ủy quyền sử dụng tên thương hiệu/ nhãn hiệu là giấy tờ chứng minh được tính hợp pháp của Doanh nghiệp/HKD trong việc sở hữu hoặc được quyền sử dụng thương hiệu/nhãn hiệu đã được đăng ký trong lãnh thổ Việt Nam theo quy định của Pháp luật.
+* Thông tin điều khoản bảo mật có thể bôi đen/ làm mờ. Tuy nhiên, phải hiển thị đầy đủ các thông tin cần thiết để kiểm tra và đối chiếu.
+II. Doanh nghiệp là đại lý/ showroom/ nhà phân phối/ cộng tác bán hàng chính hãng​
+Phân loại cách đặt tên OA theo tên đại lý/ showroom/ nhà phân phối:
+Nộp hồ sơ theo CÁCH 3: Xác thực theo tên khác, hoặc doanh nghiệp thuộc ngành nghề kinh doanh có điều kiện; lựa chọn 1 trong 2 bộ hồ sơ 3A HOẶC 3B với các giấy phép hợp lệ theo bảng dưới đây.
+[Công văn xác thực theo mẫu tải tại đây]
+👉 Với Bộ hồ sơ 3A: Dựa trên thông tin mà admin OA cung cấp, Người đại diện pháp luật của doanh nghiệp sẽ nhận được yêu cầu xác nhận qua Zalo để đồng ý việc tạo và xác thực tài khoản OA.
+* Thông tin điều khoản bảo mật có thể bôi đen/ làm mờ. Tuy nhiên, phải hiển thị đầy đủ các thông tin cần thiết để kiểm tra và đối chiếu.
+Lưu ý:
+Giấy phép/ hợp đồng xác minh phải còn hiệu lực/ thời hạn;
+Hình ảnh yếu tố xác minh tên giao dịch cần rõ ràng, không có dấu hiệu chỉnh sửa;
+Hình ảnh cần có đầy đủ thông tin hợp lệ theo quy định trên.
+Các bước cần thực hiện nếu OA bị từ chối xác thực ​
+Quản trị viên đọc kĩ phản hồi trong tin nhắn từ BQT Zalo OA để thực hiện xác thực lại bằng cách cung cấp lại Bộ hồ sơ xác thực, bao gồm: toàn bộ giấy tờ xác thực đã gửi trước đó cùng với giấy tờ/ thông tin được yêu cầu bổ sung thêm;
+Trong trường hợp OA được yêu cầu điều chỉnh tên, thông tin giới thiệu hoặc ảnh đại diện/ ảnh bìa, QTV vui lòng truy cập https://oa.zalo.me/manage/profile hoặc chọn mục Quản lý → Chọn Trang thông tin OA → Chọn nút “Chỉnh sửa”.
+-----------------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+Trước
+Giáo dục & Đào tạo
+Kế tiếp
+Du lịch & Lưu trú
+I. Doanh nghiệp là công ty hợp tác hoặc liên doanh của các thương hiệu xe nổi tiếng tại Việt Nam
+II. Doanh nghiệp là đại lý/ showroom/ nhà phân phối/ cộng tác bán hàng chính hãng
+Các bước cần thực hiện nếu OA bị từ chối xác thực

@@ -1,0 +1,57 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/quan-ly-admin-oa_83
+# FETCHED: 2026-08-06
+# TITLE: Quản lý Admin OA | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Trang thông tin OA
+Ảnh đại diện, ảnh bìa OA
+Truy vấn tự động
+Thanh menu
+Tin nhắn chào mừng tự động
+Lấy OA ID
+Đăng ký URL tùy biến
+Thu hút người quan tâm
+Quản lý Admin OA
+Xóa tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Thiết lập tài khoản OA
+Quản lý Admin OA
+On this page
+Quản lý Admin OA
+1. Giới thiệu các quyền quản lý OA​
+OA doanh nghiệp có thể được quản lý bởi nhiều admin (tối đa 100 admin/OA). Tùy theo nhu cầu vận hành, bạn có thể thiết lập admin với các quyền truy cập như sau:
+Quản trị viên: đây là quyền quản lý cao nhất, bao gồm quản lý danh sách admin, gửi tin mời người quan tâm OA (xem thêm tại đây), xóa OA (xem thêm tại đây) và bao gồm tất cả các quyền admin khác.
+Soạn nội dung: Quản lý thông tin chung của OA (tên OA, mô tả, hotline, v.v.), thiết lập cấu hình & thanh menu, soạn bài viết, gửi broadcast, xem các số liệu thống kê, báo cáo của OA, trả lời chat khách hàng.
+Phân tích viên: Xem các số liệu thống kê, báo cáo của OA.
+Chăm sóc khách hàng: Trả lời chat & tiếp nhận cuộc gọi, xem lịch sử cuộc gọi của khách hàng nhưng không thao tác được "Thiết lập cuộc gọi".
+Nhân viên quảng cáo: Sử dụng các chức năng hỗ trợ cho việc tự chạy quảng cáo cho OA trên Zalo.
+Quản lý gói và liên kết: Chỉ có quyền truy cập được 2 mục duy nhất là "Quản lý gói" và “Quản lý liên kết”.
+2. Cách thiết lập quyền Admin​
+Bước 1: Đăng nhập tài khoản trang OA theo đường dẫn http://oa.zalo.me/manage ➞ Chọn OA muốn thiết lập.
+Bước 2: Chọn mục Quản lý ➞ Quản lý admin
+Bước 3:
+Để thay đổi thông tin admin đang có, chọn Xóa hoặc Sửa trong mục thao tác.
+Để thêm admin mới, chọn Mời làm admin ➞ Nhập số điện thoại người muốn phân quyền quản lý OA ➞ Chọn Kiểm tra để xem thông tin tên tài khoản Zalo ➞ Chọn Phân quyền phù hợp ➞ Chọn Gửi lời mời.
+Bước 4: Người được phân quyền xác nhận thông qua ứng dụng Zalo trên điện thoại.
+Người dùng được phân quyền chọn Đồng ý tại Lời mời làm Admin trên điện thoại.
+Sau khi người dùng được mời nhấn Đồng ý, sẽ nhận được thông báo kết quả từ tài khoản Zalo Official Account.
+---------------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+Previous
+Thu hút người quan tâm
+Next
+Xóa tài khoản OA
+1. Giới thiệu các quyền quản lý OA
+2. Cách thiết lập quyền Admin

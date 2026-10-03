@@ -1,0 +1,297 @@
+# SOURCE: https://zalo.solutions/terms/
+# FETCHED: 2026-08-06
+# TITLE: Điều khoản sử dụng Business Message | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Business Message
+Giới thiệuTài liệu hướng dẫnBảng giáChính sách dịch vụ
+Chính sách & Điều khoản Business Message
+Chính sách Business Message
+1. ĐỊNH NGHĨA
+2. ĐIỀU KIỆN KHỞI TẠO LỆNH ZBS TEMPLATE MESSAGE
+3. ĐIỀU KIỆN THỰC HIỆN ZBS TEMPLATE MESSAGE
+4. QUY TRÌNH KHỞI TẠO LỆNH ZBS TEMPLATE MESSAGE
+5. PHÍ DỊCH VỤ
+6. QUY ĐỊNH CHUNG
+7. QUY ĐỊNH DÀNH CHO ĐỐI TÁC LÀ CHỦ THỂ OA, ĐẠI LÝ
+8. XỬ LÝ VI PHẠM
+Chính sách bảo mật
+Điều 1. GIẢI THÍCH TỪ NGỮ
+Điều 2. CÁCH THỨC CHÚNG TÔI XỬ LÝ DỮ LIỆU CÁ NHÂN
+Điều 3. THÔNG TIN VỀ HOẠT ĐỘNG XỬ LÝ DỮ LIỆU CÁ NHÂN
+Điều 4. COOKIES
+Điều 5. MỤC ĐÍCH XỬ LÝ DỮ LIỆU CÁ NHÂN
+Điều 6. BẢO VỆ VÀ LƯU TRỮ DỮ LIỆU CÁ NHÂN
+Điều 7. QUYỀN CỦA CHỦ THỂ DỮ LIỆU CÁ NHÂN
+Điều 8. PHƯƠNG THỨC LIÊN HỆ
+CHÍNH SÁCH CHUNG VỀ DỊCH VỤ ZBS TEMPLATE MESSAGE
+Cập nhật ngày 09/07/2026
+1. ĐỊNH NGHĨA
+1.1 Zalo Platforms là Công ty TNHH Zalo Platforms, là đơn vị cung cấp Dịch vụ ZBS Template Message.
+1.2 OA (Official Account) là tài khoản xác thực của doanh nghiệp trên Zalo nhằm cung cấp giải pháp giúp doanh nghiệp kết nối và tương tác với người dùng Zalo.
+1.3 Chủ Thể OA là đơn vị sở hữu và/ hoặc có quyền sử dụng hợp pháp OA, bao gồm doanh nghiệp, cơ quan nhà nước và các tổ chức khác.
+1.4 Dịch Vụ ZBS Template Message là dịch vụ cho phép Đối Tác sử dụng API để khởi tạo Lệnh ZBS Template Message.
+1.5 Lệnh ZBS Template Message là lệnh gửi tới API để tạo ra kết quả là ZBS Template Message.
+1.6 ZBS Template Message là kết quả thể hiện ở dạng dữ liệu đọc được trên thiết bị của Người Dùng Cuối.
+1.7 Người Dùng Cuối là người dùng đã giao dịch trước đó với Đối Tác và có số điện thoại gắn với tài khoản Zalo.
+1.8 Ztime là khoảng thời gian tính từ lúc API nhận Lệnh ZBS Template Message cho tới khi hoàn tất ZBS Template Message.
+1.9 Đại Lý là tổ chức, doanh nghiệp thực hiện phân phối các dịch vụ Zalo Business Solutions theo hợp đồng đại lý ký kết với Zalo Platforms.
+1.10 Đối Tác là Đại Lý, Chủ Thể OA, các doanh nghiệp, cơ quan, tổ chức được thành lập và hoạt động hợp pháp theo quy định của pháp luật sử dụng Dịch Vụ ZBS Template Message.
+1.11 API là giao diện lập trình ứng dụng tích hợp trên hệ thống kỹ thuật của Zalo Platforms.
+1.12 Ngày Làm Việc là tất cả các ngày trong tuần từ thứ Hai đến thứ Sáu, không bao gồm ngày nghỉ, lễ, tết theo quy định pháp luật hoặc công bố riêng biệt của Zalo Platforms từng thời kỳ.
+2. ĐIỀU KIỆN KHỞI TẠO LỆNH ZBS TEMPLATE MESSAGE
+2.1 Về điều kiện xác lập: ZBS Template Message chỉ được hình thành khi có sự kiện giao dịch phát sinh.
+2.2 Về nội dung:
+a) Tuân theo cấu trúc được duyệt trước bởi Zalo Platforms và theo tiêu chuẩn kỹ thuật của Zalo Platforms;
+b) Không được mang tính chất quảng cáo dịch vụ, sản phẩm mà không có các tham số đặc trưng (ví dụ như tên khách hàng, mã đơn hàng, tiền…);
+c) Nội dung mã xác thực cần phải chứa tên website hoặc ứng dụng sử dụng mã xác thực đó;
+d) Không chứa những yếu tố: chống phá Nhà nước, công kích tổ chức, cá nhân; các yếu tố tôn giáo, hoặc miệt thị giới tính, sắc tộc;
+e) Không vi phạm bất kỳ quy định cấm nào khác theo quy định của pháp luật Việt Nam.
+f) Một số ví dụ về nội dung hợp lệ:
+Biến động tài khoản
+Giao dịch mua bán
+Quan hệ tài chính
+Mã xác thực tạo tài khoản mới
+Báo tạo tài khoản mới thành công
+Mã xác thực đổi mật khẩu
+Báo tài khoản hết hạn
+Mã xác thực xác nhận giao dịch
+Thông báo hết hàng
+Xác nhận mua hàng thành công
+Báo trạng thái vận chuyển đơn hàng
+Báo ngày đơn hàng tới nơi dự kiến
+Báo huỷ đơn hàng
+Xác nhận khách hàng nhận hàng thành công
+Thông báo hậu mãi cho khách hàng
+Báo hồ sơ được duyệt thành công
+Báo giải ngân khoản vay thành công
+Thông báo sao kê
+Thông báo biến động số dư tài khoản
+Nhắc khách hàng sắp tới kì trả lãi và/hoặc nợ gốc
+Nhắc khách hàng chậm trả nợ
+Thông báo trả lãi và/hoặc nợ gốc thành công
+2.3 Về thời gian: Ngày khởi tạo Lệnh ZBS Template Message không vượt quá 07 (bảy) ngày (trước hoặc sau) so với ngày phát sinh sự kiện.
+2.4 Về tần suất: Đối Tác chỉ được khởi tạo Lệnh ZBS Template Message cho mỗi thay đổi trạng thái sự kiện giao dịch với Người Dùng Cuối.
+Những Lệnh ZBS Template Message nào nằm ngoài phạm vi quy định tại Mục này sẽ được xét duyệt theo từng trường hợp cụ thể.
+3. ĐIỀU KIỆN THỰC HIỆN ZBS TEMPLATE MESSAGE
+ZBS Template Message chỉ được thực hiện khi:
+3.1 Số điện thoại của Người Dùng Cuối gắn với tài khoản Zalo của mình và Người Dùng Cuối đã đồng ý với tất cả thoả thuận, điều khoản và điều kiện dịch vụ liên quan đến nền tảng Zalo;
+3.2 Đáp ứng đầy đủ các điều kiện được quy định tại Mục 2 của Chính sách này.
+4. QUY TRÌNH KHỞI TẠO LỆNH ZBS TEMPLATE MESSAGE
+4.1 Bước 1: Đăng ký và xác thực tài khoản OA theo quy định tại https://oa.zalo.me/home/resources/guides
+4.2 Bước 2: Tạo tài khoản ZBS và ID ứng dụng để truy cập vào API tại: https://account.zalo.solutions/account/create
+4.3 Bước 3: Đăng ký kịch bản và cấu trúc ZBS Template Message tại https://account.zalo.solutions/tool/zns/createTemplate. Tại bước này, Đối Tác có thể phải xác thực tính hợp lệ của Người Dùng Cuối tiếp nhận ZBS Template Message theo 2 cơ chế:
+a) Tiền kiểm: Trước khi Lệnh ZBS Template Message được thực hiện, trong quá trình đăng ký cấu trúc template, Zalo Platforms có quyền yêu cầu Đối Tác cung cấp chứng từ hoặc cơ sở chứng minh việc Người Dùng Cuối tiếp nhận ZBS Template Message phù hợp với quy định tại Chính sách này.
+b) Hậu kiểm: Zalo Platforms có quyền kiểm tra ngẫu nhiên vào bất cứ thời điểm nào và yêu cầu Đối Tác cung cấp cơ sở nhằm xác minh tính hợp lệ về Người Dùng Cuối tiếp nhận ZBS Template Message nhưng không vượt quá 1% (một phần trăm) tổng số lượng Người Dùng Cuối nhận quy định bởi Lệnh ZBS Template Message trong vòng 07 (bảy) ngày phát sinh giao dịch gần nhất. Những loại chứng từ được yêu cầu, bao gồm nhưng không giới hạn bởi các loại sau trong trường hợp Người Dùng Cuối là:
+(i) Người mua hàng của Đối Tác: chứng minh lịch sử giao dịch online hoặc offline (hợp đồng mua bán/ hoá đơn giao dịch/ phiếu xuất kho/ biên bản giao nhận có chữ ký/ phiếu bảo hành…);
+(ii) Khách hàng sử dụng dịch vụ của Đối Tác: chứng minh khách hàng đang sử dụng hoặc phát sinh yêu cầu đối với dịch vụ của Đối Tác (hợp đồng sử dụng dịch vụ/ lịch sử cung cấp dịch vụ xuất từ hệ thống của Đối Tác dưới dạng hình ảnh/ hoá đơn giao dịch/ đề nghị phát sinh dịch vụ từ email/ số điện thoại của khách hàng…);
+(iii) Nhân viên chính thức của Đối Tác: Chứng minh mối quan hệ giữa người sử dụng lao động và người lao động (Scan hợp đồng lao động còn hiệu lực/ scan phát sinh tiền lương có đóng dấu…);
+(iv) Cộng tác viên của Đối Tác: chứng minh mối quan hệ cộng tác còn hiệu lực (scan hợp đồng cộng tác/ hình ảnh record lịch sử cộng tác trong vòng 30 (ba mươi) ngày/ scan phát sinh tiền lương có đóng dấu, lịch sử chuyển tiền ngân hàng…); hoặc
+(v) Bên hợp tác của Đối Tác: chứng minh được được mối quan hệ hợp tác và có xác nhận chấp thuận nhận thông báo từ Người Dùng Cuối. (bản sao chụ thoả thuận hợp tác/ xác nhận từ Người Dùng Cuối…).
+4.4 Bước 4: Theo dõi quá trình và kết quả xử lý Lệnh ZBS Template Message: Đối Tác theo dõi quá trình thiết lập và xử lý lỗi phát sinh đảm bảo ZBS Template Message chuyển đến thiết bị của Người Dùng Cuối, trừ trường hợp ngoại lệ được quy định tại Chính sách này.
+Nhằm đảm bảo chất lượng trải nghiệm của Người Dùng Cuối, tránh làm phiền hoặc gửi những thông tin mà Người Dùng Cuối không mong muốn hoặc chưa chấp thuận nhận thông báo từ OA, Zalo Platforms sẽ từ chối các template/ Lệnh ZBS Template Message mà chúng tôi nghi ngờ có ảnh hưởng không tốt đến Người Dùng Cuối hoặc có dấu hiệu không trung thực trong các chứng từ được cung cấp.
+5. PHÍ DỊCH VỤ
+5.1 Đơn giá (chưa bao gồm thuế giá trị gia tăng (“thuế GTGT”) cho mỗi loại Lệnh ZBS Template Message ở trạng thái xử lý thành công được quy định cụ thể như sau:
+Loại Template
+Giá (VNĐ)
+Template xác thực
+400
+Template voucher
+400
+Template yêu cầu thanh toán
+300
+Template vé xe khách
+300
+Template hành trình dành cho ngành hàng đặc biệt (*)
+Từ 200
+Các loại template khác
+300
+Trong đó:
+a) Lệnh sử dụng template xác thực khi gửi qua số điện thoại của Người Dùng Cuối được xác định ở trạng thái xử lý thành công nếu Ztime =<15 giây.
+b) Các lệnh sử dụng các template khác ngoại trừ template xác thực của ZBS Template Message khi gửi qua số điện thoại của Người Dùng Cuối được xác định ở trạng thái xử lý thành công nếu Ztime =<7200 giây.
+c) Các lệnh sử dụng các template gửi qua UID được xác định thành công khi ở trạng thái xử lý thành công.
+5.2 Tùy Chọn CTA:
+a) Mỗi CTA là đường dẫn (“link”) dưới dạng nút trong ZBS Template Message. Áp dụng tùy chọn này làm phát sinh phí dịch vụ theo đơn giá (chưa bao gồm thuế GTGT) sau:
+Hạng mục sử dụng
+Phân loại chi tiết
+Đơn giá (VNĐ)
+Nút thao tác đi kèm theo loại template
+Áp dụng mặc định tùy theo loại template
+0
+Đến trang thông tin/ứng dụng của doanh nghiệp trên hệ sinh thái Zalo
+Trang thông tin/ứng dụng của doanh nghiệp trên hệ sinh thái Zalo, bao gồm nhưng không giới hạn theo danh sách:
+Đến trang thông tin OA;
+Đến ứng dụng Zalo Mini App của Doanh nghiệp;
+Đến bài viết của OA.
+Nút đầu tiên thuộc hạng mục: 0 VNĐ;
+Nút thứ hai trở lên: 100 VNĐ/nút.
+Xem thêm tại lưu ý (*)
+Đến các dịch vụ khác
+Đến trang tra cứu hoá đơn điện tử
+Nút đầu tiên thuộc phân loại (0 VNĐ)
+Nút thứ hai trở lên thuộc phân loại: 100 VNĐ/nút
+Xem thêm tại lưu ý (*)
+Đến trang tin (website) của doanh nghiệp
+100
+Gọi điện
+200
+Đến trang tin website/ Zalo Mini App của doanh nghiệp khác
+500
+Đến trang ứng dụng của doanh nghiệp
+600
+Đến trang ứng dụng của doanh nghiệp khác
+1.000
+Đến trang đích kêu gọi hành động tải ứng dụng
+3.000
+b) Lưu ý:
+(i) (*) CTA đầu tiên thuộc hạng mục/phân loại tương ứng: 0 VNĐ Từ CTA thứ hai thuộc hạng mục/phân loại này áp dụng đơn giá 100 VNĐ cho mỗi nút CTA.
+(ii) Áp dụng tùy chọn CTA hoặc thành phần đặc biệt sẽ làm phát sinh Khoản Phải Trả của đơn giá ZBS Template Message.
+(iii) Với điều chỉnh này, thứ tự của CTA sẽ không còn ảnh hưởng đến đơn giá của nút đó, mỗi phân loại CTA sẽ có mức đơn giá tương ứng.
+5.3 Các link về Website có nội dung Thành phần đặc biệt:
+Việc kích hoạt thành phần đặc biệt trong ZBS Template Message và áp dụng tùy chọn này sẽ làm phát sinh phí dịch vụ theo đơn giá (chưa bao gồm thuế GTGT) sau đây:
+Thành phần
+Giá (VNĐ)
+Hình ảnh
+300
+Nút phản hồi (Beta)
+100
+5.4 Lệnh ZBS Template Message nâng cao:
+a) Lệnh ZBS Template Message nâng cao là loại lệnh được khởi tạo cho phép nhân sự chuyên trách của bên Đối Tác tương tác gọi thoại, và/hoặc gọi video với Người Dùng Cuối trong phạm vi và giới hạn được chấp thuận bởi Người Dùng Cuối.
+b) Đơn giá (chưa bao gồm thuế GTGT) cho Lệnh ZBS Template Message nâng cao ở trạng thái xử lý thành công được quy định như sau:
+Hạng mục
+Đơn vị tính
+Giá (VNĐ)
+Lệnh ZBS Template Message nâng cao
+Lệnh
+400
+6. QUY ĐỊNH CHUNG
+6.1 Cấu trúc của ZBS Template Message phải phù hợp quy chuẩn kỹ thuật và được Zalo Platforms duyệt trước khi triển khai. Mọi thay đổi về cấu trúc so với mẫu đã duyệt phải được đăng ký lại hoặc liên hệ đội ngũ Zalo Platforms để được hỗ trợ.
+6.2 Cấu trúc ZBS Template Message phải rõ ràng, không gây nhầm lẫn và liên quan đến giao dịch đã phát sinh với Người Dùng Cuối để họ hiểu lý do vì sao họ nhận được ZBS Template Message.
+6.3 Đối Tác có trách nhiệm kiểm tra và đảm bảo không có sự khác biệt về cấu trúc của ZBS Template Message được duyệt và kết quả hiển thị trên thiết bị của Người Dùng Cuối.
+6.4 Đối tượng đăng ký thiết lập cấu trúc ZBS Template Message có thể là: Quản trị viên OA hoặc Đối Tác của Zalo Platforms.
+6.5 Thời gian duyệt đăng ký/thay đổi cấu trúc ZBS Template Message là trong vòng 2-3 Ngày Làm Việc, và sẽ được thông báo tới OA.
+6.6 Đối với loại tin xác thực, Zalo Platforms chỉ chịu trách nhiệm trong vòng 60 (sáu mươi) phút kể từ thời điểm Người Dùng Cuối nhận được ZBS Template Message xác thực này, hết thời gian nêu trên Zalo Platforms được miễn trừ trách nhiệm có liên quan.
+6.7 Phí dịch vụ có giá trị tại thời điểm cung cấp, và có thể thay đổi trong tương lai theo công bố tại website https://zalo.solutions/business-message/pricing tuỳ thuộc vào chính sách dịch vụ của Zalo Platforms, trừ trường hợp các bên có thoả thuận khác.
+6.8 Từ ngày 01/09/2024, Đối Tác có trách nhiệm kiểm tra và đảm bảo phân loại hạng mục và chi phí của tùy chọn CTA đúng với hạng mục link thực tế được Đối Tác khai báo khi đăng ký mẫu ZBS Template Message.
+(a). Trong vòng 07 (bảy) Ngày từ ngày ZBS Template Message được duyệt thành công trên hệ thống Zalo Business Solutions, nếu phát hiện sai sót, phần chênh lệch chi phí giữa hạng mục thực tế và hạng mục đã khai báo sẽ được chia đều theo tỉ lệ 50:50 giữa Zalo Platforms và Đối Tác.
+(b). Ngoài mốc thời gian trên: Zalo Platforms được miễn trừ trách nhiệm.
+7. QUY ĐỊNH DÀNH CHO ĐỐI TÁC LÀ CHỦ THỂ OA, ĐẠI LÝ
+7.1 Đối với Chủ Thể OA
+Bên cạnh việc tuân thủ quy định tại Chính sách này, Chủ Thể OA phải tuân thủ các quy định sau:
+a) Chủ Thể OA đăng ký sử dụng Dịch Vụ ZBS Template Message phải tuân thủ theo quy định và chính sách OA và phải được xác thực theo quy định tại điều khoản xác thực OA được công bố và cập nhật tại Chính sách xác thực tài khoản | Zalo Official Account.
+b) Đăng ký mẫu cấu trúc bằng một trong các phương thức sau: thông qua kênh giao tiếp chung, hoặc thông qua Đối Tác được ủy quyền của Zalo Platforms.
+c) Đảm bảo tính xác thực của giao dịch đã phát sinh giữa OA hoặc chủ thể của OA với Người Dùng Cuối phù hợp với nội dung mô tả trong Lệnh ZBS Template Message.
+d) Không lợi dụng Dịch Vụ ZBS Template Message để spam, gây phiền nhiễu hoặc ảnh hưởng tiêu cực đến trải nghiệm của Người Dùng Cuối.
+e) Chủ thể của OA có trách nhiệm quản lý OA và tất cả những tác vụ phát sinh/liên quan đến OA theo đúng quy định pháp luật và quy định đặc thù đối với dịch vụ này theo yêu cầu bởi Zalo Platforms và/hoặc bên cung cấp dịch vụ OA.
+f) Thông báo cho Quản trị viên OA trước 15 (mười lăm) Ngày Làm Việc về bất cứ thay đổi liên quan đến quyền sở hữu, quyền đại diện hoặc bất cứ biến động nào liên quan đến tài khoản OA.
+g) Zalo Platforms bảo lưu quyền từ chối và/hoặc tạm dừng cung cấp dịch vụ, theo quyết định riêng của mình, nếu phát hiện hoặc có căn cứ cho thấy việc sử dụng dịch vụ có dấu hiệu rủi ro, nguy cơ vi phạm pháp luật, hoặc gây tổn hại đến quyền và lợi ích hợp pháp của Zalo Platforms, Người Dùng Cuối, cũng như bất kỳ bên thứ ba nào khác.
+7.2 Đối với Đại Lý
+Bên cạnh việc tuân thủ quy định tại Chính sách này, Đại Lý phải tuân thủ các quy định sau:
+a) Đại Lý quản lý đối tác của mình thông qua các tài khoản OA riêng biệt, và chịu trách nhiệm đảm bảo rằng các tài khoản OA tuân theo Chính sách chung này.
+b) Đại Lý có trách nhiệm tư vấn và hỗ trợ cho đối tác của mình.
+c) Chỉ sử dụng tài liệu, hình ảnh của Zalo Platforms và/hoặc Dịch Vụ ZBS Template Message khi có được sự đồng ý của Zalo Platforms.
+d) Chịu trách nhiệm về tính xác thực của giao dịch đã phát sinh giữa OA hoặc Chủ Thể OA với Người Dùng Cuối.
+e) Đảm bảo tính hợp pháp và chịu trách nhiệm về tất cả nội dung, thông tin được truyền đi từ OA quản lý bởi Đại Lý và/hoặc Đối Tác.
+f) Đảm bảo API kết nối vận hành xuyên suốt.
+g) Có trách nhiệm đối soát và báo cáo cho Chủ Thể OA về kết quả trạng thái xử lý Lệnh ZBS Template Message.
+h) Không lợi dụng nền tảng kết nối giữa Zalo Platforms và OA để trục lợi trên những thông tin mang tính bảo mật thương mại.
+i) Zalo Platforms bảo lưu quyền từ chối và/hoặc tạm dừng cung cấp dịch vụ hay xoá bỏ việc cấp quyền Đại Lý theo quyết định riêng của mình, nếu phát hiện hoặc có căn cứ cho thấy việc sử dụng dịch vụ có dấu hiệu rủi ro, nguy cơ vi phạm pháp luật, hoặc gây tổn hại đến quyền và lợi ích hợp pháp của Zalo Platforms, Người Dùng Cuối, cũng như bất kỳ bên thứ ba nào khác.
+j) Tất cả các website, ấn phẩm tiếp thị trực tiếp hoặc gián tiếp của Đại Lý phải đảm bảo tuân thủ các thông tin, yêu cầu sau:
+(i) Mô tả đầy đủ, chính xác thông tin (tên công ty, mã số thuế, địa chỉ, số điện thoại và email hỗ trợ) về đơn vị chủ quản quản lý website hoặc đơn vị phát hành ấn phẩm.
+(ii) Thể hiện rõ ràng, chính xác mối quan hệ giữa Zalo Platforms và Đại Lý theo cú pháp: “[Tên Đại Lý] là đơn vị triển khai dịch vụ [ZBS Template Message/Zalo Business Solutions/Zalo OA] của Zalo Platforms”.
+(iii) Sử dụng font chữ từ 12px trở lên với màu sắc và chất lượng hiển thị rõ nét.
+(iv) Nhắc lại tối thiểu 02 (hai) lần trong mỗi nội dung, được bố cục tại phần mở đầu và kết thúc.
+(v) Sử dụng đúng các định nghĩa được cung cấp bởi Zalo Platforms trong trường hợp cần mô tả các sản phẩm, dịch vụ như sau: ZBS Template Message: dịch vụ tin nhắn theo mẫu đã được kiểm duyệt.
+8. XỬ LÝ VI PHẠM
+8.1 Zalo Platforms sẽ tạm ngừng cung cấp dịch vụ cho đến khi Đối Tác khắc phục vi phạm trong các trường hợp sau:
+a) Khiếu nại của Người Dùng Cuối trên 5% (năm phần trăm) tổng số lượng Lệnh ZBS Template Message được khởi tạo trong vòng 24h (hai mươi bốn giờ) hoặc vượt quá 50 (năm mươi) khiếu nại trong vòng 24h (hai mươi bốn giờ);
+b) Nội dung Lệnh ZBS Template Message hiển thị trên thiết bị của Người Dùng Cuối không đúng như nội dung cấu trúc Template và kịch bản đã được duyệt;
+c) Lệnh ZBS Template Message hướng tới Người Dùng Cuối chưa là khách hàng hoặc không phát sinh giao dịch với Đối Tác trước khi Lệnh ZBS Template Message được thiết lập;
+d) Các vi phạm khác được quy định tại văn bản, thỏa thuận giữa Zalo Platforms và Đối Tác.
+8.2 Khi vi phạm tại Mục 8.1 nêu trên vẫn tiếp tục hoặc tái diễn, tuỳ theo mức độ và tính chất vi phạm, Zalo Platforms sẽ có các bước xử lý như sau:
+a) Lần 2: Ngừng cung cấp Dịch Vụ ZBS Template Message;
+b) Lần 3: Yêu cầu bên cung cấp dịch vụ OA thực hiện khóa OA;
+c) Lần 4: Khóa tài khoản dịch vụ của Đối Tác với tất cả các dịch vụ của Zalo Platforms. Đối Tác cần lưu ý, việc khóa tài khoản này sẽ có thể gây ảnh hưởng và/hoặc dẫn đến việc Đối Tác không thể tiếp tục sử dụng các dịch vụ khác trên nền tảng Zalo (nếu có).
+Mọi thắc mắc hoặc yêu cầu làm rõ các nội dung liên quan đến Chính sách này, Đối Tác vui lòng liên hệ với Zalo Platforms qua thư điện tử (email): support@zalo.solutions hoặc liên hệ - Zalo Help để được tiếp nhận và xử lý kịp thời.
+Chính sách bảo mật của dịch vụ Zalo Business Solutions
+Cập nhật ngày 09/07/2026
+Điều 1. GIẢI THÍCH TỪ NGỮ
+Các sản phẩm, dịch vụ Zalo Business Solutions (hay còn gọi là “ZBS”) – Giải pháp chăm sóc khách hàng trực tuyến từ Zalo, được vận hành bởi Công Ty TNHH Zalo Platforms (“ZAP”) và công ty mẹ, các công ty con, công ty liên kết, công ty thành viên của ZAP (gọi riêng và gọi chung là, "ZAP", "Chúng tôi", hay "của Chúng tôi"). Chúng tôi nghiêm túc thực hiện trách nhiệm của mình liên quan đến bảo vệ an toàn dữ liệu theo các quy định pháp luật hiện hành và cam kết tôn trọng quyền riêng tư và sự quan tâm của tất cả Người Dùng Cuối đối với các dịch vụ cung cấp. Chính sách bảo mật ("Chính sách bảo mật"hay "Chính sách") này được thiết kế để giúp Khách Hàng, Người Dùng Cuối hiểu được cách thức Chúng tôi thu thập, sử dụng, tiết lộ và/hoặc xử lý dữ liệu để đáp ứng quyền được biết của Người Dùng Cuối, hiểu rõ về cách thức thu thập, sử dụng và chia sẻ Dữ Liệu Cá Nhân; cung cấp cho Người Dùng Cuối cơ chế truy cập, chỉnh sửa, xóa dữ liệu và thiết lập quyền riêng tư. Chính sách này được xem là một phần cấu thành của Thỏa thuận sử dụng dịch vụ Zalo Business Solutions và có giá trị pháp lý tương đương.
+"Dịch Vụ": có nghĩa là dịch vụ Zalo Business Solutions (hay còn gọi là “ZBS”), dịch vụ nằm trong bộ giải pháp dành cho nhóm tài khoản Zalo Official Account (OA), bao gồm nhưng không giới hạn dịch vụ gửi tin nhắn chăm sóc khách hàng trên Zalo cho các Khách Hàng và các dịch vụ khác nêu tại Thoả thuận sử dụng dịch vụ Zalo Business Solutions.
+"Dữ Liệu Cá Nhân" có nghĩa là dữ liệu số hoặc thông tin dưới dạng khác xác định hoặc giúp xác định một con người cụ thể, bao gồm: Dữ Liệu Cá Nhân cơ bản và Dữ Liệu Cá Nhân nhạy cảm
+“Khách Hàng” có nghĩa là các doanh nghiệp, cơ quan, tổ chức được thành lập và hoạt động hợp pháp theo quy định của pháp luật sử dụng Dịch Vụ thông qua việc tạo lập và sở hữu tài khoản Zalo Business Solutions (sau đây gọi là“Tài Khoản ZBS”), có sử dụng Dịch Vụ để chăm sóc Người Dùng Cuối của mình.
+“Người Dùng Cuối” có nghĩa là người đã có giao dịch sử dụng sản phẩm, dịch vụ của Khách Hàng, đồng thời là người sử dụng dịch vụ Zalo, và đồng ý để các Khách Hàng xử lý và chuyển giao dữ liệu cho các bên liên quan (bao gồm cả ZAP).
+“Chủ Thể Dữ Liệu Cá Nhân” bao gồm Người Dùng Cuối sử dụng dịch vụ, sản phẩm của Khách Hàng, Quản trị viên hoặc những cá nhân có một hoặc nhiều chức năng quản trị Tài Khoản ZBS.
+“Zalo” có nghĩa là nền tảng cung cấp dịch vụ nhắn tin, gọi điện, mạng xã hội và các dịch vụ khác do Công Ty Cổ Phần Tập Đoàn VNG phát triển và vận hành.
+Điều 2. CÁCH THỨC CHÚNG TÔI XỬ LÝ DỮ LIỆU CÁ NHÂN
+Chúng tôi xử lý Dữ Liệu Cá Nhân của Chủ Thể Dữ Liệu Cá Nhân khi:
+Chúng tôi sẽ tiếp nhận dữ liệu của Chủ Thể Dữ Liệu Cá Nhân thông qua hoạt động tiếp nhận dữ liệu từ các Khách Hàng theo Thoả thuận sử dụng dịch vụ Zalo Business Solutions. Khi đó, Người Dùng Cuối đã đồng ý để Khách Hàng chuyển giao và xử lý các Dữ Liệu Cá Nhân của mình, bao gồm việc chuyển giao cho Chúng tôi.
+khi Chủ Thể Dữ Liệu Cá Nhân gửi bất kỳ biểu mẫu nào, bao gồm, nhưng không giới hạn ở đơn đăng ký, các yêu cầu thực hiện quyền của Chủ Thể Dữ Liệu Cá Nhân hoặc các mẫu đơn khác liên quan đến Dịch Vụ của Chúng tôi, bằng hình thức trực tuyến, trực tiếp hay dưới hình thức khác phù hợp theo quy định của pháp luật.
+Điều 3. THÔNG TIN VỀ HOẠT ĐỘNG XỬ LÝ DỮ LIỆU CÁ NHÂN
+Dữ Liệu Cá Nhân cơ bản mà Chúng tôi có thể xử lý của Chủ Thể Dữ Liệu Cá Nhân.
+Họ, chữ đệm và tên khai sinh, tên gọi khác (nếu có);
+Ngày, tháng, năm sinh;
+Địa chỉ email;
+Địa chỉ liên lạc;
+Số điện thoại, số định danh cá nhân, số hộ chiếu, số giấy phép lái xe, số biển số xe;
+Giới tính;
+Địa chỉ đăng ký thường trú, địa chỉ đăng ký tạm trú, quê quán;
+Quốc tịch;
+Hình ảnh cá nhân;
+Thông tin về tài khoản số của cá nhân, mối quan hệ gia đình, tình trạng hôn nhân;
+Dữ liệu tổng hợp về nội dung Chủ Thể Dữ Liệu Cá Nhân sử dụng.
+Các dữ liệu, thông tin gắn liền với một con người cụ thể hoặc từ dữ liệu đó mà có thể xác định một con người cụ thể mà pháp luật có quy định là dữ liệu cá nhân cơ bản khác mà Khách Hàng chủ động cung cấp, chủ động đăng tải cho Chúng tôi. Chúng tôi không xử lý bất kỳ Dữ Liệu Cá Nhân Nhạy Cảm của Chủ Thể Dữ Liệu Cá Nhân nào khi cung cấp Dịch Vụ cho Khách Hàng.
+Chủ Thể Dữ Liệu Cá Nhân hiểu rằng sẽ thông báo cho Khách Hàng về bất cứ thông tin nào không chính xác hoặc khi có sự thay đổi thông tin liên quan tới Dữ Liệu Cá Nhân của mình. Khi đó, Chúng tôi bảo lưu quyền (tùy theo quyết định của Chúng tôi) được yêu cầu các tài liệu cần thiết khác để xác minh thông tin được Khách Hàng cung cấp.
+Nếu Chủ Thể Dữ Liệu Cá Nhân không muốn Chúng tôi thu thập Dữ Liệu Cá Nhân nói trên, Chủ Thể Dữ Liệu Cá Nhân có thể chọn không tham gia vào bất kỳ lúc nào bằng cách thông báo tới Khách Hàng hoặc bất kỳ phương thức hợp lệ nào. Trong trường hợp cần có sự phối hợp với Chúng tôi để thực hiện các yêu cầu của Chủ Thể Dữ Liệu Cá Nhân, Khách Hàng có trách nhiệm phải cung cấp các thông tin cần thiết để có thể đáp ứng các quyền, yêu cầu này.
+Điều 4. COOKIES
+Chúng tôi sử dụng Cookies và các công nghệ tương tự (bao gồm nhưng không giới hạn Pixel, Web Becon và/hoặc các công cụ lưu trữ trình duyệt khác của Chúng tôi và/hoặc các bên thứ ba là đối tác của Chúng tôi) nhằm nâng cao trải nghiệm của Khách Hàng, hỗ trợ vận hành nền tảng cung cấp Dịch Vụ và phục vụ các mục đích đo lường, phân tích hoạt động và các mục đích khác theo quy định tại Chính sách này.
+Cookie Thiết Yếu là những Cookies cần thiết để trang web hoạt động bình thường cho phép Khách Hàng điều hướng website và sử dụng các tính năng cơ bản và/hoặc thu thập thông tin về cách các đối tượng truy cập sử dụng website (bao gồm nhưng không giới hạn thời gian sử dụng, ghi nhận các lỗi xảy ra) nhằm đảm bảo trải nghiệm cơ bản của Khách Hàng khi sử dụng Dịch Vụ. Các dữ liệu được thu thập từ Cookie Thiết Yếu không phải là dữ liệu cá nhân cho phép chúng tôi xác định một con người cụ thể. Khi đó, Khách Hàng và Người Dùng Cuối hiểu và đồng ý rằng các Cookies Thiết yếu không thể được tắt sau khi bạn chọn thiết lập “Từ Chối” Cookies do đây là các Cookies tối thiểu để Dịch Vụ có thể hoạt động một cách bình thường.
+Khách Hàng và Người Dùng Cuối hiểu rằng việc lựa chọn từ chối Cookies chỉ sẽ không dừng Cookies Thiết Yếu do đây là Cookie tối thiểu để trang web hoạt động. Chúng tôi tôn trọng lựa chọn của bạn và đảm bảo các Cookies khác được tắt khi bạn lựa chọn từ chối chia sẻ Cookies. Khách Hàng và Người Dùng Cuối có thể thay đổi tuỳ chọn Cookies của mình trên nền tảng cung cấp Dịch Vụ. Trường hợp Khách Hàng và Người Dùng Cuối không đồng ý với Chính sách Cookies và muốn tắt toàn bộ Cookies, Khách Hàng và Người Dùng Cuối có thể sử dụng các thiết lập trên trình duyệt, thiết bị của mình hoặc dừng sử dụng Dịch Vụ.
+Chúng tôi có sử dụng các Cookies và các công nghệ tương tự từ bên thứ ba để phân tích và sử dụng dữ liệu của Khách Hàng, Người Dùng Cuối được nêu theo mục đích được ghi nhận tại Chính sách này. Các Cookies này không có khả năng xác định một người cụ thể trừ trường hợp Khách Hàng, Người Dùng Cuối đã cung cấp sự đồng thuận cho các bên thứ ba này để sử dụng các Cookies và các công cụ khác để thu thập dữ liệu cá nhân của Khách Hàng, Người Dùng Cuối.
+Điều 5. MỤC ĐÍCH XỬ LÝ DỮ LIỆU CÁ NHÂN
+Chúng tôi có thể xử lý Dữ Liệu Cá Nhân của Chủ Thể Dữ Liệu Cá Nhân vì một hoặc nhiều mục đích sau đây:
+Để đáp ứng yêu cầu của Người Dùng Cuối và Khách Hàng trong hoạt động chăm sóc khách hàng;
+Để thông báo cho Người Dùng Cuối, gửi các tin nhắn cho Người Dùng Cuối theo yêu cầu của Khách Hàng;
+Phục vụ, thông báo bằng tin nhắn Zalo cho Người Dùng Cuối theo các yêu cầu, chỉ thị và thao tác của Khách Hàng khi sử dụng Dịch Vụ cho các hoạt động cho ngành nghề Thương mại điện tử, bao gồm nhưng không giới hạn các hoạt động: Cung cấp các loại tin nhắn thông báo giao dịch; Tin nhắn thông báo khuyến mại; Thông báo xác nhận đơn hàng; Thông báo giao hàng; Chăm sóc, thu thập ý kiến của Người Dùng Cuối; Thông báo tích luỹ điểm thưởng; v.vv..
+Phục vụ, thông báo bằng tin nhắn Zalo cho Người Dùng Cuối theo các yêu cầu, chỉ thị và thao tác của Khách Hàng khi sử dụng Dịch Vụ cho các hoạt động cho ngành nghề Sức khoẻ/Y tế, bao gồm nhưng không giới hạn hạn các hoạt động: Thông báo xác nhận đặt lịch hẹn; Thông báo nhắc nhở Người Dùng Cuối tới đúng hẹn đã xác nhận; Thông báo thay đổi lịch hẹn; Chăm sóc, thu thập ý kiến sau khi khám, kiểm tra sức khoẻ;v.vv..
+Phục vụ, thông báo bằng tin nhắn Zalo cho Người Dùng Cuối theo các yêu cầu, chỉ thị và thao tác của Khách Hàng khi sử dụng Dịch Vụ cho các hoạt động cho ngành nghề Giáo dục, bao gồm nhưng không giới hạn hạn các hoạt động: Thông báo học phí; Xác nhận đóng học phí; Thông báo học bù; Xác nhận thông tin lịch học và lớp học; Thông báo tạm nghỉ;v.vv..
+Phục vụ, thông báo bằng tin nhắn Zalo cho Người Dùng Cuối theo các yêu cầu, chỉ thị và thao tác của Khách Hàng khi sử dụng Dịch Vụ cho các hoạt động cho ngành nghề Dịch vụ làm đẹp, bao gồm nhưng không giới hạn hạn các hoạt động: Xác nhận đặt lịch hẹn, Thông báo nhắc nhờ đến lịch hẹn; Thông báo thay đổi lịch hẹn; Chăm sóc, thu thập ý kiến Người Dùng Cuối;v.vv..
+Phục vụ, thông báo bằng tin nhắn Zalo cho Người Dùng Cuối theo các yêu cầu, chỉ thị và thao tác của Khách Hàng khi sử dụng Dịch Vụ cho các hoạt động cho ngành nghề khác theo nhu câu của Khách Hàng, bao gồm nhưng không giới hạn hạn các hoạt động: Thông báo tuỳ chỉnh tới Người Dùng Cuối; Hỗ trợ chăm sóc khách hàng; Thông báo giao dịch; Thông báo khuyến mại;v.vv..
+Để nghiên cứu và phát triển, cải thiện chất lượng Dịch Vụ.
+Hỗ trợ Khách Hàng trong các hoạt động chăm sóc khác hàng và vận hành Dịch Vụ;
+Liên hệ, trao đổi thông tin phục vụ cung cấp và cải thiện chất lượng Dịch Vụ;
+Xử lý yêu cầu, phản hồi hoặc các vấn đề phát sinh liên quan đến việc sử dụng Dịch Vụ;
+Thực hiện các nghĩa vụ theo Thoả thuận sử dụng dịch vụ Zalo Business Solutions và đảm bảo trải nghiệm Dịch Vụ thông suốt cho Khách Hàng.
+Để đảm bảo tuân thủ quy định của pháp luật và đáp ứng cơ sở pháp lý cho các hoạt động cung cấp Dịch Vụ và hoạt động xử lý dữ liệu cá nhân.
+Để đáp ứng các thủ tục pháp lý hoặc để tuân thủ hoặc theo quy định của pháp luật hiện hành và các yêu cầu của cơ quan nhà nước có thẩm quyền;
+Để lập số liệu thống kê và nghiên cứu đáp ứng yêu cầu báo cáo và/hoặc duy trì sổ sách nội bộ hoặc theo quy chế.
+Điều 6. BẢO VỆ VÀ LƯU TRỮ DỮ LIỆU CÁ NHÂN
+Chúng tôi thực hiện các biện pháp bảo mật khác nhau và luôn nỗ lực để đảm bảo sự an toàn của Dữ Liệu Cá Nhân của Chủ Thể Dữ Liệu Cá Nhân trên các hệ thống của mình. Dữ Liệu Cá Nhân của Chủ Thể Dữ Liệu Cá Nhân được lưu trữ tại các mạng bảo mật, phù hợp theo quy định của pháp luật và chỉ có thể được truy cập bởi một số nhân viên có quyền truy cập đặc biệt đến các hệ thống của Chúng tôi. Tuy nhiên, chắc chắn không thể có sự bảo đảm an toàn tuyệt đối.
+Chúng tôi sẽ duy trì lưu trữ, xử lý Dữ Liệu Cá Nhân tuân theo các quy định của pháp luật về bảo vệ dữ liệu, bảo vệ dữ liệu cá nhân và/hoặc các quy định pháp luật hiện hành khác.
+Chúng tôi sẽ hoàn trả, xóa, huỷ Dữ Liệu Cá Nhân của Chủ Thể Dữ Liệu Cá Nhân khi có lý do hợp lý để xác định rằng (i) việc lưu trữ Dữ Liệu Cá Nhân đó không còn phục vụ mục đích xử lý Dữ Liệu Cá Nhân; (ii) việc lưu trữ không còn cần thiết cho bất kỳ mục đích hợp pháp hay mục đích kinh doanh nào; (iii) không còn các lợi ích hợp pháp nào khác để tiếp tục lưu giữ các Dữ Liệu Cá Nhân này; (iv) theo quy định tại Thỏa thuận sử dụng dịch vụ Zalo Business Solutions giao kết với Khách Hàng; (v) theo quyết định của cơ quan nhà nước có thẩm quyền; hoặc (vi) theo quy định của pháp luật.
+Điều 7. QUYỀN CỦA CHỦ THỂ DỮ LIỆU CÁ NHÂN
+Rút lại sự đồng ý, hạn chế và phản đối xử lý Dữ Liệu Cá Nhân, xóa Dữ Liệu Cá Nhân:
+Trong phạm vi Dịch Vụ, trường hợp Chúng tôi nhận được yêu cầu từ Chủ Thể Dữ Liệu Cá Nhân hoặc từ các bên liên quan, Chúng tôi sẽ thông báo cho Khách Hàng về yêu cầu ngừng xử lý, hạn chế, phản đối và xóa Dữ Liệu Cá Nhân của Chủ Thể Dữ Liệu Cá Nhân. Chúng tôi sẽ thực hiện các yêu cầu này khi có sự chấp thuận và có hướng dẫn cụ thể của Khách Hàng.
+Trường hợp Chúng tôi nhận được yêu cầu hợp lệ từ Khách Hàng, Chúng tôi sẽ thực hiện theo các yêu cầu đó.
+Chỉnh sửa hoặc yêu cầu chỉnh sửa Dữ Liệu Cá Nhân
+Chủ Thể Dữ Liệu Cá Nhân có quyền yêu cầu chỉnh sửa Dữ Liệu Cá Nhân thông qua Khách Hàng. Chúng tôi sẽ thực hiện việc chỉnh sửa Dữ Liệu Cá Nhân khi có thông báo hợp lệ từ Khách Hàng và sự đồng ý từ Chủ Thể Dữ Liệu Cá Nhân.
+Chúng tôi bảo lưu quyền từ chối sửa Dữ Liệu Cá Nhân của Chủ Thể Dữ Liệu Cá Nhân trong các trường hợp (i) không nhận được thông báo hợp lệ từ Khách Hàng; hoặc (ii) việc chỉnh sửa Dữ Liệu Cá Nhân vi phạm quy định pháp luật.
+Quyền cung cấp Dữ Liệu Cá Nhân: Chúng tôi thực hiện cung cấp Dữ Liệu Cá Nhân cho Chủ Thể Dữ Liệu Cá Nhân theo quy định của pháp luật, khi và chỉ khi có xác nhận bằng văn bản từ Khách Hàng kèm các tài liệu chứng minh liên quan.
+Các quyền khác của chủ thể Dữ Liệu Cá Nhân theo quy định pháp luật.
+Điều 8. PHƯƠNG THỨC LIÊN HỆ
+Nếu Người Dùng Cuối hoặc Khách Hàng có bất kỳ thắc mắc hoặc câu hỏi nào về Chính sách này, vui lòng liên hệ với Chúng tôi tại support@zalo.solutions hoặc văn phòng Chúng tôi tại địa chỉ Z06 Đường Số 13, Phường Tân Thuận, TP. Hồ Chí Minh.
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

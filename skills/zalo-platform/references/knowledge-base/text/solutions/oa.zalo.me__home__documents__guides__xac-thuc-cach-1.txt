@@ -1,0 +1,74 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/xac-thuc-cach-1
+# FETCHED: 2026-08-06
+# TITLE: Xác thực theo tên doanh nghiệp, hoặc tên gian hàng/ cửa hàng/ địa điểm kinh doanh | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Khởi tạo Zalo Official Account
+Lựa chọn danh mục
+Hướng dẫn đặt tên Zalo OA
+Lý do OA bị khóa và cách khắc phục
+Hướng dẫn xác thực
+Các hình thức xác thực
+Xác thực theo tên doanh nghiệp, hoặc tên gian hàng/ cửa hàng/ địa điểm kinh doanh
+Xác thực theo tên thương hiệu/ nhãn hiệu đã được cấp văn bằng bảo hộ bởi Cục Sở hữu trí tuệ
+Xác thực theo tên khác, hoặc doanh nghiệp thuộc ngành nghề kinh doanh có điều kiện
+Hồ sơ xác thực
+Xác thực theo lĩnh vực hoạt động
+Xử lý hồ sơ bị từ chối
+Hỗ trợ tạo, xác thực, cài đặt OA cho chuỗi cửa hàng
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Nhà phát triển
+Đăng ký và Xác thực
+Các hình thức xác thực
+Xác thực theo tên doanh nghiệp, hoặc tên gian hàng/ cửa hàng/ địa điểm kinh doanh
+On this page
+Xác thực theo tên doanh nghiệp, hoặc tên gian hàng/ cửa hàng/ địa điểm kinh doanh
+Cách 1: Xác thực theo tên doanh nghiệp, hoặc tên gian hàng/ cửa hàng/ địa điểm kinh doanh của doanh nghiệp
+Áp dụng đối với:
+Tên OA là tên doanh nghiệp theo Giấy chứng nhận đăng ký kinh doanh hoặc Giấy chứng nhận đăng ký hộ kinh doanh.
+Ví dụ tên OA cần có tiền tố/ hậu tố về tên công ty: CTCP NGUYỄN TRẦN LÊ; Công ty Nguyễn Trần Lê
+Tên OA là tên gian hàng/ cửa hàng/ địa điểm kinh doanh thuộc sở hữu doanh nghiệp.
+Ví dụ tên OA cần có tiền tố/ hậu tố về tên cửa hàng: Shop BéBiBo; Cửa hàng BéBiBo
+Không áp dụng đối với:
+Tên OA là tên thương hiệu/ nhãn hiệu đã được cấp văn bằng bảo hộ bởi Cục Sở hữu trí tuệ, vui lòng xác thực theo Cách 2.
+Doanh nghiệp hoạt động trong ngành nghề đầu tư, kinh doanh có điều kiện theo chính sách, vui lòng xác thực theo Cách 3.
+Tên OA là tên sản phẩm/ dịch vụ của doanh nghiệp hoặc doanh nghiệp đóng vai trò là nhà phân phối, đại lý/ tổng đại lý, vui lòng xác thực theo Cách 3.
+Bộ hồ sơ xác thực theo Cách 1​
+[Công văn xác thực (CVXT) theo mẫu tải tại đây.]
+Với Bộ hồ sơ 1A: Dựa trên thông tin mà admin OA cung cấp, Người đại diện pháp luật của doanh nghiệp sẽ nhận được yêu cầu xác nhận qua Zalo để đồng ý việc tạo và xác thực tài khoản OA.
+Nhấn vào link để nộp bộ hồ sơ xác thực 1A: https://go.zalo.me/nop_bo_ho_so_1A
+Nhấn vào link để nộp bộ hồ sơ xác thực 1B: https://go.zalo.me/nop_bo_ho_so_1B
+Lưu ý:
+Nếu doanh nghiệp là chi nhánh hoặc địa điểm kinh doanh, vui lòng đặt tên OA theo định dạng: [Tên doanh nghiệp] + [Vị trí địa điểm kinh doanh].
+Ví dụ: ABC Mart Vũng Tàu, Công ty XYZ chi nhánh Quận 1.
+Nếu doanh nghiệp có tên riêng mang ý nghĩa rộng, vui lòng thêm tiền tố/ hậu tố như: Công ty, Doanh nghiệp, Hộ kinh doanh/HKD, Cửa hàng,...
+Ví dụ: Công ty Thiết bị Miền Nam; Cửa hàng Thiết bị miền Nam.
+Giấy chứng nhận Đăng ký Hộ kinh doanh chỉ dùng xác thực cho 01 OA và không hỗ trợ xác thực theo Công văn;
+Các giấy tờ cần đầy đủ các trang thông tin và có dấu mộc, chữ ký của cơ quan cấp.
+Các cách xác thực tài khoản OA doanh nghiệp khác: ​
+[Vui lòng nhấn vào từng tiêu đề để được chuyển tiếp tới trang hướng dẫn chi tiết]
+Cách 2: Xác thực theo tên thương hiệu/ nhãn hiệu đã được cấp văn bằng bảo hộ bởi Cục Sở hữu trí tuệ
+Tên OA là tên thương hiệu/ nhãn hiệu đã được cấp văn bằng bảo hộ bởi Cục Sở hữu trí tuệ.
+Cách 3: Xác thực theo tên khác, hoặc doanh nghiệp thuộc ngành nghề kinh doanh có điều kiện
+Doanh nghiệp hoạt động trong ngành nghề đầu tư, kinh doanh có điều kiện theo chính sách.
+Tên OA là tên sản phẩm/ dịch vụ của doanh nghiệp hoặc doanh nghiệp đóng vai trò là nhà phân phối, đại lý/ tổng đại lý.
+Tham khảo hướng dẫn thao tác gửi hồ sơ xác thực OA tại đây
+----------------------------------
+Nếu có thắc mắc khác hoặc khiếu nại, vui lòng gửi email đến oa@zalo.me để được giải đáp.
+Previous
+Hướng dẫn xác thực
+Next
+Xác thực theo tên thương hiệu/ nhãn hiệu đã được cấp văn bằng bảo hộ bởi Cục Sở hữu trí tuệ
+Bộ hồ sơ xác thực theo Cách 1
+Các cách xác thực tài khoản OA doanh nghiệp khác:

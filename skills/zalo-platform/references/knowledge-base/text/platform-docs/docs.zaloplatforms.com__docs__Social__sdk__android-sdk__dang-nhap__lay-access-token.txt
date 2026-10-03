@@ -1,0 +1,110 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/Social/sdk/android-sdk/dang-nhap/lay-access-token
+# FETCHED: 2026-08-06
+# TITLE: Lấy Access Token | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Social API
+SDK
+Android SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại Refresh Token
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+iOS SDK
+Tổng quan
+Tích hợp
+Thay đổi quan trọng trên SDK V4
+XCode
+Đăng nhập
+Đăng nhập
+Lấy Access Token
+Xác minh lại RefreshToken
+Đăng xuất
+Open API
+Lấy thông tin profile
+References
+Câu hỏi thường gặp
+Mã lỗi
+Social Plugin
+Lấy Access Token
+Ở V4 SDK sẽ cung cấp 2 api để app lấy access token sau khi đã login
+Lấy bằng Oauth Code: App dùng oauthCode SDK trả về ở bước Login
+ZaloSDK.Instance.getAccessTokenByOAuthCode( Context ctx,String oacode, String codeVerifier, new ZaloOpenAPICallback() {
+@Override
+public void onResult(JSONObject data) {
+int err = data.optInt("error");
+if (err == 0) {
+//clearOauthCodeInfo(); //clear used oacode
+access_token = data.optString("access_token");
+refresh_token = data.optString("refresh_token");
+long expires_in = Long.parseLong(data.optString("expires_in"));
+//Store data token in app cache
+....
+}
+}
+});
+Tham số:
+ctx: application context
+oacode: code sau khi login
+codeVerifier: code app tự gen. Tham khảo tại đây
+callback: override method onResult để nhận json trả về.
+Data trả về:
+access_token: token để gọi api.
+refresh_token: token để làm mới access_token. Thời gian 3 tháng. Sau khi hết hiệu lực, đi lại flow login mới. Xác minh refresh token bằng api tại đây
+expires_in: thời gian hiệu lực của access_token (default 3600s)
+Lưu ý: cần lưu lại Refresh Token để lấy lại AccessToken sau khi AccessToken hết hạn. Lấy bằng Refresh Token:
+ZaloSDK.Instance.getAccessTokenByRefreshToken(Context ctx,String refresh_token, new ZaloOpenAPICallback() {
+@Override
+public void onResult(JSONObject data) {
+int err = data.optInt("error");
+if (err == 0) {
+access_token = data.optString("access_token");
+refresh_token = data.optString("refresh_token");
+long expires_in = Long.parseLong(data.optString("expires_in"));
+//Update new data token in app cache
+....
+}
+}
+});
+Tham số:
+ctx: application context
+refreshToken: token lấy từ app cache.
+callback: override method onResult để nhận json trả về.
+Lưu ý: RefreshToken chỉ sử dụng để lấy AccessToken được một lần duy nhất. Sau khi lấy AccessToken xong thì cần lưu lại RefreshToken mới được trả về kèm với AccessToken.
+Trước
+Đăng nhập
+Kế tiếp
+Xác minh lại Refresh Token
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

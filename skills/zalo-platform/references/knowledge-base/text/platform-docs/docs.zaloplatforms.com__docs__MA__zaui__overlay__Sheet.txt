@@ -1,0 +1,327 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/overlay/Sheet
+# FETCHED: 2026-08-06
+# TITLE: Sheet | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Sheet
+Cập nhật lần cuối:5/8/2026
+import { Sheet } from "zmp-ui";
+Dùng để hiển thị thông tin bổ sung hoặc để người dùng thực hiện một số hành động phụ liên quan đến nội dung chính trên màn hình, tiếp tục sử dụng tiếp một tính năng của ứng dụng
+Hướng dẫn sử dụng
+Tiêu chuẩn thiết kế
+Ví dụ​
+Bảng thuộc tính​
+SheetProps​
+Property
+Type
+Required
+Description
+mask
+boolean
+No
+Mask là một lớp overlay màu xám được phủ lên các thành phần bên dưới hộp thoại của picker, ngăn không cho người dùng tương tác với các nội dung đó và tập trung vào hộp thoại được mở. (default: true)
+afterClose
+() => void
+No
+Callback được gọi sau khi sheet được đóng.
+onClose
+(e: React.SyntheticEvent) => void
+No
+Callback được gọi khi người dùng yêu cầu đóng sheet. Cần phải cập nhật lại giá trị của `visible` nếu có truyền vào trong callback này.
+maskClosable
+boolean
+No
+Cho phép tự động đóng sheet khi click vào mask. (default: true)
+visible
+boolean
+No
+Trạng thái mở hay đóng của sheet.
+Cần phải sử dụng cùng với `onClose` để cập nhật lại giá trị của `visible` khi người dùng yêu cầu đóng sheet, nếu không sheet sẽ không đóng được. (default: false)
+title
+string
+No
+Tiêu đề của sheet, hiển thị ở phía trên cùng.
+modalStyle
+React.CSSProperties
+No
+Inline style của sheet.
+maskStyle
+React.CSSProperties
+No
+Inline style của mask.
+modalClassName
+string
+No
+CSS class của sheet.
+maskClassName
+string
+No
+CSS class của mask.
+width
+string | number
+No
+Chiều rộng của sheet. Nếu không thiết lập, sheet sẽ có chiều rộng mặc định là toàn màn hình.
+height
+string | number
+No
+Chiều cao của sheet. Nếu không thiết lập, sheet sẽ có chiều cao mặc định theo nội dung.
+children
+React.ReactNode
+No
+Nội dung cần được hiển thị bên trong bottom sheet.
+zIndex
+number
+No
+Độ sâu của sheet, dùng để xác định thứ tự hiển thị của sheet đối với các phần tử lơ lửng khác nếu có.
+handler
+boolean
+No
+Sheet handler là một thanh màu đen nằm ngang ở phía trên cùng của sheet, dùng để kéo sheet lên hoặc xuống. (default: true)
+autoHeight
+boolean
+No
+Tự động điều chỉnh chiều cao của sheet theo nội dung. (default: false)
+contentRef
+React.MutableRefObject
+No
+Tham chiếu đến phần tử chứa nội dung của sheet trên cây DOM.
+swipeToClose
+boolean
+No
+Cho phép người dùng đóng sheet bằng thao tác vuốt xuống trên nội dung của sheet. (default: true)
+snapPoints
+number[] | ((props: { sheetModalHeight: number }) => number[])
+No
+Khai báo các snap points của sheet. Snap points là các điểm mà tại đó sheet sẽ dừng lại khi người dùng kéo lên hoặc xuống. Số lượng snap points là không giới hạn.
+Mỗi snap point có giá trị từ 0 với 1 với 0 là khi sheet hoàn toàn mở và 1 là khi sheet hoàn toàn đóng. Bên cạnh truyền snap point dưới dạng một số cố định, các hàm để tính toán các snap points dựa trên chiều cao của sheet cũng có thể được truyền vào.
+Không giới hạn số lượng snap points.
+defaultSnapPoint
+number
+No
+Snap point mặc định khi mở sheet. Giá trị được truyền vào dưới dạng index trong mảng `snapPoints`.
+onSnap
+(snapPoint: number) => void
+No
+Callback được gọi khi sheet được snap đến một snap point mới.
+unmountOnClose
+boolean
+No
+Mặc định khi người dùng đóng sheet, giao diện của nó vẫn còn được render trong DOM và chỉ bị ẩn đi. Thiết lập này cho phép gỡ sheet ra khỏi cây DOM hoàn toàn sau khi đóng.
+Thiết lập này có thể giúp giảm bộ nhớ được sử dụng trong trường hợp sheet có nội dung lớn. Tuy nhiên, khi sheet được mở lại, tất cả nội dung sẽ phải render lại từ đầu. (default: false)
+SheetContentProps​
+Property
+Type
+Required
+Description
+title
+string
+No
+Tiêu đề của sheet, hiển thị ở phía trên cùng.
+children
+React.ReactNode
+No
+Nội dung cần được hiển thị bên trong bottom sheet.
+ariaId
+string
+No
+onVisibleChanged
+(visible: boolean) => void
+No
+Callback được gọi khi trạng thái hiển thị của sheet thay đổi.
+onMouseDown
+React.MouseEventHandler
+No
+onMouseUp
+React.MouseEventHandler
+No
+modalRef
+React.MutableRefObject
+No
+Tham chiếu đến phần tử chứa nội dung của sheet trên cây DOM.
+SheetRef​
+Property
+Type
+Required
+Description
+snapTo
+(snapPoint: number) => void
+No
+Hàm dùng để snap đến một snap point đã khai báo. Xem thêm về snapPoints của `Sheet`.
+sheet
+HTMLDivElement
+No
+Trỏ đến phần tử của sheet trên cây DOM
+Sheet​
+Sheet là một khuôn chứa các items và content bổ sung, được neo bên dưới màn hình, nội dung bên trong có thể được bố trí theo dạng list, carousel hoặc grid. Các Items và content có thể bao gồm text, image, icon, button, selections, v.v...
+Usage​
+Cần một danh sách các lựa chọn hoặc cài đặt mở rộng
+Cần một bảng hiển thị nội dung bổ sung, nhưng sau đó có thể expand hoặc collapse trên màn hình
+Behavior​
+Display​
+Bottom sheet sẽ có 3 mức hiển thị, Initial appearance là bắt buộc, tuỳ theo
+nhu cầu sử dụng mà sheet sẽ có thêm mức expand và collapse
+Initial appearance (Required): Chiều cao ban đầu khi sheet vừa được mở lên
+Expanded sheet (Optional): Chiều cao tối đa của sheet sau khi được mở rộng
+Collapsed sheet (Optional): Chiều cao tối thiểu của sheet sau khi được thu
+gọn Mức giới hạn = Screen height - Status Bar
+Display
+Initial appearance
+•
+Để đảm bảo việc có thể tương tác trở lại với nội dung chính, khi bắt đầu mở:
+• Default sheet height = 50% screen height
+• Tuỳ theo trường hợp thì sheet height = custom (% screen height)
+•
+Có thể chọn sheet height = hug content (trong trường hợp này, không thể có
+dạng expand/collapse)
+•
+Không cho phép scroll inside khi chưa đạt
+mức giới hạn
+Expanded sheet
+Cao hơn so với khi vừa được mở, và là mức cao tối đa:
+Default max height = Screen height - Status Bar (mức giới hạn)
+Tuỳ theo trường hợp thì sheet height = custom (% screen height)
+Collapsed sheet
+Có thể dismiss hay không tuỳ vào nhu cầu sử dụng
+Có thể thêm Button để expand về kích thước ban đầu
+Default collapsed height = 20% screen height
+Tuỳ theo trường hợp thì collapsed height = custom (% screen height)
+Hidden sheet
+Sheet vẫn tồn tại nhưng không xuất hiện trên màn hình
+Anatomy​
+Các Content và thành phần trên Header có thể thay đổi tuỳ theo trường hợp:
+Message Reaction
+Post Reaction & Comment
+Menu Actions
+Login History
+Message
+Phonebook
+Post
+Selection List
+...
+Specs​
+Padding and spacing
+Padding top = 10px
+Padding left, right, bottom = 16px
+Spacing from handle to header = 8px
+Spacing from header to content = 16px
+Nếu content đã có sẵn padding
+Sheet padding = 0px
+Spacing from header to content = 0px
+Radius = 16px
+Type​
+Supplementary Bottom Sheet​
+Usage
+Giúp hiển thị bổ sung items hoặc content cho nội dung chính của màn hình, trong khi người dùng vẫn có thể tương tác với nội dung chính.
+Behavior
+Không thể bị dismiss khi tương tác với nội dung chính
+Không nên mở lên từ một Bottom Sheet khác
+Modal Bottom Sheet​
+Supplementary Bottom Sheet​
+Usage
+Giúp hiển thị một bảng với các tương tác, hoặc nội dung mô tả dài hơn. Sẽ bị dismiss khi tương tác với nội dung chính.
+Behavior
+Luôn bị dismiss khi tương tác với nội dung chính
+Sẽ không bao giờ có thể collapse
+List Bottom Sheet​
+List Bottom Sheet dùng để thay thế native sheet từ Android và iOS
+Display
+Sheet height = hug content
+Không có trạng thái expand hay collapse
+Padding bottom = 32px
+Type
+Default List: Dùng khi các danh sách các lựa chọn hoặc setting bình thường
+Section List: Dùng khi các danh sách được chia làm nhiều sections
+Trước
+Modal
+Kế tiếp
+ActionSheet
+Ví dụ
+Bảng thuộc tính
+SheetProps
+SheetContentProps
+SheetRef
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

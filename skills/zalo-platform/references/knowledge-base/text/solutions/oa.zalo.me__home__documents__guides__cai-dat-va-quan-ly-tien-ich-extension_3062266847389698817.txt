@@ -1,0 +1,74 @@
+# SOURCE: https://oa.zalo.me/home/documents/guides/cai-dat-va-quan-ly-tien-ich-extension_3062266847389698817
+# FETCHED: 2026-08-06
+# TITLE: Cài đặt và quản lý Tiện ích (Extension) | Zalo Official Account
+
+Skip to main content
+HƯỚNG DẪN VẬN HÀNH
+Đăng ký và Xác thực
+Thanh toán
+Thiết lập tài khoản OA
+Quản lý nội dung
+Tin nhắn
+Công cụ gửi tin
+Gọi thoại
+Quản lý hội thoại
+Nhóm Chat GMF
+Tối ưu vận hành
+Mở rộng
+Cài đặt và quản lý Tiện ích (Extension)
+Nhà phát triển
+Mở rộng
+Cài đặt và quản lý Tiện ích (Extension)
+On this page
+Cài đặt và quản lý Tiện ích (Extension)
+Tiện ích (Extension) phục vụ cho các hoạt động, tác vụ gắn liền với nền tảng Zalo OA, giúp doanh nghiệp ứng dụng Zalo OA hiệu quả.
+Tiện ích do Nhà phát triển Tiện ích (Extension Developer - ED) phát triển và được Zalo OA kiểm duyệt xuất bản.
+⚠ Lưu ý: Để sử dụng tính năng này, OA cần đăng ký Gói dịch vụ phù hợp. Chi tiết vui lòng xem tại đây.
+Quý Doanh nghiệp vui lòng tham khảo Quy định sử dụng Tiện ích tại đây trước khi tiến hành cài đặt và sử dụng.
+I. Thanh toán và cài đặt Tiện ích​
+Việc thanh toán Tiện ích được thực hiện qua tài khoản ZBS liên kết với tài khoản OA. Vui lòng tham khảo điều kiện và các bước thao tác trong các hướng dẫn sau:
+Hướng dẫn tạo ZBS Account tại đây.
+Hướng dẫn liên kết OA ID với ZBS Account tại đây.
+Hướng dẫn nạp tiền vào ZBS Account tại đây.
+Quản trị viên OA thực hiện theo các thao tác sau:​
+Bước 1: Truy cập trang Official Account https://oa.zalo.me/manage/oa và chọn OA.
+Bước 2: Chọn mục Tiện ích ➞ Khám phá (hoặc truy cập tại oa.zalo.me/manage/extension)
+Bước 3: Chọn "Tìm hiểu thêm" với Tiện ích mà tài khoản OA muốn tìm hiểu và cài đặt.
+⚠ Lưu ý: Vui lòng tìm hiểu kỹ tính năng, chi phí, điều khoản sử dụng, quản lý cấp quyền và các thông tin của Tiện ích trước khi tiến hành cài đặt và sử dụng.
+Bước 4: Chọn Cài đặt và Thanh toán ➞ Thanh toán
+Bước 5: Tại bước Quản lý cài đặt, chọn “Cấp quyền” cho Tiện ích.
+→ OA cần cấp quyền cho Tiện ích để có thể sử dụng các tính năng mà Tiện ích cung cấp.
+II. Quản lý Tiện ích đã cài đặt​
+⚠ Lưu ý: Chỉ Quản trị viên của OA có quyền truy cập và thao tác tại trang Quản lý cài đặt.
+Quản lý Gói Tiện ích​
+Cung cấp thông tin về Trạng thái và thời gian hiệu lực của Tiện ích.
+Nút Bật/Tắt gia hạn tự động Gói Tiện ích:
+Nếu BẬT gia hạn tự động, hệ thống sẽ tự động gia hạn khi đến ngày hết hạn và trừ tiền tài khoản ZBS đang liên kết với OA. Trường hợp tại ngày gia hạn mà tài khoản ZBS không đủ số dư thanh toán, Tiện ích của OA sẽ trở về trạng thái hết hạn.
+Nếu TẮT gia hạn tự động, sau khi hết hạn gói Tiện ích sẽ không được gia hạn tự động, Tiện ích cũng sẽ trở về trạng thái hết hạn nếu như OA Admin không Gia hạn thủ công.
+Quản trị viên OA chọn Gia hạn để gia hạn Gói Tiện ích và tiếp tục sử dụng.
+⚠ Lưu ý:
+Tiện ích sẽ ngưng hoạt động khi hết thời hạn sử dụng.
+OA cần phải Thanh toán thành công hoặc Gia hạn (đang trong thời hạn sử dụng tiện ích) thì mới Bật/Tắt được nút gia hạn tự động​.
+Quản lý cấp quyền​
+Xem quyền đã cấp: Xem lại các quyền đã cấp.
+Cập nhật quyền: OA cần cấp lại quyền để sử dụng đầy đủ chức năng khi Extension có thay đổi quyền.
+Thông tin Tiện ích​
+Thông tin chi tiết về Tiện ích và thông tin liên hệ Nhà phát triển Tiện ích.
+Tên Tiện ích
+Mô tả
+ID Tiện ích
+Ngày cài đặt
+Chính sách
+Điều khoản
+Liên hệ: Quản trị viên OA có thể liên hệ trực tiếp đến Nhà phát triển khi Tiện ích gặp các sự cố về kỹ thuật cần hướng dẫn.
+Xem đầy đủ: Xem đầy đủ các thông tin về Extension.
+Gỡ cài đặt: Để ngưng sử dụng Tiện ích, Quản trị viên tiến hành Gỡ cài đặt.
+⚠ Lưu ý: Vui lòng cân nhắc cẩn thận, Quản trị viên OA không thể hoàn tác sau khi đã Gỡ cài đặt. Chi phí đã thanh toán không được hoàn trả.
+----------------------------
+Nếu có thắc mắc khác, vui lòng cung cấp OA ID và gửi email hoặc chat với BQT ZOA để được phản hồi sớm nhất.
+Previous
+Mini App - OA Manager trên điện thoại
+Next
+Khởi tạo ứng dụng và cấp quyền
+I. Thanh toán và cài đặt Tiện ích
+II. Quản lý Tiện ích đã cài đặt

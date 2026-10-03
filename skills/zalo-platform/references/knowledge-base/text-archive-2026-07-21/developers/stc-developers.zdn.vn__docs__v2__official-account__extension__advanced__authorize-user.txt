@@ -1,0 +1,128 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/extension/advanced/authorize-user
+# FETCHED: 2026-07-21
+# TITLE: Phương thức xác thực user | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Giới thiệu
+Bắt đầu
+Đăng ký phát triển Extension
+Khởi tạo và Phát triển ZOA Extension
+Kiểm thử Extension trên OA test
+Extension zone
+Figma flow demo
+Nâng cao
+zoaSdk functions
+app-config.json
+Phương thức xác thực user
+Lấy danh sách admin
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Tiện ích (Zalo OA Extension)Nâng caoPhương thức xác thực user
+Phương thức xác thực user
+
+Việc xác thực user được thực hiện thông qua việc gọi getSessionInfo. Khi đó, hệ thống trả về response như sau:
+
+{
+  "data": {
+    "admin_id": "2610657154291697119",
+    "oa_id": "937065556130162365",
+    "timestamp": 1726111886460,
+    "user_id": "2610657154291697119"
+  },
+  "hmac": "53d2db4972303a9a92e2632f329dc5afc8cae0835f360010e1311665b7171366"
+}
+
+
+Trong đó:
+
+data: Đây là dữ liệu chính mà hệ thống trả về, bao gồm các thông tin như oa_id, admin_id, timestamp...
+hmac: Đây là chuỗi hash mà hệ thống tạo ra dựa trên data và thông tin secretKey của extension. hmac được sử dụng để đảm bảo rằng dữ liệu không bị thay đổi trong quá trình truyền tải.
+Phương thức xác thực dữ liệu​
+
+Hệ thống tạo ra hmac theo công thức:
+
+hmac = sha256(extensionId + data + secretKey)
+
+
+Trong đó:
+
+extensionId: ID của ứng dụng.
+data: Dữ liệu data hệ thống trả về. Lưu ý: data cần được sắp xếp theo thứ tự tên trường tăng dần trước khi đưa vào hàm hash.
+secretKey: Khóa bí mật chỉ của ứng dụng.
+Hướng dẫn xác thực dữ liệu​
+Các bước thực hiện​
+Sắp xếp các trường trong data
+Tạo HMAC, sử dụng công thức sau:
+hmac = sha256(extensionId + jsonData + secretKey)
+
+So sánh hmac Sau khi tạo ra hmac, so sánh nó với giá trị hmac mà hệ thống trả về. Nếu hai giá trị này khớp nhau, dữ liệu là hợp lệ và không bị chỉnh sửa.
+Code ví dụ (Java)​
+public class HMACValidator {
+
+    public static String sortJsonByField(String jsonData) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
+        JsonNode objectNode = mapper.readTree(jsonData);
+
+        TreeMap<String, Object> sortedMap = new TreeMap<>();
+        objectNode.fields().forEachRemaining(entry -> sortedMap.put(entry.getKey(), entry.getValue()));
+
+        return mapper.writeValueAsString(sortedMap);
+    }
+
+    public static String calculateHMAC(String extensionId, String jsonData, String secretKey) throws Exception {
+        jsonData = sortJsonByField(jsonData);
+        String message = extensionId + jsonData + secretKey;
+
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(message.getBytes(StandardCharsets.UTF_8));
+
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : hash) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+
+        return hexString.toString();
+    }
+}
+
+Trước
+app-config.json
+Kế tiếp
+Lấy danh sách admin
+Phương thức xác thực dữ liệu
+Hướng dẫn xác thực dữ liệu
+Các bước thực hiện
+Code ví dụ (Java)
+©2023 Zalo for Developers

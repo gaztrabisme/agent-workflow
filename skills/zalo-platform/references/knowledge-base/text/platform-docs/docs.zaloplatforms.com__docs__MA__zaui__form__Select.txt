@@ -1,0 +1,214 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/zaui/form/Select
+# FETCHED: 2026-08-06
+# TITLE: Select | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+v1.11.0(Latest)
+Overview
+Introduction
+Installation
+Principles
+Release Notes
+Foundation
+Colors
+Corner Radius
+Typography
+Header
+Icons
+Spacing
+Mini App Logo
+Level Specification
+Shadow
+Layout
+App
+Page
+Header
+BottomNavigation
+Tabs
+ZMPRouter
+AnimationRoutes
+Display
+Avatar
+Calendar
+Icon
+ImageViewer
+List
+Progress
+Spinner
+Swiper
+Text
+Form
+Button
+Input
+Password
+Search
+TextArea
+OTP
+Select
+Picker
+DatePicker
+Switch
+Checkbox
+Radio
+Slider
+Overlay
+Modal
+Sheet
+ActionSheet
+SnackbarProvider
+DevTools
+Open APIs
+eKYC APIs
+Checkout SDK
+Trên trang này
+Select
+Cập nhật lần cuối:5/8/2026
+import { Select } from "zmp-ui";
+Dùng để cho phép người dùng lựa chọn một hoặc nhiều mục trong các nhóm lựa chọn
+Ví dụ​
+Bảng thuộc tính​
+SelectProps​
+Property
+Type
+Required
+Description
+value
+SelectValue | SelectValue[]
+No
+Mảng các `value` của các `Option` được chọn (nếu `multiple` được bật) hoặc `value` của `Option` được chọn đối với chế độ single select.
+Cần được sử dụng cùng với `onChange` để cập nhật giá trị.
+defaultValue
+SelectValue | SelectValue[]
+No
+Tương tự như `value`, nhưng được sử dụng để thiết lập giá trị mặc định cho `Select`. Thay đổi giá trị này sau khi render sẽ không có tác dụng.
+multiple
+boolean
+No
+Cho phép chọn nhiều lựa chọn cùng một lúc. (default: false)
+children
+ReactNode
+No
+Các `Option` được sử dụng bên trong `Select`.
+defaultOpen
+boolean
+No
+Mặc định mở hộp thoại chọn lựa hay không. Thay đổi giá trị này sau khi render sẽ không có tác dụng. (default: false)
+disabled
+boolean
+No
+Trạng thái vô hiệu hoá của `Select`, cũng như các `Option` bên trong nó. (default: false)
+onChange
+(selected: SelectValueType | SelectValueType[]) => void
+No
+Callback được gọi khi giá trị của `Select` thay đổi. Tham số truyền vào là giá trị mới của `Select`, có thể là một mảng nếu `multiple` được bật.
+Cần cập nhật lại giá trị của `value` nếu có truyền vào.
+onVisibilityChange
+(visibilityState: boolean) => void
+No
+Callback được gọi khi hộp thoại chọn lựa được mở, cụ thể là sau người dùng nhấn vào input trigger.
+label
+string | ReactNode
+No
+Nội dung được hiển thị trên các nhãn của `Select`. Các vị trí được hiển thị bao gồm: phía trên input trigger và tiêu đề ở đầu hộp thoại chọn lựa.
+helperText
+string
+No
+Helper text là phần văn bản ngắn nằm dưới các ô nhập liệu. Nội dung của các văn bản này thường chứa thông tin hướng dẫn giúp người dùng hiểu rõ hơn về tác dụng hoặc mô tả định dạng của dữ liệu được khuyến khích nhập vào.
+errorText
+string
+No
+Error text là phần văn bản ngắn nằm dưới các ô nhập liệu. Nội dung của các văn bản này thường chứa thông tin cảnh báo về lỗi của dữ liệu được nhập vào, cũng như hướng dẫn cách khắc phục.
+`errorText` sẽ được hiển thị thay cho `helperText` khi `status` có giá trị là `error`.
+status
+InputStatus
+No
+Trạng thái hợp lệ của input. Nếu là `error`, input sẽ có màu cảnh báo kèm theo `errorText`, ngược lại input sẽ có màu trung hoà kèm theo `helperText`.
+name
+string
+No
+Tên định danh của `Select`. Thường được sử dụng để phân biệt các input với nhau trong cùng một form.
+placeholder
+string
+No
+Placeholder của input. Được hiển thị khi chưa có option nào được chọn.
+mask
+boolean
+No
+Mask là một lớp overlay màu xám được phủ lên các thành phần bên dưới hộp thoại, ngăn không cho người dùng tương tác với các nội dung đó và tập trung vào hộp thoại được mở. (default: true)
+maskCloseable
+boolean
+No
+Đóng hộp thoại lựa chọn khi người dùng nhấn vào mask. (default: true)
+closeOnSelect
+boolean
+No
+Tự động đóng hộp thoại lựa chọn khi người dùng chọn xong một lựa chọn. (default: false)
+OptGroupProps​
+Property
+Type
+Required
+Description
+label
+string
+No
+Nhãn của nhóm các option có liên quan, được hiển thị ở phía trên đầu các lựa chọn.
+children
+ReactNode
+No
+Các `Option` cần được nhóm lại với nhau.
+SelectOptionProps​
+Property
+Type
+Required
+Description
+children
+ReactNode
+No
+title
+string
+No
+Nội dung được hiển thị đến người dùng.
+value
+SelectValue
+No
+Giá trị của lựa chọn, được sử dụng để định dang các option đang được chọn bên trong `value` của `Select`.
+disabled
+boolean
+No
+Trạng thái vô hiệu hoá của lựa chọn. Người dùng vẫn có thể thấy được option này, nhưng không chọn nó bên trong `Select`. (default: false)
+Trước
+OTP
+Kế tiếp
+Picker
+Ví dụ
+Bảng thuộc tính
+SelectProps
+OptGroupProps
+SelectOptionProps
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

@@ -1,0 +1,58 @@
+# SOURCE: https://stc-developers.zdn.vn/docs/v2/official-account/noi-dung/tong-quan
+# FETCHED: 2026-07-21
+# TITLE: Tổng quan | Zalo For Developers
+
+Official Account API
+Social API
+Android SDK
+IOS SDK
+Java SDK
+Dotnet SDK
+PHP SDK
+ZNS API
+ZBS Template Message
+Official Account API
+Bắt đầu
+Khám phá
+Tối ưu trải nghiệm khách hàng trong hành trình với doanh nghiệp
+Khởi tạo ứng dụng
+Xác thực và ủy quyền cho Ứng dụng
+Giới thiệu Official Account API và các nhóm Quyền
+Tin nhắn
+Tổng quan
+Tin Tư vấn
+Tin Giao dịch
+Tin Truyền thông
+Các loại tin khác
+Quản lý tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Tổng quan
+Nội dung dạng bài viết
+Nội dung dạng video
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Nội dungTổng quan
+Tổng quan
+LƯU Ý
+
+Hệ thống Article API chỉ hoạt động trên giao thức TLS 1.2 trở lên đảm bảo tính an toàn và bảo mật.
+
+OA OpenAPIs Quản lý Nội dung hỗ trợ doanh nghiệp tạo, xuất bản, cập nhật và quản lý các bài viết và video của (nhiều) OA.
+
+Bên cạnh công cụ APIs, Doanh nghiệp có thể quản lý Nội dung bằng công cụ OA Manager phiên bản web. Xem hướng dẫn tại đây.
+
+MẸO
+
+Sau khi Nội dung được xuất bản, Doanh nghiệp có thể sử dụng kết hợp với tính năng gửi Tin Truyền thông qua Broadcast để đưa nội dung đến trực tiếp với người quan tâm. Hoặc Doanh nghiệp có thể chia sẻ Nội dung đến các kênh truyền thông, marketing, mạng xã hội,… để tăng sức lan tỏa và tăng lượng tiếp cận của khách hàng đến OA.
+
+Trước
+Lấy thông tin Agent, Branch
+Kế tiếp
+Nội dung dạng Bài viết
+©2023 Zalo for Developers

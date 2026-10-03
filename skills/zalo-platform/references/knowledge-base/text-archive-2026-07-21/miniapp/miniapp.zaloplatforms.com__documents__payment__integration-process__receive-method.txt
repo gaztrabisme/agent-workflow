@@ -1,0 +1,53 @@
+# SOURCE: https://miniapp.zaloplatforms.com/documents/payment/integration-process/receive-method/
+# FETCHED: 2026-07-21
+# TITLE: Nhận dữ liệu phương thức thanh toán | Zalo Mini App
+
+Chuyển tới nội dung chính
+Giới Thiệu
+Cấu hình phương thức thanh toán
+Quy trình tích hợp
+Tạo yêu cầu thanh toán
+Nhận dữ liệu phương thức thanh toán
+Nhận kết quả thanh toán
+Với chuyển khoản ngân hàng
+Với các phương thức khác
+Nhận thông tin callback
+APIs
+Hoàn tiền giao dịch
+Phương thức thanh toán riêng
+Giới thiệu
+Cấu hình phương thức riêng
+Nhận thông tin sự kiện thanh toán
+Mã phương thức thanh toán
+Change Log
+Nhận dữ liệu phương thức thanh toán
+Trước
+Kế tiếp
+Cập nhật lần cuối: 8/1/2026
+
+Đối với hai phương thức thanh toán sau khi nhận hàng (COD) và chuyển khoản ngân hàng, ứng dụng cần hiện thực API nhận thông báo khi người dùng chọn một trong hai phương thức này, với các phương thức còn lại thì không cần hiện thực bước này mà chuyển tới bước Nhận dữ liệu kết quả thanh toán.
+
+Chi tiết: tham khảo API: notify
+
+Trước
+Kế tiếp
+
+Mini Apps
+
+Khám phá
+
+Mở Zalo, bấm quét QR để quét
+
+và khám phá Mini Apps trên điện thoại
+
+Community
+
+Cộng đồng nhà phát triển Mini App
+
+Hỗ trợ
+
+Tham gia nhóm Facebook
+
+Điều khoản sử dụng
+
+Chính sách riêng tư

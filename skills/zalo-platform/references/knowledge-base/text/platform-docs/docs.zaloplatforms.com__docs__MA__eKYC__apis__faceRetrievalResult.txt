@@ -1,0 +1,108 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/MA/eKYC/apis/faceRetrievalResult
+# FETCHED: 2026-08-06
+# TITLE: Face Retrieval Result | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+API
+ZaUI Components
+DevTools
+Open APIs
+eKYC APIs
+Introduction
+APIs
+Generate Session ID
+Image Upload
+Image Sanity Check
+Fraud Checking Result
+Logic Status Checking Result
+OCR Result
+Face Matching Result
+Selfie Face Matching Result
+Face Retrieval Result
+Face Search Upload
+Face Search Result
+Get Status Info
+Encryption
+Credentials
+IP Whitelist Policy
+Signature
+Appendix
+Checkout SDK
+Trên trang này
+Face Retrieval Result
+Cập nhật lần cuối:5/8/2026
+API to get the face retrieval result of the uploaded images.
+Request​
+Endpoint: /v1/api/ekyc-verify/result/face-retrieval
+Method: POST
+Header
+Name
+Type
+Required
+Description
+api_key
+string
+yes
+The API key associated with your account to authenticate requests (for development, check the Credentials section).
+Parameters
+Name
+Type
+Required
+Description
+session_id
+string
+yes
+Current session ID.
+Response​
+Status: 200 OK
+Body: JSON
+{
+"code": 0,
+"message": "Successful",
+"data": "<ENCRYPTED_DATA_IN_BASE64>",
+"sign": "8f4642cdb4c555f9a6d5926f4df9b73e44da2e675512d65d44c0a212",
+"request_id": "12345678"
+}
+Field “request_id”: Request's identifier, used for auditing later.
+Field “data”: Decrypt the “data” field as described in the Decrypt response data section to get the JSON object with following fields.
+Name
+Type
+Description
+idnum_validation
+json
+Validation informations against idnumber in idcard. Format: {msg:&lt;string&gt;, status:&lt;number&gt;}
+face_validation
+json
+Validation informations against selfie face. This field does NOT appear if idnum_validation failed. Format: {msg:&lt;string&gt;, status:&lt;number&gt;}
+Field “sign”: The “sign” field is created by encrypted data and a secret key, described in the Signature section.
+Trước
+Selfie Face Matching Result
+Kế tiếp
+Face Search Upload
+Request
+Response
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

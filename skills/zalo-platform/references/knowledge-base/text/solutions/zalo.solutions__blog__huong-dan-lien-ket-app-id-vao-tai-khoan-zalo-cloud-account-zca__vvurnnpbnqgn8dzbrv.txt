@@ -1,0 +1,35 @@
+# SOURCE: https://zalo.solutions/blog/huong-dan-lien-ket-app-id-vao-tai-khoan-zalo-cloud-account-zca/vvurnnpbnqgn8dzbrv
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn liên kết App ID vào tài khoản Zalo Business Solutions Account (ZBS) | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/Hướng dẫn liên kết App ID vào tài khoản Zalo Business Solutions Account (ZBS)
+Hướng dẫn liên kết App ID vào tài khoản Zalo Business Solutions Account (ZBS)
+13 tháng 03, 2026 14:49
+Doanh nghiệp có thể liên kết nhiều ứng dụng (App ID) vào Zalo Business Solutions Account (ZBS) để tối ưu hóa việc quản lý.  Để có thể liên kết, khách hàng cần phải là Quản trị viên/Quản trị viên cao cấp của ZBS và đồng thời là Quản trị viên của ứng dụng. Tiếp theo tiến hành các bước sau đây.
+Bước 1: Truy cập vào tài khoản ZBS tại đây
+Chọn “Cài đặt” ➡"Quản lý tài sản" ➡ “Liên kết ứng dụng” ➡ “Liên kết”
+Các ứng dụng khả dụng sẽ hiển thị ở mục "Liên kết ứng dụng mới". Nếu không tìm thấy ứng dụng cần liên kết, quý khách vui lòng liên hệ Admin của ứng dụng để được cấp quyền Admin.
+Bước 2: Xác nhận và hoàn tất.
+Chọn “Liên kết ứng dụng”
+Tương tự, khách hàng có thể chủ động hủy liên kết App ID bằng cách nhấn “Hủy liên kết” và Xác nhận.
+Tham khảo hướng dẫn quản lý Admin của ZBS  tại đây .
+Xem thêm hướng dẫn nạp tiền vào tài khoản ZBS tại đây.
+Nếu có bất kì yêu cầu hỗ trợ, Quý khách có thể liên hệ với đội ngũ hỗ trợ và chăm sóc khách hàng của chúng tôi qua Biểu Mẫu: Mẫu hỗ trợ Zalo Business Solutions. Chúng tôi sẽ phản hồi Quý khách trong vòng 24 giờ làm việc tiếp theo.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản

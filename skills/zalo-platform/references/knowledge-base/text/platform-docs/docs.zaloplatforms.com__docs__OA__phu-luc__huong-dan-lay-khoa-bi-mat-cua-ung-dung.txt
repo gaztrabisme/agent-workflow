@@ -1,0 +1,64 @@
+# SOURCE: https://docs.zaloplatforms.com/docs/OA/phu-luc/huong-dan-lay-khoa-bi-mat-cua-ung-dung
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key) | Zalo Platform Document Hub
+
+Chuyển tới nội dung chính
+ZZalo Platforms
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Hỏi AI
+Tài liệu
+Mini App PlatformMini App trong ZaloZalo Business SolutionBusiness messagingOpen APIsAPI tích hợp ZaloSocialSocial API, SDK và PluginZalo BotBot hội thoại Zalo
+Cộng đồngLiên hệ
+Hỏi AI
+ZZalo Platforms
+Tài liệuCộng đồngLiên hệ
+Tìm kiếm tài liệu...KHỏi AI
+Giới thiệu
+Bắt đầu
+Tin nhắn
+Nhóm chat - GMF
+Gọi thoại
+Nội dung
+Quản lý
+Webhook
+Tiện ích (Zalo OA Extension)
+Plugin
+Phụ lục
+Mã tài sản (asset_id) là gì?
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Các loại mã sử dụng trong OAuth
+Các tương tác của người dùng với OA
+Giới hạn tốc độ gọi API
+Cấu trúc tham số buttons
+Cấu trúc của tham số elements
+Làm thế nào để tạo chatbot trả lời tự động với Zalo API
+Các trạng thái của video
+Hướng dẫn xác thực domain
+Mã lỗi Official Account API
+V2 (Dừng hỗ trợ OA Doanh nghiệp từ 20/6/2023)
+Trên trang này
+Hướng dẫn lấy khóa bí mật của ứng dụng (App Secret Key)
+Dưới đây là các bước để lấy khóa bí mật của ứng dụng (app secret key).
+Bước 1: Chọn Ứng dụng bạn muốn lấy khóa bí mật​
+Cách 1: chọn ngay tại giao diện thu gọn
+Cách 2: chọn Xem tất cả -> chọn Ứng dụng tạo giao diện danh sách ứng dụng đầy đủ
+Bước 2: Tại mục Cài đặt, click chọn copy secret key​
+Trước
+Mã tài sản (asset_id) là gì?
+Kế tiếp
+Các loại mã sử dụng trong OAuth
+Bước 1: Chọn Ứng dụng bạn muốn lấy khóa bí mật
+Bước 2: Tại mục Cài đặt, click chọn copy secret key
+ZZalo Platforms
+Trao quyền cho các nhà phát triển xây dựng thế hệ ứng dụng tiếp theo cho hàng triệu người dùng.
+Sản phẩm
+Mini App PlatformZalo Business SolutionOpen APIsSocialZalo Bot
+Tài nguyên
+Tài liệuAPI ReferenceSDKs & ToolsChangelog
+Hỗ trợ
+Liên hệ với chúng tôi
+© 2026 Zalo Platforms. All rights reserved.
+Build: 2026-08-06 09:57:04 +07 · 4ccf0c65

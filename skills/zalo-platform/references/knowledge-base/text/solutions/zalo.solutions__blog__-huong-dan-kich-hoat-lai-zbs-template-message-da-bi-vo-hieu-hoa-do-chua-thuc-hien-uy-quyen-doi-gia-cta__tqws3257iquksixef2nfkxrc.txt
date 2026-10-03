@@ -1,0 +1,35 @@
+# SOURCE: https://zalo.solutions/blog/-huong-dan-kich-hoat-lai-zbs-template-message-da-bi-vo-hieu-hoa-do-chua-thuc-hien-uy-quyen-doi-gia-cta/tqws3257iquksixef2nfkxrc
+# FETCHED: 2026-08-06
+# TITLE: Hướng dẫn kích hoạt lại ZBS Template Message đã bị vô hiệu hóa do chưa thực hiện ủy quyền đổi giá CTA | Zalo Business Solutions
+
+Giải pháp
+Đối tác
+Tài nguyên
+Liên hệ
+Loading...
+Loading...
+Home/Blog/ Hướng dẫn kích hoạt lại ZBS Template Message đã bị vô hiệu hóa do chưa thực hiện ủy quyền đổi giá CTA
+Hướng dẫn kích hoạt lại ZBS Template Message đã bị vô hiệu hóa do chưa thực hiện ủy quyền đổi giá CTA
+2 tháng 04, 2026 16:59
+Thể theo thông báo trước đó về việc Điều chỉnh đơn giá của tùy chọn CTA trong ZBS Template Message, việc điều chỉnh đã chính thức áp dụng từ ngày 01/04/2025.
+Các ZBS Template Message chưa được Quản trị viên của ZBA Account thực hiện thao tác "Xác nhận đồng ý thay đổi giá" sẽ bị vô hiệu hóa bằng hình thức chuyển trạng thái thành "Bị từ chối" từ 0h ngày 01/04.
+Hướng dẫn kích hoạt lại:
+Để tiếp tục sử dụng các mẫu ZBS Template Message đã bị vô hiệu hóa, Quý khách hàng vui lòng gửi duyệt lại bằng cách truy cập phần Quản lý mẫu > Chọn ZBS Template Message > Chọn "Chỉnh sửa" > Gửi duyệt lại.
+Lưu ý:
+Để quá trình kiểm duyệt được diễn ra nhanh nhất, Quý khách hàng vui lòng không điều chỉnh nội dung mẫu ZBS Template Message.
+Đối với các mẫu ZBS Template Message được hỗ trợ tạo bởi đội ngũ Zalo Business Solutions, Quý khách vui lòng gửi yêu cầu đến email support@zalo.solutions với tiêu đề mẫu [HỖ TRỢ DUYỆT ZBS TEMPLATE MESSAGE DO CHƯA ỦY QUYỀN ĐIỀU CHỈNH GIÁ + TEMPLATE ID] đính kèm thông tin Template ID. Zalo Business Solutions sẽ hỗ trợ Quý khách tạo mới các template này trong thời gian sớm nhất.
+Nếu có bất kì yêu cầu hỗ trợ, Quý đối tác có thể liên hệ qua Kênh Chăm sóc khách hàng của Zalo Business Solutions qua email: support@zalo.solutions. Đội ngũ Chăm sóc Khách hàng Zalo Business Solutions sẽ phản hồi cho khách hàng trong vòng 48h làm việc tiếp theo.
+Trân trọng cảm ơn,
+Đội ngũ hỗ trợ Zalo Business Solutions.
+Bài viết này có hữu ích với bạn không?
+Bình thườngHữu ích, nhưng...Hữu ích
+Trung tâm giải pháp Zalo dành cho Doanh nghiệp
+© Zalo Platforms
+Giải pháp
+Zalo Official AccountBusiness MessageZalo Mini AppZalo AI
+Tài nguyên
+Thông tin liên hệ
+Email: support@zalo.solutions
+Địa chỉ: UOA Tower, 6 Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh, Việt Nam
+Quản lý tài khoản
+Quản lý tài khoản
