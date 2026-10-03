@@ -7,7 +7,7 @@ Use code for properties the artifact exposes exactly. Use a reviewer who can see
 Run the owning renderer from the render-kit installation. The HTML template is a local artifact; test it with the acceptance command below and retain its report and images for inspection. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Quick start” and “The loop”.
 
 ```sh
-/Users/GaryT/Documents/Work/tools/render-kit/bin/rk check templates/deck-shell.html --out-dir out/presentation-shell
+~/.agent-workflow/tools/render-kit/bin/rk check templates/deck-shell.html --out-dir out/presentation-shell
 # Add --pdf when a PDF handout is part of the output.
 ```
 

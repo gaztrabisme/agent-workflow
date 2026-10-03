@@ -21,7 +21,8 @@ from measure_scale import measure_scale
 from measure_space import measure_space, union_area
 
 PYTHON = sys.executable
-RENDER_KIT = Path("/Users/GaryT/Documents/Work/tools/render-kit")
+AGENT_WORKFLOW = Path(os.environ.get("AGENT_WORKFLOW", Path.home() / ".agent-workflow"))
+RENDER_KIT = AGENT_WORKFLOW / "tools" / "render-kit"
 RK = RENDER_KIT / "bin/rk"
 HELPER = ROOT / "scripts/measure_boxes.mjs"
 CHECKS = ROOT / "scripts/checks.py"
@@ -68,7 +69,7 @@ def sample_test(sample: Path, should_fail: str | None):
     def run(self):
         with tempfile.TemporaryDirectory(dir=ROOT) as temp:
             out = Path(temp)
-            env = {**os.environ, "RK_COLOR_THEORY": "/Users/GaryT/Documents/Work/tools/skills/color-theory"}
+            env = {**os.environ, "RK_COLOR_THEORY": str(AGENT_WORKFLOW / "skills" / "color-theory")}
             rendered = subprocess.run([str(RK), "check", str(sample), "--out-dir", str(out)],
                                       capture_output=True, text=True, env=env)
             self.assertTrue((out / "render.png").is_file(), rendered.stdout + rendered.stderr)

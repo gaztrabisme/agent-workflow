@@ -60,7 +60,7 @@ Inspect edited results at full-frame size and at 100% around changed areas. Use 
 
 ```sh
 python3 scripts/make_samples.py
-/Users/GaryT/Documents/Work/tools/render-kit/bin/rk check samples/out/compare.html --out-dir /tmp/photo-rk
+~/.agent-workflow/tools/render-kit/bin/rk check samples/out/compare.html --out-dir /tmp/photo-rk
 ```
 
 `make_samples.py` builds a portrait-like image with a skin region and gray card, a landscape-like image, an ordered recipe, an edit mask, and good / leaking simulated edits. It runs the good edit through `verify` into `samples/out/`. It preserves existing files and refuses to replace generated review outputs; remove only the generated review files before rerunning. Generated source fixtures are kept in `samples/`; runtime review files in `samples/out/` are ignored by Git. 8-bit alpha is ignored when reading RGB; 16-bit RGB, RGBA, grayscale, and grayscale-alpha PNG are supported. EXIF orientation is applied to high-bit-depth PNGs too.

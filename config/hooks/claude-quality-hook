@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# PostToolUse hook for Edit/Write — runs ruff on the edited file.
+# Reads Claude Code hook JSON from stdin, extracts the file path,
+# runs ruff check on it, and reports issues inline.
+#
+# Only triggers on Python files. Exits cleanly for non-Python files.
+
+set -e
+
+INPUT=$(cat)
+
+# Extract file_path from the tool input JSON
+FILE_PATH=""
+if command -v jq &>/dev/null; then
+    FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.filePath // empty' 2>/dev/null) || true
+fi
+
+# Fallback: regex extraction
+if [[ -z "$FILE_PATH" ]]; then
+    if [[ "$INPUT" =~ \"file_path\"[[:space:]]*:[[:space:]]*\"([^\"]+)\" ]]; then
+        FILE_PATH="${BASH_REMATCH[1]}"
+    elif [[ "$INPUT" =~ \"filePath\"[[:space:]]*:[[:space:]]*\"([^\"]+)\" ]]; then
+        FILE_PATH="${BASH_REMATCH[1]}"
+    fi
+fi
+
+# Skip if no file path found or not a Python file
+if [[ -z "$FILE_PATH" ]]; then
+    exit 0
+fi
+
+if [[ "$FILE_PATH" != *.py ]]; then
+    exit 0
+fi
+
+# Skip if file doesn't exist (was deleted)
+if [[ ! -f "$FILE_PATH" ]]; then
+    exit 0
+fi
+
+# Skip if ruff not installed
+if ! command -v ruff &>/dev/null; then
+    exit 0
+fi
+
+# Run ruff on the specific file
+RUFF_OUTPUT=$(ruff check "$FILE_PATH" --output-format=concise 2>/dev/null) || true
+
+if [[ -n "$RUFF_OUTPUT" ]]; then
+    ISSUE_COUNT=$(echo "$RUFF_OUTPUT" | wc -l | tr -d ' ')
+    # Output as a message Claude will see
+    echo ""
+    echo "--- ruff: ${ISSUE_COUNT} issue(s) in $(basename "$FILE_PATH") ---"
+    echo "$RUFF_OUTPUT" | head -10
+    if [[ "$ISSUE_COUNT" -gt 10 ]]; then
+        echo "... and $((ISSUE_COUNT - 10)) more (run: ruff check $FILE_PATH)"
+    fi
+    echo "---"
+fi
+
+exit 0

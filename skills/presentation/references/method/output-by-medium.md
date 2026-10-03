@@ -27,11 +27,11 @@ Run scene-engine with the presentation project as the current working directory.
 ```sh
 PROJECT=/path/to/presentation-project
 cd "$PROJECT"
-node /Users/GaryT/Documents/Work/tools/scene-engine/src/cli.mjs validate deck.storyboard.json --root .
-node /Users/GaryT/Documents/Work/tools/scene-engine/src/cli.mjs export-pptx deck.storyboard.json --root . --out out/deck.pptx --verify
+node ~/.agent-workflow/tools/scene-engine/src/cli.mjs validate deck.storyboard.json --root .
+node ~/.agent-workflow/tools/scene-engine/src/cli.mjs export-pptx deck.storyboard.json --root . --out out/deck.pptx --verify
 ```
 
-Keep `--out`, `--out-dir`, and report paths inside the project folder for this command form. Apply the same `node /Users/GaryT/Documents/Work/tools/scene-engine/src/cli.mjs <command> ... --root .` form to `capture` and `check`. [scene-engine AGENTS.md](../../../../scene-engine/AGENTS.md), “Commands”.
+Keep `--out`, `--out-dir`, and report paths inside the project folder for this command form. Apply the same `node ~/.agent-workflow/tools/scene-engine/src/cli.mjs <command> ... --root .` form to `capture` and `check`. [scene-engine AGENTS.md](../../../../scene-engine/AGENTS.md), “Commands”.
 
 Write an export report naming which items became native text, shapes, charts, SVG pictures, or raster pictures, and why any fallback was used. The research maps a one-to-one subset and documents picture fallbacks for complex effects and unsupported geometry. [src:output-pipelines/report.md], “F8b. The design subset that maps one-to-one from a scene to native PowerPoint”.
 
