@@ -1,0 +1,112 @@
+{
+  "format": "scene-engine/storyboard@1",
+  "title": "Signals into decisions",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durationMs": 32000,
+  "language": "en",
+  "background": "#F7F8FA",
+  "scenes": [
+    {
+      "id": "question",
+      "startMs": 0,
+      "durationMs": 10000,
+      "background": "#F7F8FA",
+      "narration": { "text": "Every signal starts with a useful question." },
+      "captions": [
+        { "startMs": 1200, "endMs": 4700, "text": "Every signal starts with a\nuseful question." }
+      ],
+      "layers": [
+        {
+          "id": "question-title", "name": "!!story-title", "type": "text",
+          "x": 130, "y": 145, "width": 970, "height": 230, "startMs": 0, "durationMs": 10000,
+          "text": "Find the signal\nbehind the noise.",
+          "style": { "fontFamily": "Arial", "fontSize": 76, "fontWeight": 700, "color": "#14243A", "align": "left", "lineHeight": 1.08 },
+          "entrance": "flyInLeft", "alt": "Find the signal behind the noise"
+        },
+        {
+          "id": "question-rule", "type": "shape", "shape": "roundRect",
+          "x": 130, "y": 425, "width": 270, "height": 12, "startMs": 0, "durationMs": 10000,
+          "fill": "#2563EB", "radiusPx": 6, "decorative": true,
+          "tracks": [{ "property": "width", "keyframes": [{ "atMs": 0, "value": 22, "easing": "ease-out" }, { "atMs": 900, "value": 270 }] }]
+        },
+        {
+          "id": "signal-map", "type": "image", "x": 1190, "y": 160, "width": 570, "height": 565,
+          "startMs": 0, "durationMs": 10000, "src": "signal-map.png",
+          "fit": "contain", "alt": "Three signal paths converge into one clear decision"
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "startMs": 9000,
+      "durationMs": 12000,
+      "background": "#FFFFFF",
+      "narration": { "text": "Compare the measures that move together." },
+      "captions": [
+        { "startMs": 1400, "endMs": 4600, "text": "Compare the measures that move together." },
+        { "startMs": 6500, "endMs": 9600, "text": "A clear trend makes the next step easier." }
+      ],
+      "layers": [
+        {
+          "id": "evidence-title", "name": "!!story-title", "type": "text",
+          "x": 135, "y": 80, "width": 1570, "height": 120, "startMs": 0, "durationMs": 12000,
+          "text": "Make the evidence easy to read.",
+          "style": { "fontFamily": "Arial", "fontSize": 58, "fontWeight": 700, "color": "#14243A", "align": "left" },
+          "alt": "Make the evidence easy to read",
+          "tracks": [{ "property": "opacity", "keyframes": [{ "atMs": 0, "value": 0, "easing": "ease-out" }, { "atMs": 1000, "value": 1 }] }]
+        },
+        {
+          "id": "signal-chart", "type": "chart", "x": 190, "y": 235, "width": 1480, "height": 600,
+          "startMs": 0, "durationMs": 12000, "kind": "column", "categories": ["Jan", "Feb", "Mar", "Apr", "May"],
+          "series": [{ "name": "Visits", "values": [120, 158, 174, 212, 264] }, { "name": "Qualified", "values": [38, 51, 62, 83, 108] }],
+          "showLegend": true, "showValues": true,
+          "style": { "fontFamily": "Arial", "fontSize": 16, "seriesColors": ["#2563EB", "#F97316"], "axisTitleX": "Month", "axisTitleY": "Signals" },
+          "alt": "Monthly visits and qualified signals rise together",
+          "tracks": [{ "property": "opacity", "keyframes": [{ "atMs": 0, "value": 0, "easing": "ease-out" }, { "atMs": 1000, "value": 1 }] }]
+        }
+      ]
+    },
+    {
+      "id": "decision",
+      "after": "evidence",
+      "gapMs": 0,
+      "durationMs": 11000,
+      "background": "#F7F8FA",
+      "pptxAtMs": 10500,
+      "narration": { "text": "Make the next decision visible." },
+      "captions": [
+        { "startMs": 1300, "endMs": 4400, "text": "Make the next decision visible." }
+      ],
+      "camera": {
+        "x": 0, "y": 0, "zoom": 1, "anchorX": 0.5, "anchorY": 0.5,
+        "tracks": [
+          { "property": "x", "keyframes": [{ "atMs": 0, "value": 0, "easing": { "cubicBezier": [0.2, 0.7, 0.2, 1] } }, { "atMs": 10000, "value": -55 }] },
+          { "property": "zoom", "keyframes": [{ "atMs": 0, "value": 1 }, { "atMs": 10000, "value": 1.045 }] }
+        ]
+      },
+      "layers": [
+        {
+          "id": "decision-title", "name": "!!story-title", "type": "text",
+          "x": 180, "y": 335, "width": 1560, "height": 180, "startMs": 0, "durationMs": 11000,
+          "text": "Turn clear signals into\nconfident decisions.",
+          "style": { "fontFamily": "Arial", "fontSize": 66, "fontWeight": 700, "color": "#14243A", "align": "center", "lineHeight": 1.12 },
+          "alt": "Turn clear signals into confident decisions",
+          "tracks": [{ "property": "opacity", "keyframes": [{ "atMs": 0, "value": 0, "easing": "ease-out" }, { "atMs": 1200, "value": 1 }] }]
+        },
+        {
+          "id": "decision-pill", "type": "shape", "shape": "roundRect", "x": 715, "y": 595, "width": 490, "height": 74,
+          "startMs": 0, "durationMs": 11000, "fill": "#E5EDFF", "radiusPx": 37,
+          "alt": "A repeatable signal review"
+        },
+        {
+          "id": "decision-label", "type": "text", "x": 740, "y": 613, "width": 440, "height": 42,
+          "startMs": 0, "durationMs": 11000, "text": "Observe  ·  Compare  ·  Decide",
+          "style": { "fontFamily": "Arial", "fontSize": 27, "fontWeight": 600, "color": "#2452A6", "align": "center" },
+          "alt": "Observe, compare, decide"
+        }
+      ]
+    }
+  ]
+}

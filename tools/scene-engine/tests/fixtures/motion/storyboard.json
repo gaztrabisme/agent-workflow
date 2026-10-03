@@ -1,0 +1,3443 @@
+{
+ "format": "scene-engine/storyboard@1",
+ "title": "Larkspur-4: 27 days to total depth",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "background": "#FFFFFF",
+ "language": "en",
+ "scenes": [
+  {
+   "id": "explainer",
+   "startMs": 0,
+   "durationMs": 57500,
+   "background": "#FFFFFF",
+   "notes": "0.0s title: Title. Sets subject and audience: a 27-day status for the operations manager.\n4.0s result: Answer first: TD reached, 6 h late, 1.3 m deep. Gauge fill encodes depth on a 0–4,000 m scale; plan tick at 3,870 m.\n12.5s depth: Plan and grid stay fixed; the actual line is revealed left to right in step with the narration. Red dots carry into the lost-time scene.\n25.0s lost: Red = lost time, carried from the chart dots. Bars grow at one shared speed in narration order; equipment is the largest group.\n38.0s cost: One number and one to-scale bar; the bar fills while the figure is spoken.\n44.0s watch: Three actions in narration order; the red rule on item 3 links back to lost time. Ends on a readable hold.",
+   "narration": {
+    "text": "Larkspur-4: 27 days of drilling. The well reached total depth on 27 March: 6 h behind plan, and 1.3 m deeper. Through the upper sections, drilling tracked the plan. In the last section it fell more than a day behind, then closed the gap to 6 h by total depth. 28.5 h were lost: 4.4% of the time. Rig equipment caused 15.5 h: the mud pump and top drive. Weather cost 8 h; a tight hole, 5 h. Spend is USD 9.83 million, within the 10.5 million budget. Next: confirm the liner bottom, 1.3 m below plan. Reconcile the final cost against the budget left. And watch rig equipment, the largest cause of lost time.",
+    "audio": "audio/full.wav",
+    "audioOffsetMs": 0
+   },
+   "layers": [
+    {
+     "id": "panel-title",
+     "type": "group",
+     "x": 0,
+     "y": 0,
+     "width": 1920,
+     "height": 1080,
+     "startMs": 0,
+     "durationMs": 4000,
+     "opacity": 0,
+     "alt": "Title. Sets subject and audience: a 27-day status for the operations manager.",
+     "tracks": [
+      {
+       "property": "opacity",
+       "keyframes": [
+        {
+         "atMs": 0,
+         "value": 0
+        },
+        {
+         "atMs": 1,
+         "value": 1
+        },
+        {
+         "atMs": 3998,
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "children": [
+      {
+       "id": "t-kicker",
+       "type": "text",
+       "x": 120,
+       "y": 330,
+       "width": 1500,
+       "height": 44,
+       "startMs": 0,
+       "durationMs": 4000,
+       "text": "DRILLING STATUS · REPORT 27 · 28 MARCH 2026",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 30,
+        "fontWeight": 700,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "t-title",
+       "type": "text",
+       "x": 120,
+       "y": 390,
+       "width": 1680,
+       "height": 111,
+       "startMs": 0,
+       "durationMs": 4000,
+       "text": "Larkspur-4: 27 days to total depth",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 88,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 150,
+           "value": 0
+          },
+          {
+           "atMs": 550,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "t-sub",
+       "type": "text",
+       "x": 120,
+       "y": 520,
+       "width": 1680,
+       "height": 60,
+       "startMs": 0,
+       "durationMs": 4000,
+       "text": "Where the well got to, where time was lost, what to watch next",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 42,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 450,
+           "value": 0
+          },
+          {
+           "atMs": 850,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "t-src",
+       "type": "text",
+       "x": 120,
+       "y": 880,
+       "width": 1680,
+       "height": 40,
+       "startMs": 0,
+       "durationMs": 4000,
+       "text": "Fictional well. Source: Larkspur-4 daily reports 001–027 and well plan.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 26,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "cap-title-0-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 4000,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 3189,
+           "value": 1
+          },
+          {
+           "atMs": 3190,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-title-0",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 4000,
+       "opacity": 0,
+       "z": 51,
+       "text": "Larkspur-4: 27 days of drilling.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 3189,
+           "value": 1
+          },
+          {
+           "atMs": 3190,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "panel-result",
+     "type": "group",
+     "x": 0,
+     "y": 0,
+     "width": 1920,
+     "height": 1080,
+     "startMs": 4000,
+     "durationMs": 8500,
+     "opacity": 0,
+     "alt": "Answer first: TD reached, 6 h late, 1.3 m deep. Gauge fill encodes depth on a 0–4,000 m scale; plan tick at 3,870 m.",
+     "tracks": [
+      {
+       "property": "opacity",
+       "keyframes": [
+        {
+         "atMs": 0,
+         "value": 0
+        },
+        {
+         "atMs": 1,
+         "value": 1
+        },
+        {
+         "atMs": 8498,
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "children": [
+      {
+       "id": "r-label",
+       "type": "text",
+       "x": 120,
+       "y": 200,
+       "width": 1150,
+       "height": 54,
+       "startMs": 0,
+       "durationMs": 8500,
+       "text": "Total depth reached (measured depth)",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 40,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 300,
+           "value": 0
+          },
+          {
+           "atMs": 700,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "r-figure",
+       "type": "text",
+       "x": 120,
+       "y": 260,
+       "width": 1200,
+       "height": 222,
+       "startMs": 0,
+       "durationMs": 8500,
+       "text": "3,871.3 m",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 180,
+        "fontWeight": 700,
+        "color": "#0072B2",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 500,
+           "value": 0
+          },
+          {
+           "atMs": 900,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "r-when",
+       "type": "text",
+       "x": 120,
+       "y": 500,
+       "width": 1200,
+       "height": 68,
+       "startMs": 0,
+       "durationMs": 8500,
+       "text": "27 March, 06:00 · 6 h after plan",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 52,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 3852,
+           "value": 0
+          },
+          {
+           "atMs": 4252,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "r-deeper",
+       "type": "text",
+       "x": 120,
+       "y": 580,
+       "width": 1200,
+       "height": 60,
+       "startMs": 0,
+       "durationMs": 8500,
+       "text": "1.3 m deeper than the planned 3,870.0 m",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 44,
+        "fontWeight": 400,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5652,
+           "value": 0
+          },
+          {
+           "atMs": 6052,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "r-gauge-track",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#EEF1F4",
+       "x": 1440,
+       "y": 170,
+       "width": 120,
+       "height": 640,
+       "startMs": 0,
+       "durationMs": 8500,
+       "decorative": true
+      },
+      {
+       "id": "r-gauge-fill",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#0072B2",
+       "x": 1440,
+       "y": 170,
+       "width": 120,
+       "height": 619.4,
+       "startMs": 0,
+       "durationMs": 8500,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "height",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 1
+          },
+          {
+           "atMs": 500,
+           "value": 1
+          },
+          {
+           "atMs": 2500,
+           "value": 619.4
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "r-gauge-plan",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#5B6573",
+       "x": 1410,
+       "y": 787.2,
+       "width": 180,
+       "height": 4,
+       "startMs": 0,
+       "durationMs": 8500,
+       "decorative": true
+      },
+      {
+       "id": "r-gauge-top",
+       "type": "text",
+       "x": 1600,
+       "y": 164,
+       "width": 300,
+       "height": 40,
+       "startMs": 0,
+       "durationMs": 8500,
+       "text": "Surface",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "r-gauge-plantxt",
+       "type": "text",
+       "x": 1600,
+       "y": 741.2,
+       "width": 300,
+       "height": 80,
+       "startMs": 0,
+       "durationMs": 8500,
+       "text": "Plan 3,870 m\nActual 3,871.3 m",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.3
+       }
+      },
+      {
+       "id": "r-src",
+       "type": "text",
+       "x": 120,
+       "y": 880,
+       "width": 1200,
+       "height": 40,
+       "startMs": 0,
+       "durationMs": 8500,
+       "text": "Depth: measured depth below the rotary table. Source: depth log, well plan.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 26,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "cap-result-0-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 8500,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 3602,
+           "value": 1
+          },
+          {
+           "atMs": 3603,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-result-0",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 8500,
+       "opacity": 0,
+       "z": 51,
+       "text": "The well reached total depth on 27 March:",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 3602,
+           "value": 1
+          },
+          {
+           "atMs": 3603,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-result-1-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 8500,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 3952,
+           "value": 0
+          },
+          {
+           "atMs": 3953,
+           "value": 1
+          },
+          {
+           "atMs": 7554,
+           "value": 1
+          },
+          {
+           "atMs": 7555,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-result-1",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 8500,
+       "opacity": 0,
+       "z": 51,
+       "text": "6 h behind plan, and 1.3 m deeper.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 3952,
+           "value": 0
+          },
+          {
+           "atMs": 3953,
+           "value": 1
+          },
+          {
+           "atMs": 7554,
+           "value": 1
+          },
+          {
+           "atMs": 7555,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "panel-depth",
+     "type": "group",
+     "x": 0,
+     "y": 0,
+     "width": 1920,
+     "height": 1080,
+     "startMs": 12500,
+     "durationMs": 12500,
+     "opacity": 0,
+     "alt": "Plan and grid stay fixed; the actual line is revealed left to right in step with the narration. Red dots carry into the lost-time scene.",
+     "tracks": [
+      {
+       "property": "opacity",
+       "keyframes": [
+        {
+         "atMs": 0,
+         "value": 0
+        },
+        {
+         "atMs": 1,
+         "value": 1
+        },
+        {
+         "atMs": 12498,
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "children": [
+      {
+       "id": "d-title",
+       "type": "text",
+       "x": 80,
+       "y": 50,
+       "width": 1300,
+       "height": 73,
+       "startMs": 0,
+       "durationMs": 12500,
+       "text": "Depth against plan",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 56,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "d-actual",
+       "type": "image",
+       "src": "assets/depth-actual.svg",
+       "x": 70,
+       "y": 150,
+       "width": 1240,
+       "height": 740,
+       "startMs": 0,
+       "durationMs": 12500,
+       "fit": "fill",
+       "z": 1,
+       "alt": "Actual depth line against date with four lost-time events"
+      },
+      {
+       "id": "d-wiper",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#FFFFFF",
+       "x": 184,
+       "y": 176,
+       "width": 1096,
+       "height": 628,
+       "startMs": 0,
+       "durationMs": 12500,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "scaleX",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 1.0
+          },
+          {
+           "atMs": 400,
+           "value": 1.0
+          },
+          {
+           "atMs": 3238,
+           "value": 0.6715
+          },
+          {
+           "atMs": 6680,
+           "value": 0.4161
+          },
+          {
+           "atMs": 9619,
+           "value": 0.0785
+          },
+          {
+           "atMs": 10319,
+           "value": 0.0146
+          }
+         ]
+        }
+       ],
+       "anchorX": 1,
+       "scaleX": 0.001,
+       "z": 2
+      },
+      {
+       "id": "d-plan",
+       "type": "image",
+       "src": "assets/depth-plan.svg",
+       "x": 70,
+       "y": 150,
+       "width": 1240,
+       "height": 740,
+       "startMs": 0,
+       "durationMs": 12500,
+       "fit": "fill",
+       "z": 3,
+       "alt": "Planned depth against date, grid and legend"
+      },
+      {
+       "id": "d-callA",
+       "type": "text",
+       "x": 1400,
+       "y": 230,
+       "width": 440,
+       "height": 150,
+       "startMs": 0,
+       "durationMs": 12500,
+       "text": "Upper sections\non plan",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 38,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.25
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 2838,
+           "value": 0
+          },
+          {
+           "atMs": 3238,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "d-callA2",
+       "type": "text",
+       "x": 1400,
+       "y": 330,
+       "width": 440,
+       "height": 90,
+       "startMs": 0,
+       "durationMs": 12500,
+       "text": "Within a few hours of plan to 2,700 m",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 2838,
+           "value": 0
+          },
+          {
+           "atMs": 3238,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "d-callB",
+       "type": "text",
+       "x": 1400,
+       "y": 450,
+       "width": 440,
+       "height": 110,
+       "startMs": 0,
+       "durationMs": 12500,
+       "text": "Last section: over a day behind",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 38,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.25
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 6080,
+           "value": 0
+          },
+          {
+           "atMs": 6480,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "d-callB2",
+       "type": "text",
+       "x": 1400,
+       "y": 550,
+       "width": 440,
+       "height": 90,
+       "startMs": 0,
+       "durationMs": 12500,
+       "text": "Peak 35.7 h behind at 3,019 m, 17 March",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 6080,
+           "value": 0
+          },
+          {
+           "atMs": 6480,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "d-callC",
+       "type": "text",
+       "x": 1400,
+       "y": 670,
+       "width": 440,
+       "height": 110,
+       "startMs": 0,
+       "durationMs": 12500,
+       "text": "Closed to 6 h at total depth",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 38,
+        "fontWeight": 700,
+        "color": "#0072B2",
+        "align": "left",
+        "lineHeight": 1.25
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 9619,
+           "value": 0
+          },
+          {
+           "atMs": 10019,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "d-callC2",
+       "type": "text",
+       "x": 1400,
+       "y": 770,
+       "width": 440,
+       "height": 90,
+       "startMs": 0,
+       "durationMs": 12500,
+       "text": "27 March 06:00, plan 00:00",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 9619,
+           "value": 0
+          },
+          {
+           "atMs": 10019,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-depth-0-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 12500,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 3238,
+           "value": 1
+          },
+          {
+           "atMs": 3239,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-depth-0",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 12500,
+       "opacity": 0,
+       "z": 51,
+       "text": "Through the upper sections,\ndrilling tracked the plan.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 3238,
+           "value": 1
+          },
+          {
+           "atMs": 3239,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-depth-1-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 12500,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 3588,
+           "value": 0
+          },
+          {
+           "atMs": 3589,
+           "value": 1
+          },
+          {
+           "atMs": 6680,
+           "value": 1
+          },
+          {
+           "atMs": 6681,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-depth-1",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 12500,
+       "opacity": 0,
+       "z": 51,
+       "text": "In the last section it fell\nmore than a day behind,",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 3588,
+           "value": 0
+          },
+          {
+           "atMs": 3589,
+           "value": 1
+          },
+          {
+           "atMs": 6680,
+           "value": 1
+          },
+          {
+           "atMs": 6681,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-depth-2-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 12500,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 7030,
+           "value": 0
+          },
+          {
+           "atMs": 7031,
+           "value": 1
+          },
+          {
+           "atMs": 9919,
+           "value": 1
+          },
+          {
+           "atMs": 9920,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-depth-2",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 12500,
+       "opacity": 0,
+       "z": 51,
+       "text": "then closed the gap to 6 h by total depth.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 7030,
+           "value": 0
+          },
+          {
+           "atMs": 7031,
+           "value": 1
+          },
+          {
+           "atMs": 9919,
+           "value": 1
+          },
+          {
+           "atMs": 9920,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "panel-lost",
+     "type": "group",
+     "x": 0,
+     "y": 0,
+     "width": 1920,
+     "height": 1080,
+     "startMs": 25000,
+     "durationMs": 13000,
+     "opacity": 0,
+     "alt": "Red = lost time, carried from the chart dots. Bars grow at one shared speed in narration order; equipment is the largest group.",
+     "tracks": [
+      {
+       "property": "opacity",
+       "keyframes": [
+        {
+         "atMs": 0,
+         "value": 0
+        },
+        {
+         "atMs": 1,
+         "value": 1
+        },
+        {
+         "atMs": 12998,
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "children": [
+      {
+       "id": "l-title",
+       "type": "text",
+       "x": 80,
+       "y": 50,
+       "width": 1700,
+       "height": 73,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Lost time: 28.5 h in 27 days",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 56,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "l-sub",
+       "type": "text",
+       "x": 80,
+       "y": 128,
+       "width": 1700,
+       "height": 50,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "4.4% of the 648 hours reported, grouped by cause",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 1000,
+           "value": 0
+          },
+          {
+           "atMs": 1400,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-eq-name",
+       "type": "text",
+       "x": 80,
+       "y": 238,
+       "width": 460,
+       "height": 56,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Rig equipment",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 40,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5004,
+           "value": 0
+          },
+          {
+           "atMs": 5404,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-wx-name",
+       "type": "text",
+       "x": 80,
+       "y": 488,
+       "width": 460,
+       "height": 56,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Weather",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 40,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 9128,
+           "value": 0
+          },
+          {
+           "atMs": 9528,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-hc-name",
+       "type": "text",
+       "x": 80,
+       "y": 668,
+       "width": 460,
+       "height": 56,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Hole condition",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 40,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 10528,
+           "value": 0
+          },
+          {
+           "atMs": 10928,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-pump",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#B83010",
+       "x": 560,
+       "y": 230,
+       "width": 570.0,
+       "height": 64,
+       "startMs": 0,
+       "durationMs": 13000,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "scaleX",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0.001
+          },
+          {
+           "atMs": 5204,
+           "value": 0.001
+          },
+          {
+           "atMs": 5679,
+           "value": 1
+          }
+         ]
+        }
+       ],
+       "anchorX": 0
+      },
+      {
+       "id": "l-top",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#B83010",
+       "x": 1134.0,
+       "y": 230,
+       "width": 360.0,
+       "height": 64,
+       "startMs": 0,
+       "durationMs": 13000,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "scaleX",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0.001
+          },
+          {
+           "atMs": 5679,
+           "value": 0.001
+          },
+          {
+           "atMs": 5979,
+           "value": 1
+          }
+         ]
+        }
+       ],
+       "anchorX": 0
+      },
+      {
+       "id": "l-wow",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#B83010",
+       "x": 560,
+       "y": 480,
+       "width": 480.0,
+       "height": 64,
+       "startMs": 0,
+       "durationMs": 13000,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "scaleX",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0.001
+          },
+          {
+           "atMs": 9328,
+           "value": 0.001
+          },
+          {
+           "atMs": 9728,
+           "value": 1
+          }
+         ]
+        }
+       ],
+       "anchorX": 0
+      },
+      {
+       "id": "l-circ",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#B83010",
+       "x": 560,
+       "y": 660,
+       "width": 300.0,
+       "height": 64,
+       "startMs": 0,
+       "durationMs": 13000,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "scaleX",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0.001
+          },
+          {
+           "atMs": 10728,
+           "value": 0.001
+          },
+          {
+           "atMs": 10978,
+           "value": 1
+          }
+         ]
+        }
+       ],
+       "anchorX": 0
+      },
+      {
+       "id": "l-eq-val",
+       "type": "text",
+       "x": 1514.0,
+       "y": 238,
+       "width": 300,
+       "height": 58,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "15.5 h",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 44,
+        "fontWeight": 700,
+        "color": "#B83010",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 6079,
+           "value": 0
+          },
+          {
+           "atMs": 6479,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-pump-d",
+       "type": "text",
+       "x": 560,
+       "y": 306,
+       "width": 560,
+       "height": 80,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Mud pump 2 failure\n11 March · 9.5 h",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.3
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5704,
+           "value": 0
+          },
+          {
+           "atMs": 6104,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-top-d",
+       "type": "text",
+       "x": 1134.0,
+       "y": 306,
+       "width": 420,
+       "height": 80,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Top drive overheating\n21 March · 6.0 h",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.3
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 6079,
+           "value": 0
+          },
+          {
+           "atMs": 6479,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-wx-val",
+       "type": "text",
+       "x": 1060.0,
+       "y": 488,
+       "width": 300,
+       "height": 58,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "8.0 h",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 44,
+        "fontWeight": 700,
+        "color": "#B83010",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 9778,
+           "value": 0
+          },
+          {
+           "atMs": 10178,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-wx-d",
+       "type": "text",
+       "x": 560,
+       "y": 556,
+       "width": 900,
+       "height": 40,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Gale, swell over operating limit · 8 March",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 9778,
+           "value": 0
+          },
+          {
+           "atMs": 10178,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-hc-val",
+       "type": "text",
+       "x": 880.0,
+       "y": 668,
+       "width": 300,
+       "height": 58,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "5.0 h",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 44,
+        "fontWeight": 700,
+        "color": "#B83010",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 11028,
+           "value": 0
+          },
+          {
+           "atMs": 11428,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-hc-d",
+       "type": "text",
+       "x": 560,
+       "y": 736,
+       "width": 900,
+       "height": 40,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Tight hole, reamed and circulated · 17 March",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 28,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 11028,
+           "value": 0
+          },
+          {
+           "atMs": 11428,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "l-src",
+       "type": "text",
+       "x": 80,
+       "y": 880,
+       "width": 1700,
+       "height": 40,
+       "startMs": 0,
+       "durationMs": 13000,
+       "text": "Bar length is proportional to hours lost. Source: non-productive time flagged in daily reports.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 26,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "cap-lost-0-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 13000,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 4554,
+           "value": 1
+          },
+          {
+           "atMs": 4555,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-lost-0",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 13000,
+       "opacity": 0,
+       "z": 51,
+       "text": "28.5 h were lost: 4.4% of the time.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 4554,
+           "value": 1
+          },
+          {
+           "atMs": 4555,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-lost-1-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 13000,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 4904,
+           "value": 0
+          },
+          {
+           "atMs": 4905,
+           "value": 1
+          },
+          {
+           "atMs": 8878,
+           "value": 1
+          },
+          {
+           "atMs": 8879,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-lost-1",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 13000,
+       "opacity": 0,
+       "z": 51,
+       "text": "Rig equipment caused 15.5 h:\nthe mud pump and top drive.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 4904,
+           "value": 0
+          },
+          {
+           "atMs": 4905,
+           "value": 1
+          },
+          {
+           "atMs": 8878,
+           "value": 1
+          },
+          {
+           "atMs": 8879,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-lost-2-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 13000,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 9228,
+           "value": 0
+          },
+          {
+           "atMs": 9229,
+           "value": 1
+          },
+          {
+           "atMs": 12180,
+           "value": 1
+          },
+          {
+           "atMs": 12181,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-lost-2",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 13000,
+       "opacity": 0,
+       "z": 51,
+       "text": "Weather cost 8 h; a tight hole, 5 h.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 9228,
+           "value": 0
+          },
+          {
+           "atMs": 9229,
+           "value": 1
+          },
+          {
+           "atMs": 12180,
+           "value": 1
+          },
+          {
+           "atMs": 12181,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "panel-cost",
+     "type": "group",
+     "x": 0,
+     "y": 0,
+     "width": 1920,
+     "height": 1080,
+     "startMs": 38000,
+     "durationMs": 6000,
+     "opacity": 0,
+     "alt": "One number and one to-scale bar; the bar fills while the figure is spoken.",
+     "tracks": [
+      {
+       "property": "opacity",
+       "keyframes": [
+        {
+         "atMs": 0,
+         "value": 0
+        },
+        {
+         "atMs": 1,
+         "value": 1
+        },
+        {
+         "atMs": 5998,
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "children": [
+      {
+       "id": "c-title",
+       "type": "text",
+       "x": 80,
+       "y": 50,
+       "width": 1700,
+       "height": 73,
+       "startMs": 0,
+       "durationMs": 6000,
+       "text": "Spend against budget",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 56,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "c-fig",
+       "type": "text",
+       "x": 210,
+       "y": 230,
+       "width": 1500,
+       "height": 162,
+       "startMs": 0,
+       "durationMs": 6000,
+       "text": "USD 9.83M",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 130,
+        "fontWeight": 700,
+        "color": "#3D4B5C",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 300,
+           "value": 0
+          },
+          {
+           "atMs": 700,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "c-of",
+       "type": "text",
+       "x": 210,
+       "y": 390,
+       "width": 1500,
+       "height": 60,
+       "startMs": 0,
+       "durationMs": 6000,
+       "text": "spent of the USD 10.50M budget, to 28 March",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 44,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 700,
+           "value": 0
+          },
+          {
+           "atMs": 1100,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "c-budget",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#E9ECF0",
+       "x": 210,
+       "y": 520,
+       "width": 1500,
+       "height": 90,
+       "startMs": 0,
+       "durationMs": 6000,
+       "decorative": true
+      },
+      {
+       "id": "c-fill",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#3D4B5C",
+       "x": 210,
+       "y": 520,
+       "width": 1403.8,
+       "height": 90,
+       "startMs": 0,
+       "durationMs": 6000,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "scaleX",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0.001
+          },
+          {
+           "atMs": 900,
+           "value": 0.001
+          },
+          {
+           "atMs": 2500,
+           "value": 1
+          }
+         ]
+        }
+       ],
+       "anchorX": 0
+      },
+      {
+       "id": "c-used",
+       "type": "text",
+       "x": 210,
+       "y": 640,
+       "width": 800,
+       "height": 56,
+       "startMs": 0,
+       "durationMs": 6000,
+       "text": "93.6% used",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 40,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 2600,
+           "value": 0
+          },
+          {
+           "atMs": 3000,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "c-left",
+       "type": "text",
+       "x": 910,
+       "y": 640,
+       "width": 800,
+       "height": 56,
+       "startMs": 0,
+       "durationMs": 6000,
+       "text": "USD 0.67M left",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 40,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "right",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 2600,
+           "value": 0
+          },
+          {
+           "atMs": 3000,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "c-src",
+       "type": "text",
+       "x": 80,
+       "y": 880,
+       "width": 1700,
+       "height": 40,
+       "startMs": 0,
+       "durationMs": 6000,
+       "text": "Bar is to scale: full width = USD 10.50M budget. Source: report 27 cumulative cost, well plan.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 26,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "cap-cost-0-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 6000,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 4952,
+           "value": 1
+          },
+          {
+           "atMs": 4953,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-cost-0",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 6000,
+       "opacity": 0,
+       "z": 51,
+       "text": "Spend is USD 9.83 million,\nwithin the 10.5 million budget.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 4952,
+           "value": 1
+          },
+          {
+           "atMs": 4953,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "panel-watch",
+     "type": "group",
+     "x": 0,
+     "y": 0,
+     "width": 1920,
+     "height": 1080,
+     "startMs": 44000,
+     "durationMs": 13500,
+     "opacity": 0,
+     "alt": "Three actions in narration order; the red rule on item 3 links back to lost time. Ends on a readable hold.",
+     "tracks": [
+      {
+       "property": "opacity",
+       "keyframes": [
+        {
+         "atMs": 0,
+         "value": 0
+        },
+        {
+         "atMs": 1,
+         "value": 1
+        },
+        {
+         "atMs": 13498,
+         "value": 1
+        }
+       ]
+      }
+     ],
+     "children": [
+      {
+       "id": "w-title",
+       "type": "text",
+       "x": 80,
+       "y": 50,
+       "width": 1700,
+       "height": 73,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "What to watch next",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 56,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       }
+      },
+      {
+       "id": "w1-bar",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#14181F",
+       "x": 80,
+       "y": 190,
+       "width": 10,
+       "height": 190,
+       "startMs": 0,
+       "durationMs": 13500,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 800,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w1-num",
+       "type": "text",
+       "x": 120,
+       "y": 192,
+       "width": 80,
+       "height": 73,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "1",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 56,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 800,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w1-head",
+       "type": "text",
+       "x": 200,
+       "y": 196,
+       "width": 1600,
+       "height": 61,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "Confirm the liner bottom",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 46,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 800,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w1-body",
+       "type": "text",
+       "x": 200,
+       "y": 264,
+       "width": 1600,
+       "height": 110,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "Set at 3,871.3 m, 1.3 m below the planned 3,870.0 m. No allowed range is recorded: confirm placement and update the well record.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 32,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.3
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 600,
+           "value": 0
+          },
+          {
+           "atMs": 1000,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w2-bar",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#14181F",
+       "x": 80,
+       "y": 430,
+       "width": 10,
+       "height": 190,
+       "startMs": 0,
+       "durationMs": 13500,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5157,
+           "value": 0
+          },
+          {
+           "atMs": 5557,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w2-num",
+       "type": "text",
+       "x": 120,
+       "y": 432,
+       "width": 80,
+       "height": 73,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "2",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 56,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5157,
+           "value": 0
+          },
+          {
+           "atMs": 5557,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w2-head",
+       "type": "text",
+       "x": 200,
+       "y": 436,
+       "width": 1600,
+       "height": 61,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "Reconcile the final cost",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 46,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5157,
+           "value": 0
+          },
+          {
+           "atMs": 5557,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w2-body",
+       "type": "text",
+       "x": 200,
+       "y": 504,
+       "width": 1600,
+       "height": 110,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "USD 9,826,366 spent; USD 673,634 of the USD 10.5M budget left. No daily cost target is set.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 32,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.3
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5357,
+           "value": 0
+          },
+          {
+           "atMs": 5757,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w3-bar",
+       "type": "shape",
+       "shape": "rect",
+       "fill": "#B83010",
+       "x": 80,
+       "y": 670,
+       "width": 10,
+       "height": 190,
+       "startMs": 0,
+       "durationMs": 13500,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 8262,
+           "value": 0
+          },
+          {
+           "atMs": 8662,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w3-num",
+       "type": "text",
+       "x": 120,
+       "y": 672,
+       "width": 80,
+       "height": 73,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "3",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 56,
+        "fontWeight": 700,
+        "color": "#B83010",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 8262,
+           "value": 0
+          },
+          {
+           "atMs": 8662,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w3-head",
+       "type": "text",
+       "x": 200,
+       "y": 676,
+       "width": 1600,
+       "height": 61,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "Watch rig equipment",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 46,
+        "fontWeight": 700,
+        "color": "#14181F",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 8262,
+           "value": 0
+          },
+          {
+           "atMs": 8662,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w3-body",
+       "type": "text",
+       "x": 200,
+       "y": 744,
+       "width": 1600,
+       "height": 110,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "Mud pump and top drive failures caused 15.5 of the 28.5 lost hours.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 32,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.3
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 8462,
+           "value": 0
+          },
+          {
+           "atMs": 8862,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "w-src",
+       "type": "text",
+       "x": 80,
+       "y": 900,
+       "width": 1700,
+       "height": 40,
+       "startMs": 0,
+       "durationMs": 13500,
+       "text": "Fictional well. Source: Larkspur-4 daily reports 001–027 and well plan. Item 3 is a recommendation drawn from the lost-time totals.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 24,
+        "fontWeight": 400,
+        "color": "#4A5563",
+        "align": "left",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 9462,
+           "value": 0
+          },
+          {
+           "atMs": 9862,
+           "value": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-watch-0-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 13500,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 4807,
+           "value": 1
+          },
+          {
+           "atMs": 4808,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-watch-0",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 13500,
+       "opacity": 0,
+       "z": 51,
+       "text": "Next: confirm the liner\nbottom, 1.3 m below plan.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 400,
+           "value": 0
+          },
+          {
+           "atMs": 401,
+           "value": 1
+          },
+          {
+           "atMs": 4807,
+           "value": 1
+          },
+          {
+           "atMs": 4808,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-watch-1-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 13500,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5157,
+           "value": 0
+          },
+          {
+           "atMs": 5158,
+           "value": 1
+          },
+          {
+           "atMs": 7912,
+           "value": 1
+          },
+          {
+           "atMs": 7913,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-watch-1",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 13500,
+       "opacity": 0,
+       "z": 51,
+       "text": "Reconcile the final cost\nagainst the budget left.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 5157,
+           "value": 0
+          },
+          {
+           "atMs": 5158,
+           "value": 1
+          },
+          {
+           "atMs": 7912,
+           "value": 1
+          },
+          {
+           "atMs": 7913,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-watch-2-box",
+       "type": "shape",
+       "shape": "roundRect",
+       "radiusPx": 12,
+       "fill": "#0C121D",
+       "x": 160,
+       "y": 944,
+       "width": 1600,
+       "height": 108,
+       "startMs": 0,
+       "durationMs": 13500,
+       "opacity": 0,
+       "z": 50,
+       "decorative": true,
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 8262,
+           "value": 0
+          },
+          {
+           "atMs": 8263,
+           "value": 1
+          },
+          {
+           "atMs": 11609,
+           "value": 1
+          },
+          {
+           "atMs": 11610,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "cap-watch-2",
+       "type": "text",
+       "x": 190,
+       "y": 956,
+       "width": 1540,
+       "height": 88,
+       "startMs": 0,
+       "durationMs": 13500,
+       "opacity": 0,
+       "z": 51,
+       "text": "And watch rig equipment, the\nlargest cause of lost time.",
+       "style": {
+        "fontFamily": "Arial",
+        "fontSize": 34,
+        "fontWeight": 700,
+        "color": "#FFFFFF",
+        "align": "center",
+        "lineHeight": 1.2
+       },
+       "tracks": [
+        {
+         "property": "opacity",
+         "keyframes": [
+          {
+           "atMs": 0,
+           "value": 0
+          },
+          {
+           "atMs": 8262,
+           "value": 0
+          },
+          {
+           "atMs": 8263,
+           "value": 1
+          },
+          {
+           "atMs": 11609,
+           "value": 1
+          },
+          {
+           "atMs": 11610,
+           "value": 0
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

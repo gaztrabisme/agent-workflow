@@ -1,0 +1,16 @@
+{
+  "format": "scene-engine/storyboard@1",
+  "title": "Invalid paths and identifiers",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "scenes": [{
+    "id": "demo",
+    "startMs": 0,
+    "durationMs": 1000,
+    "layers": [
+      { "id": "same", "type": "image", "x": 0, "y": 0, "width": 100, "height": 100, "startMs": 0, "durationMs": 1000, "src": "escape.md" },
+      { "id": "same", "type": "shape", "shape": "rect", "x": 100, "y": 0, "width": 100, "height": 100, "startMs": 0, "durationMs": 1000 }
+    ]
+  }]
+}
