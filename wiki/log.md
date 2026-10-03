@@ -1,0 +1,51 @@
+# Log
+
+## 2026-10-03 — package built and this Mac switched over
+
+Reader: whoever resumes work on this repo. Goal file: `goals/2026-10-03-agent-workflow.md`.
+
+**What was done**
+- Created the private repo `gaztrabisme/agent-workflow` from 27 skill repos (with their commit history and the 11 `pre-stage-b` tags), `physical-product-design` (no earlier git history), and the three tools `render-kit`, `scene-engine` and `brand-profile`.
+- Converted 7,038 images, PDFs and audio files to Git LFS across all history (git objects 9.8 MB, LFS 1.2 GB).
+- Wrote `install.sh`, `README.md`, the settings merge, and `config/` (CLAUDE.md, the code-quality hook, the retired-skill list).
+- Removed the oMLX key from `CLAUDE.md` and from the history of two old `dev` commits before the first push.
+- Published knowledge-base release `data-v10` (330,778 points; gate PASS 2026-10-02) and moved the knowledge-base release tooling and installer default to it.
+- Switched this Mac: links for Claude, Codex and the shared agents folder now resolve into the package; `~/.claude/CLAUDE.md` links to `config/claude/CLAUDE.md`; read-once and the post-compaction reminder hooks removed; github-docs moved to `tools/mcp/github-docs` and its three config files repointed; old copies moved to the Trash (31) or `tools/_archive/skills-leftovers` (30); the 26 old GitHub skill repos archived.
+
+**Forks decided forward** (owner approved the plan with "Go"; these were not separately asked)
+- Course images and PDFs: Git LFS with full history, not release downloads.
+- `tools/skills` keeps `docx`, `xlsx` (Anthropic's, not packaged) and `.claude` (session goal state).
+- plan-goal plugin stays its own public repo; the installer clones it next to the package.
+- The code-quality hook is packaged unchanged.
+- Old repos archived rather than deleted; deletion is the owner's.
+
+**Found while doing it, fixed**
+- render-kit's `value` check looked for color-theory one level too shallow after the move and silently skipped; fixed and re-tested (48/48).
+- The first installer skipped the Write hook (duplicate check ignored the matcher), mis-detected LFS placeholders, and aborted on a malformed `settings.json`; fixed after an independent review.
+- 60 skill-doc links to the tools broke with the move; repaired and checked.
+- A copied `.venv` pointed at the old folder; rebuilt in place.
+
+**UAT**
+
+| Row | Result | Evidence |
+|---|---|---|
+| G1 private repo | PASS | `gh repo view` prints PRIVATE |
+| G2 28 skills valid | PASS | `skills-ref validate` on all 28, run twice (fresh clone, then final) |
+| G3 history and tags | PASS, with one note | Subjects of all 25 archived repos compared with the package: all present except one color-theory subtree-merge commit whose message embeds an old commit hash that the import rewrote; the merge exists. ceric, domestika-course-archive and physical-product-design have no GitHub copy to compare; their counts were checked before the push. |
+| G4 LFS | PASS | Fresh clone from GitHub before the last commits: 7,038 files present, 0 placeholders; no LFS-tracked path changed since |
+| G5 Linux install | PASS | Copy of the fresh clone on the GPU PC, empty home: 28 links each for the three agents, second run clean, 0 placeholders. The clone itself was made on this Mac (the PC has no GitHub login). |
+| G6 tools | PASS | render-kit 48/48 and selftest with nothing skipped; scene-engine 52 pass, 0 fail, 1 skipped (the Keynote check, which waits on an owner permission) |
+| G7 hooks | PASS | settings.json: quality hook for Edit and Write from the package, dcg present, no read-once, no reminder |
+| G8 links | PASS | 0 problems across the three agent folders and CLAUDE.md |
+| G9 old copies | PASS | no old skill or tool folder; `_archive` exists; github-docs path in 3 configs |
+| G10 data-v10 | PASS | all three parts downloaded and matched to the manifest's SHA-256 |
+| G11 archived | PASS | 26 of 26 archived |
+| G12 README | PASS | grep |
+
+**Open**
+- The folder `~/aw-test` on the GPU PC (2.6 GB, my test copy of this repo) is still there and can be deleted.
+- The code-quality hook's output may not reach the model; unchecked in a live session.
+- scene-engine cannot find Chromium on Linux (macOS cache path only).
+- `~/.claude/reference/bppc.md` and the `dcg` program are not in the package.
+- Deleting the 26 archived GitHub repos is the owner's call; `retired-repos.txt` has the names.
+- The `dev` skill's old public history may contain the oMLX key (a local-server key); the new repo is clean.
