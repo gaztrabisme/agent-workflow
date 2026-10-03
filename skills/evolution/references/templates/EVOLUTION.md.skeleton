@@ -1,0 +1,34 @@
+# Evolution Log — <skill-name>
+
+The loop turns real use into skill improvements. Mechanism: `../evolution/references/loop.md`. Harvest source: <what real traces feed this skill>.
+
+---
+
+## Evolution <n> — <YYYY-MM-DD> — <one-line theme>
+
+### Harvest scope
+- **Grounded:** <sources and period> → <what changed the review>.
+- **Coverage:** <why the traces are representative; what was unavailable>.
+- **Evidence limits:** <instrument windows, attribution, task independence, source quality>.
+- **Evidence class:** <natural | exercise | authoring-time> (derived: dogfood 2026-10-01).
+
+### Settled verdicts
+| Prior item | Verdict | Evidence and reason |
+|---|---|---|
+| | | |
+
+### Patterns found
+Ranked by impact and effort; keep the proof with each pattern.
+1. **<pattern>** — Impact: H/M/L; Effort: H/M/L. Evidence: <trace and mechanism>.
+
+### Hypotheses applied
+1. **<change and target file>** — closes <pattern>; approved by <authority>; check-ins: <small reversible changes>.
+
+### Validation plan
+| Change | Expected result | Evidence floor | Evidence class | Owner | Revisit date | Status |
+|---|---|---|---|---|---|
+| | | | | | PENDING |
+
+Use `natural`, `exercise`, or `authoring-time` to identify the evidence class supporting each check. (derived: dogfood 2026-10-01)
+
+**Verdict: PENDING** — a new or document-derived change remains a hypothesis until later real use reaches its predeclared evidence floor. Do not mark a change `KEEP` on application day.
