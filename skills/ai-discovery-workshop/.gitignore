@@ -1,0 +1,14 @@
+.DS_Store
+scratchpad/
+
+# Org-specific material and third-party source documents stay off the remote.
+local/
+
+# Engagement source material never belongs in this repo.
+*.xlsx
+*.docx
+*.pptx
+*.pdf
+
+# Scrub configuration is kept outside this repo.
+.scrub-denylist
