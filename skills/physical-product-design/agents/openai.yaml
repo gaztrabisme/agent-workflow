@@ -1,0 +1,6 @@
+interface:
+  display_name: "Physical Product Design"
+  short_description: "Cable-aware concept, CAD and print handoff"
+  default_prompt: "Use $physical-product-design to turn this hardware idea into editable CAD with cable collision meshes, visual refinement and a checked fabrication handoff."
+policy:
+  allow_implicit_invocation: true
