@@ -26,7 +26,7 @@ test('AT12 fidelity names only the misplaced bar',async()=>{const c=await onlyFa
 test('AT13 axe reports button-name and image-alt',async()=>{const c=await onlyFailure('a11y.html','a11y');assert.deepEqual(c.items.map((x:any)=>x.rule).filter(Boolean).sort(),['button-name','image-alt']);});
 test('AT14 value failure and missing-tool skip respect strict',async()=>{await onlyFailure('value.html','value',{RK_COLOR_THEORY:resolve('test/fixtures/color-theory')});const d=await temp(),args=['check','samples/bad/value.html','--checks','value','--out-dir',d],skip=await report(args,{RK_COLOR_THEORY:'/nonexistent'});assert.equal(skip.code,0);required(skip.data.checks[0],'skipped');const strict=await rk([...args,'--strict'],{RK_COLOR_THEORY:'/nonexistent'});assert.equal(strict.code,1);});
 test('AT35 value and chroma checks resolve outside the caller working directory',{timeout:90000},async()=>{
-  const d=await temp(),out=join(d,'out'),python=join(d,'python3'),expectedScript=resolve('../skills/color-theory/scripts/checks.py');
+  const d=await temp(),out=join(d,'out'),python=join(d,'python3'),expectedScript=resolve('../../skills/color-theory/scripts/checks.py');
   await writeFile(python,`#!/bin/sh\nif [ "$1" != "${expectedScript}" ]; then echo "unexpected script path: $1" >&2; exit 42; fi\ncase "$2" in\n  value) printf 'Focal box holds 2x its area share of value edges\\nT1 PASS\\n' ;;\n  chroma) printf 'T5 PASS\\n' ;;\n  *) exit 43 ;;\nesac\n`);
   await chmod(python,0o755);
   const env:Record<string,string|undefined>={...process.env,PATH:`${d}:${process.env.PATH??''}`};delete env.RK_COLOR_THEORY;
