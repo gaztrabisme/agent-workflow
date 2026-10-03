@@ -74,11 +74,12 @@ s = json.load(open(path)) if os.path.exists(path) else {}
 if os.path.exists(path):
     shutil.copy(path, f"{path}.bak-{time.strftime('%Y%m%d-%H%M%S')}")
 
-def has(event, cmd):
-    return any(h.get("command") == cmd for m in s.get("hooks", {}).get(event, []) for h in m.get("hooks", []))
+def has(event, matcher, cmd):
+    return any(m.get("matcher") == matcher and h.get("command") == cmd
+               for m in s.get("hooks", {}).get(event, []) for h in m.get("hooks", []))
 
 def add(event, matcher, cmd):
-    if has(event, cmd):
+    if has(event, matcher, cmd):
         return
     s.setdefault("hooks", {}).setdefault(event, []).append(
         {"matcher": matcher, "hooks": [{"type": "command", "command": cmd}]})
