@@ -1,0 +1,1 @@
+SKILL.md · 1343 · U54 · L81 · 04:29–07:57 → unchanged · Scoped JPEG, sRGB conversion, and 2,000 px longer-side resizing to the low-resolution copy, preserving “usually”; the course does not specify the high-resolution file format.

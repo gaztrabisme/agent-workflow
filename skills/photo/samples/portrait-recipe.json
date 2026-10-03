@@ -1,0 +1,28 @@
+{
+  "operations": [
+    {
+      "type": "exposure",
+      "stops": 0.12
+    },
+    {
+      "type": "white_balance",
+      "temperature": 6100,
+      "tint": 1
+    },
+    {
+      "type": "levels",
+      "black": 0.015,
+      "white": 0.98,
+      "gamma": 1.02
+    },
+    {
+      "type": "saturation",
+      "factor": 1.05
+    },
+    {
+      "type": "vignette",
+      "strength": 0.12,
+      "radius": 0.72
+    }
+  ]
+}

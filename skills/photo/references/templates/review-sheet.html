@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo review sheet — replace with source and edit file names</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; margin: 0; }
+    body { background: #808080; color: #171717; }
+    main { width: 100%; min-height: 100vh; padding: 24px; }
+    h1, h2 { margin: 0 0 12px; }
+    p { margin: 0 0 20px; }
+    .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    figure { min-width: 0; margin: 0 0 24px; }
+    figcaption { padding: 8px 0; font-weight: 650; overflow-wrap: anywhere; }
+    .frame { display: grid; min-height: 300px; place-items: center; padding: 12px; background: #f4f1e8; }
+    .frame svg { display: block; width: 100%; height: auto; max-height: 560px; }
+    .pixel-scroll { max-width: 100%; overflow-x: auto; overflow-y: hidden; background: #f4f1e8; }
+    .pixel-scroll .frame { width: max-content; min-height: 180px; }
+    .pixel-scroll svg { width: 320px; height: 220px; max-height: none; }
+    .mask-note { border: 2px dashed #171717; padding: 12px; background: #f4f1e8; }
+    @media (max-width: 700px) { .pair { grid-template-columns: 1fr; } main { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <!-- Replace each inline SVG slot with the corresponding <img src="..." alt="...">. -->
+  <main data-rk-stage="comparison">
+    <h1>Replace with reference and edited filenames</h1>
+    <p>Record the task, review region, and any approved change. Keep this stage full width and do not declare a focal area: render-kit value is expected to be n/a for a photo review sheet. (derived: dogfood 2026-10-02, F10)</p>
+    <section aria-labelledby="full-frame-heading">
+      <h2 id="full-frame-heading">Full frame</h2>
+      <div class="pair">
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 640 420" role="img" aria-labelledby="ref-title ref-desc">
+              <title id="ref-title">Reference file slot</title><desc id="ref-desc">Replace this illustration with the reference photograph.</desc>
+              <rect width="640" height="420" fill="#d8d5cb"/><circle cx="320" cy="165" r="95" fill="#8a7770"/><path d="M150 420c20-125 110-175 170-175s150 50 170 175" fill="#4a615f"/><text x="320" y="395" text-anchor="middle" fill="#f4f1e8" font-size="22">Reference image slot</text>
+            </svg>
+          </div>
+          <figcaption>Reference: replace with filename</figcaption>
+        </figure>
+        <figure>
+          <div class="frame">
+            <svg viewBox="0 0 640 420" role="img" aria-labelledby="edit-title edit-desc">
+              <title id="edit-title">Edited file slot</title><desc id="edit-desc">Replace this illustration with the edited photograph.</desc>
+              <rect width="640" height="420" fill="#d8d5cb"/><circle cx="320" cy="165" r="95" fill="#927d74"/><path d="M150 420c20-125 110-175 170-175s150 50 170 175" fill="#4a615f"/><text x="320" y="395" text-anchor="middle" fill="#f4f1e8" font-size="22">Edited image slot</text>
+            </svg>
+          </div>
+          <figcaption>Edited: replace with filename</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section aria-labelledby="closeup-heading">
+      <h2 id="closeup-heading">100% close-up</h2>
+      <p>Replace the two slots with same-size source-pixel crops around the edit or named review region. Keep them at natural pixel size in the scroll area.</p>
+      <div class="pair">
+        <figure><div class="pixel-scroll"><div class="frame"><svg viewBox="0 0 320 220" role="img" aria-label="Reference close-up slot"><rect width="320" height="220" fill="#d8d5cb"/><circle cx="160" cy="108" r="58" fill="#8a7770"/></svg></div></div><figcaption>Reference close-up: region and filename</figcaption></figure>
+        <figure><div class="pixel-scroll"><div class="frame"><svg viewBox="0 0 320 220" role="img" aria-label="Edited close-up slot"><rect width="320" height="220" fill="#d8d5cb"/><circle cx="160" cy="108" r="58" fill="#927d74"/></svg></div></div><figcaption>Edited close-up: same region and filename</figcaption></figure>
+      </div>
+    </section>
+    <p class="mask-note">Optional: add a mask overlay or difference image in a separate labelled row when it answers a specific review question.</p>
+  </main>
+</body>
+</html>

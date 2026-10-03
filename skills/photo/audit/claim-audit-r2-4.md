@@ -1,0 +1,59 @@
+# Claim audit
+Writer: codex
+Auditor: glm
+Round: 2
+
+Scope: `references/method/deliver-and-review.md`, `references/method/grade-and-batch.md` — 33 citations (15 + 18), one row per occurrence, since repeated anchors back different claims. Whole skill at audit time: 321 citations.
+
+Round-2 basis: the writer rewrote both files after round 1 (`audit/claim-audit-s3.md`). Every citation in scope was re-checked against the current text and the cited course sections. Two round-1 citations no longer appear (removed by the writer): `1343 · U47 · L70 · 09:33–11:18` and `669 · U4 · L10 · 00:00–03:49`; all other round-1 anchors are re-audited below. Previously failing rows: the 669 U4 L11 "gallery or contact sheet" rows are now labelled derived and pass; the U47/U53 action rows now track what the teacher actually does and pass; the "only when" matching rule still overstates 227.
+
+| # | File | Anchor | Claim | Verdict | Note |
+|---|---|---|---|---|---|
+| 1 | references/method/deliver-and-review.md | 1343 · U54 · L81 · 01:19–04:29 | Course distinguishes screen JPEG sizing from print dimensions and resolution | supported | Section sets a 72-PPI, 2,000-px screen-ready copy and notes a 2,000-px image prints "only at a fairly small size"; PPI vs DPI distinguished. |
+| 2 | references/method/deliver-and-review.md | 1343 · U54 · L81 · 04:29–07:57 | Course makes screen-size JPEG copies with an sRGB profile | supported | Section runs Image Processor: JPEG, Resize to Fit 2,000 px, Convert Profile to sRGB; full-resolution original kept. |
+| 3 | references/method/deliver-and-review.md | 1343 · U54 · L82 · 00:00–02:58 | Course soft proofs with the output profile before converting | supported | Section sets View > Proof Setup > Custom with the lab's or Coated FOGRA39 profile before converting. |
+| 4 | references/method/deliver-and-review.md | 1343 · U54 · L82 · 02:58–07:55 | Course compares proof with original, adjusts; proofing only previews | supported | Section toggles Proof Colors, compares the faded reds, adjusts with Selective Color; proofing "only previews them". |
+| 5 | references/method/deliver-and-review.md | 1343 · U54 · L82 · 07:55–10:48 | Course converts to the print profile, sizes the image, keeps layers | supported | Section converts to Coated FOGRA39 (Relative Colorimetric), declines flattening so layers stay editable, then sizes before print. |
+| 6 | references/method/deliver-and-review.md | 1343 · U54 · L82 · 10:48–13:38 | Course keeps the layered working file; format, profile, size per output | supported | Section: "Keep the working file with its layers as a Photoshop document"; TIFF/JPEG, profile and size chosen per destination. |
+| 7 | references/method/deliver-and-review.md | 669 · U4 · L11 · 00:00–03:14 | Derived review format: gallery/contact sheet adapts her Finder set-by-set comparison | supported | Labelled "Derived"; section opens the 216 exported photos in a Finder folder (frame captions) and reviews space by space, advising the images "cool off" a few days. |
+| 8 | references/method/deliver-and-review.md | 669 · U4 · L11 · 03:14–06:44 | Derived review format: gallery/contact sheet adapts her Finder set-by-set comparison | supported | Labelled "Derived"; section compares practically identical photos within each set (centering, gaze, face angle) to choose between them. |
+| 9 | references/method/deliver-and-review.md | 669 · U4 · L11 · 08:22–12:37 | Derived review format: gallery/contact sheet adapts her Finder set-by-set comparison | supported | Labelled "Derived"; section weighs small details between similar frames and advises selecting "at least a day after editing the photos". |
+| 10 | references/method/deliver-and-review.md | 669 · U4 · L11 · 12:37–15:44 | Derived review format: gallery/contact sheet adapts her Finder set-by-set comparison | supported | Labelled "Derived"; section saves the 63 keepers separately or on Drive to view later and narrows gradually — "we need to digest the photos". |
+| 11 | references/method/deliver-and-review.md | 227 · U4 · L11 · 14:31–16:48 | Snapseed lesson calls a Story crop 16:9; add follow-the-published-spec rule | derived-unlabelled | Section does say "the format she identifies here is 16:9", but the closing directive "Follow the destination's current published specification; use 9:16 only when…" is the writer's own resolution of the 9:16/16:9 conflict, not said in either lesson and not labelled derived. |
+| 12 | references/method/deliver-and-review.md | 227 · U5 · L15 · 02:07–03:20 | Story unit states vertical 9:16; add follow-the-published-spec rule | derived-unlabelled | Section supports the 9:16 fact ("The format for Stories is 9:16") and keeping subjects clear of the crop ("Important things should never sit in the part that gets cropped"); the published-specification directive is the writer's conclusion, unlabelled. |
+| 13 | references/method/deliver-and-review.md | 669 · U4 · L10 · 15:06–17:56 | Portrait teacher exports candidates and compares them | supported | Section ends: "Now we export them and decide which ones we keep, which work best, and which are repeated without adding anything." |
+| 14 | references/method/deliver-and-review.md | 669 · U4 · L11 · 08:22–12:37 | Teacher compares candidates and allows time before narrowing | supported | Section compares small details between similar frames and selects "at least a day after editing the photos". |
+| 15 | references/method/deliver-and-review.md | 669 · U4 · L11 · 12:37–15:44 | Teacher allows time before narrowing the final set | supported | Section: "We gradually reduce the group of 63 to our ten favorites… We need to digest the photos, forget about them." |
+| 16 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 00:11–03:00 | Course demonstrates LUTs; grade compared on and off | supported | Section applies Color Lookup tables and shows "the before and after" (50% opacity starting point). |
+| 17 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 03:00–05:41 | Course demonstrates gradient maps | supported | Section builds a gradient map via the Gradient Editor with Soft Light blend mode and opacity. |
+| 18 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 05:41–07:20 | Decide the look by comparing the grade on and off | supported | Section: "Preview the adjustment to compare the original with the changed image"; Alt-clicks the layer eye to compare. |
+| 19 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 07:20–10:29 | Course demonstrates curves | supported | Section grades with Curves channels — "Curves are my personal favorite" — across red, green and blue. |
+| 20 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 10:29–13:58 | Course recommends testing an action before processing a batch | supported | Section: "Whenever I create an action, I test it to make sure it works", then runs File > Automate > Batch. |
+| 21 | references/method/grade-and-batch.md | 227 · U4 · L12 · 18:15–20:06 | Match a group only when same conditions; copies edits, reviews each result | overstated | The copied-edits/review-each attribution is supported ("If you do not, open one and change whatever you want"), but the teacher says copying "works best when the photographs have the same conditions" and that different conditions "usually will not look as good" — a tendency, not the "only when" rule the claim states. Same issue round 1 flagged on SKILL.md. |
+| 22 | references/method/grade-and-batch.md | 669 · U4 · L10 · 03:49–05:57 | Portrait course copies a scene base and adapts each image | supported | "Copy it with Command-C, then paste the edit onto the other photos from the same space and adapt it a little to each one." |
+| 23 | references/method/grade-and-batch.md | 1343 · U47 · L70 · 04:00–05:55 | Leave color and contrast curves without points; they depend on the image | supported | Section: color curve gets no points "because color adjustments depend on the image"; contrast "also without points because contrast depends a lot on the image itself". |
+| 24 | references/method/grade-and-batch.md | 1343 · U47 · L70 · 05:56–07:39 | Stop recording and test the action by playing it back | supported | Section: "Select Brightness and press Stop", revert from History, then "Select the action's title and press Play". |
+| 25 | references/method/grade-and-batch.md | 1343 · U47 · L70 · 07:40–09:32 | A dialog pause stops the action at a step so you can change its value | supported | Section: enabling the dialog box "makes the action stop at that dialog so you can change its value." |
+| 26 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 10:29–13:58 | After batch, check the first image; she removes a duplicate curve from it | supported | Section: "On the first image, the curve has been added… This image will end up with a duplicate, so I delete that duplicate." The text is first-person and never genders the teacher, so "she" is the writer's assumption (round-1 notes said "he"). |
+| 27 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 07:20–10:29 | Reuse a curves preset on another image, with a few tweaks | supported | Section saves the curve as a preset: "To apply the same type of coloring to another image, pick that preset. You may need to make a few tweaks, but it is a good starting point." |
+| 28 | references/method/grade-and-batch.md | 669 · U4 · L10 · 03:49–05:57 | Portrait course copies its scene base and adapts each one | supported | "Paste the edit onto the other photos from the same space and adapt it a little to each one." |
+| 29 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 07:20–10:29 | Derived set check: compare neighboring images for unintended shifts | supported | Labelled "Derived"; source shows the curves preset reused with image-specific tweaks. |
+| 30 | references/method/grade-and-batch.md | 669 · U4 · L10 · 03:49–05:57 | Derived set check: compare neighboring images for unintended shifts | supported | Labelled "Derived"; source shows the copied scene base adapted to each photo. |
+| 31 | references/method/grade-and-batch.md | 669 · U4 · L10 · 03:49–05:57 | Derived batch rule: automation is a starting adjustment, not an approval | supported | Labelled "Derived"; source shows a copied scene base that is then adapted on each photo. |
+| 32 | references/method/grade-and-batch.md | 227 · U4 · L12 · 18:15–20:06 | Derived batch rule: automation is a starting adjustment, not an approval | supported | Labelled "Derived"; source pastes edits across a same-conditions set and still opens results — "If you do not, open one and change whatever you want." |
+| 33 | references/method/grade-and-batch.md | 1343 · U53 · L80 · 10:29–13:58 | Derived batch rule: automation is a starting adjustment, not an approval | supported | Labelled "Derived"; source shows the action tested on one image before the batch runs. |
+
+## Portability check
+
+```
+$ grep -rnE 'dataviz|design-taste-frontend|minimalist-ui|high-end-visual-design|redesign-existing-projects|frontend-design|batch-photo-retouching|Read tool|Bash tool|subagent_type' /Users/GaryT/Documents/Work/lab/design-programme/briefs/runs-3-5/scratch/ca-photo-r2-4-204430/SKILL.md /Users/GaryT/Documents/Work/lab/design-programme/briefs/runs-3-5/scratch/ca-photo-r2-4-204430/references/method
+(no matches)
+```
+
+grep exited 1 — none of the listed terms appear in `SKILL.md` or `references/method/`.
+
+## Not reached
+
+None — all 33 citations in scope were checked against the cited sections.
+
+Outstanding for the writer: row 21 (`227 · U4 · L12 · 18:15–20:06`) — soften "Match a group only when images share the same scene conditions" to the teacher's "works best when" framing; rows 11–12 (`deliver-and-review.md` Story bullet) — label the "follow the destination's published specification" directive as derived or reword it as skill guidance.
