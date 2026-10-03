@@ -2,11 +2,11 @@
 
 ## Select a governing identity
 
-Follow the client's or company's brand system when one applies. The owner's profile is for owner-directed work without another governing identity; its README says review is pending and the missing external references have not yet confirmed which traits recur. [brand-profile README](../../../../brand-profile/README.md); [brand-profile PROFILE](../../../../brand-profile/PROFILE.md), “Evidence and confidence”.
+Follow the client's or company's brand system when one applies. The owner's profile is for owner-directed work without another governing identity; its README says review is pending and the missing external references have not yet confirmed which traits recur. [brand-profile README](../../../../tools/brand-profile/README.md); [brand-profile PROFILE](../../../../tools/brand-profile/PROFILE.md), “Evidence and confidence”.
 
-The profile describes two distinct source projects and labels its repeated personal style as a working hypothesis. Choose one coherent visual world for a piece and treat the profile's chosen token values as reviewable defaults, not a permanent palette or owner-approved specification. [brand-profile PROFILE](../../../../brand-profile/PROFILE.md), “Palette”; [brand-profile README](../../../../brand-profile/README.md), “Review status”. (derived: the profile itself limits the evidence for generalizing its observations.)
+The profile describes two distinct source projects and labels its repeated personal style as a working hypothesis. Choose one coherent visual world for a piece and treat the profile's chosen token values as reviewable defaults, not a permanent palette or owner-approved specification. [brand-profile PROFILE](../../../../tools/brand-profile/PROFILE.md), “Palette”; [brand-profile README](../../../../tools/brand-profile/README.md), “Review status”. (derived: the profile itself limits the evidence for generalizing its observations.)
 
-The shell in [deck-shell.html](../../templates/deck-shell.html) embeds a copy of [tokens.css](../../../../brand-profile/tokens.css) so it renders on its own; update that copy if the profile tokens change, and record the profile's pending owner review when it affects a deliverable. [brand-profile README](../../../../brand-profile/README.md), “For producers”.
+The shell in [deck-shell.html](../../templates/deck-shell.html) embeds a copy of [tokens.css](../../../../tools/brand-profile/tokens.css) so it renders on its own; update that copy if the profile tokens change, and record the profile's pending owner review when it affects a deliverable. [brand-profile README](../../../../tools/brand-profile/README.md), “For producers”.
 
 ## Keep design decisions with their owners
 
@@ -28,7 +28,7 @@ HTML font choices do not guarantee the same fonts in PPTX: scene-engine's PowerP
 
 ## HTML slide markup
 
-Use semantic, media-independent, style-independent markup rather than presentational markup. [book:whatwg-html], “Conformance requirements for authors”. Keep slide content as document text, use meaningful headings and sequence instead of embedding the communication in a bitmap, and mark the slide region with `data-rk-stage` or an intended focal region with `data-rk-focal` when useful to render-kit. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Markup the checks read”. (derived from the source’s accessibility and maintenance rationale for semantic, media-independent markup.)
+Use semantic, media-independent, style-independent markup rather than presentational markup. [book:whatwg-html], “Conformance requirements for authors”. Keep slide content as document text, use meaningful headings and sequence instead of embedding the communication in a bitmap, and mark the slide region with `data-rk-stage` or an intended focal region with `data-rk-focal` when useful to render-kit. [render-kit AGENTS.md](../../../../tools/render-kit/AGENTS.md), “Markup the checks read”. (derived from the source’s accessibility and maintenance rationale for semantic, media-independent markup.)
 
 ## Return when
 

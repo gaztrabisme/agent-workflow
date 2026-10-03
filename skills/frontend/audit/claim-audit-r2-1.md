@@ -4,7 +4,7 @@ Writer: codex
 Auditor: glm
 Round: 2
 
-Scope: all `[book:]`, `[src:]` and `[doc:]` citations in `SKILL.md`, `references/method/audit-first-redesign.md`, `references/method/brief-baseline.md`, `references/method/measurement.md`. Round-1 rows are kept (`claim-audit-s1.md` rows 1–9 and 42–53, `claim-audit-s2.md` rows 1–9, `claim-audit-s3.md` rows 1–32); every non-supported row was re-checked against the current text, and every citation that is new or changed since round 1 was checked against its cited section. Markdown links to `[render-kit/AGENTS.md](../../render-kit/AGENTS.md)` are local-guide links, not course citations, and have no rows.
+Scope: all `[book:]`, `[src:]` and `[doc:]` citations in `SKILL.md`, `references/method/audit-first-redesign.md`, `references/method/brief-baseline.md`, `references/method/measurement.md`. Round-1 rows are kept (`claim-audit-s1.md` rows 1–9 and 42–53, `claim-audit-s2.md` rows 1–9, `claim-audit-s3.md` rows 1–32); every non-supported row was re-checked against the current text, and every citation that is new or changed since round 1 was checked against its cited section. Markdown links to `[render-kit/AGENTS.md](../../tools/render-kit/AGENTS.md)` are local-guide links, not course citations, and have no rows.
 
 Anchors are given in the form the citation checker parses: source id plus the following text up to the first `.` or `;` (the closing quote is dropped when the sentence ends inside the quoted title, e.g. `“F4` for `“F4. The accessibility tree …”`). One row per distinct (file, anchor) pair, plus extra occurrence rows where the writer re-anchored a claim; where several round-1 occurrence rows collapse onto one parsed pair, they are all kept.
 

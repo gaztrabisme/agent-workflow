@@ -64,4 +64,4 @@ No matches (grep exit 1): no leaked skill names, tool names or subagent referenc
 
 ## Coverage
 
-All 46 citation instances in scope are listed above (40 unique file/anchor pairs); none skipped. The `[render-kit/AGENTS.md](../../../../render-kit/AGENTS.md)` links in `measurement.md` are project-file links, not `[book:]/[src:]/[doc:]` citations, and are not counted as citations by `check_claims.py --sources`.
+All 46 citation instances in scope are listed above (40 unique file/anchor pairs); none skipped. The `[render-kit/AGENTS.md](../../../../tools/render-kit/AGENTS.md)` links in `measurement.md` are project-file links, not `[book:]/[src:]/[doc:]` citations, and are not counted as citations by `check_claims.py --sources`.

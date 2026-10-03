@@ -52,13 +52,13 @@ Motion turns a brief, script or information set into a story plan, storyboard, t
 
 ### Output medium
 
-- Write the editable motion plan as a `scene-engine/storyboard@1` JSON storyboard. The scene-engine stage is 1920×1080 CSS pixels at 30 fps; scene starts and layer tracks use the time origins in [SPEC §4](../../scene-engine/SPEC.md#4-scene-model). Course project sizes and frame rates are examples only.
+- Write the editable motion plan as a `scene-engine/storyboard@1` JSON storyboard. The scene-engine stage is 1920×1080 CSS pixels at 30 fps; scene starts and layer tracks use the time origins in [SPEC §4](../../tools/scene-engine/SPEC.md#4-scene-model). Course project sizes and frame rates are examples only.
 - Use editable HTML/SVG for visual boards and artwork where useful. Add render-kit markup to those files and render/check them with the owner's `render-kit`; the final motion is rendered by `scene-engine`.
 - Keep project-specific artwork and assets in the project. Use stable scene and layer IDs, descriptive notes, and source references for factual content.
 
 ### Scene-engine v1 capability notes
 
-Before choosing storyboard features, consult the **What renders today** table in [scene-engine/AGENTS.md](../../scene-engine/AGENTS.md), alongside the SPEC. Validation and `check` do not prove that the final renderer supports a feature. Until the engine owner updates that table, use these dogfood workarounds. (derived: dogfood 2026-10-02, F1)
+Before choosing storyboard features, consult the **What renders today** table in [scene-engine/AGENTS.md](../../tools/scene-engine/AGENTS.md), alongside the SPEC. Validation and `check` do not prove that the final renderer supports a feature. Until the engine owner updates that table, use these dogfood workarounds. (derived: dogfood 2026-10-02, F1)
 
 - Keep the panels in one scene, with one group per panel; multiple scenes currently render later scenes at their end pose and lose captions. (derived: dogfood 2026-10-02, F2)
 - Give a layer one track. Set its base property to the intended end pose; use `scaleX` for growth or wipes, and approximate easing with piecewise-linear keyframes. Multiple tracks can overwrite each other, easing can render linearly, and properties can return to their base after the last keyframe. (derived: dogfood 2026-10-02, F3)
@@ -84,8 +84,8 @@ Before choosing storyboard features, consult the **What renders today** table in
 
 - Put each scene's `durationMs` in the storyboard. Use `startMs` for a fixed start or `after` plus optional `gapMs` to place a scene after an earlier one.
 - Scene starts are storyboard-relative; layer start/duration are scene-local; track keyframe times are layer-local. State the intended event at the scene/layer level so the timing origin is clear.
-- A track targets one property and carries absolute values. Use only easing and property paths supported by [scene-engine SPEC §4](../../scene-engine/SPEC.md#4-scene-model); validation rejects unsupported fields and paths.
-- Run commands as shown in [scene-engine/AGENTS.md](../../scene-engine/AGENTS.md). For selected frames, use its `check` command with the render-kit path. Static visual checks and markup are described in [render-kit/AGENTS.md](../../render-kit/AGENTS.md).
+- A track targets one property and carries absolute values. Use only easing and property paths supported by [scene-engine SPEC §4](../../tools/scene-engine/SPEC.md#4-scene-model); validation rejects unsupported fields and paths.
+- Run commands as shown in [scene-engine/AGENTS.md](../../tools/scene-engine/AGENTS.md). For selected frames, use its `check` command with the render-kit path. Static visual checks and markup are described in [render-kit/AGENTS.md](../../tools/render-kit/AGENTS.md).
 
 ## Gates (declared, inherited from core)
 
@@ -129,7 +129,7 @@ Before choosing storyboard features, consult the **What renders today** table in
 - [tests/test_measure_storyboard.py](tests/test_measure_storyboard.py) — unit tests for the storyboard measurement script.
 - [references/course-3762/README.md](references/course-3762/README.md), [references/course-503/README.md](references/course-503/README.md), [references/course-433/README.md](references/course-433/README.md), [references/course-561/README.md](references/course-561/README.md) — reading-copy inventories.
 - Course status notes: [3762](references/course-3762/BLOCKED.md), [503](references/course-503/BLOCKED.md), [433](references/course-433/BLOCKED.md), and [561](references/course-561/BLOCKED.md); respect excluded lessons and caption-only limits.
-- Scene-engine contract: [scene-engine/AGENTS.md](../../scene-engine/AGENTS.md) and [scene-engine/SPEC.md §4](../../scene-engine/SPEC.md#4-scene-model).
-- Render-kit contract: [render-kit/AGENTS.md](../../render-kit/AGENTS.md).
+- Scene-engine contract: [scene-engine/AGENTS.md](../../tools/scene-engine/AGENTS.md) and [scene-engine/SPEC.md §4](../../tools/scene-engine/SPEC.md#4-scene-model).
+- Render-kit contract: [render-kit/AGENTS.md](../../tools/render-kit/AGENTS.md).
 - Review the skill package with `python3 scripts/check_refs.py . --sources 'references/course*/*.md'`. (derived: dogfood 2026-10-02, F12)
 - [NOTICE.md](NOTICE.md) — private paid-course source notice.

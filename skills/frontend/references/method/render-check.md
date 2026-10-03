@@ -8,7 +8,7 @@ Fix console errors, failed resources, broken navigation, incorrect state, and ov
 
 ## Render every key page and state
 
-Add data-rk-stage to identify the area that should be captured and checked. Add data-rk-focal only when one element or area is intentionally the focal point. Run the owner tool's check for each key page and state. Fix every fail; inspect each skipped or incomplete result and record why it cannot be evaluated automatically. [render-kit/AGENTS.md](../../../../render-kit/AGENTS.md).
+Add data-rk-stage to identify the area that should be captured and checked. Add data-rk-focal only when one element or area is intentionally the focal point. Run the owner tool's check for each key page and state. Fix every fail; inspect each skipped or incomplete result and record why it cannot be evaluated automatically. [render-kit/AGENTS.md](../../../../tools/render-kit/AGENTS.md).
 
 Make interactive states reproducible from their own URLs or fixtures (for example `/?day=27`, `/?state=empty`, and an error fixture). Expose a stable state marker after data and layout are ready, then pass that selector to `--wait-for`; `main[data-state="ready"]` is the pattern used by [states.html](../../templates/states.html). Do not animate or transition when setting the requested state, because rk freezes page time during capture. Example against a running local app: `rk check http://127.0.0.1:4317/?day=27 --wait-for 'main[data-state="ready"][data-rk-ready="true"]' --width 320 --height 900 --out-dir checks/day27-320`. (derived: dogfood 2026-10-02, F3)
 
@@ -25,7 +25,7 @@ Use these for an off-screen-until-focused skip link, a standard clipped visually
 
 For an intentional failed request in an error-state fixture, record the exact URL, status, reason, recovery assertion, and reviewer/owner in the run notes. Until rk supports a declared expected request, keep the `resources` finding visible and call it an accepted exception only after review; do not suppress the request or report it as a clean zero-fail run. (derived: dogfood 2026-10-02, F2)
 
-After code checks, use render-kit to prepare a brief with specific visual questions. Ask a reviewer who did not make the page to judge hierarchy, wrapping, clipping, spacing, responsive behavior, and whether the expected task or state is visually clear. Verify the review answers; a no means revise and render again. If a suitable reviewer is unavailable, mark the vision checks not-judged. [render-kit/AGENTS.md](../../../../render-kit/AGENTS.md); [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders.”
+After code checks, use render-kit to prepare a brief with specific visual questions. Ask a reviewer who did not make the page to judge hierarchy, wrapping, clipping, spacing, responsive behavior, and whether the expected task or state is visually clear. Verify the review answers; a no means revise and render again. If a suitable reviewer is unavailable, mark the vision checks not-judged. [render-kit/AGENTS.md](../../../../tools/render-kit/AGENTS.md); [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders.”
 
 Prepare one `rk brief` per key state and viewport so each review image and question set names the state under review. Pass `--pdf` only when a PDF deliverable exists. (derived: dogfood 2026-10-02, F11)
 
@@ -33,4 +33,4 @@ Repeat the loop after changes that affect markup, styles, fonts, content length,
 
 ## Record the result
 
-For each route and state, record the build/test result, render-kit status, automated accessibility findings, manual keyboard steps, vision answers, and any skipped or not-judged check. Do not collapse different evidence types into a single quality score. (derived: [render-kit/AGENTS.md](../../../../render-kit/AGENTS.md); [book:playwright-docs], “Accessibility testing”; [src:platform-apps/report.md], “F8. Quality: accessibility, testing, performance.”)
+For each route and state, record the build/test result, render-kit status, automated accessibility findings, manual keyboard steps, vision answers, and any skipped or not-judged check. Do not collapse different evidence types into a single quality score. (derived: [render-kit/AGENTS.md](../../../../tools/render-kit/AGENTS.md); [book:playwright-docs], “Accessibility testing”; [src:platform-apps/report.md], “F8. Quality: accessibility, testing, performance.”)

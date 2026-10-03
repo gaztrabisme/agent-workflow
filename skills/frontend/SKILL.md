@@ -29,7 +29,7 @@ Build and improve production web interfaces in the project's existing environmen
 3. **Preserve an existing stack; name a default for greenfield.** Detect the framework major, router mode, change-detection defaults, test runner, and TypeScript; keep the project's test runner, and upgrade only one major at a time with official tooling. For a new small app, use the no-framework HTML/CSS/TypeScript and static Node default in [greenfield-default.md](references/method/greenfield-default.md), unless the brief names a framework. [src:platform-apps/report.md], “F5. Principles that transfer across frameworks.” (derived: dogfood 2026-10-02, F1)
 4. **Treat accessibility and performance as requirements.** Build to the agreed accessibility target and measure the product on representative screens and conditions; an automated score is one input, not a full review. [book:wcag-22], “5. Conformance”; [book:web-performance-engineering], “Chapter 2. Measuring What Matters.”
 5. **Make structure legible to people and software agents.** Expose accurate roles, names, states, and keyboard-operable actions in the page; visual styling alone is not an interaction contract. [src:agent-ready-web/report.md], “F4. The accessibility tree as the agent interface”; [book:wai-aria-apg], “What Are Accessibility Semantics?”
-6. **Render the actual artifact and fix what the render shows.** Code validity cannot establish visual fit, legibility, or task clarity. [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders”; [render-kit/AGENTS.md](../../render-kit/AGENTS.md).
+6. **Render the actual artifact and fix what the render shows.** Code validity cannot establish visual fit, legibility, or task clarity. [src:platform-apps/report.md], “Rule B: HTML first, then verify what renders”; [render-kit/AGENTS.md](../../tools/render-kit/AGENTS.md).
 
 ## The flow (at a glance)
 
@@ -57,7 +57,7 @@ For a redesign, start at stage 9, then run the relevant stages 1–8. For a smal
 6. Run render-kit on every key page and state. Fix every fail, inspect skipped and incomplete findings, and rerun after each material visual change. Create a reviewer brief with concrete questions; verify answers. Keep vision review explicitly not-judged when no reviewer can see the renders.
 7. Report changed routes and states, checks run, visual review outcome, remaining known limits, and follow-up items.
 
-Detailed procedures are in [render-check.md](references/method/render-check.md) and the linked owner guide [render-kit/AGENTS.md](../../render-kit/AGENTS.md).
+Detailed procedures are in [render-check.md](references/method/render-check.md) and the linked owner guide [render-kit/AGENTS.md](../../tools/render-kit/AGENTS.md).
 
 ## Gates (declared, inherited from core)
 
@@ -80,7 +80,7 @@ Detailed procedures are in [render-check.md](references/method/render-check.md) 
 
 - **Inherits:** [core](../core/SKILL.md) for shared gates.
 - **Works with:** [UX](../ux/SKILL.md) for task flows and wording; [information-design](../information-design/SKILL.md) for chart semantics; [visual-design](../visual-design/SKILL.md) for composition and type; [color-theory](../color-theory/SKILL.md) for palette decisions; [motion](../motion/SKILL.md) for choreography.
-- **Uses:** [render-kit/AGENTS.md](../../render-kit/AGENTS.md) for rendering and visual checks; [scene-engine/AGENTS.md](../../scene-engine/AGENTS.md) only when a web interface is being captured into a video deliverable.
+- **Uses:** [render-kit/AGENTS.md](../../tools/render-kit/AGENTS.md) for rendering and visual checks; [scene-engine/AGENTS.md](../../tools/scene-engine/AGENTS.md) only when a web interface is being captured into a video deliverable.
 - **Boundary:** this skill owns the implementation and rendered verification of web interfaces. Neighboring skills own their input decisions and remain available for targeted reviews.
 
 ## References

@@ -3,7 +3,7 @@ Writer: codex
 Auditor: glm
 Round: 1
 
-Scope: citations in `references/method/measurement.md`, `references/method/performance.md`, `references/method/render-check.md` (58 citations: 32 + 15 + 11). One row per citation occurrence; duplicated anchors in a file are separate rows because they anchor different claims. Markdown links to `[render-kit/AGENTS.md](../../render-kit/AGENTS.md)` are local-guide links, not `[book:…]`/`[src:…]`/`[doc:…]` citations, so they have no rows.
+Scope: citations in `references/method/measurement.md`, `references/method/performance.md`, `references/method/render-check.md` (58 citations: 32 + 15 + 11). One row per citation occurrence; duplicated anchors in a file are separate rows because they anchor different claims. Markdown links to `[render-kit/AGENTS.md](../../tools/render-kit/AGENTS.md)` are local-guide links, not `[book:…]`/`[src:…]`/`[doc:…]` citations, so they have no rows.
 
 | # | File | Anchor | Claim | Verdict | Note |
 |---|---|---|---|---|---|

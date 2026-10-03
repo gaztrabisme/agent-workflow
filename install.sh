@@ -9,7 +9,12 @@ set -euo pipefail
 
 AW="$(cd "$(dirname "$0")" && pwd)"
 WITH_TOOLS=0
-if [ "${1:-}" = "--with-tools" ]; then WITH_TOOLS=1; fi
+case "${1:-}" in
+  "") ;;
+  --with-tools) WITH_TOOLS=1 ;;
+  -h|--help) sed -n '2,6p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+  *) printf 'Unknown option: %s (try --help)\n' "$1" >&2; exit 2 ;;
+esac
 say() { printf '%s\n' "$*"; }
 warn() { printf 'WARNING: %s\n' "$*" >&2; }
 
@@ -17,9 +22,10 @@ warn() { printf 'WARNING: %s\n' "$*" >&2; }
 command -v git >/dev/null || { warn "git is required"; exit 1; }
 git lfs version >/dev/null 2>&1 || { warn "git-lfs is required (course images and PDFs). Install it, then run: git lfs install && git -C '$AW' lfs pull"; exit 1; }
 command -v python3 >/dev/null || { warn "python3 is required"; exit 1; }
-if [ -n "$(git -C "$AW" lfs ls-files 2>/dev/null | head -1)" ] && git -C "$AW" lfs ls-files | grep -q ' - '; then
+# "-" in the second column of `git lfs ls-files` marks a file still held as a pointer
+if git -C "$AW" lfs ls-files 2>/dev/null | awk '$2 == "-" { found = 1 } END { exit !found }'; then
   say "Fetching course files from Git LFS (first run only)..."
-  git -C "$AW" lfs pull
+  git -C "$AW" lfs pull || warn "git lfs pull failed; course images and PDFs are still placeholders. Re-run when online."
 fi
 
 # --- link one folder into an agent's skills folder ---
@@ -63,14 +69,19 @@ ln -sfn "$AW/config/claude/CLAUDE.md" "$CM"
 # --- hooks, plugins and plugin sources in settings.json (merged, never replaced) ---
 PG="$(dirname "$AW")/pi-plan-goal"
 if [ ! -d "$PG/claude-code" ]; then
-  git clone -q https://github.com/gaztrabisme/pi-plan-goal.git "$PG" || warn "could not clone pi-plan-goal; the plan-goal plugin will not load"
+  git clone -q https://github.com/gaztrabisme/pi-plan-goal.git "$PG" || warn "could not clone pi-plan-goal; the plan-goal plugin is left out"
 fi
+[ -d "$PG/claude-code" ] || PG=""
 AW="$AW" PG="$PG" python3 - <<'PY'
 import json, os, shutil, time
 home = os.path.expanduser("~")
 path = os.path.join(home, ".claude", "settings.json")
 aw, pg = os.environ["AW"], os.environ["PG"]
-s = json.load(open(path)) if os.path.exists(path) else {}
+try:
+    s = json.load(open(path)) if os.path.exists(path) and os.path.getsize(path) else {}
+except ValueError:
+    print(f"WARNING: {path} is not valid JSON; hooks and plugins were not merged. Fix it, then re-run.")
+    raise SystemExit(0)
 if os.path.exists(path):
     shutil.copy(path, f"{path}.bak-{time.strftime('%Y%m%d-%H%M%S')}")
 
@@ -85,9 +96,10 @@ def add(event, matcher, cmd):
         {"matcher": matcher, "hooks": [{"type": "command", "command": cmd}]})
 
 dcg = os.path.join(home, ".local", "bin", "dcg")
-if not os.path.exists(dcg):
-    print("WARNING: dcg (destructive-command guard) not found at ~/.local/bin/dcg; install it, then re-run.")
-add("PreToolUse", "Bash", dcg)
+if os.path.exists(dcg):
+    add("PreToolUse", "Bash", dcg)
+else:
+    print("WARNING: dcg (destructive-command guard) not found at ~/.local/bin/dcg, so its hook was not added. Install it, then re-run.")
 q = os.path.join(aw, "config", "hooks", "claude-quality-hook")
 for m in ("Edit", "Write"):
     add("PostToolUse", m, q)
@@ -102,7 +114,10 @@ for name, repo in (("claude-code-warp", "warpdotdev/claude-code-warp"),
                    ("openai-codex", "openai/codex-plugin-cc"),
                    ("i-have-adhd", "ayghri/i-have-adhd")):
     mk.setdefault(name, {"source": {"source": "github", "repo": repo}})
-mk["pi-plan-goal"] = {"source": {"source": "directory", "path": os.path.join(pg, "claude-code")}}
+if pg:
+    mk["pi-plan-goal"] = {"source": {"source": "directory", "path": os.path.join(pg, "claude-code")}}
+else:
+    plugins.pop("plan-goal@pi-plan-goal", None)
 json.dump(s, open(path, "w"), indent=2)
 PY
 say "Settings merged (backup kept next to settings.json)."

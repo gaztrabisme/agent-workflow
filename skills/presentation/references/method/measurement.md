@@ -1,17 +1,17 @@
 # Measurement and review methods
 
-Use code for properties the artifact exposes exactly. Use a reviewer who can see the rendered images or play the media for message, hierarchy, continuity, and legibility judgments. A missing reviewer is **not judged**; automated accessibility checks identify only some issues. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “The loop”; [book:playwright-docs], “Accessibility testing”.
+Use code for properties the artifact exposes exactly. Use a reviewer who can see the rendered images or play the media for message, hierarchy, continuity, and legibility judgments. A missing reviewer is **not judged**; automated accessibility checks identify only some issues. [render-kit AGENTS.md](../../../../tools/render-kit/AGENTS.md), “The loop”; [book:playwright-docs], “Accessibility testing”.
 
 ## Render-kit
 
-Run the owning renderer from the render-kit installation. The HTML template is a local artifact; test it with the acceptance command below and retain its report and images for inspection. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “Quick start” and “The loop”.
+Run the owning renderer from the render-kit installation. The HTML template is a local artifact; test it with the acceptance command below and retain its report and images for inspection. [render-kit AGENTS.md](../../../../tools/render-kit/AGENTS.md), “Quick start” and “The loop”.
 
 ```sh
 ~/.agent-workflow/tools/render-kit/bin/rk check templates/deck-shell.html --out-dir out/presentation-shell
 # Add --pdf when a PDF handout is part of the output.
 ```
 
-For a produced deck, check each slide artifact and every PDF page or exported page view; fix each `fail`, read all `skipped` and `incomplete` details, and repeat after material changes. Use the render-kit brief and verify path if a vision review is requested. [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “The loop”.
+For a produced deck, check each slide artifact and every PDF page or exported page view; fix each `fail`, read all `skipped` and `incomplete` details, and repeat after material changes. Use the render-kit brief and verify path if a vision review is requested. [render-kit AGENTS.md](../../../../tools/render-kit/AGENTS.md), “The loop”.
 
 Vision questions should be yes-means-pass and specific to the output, for example:
 
@@ -129,8 +129,8 @@ print("ROUNDTRIP text=pass chart=" + ("pass" if expected_chart_value is not None
 
 ## Owner checks
 
-Follow scene-engine's [PowerPoint and Keynote owner checks](../../../../scene-engine/AGENTS.md#powerpoint-and-keynote-owner-checks). Record AT37 as `owner-check` until the named PowerPoint checks are performed; record the AT33/AT36 Keynote automation result separately if it returns a nested owner check. [scene-engine AGENTS.md](../../../../scene-engine/AGENTS.md), “PowerPoint and Keynote owner checks”.
+Follow scene-engine's [PowerPoint and Keynote owner checks](../../../../tools/scene-engine/AGENTS.md#powerpoint-and-keynote-owner-checks). Record AT37 as `owner-check` until the named PowerPoint checks are performed; record the AT33/AT36 Keynote automation result separately if it returns a nested owner check. [scene-engine AGENTS.md](../../../../tools/scene-engine/AGENTS.md), “PowerPoint and Keynote owner checks”.
 
 ## Vision record
 
-For every reviewed item, record the question, reviewer, artifact/version, answer, and repair stage. For every item not judged, skipped, or incomplete, record why. Keep a separate list of open owner checks. (field rule (pptx)); [render-kit AGENTS.md](../../../../render-kit/AGENTS.md), “The loop”.
+For every reviewed item, record the question, reviewer, artifact/version, answer, and repair stage. For every item not judged, skipped, or incomplete, record why. Keep a separate list of open owner checks. (field rule (pptx)); [render-kit AGENTS.md](../../../../tools/render-kit/AGENTS.md), “The loop”.

@@ -46,8 +46,8 @@ This skill produces a sourced story plan and the requested presentation delivera
 
 1. Read the brief and any project guidance. Record the audience, purpose, decision or action, evidence, caveats, setting, requested media, and acceptance checks.
 2. Draft and confirm the story outline before styling. Ask the relevant sibling skill for chart, composition, color, motion, or app decisions; preserve the source data and limitations.
-3. Select a governing brand system. If the owner's profile is appropriate, consult its [README](../../brand-profile/README.md) and [profile](../../brand-profile/PROFILE.md); both identify it as a draft awaiting owner review.
-4. Build the HTML/SVG source or storyboard. Use [render-kit](../../render-kit/AGENTS.md) for visual checks and [scene-engine](../../scene-engine/AGENTS.md) for native PowerPoint export, video rendering, and app capture.
+3. Select a governing brand system. If the owner's profile is appropriate, consult its [README](../../tools/brand-profile/README.md) and [profile](../../tools/brand-profile/PROFILE.md); both identify it as a draft awaiting owner review.
+4. Build the HTML/SVG source or storyboard. Use [render-kit](../../tools/render-kit/AGENTS.md) for visual checks and [scene-engine](../../tools/scene-engine/AGENTS.md) for native PowerPoint export, video rendering, and app capture.
 5. Run applicable checks in [review-checklist.md](references/method/review-checklist.md) and [measurement.md](references/method/measurement.md). Fix failures, inspect skipped or incomplete results, and rerun affected checks.
 6. Deliver the requested files with a short evidence record. Separate measured results, vision review, not-judged items, and owner checks.
 
@@ -74,7 +74,7 @@ Scale the stages to the task: a quick slide critique starts at render and check;
 
 - **Inherits:** [core](../core/SKILL.md) for shared gates.
 - **Consumes:** [UX](../ux/SKILL.md), [information-design](../information-design/SKILL.md), [visual-design](../visual-design/SKILL.md), [color-theory](../color-theory/SKILL.md), [motion](../motion/SKILL.md), and [frontend](../frontend/SKILL.md) when their decisions are needed.
-- **Uses:** [scene-engine](../../scene-engine/AGENTS.md) for video, app capture, and native PPTX; [render-kit](../../render-kit/AGENTS.md) for HTML/SVG/PDF rendering and code checks; [brand-profile](../../brand-profile/README.md) as a draft owner-specific input.
+- **Uses:** [scene-engine](../../tools/scene-engine/AGENTS.md) for video, app capture, and native PPTX; [render-kit](../../tools/render-kit/AGENTS.md) for HTML/SVG/PDF rendering and code checks; [brand-profile](../../tools/brand-profile/README.md) as a draft owner-specific input.
 - **Boundary:** this skill owns the presentation story, medium choice, coordination, and delivery review. The named siblings and tools retain their specialist methods.
 
 ## References

@@ -30,7 +30,7 @@
 `scene-engine check` renders from the storyboard model, so it cannot establish that the MP4 contains the same motion or captions. List the authored keyframe times, scene start/middle/end and any risky transition or caption moments in the explicit `--at` list; cut the MP4 at each of those times; then compare each cut with the matching check render using `scripts/measure_storyboard.py`. The MP4 comparison is required evidence for T10. Treat a difference outside the known-good renderer/codec floor as a failure, return to the owning storyboard or render decision, and render again. (derived: dogfood 2026-10-02, F1)
 
 ```bash
-scene-engine check storyboard.json --at <milliseconds,...> --rk ../render-kit/bin/rk
+scene-engine check storyboard.json --at <milliseconds,...> --rk ../tools/render-kit/bin/rk
 python3 scripts/measure_storyboard.py storyboard.json evidence.json render.mp4 \
   --check-dir checks/frames --output checks/measure.json
 ```
