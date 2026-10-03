@@ -52,7 +52,7 @@ Rules that apply before that file is open:
   ```
 - The LAN address is DHCP and has moved before. The Tailscale address `100.106.185.34` is the stable one. If the LAN address stops answering, `tailscale status` reports the current one.
 - If both fail, Tailscale is probably down. It needs `sudo` and may need browser login, so Huy brings it up: ask him to run `! sudo tailscale up`, show him any login URL it prints, and do not open that URL yourself.
-- Daily local LLM on the PC: `start-llm` from this Mac (LAN first, Tailscale second, never runs sudo). Serves `http://<bppc>:8080/v1`, key `local`.
+- Daily local LLM on the PC: `start-llm` from this Mac (LAN first, Tailscale second, never runs sudo). Serves `http://<bppc>:8080/v1`; the API key is required and is in `~/.config/bppc-llm/api_key` (details in `~/.claude/reference/bppc.md`).
 
 ## Local LLM on this Mac (oMLX)
 
