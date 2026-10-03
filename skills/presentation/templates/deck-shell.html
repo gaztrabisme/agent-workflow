@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1920, initial-scale=1">
+  <title>Single presentation slide shell</title>
+  <style>
+    /* Copied from the owner's draft brand-profile/tokens.css; keep aligned with that source. */
+    :root {
+      --color-game-void: #2D1B5C;
+      --color-game-lavender: #E5D9FF;
+      --color-game-sunflower: #FFE300;
+      --color-game-ink: #17131D;
+      --color-game-paper: #F7F2FF;
+      --color-game-pink: #EF38CC;
+      --color-game-cyan: #5CCDF3;
+      --color-game-violet: #575ED8;
+      --color-game-green: #4DE529;
+      --color-space-field: #102727;
+      --color-space-copper: #B7877E;
+      --color-space-cream: #F4F0E1;
+      --color-space-ground: #4A424D;
+      --font-display: "Menlo", "Monaco", "Courier New", monospace;
+      --font-heading: "Avenir Next", Avenir, "Trebuchet MS", Arial, sans-serif;
+      --font-body: "Avenir Next", Avenir, Poppins, Arial, sans-serif;
+      --type-caption: 18px;
+      --type-body-small: 24px;
+      --type-body: 30px;
+      --type-subhead: 40px;
+      --type-heading: 56px;
+      --type-display: 76px;
+      --type-hero: 92px;
+      --leading-tight: 1.25;
+      --leading-heading: 1.4;
+      --leading-body: 1.55;
+      --weight-regular: 400;
+      --weight-strong: 700;
+      --weight-heavy: 800;
+      --tracking-display: 0.035em;
+      --tracking-eyebrow: 0.12em;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-24: 96px;
+      --space-32: 128px;
+      --radius-square: 0px;
+      --radius-panel: 24px;
+      --radius-pill: 999px;
+      --stroke-pixel: 6px;
+      --pixel-step: 12px;
+      --stage-width: 1920px;
+      --stage-height: 1080px;
+      --panel-title-width: 1480px;
+      --panel-title-height: 560px;
+      --panel-content-width: 1640px;
+      --panel-content-height: 400px;
+      --grid-columns: 3;
+      --motion-instant: 0ms;
+      --motion-short: 160ms;
+      --motion-medium: 280ms;
+      --motion-long: 520ms;
+      --ease-linear: linear;
+      --ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1);
+      --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    }
+
+    * { box-sizing: border-box; }
+
+    @page { size: 1920px 1080px; margin: 0; }
+
+    html, body {
+      width: 1920px;
+      min-width: 1920px;
+      margin: 0;
+      background: var(--color-game-void);
+    }
+
+    body {
+      color: var(--color-game-paper);
+      font-family: var(--font-body);
+      font-size: var(--type-body);
+      line-height: var(--leading-body);
+    }
+
+    .slide {
+      position: relative;
+      width: var(--stage-width);
+      height: var(--stage-height);
+      overflow: hidden;
+      padding: 80px 112px;
+      background: var(--color-game-void);
+    }
+
+    .slide-header, .slide-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--color-game-lavender);
+      font-family: var(--font-display);
+      font-size: var(--type-caption);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+
+    .slide-header p, .slide-footer p { margin: 0; }
+
+    .panel {
+      position: absolute;
+      left: 220px;
+      top: 238px;
+      width: 1480px;
+      height: 560px;
+      padding: 72px 88px;
+      border: var(--stroke-pixel) solid var(--color-game-ink);
+      border-radius: var(--radius-panel);
+      background: var(--color-game-sunflower);
+      color: var(--color-game-ink);
+    }
+
+    .eyebrow {
+      margin: 0 0 var(--space-8);
+      font-family: var(--font-display);
+      font-size: var(--type-caption);
+      font-weight: var(--weight-strong);
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 1240px;
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: var(--type-display);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-display);
+    }
+
+    .support {
+      max-width: 1180px;
+      margin: var(--space-8) 0 0;
+      font-size: var(--type-subhead);
+      line-height: var(--leading-heading);
+    }
+
+    .slide-footer {
+      position: absolute;
+      right: 112px;
+      bottom: 72px;
+      left: 112px;
+    }
+
+    .slide-number { color: var(--color-game-sunflower); }
+
+    @media print {
+      .slide { break-after: page; page-break-after: always; }
+      .slide:last-child { break-after: auto; page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+  <!-- This is one slide-check file: copy once per slide; keep one stage and focal per file. (derived: dogfood 2026-10-02, F1) -->
+  <main aria-label="Single presentation slide">
+    <section class="slide" data-rk-stage aria-labelledby="slide-title">
+      <header class="slide-header">
+        <p>Project title · section</p>
+        <p class="slide-number">01 / 01</p>
+      </header>
+      <article class="panel" data-rk-focal>
+        <p class="eyebrow">Replace with the slide's role</p>
+        <h1 id="slide-title">State one useful point.</h1>
+        <p class="support">Replace this line with the evidence or explanation the audience needs.</p>
+      </article>
+      <footer class="slide-footer">
+        <p>Source · date · caveat</p>
+        <p>Optional delivery note</p>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
