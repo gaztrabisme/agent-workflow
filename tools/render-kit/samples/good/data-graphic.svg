@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280" data-rk-stage>
+  <title>Achromatic data graphic with a large plotting area</title>
+  <rect width="400" height="280" fill="#ffffff"/>
+  <g data-rk-focal="data-graphic" data-rk-chart data-rk-x-scale="linear" data-rk-x-domain="0,10" data-rk-x-range="40,360" data-rk-y-scale="linear" data-rk-y-domain="0,10" data-rk-y-range="40,240">
+    <rect x="30" y="30" width="340" height="200" fill="#f5f5f5"/>
+    <path d="M40 40 L40 240 M120 40 L120 240 M200 40 L200 240 M280 40 L280 240 M360 40 L360 240" stroke="#cccccc"/>
+    <path d="M40 40 L360 40 M40 90 L360 90 M40 140 L360 140 M40 190 L360 190 M40 240 L360 240" stroke="#cccccc"/>
+    <path d="M40 80 L104 100 L168 140 L264 160 L360 200" fill="none" stroke="#333333" stroke-width="4" data-rk-mark="line" data-rk-points="0,8 2,7 4,5 7,4 10,2"/>
+  </g>
+</svg>

@@ -1,0 +1,1 @@
+export const CHROMIUM_CAPTURE_LIMIT_PX = 16384;

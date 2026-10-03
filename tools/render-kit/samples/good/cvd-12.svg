@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440" role="img" aria-labelledby="title" data-rk-stage>
+  <title id="title">Twelve-series colour-vision reference palette</title>
+  <rect width="800" height="440" fill="#ffffff" />
+  <text x="40" y="34" font-family="sans-serif" font-size="22" fill="#18212b">Reference palette: twelve categorical series</text>
+  <g font-family="sans-serif" font-size="18" fill="#18212b">
+    <rect x="40" y="54" width="28" height="22" fill="#0072B2" data-rk-series="Series 1" /><text x="82" y="72">Series 1</text>
+    <rect x="40" y="84" width="28" height="22" fill="#101030" data-rk-series="Series 2" /><text x="82" y="102">Series 2</text>
+    <rect x="40" y="114" width="28" height="22" fill="#B83010" data-rk-series="Series 3" /><text x="82" y="132">Series 3</text>
+    <rect x="40" y="144" width="28" height="22" fill="#1010A0" data-rk-series="Series 4" /><text x="82" y="162">Series 4</text>
+    <rect x="40" y="174" width="28" height="22" fill="#682848" data-rk-series="Series 5" /><text x="82" y="192">Series 5</text>
+    <rect x="40" y="204" width="28" height="22" fill="#988078" data-rk-series="Series 6" /><text x="82" y="222">Series 6</text>
+    <rect x="40" y="234" width="28" height="22" fill="#785868" data-rk-series="Series 7" /><text x="82" y="252">Series 7</text>
+    <rect x="40" y="264" width="28" height="22" fill="#382010" data-rk-series="Series 8" /><text x="82" y="282">Series 8</text>
+    <rect x="40" y="294" width="28" height="22" fill="#285098" data-rk-series="Series 9" /><text x="82" y="312">Series 9</text>
+    <rect x="40" y="324" width="28" height="22" fill="#901810" data-rk-series="Series 10" /><text x="82" y="342">Series 10</text>
+    <rect x="40" y="354" width="28" height="22" fill="#B87010" data-rk-series="Series 11" /><text x="82" y="372">Series 11</text>
+    <rect x="40" y="384" width="28" height="22" fill="#102058" data-rk-series="Series 12" /><text x="82" y="402">Series 12</text>
+  </g>
+</svg>

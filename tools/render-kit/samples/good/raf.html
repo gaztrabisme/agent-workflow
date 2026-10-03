@@ -1,0 +1,3 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>First animation frame</title><style>html,body{margin:0;width:800px;height:500px;font-family:sans-serif;background:white}#square{position:absolute;top:40px;width:10px;height:10px;background:#d62728}</style></head><body>
+<div id="placeholder">Waiting for first frame</div><div id="square" hidden></div>
+<script>const epoch=Date.parse('2026-01-01T00:00:00Z');function draw(){const now=Date.now();const box=document.querySelector('#square');box.hidden=false;box.style.left=`${0.1*(now-epoch)}px`;document.querySelector('#placeholder')?.remove();requestAnimationFrame(draw)}requestAnimationFrame(draw);</script></body></html>
