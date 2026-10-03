@@ -1,0 +1,21 @@
+# Evolution Log — <skill-name>
+
+Use the shared `evolution` template when it is available. This small fallback is for an authoring run where the shared template cannot be opened; it records the minimum evidence for the initial entry and does not replace later trace harvesting. (derived: dogfood 2026-10-01)
+
+## Evolution 1 — <YYYY-MM-DD> — <birth or change>
+
+### Scope and sources
+- Classification: authored / distilled / structural refine
+- Task and inputs:
+- Sources and siblings checked:
+
+### Findings and decisions
+- Findings:
+- Changes made or rejected, with reasons:
+
+### Validation
+- Checks run and results:
+- Blocked, skipped, or not-judged checks and why:
+- Follow-up hypotheses:
+
+**Verdict: PENDING** — <what evidence is still needed before settlement>
