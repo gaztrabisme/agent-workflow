@@ -1,0 +1,28 @@
+<svg data-rk-stage="chart" xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Small multiples template</title>
+  <desc id="desc">Three regional line charts on the same zero-to-one-hundred scale. Replace data while keeping domains consistent.</desc>
+  <rect width="960" height="600" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#191919">
+    <text x="60" y="54" font-size="26" font-weight="700">Compare groups on one scale</text>
+    <text x="60" y="82" font-size="14">ILLUSTRATIVE VALUES — each panel shares 0–100</text>
+    <g data-rk-focal="data-graphic">
+    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,3" data-rk-x-range="100,330" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="440,150">
+      <text x="115" y="125" font-size="18" font-weight="700">Group A</text>
+      <path d="M100 382L176.667 324L253.333 295L330 208" fill="none" stroke="#0072B2" stroke-width="3" data-rk-mark="line" data-rk-points="0,20 1,40 2,50 3,80" data-rk-series="A"/>
+      <path d="M100 150V440H330" fill="none" stroke="#555"/>
+    </g>
+    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,3" data-rk-x-range="390,620" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="440,150">
+      <text x="405" y="125" font-size="18" font-weight="700">Group B</text>
+      <path d="M390 353L466.667 324L543.333 266L620 237" fill="none" stroke="#D55E00" stroke-width="3" data-rk-mark="line" data-rk-points="0,30 1,40 2,60 3,70" data-rk-series="B"/>
+      <path d="M390 150V440H620" fill="none" stroke="#555"/>
+    </g>
+    <g data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,3" data-rk-x-range="680,910" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="440,150">
+      <text x="690" y="125" font-size="18" font-weight="700">Group C</text>
+      <path d="M680 411L756.667 382L833.333 353L910 295" fill="none" stroke="#009E73" stroke-width="3" data-rk-mark="line" data-rk-points="0,10 1,20 2,30 3,50" data-rk-series="C"/>
+      <path d="M680 150V440H910" fill="none" stroke="#555"/>
+    </g>
+    </g>
+    <text x="54" y="450" font-size="13">0</text><text x="47" y="155" font-size="13">100</text>
+    <text x="420" y="500" font-size="15">Shared time or category axis</text><text x="60" y="574" font-size="12">Source: replace with source; use identical scales and units for comparable panels</text>
+  </g>
+</svg>

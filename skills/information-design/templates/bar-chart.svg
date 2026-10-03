@@ -1,0 +1,21 @@
+<svg data-rk-stage="chart" xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Bar chart template</title>
+  <desc id="desc">Four example category amounts on a zero-based scale. Replace all sample values and labels.</desc>
+  <rect width="960" height="600" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#191919">
+    <text x="72" y="54" font-size="26" font-weight="700">Compare amounts by category</text>
+    <text x="72" y="82" font-size="14">ILLUSTRATIVE VALUES — zero baseline; replace before use</text>
+    <g data-rk-focal="data-graphic" data-rk-chart="bar" data-rk-x-scale="band" data-rk-x-domain="0,3" data-rk-x-range="160,820" data-rk-y-scale="linear" data-rk-y-domain="0,100" data-rk-y-range="470,130">
+      <rect x="205" y="266" width="95" height="204" fill="#245c73" data-rk-mark="bar" data-rk-x="0" data-rk-y="60" data-rk-y0="0" data-rk-series="Amount"/>
+      <rect x="365" y="337.4" width="95" height="132.6" fill="#245c73" data-rk-mark="bar" data-rk-x="1" data-rk-y="39" data-rk-y0="0" data-rk-series="Amount"/>
+      <rect x="525" y="381.6" width="95" height="88.4" fill="#245c73" data-rk-mark="bar" data-rk-x="2" data-rk-y="26" data-rk-y0="0" data-rk-series="Amount"/>
+      <rect x="685" y="422.4" width="95" height="47.6" fill="#245c73" data-rk-mark="bar" data-rk-x="3" data-rk-y="14" data-rk-y0="0" data-rk-series="Amount"/>
+      <g font-size="15"><text x="220" y="495">A</text><text x="380" y="495">B</text><text x="540" y="495">C</text><text x="700" y="495">D</text></g>
+    </g>
+    <path d="M160 130V470H820" fill="none" stroke="#555" stroke-width="2"/>
+    <g stroke="#ccc" stroke-width="1"><path d="M160 402H820"/><path d="M160 334H820"/><path d="M160 266H820"/><path d="M160 198H820"/><path d="M160 130H820"/></g>
+    <g font-size="13"><text x="126" y="475">0</text><text x="119" y="407">20</text><text x="119" y="339">40</text><text x="119" y="271">60</text><text x="119" y="203">80</text><text x="112" y="135">100</text></g>
+    <text x="435" y="540" font-size="16">Category</text><text x="30" y="300" font-size="16" transform="rotate(-90 30 300)">Amount (unit)</text>
+    <text x="72" y="574" font-size="12">Source: replace with source and period</text>
+  </g>
+</svg>

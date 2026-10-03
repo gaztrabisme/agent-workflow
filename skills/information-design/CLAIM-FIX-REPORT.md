@@ -1,0 +1,1 @@
+references/method/story-and-structure.md · 3069 · U2 · L06 · 01:28–02:44 → unchanged · Removed “changes” because the cited lesson discusses totals, relative sizes, relationships, and outliers but not change over time.

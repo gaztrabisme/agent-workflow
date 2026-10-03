@@ -1,0 +1,27 @@
+<svg data-rk-stage="chart" xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Derived drilling depth against report date</title>
+  <desc id="desc">Illustrative measured and planned depths increase downward. Lost-time intervals are marked on the curve and dated. An alternate missing-plan state is shown below the chart.</desc>
+  <rect width="960" height="640" fill="#fff"/>
+  <g font-family="Arial, sans-serif" fill="#191919">
+    <text x="72" y="54" font-size="26" font-weight="700">Depth against report date</text>
+    <text x="72" y="82" font-size="14">DERIVED DRILLING VIEW · illustrative values only</text>
+    <g data-rk-focal="data-graphic" data-rk-chart="line" data-rk-x-scale="linear" data-rk-x-domain="0,26" data-rk-x-range="130,870" data-rk-y-scale="linear" data-rk-y-domain="0,4000" data-rk-y-range="120,470">
+      <path d="M130 120L300.769 190L500 277.5L670.769 365L870 426.25" fill="none" stroke="#0072B2" stroke-width="4" data-rk-mark="line" data-rk-points="0,0 6,800 13,1800 19,2800 26,3500" data-rk-series="Measured depth"/>
+      <path d="M130 120L300.769 198.75L500 286.25L670.769 373.75L870 461.25" fill="none" stroke="#009E73" stroke-width="3" stroke-dasharray="8 5" data-rk-mark="line" data-rk-points="0,0 6,900 13,1900 19,2900 26,3900" data-rk-series="Plan"/>
+      <path d="M300.769 190L334.923 190" fill="none" stroke="#D55E00" stroke-width="8" data-rk-mark="line" data-rk-points="6,800 7.2,800" data-rk-series="Lost time"/>
+      <path d="M500 277.5L528.462 277.5" fill="none" stroke="#D55E00" stroke-width="8" data-rk-mark="line" data-rk-points="13,1800 14,1800" data-rk-series="Lost time"/>
+      <path d="M670.769 365L699.231 365" fill="none" stroke="#D55E00" stroke-width="8" data-rk-mark="line" data-rk-points="19,2800 20,2800" data-rk-series="Lost time"/>
+      <path d="M130 120V470H870" fill="none" stroke="#555" stroke-width="2"/>
+      <g stroke="#ddd" stroke-width="1"><path d="M130 207.5H870"/><path d="M130 295H870"/><path d="M130 382.5H870"/><path d="M300.769 120V470"/><path d="M500 120V470"/><path d="M670.769 120V470"/></g>
+    </g>
+    <g font-size="13"><text x="82" y="125">0 m</text><text x="72" y="212">1,000 m</text><text x="72" y="300">2,000 m</text><text x="72" y="387">3,000 m</text><text x="72" y="475">4,000 m</text></g>
+    <g font-size="12"><text x="112" y="500">2 Mar</text><text x="282" y="500">8 Mar</text><text x="481" y="500">15 Mar</text><text x="648" y="500">21 Mar</text><text x="850" y="500">28 Mar</text></g>
+    <g font-size="12" fill="#A43F00"><text x="274" y="176">8 Mar · 8 h</text><text x="470" y="262">15 Mar · 9.5 h</text><text x="645" y="350">21 Mar · 6 h</text></g>
+    <text x="430" y="523" font-size="14">Report date (2026)</text>
+    <text x="32" y="300" font-size="14" transform="rotate(-90 32 300)">Measured depth (m; increases downward)</text>
+    <g aria-label="Chart key"><rect x="72" y="533" width="14" height="8" fill="#0072B2" data-rk-series="Measured depth"/><text x="91" y="541" font-size="11">Measured</text><rect x="170" y="533" width="14" height="8" fill="#009E73" data-rk-series="Plan"/><text x="189" y="541" font-size="11">Plan</text><rect x="245" y="533" width="14" height="8" fill="#D55E00" data-rk-series="Lost time"/><text x="264" y="541" font-size="11">Lost-time interval</text></g>
+    <rect x="72" y="553" width="816" height="34" rx="3" fill="#f2f5f6" stroke="#aab8bf" stroke-dasharray="4 3"/>
+    <text x="84" y="575" font-size="12">If no plan exists: “No approved depth-by-date plan is available. Add approved plan dates and depths to compare.”</text>
+    <text x="72" y="615" font-size="11">Source: replace with validated depth/time records; derived drilling view (derived: dogfood 2026-10-02, F6)</text>
+  </g>
+</svg>
