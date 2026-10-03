@@ -31,7 +31,7 @@ Conductor gives the accountable lead a coordinated plan and a durable record of 
 | Classify | Name every work shape and route it | Route sequence |
 | Ground | Read project state and source inputs | `grounded.md` |
 | Compose | Select lanes, engine, and meeting point | Lane plan |
-| Declare | Stop once at the Plan Block for approval | Plan Block |
+| Declare | Stop once at the Plan Block for approval, with any intent-interview questions at its top | Plan Block |
 | Goal | Write testable success criteria and bind the session stop | Goal file |
 | Run | Dispatch units and record results | Lane briefs and run ledger |
 | Converge | Resolve interactions and surface unresolved forks | Convergence record |
@@ -65,6 +65,10 @@ Before composing, read project rules, the wiki index and live state, existing de
 Read every input document as a CERIC hunt: what it claims, its evidence and reasoning, relevant context, implications, and what is missing. Write `grounded.md` with one section per input and a closing `Grounded:` line. Missing items become `DECIDE NOW` questions and specific questions in the briefs of lanes tasked with resolving them; while open, they also become owned issue-log entries with a responsible person and follow-up. See `references/ceric-gates.md`. [book:learning-systems-thinking], Identify Your Reasons; [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
 
 At Ground, carry forward every fork the prior run left open: restate it in `DECIDE NOW`, or record the evidence and owner decision that resolved or retired it. Close records the resulting state. (derived: dogfood 2026-10-01)
+
+### 2a. Interview — find out what the requester actually wants
+
+Prepared after Ground, sent at Declare. When, after Ground, the request still has an open outcome that would cost a redone stage if guessed wrong, an undecided edge case or two conflicting requirements, prepare 2 to 5 concrete scenario questions about the outcome ("what should happen when…"). Ask about what, not how; ask nothing the record already settles. Each question states the scenario and why it matters, then a default if skipped, or `No default: needed before go` for a fact only the requester holds. Send them at the top of the Plan Block message, with the plan drafted on the defaults, so one reply can answer and give go. Skip the interview when the request is already specific or the requester says to skip. Answers go to `grounded.md` and `INTENT`. Full rules: `references/intent-interview.md`. [book:swebok], 3. Requirements Elicitation.
 
 ### 3. Compose — build the workflow
 
@@ -109,7 +113,7 @@ If the full fork details would make the Plan Block hard to scan, list every fork
 
 If the INTENT restatement is wrong, stop here and correct it before any planning continues.
 
-The Plan Block is the only scheduled stop. End the planning turn there; dispatch starts only after an explicit go. Silence is not approval. [book:project-planning-scheduling-control], CHAPTER 17 Using Stagegate® to Select, Evaluate, and Control Projects. After go, decide forward only on choices delegated to you and log the choice. Pause for material scope, commitment, or risk changes that exceed your authority; investigate alternatives and impacts, then give the accountable decision owner a concise recommendation. Stop mid-run for an Integrity Constraint, an irreversible and unrecoverable action, or a falsified plan premise. [book:facilitating-software-architecture], Fast and Wrong Is Better Than Slow and Correct; [book:pmbok-guide-7e], 2.2.4. Leadership Skills.
+The Plan Block is the only scheduled stop; the intent interview's questions travel in the same message. When an answer changes the plan's stages, lanes, cost, goal criteria or a client-facing `INTENT`, the revised plan gets one more go; an answer that contradicts another answer or a recorded decision allows one follow-up round, sent with that revised plan where both are needed. End the planning turn at the Plan Block; dispatch starts only after an explicit go. Silence is not approval. [book:project-planning-scheduling-control], CHAPTER 17 Using Stagegate® to Select, Evaluate, and Control Projects. After go, decide forward only on choices delegated to you and log the choice. Pause for material scope, commitment, or risk changes that exceed your authority; investigate alternatives and impacts, then give the accountable decision owner a concise recommendation. Stop mid-run for an Integrity Constraint, an irreversible and unrecoverable action, or a falsified plan premise. [book:facilitating-software-architecture], Fast and Wrong Is Better Than Slow and Correct; [book:pmbok-guide-7e], 2.2.4. Leadership Skills.
 
 ### 5. Goal — the stop condition, on disk
 
@@ -142,6 +146,7 @@ Audit the artifacts against the goal file's UAT column and nothing else: run eac
 - Leaving a foreseeable fork out of `DECIDE NOW`, or returning mid-run with a context-free question.
 - Launching fan-out without a declared meeting point, or silently smoothing away contradictory evidence.
 - Skipping the project and source read before planning.
+- Planning on a guessed intent when the outcome is open, or interviewing about what the record already settles or about how to build it.
 - Waiving a sibling's gate to meet the plan.
 - Adding process elements that do not earn their cost, or omitting checks that matter to the task's risk. Scale the Plan Block and artifacts to the work rather than using a fixed unit-count trigger. [book:pmbok-guide-7e], 3.3.2. Processes.
 
@@ -161,6 +166,7 @@ Audit the artifacts against the goal file's UAT column and nothing else: run eac
 - `references/convergence.md` — contradiction and interaction passes, decision records, and durable landing.
 - `references/lane-plan.md` — local lane check, providers, invocation, brief contract, selection, and fallback.
 - `references/run-schedule.md` — waves, per-item loops, batch boundaries, queue/watch operations, per-batch acceptance, and resume state.
+- `references/intent-interview.md` — when to ask scenario questions about the outcome before planning, how to ask them, and where the answers go.
 - `references/goal-file.md` — goal-file template, UAT criteria, amendments, and close audit.
 - `references/harness-map.md` — harness-specific instruction files and orchestration/session-stop facts.
 - `references/workflow-patterns.md` — engine choice, pipelines, barriers, resume safety, and coordination topologies.

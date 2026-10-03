@@ -332,3 +332,24 @@ Dogfood (2026-10-01, design run 3 / phase 3 Methods): 12 findings — 2 high, 7 
 ### Verdict: PENDING
 
 The formal-source rebuild has not yet been exercised in two independent real uses. Keep PENDING until two runs test the routing, one-checkpoint plan, lane-data handling, resumable workflow, and close records without a new high-severity gap.
+
+---
+
+## Evolution 7 — intent interview (2026-10-03)
+
+### Trigger
+
+Owner request (2026-10-03): help the requester work out what they actually want before the plan. Source idea: the VibeWise plugin's build checkpoints (concrete "what should happen when…" scenario questions). Its runtime was not adopted: it pauses at every build decision and withholds recommendations, which conflicts with conductor's one-stop plan and the core pushback rule.
+
+### Change
+
+- New `references/intent-interview.md`: when it fires (open outcome that would cost a redone stage, undecided edge case, conflicting requirements), what to ask (what not how; concrete scenarios; 2–5 questions; nothing the record settles), how to ask (in the Plan Block message, plan drafted on the defaults; `Default if you skip:` after each scenario; `No default: needed before go` for facts only the requester holds), and where answers go (`grounded.md` Intent section, `INTENT`, goal criteria).
+- SKILL.md: step 2a, the Declare row of the flow table, the stop paragraph in §4, one anti-pattern, the references list. Citation: [book:swebok], 3. Requirements Elicitation.
+
+### Dogfood
+
+Fresh-context Claude agent, three requests (client drilling demo, photo culling step, render-kit zero-page fix); report in `lab/design-programme/dogfood/conductor-intent-2026-10-03/report.md`. Round 1: 2 high, 4 medium, 3 low; the highs (no recommendation; up to three waits) and all mediums fixed. Round 2: highs confirmed fixed; 1 medium (invented defaults for facts only the requester knows) and 3 low new findings, all fixed; L1 and L3 from round 1 not changed (pre-existing, outside this edit). Round-2 fixes were not re-run by the agent.
+
+### Verdict: PENDING
+
+Keep PENDING until two real runs use the interview: watch whether it fires on requests that did not need it, and whether answers ever force the second go.
