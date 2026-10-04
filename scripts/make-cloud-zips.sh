@@ -18,7 +18,7 @@ while read -r name; do
   [ -n "$name" ] || continue
   rm -f "$OUT/$name.zip"
   zip -q -r "$OUT/$name.zip" "$name" \
-    -x '*.git*' '*.DS_Store' '*/__pycache__/*' '*/.ruff_cache/*' '*/local/*' \
+    -x '*.git*' '*.DS_Store' '*/__pycache__/*' '*/.ruff_cache/*' '*/local/*' '*/.claude/*' '*/.inventory/*' \
        '*.jpg' '*.jpeg' '*.png' '*.pdf' '*.webp' '*.gif' '*.mp4' '*.wav' '*.mov' '*.zip'
   size=$(wc -c < "$OUT/$name.zip" | tr -d ' ')
   printf '%-28s %9s bytes  %s files\n' "$name" "$size" "$(unzip -Z1 "$OUT/$name.zip" | wc -l | tr -d ' ')"

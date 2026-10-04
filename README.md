@@ -49,7 +49,7 @@ These tools were built and tested on macOS only.
 
 ## Keep claude.ai in step
 
-`./scripts/make-cloud-zips.sh` builds one upload zip per skill (course images and PDFs left out, which keeps the six design skills under 2 MB each). Upload them in claude.ai under Settings, Customize, Skills; replace a skill's older copy when its text changed. The account's copies are separate from the package, so they change only when you re-upload.
+`./scripts/make-cloud-zips.sh` builds one upload zip per skill (course images and PDFs left out, which keeps the six design skills under 2 MB each). Upload them in claude.ai under Settings, Customize, Skills; replace a skill's older copy when its text changed. The account's copies are separate from the package, so they change only when you re-upload. claude.ai accepts at most 200 files per zip, so `color-theory` (304 files), `photo` (233) and `zalo-platform` (2,063) cannot be uploaded as they are.
 
 ## What is not in this repo
 
