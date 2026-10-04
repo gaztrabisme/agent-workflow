@@ -47,6 +47,10 @@ After editing a skill on any machine, commit and push from this repo. The skills
 
 These tools were built and tested on macOS only.
 
+## Keep claude.ai in step
+
+`./scripts/make-cloud-zips.sh` builds one upload zip per skill (course images and PDFs left out, which keeps the six design skills under 2 MB each). Upload them in claude.ai under Settings, Customize, Skills; replace a skill's older copy when its text changed. The account's copies are separate from the package, so they change only when you re-upload.
+
 ## What is not in this repo
 
 - **API keys.** Put them in `~/.config/agent-capabilities/subagent.env` on each machine.
