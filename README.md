@@ -1,21 +1,63 @@
 # agent-workflow
 
-Reader: the owner, setting up or updating a machine. This private repo holds the whole working setup in one place: 28 skills, three tools the design skills run, and the settings that wire them in.
+Reader: the owner, or an AI agent the owner asks to set up or update a machine. This private repo holds the whole working setup in one place: 28 skills, three tools the design skills run, and the settings that wire them in.
 
-## Set up a new machine
+The repo is private. A machine needs no GitHub login to install or update it: a fine-grained access token, created once by the owner and handed to the machine or agent, is enough.
 
-Needed: `git`, `git-lfs`, `python3`, and credentials for the private repo (for example `gh auth login`). The tools also need Node 24 or later; see "The tools" below.
+## Create the access token (owner, once)
 
-Run `git lfs install` before the clone. Without it the course images and PDFs arrive as 130-byte placeholders. The installer notices and fetches them, but it needs network access to do so.
+1. In GitHub, go to **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
+2. Set:
+   - **Token name:** something that names the machine, for example `aw-bppc`.
+   - **Resource owner:** `gaztrabisme`.
+   - **Expiration:** 1 year.
+   - **Repository access:** **Only select repositories**, then `agent-workflow`. Add `knowledge-base` too if the same machine installs the knowledge base; one token then serves both installers.
+   - **Permissions → Repository permissions → Contents:** **Read-only**. (`Metadata: Read-only` is added by GitHub.) Leave everything else unset.
+3. Generate it, copy it, and keep it somewhere safe. Give it to the machine's agent in the conversation or type it at the installer's prompt.
+4. When a machine is retired, or a token was shown somewhere it should not have been, revoke it on the same GitHub page. Machines keep their copy of the skills but can no longer update.
+
+## Install or update on any machine (an agent can do this)
+
+Needed: `git`, `git-lfs`, `python3` and `curl`. The tools also need Node 24 or later; see "The tools" below.
+
+Rules for an agent:
+- The owner creates the token and gives it to you. You never create a token, print it, or write it to a file.
+- Put it in the environment as `AW_GH_TOKEN`. `bootstrap.sh` then runs without any prompt; it passes the token to git only through environment variables, so nothing is saved in the repo, in git's configuration or in a credential store.
+- Do not use plain `git clone` or `git pull` on a machine without a GitHub login; they will fail. `bootstrap.sh` does both jobs.
+
+First install, on macOS or Linux:
 
 ```bash
-git lfs install
-git clone https://github.com/gaztrabisme/agent-workflow.git ~/Documents/Work/tools/agent-workflow
-cd ~/Documents/Work/tools/agent-workflow
-./install.sh
+export AW_GH_TOKEN="<the token the owner gave you>"
+curl -fsSL -H "Authorization: Bearer $AW_GH_TOKEN" -H "Accept: application/vnd.github.raw" \
+  "https://api.github.com/repos/gaztrabisme/agent-workflow/contents/bootstrap.sh" -o /tmp/aw-bootstrap.sh
+bash /tmp/aw-bootstrap.sh              # add --with-tools for render-kit and scene-engine; --dir <path> to change the folder
+unset AW_GH_TOKEN
 ```
 
-The clone downloads about 1.3 GB of course images and PDFs through Git LFS (GitHub's large-file storage). Each full clone counts against the 10 GiB monthly LFS download allowance of the GitHub account.
+It clones into `~/Documents/Work/tools/agent-workflow` (or `--dir`), downloads the course images and PDFs (about 1.3 GB), and runs `install.sh`. The last lines say `Linked 28 skills.` and `Done.`
+
+Update later, from the installed copy:
+
+```bash
+export AW_GH_TOKEN="<the token>"
+~/Documents/Work/tools/agent-workflow/bootstrap.sh
+unset AW_GH_TOKEN
+```
+
+It pulls the latest commit, fetches any new course files and re-runs `install.sh`.
+
+Check that it worked: `test -e ~/.claude/skills/conductor/SKILL.md && readlink ~/.agent-workflow` prints the install folder. Then restart the agent so it reads the new skill list.
+
+If the script stops with "GitHub refused the token": the token has expired, was revoked, or does not include `agent-workflow` with Contents: Read-only. Ask the owner for a token that does.
+
+Each fresh install downloads about 1.3 GB of course files, which counts against the GitHub account's 10 GiB monthly Git LFS (large-file storage) allowance. Updates download only changed files.
+
+### A machine that cannot reach GitHub
+
+Copy the whole folder, including the hidden `.git` folder, from a machine that has it (for example `rsync -a ~/Documents/Work/tools/agent-workflow/ <host>:~/Documents/Work/tools/agent-workflow/`), then run `./install.sh` in it. To update, copy again.
+
+### What install.sh does
 
 `install.sh` is safe to run again. It:
 - links the 28 skills into `~/.claude/skills`, and into `~/.codex/skills`, `~/.agents/skills`, `~/.gemini/skills` (Gemini CLI) and `~/.gemini/config/skills` (Antigravity) when those agents are installed. pi reads `~/.agents/skills`; omp, grok and opencode read `~/.claude/skills`, so they need no links of their own;
@@ -27,15 +69,9 @@ The clone downloads about 1.3 GB of course images and PDFs through Git LFS (GitH
 
 Restart Claude Code afterwards.
 
-## Update a machine
+## Editing skills
 
-```bash
-cd ~/Documents/Work/tools/agent-workflow
-git pull
-./install.sh
-```
-
-After editing a skill on any machine, commit and push from this repo. The skills are linked into the agents, so an edit here is live at once. The same holds for `CLAUDE.md`: `~/.claude/CLAUDE.md` is a link to `config/claude/CLAUDE.md`, so changes to it show up here as uncommitted edits.
+After editing a skill, commit and push from this repo on a machine with write access to GitHub; the read-only token cannot push. The skills are linked into the agents, so an edit here is live at once. The same holds for `CLAUDE.md`: `~/.claude/CLAUDE.md` is a link to `config/claude/CLAUDE.md`, so changes to it show up here as uncommitted edits.
 
 ## The tools
 
