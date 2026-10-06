@@ -52,6 +52,20 @@ link_skills "$HOME/.claude/skills"
 for d in "$HOME/.codex" "$HOME/.agents"; do
   if [ -d "$d" ]; then link_skills "$d/skills"; fi
 done
+# Gemini CLI reads ~/.gemini/skills; Antigravity (agy) reads ~/.gemini/config/skills.
+if [ -d "$HOME/.gemini" ]; then
+  link_skills "$HOME/.gemini/skills"
+  link_skills "$HOME/.gemini/config/skills"
+fi
+# pi reads ~/.agents/skills; omp, grok and opencode read ~/.claude/skills. Their own
+# folders get no links (opencode warns on duplicate names); only retired links are removed.
+for dir in "$HOME/.config/opencode/skills" "$HOME/.copilot/skills" "$HOME/.pi/agent/skills" "$HOME/.omp/agent/skills" "$HOME/.grok/skills"; do
+  [ -d "$dir" ] || continue
+  while read -r name; do
+    [ -n "$name" ] || continue
+    if [ -L "$dir/$name" ]; then rm "$dir/$name"; say "removed retired link $dir/$name"; fi
+  done < "$AW/config/retired-skills.txt"
+done
 say "Linked $(wc -l < "$AW/skills.txt" | tr -d ' ') skills."
 
 # --- stable path used by the skills' instructions ---

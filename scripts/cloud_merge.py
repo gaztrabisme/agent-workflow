@@ -21,7 +21,7 @@ from pathlib import Path
 SKIP_DIRS = {".git", "__pycache__", ".ruff_cache", "local", ".claude", ".inventory"}
 SKIP_EXT = {".jpg", ".jpeg", ".png", ".pdf", ".webp", ".gif", ".mp4", ".wav", ".mov", ".zip"}
 KEEP = {"README.md", "INDEX.md", "SKILL.md", "BLOCKED.md", "EVOLUTION.md", "NOTICE.md",
-        "LICENSE", "manifest.json", "AGENTS.md", "CLAUDE.md", "coverage.md"}
+        "LICENSE", "manifest.json", "AGENTS.md", "CLAUDE.md", "coverage.md", "SKILL-library.md"}
 MERGE_EXT = {".md", ".txt"}
 MAX_FILES = 190
 CHUNK_FILES, CHUNK_BYTES = 40, 450_000
@@ -110,6 +110,12 @@ def main():
     before = sum(p.stat().st_size for p in stage.rglob("*") if p.is_file() and p.suffix.lower() in MERGE_EXT)
     broken_before = broken_links(stage)
     moved = {}
+    # claude.ai wants exactly one SKILL.md per zip: rename any nested one (links follow)
+    for nested in sorted(stage.rglob("SKILL.md")):
+        if nested.parent != stage:
+            new = nested.with_name("SKILL-library.md")
+            nested.rename(new)
+            moved[nested.resolve()] = new.resolve()
     for r in roots:
         base = stage / r
         for d in sorted([base] + [p for p in base.rglob("*") if p.is_dir()], key=lambda p: -len(p.parts)):

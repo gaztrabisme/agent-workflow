@@ -18,7 +18,7 @@ cd ~/Documents/Work/tools/agent-workflow
 The clone downloads about 1.3 GB of course images and PDFs through Git LFS (GitHub's large-file storage). Each full clone counts against the 10 GiB monthly LFS download allowance of the GitHub account.
 
 `install.sh` is safe to run again. It:
-- links the 28 skills into `~/.claude/skills`, and into `~/.codex/skills` and `~/.agents/skills` when those folders exist;
+- links the 28 skills into `~/.claude/skills`, and into `~/.codex/skills`, `~/.agents/skills`, `~/.gemini/skills` (Gemini CLI) and `~/.gemini/config/skills` (Antigravity) when those agents are installed. pi reads `~/.agents/skills`; omp, grok and opencode read `~/.claude/skills`, so they need no links of their own;
 - removes links with a retired skill's name in those folders (listed in `config/retired-skills.txt`);
 - links `~/.claude/CLAUDE.md` to `config/claude/CLAUDE.md` (an existing different file is backed up first);
 - creates `~/.agent-workflow`, a link to this repo that the skills' instructions use to find the tools;
