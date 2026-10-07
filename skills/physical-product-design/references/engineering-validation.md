@@ -79,6 +79,27 @@ For a panel connector, pair a clearance gauge with a crop of the actual mounting
 
 Explain what a cropped coupon omits, such as full-part stiffness or support height. Pair each test with measurement tools, loading/setup, a decision rule and a recorded result. Calipers, scales, measured weights/lever arms and a force gauge often close gaps a solver cannot; specify a dial indicator or other instrument only when the required resolution warrants it. Distinguish proposed targets from completed tests and from published standards.
 
+## Maker feedback becomes acceptance criteria
+
+A maker's slicer screenshot is evidence of a concern, not evidence that a physical print failed. Preserve the message, candidate file/revision and printer/profile identity when available. Map each concern to a named part and feature. If the pictured filename and message disagree, inspect both plausible parts and retain that uncertainty.
+
+Before redesign, record each affected feature's defect, location, measurement, process-dependent threshold and rationale, baseline result, revised result, geometry/orientation/profile identity, remaining physical gate and smallest discriminating test. Screen the rest of the printed inventory for the same failure class. Solid validity, successful slicing and clear assembly do not substitute for manufacturing criteria.
+
+Use the preceding geometry as a negative control. A check intended to catch the reported defect must flag that defect before its revised result is used as evidence. Store measured values and an annotated view, not only a pass count. If the concern cannot be reproduced, keep it unresolved and obtain the relevant file/profile rather than adjusting a threshold to produce a pass.
+
+Choose measurements that expose the mechanism:
+
+- **Bed seating:** identify the intended bearing plane, its coplanar area and disconnected contact regions, and its distance from the lowest protrusion in the proposed manufacturing pose. Distinguish a hypothetical flipped baseline from an actually exported revised orientation. Brim and generated support do not make an elevated broad face sit on the bed.
+- **Fragile features:** measure finished Boolean geometry at the named web, root or rail; primitive dimensions can hide a sliver left by a clearance cut. Record thickness, unsupported span and structural connection at meaningful sections, with coverage limits. Geometry alone does not establish layer strength or handling force.
+- **Layer formation:** inspect actual first object extrusion and feature-start layers, including small islands. A filter selecting only substantial layers can omit the fragile feature being investigated. Separate object paths from brim/support and connect each view to the measured feature.
+- **Cleanup:** trace tool access and support extraction in the as-printed state. Uncertain removal without damage stays a physical gate; an open cavity is not automatically cleanable.
+
+When a split removes a printing obstruction, engineer the new joint: location, retention, tolerance, root and fastener ligaments, screw-tip extent, tool approach, assembly/removal order and load path. Preserve the required external form and service access. Rerun collision and assembly checks with new parts present at their real installation stages. Do not replace a difficult print with an inaccessible or fragile joint.
+
+Inspect the meaning of intentional-contact exemptions after joint changes. A screw pilot may deliberately overlap a simplified thread envelope; a flat screw head bearing on a roof does not justify burying the head inside a rib. Limit exemptions to the actual interface and pose, and check the entire fastener/tool approach through lower rails and ledges, not just the seated hardware.
+
+Test artifacts must preserve the cause of the concern. A long thin rail needs its relevant full span/root and parent orientation; a two-anchor seat needs both anchors if rocking or spacing governs. Explain when a coupon omits full-part warping, stiffness, support height or load. Keep full-shell fabrication conditional until operator cleanup and fit results are recorded; corrected geometry is a revised candidate, not physical qualification.
+
 ## Efficient checks without weakening their claims
 
 Use bounding-box rejection and cached geometry before expensive solid intersections. Skip a declared contact only within its allowed interface/pose range. For repeated motion checks, a conservative proxy may replace complex purchased CAD if containment of the exact geometry is independently checked and the approximation is recorded. A clear conservative proxy supports clearance; a proxy collision may be a false positive and needs refinement before claiming an actual interference.

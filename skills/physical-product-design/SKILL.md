@@ -70,6 +70,8 @@ Read the current project notes, model and latest review images before changing d
 
 For unresolved arrangements, present a small set of materially different concepts and explain the packaging consequence of each. Select an architecture against appearance, interfaces, stability, services, manufacturability and future replacement. Once selected, refine that architecture rather than accumulating unrelated brackets and cosmetic patches.
 
+Before selecting an architecture, validate the primary use in its intended environment with the smallest useful mock-up or experiment. Placement, reach, visibility, acoustic performance or another purpose-specific outcome may overturn a geometrically clear concept. If that experiment is unavailable, keep selection provisional and identify the result that would change it. Report compactness in the relevant resting, operating and service states; fewer modeled bodies alone does not establish simpler manufacture or use.
+
 Define success before detailed modelling. Choose criteria for:
 
 - appearance from front, side and three-quarter views;
@@ -121,9 +123,15 @@ For multipart, adjustable or load-bearing products, read [engineering-validation
 - distinguish sampled motion/cable feasibility from continuous motion and physical behavior;
 - inspect actual slicer layers and support-removal access, then target uncertain interfaces with small coupons.
 
+When maker feedback identifies a defect, turn it into a named, measurable acceptance criterion before reworking the part. Demonstrate that the check detects the preserved defective revision, then rerun it on the revised manufacturing geometry. Keep numerical digital criteria separate from operator cleanup, fit and strength gates; see the feedback-to-acceptance workflow in [engineering-validation.md](references/engineering-validation.md).
+
 Preserve the preceding revision when an audit prompts corrections. Record the defect, source change, affected checks and remaining limits. Tie each result to its geometry revision and analysis inputs; regenerate affected evidence after changes without repeating unrelated checks. A completed audit may find a failure or an inconclusive result: retain that result and the next discriminating test rather than converting it to a pass.
 
 Inspect the actual hero, front, side and rear views, adding underside, exploded, section and cable-diagnostic views when they reveal hidden construction. Check perspective, exposure, seams, thickness from multiple angles, exposed wires, floating supports, blocked vents, inaccessible fasteners and misleading textures. Never repair a geometric defect only in a render.
+
+Review consequential lifecycle scenarios: installation, normal use, adjustment, unlocked or partially engaged states, foreseeable handling, wear and removal. Follow the complete user action, including payload support, release access and recovery. Evaluate coupled requirements in a representative assembly when separate feature checks cannot establish their interaction.
+
+Distinguish evidence consistency from independence. CAD, renders and collision reports generated from one reference can share its error; hashes establish identity, not physical accuracy. Record which critical claims depend on a common assumption and which have independent measurements or physical observations. Prioritize an experiment that could change the architecture over further detailing when input uncertainty controls the decision. Apply the existing assembly, manufacturing and evidence gates at the affected feature instead of adding redundant checks.
 
 For every high-risk unknown, write an experiment record with the question, smallest artifact, setup, measurement, decision rule and result. Use fit coupons for joints and connector clearances; mock-ups for insertion and service; bench tests for charging/data; and controlled thermal or acoustic tests for cooling. Coupons should reproduce the actual mating surfaces, print orientation and relevant support conditions; distinguish a size gauge from a representative joint test. Start with the smallest useful subset before committing to a full print. Update the ledger with what the evidence proves and what it does not.
 
