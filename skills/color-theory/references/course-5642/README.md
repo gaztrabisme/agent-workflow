@@ -27,4 +27,4 @@ Reading copy as Markdown: one file per lesson, translated into English from the 
 | 5642 · U3 · L42 | [Personal Project Analysis 2](U03-L42-personal-project-analysis-2.md) | 11:44 | es | 27 |
 | 5642 · U3 · L43 | [How to evaluate a color proposal](U03-L43-how-to-evaluate-a-color-proposal.md) | 12:55 | es | 33 |
 
-The same content as one PDF: [reading-copy-5642-U03.pdf](reading-copy-5642-U03.pdf), with a page for every section in [pdf-index.md](pdf-index.md).
+These lesson files are the complete copy. A single-PDF version (`reading-copy-5642-U03.pdf`, 502 pages, 119 MB) exists only on the owner's original Mac and is not in the repo; [pdf-index.md](pdf-index.md) gives its page for every section.

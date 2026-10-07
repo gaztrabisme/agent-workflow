@@ -2,7 +2,7 @@
 *.pdf
 !references/course/*.pdf
 !references/course-1560/*.pdf
-# course-5642 PDF (119 MB) exceeds GitHub's 100 MB file limit; kept locally, not committed
+# course-5642 PDF (119 MB) duplicates the lesson Markdown; kept on the original Mac only, by choice
 .claude/
 __pycache__/
 .run2-export-ct-report.md

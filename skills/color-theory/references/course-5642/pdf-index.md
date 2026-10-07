@@ -1,6 +1,6 @@
 # Page index: reading-copy-5642-U03.pdf
 
-Every section of the reading copy with the PDF page it starts on. Open the PDF at that page, or read a page range such as "N-M"; the Markdown lesson files hold the same text and figures.
+Every section of the reading copy with the PDF page it starts on. Open the PDF at that page, or read a page range such as "N-M"; the Markdown lesson files hold the same text and figures. The PDF is not in the repo (it exists only on the owner's original Mac); everywhere else, read the Markdown lesson files.
 
 ## 5642 · U3 · L22 · What will we do in the course? (page 3, [Markdown](U03-L22-what-will-we-do-in-the-course.md))
 
