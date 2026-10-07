@@ -22,17 +22,28 @@ Name the topology in the Plan Block when a run has several interacting lanes: **
 
 Small, low-risk requests can use a flexible agent-governed workflow. Use explicit, repeatable stages when the cost of an error exceeds the requestor's tolerance. The Plan Block names the mode and why. For work on Codex, use the documented available delegation and execution path in harness-map.md; this section stays at the decision level. [book:agentic-mesh], Executing the Task Plan.
 
-Use task size as an engine-fit cue: inline suits up to two clear, mechanical units; on Claude Code, use the Agent tool to fan out three to eight independent units that benefit from watching, subject to the current harness cap; use the Workflow tool for dynamic workflows, more than eight units, or genuine multi-stage dependencies. These are starting points, not automatic ceremony thresholds: scale the process to the task's value, risk, independence, and the current harness cap. [book:agentic-mesh], Task Planning; [book:agentic-mesh], Parallelization; [book:agentic-mesh], Orchestration.
+Use task size as an engine-fit cue: inline suits up to two clear, mechanical units; on Claude Code, use the Agent tool to fan out three to eight independent units that benefit from watching, subject to the current harness cap; use the provider-lane dynamic workflow (below) for more than eight units or genuine multi-stage dependencies, and the Workflow tool only when the owner says "ultracode". These are starting points, not automatic ceremony thresholds: scale the process to the task's value, risk, independence, and the current harness cap. [book:agentic-mesh], Task Planning; [book:agentic-mesh], Parallelization; [book:agentic-mesh], Orchestration.
 
 ## The coordinator is the pipeline
 
 Claude Code is the only harness in the current map with a documented scripted multi-stage pipeline. Everywhere else, the coordinator pipelines the run: dispatch, await, acceptance, next stage, with each stage recorded separately so a failure is visible before the next stage starts. State that choice in the Plan Block. Visibility makes the process easier to coordinate and problems easier to catch. [book:agentic-mesh], Comparing AI Workflows and Agents; [book:continuous-delivery], Chapter 1: The Problem of Delivering Software.
 
+## Provider-lane dynamic workflow
+
+What the owner means by "dynamic workflow": the coordinator-pipelined run above, with every unit on a `subagent` provider lane instead of a Claude agent. On Claude Code a `UserPromptSubmit` hook (`config/hooks/claude-lane-workflow-hook` in the agent-workflow repo) marks the session when the phrase appears, and a `PreToolUse` hook then denies the Workflow and Agent tools for that session; saying "ultracode" clears the mark.
+
+1. **Plan every lane first.** Run the lane check in lane-plan.md, then put the whole run in the Plan Block before anything fires: each unit with its stage or wave, primary and fallback lane, brief, and acceptance command. `ENGINE` reads `provider-lane dynamic workflow`; `SCHEDULE` lists the waves and which results each wave needs.
+2. **Dispatch a wave.** One `delegate` per unit, all units of the wave sent together, each in its own workspace; one `await` per run straight after, with `wait_seconds` ≥ 1800.
+3. **Gate the wave.** Run each acceptance command and read its output sample; record the run ledger rows. A failed unit gets `continue` on the same lane or its fallback lane before the next wave that depends on it starts.
+4. **Next wave, then converge.** Later waves start when their inputs pass. The merger named in `CONVERGE` is also a lane unit.
+
+A unit no open lane accepts is blocked and reported; the coordinator does not take it and does not fall back to a Claude agent.
+
 ## Binding per harness
 
 | Harness | Dynamic-workflow binding |
 |---|---|
-| Claude Code | Use its documented scripted workflow only when the required opt-in is present; read harness-map.md for current caps and resume behavior. |
+| Claude Code | Provider-lane dynamic workflow (above). The documented scripted Workflow tool only when the owner says "ultracode"; read harness-map.md for its caps and resume behavior. |
 | Codex CLI | Coordinator-pipelined unless the current harness map documents a suitable multi-stage primitive. |
 | Gemini CLI | Coordinator-pipelined unless the current harness map documents a suitable multi-stage primitive. |
 | opencode | Coordinator-pipelined unless the current harness map documents a suitable multi-stage primitive. |

@@ -13,6 +13,7 @@ The single source of the owner's agent skills. Each folder in `skills/` is one s
 | `config/retired-skills.txt` | Names whose old links `install.sh` removes from every agent folder. |
 | `config/claude/CLAUDE.md` | The owner's global instructions. `~/.claude/CLAUDE.md` is a symlink to it. |
 | `config/hooks/claude-quality-hook` | Post-edit hook that runs `ruff` on Python files. |
+| `config/hooks/claude-lane-workflow-hook` | Prompt and pre-tool hook: "dynamic workflow" in a prompt routes the session's fan-out to `subagent` provider lanes and blocks Claude's Workflow and Agent tools; "ultracode" lifts it. |
 | `tools/` | `render-kit`, `scene-engine`, `brand-profile`: programs the design skills run. Skills reach them through `~/.agent-workflow/tools/...`, never through a Mac path. |
 | `scripts/make-cloud-zips.sh`, `scripts/cloud_merge.py` | Build the claude.ai upload zips. |
 | `wiki/` | Decisions, log, goal files. Internal notes, not instructions. |

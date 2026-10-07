@@ -76,7 +76,7 @@ Select a lane and execution engine for each unit, then declare the choice and wh
 
 Before finalizing unit assignments or dispatch, run the system check in `references/lane-plan.md` and plan only onto lanes it reports open. If the Plan Block is prepared before a same-turn check is available, use the provisional form in `references/lane-plan.md`; it is not dispatch authorization. That file remains the single home for local lane rules. Select the convergence point before dispatch; a fan-out without a named merger and artifact leaves good work uncombined. [book:agentic-mesh], Parallelization.
 
-On Claude Code, when the dynamic-workflow engine is selected, this skill's instruction to use that workflow is the opt-in; show that authorization in the Plan Block. For other harness-specific primitives and limits, read `references/harness-map.md`.
+When the owner says "dynamic workflow", the engine is the provider-lane dynamic workflow in `references/workflow-patterns.md`: every unit on a `subagent` provider lane, the coordinator as the pipeline, and no Claude Workflow or Agent fan-out (a hook blocks both for that session). Claude Code's own Workflow tool is used only when the owner says "ultracode"; that word is the opt-in, shown in the Plan Block. For other harness-specific primitives and limits, read `references/harness-map.md`.
 
 ### 4. Declare — the Plan Block
 
@@ -118,6 +118,8 @@ The Plan Block is the only scheduled stop; the intent interview's questions trav
 ### 5. Goal — the stop condition, on disk
 
 Before any agent fires, write the goal file, then set the harness's session-stop mechanism from its criteria. The file lives at `wiki/goals/<YYYY-MM-DD>-<slug>.md`, or beside the primary artifact when there is no wiki. Give every criterion a unique ID, source or stakeholder, target artifact, and a concrete UAT command or check. Automate acceptance checks where it is practical; a passing check must demonstrate the criterion. [book:swebok], 6.4. Acceptance Tests. For service work, express reliability targets as measurable SLOs and record the corresponding error budget in the Plan Block. [book:continuous-delivery], Why Is Automated Acceptance Testing Essential?; [book:pmbok-guide-7e], 4.6.6. Visual Data and Information; [book:site-reliability-engineering], SLOs Set Expectations; [book:site-reliability-engineering], Forming Your Error Budget.
+
+On Claude Code, the goal file's `## Goal block` is the session stop: the plan-goal plugin arms from it when the file is marked APPROVED, so `/goal` is not typed.
 
 Do not use changeable counts as criteria; ensure every decision branch has a passing condition. Record scope changes as dated owner amendments without rewriting earlier criteria. The goal file is written first and is not edited after dispatch except to append an owner amendment when the tested assumption or functionality has genuinely changed. A failed criterion remains a failure; never alter its wording to conceal the result. Details and examples: `references/goal-file.md`. [book:continuous-delivery], Essential Practices.
 

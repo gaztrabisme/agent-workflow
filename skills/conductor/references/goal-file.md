@@ -37,7 +37,16 @@ The decision record names the accountable author and a contact so responsibility
 
 ## Branch resolutions (before dispatch)
 <Each fork ID, selected branch, decision owner, and date; "(none)" if the draft did not depend on an unresolved fork.>
+
+## Goal block
+Execute plan "<plan name>" (<goal file path>). Goal rows:
+1 <criterion ID>: `<UAT command>`
+2 <criterion ID>: `<UAT command>`
 ```
+
+## The goal block (Claude Code)
+
+The block repeats the table's coordinator-verifiable UAT rows as runnable commands, labelled by criterion ID. Keep human keystone rows out of the block. After go, marking the file APPROVED arms the plan-goal plugin. It runs the rows at each stop, pauses after 3 idle turns, and accepts an extension request in `.claude/plan-goal/extend` as `<turns> <reason>`, up to a ceiling the owner sets. The coordinator writes an extension only when more turns without tool calls are genuinely needed. The reason is shown to the owner at the end.
 
 ## Service objectives and error budget
 
