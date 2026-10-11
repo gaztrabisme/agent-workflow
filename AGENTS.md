@@ -11,7 +11,8 @@ The single source of the owner's agent skills. Each folder in `skills/` is one s
 | `skills/<name>/` | One skill. `SKILL.md` is the entry point. |
 | `skills.txt` | The skill names `install.sh` links. One per line. |
 | `config/retired-skills.txt` | Names whose old links `install.sh` removes from every agent folder. |
-| `config/claude/CLAUDE.md` | The owner's global instructions. `~/.claude/CLAUDE.md` is a symlink to it. |
+| `config/claude/CLAUDE.md` | The owner's global instructions, true on every machine. `~/.claude/CLAUDE.md` is a symlink to it. |
+| `config/claude/machines/<machine>.md` | One machine's facts (hardware, local servers, paths). `install.sh` links `~/.claude/machine.md` to the one named by `AW_MACHINE` or the hostname; `CLAUDE.md` imports it. |
 | `config/hooks/claude-quality-hook` | Post-edit hook that runs `ruff` on Python files. |
 | `tools/` | `render-kit`, `scene-engine`, `brand-profile`: programs the design skills run. Skills reach them through `~/.agent-workflow/tools/...`, never through a Mac path. |
 | `scripts/make-cloud-zips.sh`, `scripts/cloud_merge.py` | Build the claude.ai upload zips. |
