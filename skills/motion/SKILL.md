@@ -16,6 +16,7 @@ Motion turns a brief, script or information set into a story plan, storyboard, t
 - **`information-design` instead:** choose and validate a static chart form or data encoding. Motion carries an established encoding through time.
 - **`visual-design` instead:** solve static composition, hierarchy, typography or visual identity. Motion can consult it for the frame's visual system.
 - **[`presentation`](../presentation/SKILL.md) instead:** design a deck or demo as a presentation artifact. Motion owns the moving sequence itself. (derived: dogfood 2026-10-02, F12)
+- **[Reward design](../reward-design/SKILL.md):** plans and critiques anticipation, surprise, payoff and sound cues; motion owns their choreography and timed sequence.
 
 > **Disambiguation by artifact:** choose the owner from the output being decided: motion sequence, static chart, composed graphic, or deck/demo.
 

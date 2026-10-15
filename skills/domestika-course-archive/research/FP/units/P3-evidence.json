@@ -1,0 +1,272 @@
+{
+  "result": "passed",
+  "tests": 59,
+  "existing_tests": 33,
+  "artifact_root": "/var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/archive-P3-accept.UiyUqA",
+  "samples": [
+    {
+      "case": "domestika",
+      "release": "/var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/archive-P3-accept.UiyUqA/test_every_adapter_membership_locators_reuse_and_sanitized_handoff-zbnffkmt/domestika/releases/8713511927baa9322117532a45e119dc17a284f4691b70f273b5fca4a016ba5d",
+      "expected_membership": {
+        "reason": null,
+        "value": [
+          "unit:1",
+          "lesson:11",
+          "unit:2",
+          "lesson:12"
+        ]
+      },
+      "actual_membership": [
+        "unit:1",
+        "lesson:11",
+        "unit:2",
+        "lesson:12"
+      ],
+      "rerun_metrics": {
+        "added": 0,
+        "changed": 0,
+        "new_parses": 0,
+        "new_transfers": 0,
+        "quarantined": 0,
+        "removed": 0,
+        "reused": 4
+      },
+      "text_chunks": 7,
+      "figure_occurrences": 0,
+      "sample_locator": {
+        "member_id": "unit:1",
+        "asset_id": "sha256:f480f3a88d6a026784fb50b4c6ebe856b48689246145372d6a9f9741aea52e1d",
+        "locator": {
+          "end_offset": 61,
+          "kind": "html-text",
+          "start_offset": 0
+        },
+        "text": "Preservation\nKeep original evidence.\nPractice\nCompare hashes."
+      }
+    },
+    {
+      "case": "coursera-progressive",
+      "release": "/var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/archive-P3-accept.UiyUqA/test_every_adapter_membership_locators_reuse_and_sanitized_handoff-zbnffkmt/coursera-progressive/releases/e19c1515f38d72d59347707d2b850a56ebf94ccb597acd45a260094b18dc9b44",
+      "expected_membership": {
+        "reason": "not found",
+        "value": null
+      },
+      "actual_membership": [
+        "module:m1",
+        "activity:v1",
+        "activity:r1",
+        "activity:r2",
+        "activity:q1"
+      ],
+      "rerun_metrics": {
+        "added": 0,
+        "changed": 0,
+        "new_parses": 0,
+        "new_transfers": 0,
+        "quarantined": 0,
+        "removed": 0,
+        "reused": 5
+      },
+      "text_chunks": 3,
+      "figure_occurrences": 0,
+      "sample_locator": {
+        "member_id": "activity:v1",
+        "asset_id": "sha256:2a7b77c08ef61cedb29926f90fa46b7fc62b12d2fdc4da32315ff29cce9453e6",
+        "locator": {
+          "cue_id": "cue-1",
+          "end_seconds": 0.5,
+          "kind": "caption-cue",
+          "lesson_id": "activity:v1",
+          "start_seconds": 0.0
+        },
+        "text": "Preserve the sources."
+      }
+    },
+    {
+      "case": "coursera-locked",
+      "release": "/var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/archive-P3-accept.UiyUqA/test_every_adapter_membership_locators_reuse_and_sanitized_handoff-zbnffkmt/coursera-locked/releases/9ccc6a08df88f96158ffc8ae339a5884a6f0be8249d3b0c31baee5b683b433a0",
+      "expected_membership": {
+        "reason": null,
+        "value": [
+          "module:m1",
+          "activity:v1",
+          "activity:r1",
+          "activity:r2",
+          "activity:q1"
+        ]
+      },
+      "actual_membership": [
+        "module:m1",
+        "activity:v1",
+        "activity:r1",
+        "activity:r2",
+        "activity:q1"
+      ],
+      "rerun_metrics": {
+        "added": 0,
+        "changed": 0,
+        "new_parses": 0,
+        "new_transfers": 0,
+        "quarantined": 0,
+        "removed": 0,
+        "reused": 5
+      },
+      "text_chunks": 0,
+      "figure_occurrences": 0,
+      "sample_locator": null
+    },
+    {
+      "case": "book",
+      "release": "/var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/archive-P3-accept.UiyUqA/test_every_adapter_membership_locators_reuse_and_sanitized_handoff-zbnffkmt/book/releases/4d86ccf6c283302e558b4924219e03fa6ba4f6ebe16e5e6a2ae2c4cff2099504",
+      "expected_membership": {
+        "reason": null,
+        "value": [
+          "pdf",
+          "epub"
+        ]
+      },
+      "actual_membership": [
+        "pdf",
+        "epub"
+      ],
+      "rerun_metrics": {
+        "added": 0,
+        "changed": 0,
+        "new_parses": 0,
+        "new_transfers": 0,
+        "quarantined": 0,
+        "removed": 0,
+        "reused": 2
+      },
+      "text_chunks": 3,
+      "figure_occurrences": 6,
+      "sample_locator": {
+        "member_id": "pdf",
+        "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+        "locator": {
+          "coordinate_system": "top-left-points",
+          "height": 842.0,
+          "kind": "pdf-page",
+          "page": 1,
+          "page_label": null,
+          "rectangle": null,
+          "rotation": 0,
+          "width": 595.0
+        },
+        "text": "Chapter 1: Durable archives\nPreserve exact source bytes and locators."
+      }
+    },
+    {
+      "case": "paper",
+      "release": "/var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/archive-P3-accept.UiyUqA/test_every_adapter_membership_locators_reuse_and_sanitized_handoff-zbnffkmt/paper/releases/99a0a72d96170d541a214b34440d16529ccaf9b9653b9c268196ff5cc461ea74",
+      "expected_membership": {
+        "reason": null,
+        "value": [
+          "abstract",
+          "pdf"
+        ]
+      },
+      "actual_membership": [
+        "abstract",
+        "pdf"
+      ],
+      "rerun_metrics": {
+        "added": 0,
+        "changed": 0,
+        "new_parses": 0,
+        "new_transfers": 0,
+        "quarantined": 0,
+        "removed": 0,
+        "reused": 2
+      },
+      "text_chunks": 2,
+      "figure_occurrences": 0,
+      "sample_locator": {
+        "member_id": "abstract",
+        "asset_id": "sha256:3259d1834bef38501af1763a4514e2b9b4ce16edc884dc8e5d10a3265677113c",
+        "locator": {
+          "end_line": 1,
+          "kind": "markdown-lines",
+          "path": "blobs/3259d1834bef38501af1763a4514e2b9b4ce16edc884dc8e5d10a3265677113c",
+          "start_line": 1
+        },
+        "text": "A synthetic test of durable recovery."
+      }
+    },
+    {
+      "case": "paper-abstract",
+      "release": "/var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/archive-P3-accept.UiyUqA/test_every_adapter_membership_locators_reuse_and_sanitized_handoff-zbnffkmt/paper-abstract/releases/8c5a52a4ccff71bf90d43ac4cca16a9a78f7c8bc27bbe80515d848111b8deeb0",
+      "expected_membership": {
+        "reason": null,
+        "value": [
+          "abstract"
+        ]
+      },
+      "actual_membership": [
+        "abstract"
+      ],
+      "rerun_metrics": {
+        "added": 0,
+        "changed": 0,
+        "new_parses": 0,
+        "new_transfers": 0,
+        "quarantined": 0,
+        "removed": 0,
+        "reused": 1
+      },
+      "text_chunks": 1,
+      "figure_occurrences": 0,
+      "sample_locator": {
+        "member_id": "abstract",
+        "asset_id": "sha256:54d2c38d3e153adf5128e5331ff8efa25ac242d0970e2bb5585adad20f19f407",
+        "locator": {
+          "end_line": 1,
+          "kind": "markdown-lines",
+          "path": "blobs/54d2c38d3e153adf5128e5331ff8efa25ac242d0970e2bb5585adad20f19f407",
+          "start_line": 1
+        },
+        "text": "Full text is unavailable."
+      }
+    },
+    {
+      "case": "repository",
+      "release": "/var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/archive-P3-accept.UiyUqA/test_every_adapter_membership_locators_reuse_and_sanitized_handoff-zbnffkmt/repository/releases/7576e208572f772cc741736a573f6f338dfb54757819a653a7f9168e6582718d",
+      "expected_membership": {
+        "reason": null,
+        "value": [
+          "file:README.md",
+          "file:danger.py",
+          "file:src/helper.txt"
+        ]
+      },
+      "actual_membership": [
+        "file:README.md",
+        "file:danger.py",
+        "file:src/helper.txt"
+      ],
+      "rerun_metrics": {
+        "added": 0,
+        "changed": 0,
+        "new_parses": 0,
+        "new_transfers": 0,
+        "quarantined": 0,
+        "removed": 0,
+        "reused": 3
+      },
+      "text_chunks": 3,
+      "figure_occurrences": 0,
+      "sample_locator": {
+        "member_id": "file:README.md",
+        "asset_id": "sha256:82d64e8cbb64d6f3b8a0e4c93e16c37fa865c60fe37a82db56eb0f0071536e27",
+        "locator": {
+          "commit": "e763a86a3686e6592e01eb46de349630270a00ec",
+          "end_line": 2,
+          "kind": "code-lines",
+          "path": "README.md",
+          "start_line": 1
+        },
+        "text": "# Fixture repository\nRead these exact committed lines."
+      }
+    }
+  ]
+}

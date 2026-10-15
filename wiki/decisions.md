@@ -11,3 +11,4 @@
 | 2026-10-03 | plan-goal plugin stays its own repo, cloned by the installer | Moving it into this repo |
 | 2026-10-03 | Old per-skill repos archived (reversible); deletion left to the owner | Deleting them |
 | 2026-10-03 | Skills reach tools through `~/.agent-workflow`, a link the installer makes | Hard-coded Mac paths |
+| 2026-10-11 | New skill `reward-design`: plans and critiques anticipation, surprise and payoff; "dopamine" is a trigger keyword only, every technique carries an evidence tier, dark patterns are taught for recognition and never recommended; rendering stays with presentation, motion, visual-design, color-theory, information-design, ux, frontend | A literal "release dopamine" skill (overclaims); folding the material into the existing design skills (no single owner for sound and reward timing) |

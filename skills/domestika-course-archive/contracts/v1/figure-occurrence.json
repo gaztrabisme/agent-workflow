@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:figure-occurrence:1",
+  "title": "figure-occurrence",
+  "type": "object",
+  "properties": {
+    "figure_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "member_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "image_asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locator": {
+      "$ref": "urn:organized-mind:archive-locator:1"
+    },
+    "caption": {
+      "type": "string"
+    },
+    "caption_status": {
+      "enum": [
+        "linked",
+        "ambiguous",
+        "not found"
+      ]
+    },
+    "nearby_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "$ref": "urn:organized-mind:archive-locator:1"
+          }
+        },
+        "required": [
+          "asset_id",
+          "locator"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "figure_id",
+    "member_id",
+    "asset_id",
+    "image_asset_id",
+    "locator",
+    "caption",
+    "caption_status",
+    "nearby_spans"
+  ],
+  "additionalProperties": false
+}

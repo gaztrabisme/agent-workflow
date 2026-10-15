@@ -101,6 +101,7 @@ batching scheduler and the prefix cache.
 | Which model / local vs cloud | roster by role + routing rules; certify model *and* thinking flag together | `references/model-selection.md` |
 | Screenshot / GUI grounding / VQA | crop to near-square, greedy sampling set in `model_settings.json`, abstention branch, one-word VQA | `references/model-selection.md` §Vision |
 | "Is the local model good enough?" | golden set + same-model baseline; hand-read the misses | `references/eval-playbook.md` |
+| Thinking is ON but a schema-enforced call shows no reasoning | a JSON grammar suppresses thinking unless `reasoning_parser` is set (then **restart**); no parser for the family (Gemma-4) ⇒ drop the grammar, validate in code. Verify with reasoning tokens, never the flag | `references/request-contract.md` §Thinking under a JSON grammar |
 | Model won't call my tool | read the checkpoint's own `chat_template.jinja`; grep misses for native markers to rule out the parser; then thinking ON + token headroom in `model_settings.json` | `references/request-contract.md` §Tool calling |
 | Embeddings / rerank / STT / TTS | request shapes; embedding inputs are **silently truncated** by default | `references/request-contract.md` |
 

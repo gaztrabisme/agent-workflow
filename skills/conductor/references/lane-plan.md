@@ -54,10 +54,10 @@ All external lanes go through the `subagent` MCP server (`mcp__subagent__*`; sou
 
 | `provider=` | Model | Use for |
 |---|---|---|
-| `codex` (the default) | `gpt-6-luna`, effort `xhigh` | Critical-path multi-file code, long build-and-fix loops, adversarial code review |
+| `codex` (the default) | `gpt-6.1-sol`, effort `xhigh` (owner, 2026-10-07; needs Codex CLI 0.160+) | Critical-path multi-file code, long build-and-fix loops, adversarial code review |
 | `deepseek` | `deepseek-v4-pro` | Measurement, analysis, research that must end in a verdict. Peer strength |
 | `glm` | `glm-5.3-flash` | Mechanical leaves: one file, a clear port, a report from already-gathered data, a git commit |
-| `gemini` | `gemini-3.8-flash-high`, effort `high` (Antigravity CLI `agy`) | Experimental. It runs without the tool-call guard, so its workspace is a worktree or scratch folder, never a tree you cannot lose |
+| `gemini` | `gemini-3.8-flash-high`, effort `high` (Antigravity CLI `agy`) | **Disabled** (owner, 2026-10-07): it looped twice in one run. Its provider block is commented out in `~/.config/subagent/config.toml`; second reviews go to a fresh Codex session |
 | `bppc` | `qwen3.8-27b` on the GPU workstation | Offline or private work. Needs its server up (`start-llm`) |
 | `omlx` | `Qwen3.6-35B-A3B-OptiQ-4bit-REAP-19B` on this Mac | Offline or private work. It loads onto the Mac's GPU, so check no other session holds it |
 
@@ -73,12 +73,14 @@ All external lanes go through the `subagent` MCP server (`mcp__subagent__*`; sou
 
 **Tuning.** Model, `effort`, `max_steps`, timeouts, `max_agents`, the default provider and the fallback chain live in `~/.config/subagent/config.toml`, a copy of the subagent-mcp repo's `wiki/data/config-mcbob-2026-09-28.toml`. Keys live in the 0600 file `~/.config/agent-capabilities/subagent.env`. Both take effect when the `subagent` server next starts. Size each knob from the work. An uncapped child finds the provider's rate limit instead of the answer. Tune a lane rather than working around it.
 
-**Codex directly, when the MCP server is down.** Use `codex exec -m gpt-6-luna -c model_reasoning_effort=xhigh`. Do not switch among Codex models to look for quota when the quota is per account. The other installed models (`gpt-5.3-codex-spark`, `gpt-6-astra`, `gpt-5.6-luna`) are not used unless the owner asks.
+**Codex directly, when the MCP server is down.** Use `codex exec -m gpt-6.1-sol -c model_reasoning_effort=xhigh`. Do not switch among Codex models to look for quota when the quota is per account. The other installed models (`gpt-6-luna`, `gpt-5.3-codex-spark`, `gpt-6-astra`, `gpt-5.6-luna`) are not used unless the owner asks. Codex CLI 0.156 refuses `gpt-6.1-sol` ("not supported when using Codex with a ChatGPT account"); `codex update` fixes it.
 - Pass `-s workspace-write -C <dir>`. `~/.codex/config.toml` sets no sandbox mode, so without the flag the run is read-only and every edit fails. Add `--add-dir` for any other folder it must write, such as `/tmp` for verify scripts.
 - The brief goes on stdin, with a trailing `-` as the positional prompt, or it hangs.
 - Add `--skip-git-repo-check` outside a git repository.
 - Add `-c 'sandbox_workspace_write.network_access=true'` when the unit must fetch anything.
+- `codex exec resume <id>` takes neither `-C` nor the session's model: it runs in the process's current directory (start it from the unit's worktree, or the session's writable root becomes wherever you are) and on `~/.codex/config.toml`'s default model unless you pass `-m gpt-6.1-sol` again (2026-10-07: six resumed rounds ran on `gpt-6-sol`, one failed on an unsupported default).
 - Bound every run with `perl -e 'alarm shift; exec @ARGV' N`, because macOS has no `timeout`.
+- Never share one `CARGO_TARGET_DIR` across worktrees on different code: Cargo reuses path-crate artifacts across them, so a unit can compile or pass against another branch (2026-10-08: S17 failed to compile in the shared folder; earlier passes were unprovable). Each unit builds in its own folder, cleaned after acceptance; a release is built from scratch on the merged tree. Run `disk-guard check` before builds.
 - Run it in the background with an events log.
 - The sandbox keeps `.git` read-only, so a direct Codex unit cannot commit, and it cannot bind sockets, so a test suite that opens loopback or Unix sockets fails inside it. The coordinator reruns such suites outside the sandbox, and the commit goes to another lane (2026-09-30).
 - The session scratchpad under `/private/tmp/claude-*` is not visible inside the sandbox, even with `--add-dir /tmp`. Put acceptance scripts inside the workspace (2026-09-30).
@@ -88,6 +90,16 @@ All external lanes go through the `subagent` MCP server (`mcp__subagent__*`; sou
 **Codex multi-edit units through the MCP server.** Until 2026-09-30 the server's loop detector killed Codex units that edited one file 8 times, because Codex reports edits without their content. subagent-mcp commit `6ae599a` gives each Codex edit its own signature. It takes effect when the `subagent` server next starts; until then, send such units through direct `codex exec`.
 
 **Codex quota.** Check the lane state before dispatch. When the quota is per account, switching Codex models does not find a fresh quota; do not model-hop to seek one. The lane check records the observed status for the day.
+
+### `epi` (efficient-pi serve mode): work in progress, fix what you find
+
+`epi` is the owner's own agent harness (`~/Documents/Work/tools/efficient-pi`, branch `core`, Rust workspace `core/`; installed as `~/.local/bin/epi`). It is not a `subagent` MCP provider: drive it directly with `epi call list|delegate|await|continue|transcript`, as the subagent-mcp v2 contract describes. A new project needs a board (`epi show`), `wiki/index.md`, `wiki/active-work.md`, `wiki/log.md`, and `epi prefix schema accept <hash>` before serve accepts work.
+
+**It is still work in progress (owner, 2026-10-07).** Expect defects. Any session that uses it and finds a problem fixes it and commits the fix along the way, without asking first, in that repo under its own `AGENTS.md` rules:
+- Check `git worktree list` and `wiki/active-work.md` there first. If another session has a fix in flight on the same files, message that session (ListAgents, SendMessage) instead of editing.
+- Fix on a branch or worktree, add a test that fails before the fix, pass `cargo test --workspace` and `cargo clippy --workspace --all-targets -- -D warnings` outside the Codex sandbox, then commit with explicit paths and `git commit -F`.
+- Record the defect and the fix in that repo's `wiki/log.md`. Reinstall `epi` only with the release installer (`core/release/install.sh`, which keeps the previous version for `--rollback`).
+- Never push; publishing stays with the owner.
 
 ### Claude Agent tool / Workflow tool — small and watchable only
 

@@ -1,0 +1,90 @@
+{
+  "schema": "kb-handoff",
+  "valid": false,
+  "value": {
+    "blobs": [
+      {
+        "bytes": 2663,
+        "path": "blobs/19dbe22e69052c09275a42dfe68c2405a42ba7802d2d58491c67759d02e75339",
+        "sha256": "19dbe22e69052c09275a42dfe68c2405a42ba7802d2d58491c67759d02e75339"
+      },
+      {
+        "bytes": 179,
+        "path": "blobs/26626357d4f03b125c76a0ebe945f840940e93395cdbfe104f619c60bcbaeada",
+        "sha256": "26626357d4f03b125c76a0ebe945f840940e93395cdbfe104f619c60bcbaeada"
+      },
+      {
+        "bytes": 4666,
+        "path": "blobs/2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+        "sha256": "2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa"
+      },
+      {
+        "bytes": 53031,
+        "path": "blobs/483eb029b3a3406654fd00be01e749aa01f1c9084fd40f0d581d96b2cd53a334",
+        "sha256": "483eb029b3a3406654fd00be01e749aa01f1c9084fd40f0d581d96b2cd53a334"
+      },
+      {
+        "bytes": 1505,
+        "path": "blobs/4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+        "sha256": "4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b"
+      },
+      {
+        "bytes": 215,
+        "path": "blobs/5152ce5bafd5d2dd40692091b9ceba97ff53209427a2176f088a41f9cd2f9028",
+        "sha256": "5152ce5bafd5d2dd40692091b9ceba97ff53209427a2176f088a41f9cd2f9028"
+      },
+      {
+        "bytes": 350,
+        "path": "blobs/b3299b697171b232b499db4c341aa9080380feded35b55dcf0644c36ec9e9e4a",
+        "sha256": "b3299b697171b232b499db4c341aa9080380feded35b55dcf0644c36ec9e9e4a"
+      }
+    ],
+    "consumer_receipt": null,
+    "expected_image_records": 6,
+    "expected_text_chunks": 3,
+    "image_records": {
+      "bytes": 7346,
+      "path": "image-records.jsonl",
+      "sha256": "f227cb9b43b47087ddd659da7db42854ce5086300500f84b1a3186e03f56f863"
+    },
+    "manifest": {
+      "bytes": 10836,
+      "path": "manifest.json",
+      "sha256": "e4fd86317eb74606dc78c421f9993ea2a986615108fd45e394cd801dbf45b454"
+    },
+    "ordered_membership": [
+      "pdf",
+      "epub"
+    ],
+    "schema_version": "kb-handoff/v1",
+    "source": {
+      "acquired_at": "2026-10-14T17:15:40.116680+00:00",
+      "aliases": [],
+      "canonical_url": null,
+      "creators": [],
+      "derivation": "original",
+      "kind": "book",
+      "privacy_scope": "owner-private",
+      "publication_date": {
+        "reason": null,
+        "value": "2024-01-01"
+      },
+      "revision_date": {
+        "reason": "not found",
+        "value": null
+      },
+      "schema_version": "mind/source@1",
+      "selected_scope": "complete selected source",
+      "source_hash": "not-a-hash",
+      "source_id": "book:fixture-editions",
+      "source_revision": "sha256:f3308d8fe3a8e108f49844b2ca8a2c0bf1351cbf49bee19c2cf5f4a5166a6ede",
+      "title": "Fixture editions"
+    },
+    "state": "pending",
+    "text_chunks": {
+      "bytes": 4477,
+      "path": "text-chunks.jsonl",
+      "sha256": "66b932fc63aec6663708e8302ed00d59cfdb74bb9d5005b6bcc7b449135f2824"
+    }
+  }
+}

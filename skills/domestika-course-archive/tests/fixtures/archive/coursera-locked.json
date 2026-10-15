@@ -1,0 +1,60 @@
+{
+  "adapter": "coursera",
+  "source_id": "coursera:fixture-locked",
+  "title": "Locked fixture",
+  "modules": [
+    {
+      "id": "m1",
+      "name": "Foundations",
+      "items": [
+        {
+          "id": "v1",
+          "name": "Direct lecture",
+          "typeName": "lecture",
+          "files": [
+            {
+              "downloadUrl": "https://media.example.invalid/course/video.mp4",
+              "path": "lesson.mp4",
+              "mediaType": "video/mp4",
+              "role": "video"
+            },
+            {
+              "downloadUrl": "https://media.example.invalid/course/captions.vtt",
+              "path": "requested.en.vtt",
+              "mediaType": "text/vtt",
+              "role": "captions",
+              "language": "en"
+            }
+          ],
+          "isLocked": true
+        },
+        {
+          "id": "r1",
+          "name": "Typed reading",
+          "typeName": "reading",
+          "content": {
+            "type": "cml",
+            "html": "<h1>Recovering safely</h1><p>Reuse completed transfers.</p>"
+          },
+          "isLocked": true
+        },
+        {
+          "id": "r2",
+          "name": "Embedded reading",
+          "typeName": "reading",
+          "content": {
+            "type": "cml",
+            "html": "<co-content><ungradedWidget id=\"synthetic-widget\"/></co-content>"
+          },
+          "isLocked": true
+        },
+        {
+          "id": "q1",
+          "name": "Locked quiz",
+          "typeName": "quiz",
+          "isLocked": true
+        }
+      ]
+    }
+  ]
+}

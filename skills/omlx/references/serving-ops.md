@@ -19,7 +19,7 @@ The fields that change behaviour silently:
 |---|---|---|
 | `model_settings.json` | `enable_thinking` | pinned per model; overrides the engine default |
 | | `thinking_budget_enabled` | **false ⇒ `thinking_budget` in your request is ignored** |
-| | `reasoning_parser` | unset ⇒ reasoning leaks inline into `content` |
+| | `reasoning_parser` | unset ⇒ reasoning leaks inline into `content`, **and** a JSON-grammar request runs with no thinking at all |
 | | `specprefill_enabled` | true ⇒ prompts are **sparsely** prefilled — see `performance.md` |
 | | `turboquant_kv_enabled` | KV-cache quantization; **off** by default despite folklore |
 | | `mtp_enabled` / `vlm_mtp_enabled` | speculative decoding, silent fallback |
@@ -31,7 +31,7 @@ The fields that change behaviour silently:
 | | `idle_timeout` (seconds) | unpinned models unload after this |
 | | `auth.api_key` / `skip_api_key_verification` | where the key lives |
 
-Both files are read live for most keys — no restart needed for the thinking flags.
+Both files are read live for most keys — no restart needed for `enable_thinking`. **`reasoning_parser` needs a restart** (`~/.omlx/bin/omlx restart`): set live, it was ignored even after unloading and reloading the model (0.7.0, 2026-10-13).
 
 ### `max_context_window` is not a cap
 
@@ -215,6 +215,12 @@ multi-GB reload.
 71.13 GB in the log, while `/api/status` reported 78.5 GB and 83.5 GB at different moments. It
 moves with what else the machine is doing. Size with real headroom; never compute "will it
 fit" from a remembered number.
+- **Reclaim tiers count only free + inactive pages** (balanced: other apps' active memory is
+  never counted). With ~18 GB of other apps active and 81% "free" in `memory_pressure`, the
+  ceiling was 53.8 GB and a 62 GB model got 507 (2026-10-14). `memory_guard_tier: "custom"` +
+  `memory_guard_custom_ceiling_gb: 70` (settings.json, restart) admitted it: pressure stayed
+  level 1 (normal), but macOS pushed ~12 GB of other apps to swap (13 → 25 GB). Owner approval
+  needed; it applies to every model.
 - MLX allocator bloat can pin usage high; a model swap has been observed to reset it.
 
 ## Logs

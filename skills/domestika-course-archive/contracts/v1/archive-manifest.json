@@ -1,0 +1,442 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:archive-manifest:1",
+  "title": "archive-manifest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "archive-manifest/v1"
+    },
+    "adapter": {
+      "enum": [
+        "domestika",
+        "coursera",
+        "book",
+        "paper",
+        "repository"
+      ]
+    },
+    "source": {
+      "$ref": "urn:organized-mind:source-identity:1"
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_membership": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "reason": {
+              "const": null
+            }
+          },
+          "required": [
+            "value",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "const": null
+            },
+            "reason": {
+              "const": "not found"
+            }
+          },
+          "required": [
+            "value",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "expected_count": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "reason": {
+              "const": null
+            }
+          },
+          "required": [
+            "value",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "const": null
+            },
+            "reason": {
+              "const": "not found"
+            }
+          },
+          "required": [
+            "value",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "inventory_complete": {
+      "type": "boolean"
+    },
+    "ordered_membership": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "member_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "access": {
+            "enum": [
+              "accessible",
+              "locked",
+              "unsupported",
+              "unresolved",
+              "failed"
+            ]
+          },
+          "state": {
+            "enum": [
+              "active",
+              "quarantined",
+              "tombstone"
+            ]
+          },
+          "fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "asset_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "media_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "language": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "asset_id",
+                "path",
+                "sha256",
+                "bytes",
+                "media_type",
+                "role",
+                "language"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "block_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "asset_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "text": {
+                  "type": "string"
+                },
+                "locator": {
+                  "$ref": "urn:organized-mind:archive-locator:1"
+                },
+                "heading": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "derivation": {
+                  "enum": [
+                    "original",
+                    "translation",
+                    "derived"
+                  ]
+                },
+                "language": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "block_id",
+                "asset_id",
+                "text",
+                "locator",
+                "heading",
+                "derivation",
+                "language"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "figures": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:organized-mind:figure-occurrence:1"
+            }
+          },
+          "extraction_status": {
+            "enum": [
+              "completed",
+              "ocr-required",
+              "extraction-failure",
+              "not-applicable",
+              "partial"
+            ]
+          },
+          "facts": {
+            "type": "object"
+          },
+          "gaps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "member_id",
+          "title",
+          "parent_id",
+          "order",
+          "access",
+          "state",
+          "fingerprint",
+          "assets",
+          "blocks",
+          "figures",
+          "extraction_status",
+          "facts",
+          "gaps"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rights": {
+      "type": "string",
+      "minLength": 1
+    },
+    "privacy": {
+      "enum": [
+        "owner-private",
+        "project-private"
+      ]
+    },
+    "verification": {
+      "const": "passed"
+    },
+    "archive_state": {
+      "enum": [
+        "completed",
+        "partial"
+      ]
+    },
+    "handoff_state": {
+      "enum": [
+        "pending",
+        "completed"
+      ]
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "added": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "changed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reused": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "quarantined": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "removed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "new_transfers": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "new_parses": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "added",
+        "changed",
+        "reused",
+        "quarantined",
+        "removed",
+        "new_transfers",
+        "new_parses"
+      ],
+      "additionalProperties": false
+    },
+    "derivations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "derivation": {
+            "enum": [
+              "original",
+              "translation",
+              "derived"
+            ]
+          },
+          "transform_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input_asset_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "removal_log": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "asset_id",
+          "derivation",
+          "transform_version",
+          "input_asset_ids",
+          "removal_log"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "adapter",
+    "source",
+    "scope",
+    "expected_membership",
+    "expected_count",
+    "inventory_complete",
+    "ordered_membership",
+    "items",
+    "rights",
+    "privacy",
+    "verification",
+    "archive_state",
+    "handoff_state",
+    "gaps",
+    "metrics",
+    "derivations"
+  ],
+  "additionalProperties": false
+}

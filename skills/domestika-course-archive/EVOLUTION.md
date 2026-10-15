@@ -118,3 +118,10 @@ Not modified (validated as already-sound): per-unit folders, captions sharing vi
 - [x] 31 unit tests pass; `check` with no `--unit` exits 0 on both run-2 courses.
 - [ ] Next course run: first-round pass rate and share of `figure-text` findings, against 4 of 112 and 63% here.
 - **Verdict: PENDING** — hypotheses 2–4 are untested until the next course.
+
+## FP P3 — 2026-10-15 — Shared archive core
+
+- Approved FP implementation adds a shared core and Domestika/Coursera/book/paper/repository adapters while retaining the existing Domestika command lines.
+- Offline artifact tests prove complete listed membership, physical/resource/cue/commit locators, zero-transfer/zero-normalization reruns, actual process-kill recovery, failed/narrowed discovery preservation, private transport isolation, handoff validation and outbox-safe release installation.
+- Independent review exposed wrong-reason rerun validation, repeated narrow-scope removal, Git lazy-fetch helpers, cross-source installation, publication/scope-history ordering and privacy scanner edge cases. Each received a focused regression and correction; details and final evidence are in `research/FP/units/P3-report.md`.
+- These are synthetic source-structure proofs, not fresh live-site dogfood or a consumer-indexing result. New archive contracts remain proposals for Gary's approval.

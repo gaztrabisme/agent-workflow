@@ -921,23 +921,8 @@ def build_html(course: dict, units: list[dict], workdir: Path, rules: dict,
 
 
 def add_to_zip(archive: Path, pdf: Path, member: str) -> None:
-    temp = archive.with_name(archive.name + '.building')
-    temp.unlink(missing_ok=True)
-    with zipfile.ZipFile(archive, 'r') as source:
-        previous = [info for info in source.infolist() if info.filename != member]
-        with zipfile.ZipFile(temp, 'w', allowZip64=True) as target:
-            for info in previous:
-                with source.open(info) as reader, target.open(info, 'w', force_zip64=True) as writer:
-                    shutil.copyfileobj(reader, writer, 1024 * 1024)
-            target.write(pdf, member, compress_type=zipfile.ZIP_DEFLATED)
-    expected = {info.filename for info in previous} | {member}
-    with zipfile.ZipFile(temp, 'r') as check:
-        if set(check.namelist()) != expected:
-            raise RuntimeError('The ZIP contents do not match after adding the reading copy.')
-        corrupt = check.testzip()
-        if corrupt:
-            raise RuntimeError(f'ZIP integrity check failed at {corrupt}.')
-    temp.replace(archive)
+    from archive_core.packaging import verified_zip
+    verified_zip(archive, [(member, pdf)], preserve_existing=True)
 
 
 def cmd_build(args) -> int:
@@ -958,6 +943,16 @@ def cmd_build(args) -> int:
     html_path = args.workdir / 'reading' / 'reading-copy.html'
     html_path.write_text(document, encoding='utf-8')
     render_pdf(CHROME, html_path, output)
+    from archive_core.compatibility import emit_domestika_handoff
+    folders = {unit['number']: args.workdir / f'Unit {unit["number"]:02d} - {tidy(unit["title"])}' for unit in units}
+    caption_languages = {}
+    for unit in units:
+        for lesson in unit['lessons']:
+            note = folders[unit['number']] / f'{basename(lesson)}.download.json'
+            settings = json.loads(note.read_text()) if note.exists() else {}
+            caption_languages[lesson['id']] = settings.get('caption_languages') or [p.stem.rsplit('.', 1)[-1] for p in folders[unit['number']].glob(basename(lesson) + '.*.vtt')]
+    handoff = emit_domestika_handoff(course, units, folders, caption_languages, output.with_suffix('.handoff'), reading_pdf=output, removal_log=args.workdir / 'reading' / 'removed.log')
+    print(f'Knowledge-base handoff: {handoff["release"]} (pending)')
     print(f'Reading copy: {output} ({len(figures)} figures, {len(log.rows)} removal(s) logged)')
     if args.zip:
         member = f'{tidy(course["course_title"])} - reading copy.pdf'

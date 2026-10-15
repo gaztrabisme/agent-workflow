@@ -1,0 +1,15 @@
+{
+  "adapter": "paper",
+  "arxiv": "2601.00001v2",
+  "title": "Synthetic arXiv Fixture",
+  "abstract": "A synthetic test of durable recovery.",
+  "creators": [
+    "Archive Test Author"
+  ],
+  "files": [
+    {
+      "id": "pdf",
+      "path": "paper.pdf"
+    }
+  ]
+}

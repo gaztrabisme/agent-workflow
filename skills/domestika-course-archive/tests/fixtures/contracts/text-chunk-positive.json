@@ -1,0 +1,61 @@
+{
+  "schema": "text-chunk",
+  "valid": true,
+  "value": {
+    "child_spans": [
+      {
+        "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+        "locator": {
+          "coordinate_system": "top-left-points",
+          "height": 842.0,
+          "kind": "pdf-page",
+          "page": 1,
+          "page_label": null,
+          "rectangle": null,
+          "rotation": 0,
+          "width": 595.0
+        },
+        "member_id": "pdf",
+        "source_revision": "sha256:f3308d8fe3a8e108f49844b2ca8a2c0bf1351cbf49bee19c2cf5f4a5166a6ede"
+      }
+    ],
+    "chunk_id": "pdf:2ab068dfa027:0",
+    "context_spans": [],
+    "derivation": "original",
+    "embedding_input": "Chapter 1: Durable archives\n\nChapter 1: Durable archives\nPreserve exact source bytes and locators.",
+    "embedding_input_sha256": "030a13f2e7bfc760afc60f529fee8429281ba3afbfc1b449481789890d0c50a5",
+    "figure_ids": [
+      "pdf:figure:2ab068dfa027:0",
+      "pdf:figure:2ab068dfa027:1",
+      "pdf:figure:2ab068dfa027:2",
+      "pdf:figure:2ab068dfa027:3"
+    ],
+    "heading": "Chapter 1: Durable archives",
+    "language": "en",
+    "member_id": "pdf",
+    "parent_id": "pdf",
+    "parent_spans": [
+      {
+        "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+        "locator": {
+          "coordinate_system": "top-left-points",
+          "height": 842.0,
+          "kind": "pdf-page",
+          "page": 1,
+          "page_label": null,
+          "rectangle": null,
+          "rotation": 0,
+          "width": 595.0
+        },
+        "member_id": "pdf",
+        "source_revision": "sha256:f3308d8fe3a8e108f49844b2ca8a2c0bf1351cbf49bee19c2cf5f4a5166a6ede"
+      }
+    ],
+    "privacy_scope": "owner-private",
+    "producing_revision": "sha256:f3308d8fe3a8e108f49844b2ca8a2c0bf1351cbf49bee19c2cf5f4a5166a6ede",
+    "schema_version": "archive-text-chunk/v1",
+    "source_id": "book:fixture-editions",
+    "source_revision": "sha256:f3308d8fe3a8e108f49844b2ca8a2c0bf1351cbf49bee19c2cf5f4a5166a6ede",
+    "text": "Chapter 1: Durable archives\nPreserve exact source bytes and locators."
+  }
+}

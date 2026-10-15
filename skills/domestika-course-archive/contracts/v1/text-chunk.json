@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:text-chunk:1",
+  "title": "text-chunk",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "archive-text-chunk/v1"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "privacy_scope": {
+      "enum": [
+        "owner-private",
+        "project-private"
+      ]
+    },
+    "chunk_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "member_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text": {
+      "type": "string"
+    },
+    "heading": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "derivation": {
+      "enum": [
+        "original",
+        "translation",
+        "derived"
+      ]
+    },
+    "language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "figure_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "embedding_input": {
+      "type": "string"
+    },
+    "embedding_input_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "child_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "member_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "asset_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "$ref": "urn:organized-mind:archive-locator:1"
+          },
+          "source_revision": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "member_id",
+          "asset_id",
+          "locator",
+          "source_revision"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "parent_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "member_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "asset_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "$ref": "urn:organized-mind:archive-locator:1"
+          },
+          "source_revision": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "member_id",
+          "asset_id",
+          "locator",
+          "source_revision"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "context_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "member_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "asset_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "$ref": "urn:organized-mind:archive-locator:1"
+          },
+          "source_revision": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "member_id",
+          "asset_id",
+          "locator",
+          "source_revision"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "producing_revision": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "source_id",
+    "source_revision",
+    "privacy_scope",
+    "chunk_id",
+    "parent_id",
+    "member_id",
+    "text",
+    "heading",
+    "derivation",
+    "language",
+    "figure_ids",
+    "embedding_input",
+    "embedding_input_sha256",
+    "child_spans",
+    "parent_spans",
+    "context_spans",
+    "producing_revision"
+  ],
+  "additionalProperties": false
+}

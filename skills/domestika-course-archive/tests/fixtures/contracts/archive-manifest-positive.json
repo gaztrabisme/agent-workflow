@@ -1,0 +1,498 @@
+{
+  "schema": "archive-manifest",
+  "valid": true,
+  "value": {
+    "adapter": "book",
+    "archive_state": "partial",
+    "derivations": [
+      {
+        "asset_id": "sha256:b3299b697171b232b499db4c341aa9080380feded35b55dcf0644c36ec9e9e4a",
+        "derivation": "derived",
+        "input_asset_ids": [
+          "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+          "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b"
+        ],
+        "removal_log": null,
+        "transform_version": "portable-layout/1"
+      },
+      {
+        "asset_id": "sha256:483eb029b3a3406654fd00be01e749aa01f1c9084fd40f0d581d96b2cd53a334",
+        "derivation": "derived",
+        "input_asset_ids": [
+          "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+          "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b"
+        ],
+        "removal_log": null,
+        "transform_version": "portable-layout/1"
+      }
+    ],
+    "expected_count": {
+      "reason": null,
+      "value": 2
+    },
+    "expected_membership": {
+      "reason": null,
+      "value": [
+        "pdf",
+        "epub"
+      ]
+    },
+    "gaps": [],
+    "handoff_state": "pending",
+    "inventory_complete": true,
+    "items": [
+      {
+        "access": "accessible",
+        "assets": [
+          {
+            "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+            "bytes": 4666,
+            "language": "en",
+            "media_type": "application/pdf",
+            "path": "blobs/2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+            "role": "book",
+            "sha256": "2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa"
+          },
+          {
+            "asset_id": "sha256:19dbe22e69052c09275a42dfe68c2405a42ba7802d2d58491c67759d02e75339",
+            "bytes": 2663,
+            "language": null,
+            "media_type": "image/png",
+            "path": "blobs/19dbe22e69052c09275a42dfe68c2405a42ba7802d2d58491c67759d02e75339",
+            "role": "figure",
+            "sha256": "19dbe22e69052c09275a42dfe68c2405a42ba7802d2d58491c67759d02e75339"
+          },
+          {
+            "asset_id": "sha256:5152ce5bafd5d2dd40692091b9ceba97ff53209427a2176f088a41f9cd2f9028",
+            "bytes": 215,
+            "language": null,
+            "media_type": "image/png",
+            "path": "blobs/5152ce5bafd5d2dd40692091b9ceba97ff53209427a2176f088a41f9cd2f9028",
+            "role": "figure",
+            "sha256": "5152ce5bafd5d2dd40692091b9ceba97ff53209427a2176f088a41f9cd2f9028"
+          },
+          {
+            "asset_id": "sha256:b3299b697171b232b499db4c341aa9080380feded35b55dcf0644c36ec9e9e4a",
+            "bytes": 350,
+            "language": null,
+            "media_type": "text/markdown",
+            "path": "blobs/b3299b697171b232b499db4c341aa9080380feded35b55dcf0644c36ec9e9e4a",
+            "role": "portable-reading",
+            "sha256": "b3299b697171b232b499db4c341aa9080380feded35b55dcf0644c36ec9e9e4a"
+          },
+          {
+            "asset_id": "sha256:483eb029b3a3406654fd00be01e749aa01f1c9084fd40f0d581d96b2cd53a334",
+            "bytes": 53031,
+            "language": null,
+            "media_type": "application/pdf",
+            "path": "blobs/483eb029b3a3406654fd00be01e749aa01f1c9084fd40f0d581d96b2cd53a334",
+            "role": "portable-reading",
+            "sha256": "483eb029b3a3406654fd00be01e749aa01f1c9084fd40f0d581d96b2cd53a334"
+          }
+        ],
+        "blocks": [
+          {
+            "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+            "block_id": "pdf:2ab068dfa027:0",
+            "derivation": "original",
+            "heading": "Chapter 1: Durable archives",
+            "language": "en",
+            "locator": {
+              "coordinate_system": "top-left-points",
+              "height": 842.0,
+              "kind": "pdf-page",
+              "page": 1,
+              "page_label": null,
+              "rectangle": null,
+              "rotation": 0,
+              "width": 595.0
+            },
+            "text": "Chapter 1: Durable archives\nPreserve exact source bytes and locators."
+          },
+          {
+            "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+            "block_id": "pdf:2ab068dfa027:1",
+            "derivation": "original",
+            "heading": null,
+            "language": "en",
+            "locator": {
+              "coordinate_system": "top-left-points",
+              "height": 842.0,
+              "kind": "pdf-page",
+              "page": 2,
+              "page_label": null,
+              "rectangle": null,
+              "rotation": 0,
+              "width": 595.0
+            },
+            "text": ""
+          }
+        ],
+        "extraction_status": "ocr-required",
+        "facts": {
+          "edition": "2; ISBN TEST-0001",
+          "edition_reason": null,
+          "headings": [
+            "Chapter 1: Durable archives"
+          ],
+          "pdf_metadata": {
+            "author": "Archive Test Author",
+            "creationDate": "",
+            "creator": "",
+            "encryption": null,
+            "format": "PDF 1.7",
+            "keywords": "",
+            "modDate": "",
+            "producer": "",
+            "subject": "Second edition; ISBN TEST-0001",
+            "title": "Fixture Book",
+            "trapped": ""
+          },
+          "physical_pages": 2
+        },
+        "figures": [
+          {
+            "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+            "caption": "",
+            "caption_status": "not found",
+            "figure_id": "pdf:figure:2ab068dfa027:0",
+            "image_asset_id": "sha256:19dbe22e69052c09275a42dfe68c2405a42ba7802d2d58491c67759d02e75339",
+            "locator": {
+              "coordinate_system": "top-left-points",
+              "height": 842.0,
+              "kind": "pdf-page",
+              "page": 1,
+              "page_label": null,
+              "rectangle": [
+                50.0,
+                100.0,
+                170.0,
+                180.0
+              ],
+              "rotation": 0,
+              "width": 595.0
+            },
+            "member_id": "pdf",
+            "nearby_spans": [
+              {
+                "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+                "locator": {
+                  "coordinate_system": "top-left-points",
+                  "height": 842.0,
+                  "kind": "pdf-page",
+                  "page": 1,
+                  "page_label": null,
+                  "rectangle": null,
+                  "rotation": 0,
+                  "width": 595.0
+                }
+              }
+            ]
+          },
+          {
+            "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+            "caption": "",
+            "caption_status": "not found",
+            "figure_id": "pdf:figure:2ab068dfa027:1",
+            "image_asset_id": "sha256:19dbe22e69052c09275a42dfe68c2405a42ba7802d2d58491c67759d02e75339",
+            "locator": {
+              "coordinate_system": "top-left-points",
+              "height": 842.0,
+              "kind": "pdf-page",
+              "page": 1,
+              "page_label": null,
+              "rectangle": [
+                200.0,
+                100.0,
+                320.0,
+                180.0
+              ],
+              "rotation": 0,
+              "width": 595.0
+            },
+            "member_id": "pdf",
+            "nearby_spans": [
+              {
+                "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+                "locator": {
+                  "coordinate_system": "top-left-points",
+                  "height": 842.0,
+                  "kind": "pdf-page",
+                  "page": 1,
+                  "page_label": null,
+                  "rectangle": null,
+                  "rotation": 0,
+                  "width": 595.0
+                }
+              }
+            ]
+          },
+          {
+            "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+            "caption": "",
+            "caption_status": "not found",
+            "figure_id": "pdf:figure:2ab068dfa027:2",
+            "image_asset_id": "sha256:5152ce5bafd5d2dd40692091b9ceba97ff53209427a2176f088a41f9cd2f9028",
+            "locator": {
+              "coordinate_system": "top-left-points",
+              "height": 842.0,
+              "kind": "pdf-page",
+              "page": 1,
+              "page_label": null,
+              "rectangle": [
+                50.0,
+                220.0,
+                180.0,
+                260.0
+              ],
+              "rotation": 0,
+              "width": 595.0
+            },
+            "member_id": "pdf",
+            "nearby_spans": [
+              {
+                "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+                "locator": {
+                  "coordinate_system": "top-left-points",
+                  "height": 842.0,
+                  "kind": "pdf-page",
+                  "page": 1,
+                  "page_label": null,
+                  "rectangle": null,
+                  "rotation": 0,
+                  "width": 595.0
+                }
+              }
+            ]
+          },
+          {
+            "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+            "caption": "",
+            "caption_status": "not found",
+            "figure_id": "pdf:figure:2ab068dfa027:3",
+            "image_asset_id": "sha256:19dbe22e69052c09275a42dfe68c2405a42ba7802d2d58491c67759d02e75339",
+            "locator": {
+              "coordinate_system": "top-left-points",
+              "height": 842.0,
+              "kind": "pdf-page",
+              "page": 2,
+              "page_label": null,
+              "rectangle": [
+                50.0,
+                50.0,
+                290.0,
+                210.0
+              ],
+              "rotation": 0,
+              "width": 595.0
+            },
+            "member_id": "pdf",
+            "nearby_spans": [
+              {
+                "asset_id": "sha256:2ab068dfa027026f2b0095d351833f81445f72ecfa8849bd0a1e549c771998aa",
+                "locator": {
+                  "coordinate_system": "top-left-points",
+                  "height": 842.0,
+                  "kind": "pdf-page",
+                  "page": 2,
+                  "page_label": null,
+                  "rectangle": null,
+                  "rotation": 0,
+                  "width": 595.0
+                }
+              }
+            ]
+          }
+        ],
+        "fingerprint": "224628c58b503e22e200625e672e37761072e48f4c5c28747f51fe6fafb82ed3",
+        "gaps": [
+          "ocr-required: source bytes retained."
+        ],
+        "member_id": "pdf",
+        "order": 0,
+        "parent_id": null,
+        "state": "active",
+        "title": "book.pdf"
+      },
+      {
+        "access": "accessible",
+        "assets": [
+          {
+            "asset_id": "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+            "bytes": 1505,
+            "language": "en",
+            "media_type": "application/epub+zip",
+            "path": "blobs/4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+            "role": "book",
+            "sha256": "4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b"
+          },
+          {
+            "asset_id": "sha256:26626357d4f03b125c76a0ebe945f840940e93395cdbfe104f619c60bcbaeada",
+            "bytes": 179,
+            "language": null,
+            "media_type": "image/png",
+            "path": "blobs/26626357d4f03b125c76a0ebe945f840940e93395cdbfe104f619c60bcbaeada",
+            "role": "figure",
+            "sha256": "26626357d4f03b125c76a0ebe945f840940e93395cdbfe104f619c60bcbaeada"
+          }
+        ],
+        "blocks": [
+          {
+            "asset_id": "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+            "block_id": "epub:4a0a43c8214d:0",
+            "derivation": "original",
+            "heading": "Chapter One",
+            "language": "en",
+            "locator": {
+              "end_offset": 53,
+              "kind": "epub-resource",
+              "reading_order": 0,
+              "resource": "OEBPS/chapter1.xhtml",
+              "start_offset": 0
+            },
+            "text": "Chapter One\nStable resource locations survive reruns."
+          },
+          {
+            "asset_id": "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+            "block_id": "epub:4a0a43c8214d:1",
+            "derivation": "original",
+            "heading": "Chapter Two",
+            "language": "en",
+            "locator": {
+              "end_offset": 41,
+              "kind": "epub-resource",
+              "reading_order": 1,
+              "resource": "OEBPS/chapter2.xhtml",
+              "start_offset": 0
+            },
+            "text": "Chapter Two\nReading order starts at zero."
+          }
+        ],
+        "extraction_status": "completed",
+        "facts": {
+          "creator": [
+            "Archive Test Author"
+          ],
+          "date": [
+            "2024-01-01"
+          ],
+          "edition": "3; ISBN TEST-0002",
+          "edition_reason": null,
+          "identifier": [
+            "ISBN TEST-0002; edition 3"
+          ],
+          "language": [
+            "en"
+          ],
+          "title": [
+            "Fixture EPUB"
+          ]
+        },
+        "figures": [
+          {
+            "asset_id": "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+            "caption": "",
+            "caption_status": "not found",
+            "figure_id": "epub:figure:4a0a43c8214d:0",
+            "image_asset_id": "sha256:26626357d4f03b125c76a0ebe945f840940e93395cdbfe104f619c60bcbaeada",
+            "locator": {
+              "kind": "epub-image",
+              "occurrence": 0,
+              "parent_resource": "OEBPS/chapter1.xhtml",
+              "reading_order": 0,
+              "resource": "OEBPS/figure.png"
+            },
+            "member_id": "epub",
+            "nearby_spans": [
+              {
+                "asset_id": "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+                "locator": {
+                  "end_offset": 53,
+                  "kind": "epub-resource",
+                  "reading_order": 0,
+                  "resource": "OEBPS/chapter1.xhtml",
+                  "start_offset": 0
+                }
+              }
+            ]
+          },
+          {
+            "asset_id": "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+            "caption": "",
+            "caption_status": "not found",
+            "figure_id": "epub:figure:4a0a43c8214d:1",
+            "image_asset_id": "sha256:26626357d4f03b125c76a0ebe945f840940e93395cdbfe104f619c60bcbaeada",
+            "locator": {
+              "kind": "epub-image",
+              "occurrence": 1,
+              "parent_resource": "OEBPS/chapter1.xhtml",
+              "reading_order": 0,
+              "resource": "OEBPS/figure.png"
+            },
+            "member_id": "epub",
+            "nearby_spans": [
+              {
+                "asset_id": "sha256:4a0a43c8214dae0f0d5e140528b77f5fc23865db9618deb36efdcddd38f8803b",
+                "locator": {
+                  "end_offset": 53,
+                  "kind": "epub-resource",
+                  "reading_order": 0,
+                  "resource": "OEBPS/chapter1.xhtml",
+                  "start_offset": 0
+                }
+              }
+            ]
+          }
+        ],
+        "fingerprint": "25802fc6f325b6f542cb5d8f410f6861e2604cb9ececb8d4cd8c4c92529e76b6",
+        "gaps": [],
+        "member_id": "epub",
+        "order": 1,
+        "parent_id": null,
+        "state": "active",
+        "title": "book.epub"
+      }
+    ],
+    "metrics": {
+      "added": 0,
+      "changed": 0,
+      "new_parses": 0,
+      "new_transfers": 0,
+      "quarantined": 0,
+      "removed": 0,
+      "reused": 2
+    },
+    "ordered_membership": [
+      "pdf",
+      "epub"
+    ],
+    "privacy": "owner-private",
+    "rights": "Owner-authorized private preservation; no public redistribution grant.",
+    "schema_version": "archive-manifest/v1",
+    "scope": "complete selected source",
+    "source": {
+      "acquired_at": "2026-10-14T17:15:40.116680+00:00",
+      "aliases": [],
+      "canonical_url": null,
+      "creators": [],
+      "derivation": "original",
+      "kind": "book",
+      "privacy_scope": "owner-private",
+      "publication_date": {
+        "reason": null,
+        "value": "2024-01-01"
+      },
+      "revision_date": {
+        "reason": "not found",
+        "value": null
+      },
+      "schema_version": "mind/source@1",
+      "selected_scope": "complete selected source",
+      "source_hash": "f3308d8fe3a8e108f49844b2ca8a2c0bf1351cbf49bee19c2cf5f4a5166a6ede",
+      "source_id": "book:fixture-editions",
+      "source_revision": "sha256:f3308d8fe3a8e108f49844b2ca8a2c0bf1351cbf49bee19c2cf5f4a5166a6ede",
+      "title": "Fixture editions"
+    },
+    "verification": "passed"
+  }
+}

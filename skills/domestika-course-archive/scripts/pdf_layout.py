@@ -160,9 +160,15 @@ def unit_html(course: dict, unit: dict, names: dict[int, str],
 
 
 def render_pdf(chrome: str, html_path: Path, pdf_path: Path) -> None:
+    from archive_core.packaging import localize_images
+    from archive_core.privacy import scan_file
+    document = localize_images(html_path.read_text(encoding='utf-8'))
+    html_path.write_text(document, encoding='utf-8')
+    scan_file(html_path)
     command = [chrome, '--headless', '--disable-gpu', '--no-first-run',
-               '--disable-background-networking', '--virtual-time-budget=10000',
+               '--disable-background-networking', '--host-resolver-rules=MAP * ~NOTFOUND', '--virtual-time-budget=10000',
                '--no-pdf-header-footer', f'--print-to-pdf={pdf_path}', html_path.as_uri()]
     run = subprocess.run(command, capture_output=True, text=True, timeout=120)
     if run.returncode or not pdf_path.exists() or pdf_path.stat().st_size < 3000:
-        raise RuntimeError(f'Chrome could not make {pdf_path.name}: {run.stderr[-1000:]}')
+        raise RuntimeError(f'Chrome could not make {pdf_path.name}.')
+    scan_file(pdf_path)

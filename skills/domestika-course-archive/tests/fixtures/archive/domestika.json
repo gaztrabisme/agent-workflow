@@ -1,0 +1,61 @@
+{
+  "adapter": "domestika",
+  "version": 1,
+  "course_id": 999999,
+  "course_title": "Synthetic Domestika Course",
+  "expected_units": 2,
+  "expected_lessons": 2,
+  "units": [
+    {
+      "number": 1,
+      "title": "Preservation",
+      "url": "https://www.domestika.org/en/courses/999999-fixture/units/1-preservation",
+      "intro_html": "<h2>Preservation</h2><p>Keep original evidence.</p>",
+      "extras": [
+        {
+          "title": "Tasks",
+          "html": "<h2>Practice</h2><p>Compare hashes.</p>"
+        }
+      ],
+      "lessons": [
+        {
+          "number": 1,
+          "id": 11,
+          "title": "Source evidence",
+          "duration_seconds": 1,
+          "url": "https://www.domestika.org/en/courses/999999-fixture/units/1-preservation#course_lesson_11",
+          "media_url": "https://cdn-videos.domestika.org/fixture/master.m3u8",
+          "media_fixture": "lesson.mp4",
+          "playlist_fixture": "master.m3u8",
+          "transcript_html": "<p>Keep a stable identity.</p>",
+          "captions": [
+            {
+              "path": "requested.en.vtt",
+              "language": "en"
+            },
+            {
+              "path": "native.es.vtt",
+              "language": "es"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Later unit",
+      "url": "https://www.domestika.org/en/courses/999999-fixture/units/2-later",
+      "intro_html": "<p>Listed even when access is locked.</p>",
+      "lessons": [
+        {
+          "number": 2,
+          "id": 12,
+          "title": "Locked lesson",
+          "duration_seconds": null,
+          "access": "locked",
+          "captions": []
+        }
+      ]
+    }
+  ]
+}

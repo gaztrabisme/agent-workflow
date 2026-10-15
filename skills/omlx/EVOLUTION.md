@@ -357,3 +357,27 @@ New, for a later run:
 **Verdict: PENDING.** One real use in the window, and it predates every change in Evolution 2.
 Nothing here is validated; what this round mostly established is that the skill is not being
 reached, which is why H4 (description) matters more than any content edit in this entry.
+
+## Real use 2026-10-13 — IELTSy judge panel (thinking under a JSON grammar)
+
+Three MoE judges (Kimi-Linear, Nemotron-3-Nano, Gemma-4-26B) passed a probe on schema validity
+and speed, and were planned into a ~7 h run as "thinking on". Re-checking the setup found none of
+them reasoned: the JSON grammar suppressed thinking (no `reasoning_parser`), and `reasoning_parser`
+set live was ignored until a restart. Gemma-4 has no parser at all, so it now runs without a
+grammar and is validated in code. Added: SKILL.md flow row, request-contract §Thinking under a
+JSON grammar, serving-ops restart note. Lesson for the probe: record reasoning tokens per model.
+
+**Verdict: PENDING** (one use; the next schema-enforced thinking run should check reasoning
+tokens in its probe without being told).
+
+## Real use 2026-10-14 — gpt-oss-120b judge (Harmony + grammar loop; admission tier)
+
+The 2026-10-13 lesson held: the probe checked reasoning tokens unprompted (gpt-oss ~11k tokens
+per judge answer). New failures: (1) the omlx_probe deep check crashed on a non-JSON body
+because gpt-oss under a grammar repeated the object until max_tokens; a hand-streamed request
+showed it. Fix: no grammar, validate in code. (2) A 62 GB model got 507 at 81% "free" because
+reclaim tiers ignore other apps' active pages; custom ceiling 70 GB (owner exception) admitted
+it at the cost of ~12 GB more swap. Added to request-contract and serving-ops.
+
+**Verdict: PENDING.** Candidate change: omlx_probe's deep check should catch a JSON decode
+error and print `finish_reason` + completion tokens instead of a traceback.

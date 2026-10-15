@@ -16,6 +16,7 @@ This skill produces a research-grounded product brief, user journey and flow, pr
 - **`information-design` instead:** chart and data presentation. UX can define a research question or success outcome; the data artifact and its encoding belong there.
 - **`visual-design` instead:** composition and visual form. UX can define screen content and structure; composition decisions belong there.
 - **[Frontend](../frontend/SKILL.md):** builds the production UI. UX supplies the tested behavior, states, and content to implement. (derived: dogfood 2026-10-02, F14)
+- **[Reward design](../reward-design/SKILL.md):** plans and critiques anticipation, payoff, sound feedback and reward-pattern agency; UX owns the task flow and microcopy.
 
 > **Disambiguation by artifact:** route research, task behavior, content, and prototypes here; route a chart, composed visual artifact, or implemented interface to the skill that produces it.
 

@@ -291,34 +291,8 @@ def download_lesson(lesson: dict, directory: Path, name: str, max_height: int,
 
 def make_archive(course: dict, units: list[dict], folders: dict[int, Path],
                  caption_languages_by_lesson: dict[int, list[str]], archive: Path) -> None:
-    temp = archive.with_name(archive.name + '.building')
-    temp.unlink(missing_ok=True)
-    expected: set[str] = set()
-    with zipfile.ZipFile(temp, 'w', allowZip64=True) as target:
-        for unit in units:
-            folder = folders[unit['number']]
-            pdf = folder / f'{folder.name}.pdf'
-            files = [pdf]
-            for lesson in sorted(unit['lessons'], key=lambda item: item['number']):
-                base = basename(lesson)
-                files.append(folder / f'{base}.mp4')
-                files.extend(caption_path(folder, base, language)
-                             for language in caption_languages_by_lesson[lesson['id']])
-            for path in files:
-                if not path.exists():
-                    raise RuntimeError(f'Missing file before archiving: {path}')
-                mode = zipfile.ZIP_STORED if path.suffix == '.mp4' else zipfile.ZIP_DEFLATED
-                member = f'{folder.name}/{path.name}'
-                target.write(path, member, compress_type=mode)
-                expected.add(member)
-    with zipfile.ZipFile(temp, 'r') as check:
-        actual = set(check.namelist())
-        if actual != expected:
-            raise RuntimeError('The ZIP contents do not match the selected units and lessons.')
-        corrupt = check.testzip()
-        if corrupt:
-            raise RuntimeError(f'ZIP integrity check failed at {corrupt}.')
-    temp.replace(archive)
+    from archive_core.adapters import Domestika
+    Domestika.package_legacy(course, units, folders, caption_languages_by_lesson, archive)
 
 
 def main() -> int:
@@ -385,6 +359,9 @@ def main() -> int:
                             default_languages_by_lesson[lesson['id']], yt_dlp)
     print('Creating ZIP…', flush=True)
     make_archive(course, units, folders, caption_languages_by_lesson, output)
+    from archive_core.compatibility import emit_domestika_handoff
+    handoff = emit_domestika_handoff(course, units, folders, caption_languages_by_lesson, output.with_suffix('.handoff'))
+    print(f'Knowledge-base handoff: {handoff["release"]} (pending)', flush=True)
     print(f'Complete: {output}', flush=True)
     return 0
 

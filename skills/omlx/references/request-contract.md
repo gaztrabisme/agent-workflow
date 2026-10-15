@@ -251,7 +251,38 @@ identical final answer. On a model whose engine default is ON, an absent flag co
   beat the reasoning parser. With thinking on, budget reasoning **plus** answer — or you get a
   truncated ramble that parses as garbage rather than an error.
 
-### The elasticity trap (measured sweep, 35B MoE)
+### Thinking under a JSON grammar (measured 0.7.0, 2026-10-13)
+
+`enable_thinking: true` does **not** mean the model thinks when the request carries a
+`json_schema`. The grammar constrains from the first generated token, so unless the model has
+a `reasoning_parser`, it goes straight to JSON. Measured on a 2k-token essay-judging prompt:
+Nemotron-3-Nano with thinking on and no parser → ~500 tokens, empty `reasoning_content`, 10 s.
+With `reasoning_parser: "qwen_3"` (it uses `<think>` tags) **after a server restart** →
+3,000–4,500 tokens, 10–17k chars of reasoning, 70–90 s, valid JSON.
+
+- **Pick the parser from the chat template's thinking markers**, not the model name:
+  `<think>…</think>` → `qwen_3`. Available names are the `@register_model_structural_tag`
+  entries in the bundled xgrammar (`…/site-packages/xgrammar/builtin_structural_tag.py`):
+  llama, kimi, deepseek_r1, deepseek_v3_1, deepseek_v3_2, qwen_3, qwen_3_5, qwen_3_coder,
+  harmony, minimax, glm_4_7.
+- **No parser for the family (Gemma-4: its `gemma_4` tag is commented out upstream)** ⇒ thinking
+  plus grammar is worse than either alone: 1 of 3 answers invalid, no reasoning, erratic scores.
+  Send no `response_format`, keep the schema in the prompt, strip a code fence, validate in code
+  — Gemma-4-26B then reasoned (13–20k chars) and returned parseable JSON 3/3.
+- **gpt-oss (Harmony) under a grammar never stops (measured 0.7.0, gpt-oss-120b-MXFP4-Q8,
+  2026-10-14).** With `reasoning_parser: "harmony"` and a `json_schema`, the answer is right
+  but repeats (`{"capital":"Paris"}{"capital":"Paris"}…`, also inside reasoning) until
+  `max_tokens` (16,384 tokens, 565 s, `finish_reason: length`). The structural tag lets new
+  messages follow forever and never admits the end token. Same request with no
+  `response_format`: one object, `finish_reason: stop`, 3 s. Run gpt-oss with no grammar and
+  validate in code (4/4 real judge answers valid, first try). Also set the reasoning effort via
+  `chat_template_kwargs: {"reasoning_effort": "high"}` + `forced_ct_kwargs`, and set
+  `thinking_budget_tokens` explicitly: grammar + parser + no budget caps reasoning at 4,096.
+- **Prove thinking per model before a long run:** completion tokens and `reasoning_content`
+  length on 2–3 real requests. Fast, short answers from a "thinking" model mean it isn't.
+  A probe that passes on schema and speed alone can hide this (it hid it here for a day).
+
+ (measured sweep, 35B MoE)
 
 | `thinking_budget` | reasoning chars | content chars | completion tokens |
 |---|---|---|---|

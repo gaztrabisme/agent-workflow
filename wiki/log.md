@@ -49,3 +49,27 @@ Reader: whoever resumes work on this repo. Goal file: `goals/2026-10-03-agent-wo
 - `~/.claude/reference/bppc.md` and the `dcg` program are not in the package.
 - Deleting the 26 archived GitHub repos is the owner's call; `retired-repos.txt` has the names.
 - The `dev` skill's old public history may contain the oMLX key (a local-server key); the new repo is clean.
+
+## 2026-10-11 — reward-design skill (run 2026-10-10-reward-skill)
+
+Owner asked for a skill on "hitting the dopamine release" in presentations, videos, UI and infographics, sourced from research, books and industry practice. Owner at go: "You orchestrate Codex only." Goal file: `wiki/goals/2026-10-10-reward-design-skill.md`. Run folder: `~/Documents/Work/lab/reward-skill-run/`.
+
+| Run ID | Unit | Lane | Verdict | Acceptance | Note |
+|---|---|---|---|---|---|
+| 2026-10-10-reward-skill | A brain science | codex | PASS | check_findings: 25 entries; A9 read | — |
+| 2026-10-10-reward-skill | B visual | codex | PASS | 25 entries | — |
+| 2026-10-10-reward-skill | C sound | codex | PASS | 25 entries | — |
+| 2026-10-10-reward-skill | D industry | codex | PASS | 25 entries; D3 read | — |
+| 2026-10-10-reward-skill | E books | codex | PASS | 29 entries | — |
+| 2026-10-10-reward-skill | V claim check | codex (fresh session) | PASS | 129 rows: 122 supported, 7 weakened, 0 unsupported; A21, B6, D24 read | First launch carried the research rules by a launcher bug; stopped and relaunched clean |
+| 2026-10-10-reward-skill | S build | codex | PASS | verify.sh PASS; scope diff clean; SKILL.md read | — |
+| 2026-10-10-reward-skill | T dogfood | codex | done; skill verdict FAIL | 27/27 checks on deck and on explainer | Skill not self-sufficient for critique: 19 findings |
+| 2026-10-10-reward-skill | F fix round | codex | PASS | verify.sh PASS; all 11 ffmpeg/ffprobe commands run on the explainer | F01–F20 resolved, incl. coordinator F20 quick start |
+
+**UAT:** G1 PASS, G2 PASS, G3–G7 PASS (`check-skill.sh`), G8 PASS (5/5 pointers).
+
+**Open**
+- Skill verdict PENDING: one real use (critique). Needs a second, independent real use, ideally planning a new piece, before KEEP.
+- The fixed critique workflow has not been re-run end to end; next real use is that test.
+- claude.ai copy not made: run `./scripts/make-cloud-zips.sh` and upload `reward-design` if wanted there.
+- Not committed (owner commits).

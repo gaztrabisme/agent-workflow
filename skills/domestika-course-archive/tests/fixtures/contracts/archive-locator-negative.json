@@ -1,0 +1,11 @@
+{
+  "schema": "archive-locator",
+  "valid": false,
+  "value": {
+    "kind": "epub-image",
+    "occurrence": 0,
+    "parent_resource": "OEBPS/chapter1.xhtml",
+    "reading_order": -1,
+    "resource": "OEBPS/figure.png"
+  }
+}

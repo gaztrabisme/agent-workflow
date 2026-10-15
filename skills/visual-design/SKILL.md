@@ -14,6 +14,7 @@ This skill turns a brief into a deliberate visual system: a clear concept, simpl
 
 - **This skill:** planning, making or reviewing graphic form, composition, negative space, visual hierarchy, typography, grids, identity systems and their applications.
 - **color-theory:** choosing or explaining colours, palettes, colour meaning, colour-space values or colour contrast.
+- **[Reward design](../reward-design/SKILL.md):** plans and critiques hooks, anticipation, reveals and payoff across channels; visual-design owns the composition and visual system.
 
 > **Disambiguation by artifact:** a visual-structure decision belongs here; a colour decision belongs to color-theory. In a composed artifact, keep each decision with its owner.
 

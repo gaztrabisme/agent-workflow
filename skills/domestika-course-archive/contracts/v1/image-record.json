@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:image-record:1",
+  "title": "image-record",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "archive-image-record/v1"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "privacy_scope": {
+      "enum": [
+        "owner-private",
+        "project-private"
+      ]
+    },
+    "figure_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "member_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blob_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blob_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "occurrence": {
+      "$ref": "urn:organized-mind:figure-occurrence:1"
+    },
+    "producing_revision": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "source_id",
+    "source_revision",
+    "privacy_scope",
+    "figure_id",
+    "member_id",
+    "blob_path",
+    "blob_sha256",
+    "occurrence",
+    "producing_revision"
+  ],
+  "additionalProperties": false
+}

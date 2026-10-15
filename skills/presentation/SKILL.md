@@ -19,6 +19,7 @@ This skill produces a sourced story plan and the requested presentation delivera
 - **Color theory:** owns palette, color meaning, and color checks.
 - **Motion:** owns the motion story, storyboard, timing, and choreography.
 - **Frontend:** owns functioning web interfaces and app changes; this skill owns a presentation or demo made from them.
+- **[Reward design](../reward-design/SKILL.md):** plans and critiques anticipation, surprise, payoff and sound cues; this skill produces and verifies the deck or video.
 
 > **Disambiguation:** choose by deliverable. This skill assembles a presentation; its siblings provide the task, chart, visual, color, motion, or app decisions that the presentation needs.
 

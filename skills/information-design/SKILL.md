@@ -16,6 +16,7 @@ This skill turns a reader's question and a trustworthy dataset into an explained
 - **`visual-design` instead:** broad composition, typography, grids and visual systems. Keep chart semantics here and hand off broader form decisions.
 - **`color-theory` instead:** palette, colour meaning, ramps, contrast and color-vision checks. This skill states what a colour encodes; color-theory decides and measures the palette.
 - **`ux` instead:** product interaction flows and UX writing. This skill specifies what a chart must explain; ux owns the wider interactive experience and interface copy.
+- **[Reward design](../reward-design/SKILL.md):** plans and critiques curiosity, anticipation and evidence-bearing reveals; information-design owns chart semantics, mappings and annotations.
 
 > **Disambiguation by artifact:** the chart, its data mappings and its explanatory key belong here; surrounding graphic composition, palette decisions and product interaction belong to the named siblings.
 
