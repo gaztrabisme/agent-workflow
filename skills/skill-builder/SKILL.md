@@ -1,6 +1,6 @@
 ---
 name: skill-builder
-description: "A workflow for building and maintaining role-skill packages. USE WHEN creating a skill, changing its structure or trigger, distilling a book/course/method into a skill, or preparing a skill to publish. Not `core` (shared gates), `evolution` (trace-based changes to a working skill), `conductor` (cross-skill routing), or `ceric` (general claim audits). Not `domestika-course-archive` (exports purchased course media and captions); this skill builds the reusable role-skill package. Keywords: skill authoring, build a skill, SKILL.md, frontmatter, distill, dogfood, references, validate skill, publish skill."
+description: "A workflow for building and maintaining role-skill packages. USE WHEN creating a skill, changing its structure or trigger, distilling a book/course/method into a skill, or preparing a skill to publish. Not `core` (shared gates), `evolution` (trace-based changes to a working skill), `project` (cross-skill routing), or `ceric` (general claim audits). Not `domestika-course-archive` (exports purchased course media and captions); this skill builds the reusable role-skill package. Keywords: skill authoring, build a skill, SKILL.md, frontmatter, distill, dogfood, references, validate skill, publish skill."
 ---
 
 # Skill-builder
@@ -14,7 +14,7 @@ Shared gate definitions live in `../core/SKILL.md`. Quality plans name the pract
 - **This skill:** creating a role-skill; splitting, merging, or structurally refining one; distilling a source method; repairing references or trigger boundaries; preparing a skill for publication.
 - **`core` instead:** the need is a shared operating gate or cross-skill contract, rather than a role-skill authoring workflow.
 - **`evolution` instead:** the skill already works and a change must be harvested from real traces or an open verdict settled. Skill-builder creates the initial evolution record and owns structural authoring; evolution owns later trace-based updates.
-- **`conductor` instead:** the work is to decide how a request should be routed or composed across the skill set. Skill-builder supplies a skill's trigger and hand-offs.
+- **`project` instead:** the work is to decide how a request should be routed or composed across the skill set. Skill-builder supplies a skill's trigger and hand-offs.
 - **`ceric` instead:** the task is a general audit of claims and evidence. Skill-builder keeps only the source-fidelity checks needed to build a method skill.
 - Split concerns out before a shared skill swallows them; do not let one skill accumulate every capability. [book:facilitating-software-architecture], Chapter 4. The Architecture Advice Process
 
@@ -64,8 +64,8 @@ These failures are easier to catch when the workflow names its gates and checks 
 ## Composition
 
 - **Core reference:** link to `core` for shared gate definitions; keep skill-specific procedures here.
-- **Consumes / hands off to:** `conductor` for constellation routing and multi-skill approach declarations; `evolution` for real-trace harvesting and verdict settlement; `ceric` for general claim-evidence audits.
-- **Pipeline position:** after `conductor` scopes and routes an authoring request, this workflow consumes the request brief and existing skill-set conventions; a distillation also consumes the complete source and factual library. It produces the skill package and its validation and dogfood evidence. Later trace harvesting and verdict settlement go to `evolution`; general claim audits go to `ceric`. [book:continuous-delivery], Chapter 3: Continuous Integration (5907 · U6 · L63 · 01:27–02:44)
+- **Consumes / hands off to:** `project` for constellation routing and multi-skill approach declarations; `evolution` for real-trace harvesting and verdict settlement; `ceric` for general claim-evidence audits.
+- **Pipeline position:** after `project` scopes and routes an authoring request, this workflow consumes the request brief and existing skill-set conventions; a distillation also consumes the complete source and factual library. It produces the skill package and its validation and dogfood evidence. Later trace harvesting and verdict settlement go to `evolution`; general claim audits go to `ceric`. [book:continuous-delivery], Chapter 3: Continuous Integration (5907 · U6 · L63 · 01:27–02:44)
 - Keep each skill narrow, give it a distinct trigger, and connect neighboring skills with forward and return links plus explicit hand-offs. [book:swebok], Chapter 2: Software Design
 - **Canonical reference rule:** keep shared material in one authoritative source and link to it from the role-skill. [book:building-design-systems], Define the Sources of Truth
 

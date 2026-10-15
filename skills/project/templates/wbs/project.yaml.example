@@ -1,0 +1,289 @@
+# project.yaml: every per-project setting for build.py and verify.py.
+# Copy this file next to your data folder, rename it project.yaml and replace every value.
+# All settings are required. Numbers here are placeholders that fit the test fixtures in tests/fixtures;
+# replace them with the plan owner's figures and cite where each comes from in your data files.
+
+pricing: team-sheet               # team-sheet: the workbook's own formulas compute price; we fill rows only. "model" is reserved (not in the first cut).
+
+release:
+  version: "0.1"                  # version number of this workbook
+  date: "2026-01-01"              # date of this version, YYYY-MM-DD; null if not set
+  output_name: "Project_WBS_v0.1_2026-01-01.xlsx"   # default output file name when --out is not given
+  stamp_first_sheet: true         # true: write "Version x, date" under the first sheet's table; false: leave the first sheet exactly as the layout says
+
+data:
+  files:                          # data file names inside the --data folder
+    plan_tasks: plan_tasks.yaml           # the plan owner's task rows (never edited by hand)
+    feature_map: feature_map.yaml         # WBS rows and the map from plan features to WBS rows
+    changes: changes.yaml                 # status changes and added tasks
+    proposals: proposals.yaml             # proposed changes to someone else's figures (optional file)
+    assumptions: assumptions.yaml         # optional
+    dependencies: dependencies.yaml       # optional
+    glossary: glossary.yaml               # optional
+    stories: stories.yaml                 # optional; if missing, story_source is used as is
+    story_source: story_source.yaml       # stories given to us (criteria copied verbatim); optional
+    task_criteria_pattern: "task_criteria_*.yaml"   # file-name pattern of the sub-task and criteria files
+  fields:                         # this project's YAML field name for each template field name (template: project)
+    task_id: task_id
+    phase: phase
+    plan_feature: plan_feature
+  feature_key_parts: 3            # a task id's first N dot-parts name its plan feature (1.2.3.4 -> 1.2.3)
+
+plan:
+  total: 28.9275                  # the plan owner's grand total that the check block must reproduce
+  overhead_phase: "Across all phases"   # tasks in this phase are overhead rows: shown, never in a total
+
+sheets:                           # workbook sheets in order; key is fixed, name is what the sheet tab shows
+  - {key: master, name: Master}
+  - {key: summary, name: Effort Summary}
+  - {key: wbs, name: WBS}
+  - {key: task_detail, name: Task Detail}
+  - {key: stories, name: User Stories}
+  - {key: assumptions, name: Assumptions}
+  - {key: dependencies, name: Dependencies}
+  - {key: references, name: References}
+internal_sheets: [references]     # sheets for our own team only; person names and sources are allowed only here
+
+freeze: {task_detail: B2, wbs: C2, stories: B2, assumptions: A2, dependencies: B2, references: A2}   # frozen panes per sheet
+
+columns:                          # column order, header text and width per sheet; keys are fixed (see SCHEMA.md)
+  task_detail:
+    - {key: task_id, header: "Task ID", width: 12}
+    - {key: row_type, header: "Row type", width: 10}
+    - {key: wbs_id, header: "WBS ID", width: 9}
+    - {key: section, header: "Section", width: 22}
+    - {key: module, header: "Module", width: 26}
+    - {key: task, header: "Task", width: 48}
+    - {key: role, header: "Role", width: 22}
+    - {key: dev, header: "Dev (d)", width: 10}
+    - {key: qc, header: "QC (d)", width: 9}
+    - {key: ba, header: "BA (d)", width: 9}
+    - {key: effort, header: "Effort (d)", width: 11}
+    - {key: subtask_days, header: "Sub-task (d)", width: 11}
+    - {key: over_threshold, header: "Over 3 days", width: 10}
+    - {key: criteria, header: "Acceptance criteria", width: 60}
+    - {key: status, header: "Status", width: 26}
+    - {key: owner, header: "Owner", width: 10}
+    - {key: note, header: "Change note", width: 44}
+  wbs:                            # index, id, dev, qc, ba, effort, owner, stories are computed; any other key is read from the WBS row field named by `field` (default: the key)
+    - {key: index, header: "#", width: 6}
+    - {key: id, header: "Feature ID", width: 9}
+    - {key: group, header: "Group", width: 20}
+    - {key: module, header: "Module", width: 22}
+    - {key: feature, header: "Feature", width: 26}
+    - {key: description, header: "Description", width: 48}
+    - {key: priority, header: "Priority", width: 10}
+    - {key: dependency, header: "Dependency", width: 18}
+    - {key: acceptance, header: "Acceptance Criteria", width: 60}
+    - {key: dev, header: "Dev Effort (MD)", width: 12}
+    - {key: note, header: "Note", width: 27}
+    - {key: owner, header: "Owner", width: 10}
+    - {key: qc, header: "QC (d)", width: 9}
+    - {key: ba, header: "BA (d)", width: 9}
+    - {key: effort, header: "Total effort (d)", width: 12}
+    - {key: stories, header: "Stories", width: 34}
+  stories:
+    - {key: us_id, header: "Story ID", width: 11}
+    - {key: story, header: "Story", width: 40}
+    - {key: wbs_ids, header: "WBS IDs", width: 16}
+    - {key: criteria, header: "Acceptance criteria", width: 70}
+    - {key: origin, header: "Origin", width: 22}
+    - {key: note, header: "Note", width: 40}
+  assumptions:
+    - {key: index, header: "#", width: 6}
+    - {key: category, header: "Category", width: 18}
+    - {key: text, header: "Assumption", width: 90}
+  dependencies:
+    - {key: id, header: "ID", width: 9}
+    - {key: item, header: "What we need", width: 46}
+    - {key: from, header: "From", width: 9}
+    - {key: needed_by, header: "Needed by", width: 30}
+    - {key: blocks, header: "Blocks (WBS IDs)", width: 26}
+    - {key: status, header: "Status", width: 10}
+    - {key: if_late, header: "If late", width: 52}
+  references:
+    - {key: kind, header: "Kind", width: 14}
+    - {key: item, header: "Item", width: 34}
+    - {key: reference, header: "Reference / basis", width: 120}
+wbs_required_fields: [feature, acceptance]   # WBS row fields that must be non-empty
+
+master:
+  headers: [Item, Value, Note]    # header row of the Master sheet
+  rows:                           # input rows; the four named ones (RATE, MD_MONTH, PM_PCT, CONT_PCT) are required and used by formulas
+    - {label: "Unit price per man-month", value: 1000, note: "Input. Cost = man-months x this rate", name: RATE, format: "#,##0"}
+    - {label: "Man-days per month", value: 22, note: "Input. Man-months = man-days / this number", name: MD_MONTH, format: "0"}
+    - {label: "PM % of Dev", value: 0.15, note: "Input. PM = this % x Dev total of our in-scope work", name: PM_PCT, format: "0%"}
+    - {label: "Contingency % of subtotal", value: 0.05, note: "Input. Contingency = this % x subtotal (effort + PM)", name: CONT_PCT, format: "0%"}
+    - {label: "QC % of Dev", value: 0.5, note: "Reference only. The QC add-on is already inside each task's effort", name: null, format: "0%"}
+    - {label: "BA % of Dev", value: 0.25, note: "Reference only. The BA add-on is already inside each task's effort", name: null, format: "0%"}
+  forbidden_numbers: [0.8]        # factors that must not appear on Master or in any formula (e.g. an unagreed productivity factor)
+  forbidden_words: ["buffer", "productivity"]   # words that must not appear on Master
+
+roles:
+  known: ["Backend developer", "Frontend developer", "ML engineer", "DevOps engineer", "Installer",
+          "Project manager", "QC", "BA"]   # every role a task may carry, spelled as in the plan
+
+owners:
+  ours: "Us"                      # our company's owner label; only our in-scope rows count in the base total
+  all: ["Us", "Partner", "Client"]   # every owner label a WBS row or status change may carry
+  excluded: "Partner"             # another company's work: its tasks are dropped from the workbook (null: none)
+  excluded_option_roles: ["Installer"]   # plan options with these roles are another company's work and are not shown
+  shared_row_label: "{owner} (our setup work)"   # owner cell for a row owned by someone else that also carries our tasks
+  other_owner_lines:              # owners shown below the total, outside it
+    - {owner: "Client", label: "Client work (effort, d)", note: "Done by the client; not in our total"}
+
+statuses:
+  in_scope: "In scope"            # status label of base rows
+  overhead: "Plan overhead row, not used"   # status label of overhead rows
+  option: "Option, not in totals" # status label of plan options
+  change:                         # changes.yaml status value -> label shown in Task Detail
+    in: "In scope"
+    out_later_phase: "Out of scope: later phase"
+    out_removed_by_client: "Out of scope: removed by the client"
+    out_not_needed: "Out of scope: not needed"
+    option_a: "Option A"
+  add:                            # status value of an added task -> label
+    in: "In scope"
+    option_b: "Option B"
+  needs_source: [out_removed_by_client, out_not_needed]   # these status values require a source and a reason
+  out_of_scope: [out_later_phase, out_removed_by_client, out_not_needed]   # values that take a task out of scope (a proposal may not change it)
+  removal_source_marker: "row"    # text every needs_source source must contain, e.g. the Q&A row reference (null: no check)
+
+dependencies:
+  from: ["Client", "Partner", "Team"]   # who can deliver a dependency
+  status: ["Open", "Answered"]    # allowed dependency statuses
+
+ids:
+  option_prefix: "OPT-"           # IDs given to plan options: OPT-1, OPT-2 ...
+  subtask_infix: ".s"             # sub-task IDs: <task id>.s1, .s2 ...
+  change_add_prefix: "X-"         # IDs of tasks added in changes.yaml must start with this (null: no check)
+  proposal_add_prefix: "P-"       # IDs of tasks added in proposals.yaml must start with this (null: no check)
+
+effort_rule:
+  addons: {qc: 0.5, ba: 0.25}     # share of dev added as QC and as BA days when a task carries add-ons
+  round_up_to: 0.5                # effort = (dev + qc + ba) rounded UP to the next multiple of this
+  tolerance: 0.006                # allowed difference when checking qc and ba against their share of dev
+  no_dev_roles: [QC, BA]          # roles whose tasks carry no dev; their effort is the figure itself
+
+criteria:
+  over_days: 3                    # tasks above this effort need sub-tasks and min..max criteria
+  min: 2                          # fewest criteria on a task above over_days
+  max: 5                          # most criteria on a task above over_days
+  subtask_max_days: 3.0           # largest sub-task
+  subtask_step: 0.25              # sub-task days are multiples of this
+  clause: "measured under a test method agreed at design."   # a criterion with a % or time target must end with this (null: no check)
+  clause_trigger: '%|\b\d+(?:\.\d+)?\s?(?:s|sec|seconds|ms)\b'   # what counts as a % or time target
+
+text:
+  cap: 150                        # characters per shown text item (criteria: per line)
+  subtask_name_cap: 100           # characters per sub-task name
+  forbid_diacritics: true         # shown text must carry no accented Vietnamese letters
+  person_names: []                # names of the people on the team; none may appear on a shown sheet
+  internal_source_patterns: ['\.ya?ml\b', '\bwiki/', '\bD-\d{3}\b']   # patterns of our own working files and decision tags; none may appear on a shown sheet
+
+stories:
+  origins: {given: "Given story list", added: "Added story"}   # origin value -> label shown
+  default_origin: given           # origin of a story that names none
+  verbatim_origin: given          # stories of this origin keep the story source's criteria word for word, uncapped (null: none)
+  fallback_source: "Given story list (story_source.yaml)"   # source cited for stories read from story_source
+  required_row_prefixes: [A, B, C, D]   # WBS rows starting with these carry user-facing work and need a story when they have our effort
+
+marking:
+  proposal_prefix: "proposed change:"   # every proposed change's reason, and its change note, starts with this
+  fills:                          # RGB hex colours
+    header: "1F3864"
+    title: "17365D"
+    subheader: "2F75B5"
+    block: "D9E1F2"
+    total: "FFC000"
+    input: "FFF2CC"
+    fill_in: "FFFF00"             # yellow: a cell to fill in or confirm
+    proposal: "F8CBAD"            # light orange: a proposed change to someone else's figure; must differ from fill_in
+  highlight_fill: fill_in         # fill for added tasks marked highlight: true
+  legend_sheet: references        # sheet that carries the one colour legend (appended after its last row)
+  legend_kind: "Colour legend"    # text in the legend rows' first column
+  legend:
+    - {fill: fill_in, name: "Yellow", meaning: "A figure to fill in or confirm with the plan owner"}
+    - {fill: proposal, name: "Light orange", meaning: "A proposed change to the plan owner's figure; its change note starts with 'proposed change:'"}
+    - {fill: input, name: "Pale yellow", meaning: "An input value"}
+    - {fill: total, name: "Orange", meaning: "A total line"}
+
+texts:                            # fixed phrases; {id}, {section}, {dev}, {effort}, {n}, {label} are filled in
+  section_added: "Added"
+  section_option: "Option"
+  note_added: "Added: not in the plan"
+  note_highlight: "Our estimate, to confirm with the plan owner (yellow)"
+  note_option: "Optional extra in the plan; in no total"
+  source_plan: "Plan {id}"
+  source_option: "Plan, options list, {section}"
+  ref_plan: "Plan {id}"
+  ref_overhead: "Plan {id} (overhead, allocated share; recomputed on Effort Summary)"
+  ref_added: "Added {id} (not in the plan)"
+  ref_orig: "plan figures: dev {dev}, effort {effort}"
+  row_type_task: "Task"
+  row_type_sub: "Sub-task"
+  cap_list_tail: " ... +{n} more: filter the sheet on {label}"
+  cap_label_stories: "User Stories WBS IDs"
+  cap_label_blocks: "WBS rows"
+
+documents:                        # source documents listed first on the internal sheet
+  - {name: "Plan", text: "The plan owner's task plan (plan_tasks.yaml)"}
+  - {name: "Q&A log", text: "The client's answers; cited by row number"}
+
+summary:                          # labels of the Effort Summary sheet; its layout is fixed (see README Limits)
+  title: "Effort Summary"
+  headers: [Activity, "Effort (d)", "Effort (MM)", "Unit rate (per MM)", "Cost", Note]
+  base_title: "a. Base: our work, in scope"
+  activities:                     # role_plus_addon: that role's effort + the add-on of every base row; roles_net: effort less add-ons of these roles
+    - {label: "Requirement (business analyst)", kind: role_plus_addon, role: BA, addon: ba, note: "BA-role effort plus the BA add-on of every other base task"}
+    - {label: "Development", kind: roles_net, roles: ["Backend developer", "Frontend developer", "ML engineer"], note: "Developer effort, less QC and BA add-ons"}
+    - {label: "Testing", kind: role_plus_addon, role: QC, addon: qc, note: "QC-role effort plus the QC add-on of every other base task"}
+    - {label: "DevOps", kind: roles_net, roles: ["DevOps engineer"], note: "DevOps effort, less its add-ons"}
+    - {label: "Site work", kind: roles_net, roles: ["Installer"], note: "Installer effort on our rows"}
+    - {label: "Project tasks", kind: roles_net, roles: ["Project manager"], note: "Project manager task effort, less its add-ons"}
+  subtotal: {label: "Effort subtotal", note: "Sum of the lines above"}
+  check: {label: "Check: effort subtotal minus base effort (must be 0)", note: "Difference from the sum of all base task efforts"}
+  dev_memo: {label: "Memo: Dev total (basis for PM)", note: "Dev days of the base, before add-ons"}
+  pm: {label: "Project management (PM % of Dev)", note: "Project management share of Dev"}
+  sub: {label: "Subtotal (effort + PM)", note: ""}
+  contingency: {label: "Contingency (% of subtotal)", note: "Reserve on the subtotal"}
+  total: {label: "TOTAL", note: "Base total"}
+  option_blocks:                  # one block per option status, outside the base total
+    - {title: "b1. Option A (not in the base total)", status: "Option A"}
+    - {title: "b2. Option B (not in the base total)", status: "Option B"}
+  option_lines:
+    effort: {label: "Effort (d)", note: "Our rows with this status"}
+    dev: {label: "Dev total (basis for PM)", note: ""}
+    pm: {label: "Project management (PM % of Dev)", note: ""}
+    sub: {label: "Subtotal (effort + PM)", note: ""}
+    contingency: {label: "Contingency (% of subtotal)", note: ""}
+    total: {label: "Total (d)", note: "Option total; not in the base total"}
+  other_title: "c. Other owners (in scope)"
+  plan_check:
+    title: "d. Check: plan rows with their original figures"
+    effort: {label: "Plan effort, rows excluding overhead (d)", note: "Original figures; proposed changes not applied"}
+    dev: {label: "Plan Dev, same rows (d)", note: "Original figures"}
+    pm: {label: "Project management on plan Dev", note: ""}
+    sub: {label: "Plan subtotal (effort + PM)", note: ""}
+    contingency: {label: "Plan contingency", note: ""}
+    total: {label: "Plan total recomputed (d)", note: ""}
+    reference: {label: "Plan grand total (reference figure, d)", note: "The plan owner's grand total; input"}
+    difference: {label: "Difference (must be 0)", note: ""}
+  bridge:
+    title: "e. From plan effort to this estimate (d)"
+    start: {label: "Plan effort (start)", note: "Section d"}
+    end: {label: "Base effort after the changes", note: ""}
+    difference: {label: "Difference from the effort subtotal (must be 0)", note: ""}
+    step_note: "Change note column in Task Detail"
+    labels:
+      excluded_owner: "Another company's tasks (not shown)"
+      other_owner: "Owner {owner} (shown below the total)"
+      proposal_change: "Proposed changes to plan tasks"
+      proposal_add: "Tasks added by proposal"
+      highlight_add: "Our estimates for work the plan lacks (yellow)"
+      scope_add: "Tasks added for scope"
+  notes_title: "Notes"
+  notes:
+    - "Effort per task is the plan's figure after proposed changes. It already includes the task's QC and BA add-ons."
+    - "Project management and contingency rates are on Master."
+    - "Man-months = days / MD_MONTH. Cost = man-months x RATE. RATE and MD_MONTH are on Master."

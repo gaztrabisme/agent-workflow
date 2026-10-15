@@ -40,6 +40,8 @@ An absent tracker cannot show that work is unstarted or blocked. Keep the record
 
 Update effort spent, deliverables submitted and criteria signed from current records. Reassess risk and capacity; record new requests through change control; publish the cycle record from the trackers. The weekly reporting cadence is the default. [book:project-management-with-ai], Understanding automation in project management (5907 · U3 · L18 · 06:13–07:32)
 
+Open every cycle record and every other note a PM reads with four lines: status (on track, at risk, off track), the evidence it rests on, the main risk, and the next action with its owner. [book:prince2-managing-successful-projects], A.11. Highlight report; [book:prince2-managing-successful-projects], 12.2. PRINCE2's requirements for managing progress
+
 Delivery remains active while the software is being built. Keep its baseline, obligation and acceptance records current alongside engineering cycles; the delivery lead is not a substitute for the people doing the build. [book:head-first-pmp], Sometimes you need to change your plans
 
 ## Phase 3 — Accept in batches

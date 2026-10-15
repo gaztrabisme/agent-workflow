@@ -63,3 +63,4 @@ A requested one-skill trim may skip broad triage and full harvest, but must sett
 - [`references/templates/approval-block.md`](references/templates/approval-block.md) — the single whole-set decision record.
 - [`references/templates/EVOLUTION.md.skeleton`](references/templates/EVOLUTION.md.skeleton) — append-only ledger entry shape.
 - [`scripts/triage.py`](scripts/triage.py) — summarizes an explicitly supplied, harness-neutral trace manifest.
+- [`references/standing-corrections.md`](references/standing-corrections.md) — inbox for the owner's one-off corrections, read by the next run; [`scripts/harvest.py`](scripts/harvest.py) — streams session transcripts into per-session evidence files.

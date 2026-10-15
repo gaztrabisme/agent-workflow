@@ -297,3 +297,20 @@ and should cite rather than restate.* That belongs in `core` if anywhere, and it
 Park it. If a second engagement produces a local recipe that has drifted from a skill's, that is the second
 trace and it should be written up then — with the caveat that the honest fix may be procedural (link, don't
 copy) rather than another paragraph.
+
+---
+
+## Evolution 6 — 2026-10-13 — A checker for the file, before the pixels
+
+### Trace
+architecture-diagrams, a skill shared by its author (an FPT PM) on 13 Oct 2026, with full permission to reuse. Proposal and decision: `../project-management/proposals/shared-skills-second-pass-2026-10-13.md`, item 6. This skill stated the overlap rule in text only.
+
+### Change
+| ID | Edit | File |
+|---|---|---|
+| DR1 | Optional lint and wireframe preview for draw.io files; exits 1 on errors. Adapted: UTF-8 output (it crashed on a Windows console on a warning sign in a label) | `scripts/check_diagram.py`, `SKILL.md` |
+
+Tested 13 Oct on thirteen diagrams of one presale project: all ran, 0 errors, 15 to 97 warnings each; on the current architecture diagram it found four shapes drawn inside a container but not parented to it, five edges through shapes and three unlabelled shapes. The preview was read and matches the diagram.
+
+### Verdict: PENDING
+Validation: on the next client diagram, the checker runs before export and at least one finding is fixed or dismissed with a reason. Disproved if its warnings are routinely ignored as noise.

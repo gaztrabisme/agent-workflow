@@ -116,7 +116,7 @@ When there is no evaluation data or runnable system yet, use the pre-data varian
 - **Output Contract** — the problem framing, filled evaluation harness, per-run log, and decision record are the ML artifacts; see [`../core/references/wiki-protocol.md`](../core/references/wiki-protocol.md).
 - **Pushback and teach** — explain the mechanism behind an ML loss, metric, optimizer, or architecture; see [`../core/references/pushback-and-teach.md`](../core/references/pushback-and-teach.md).
 - When introducing ML math, explain what the loss, activation, optimizer, or architecture computes and why; use the shared teaching gate rather than duplicating its mechanics.
-- **Approach declaration** — name the approach before substantive work and state why a probe is suitable for costly choices; the shared requirement is in [`conductor`'s approach declaration](../conductor/SKILL.md). This skill applies it to ML choices by naming a cheap probe for the riskiest assumption.
+- **Approach declaration** — name the approach before substantive work and state why a probe is suitable for costly choices; the shared requirement is in [`project`'s approach declaration](../project/references/run/flow.md). This skill applies it to ML choices by naming a cheap probe for the riskiest assumption.
 
 ## Anti-patterns (hard no-list)
 

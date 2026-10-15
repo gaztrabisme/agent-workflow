@@ -1,10 +1,10 @@
 # Estimation and Costing
 
-Use this reference for presignature estimation inputs and commercial cost views. The delivery planner authors effort estimates; the solution architect supplies technical drivers, scenarios, and cost consequences for the response.
+Use this reference for presignature estimation inputs and commercial cost views. Effort is collected through `project`'s WBS from the leads who will be held to it; the solution architect supplies technical drivers, scenarios, and cost consequences for the response.
 
 ## Effort estimate ownership
 
-- Have delivery author pre-signature effort estimates because it will be accountable for them [book:head-first-pmp], Estimation tools and techniques.
+- Have the leads who will be accountable for pre-signature effort author or confirm it; a draft made by the plan's drafter becomes an estimate only when its lead confirms it [book:head-first-pmp], Estimation tools and techniques. Do not author effort figures in the architect's role.
 - On an RFI, stop at ranged effort with uncertainty drivers unless pricing structure was requested; leave price and detailed cost work to the commercial owner.
 
 ## Close-out feedback
@@ -75,6 +75,7 @@ For a delivery-shaped proposal, send the planner a task inventory with effort bl
 - When changing an assumption makes an estimate fit, state the assumption alongside the client's figure and re-derive the estimate.
 - Do not calibrate productivity factors to close a capacity gap.
 - Record the pre-adjustment number beside the changed input so readers can see when an estimate was targeted to capacity.
+- When a total is cut to meet a price, the cut is shown as a price decision on the bridge, not as productivity; the per-feature margin view, tolerances and AI-assisted adjustment rules are in `project`'s [business case](../../project/references/business-case-and-tolerances.md) and [estimating](../../project/references/estimating.md) references.
 - Recompute every total and currency conversion from raw cells before shipping.
 - Scan numeric cost columns for range entries coerced into date-typed cells.
 - Reconcile WBS effort, distribution, and priced man-months through one calculation chain.

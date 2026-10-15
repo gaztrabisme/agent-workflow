@@ -42,13 +42,13 @@ git clone https://github.com/gaztrabisme/applied-ml-problem-solver.git ~/.claude
 ### Dependencies on sibling skills
 
 This skill **references `../core/` and will not resolve without it.** It also points at `../dev/`
-and `../conductor/`, which are optional but referenced:
+and `../project/`, which are optional but referenced:
 
 | Sibling | Required? | Where |
 |---|---|---|
 | [`core`](https://github.com/gaztrabisme/core) | **Yes** — the shared spine (integrity constraints, gate-by-artifact, wiki protocol, grounding gate, pushback-and-teach) | `~/.claude/skills/core` |
 | [`dev`](https://github.com/gaztrabisme/dev) | Optional — receives the framed problem and builds it | `~/.claude/skills/dev` |
-| [`conductor`](https://github.com/gaztrabisme/conductor) | Optional — routes unrouted intent here | `~/.claude/skills/conductor` |
+| `project` (holds what was the `conductor` skill) | Optional — routes unrouted intent here | `~/.claude/skills/project` |
 
 The grounding gate assumes a knowledge-base MCP server over technical books. Without one,
 declare the domain uncovered rather than skipping the gate silently.

@@ -1,0 +1,11 @@
+status:
+- {task_id: 1.2.1.1, status: in, owner: Partner, reason: "Physical site work; partner scope"}
+- {task_id: 1.2.5.1, status: option_a, owner: Us, reason: "Device option A only; outside the base total"}
+- {task_id: 1.3.1.1, status: out_removed_by_client, owner: Us, reason: "Removed: the client will not use this check", source: "Q&A log, row 22"}
+- {task_id: 1.4.1.1, status: out_not_needed, owner: Us, reason: "Not needed once the check above is removed", source: "Q&A log, row 30"}
+- {task_id: 1.5.1.1, status: out_later_phase, owner: Us, reason: "Later phase scope"}
+- {task_id: 1.5.2.1, status: in, owner: Client, reason: "The client opens its own network ports"}
+add:
+- {id: X-01, wbs_id: N.1, task: "Data sync from the client system, one way", basis: "copied from plan 1.1.1.2 (same shape)", role: Backend developer, dev: 3.0, qc: 1.5, ba: 0.75, effort: 5.5, status: in, source: "Q&A log, row 9"}
+- {id: X-02, wbs_id: C.2, task: "Device result parsed into the platform", basis: "copied from plan 1.2.5.1", role: Backend developer, dev: 1.0, qc: null, ba: null, effort: 1.0, status: option_b, source: "Q&A log, row 12", dod: "Result parsed for three sample devices"}
+- {id: X-03, wbs_id: N.1, task: "Sync monitoring screen", basis: "copied from plan 1.1.1.3, two screens", role: Frontend developer, dev: 2.0, qc: null, ba: null, effort: 2.0, status: in, highlight: true, source: "Plan 1.1.1.3, doubled for two screens", dod: "Screen shows the last sync run"}

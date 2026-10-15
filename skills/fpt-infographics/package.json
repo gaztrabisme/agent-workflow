@@ -1,0 +1,13 @@
+{
+  "name": "fpt-infographics",
+  "version": "1.0.0",
+  "description": "FPT-branded infographic sheets: HTML/CSS+SVG rendered to PNG and vector PDF, gated on measured legibility, brand compliance and sourced content.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "setup": "npm install && npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

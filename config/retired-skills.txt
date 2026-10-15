@@ -7,3 +7,5 @@ high-end-visual-design
 redesign-existing-projects
 frontend-design
 color-expert
+conductor
+project-management

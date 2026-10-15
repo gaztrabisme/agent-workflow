@@ -1,0 +1,57 @@
+# Worked example of a criteria file. Exercises all three states plus the guard.
+# Run:  python scripts/accept.py tests/accept.example.toml
+[meta]
+root     = ".."                      # paths below are relative to the skill root
+artefact = "tests/fixtures/no-drawn-data.html"
+goal     = "tests/accept.example.toml (self-describing demo)"
+
+# --- passes: the fixture exists and has the words it should ------------------
+[[criterion]]
+id        = "S1"
+class     = "standing"
+statement = "The page states its headline."
+[criterion.check]
+type    = "grep"
+file    = "tests/fixtures/no-drawn-data.html"
+pattern = "A page of words"
+expect  = true
+
+# --- passes: an instrument is shelled out to, and its exit code is the test ---
+[[criterion]]
+id        = "S2"
+class     = "standing"
+statement = "The legibility gate refuses to run without a declared viewing condition."
+[criterion.check]
+type        = "shell"
+cmd         = ["node", "scripts/legibility.mjs", "{artefact}"]
+expect_exit = 1
+
+# --- passes: a number is read out of an instrument's JSON --------------------
+[[criterion]]
+id        = "N1"
+class     = "new"
+statement = "Body text on the fixture clears the acuity limit on a printed A3."
+[criterion.check]
+type  = "json"
+cmd   = ["node", "scripts/legibility.mjs", "{artefact}", "--condition", "a3-print", "--json"]
+path  = "condition.k"
+op    = ">="
+value = 0.8
+
+# --- FAILS: the fixture draws nothing, and that is the point of the fixture ---
+[[criterion]]
+id        = "N2"
+class     = "new"
+statement = "The page draws its data rather than typesetting it."
+[criterion.check]
+type        = "shell"
+cmd         = ["node", "scripts/check.mjs", "{artefact}", "--preset", "a3-landscape"]
+expect_exit = 0
+
+# --- SUPERSEDED: correctly recorded, with both fields ------------------------
+[[criterion]]
+id                = "S3"
+class             = "standing"
+statement         = "The sheet carries a two-week call-to-action block."
+superseded_by     = "N2"
+superseded_clause = "remove the 2 Weeks block and make the title bigger"

@@ -35,7 +35,7 @@ Its audience is a reader, reviewer, or editor testing whether an argument is sup
 - **Grade:** score your own read, another reader's, or a participant's, with or without a
   key, using the source document as the record. Name the activity or element group being
   graded. [book:swebok], 2.3. Reviews and Audits
-- **Conductor** schedules the work. CERIC supplies the per-document argument map; the
+- **Project** schedules the work. CERIC supplies the per-document argument map; the
   caller synthesizes across documents and can ask CERIC to audit the result.
   [book:learning-systems-thinking], Chapter 7. Collective Systemic Reasoning
 - A surviving grade or audit table can inform solution clarification and client-claim
@@ -97,7 +97,7 @@ CCERI narrative unless requested. A Grade returns the scorecard and ranked findi
 
 - **Inherits:** `core` shared integrity and grounding rules, gate-by-artifact, pushback,
   cold review, and evolution loop.
-- **Receives work from:** `conductor` for scheduling; `business-intelligence` may use
+- **Receives work from:** `project` for scheduling; `business-intelligence` may use
   CERIC claim-audit findings in its dossier review.
 - **Hands findings to:** solution-architect clarification work and business-intelligence
   claim review.

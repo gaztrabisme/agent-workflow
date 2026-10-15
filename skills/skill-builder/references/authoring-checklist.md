@@ -56,7 +56,7 @@ Draft the whole section or digest before editing it. Then make separate passes f
 ## 7. Wire into the constellation
 
 - [ ] Add forward and return links so readers can enter the workflow from the relevant neighboring skills. Update this skill's references when the build produces a reusable convention. [book:facilitating-software-architecture], Updating Your Blips
-- [ ] When an authoring request needs multi-skill routing or an independent-lane approach declaration, hand that orchestration contract to `conductor`; do not define it as a skill-builder gate. (proposal boundary: core-R021/R022 → conductor)
+- [ ] When an authoring request needs multi-skill routing or an independent-lane approach declaration, hand that orchestration contract to `project`; do not define it as a skill-builder gate. (proposal boundary: core-R021/R022 → project)
 - [ ] Keep the skill narrow. Split unrelated responsibilities before a shared container accumulates everything. [book:facilitating-software-architecture], Chapter 4. The Architecture Advice Process
 
 ## 8. Ship + record

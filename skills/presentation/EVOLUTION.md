@@ -52,3 +52,21 @@ The loop turns real use into skill improvements. Harvest source: owner-produced 
 | Office-safe font pair | Handoff requested from this dogfood | Brand-profile owner adds and validates the pair | PENDING |
 
 **Verdict: PENDING** — one dogfood is a useful correction source, not enough evidence to settle the skill's learning loop.
+
+---
+
+## Evolution 3 — Speaker-script pass (2026-10-14)
+
+### Trace
+Owner, 14 Oct 2026: client decks keep repeating points and run longer than needed; script each slide in order as the presenter would read it, top to bottom, to find what repeats and where to cut. Proposal: `../project/proposals/project-skill-2026-10-14.md`.
+
+### Change
+| ID | Change | File |
+|---|---|---|
+| PR1 | Speaker-script pass: walk the deck in order with the script so far in hand; a second reader marks each sentence new or repeated; the one main message repeated on purpose is kept; other repeats become cut candidates for the deck owner | `references/method/speaker-script-pass.md`, `SKILL.md`, `references/method/story-and-structure.md` |
+
+### First use (14 Oct 2026)
+A 23-slide client PoC deck (`Documents/pwc/docs/poc-v3.1-speaker-script-2026-10-14.md`; the deck file's hash unchanged): 191 spoken sentences, 71 repeating an earlier one, 6 intended repeats of the main message. Verified by the coordinator: all seven "what we need from you" lines on one slide appear word for word on a later slide. It also surfaced a wording clash (one word used for two different things on two slides), which a repetition check is not designed to find.
+
+### Verdict: PENDING
+Validation: the deck owner cuts at least some listed repeats and the deck gets shorter without losing a point. Disproved if the owner finds most listed repeats are deliberate.

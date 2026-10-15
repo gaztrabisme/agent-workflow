@@ -85,6 +85,7 @@ Scale the stages to the task: a quick slide critique starts at render and check;
 - [references/method/data-slides.md](references/method/data-slides.md) — chart and evidence handoff to information-design.
 - [references/method/output-by-medium.md](references/method/output-by-medium.md) — medium-specific production contracts.
 - [references/method/render-and-check.md](references/method/render-and-check.md) — render-kit, scene-engine, and visual-review loop.
+- [references/method/speaker-script-pass.md](references/method/speaker-script-pass.md) — internal speaker script walked in slide order, and a repeat check by a second reviewer, before a deck is shown.
 - [references/method/delivery-and-editability.md](references/method/delivery-and-editability.md) — source and export checks, editability, and owner checks.
 - [references/method/claim-audit.md](references/method/claim-audit.md) — source decisions and limits, with evidence index in [audit/](audit/).
 - [review-checklist.md](references/method/review-checklist.md) — T1–T18 pass conditions and return stages.

@@ -1,12 +1,12 @@
 ---
 name: delivery
-description: "Controls for a signed-client engagement: baseline, acceptance, change and obligation records, and close-out. USE WHEN a client contract is signed and the delivery lead must establish the baseline, track acceptance or client dependencies, assess a change, record an approval, or close the engagement. Not solution-architect, which owns presignature architecture and the signed handoff; not project-management, which owns general project-planning methods; not communication, which turns agreed facts into audience-ready client messages; not dev, which owns code design and implementation. Keywords: delivery lead, engagement baseline, acceptance tracker, change request, CR log, client obligation, cost variance, actuals, UAT, acceptance evidence, close record, fixed price, scope change."
+description: "Controls for a signed-client engagement: baseline, acceptance, change and obligation records, and close-out. USE WHEN a client contract is signed and the delivery lead must establish the baseline, track acceptance or client dependencies, assess a change, record an approval, or close the engagement. Not solution-architect, which owns presignature architecture and the signed handoff; not project, which owns general project-planning methods; not communication, which turns agreed facts into audience-ready client messages; not dev, which owns code design and implementation. Keywords: delivery lead, engagement baseline, acceptance tracker, change request, CR log, client obligation, cost variance, actuals, UAT, acceptance evidence, close record, fixed price, scope change."
 license: MIT
 ---
 
 # Delivery
 
-Delivery produces the signed-client baseline, acceptance, change and client-obligation records, and the close record for the lead accountable for an accepted and paid engagement. Use the recorded agreement event in Phase −1 as the operational signature gate. A delivery lead may contribute the effort estimate, release split and cut order before signature because those values feed the signed baseline; that bounded input does not create a precontract delivery baseline.
+Delivery produces the signed-client baseline, acceptance, change and client-obligation records, and the close record for the lead accountable for an accepted and paid engagement. Use the recorded agreement event in Phase −1 as the operational signature gate. The one pre-signature role is set out under Pre-signature exception below.
 
 > Inherits the core kernel. Use its shared gates through the canonical references; do not restate them. See [core](../core/SKILL.md).
 
@@ -14,10 +14,14 @@ Delivery produces the signed-client baseline, acceptance, change and client-obli
 
 - Use this skill after signature to establish and maintain the engagement records, assess changes against the signed set, execute acceptance, and close the engagement.
 - The solution-architect handoff supplies the signed scope and acceptance set, estimate, roadmap, client obligations and risks. Delivery reconciles that handoff and records inconsistencies.
-- General project-plan methods belong to project-management. Communication owns audience-ready client messages; delivery supplies the approved facts and tracker evidence behind them.
+- General project-plan methods belong to project. Communication owns audience-ready client messages; delivery supplies the approved facts and tracker evidence behind them.
 - Code design, implementation, codebase assessment and sprint execution belong to dev. [book:scrum-masters-path], Developers
 
-> **Disambiguation:** choose by artifact and audience. Delivery owns records that control a signed client engagement; project-management owns general project planning, communication owns client messages, solution-architect owns presignature solution and contract work, and dev owns the software build.
+> **Disambiguation:** choose by artifact and audience. Delivery owns records that control a signed client engagement; project owns general project planning, communication owns client messages, solution-architect owns presignature solution and contract work, and dev owns the software build.
+
+### Pre-signature exception
+
+Before signature, the effort estimate is drafted and collected through `project`'s WBS and confirmed by the leads who will be held to it, the delivery planner among them; the delivery planner owns the release split and cut order. Solution-architect does not hand over a prefilled version. Reason: an estimate written by someone who will not be held to it is a proposal for an estimate, not an estimate. Nothing is baselined, tracked or accepted before signature; the Phase −1 loop in `references/delivery-lifecycle.md` covers the mechanics.
 
 ## Principles / anchoring rules
 
@@ -43,6 +47,7 @@ Delivery runs alongside the build for the engagement; engineering work proceeds 
 - **Grounding gate** — use the signed client set and current trackers as the record substrate. See [grounding gate](../core/references/grounding-gate.md).
 - **Output Contract** — produce the baseline, current trackers, acceptance evidence and close record appropriate to the engagement. See [output contract](../core/references/output-contract.md) and [wiki protocol](../core/references/wiki-protocol.md).
 - **Pushback and teach** — explain the contract, scope or evidence behind a recommendation. See [pushback and teach](../core/references/pushback-and-teach.md).
+- **Register gate (local)** — anything going to a client, partner or funder is written in their register from the start, not filtered into it afterwards. The redaction scan runs as the last build step; a clean scan means no residue was found, not that the prose was written for the reader. See the Final QA pass in [the RFI/RFP reference](../solution-architect/references/rfi-rfp-response.md).
 
 ## Anti-patterns (hard no-list)
 
@@ -52,11 +57,14 @@ Delivery runs alongside the build for the engagement; engineering work proceeds 
 - Marking a criterion accepted without a written acceptance record and supporting evidence.
 - Replacing the signed criterion IDs with a parallel tracker namespace.
 - Reporting a client dependency without its owner, due date and concrete effect.
+- **Shipping the derivation with the result.** A client copy carrying internal reasoning (gross-before-discount, productivity factor, seniority mix) invites a negotiation about method that has no natural end. Build the client copy on a code path where those fields do not exist; removal steps get forgotten, absent fields cannot.
+- **Delivering more than was asked.** An extra section passes wording and reconciliation checks and still enlarges what the client must approve. Check the artifact against the list of requested items. The usual reason is a guess about what the client "will want", made by the person most invested in the extra work.
+- **A gate that has to be remembered.** A redaction or QA check run by hand fails silently, and the file still looks finished. Wire it as the last step of the build on the shipping path, and have it refuse to save on failure.
 
 ## Composition
 
 - **Inherits:** core.
-- **Consumes:** the signed solution-architect handoff and project-management methods where the engagement needs broader planning.
+- **Consumes:** the signed solution-architect handoff and project methods where the engagement needs broader planning.
 - **Supplies:** tracker-grounded facts and approved record changes for communication to turn into client-ready messages; estimate-versus-actual findings return to solution-architect.
 - **Works alongside:** dev, which builds and tests the software within the engagement baseline.
 
