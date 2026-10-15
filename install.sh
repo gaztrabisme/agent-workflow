@@ -80,6 +80,16 @@ if [ -e "$CM" ] && [ ! -L "$CM" ] && ! cmp -s "$CM" "$AW/config/claude/CLAUDE.md
 fi
 ln -sfn "$AW/config/claude/CLAUDE.md" "$CM"
 
+# --- character change log and standing corrections, read by CLAUDE.md and the evolution skill ---
+for F in character-changelog.md standing-corrections.md; do
+  T="$HOME/.claude/$F"
+  if [ -e "$T" ] && [ ! -L "$T" ]; then
+    cp "$T" "$T.bak-$(date +%Y%m%d-%H%M%S)"
+    say "Existing $F backed up."
+  fi
+  ln -sfn "$AW/config/claude/$F" "$T"
+done
+
 # --- machine.md: this machine's facts, imported by CLAUDE.md ---
 # AW_MACHINE names the file in config/claude/machines/; default: the short hostname, lowercased.
 MACHINE="${AW_MACHINE:-$(hostname -s | tr '[:upper:]' '[:lower:]')}"
@@ -131,6 +141,7 @@ else:
 q = os.path.join(aw, "config", "hooks", "claude-quality-hook")
 for m in ("Edit", "Write"):
     add("PostToolUse", m, q)
+add("PreToolUse", "Agent", "python3 " + os.path.join(aw, "config", "hooks", "require_load.py"))
 
 plugins = s.setdefault("enabledPlugins", {})
 for p in ("pyright-lsp@claude-plugins-official", "rust-analyzer-lsp@claude-plugins-official",

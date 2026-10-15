@@ -38,6 +38,7 @@ Compare options against the client’s problem, constraints, quality priorities,
 - Use domain model language consistently in diagrams, writing, and speech [book:domain-driven-design-evans], Ubiquitous Language.
 - Frame decision context around the circumstances, scope boundaries, and time horizon that make the decision necessary now [book:facilitating-software-architecture], Framing the Context.
 - Record raw advice on an ADR with the advice giver’s name, role, and date alongside the decision analysis [book:facilitating-software-architecture], Advice.
+- Before adding a component or sizing up, write down the smallest configuration that meets the stated need: reuse an existing device or camera, the lowest stream resolution and rate the model needs, the smallest GPU the job needs. Size up only with a reason written next to it. (derived: LSP presale 2026-10-05..09 — the owner cut four designs down: an exit PPE camera, "3 + 1" edge units, decoding every camera at 4 MP 25 fps, an RTX PRO 6000 for light fine-tuning.)
 
 ## SaaS architecture choices
 

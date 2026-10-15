@@ -1,0 +1,4 @@
+change:
+- {task_id: 1.1.1.2, dev: 2.5, qc: 1.25, ba: 0.625, effort: 4.5, reason: "proposed change: fixture check of the effort rule", source: "Fixture estimate sheet, row 3"}
+add:
+- {id: P-01, wbs_id: A.1, task: "Feasibility test on site footage", role: ML engineer, dev: 3.0, qc: null, ba: null, effort: 3.0, status: in, dod: "Decision recorded on the extra detector", reason: "proposed change: fixture add", source: "Fixture estimate sheet, row 4"}

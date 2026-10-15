@@ -1,0 +1,22 @@
+tasks:
+- task_id: 1.1.1.1
+  subtasks:
+    - {name: "Site visit and measurements", days: 2.0}
+    - {name: "Survey report", days: 1.5}
+  acs:
+    - "Survey report issued"
+    - "The client accepts the report"
+- task_id: 1.1.1.2
+  subtasks:
+    - {name: "Build the service", days: 3.0}
+    - {name: "Tests", days: 1.5}
+  acs:
+    - "Service passes its unit tests"
+    - "Service handles 100 sample requests"
+- task_id: X-01
+  subtasks:
+    - {name: "Sync job", days: 3.0}
+    - {name: "Test and document", days: 2.5}
+  acs:
+    - "Sync runs one way for the sample set"
+    - "Test report accepted by the client"

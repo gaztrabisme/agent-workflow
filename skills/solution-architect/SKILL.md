@@ -60,7 +60,7 @@ Scale the work to the deal. A narrow clarification can stay light; a multi-round
 
 - Quote the client's ask verbatim, list the artifacts that answer it, and mark extras as proposed with a named consumer and decision. (5907 · U3 · L22 · 08:04–09:47)
 - For covered technical domains, search the Knowledge Base first and record the query and applied finding, or that nothing relevant was found.
-- Before substantive solution-architecture work that fans out or forks, state the lane's approach and reason; compare independent options for wide decision spaces and research unknowns first. In a coordinated multi-skill run, conductor records the task-level approach declaration in its Plan Block; this rule governs the SA workstream.
+- Before substantive solution-architecture work that fans out or forks, state the lane's approach and reason; compare independent options for wide decision spaces and research unknowns first. In a coordinated multi-skill run, project records the task-level approach declaration in its Plan Block; this rule governs the SA workstream.
 - For research that changes the build, present audience-relevant findings rather than exploratory analysis; use a concise findings list where useful [book:storytelling-with-data], Who, what, and how.
 
 
@@ -77,6 +77,21 @@ Scale the work to the deal. A narrow clarification can stay light; a multi-round
 | Blueprint workbook | Multi-round bid carrier; propagate each answer across affected sheets and log cell-level changes. |
 
 The client-facing exports and cross-artifact integrity checks are different reviews; use both when their scope applies.
+
+Every engagement writes its result to the project wiki: a dated `log.md` entry and a current `active-work.md` (`../core/references/wiki-protocol.md`). Options and decision records list rejected approaches, not only the choice made.
+
+## Close-out checklist
+
+Before calling the work done, confirm each item:
+
+- Artifact on disk, and `wiki/log.md` entry written.
+- `decisions.md` updated with the choices and the rejected options.
+- Assumptions register reflects open items.
+- Traceability matrix has no silent gaps. Optional aid: `scripts/audit_proposal.py` lists, for each requirement, the slides or sections most likely to answer it; a person reads each one and records the verdict.
+- Final QA pass run on every client-bound export (six-item list in `references/rfi-rfp-response.md`).
+- Artifact-integrity checks run across the artifact set (`references/artifact-integrity.md`).
+
+The two passes catch different defects; running one does not replace the other.
 
 ## Gates (declared, inherited from core)
 
@@ -100,7 +115,7 @@ The presale-specific checks are in this skill’s linked references. Apply them 
 - **From ai-discovery-workshop:** use the accepted use case, journey, and outcome baseline; the workshop owns its scoped brief.
 - **From applied-ml-problem-solver:** use its model, metric, and evaluation decisions when the solution includes ML.
 - **From ceric:** use source-document claim gaps and ranked findings to shape clarifications.
-- **With delivery:** the delivery planner authors presignature effort estimates; this skill supplies architecture and technical cost drivers. At signature, transfer the agreed packet. Delivery owns baselines, change control, acceptance tracking, and signed-client follow-up.
+- **With project and delivery:** presignature effort is collected through `project`'s WBS from the leads who will be held to it (the delivery planner or each discipline lead); this skill decides what the WBS must contain and supplies architecture and technical cost drivers. At signature, transfer the agreed packet. Delivery owns baselines, change control, acceptance tracking, and signed-client follow-up.
 - **To dev:** hand over the accepted client architecture and decision context for implementation. General project planning remains outside this skill.
 
 ## References
@@ -115,6 +130,7 @@ The presale-specific checks are in this skill’s linked references. Apply them 
 - `references/estimation-and-costing.md` — effort-estimate ownership, technical cost drivers, and commercial options.
 - `references/artifact-integrity.md` — presale artifact consistency and cross-reference checks.
 - `references/blueprint-workbook.md` — multi-round bid workbook and answer-folding loop.
+- `scripts/audit_proposal.py` — optional: candidate places in a deck or document for each requirement; never a verdict.
 - `references/composition.md` — input and signature handoffs.
 - `references/templates/engagement-frame.md` — internal intake form.
 - `references/templates/clarification-questions.md` — client question form.

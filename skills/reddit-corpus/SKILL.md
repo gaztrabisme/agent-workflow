@@ -17,7 +17,7 @@ The skill exists because two things go wrong, and only one of them is about craw
 - **This skill:** mining public forum threads for what a community has learned about a technical or product topic; a delta crawl since a prior pass; grounding or refuting a claim someone attributed to Reddit.
 - **`business-intelligence` instead:** intelligence on a *company or person* for a high-stakes presale conversation. Different substrate (filings, press, the client's own words), different audience (a buyer), different artifact (a dossier).
 - **The official documentation workflow instead:** you want the authoritative documented behaviour of a library. That's a doc lookup, not a community corpus.
-- **`conductor`'s task-force protocol instead:** you have a *specific load-bearing claim* and need it verified against live primary sources — a cost, a quota, a regulation. See `../conductor/references/task-force-protocol.md`.
+- **`project`'s task-force protocol instead:** you have a *specific load-bearing claim* and need it verified against live primary sources — a cost, a quota, a regulation. See `../project/references/run/task-force-protocol.md`.
 - **The media workflow instead:** you are *operating* a generation stack — running a model, vetting its licence before use, writing motion prompts. It owns the licence gate and the output checks; this mines what a community reports about those models. A crawl that concludes in a settings change hands off to that workflow.
 
 > **Disambiguation:** decide on **substrate + artifact**. Public forum threads → a corpus and a delta document → this skill. A named organisation → a dossier → BI. Vendor documentation → a version-pinned answer → the official documentation workflow. A known claim to verify → task force.

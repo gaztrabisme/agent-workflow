@@ -6,7 +6,7 @@ The package includes a compact, generic set of Discovery and Agentic workflow pr
 
 The final brief is client-validated. Before client contact, label the artifact `prework draft` and mark scores provisional. Architecture and proposal work hand off to solution-architect; general product decisions belong to product-management.
 
-The skill inherits shared integrity, grounding, and output-contract guidance from the current `../core/SKILL.md` and its references. When a substantive unrouted task needs coordination, use conductor for coordination and its approach declaration.
+The skill inherits shared integrity, grounding, and output-contract guidance from the current `../core/SKILL.md` and its references. When a substantive unrouted task needs coordination, use the `project` skill for coordination and its approach declaration.
 
 ## Install
 

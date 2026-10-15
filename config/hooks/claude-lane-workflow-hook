@@ -20,8 +20,8 @@ UserPromptSubmit)
     if grep -qiE 'dynamic[ -]workflow' <<<"$PROMPT"; then
         mkdir -p "$MARK_DIR" && touch "$MARK"
         jq -n --arg ctx "LANE WORKFLOW MODE (owner hook). In this owner's setup, \"dynamic workflow\" does NOT mean Claude Code's Workflow tool or Agent fan-out; both are blocked for this session. It means a conductor-style run on the subagent MCP providers:
-1. Invoke the conductor skill; ENGINE is the provider-lane dynamic workflow (conductor references/workflow-patterns.md, 'Provider-lane dynamic workflow').
-2. Run the lane check in conductor references/lane-plan.md (load ~/.config/agent-capabilities/subagent.env, subagent doctor --prompt --json, lane_state.json) and plan only onto open lanes.
+1. Invoke the project skill; ENGINE is the provider-lane dynamic workflow (project references/run/workflow-patterns.md, 'Provider-lane dynamic workflow').
+2. Run the lane check in project references/run/lane-plan.md (load ~/.config/agent-capabilities/subagent.env, subagent doctor --prompt --json, lane_state.json) and plan only onto open lanes.
 3. Declare the Plan Block with the full LANE PLAN up front: every unit gets a provider lane (primary + fallback), a Target/Change/Acceptance brief, an acceptance command, and its stage/wave. Stop for go.
 4. After go, you are the pipeline: mcp__subagent__delegate per unit (independent units of a wave in parallel, separate workspaces), mcp__subagent__await right after each (wait_seconds >= 1800), run each acceptance command yourself and read an output sample, then start the next wave. Reroute refusals per the quota fallback; if no lane fits, the unit is blocked and reported, never done by you." \
             '{hookSpecificOutput: {hookEventName: "UserPromptSubmit", additionalContext: $ctx}}'
@@ -32,7 +32,7 @@ UserPromptSubmit)
 PreToolUse)
     if [[ -f "$MARK" ]]; then
         TOOL=$(jq -r '.tool_name // empty' <<<"$INPUT")
-        jq -n --arg why "Lane workflow mode is on for this session (the owner said \"dynamic workflow\"): $TOOL is blocked. Dispatch the unit to a provider lane with mcp__subagent__delegate per the conductor lane plan. To use Claude's own workflow again, the owner says \"ultracode\"." \
+        jq -n --arg why "Lane workflow mode is on for this session (the owner said \"dynamic workflow\"): $TOOL is blocked. Dispatch the unit to a provider lane with mcp__subagent__delegate per the project lane plan. To use Claude's own workflow again, the owner says \"ultracode\"." \
             '{hookSpecificOutput: {hookEventName: "PreToolUse", permissionDecision: "deny", permissionDecisionReason: $why}}'
     fi
     ;;

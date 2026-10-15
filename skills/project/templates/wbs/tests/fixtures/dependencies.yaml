@@ -1,0 +1,1 @@
+- {id: DEP-01, item: "Mounting height at each lane", from: Client, needed_by: "Design, before the matching work", blocks: [A.1], status: Open, if_late: "We assume the standard height and re-test on site.", source: "Q&A log, row 24"}

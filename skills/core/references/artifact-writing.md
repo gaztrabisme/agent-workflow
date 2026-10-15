@@ -23,3 +23,8 @@ Write for the result the reader needs and keep the permanent rationale in a dura
 - For each row or section, name its recipient and the decision they must make; test whether the content helps that recipient make that decision.
 - Run both the prose budget and the lane test because they catch different defects.
 - Before restating a negative rule, read the restatement back and check what action it authorizes.
+
+## Client-facing pages
+
+- Say what is in scope and what it does. State an exclusion or caveat once, on the scope or out-of-scope page; do not repeat it on other pages, where it reads as an upsell or as bad news told twice. Do not attribute a cut to the client, do not state the client's or funder's budget limit, and do not headline a price outside the cost page. Leave the nuance to the presenter. (derived: PwC PoC deck 2026-10-13 — the presenting team removed exactly these four kinds of sentence before the meeting)
+- Before a client deck is shown, run a "read it as the client in the room" pass by a reviewer who did not write it: would the client read any sentence as blame, an upsell, an internal caveat, or a figure they did not ask to see?

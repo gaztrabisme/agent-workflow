@@ -1,0 +1,7 @@
+stories:
+- us_id: US-01
+  title: Identify entrant
+  acs:
+    - "Entrant is matched in 5 s or less, measured under a test method agreed at design."
+    - "Result is shown to the guard"
+  wbs_ids: [A.1]

@@ -17,7 +17,7 @@ Map secondary personas as well as the primary persona when a complex workflow cr
 
 Use business-intelligence for client research before Day 1 and bring its validated context into the room; this workshop turns that context into a client-validated use-case brief. After selection, hand architecture and proposal work to solution-architect. General product decisions belong to product-management. The workshop may capture an initial architecture conversation and prototype question, but it does not approve architecture or implement the prototype.
 
-Inherit the shared kernel. Apply relevant integrity, grounding, and output-contract guidance by reference to ../core/SKILL.md and its current references; do not copy those gates into this skill. When a substantive unrouted task needs coordination, conductor owns the approach declaration; this workshop skill does not add one.
+Inherit the shared kernel. Apply relevant integrity, grounding, and output-contract guidance by reference to ../core/SKILL.md and its current references; do not copy those gates into this skill. When a substantive unrouted task needs coordination, the `project` skill owns the approach declaration; this workshop skill does not add one.
 
 ## Working principles
 
@@ -50,6 +50,26 @@ Estimate a feature's potential ROI to validate business value. [book:art-of-ai-p
 The standard Day 8 close produces the skill's output bundle: an approved PoV use case, ROI baseline, architecture draft, and a small rapid prototype, using ROI analysis, an architecture design session, and rapid prototyping. The PoV approval requires sufficient evidence, the relevant decision-makers, and agreed follow-up; when readiness is missing, mark the approval and dependent outputs pending, name the missing evidence and owner, and do not report them as complete. The architecture draft is a handoff input; solution-architect owns the formal architecture and proposal, and the implementation owner carries the prototype forward after handoff. (derived: dogfood 2026-10-01)
 
 Use the references below as working materials. Prepare client-specific variants for the Five Golden Questions. Use supplied facilitator-script questions literally; for another language, agree the exact translated wording during prework and record it. Ask clarifying follow-ups and skip a prompt already answered, while adapting follow-ups and Golden Question variants to the room. Leave time for evidence and discussion. (derived: dogfood 2026-10-01)
+
+## The 20-minute form
+
+Use this when the session is short, has no funded engagement behind it, or the room is half non-technical. The full flow (four phases, four BXT scores, the cards, the golden questions) does not shrink to fit, and a facilitator who tries to shrink it tends to drop the method altogether. Carry one page instead:
+
+| | Funded engagement | 20-minute form |
+|---|---|---|
+| Scoring | four BXT dimensions, 1–5 | two axes, High/Low (see `references/bxt_template.md` → Scoring and prioritization) |
+| Who fills it | an analyst, at a desk | both sides at once, one axis each |
+| Candidates | 3–5, pre-identified | whatever the room names, written down live |
+| Output | one use case approved for a funded PoV | a shortlist and an ask list, both agreed in the room |
+
+When the domain is unknown, leave the instrument empty. A pre-filled row decides on the client's behalf. Use four named columns with no content:
+
+| Area | What should be caught | How it is handled today | Our side |
+|---|---|---|---|
+
+The client fills the first three columns; the facilitator fills the fourth. Use the client's language for the headings if the room does not work in English, so the non-technical participant can write in it unaided.
+
+Present the form as an entry point, not as the method. The BXT rubric, the cards and the golden questions come back once there is a funded session to use them in.
 
 ## References
 

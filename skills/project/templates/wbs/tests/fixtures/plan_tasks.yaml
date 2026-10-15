@@ -1,0 +1,18 @@
+# Test fixture: a small plan. Effort rule: qc = 0.5 x dev, ba = 0.25 x dev, rounded up to 0.5 d.
+tasks:
+- {task_id: 1.1.1.1, sheet: Platform, module: Survey, feature: Site survey, task: Site survey, basis: "survey 2 + report 1.5 = 3.5", role: DevOps engineer, dev: 3.5, qc: null, ba: null, effort: 3.5, dod: Survey report accepted, phase: Phase 1}
+- {task_id: 1.1.1.2, sheet: Platform, module: Survey, feature: Site survey, task: Service build, basis: "build 2 + QC 1 + BA 0.5 = 3.5", role: Backend developer, dev: 2.0, qc: 1.0, ba: 0.5, effort: 3.5, dod: Service accepted, phase: Phase 1}
+- {task_id: 1.1.1.3, sheet: Platform, module: Survey, feature: Site survey, task: Panel layout, basis: layout 1, role: Frontend developer, dev: 1.0, qc: null, ba: null, effort: 1.0, dod: Layout signed off, phase: Phase 1}
+- {task_id: 1.1.1.4, sheet: Platform, module: Survey, feature: Site survey, task: Survey test pass, basis: test pass, role: QC, dev: null, qc: null, ba: null, effort: 1.5, dod: Test pass recorded, phase: Phase 1}
+- {task_id: 1.1.1.5, sheet: Platform, module: Survey, feature: Site survey, task: Survey requirements check, basis: check, role: BA, dev: null, qc: null, ba: null, effort: 1.0, dod: Requirements check done, phase: Phase 1}
+- {task_id: 1.2.1.1, sheet: Platform, module: Install, feature: Site works, task: Mount the panel, basis: mount 2, role: Installer, dev: 2.0, qc: null, ba: null, effort: 2.0, dod: Panel mounted, phase: Phase 1}
+- {task_id: 1.2.5.1, sheet: Options, module: Device, feature: Device link, task: Parse device result, basis: parse 1.5, role: Backend developer, dev: 1.5, qc: null, ba: null, effort: 1.5, dod: Result parsed, phase: Phase 2}
+- {task_id: 1.3.1.1, sheet: Models, module: Matching, feature: Extra check, task: Extra check model, basis: model, role: ML engineer, dev: 2.0, qc: 1.0, ba: 0.5, effort: 3.5, dod: Model accepted, phase: Phase 2}
+- {task_id: 1.4.1.1, sheet: Models, module: Matching, feature: Second check, task: Second check model, basis: model, role: ML engineer, dev: 3.0, qc: 1.5, ba: 0.75, effort: 5.5, dod: Second model accepted, phase: Phase 2}
+- {task_id: 1.5.1.1, sheet: Platform, module: Cloud, feature: Edge base, task: Edge base setup, basis: setup 1, role: DevOps engineer, dev: 1.0, qc: null, ba: null, effort: 1.0, dod: Edge base up, phase: Phase 3}
+- {task_id: 1.5.2.1, sheet: Platform, module: Cloud, feature: Network, task: Network port opening, basis: client task 1, role: DevOps engineer, dev: 1.0, qc: null, ba: null, effort: 1.0, dod: Ports open, phase: Phase 3}
+- {task_id: 1.6.1.1, sheet: Overhead, module: Project, feature: PM share, task: Project management share, basis: share, role: Project manager, dev: null, qc: null, ba: null, effort: 2.0, dod: null, phase: Across all phases}
+- {task_id: 1.6.2.1, sheet: Overhead, module: Project, feature: Contingency share, task: Contingency share, basis: share, role: null, dev: null, qc: null, ba: null, effort: 1.0, dod: null, phase: Across all phases}
+options:
+- {section: S-1, option: "Extra panels", task: "Install extra panels", role: Installer, dev: 3.0, qc: null, ba: null, effort: 3.0}
+- {section: S-2, option: "Admin functions", task: "Not estimable until the client lists them", role: null, dev: null, qc: null, ba: null, effort: null}

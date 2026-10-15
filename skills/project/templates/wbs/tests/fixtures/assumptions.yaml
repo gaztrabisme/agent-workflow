@@ -1,0 +1,2 @@
+- {category: Scope, text: "We assume one site only; more sites are a change request.", source: "Requirements section 2"}
+- {category: Schedule, text: "We assume work starts after the kickoff.", source: "Q&A log, row 3"}

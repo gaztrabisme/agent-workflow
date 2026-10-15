@@ -12,7 +12,7 @@ Create a decision brief that connects a real user problem to evidence, an explic
 
 Use this skill for general product decisions across discovery, delivery, launch, and the product lifecycle. A brief can be revised as new evidence arrives; a roadmap records current choices and confidence, not a promise that every item will ship.
 
-This includes internal developer products and technical releases when the unresolved decision concerns user value, priority, outcomes, scope, or roadmap. Use the project-management or engineering workflow for task sequencing and implementation tracking; link that execution record from the product brief rather than turning the brief into a task tracker. (derived: dogfood 2026-10-01)
+This includes internal developer products and technical releases when the unresolved decision concerns user value, priority, outcomes, scope, or roadmap. Use the project or engineering workflow for task sequencing and implementation tracking; link that execution record from the product brief rather than turning the brief into a task tracker. (derived: dogfood 2026-10-01)
 
 For a client-specific, validated AI use case, route to the specialized AI discovery workflow. This skill can carry the resulting opportunity into broader product planning, but it does not replace that client-validation artifact.
 

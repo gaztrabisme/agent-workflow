@@ -6,6 +6,23 @@ which client obligations slipped, where the trackers failed to catch a problem i
 
 ---
 
+## Evolution 5 — The opening of a PM note (2026-10-13)
+
+### Trace
+An SDLC accelerator kit's PM reporting skill (`Downloads/accelerator-kit.zip`, 9 Jul 2026), which opens every PM file with status, evidence, risk and next action and refuses a file missing one; and the owner's rule that every report must stand on its own for a reader who saw none of the work. Proposal: `../project-management/proposals/shared-skills-second-pass-2026-10-13.md`, item 3; placed here because progress reporting is delivery's, not planning's.
+
+### Change (owner instruction 2026-10-13: "all four as recommended")
+| ID | Rule | File |
+|---|---|---|
+| DL1 | Open every cycle record and every other note a PM reads with status, evidence, main risk, and next action with its owner | `references/delivery-lifecycle.md`, Phase 2 |
+
+Standard: PRINCE2 2017, A.11 Highlight report; 12.2.3 Reporting progress.
+
+### Verdict: PENDING
+Validation: on the next signed engagement, cycle records open with the four lines and a reader acts on them without asking. Disproved if the lines become boilerplate that repeats the same status every week. Owner: Huy.
+
+---
+
 ## Evolution 4 — stage B rebuild (2026-10-01)
 
 ### Sources read

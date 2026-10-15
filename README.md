@@ -47,7 +47,7 @@ unset AW_GH_TOKEN
 
 It pulls the latest commit, fetches any new course files and re-runs `install.sh`.
 
-Check that it worked: `test -e ~/.claude/skills/conductor/SKILL.md && readlink ~/.agent-workflow` prints the install folder. Then restart the agent so it reads the new skill list.
+Check that it worked: `test -e ~/.claude/skills/project/SKILL.md && readlink ~/.agent-workflow` prints the install folder. Then restart the agent so it reads the new skill list.
 
 If the script stops with "GitHub refused the token": the token has expired, was revoked, or does not include `agent-workflow` with Contents: Read-only. Ask the owner for a token that does.
 
@@ -110,4 +110,4 @@ To undo the rebuild of one work skill: `git checkout <skill>/pre-stage-b -- skil
 
 ## Mac-only paths still in the files
 
-Instructions in the skills reach the tools through `~/.agent-workflow`. Many files still name folders that exist only on the original Mac (`/Users/GaryT/...`, or `~/Documents/Work/lab/...`). They are records of how each skill was built, not instructions: every `EVOLUTION.md`, `DISTILL-REPORT.md`, `CLAIM-FIX-REPORT.md` and `TOOLS-REPORT.md`, the `audit/` folders, `skills/frontend/references/sources.md` and `tools/render-kit/SPEC.md`. Reference text with a Mac path: `skills/conductor/references/goal-file.md` and `lane-plan.md` (the `subagent` server's source, `~/Documents/Work/tools/mcp/subagent-mcp`) and `skills/photo/TOOLS.md` (this Mac's Python interpreter; any Python 3 with NumPy and Pillow works). To list them all: `grep -rIl '/Users/GaryT' .`
+Instructions in the skills reach the tools through `~/.agent-workflow`. Many files still name folders that exist only on the original Mac (`/Users/GaryT/...`, or `~/Documents/Work/lab/...`). They are records of how each skill was built, not instructions: every `EVOLUTION.md`, `DISTILL-REPORT.md`, `CLAIM-FIX-REPORT.md` and `TOOLS-REPORT.md`, the `audit/` folders, `skills/frontend/references/sources.md` and `tools/render-kit/SPEC.md`. Reference text with a Mac path: `skills/project/references/run/goal-file.md` and `lane-plan.md` (the `subagent` server's source, `~/Documents/Work/tools/mcp/subagent-mcp`) and `skills/photo/TOOLS.md` (this Mac's Python interpreter; any Python 3 with NumPy and Pillow works). To list them all: `grep -rIl '/Users/GaryT' .`

@@ -1,0 +1,295 @@
+# Settings that reproduce the LSP Camera Surveillance WBS v1.2 workbook (Gate 401, team layout, plan v01).
+# Data folder: the LSP workspace's wbs/data_v12. Every field is explained in ../../project.yaml.example.
+
+pricing: team-sheet
+
+release:
+  version: "1.2"
+  date: null
+  output_name: "LSP Camera Surveilance_WBS_v1.2.xlsx"
+  stamp_first_sheet: false        # the team's layout is filled exactly; nothing added to Master
+
+data:
+  files:
+    plan_tasks: phi_tasks.yaml
+    feature_map: feature_map.yaml
+    changes: changes.yaml
+    proposals: ai_adjust.yaml
+    assumptions: assumptions_v12.yaml
+    dependencies: dependencies_v12.yaml
+    glossary: glossary.yaml
+    stories: stories.yaml
+    story_source: ac_map.yaml
+    task_criteria_pattern: "task_ac_*.yaml"
+  fields:
+    task_id: phi_id
+    phase: phi_phase
+    plan_feature: phi_feature
+  feature_key_parts: 3
+
+plan:
+  total: 1683.3575                # plan v01 grand total, recomputed from its rows
+  overhead_phase: "Across all phases"
+
+sheets:
+  - {key: master, name: Master}
+  - {key: summary, name: Effort Summary}
+  - {key: wbs, name: WBS}
+  - {key: task_detail, name: Task Detail}
+  - {key: stories, name: User Stories}
+  - {key: assumptions, name: Assumption}
+  - {key: dependencies, name: Dependency}
+  - {key: references, name: References}
+internal_sheets: [references]
+
+freeze: {task_detail: B2, wbs: C2, stories: B2, assumptions: A2, dependencies: B2, references: A2}
+
+columns:
+  task_detail:
+    - {key: task_id, header: "Task ID", width: 12}
+    - {key: row_type, header: "Row type", width: 10}
+    - {key: wbs_id, header: "WBS ID", width: 9}
+    - {key: section, header: "Section", width: 22}
+    - {key: module, header: "Module", width: 26}
+    - {key: task, header: "Task", width: 48}
+    - {key: role, header: "Role", width: 22}
+    - {key: dev, header: "Dev (d)", width: 10}
+    - {key: qc, header: "QC (d)", width: 9}
+    - {key: ba, header: "BA (d)", width: 9}
+    - {key: effort, header: "Effort (d)", width: 11}
+    - {key: subtask_days, header: "Sub-task (d)", width: 11}
+    - {key: over_threshold, header: "Over 3 days", width: 10}
+    - {key: criteria, header: "Acceptance criteria", width: 60}
+    - {key: status, header: "Status", width: 26}
+    - {key: owner, header: "Owner", width: 10}
+    - {key: note, header: "Change note", width: 44}
+  wbs:
+    - {key: index, header: "#", width: 6}
+    - {key: id, header: "Feature ID", width: 9}
+    - {key: group, header: "Group", width: 20}
+    - {key: module, header: "Module", width: 22}
+    - {key: feature, header: "Feature", width: 26}
+    - {key: description, header: "Description", width: 48}
+    - {key: rfp_section, header: "RFP section", width: 10}
+    - {key: priority, header: "Priority", width: 10}
+    - {key: dependency, header: "Dependency", width: 18}
+    - {key: acceptance, header: "Acceptance Criteria", width: 60}
+    - {key: dev, header: "Dev Effort (MD)", width: 12}
+    - {key: note, header: "Note", width: 27}
+    - {key: owner, header: "Owner", width: 10}
+    - {key: qc, header: "QC (d)", width: 9}
+    - {key: ba, header: "BA (d)", width: 9}
+    - {key: effort, header: "Total effort (d)", width: 12}
+    - {key: stories, header: "Stories", width: 34}
+  stories:
+    - {key: us_id, header: "Story ID", width: 11}
+    - {key: story, header: "Story", width: 40}
+    - {key: wbs_ids, header: "WBS IDs", width: 16}
+    - {key: criteria, header: "Acceptance criteria", width: 70}
+    - {key: origin, header: "Origin", width: 22}
+    - {key: note, header: "Note", width: 40}
+  assumptions:
+    - {key: index, header: "#", width: 6}
+    - {key: category, header: "Category", width: 18}
+    - {key: text, header: "Assumption", width: 90}
+  dependencies:
+    - {key: id, header: "ID", width: 9}
+    - {key: item, header: "What we need", width: 46}
+    - {key: from, header: "From", width: 9}
+    - {key: needed_by, header: "Needed by", width: 30}
+    - {key: blocks, header: "Blocks (WBS IDs)", width: 26}
+    - {key: status, header: "Status", width: 10}
+    - {key: if_late, header: "If late", width: 52}
+  references:
+    - {key: kind, header: "Kind", width: 14}
+    - {key: item, header: "Item", width: 34}
+    - {key: reference, header: "Reference / basis", width: 120}
+wbs_required_fields: [feature, acceptance]
+
+master:
+  headers: [Item, Value, Note]
+  rows:
+    - {label: "Unit price USD per MM", value: 3500, note: "Input. Cost = man-months x this rate", name: RATE, format: "#,##0"}
+    - {label: "Man-days per month", value: 20, note: "Input. Man-months (MM) = man-days / this number", name: MD_MONTH, format: "0"}
+    - {label: "PM % of Dev", value: 0.20, note: "Input. PM = this % x Dev total of the in-scope Fsoft work", name: PM_PCT, format: "0%"}
+    - {label: "Contingency % of subtotal", value: 0.10, note: "Input. Contingency = this % x subtotal (effort + PM)", name: CONT_PCT, format: "0%"}
+    - {label: "QC % of Dev", value: 0.40, note: "Reference only. The QC add-on is already inside each task's effort", name: null, format: "0%"}
+    - {label: "BA % of Dev", value: 0.30, note: "Reference only. The BA add-on is already inside each task's effort", name: null, format: "0%"}
+  forbidden_numbers: [0.8, 21.725]
+  forbidden_words: ["buffer", "ai factor", "productivity"]
+
+roles:
+  known: ["Backend developer", "Frontend developer", "AI/ML engineer", "Data labeler/annotator",
+          "DevOps/Cloud engineer", "Site installation technician", "Project Manager", "QC", "BA"]
+
+owners:
+  ours: Fsoft
+  all: [Fsoft, FTI, LSP]
+  excluded: FTI
+  excluded_option_roles: ["Site installation technician"]
+  shared_row_label: "{owner} (Fsoft setup work)"
+  other_owner_lines:
+    - {owner: LSP, label: "LSP work at Gate 401 (effort, d)", note: "Done by LSP; not in the Fsoft total"}
+
+statuses:
+  in_scope: "In scope"
+  overhead: "Plan overhead row, not used"
+  option: "Option, not in totals"
+  change:
+    in: "In scope"
+    out_later_phase: "Out of scope: later phase"
+    out_removed_by_lsp: "Out of scope: removed by LSP"
+    out_not_needed: "Out of scope: not needed"
+    alcohol_a: "Alcohol option A"
+  add:
+    in: "In scope"
+    alcohol_b: "Alcohol option B"
+  needs_source: [out_removed_by_lsp, out_not_needed]
+  out_of_scope: [out_later_phase, out_removed_by_lsp, out_not_needed]
+  removal_source_marker: "STT"
+
+dependencies:
+  from: [LSP, FTI, Team]
+  status: [Open, Answered]
+
+ids:
+  option_prefix: "OPT-"
+  subtask_infix: ".s"
+  change_add_prefix: "X-"
+  proposal_add_prefix: "AI-"
+
+effort_rule:
+  addons: {qc: 0.4, ba: 0.3}
+  round_up_to: 0.5
+  tolerance: 0.006
+  no_dev_roles: [QC, BA]
+
+criteria:
+  over_days: 3
+  min: 2
+  max: 5
+  subtask_max_days: 3.0
+  subtask_step: 0.25
+  clause: "measured under a test method FPT proposes and LSP agrees at design."
+  clause_trigger: '%|\bFAR\b|\bFRR\b|\b\d+(?:\.\d+)?\s?(?:s|sec|seconds|ms)\b'
+
+text:
+  cap: 150
+  subtask_name_cap: 100
+  forbid_diacritics: true
+  person_names: [Phi, Quan, Tuan, "Tuấn", Uyen, "Uyên", Trung, Bao, "Bảo", Binh, "Bình", Huy, Tri, "Trí"]
+  internal_source_patterns: ['\.ya?ml\b', '\bwiki/', '\bD-\d{3}\b', '\bdata_v\d+']
+
+stories:
+  origins: {bl04: "Solution package BL-04", added: "Added in v1.2"}
+  default_origin: bl04
+  verbatim_origin: bl04
+  fallback_source: "BL-04 Features Estimation, sheet Features (ac_map.yaml)"
+  required_row_prefixes: [A, B, C, D]
+
+marking:
+  proposal_prefix: "adjusted by AI engineer:"
+  fills:
+    header: "1F3864"
+    title: "17365D"
+    subheader: "2F75B5"
+    block: "D9E1F2"
+    total: "FFC000"
+    input: "FFF2CC"
+    fill_in: "FFFF00"
+    proposal: "F8CBAD"
+  highlight_fill: fill_in
+  legend_sheet: references
+  legend_kind: "Colour legend"
+  legend:
+    - {fill: fill_in, name: "Yellow", meaning: "Our estimates for work the plan lacks, to confirm with the tech lead (Task Detail, WBS)"}
+    - {fill: proposal, name: "Light orange", meaning: "A change the AI engineer proposes to the tech lead's figure; its change note starts with 'adjusted by AI engineer:'"}
+    - {fill: input, name: "Pale yellow", meaning: "An input value (Master, Effort Summary)"}
+    - {fill: total, name: "Orange", meaning: "A total line"}
+
+texts:
+  section_added: "Added"
+  section_option: "Option"
+  note_added: "Added: not in plan v01"
+  note_highlight: "Our estimate, to confirm with the tech lead (yellow)"
+  note_option: "Optional extra in plan v01; in no total"
+  source_plan: "Plan v01 {id}"
+  source_option: "Plan v01, Options sheet, {section}"
+  ref_plan: "Plan v01 {id}"
+  ref_overhead: "Plan v01 {id} (overhead, allocated share; recomputed on Effort Summary)"
+  ref_added: "Added {id} (not in plan v01)"
+  ref_orig: "plan v01 figures: dev {dev}, effort {effort}"
+  row_type_task: "Task"
+  row_type_sub: "Sub-task"
+  cap_list_tail: " ... +{n} more: filter the sheet on {label}"
+  cap_label_stories: "User Stories WBS IDs"
+  cap_label_blocks: "WBS rows"
+
+documents:
+  - {name: "Plan v01", text: "Team implementation plan v01 (tech lead estimate): 336 task rows, Dev total 746.625 d (phi_tasks.yaml)"}
+  - {name: "BA feature list", text: "BA feature list (LSP_FeatureList): WBS row IDs and their acceptance criteria"}
+  - {name: "BL-04 Features Estimation", text: "Solution package BL-04, sheet Features: user stories with criteria and dev estimates"}
+  - {name: "LSP QnA v73", text: "LSP answers, sheet QnA - VI; cited as STT row numbers in source fields"}
+  - {name: "Requirements v1.3", text: "LSP requirements; cited by section number, e.g. section 6.7"}
+  - {name: "Call 7 Oct", text: "Call record of 7 Oct 2026 with LSP"}
+  - {name: "WBS v1.1", text: "Team WBS v1.1 layout: the standard structure this workbook follows"}
+
+summary:
+  title: "Effort Summary: Fsoft, Gate 401"
+  headers: [Activity, "Effort (d)", "Effort (MM)", "Unit rate (USD per MM)", "Cost USD", Note]
+  base_title: "a. Gate 401 base: Fsoft, in scope"
+  activities:
+    - {label: "Requirement (business analyst)", kind: role_plus_addon, role: BA, addon: ba, note: "BA-role effort plus the BA add-on of every other in-scope Fsoft task"}
+    - {label: "Development", kind: roles_net, roles: ["Backend developer", "Frontend developer", "AI/ML engineer", "Data labeler/annotator"], note: "Backend, frontend, AI/ML and labelling effort, less their QC and BA add-ons"}
+    - {label: "Testing", kind: role_plus_addon, role: QC, addon: qc, note: "QC-role effort plus the QC add-on of every other in-scope Fsoft task"}
+    - {label: "DevOps", kind: roles_net, roles: ["DevOps/Cloud engineer"], note: "DevOps effort, less its add-ons"}
+    - {label: "Site work", kind: roles_net, roles: ["Site installation technician"], note: "Site installation role on Fsoft rows; Fsoft site tasks by other roles are in those roles' lines"}
+    - {label: "Project tasks", kind: roles_net, roles: ["Project Manager"], note: "Project Manager-role task effort, less its add-ons"}
+  subtotal: {label: "Effort subtotal", note: "Sum of the six lines above"}
+  check: {label: "Check: effort subtotal minus base effort (must be 0)", note: "Difference from the sum of all base task efforts"}
+  dev_memo: {label: "Memo: Dev total (basis for PM)", note: "Dev days of the base, before add-ons"}
+  pm: {label: "Project management (20% of Dev)", note: "Project management share of Dev"}
+  sub: {label: "Subtotal (effort + PM)", note: ""}
+  contingency: {label: "Contingency (10% of subtotal)", note: "Reserve on the subtotal"}
+  total: {label: "TOTAL", note: "Base total, Fsoft, Gate 401"}
+  option_blocks:
+    - {title: "b1. Alcohol option A rows left outside the base (none: option A is in the base)", status: "Alcohol option A"}
+    - {title: "b2. Alcohol option B (not in the base total)", status: "Alcohol option B"}
+  option_lines:
+    effort: {label: "Effort (d)", note: "Fsoft-owned rows with this status"}
+    dev: {label: "Dev total (basis for PM)", note: ""}
+    pm: {label: "Project management (20% of Dev)", note: ""}
+    sub: {label: "Subtotal (effort + PM)", note: ""}
+    contingency: {label: "Contingency (10% of subtotal)", note: ""}
+    total: {label: "Total (d)", note: "Option total; not in the base total"}
+  other_title: "c. Other owners at Gate 401 (In scope)"
+  plan_check:
+    title: "d. Check: plan v01 rows with their original figures"
+    effort: {label: "Plan v01 effort, plan rows excluding overhead (d)", note: "Original figures; AI changes not applied"}
+    dev: {label: "Plan v01 Dev, same rows (d)", note: "Original figures"}
+    pm: {label: "Project management on plan v01 Dev (20%)", note: ""}
+    sub: {label: "Subtotal (effort + PM)", note: ""}
+    contingency: {label: "Contingency (10% of subtotal)", note: ""}
+    total: {label: "Plan v01 total recomputed (d)", note: ""}
+    reference: {label: "Plan v01 grand total (reference figure, d)", note: "The plan's grand total; input"}
+    difference: {label: "Difference (must be 0)", note: ""}
+  bridge:
+    title: "e. From plan v01 effort to this estimate (d)"
+    start: {label: "Plan v01 effort (start)", note: "Section d"}
+    end: {label: "Base effort after the changes", note: ""}
+    difference: {label: "Difference from the effort subtotal (must be 0)", note: ""}
+    step_note: "Change note column in Task Detail"
+    labels:
+      excluded_owner: "Hardware and site tasks (not Fsoft work, not shown)"
+      other_owner: "Owner {owner} (shown below the total)"
+      proposal_change: "AI engineer changes to plan tasks"
+      proposal_add: "Tasks added by the AI engineer"
+      highlight_add: "Our estimates for work the plan lacks (yellow)"
+      scope_add: "Tasks added for scope (requirements v1.3, LSP answers)"
+  notes_title: "Notes"
+  notes:
+    - "Effort per task is the plan's figure after AI engineer changes. It already includes the task's QC and BA add-ons."
+    - "Project management = 20% of Dev of the same scope. Contingency = 10% of subtotal, on its own line. Both rates are on Master."
+    - "Man-months = days / MD_MONTH. Cost USD = man-months x RATE. RATE and MD_MONTH are on Master."
+    - "Alcohol option A (breath tester) is in the base total (team, 8 Oct). Option B and LSP work are shown below the total."
+    - "Yellow cells (Task Detail, WBS): our estimates for work the plan lacks, to confirm with the tech lead."

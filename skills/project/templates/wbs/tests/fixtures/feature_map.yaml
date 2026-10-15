@@ -1,0 +1,19 @@
+rows:
+- {id: A.1, group: A. Matching, module: Matching, feature: Matching, description: "Match an entrant at the gate.", priority: High, dependency: null, acceptance: "Match rate at 95% or more, measured under a test method agreed at design.", owner: Us, note: null, source: "Feature list, row A.1"}
+- {id: A.2, group: A. Matching, module: Matching, feature: Second check, description: "A second check.", priority: Low, dependency: A.1, acceptance: "Second check result shown to the guard.", owner: Us, note: null, source: "Feature list, row A.2"}
+- {id: C.2, group: C. Application, module: Device, feature: Device check, description: "Device result before the gate opens.", priority: High, dependency: A.1, acceptance: "Device result shown to the guard.", owner: Us, note: "Option rows sit here.", source: "Feature list, row C.2"}
+- {id: E.1, group: E. Platform, module: Edge, feature: Edge base, description: "Edge base for the gate.", priority: High, dependency: null, acceptance: "Edge base runs for the gate.", owner: Us, note: null, source: "Feature list, row E.1"}
+- {id: F.1, group: F. Site, module: Site, feature: Site survey, description: "Survey the site.", priority: High, dependency: null, acceptance: "Survey report accepted.", owner: Us, note: null, source: "Feature list, row F.1"}
+- {id: F.2, group: F. Site, module: Site, feature: Site works, description: "Mount the panel.", priority: High, dependency: F.1, acceptance: "Panel mounted and checked.", owner: Partner, note: null, source: "Feature list, row F.2"}
+- {id: N.1, group: N. Project work, module: Project, feature: Data sync, description: "Sync data from the client system.", priority: Medium, dependency: null, acceptance: "Sync runs one way for the sample set.", owner: Us, note: null, source: "Feature list, row N.1"}
+map:
+- {plan_feature: 1.1.1, wbs_id: F.1}
+- {plan_feature: 1.2.1, wbs_id: F.2}
+- {plan_feature: 1.2.5, wbs_id: C.2}
+- {plan_feature: 1.3.1, wbs_id: A.1}
+- {plan_feature: 1.4.1, wbs_id: A.2}
+- {plan_feature: 1.5.1, wbs_id: E.1}
+- {plan_feature: 1.5.2, wbs_id: E.1}
+- {plan_feature: 1.6.1, wbs_id: N.1}
+- {plan_feature: 1.6.2, wbs_id: N.1}
+task_map: []

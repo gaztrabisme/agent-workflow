@@ -35,7 +35,7 @@ description: "<one line: what buildable/knowable/sellable thing this produces>. 
 
 ## Composition
 - **Inherits:** `core`.
-- **Consumes / hands off to:** <pipeline neighbors, including `conductor` for cross-skill approach declarations>.
+- **Consumes / hands off to:** <pipeline neighbors, including `project` for cross-skill approach declarations>.
 
 ## References
 - `references/<file>.md` — <one-line purpose>. (Every reference/template listed here must exist and be pointed at — no orphans.)

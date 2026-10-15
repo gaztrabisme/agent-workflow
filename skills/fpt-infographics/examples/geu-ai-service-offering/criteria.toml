@@ -1,0 +1,157 @@
+# Acceptance criteria for the worked example.
+#
+# This doubles as the skill's integration test: it builds the sheet from the skill alone
+# and puts it through all three gates. If this passes, the skill works end to end.
+#
+#   cd examples/geu-ai-service-offering && python ../../scripts/accept.py criteria.toml
+#
+# STANDING criteria were won by earlier versions of this sheet during the engagement the
+# skill came from. They carry forward for ever. A standing criterion that fails is
+# reported as FAILED, never re-worded to match what was built.
+
+[meta]
+root     = "../.."                         # relative paths below are from the skill root
+artefact = "examples/geu-ai-service-offering/sheet.html"
+pdf      = "examples/geu-ai-service-offering/sheet.pdf"
+goal     = "GOAL-2026-09-18-land-the-skill.md"
+
+# ---------------------------------------------------------------- standing: composition
+[[criterion]]
+id        = "S1"
+class     = "standing"
+statement = "The page fits its canvas with no overflow, collision or clipped text."
+[criterion.check]
+type        = "shell"
+cmd         = ["node", "scripts/check.mjs", "{artefact}", "--preset", "a3-landscape"]
+expect_exit = 0
+
+[[criterion]]
+id        = "S2"
+class     = "standing"
+statement = "At least five drawn representations, from at least three families."
+[criterion.check]
+type  = "json"
+cmd   = ["node", "scripts/check.mjs", "{artefact}", "--preset", "a3-landscape", "--json"]
+path  = "viz"
+op    = ">="
+value = 5
+
+[[criterion]]
+id        = "S3"
+class     = "standing"
+statement = "Drawn elements span at least 40% of page height."
+[criterion.check]
+type  = "json"
+cmd   = ["node", "scripts/check.mjs", "{artefact}", "--preset", "a3-landscape", "--json"]
+path  = "drawnShare"
+op    = ">="
+value = 0.40
+
+[[criterion]]
+id        = "S4"
+class     = "standing"
+statement = "Exactly one hero, at eight times body size or more."
+[criterion.check]
+type  = "json"
+cmd   = ["node", "scripts/check.mjs", "{artefact}", "--preset", "a3-landscape", "--json"]
+path  = "heroRatio"
+op    = ">="
+value = 8
+
+# ---------------------------------------------------------------- standing: content safety
+[[criterion]]
+id        = "S5"
+class     = "standing"
+statement = "No deal value, pipeline figure or internal owner appears on the client sheet."
+[criterion.check]
+type    = "text"
+cmd     = ["node", "scripts/pagetext.mjs", "{artefact}"]
+pattern = 'TCV|[Pp]ipeline|\$[0-9,]+K|OB sponsor|PIC:'
+expect  = false
+
+[[criterion]]
+id        = "S6"
+class     = "standing"
+statement = "No customer name outside the cleared TRUSTED BY list."
+[criterion.check]
+type    = "text"
+cmd     = ["node", "scripts/pagetext.mjs", "{artefact}"]
+pattern = 'CTBC|PwC|Maybank|ABMB|Duy Tan|TOGIS|Softbank|SHIEV|PQPOC|SCG CBM'
+expect  = false
+
+[[criterion]]
+id        = "S7"
+class     = "standing"
+statement = "No label that narrates its own honesty."
+[criterion.check]
+type    = "text"
+cmd     = ["node", "scripts/pagetext.mjs", "{artefact}"]
+pattern = 'WHAT WE CAN PROVE|OUR HONEST POSITION|NOT CLAIMED|BUILT, NOT YET'
+expect  = false
+
+# ---------------------------------------------------------------- new: this goal's gates
+[[criterion]]
+id        = "N1"
+class     = "new"
+statement = "Every text element clears the legibility floor at the declared condition."
+[criterion.check]
+type        = "shell"
+cmd         = ["node", "scripts/legibility.mjs", "{artefact}", "--condition", "a3-print"]
+expect_exit = 0
+
+[[criterion]]
+id        = "N2"
+class     = "new"
+statement = "No SVG text is shrunk by its own viewBox."
+[criterion.check]
+type  = "json"
+cmd   = ["node", "scripts/check.mjs", "{artefact}", "--preset", "a3-landscape", "--json"]
+path  = "svgScaleMin"
+op    = ">="
+value = 0.999
+
+[[criterion]]
+id        = "N3"
+class     = "new"
+statement = "The sheet conforms to the FPT brand: palette, colour combinations, logo ground, typeface."
+[criterion.check]
+type        = "shell"
+cmd         = ["node", "scripts/brandcheck.mjs", "{artefact}", "--width", "1754", "--height", "1240",
+               "--ground", "#FAF6EC,#F1EADA,#E4DBC4,#2B2A26,#6E695D,#CFC7B2,#FFFCF4"]
+expect_exit = 0
+
+[[criterion]]
+id        = "N4"
+class     = "new"
+statement = "The PDF carries no Type3 fonts."
+[criterion.check]
+type        = "shell"
+cmd         = ["node", "scripts/check.mjs", "{artefact}", "--preset", "a3-landscape", "--pdf", "{pdf}"]
+expect_exit = 0
+
+[[criterion]]
+id        = "N5"
+class     = "new"
+statement = "The example builds from the skill alone, importing nothing from the CTBC project."
+[criterion.check]
+type    = "grep"
+file    = "examples/geu-ai-service-offering/content.py"
+pattern = 'Documents.CTBC|business.work|business.resources'
+expect  = false
+
+[[criterion]]
+id        = "N6"
+class     = "new"
+statement = "Nothing in the skill points into the disposable plugin cache."
+[criterion.check]
+type        = "shell"
+cmd         = ["python", "scripts/nocache.py"]
+expect_exit = 0
+
+# ---------------------------------------------------------------- superseded
+[[criterion]]
+id                = "S8"
+class             = "standing"
+statement         = "The delivery-model block carries its Build / Show / Correct labels and its twelve-week rails."
+superseded_by     = "N1"
+superseded_clause = "pay for the height by moving the delivery-model block and the source line off the sheet"

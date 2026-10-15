@@ -45,7 +45,20 @@ For a dossier request, use the template as the artifact outline: decide pursue/h
 - **Grounding gate** — apply to client findings, source claims, and product facts. See `../core/references/grounding-gate.md`.
 - **Output Contract** — apply to the dossier, evidence log, and meeting brief. See `../core/references/output-contract.md` and `../core/references/wiki-protocol.md`.
 - **Pushback and teach** — use the shared response pattern when the user’s proposed claim or plan is unsupported. See `../core/references/pushback-and-teach.md`.
-For substantive work involving multiple actors or stages, `conductor` owns the one-line approach declaration in its Plan Block. See `../conductor/SKILL.md` under **Approach declaration**. This skill supplies the intelligence work within that plan.
+For substantive work involving multiple actors or stages, `project` owns the one-line approach declaration in its Plan Block. See `../project/references/run/flow.md` under **Approach declaration**. This skill supplies the intelligence work within that plan.
+
+## Loop-back rule
+
+Research that changes the picture is the point of the work. When one of these triggers fires, stop the current track, state what was found and why it changes things, discuss the implications with the user, and decide together whether to change approach. Do not adjust silently: the user defends the work in the room.
+
+| Trigger | What changed |
+|---|---|
+| New executive (under 1 year in role) | Existing relationship goodwill may not transfer; re-assess engagement strategy. |
+| Competitor move | A competitor won a relevant deal, launched a competing capability, or changed positioning; defensive work needed. |
+| Pain misalignment | Stated pain points no longer match the offering; rescope or reconsider. |
+| Platform change | They adopted or dropped a platform that alters the capability map; re-run product-environment fit. |
+| Political shift | Executive reorg, sponsor change, or budget reassignment. |
+| Claim fails verification | A claim does not hold up; fix the claim, not the messaging. |
 
 ## Anti-patterns (hard no-list)
 

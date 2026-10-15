@@ -30,6 +30,12 @@ For a contested price or acceptance outcome, use standards independent of either
 
 If a buyer-seller dispute meets the contract's definition of a claim, follow that contract's binding claims procedure and preserve the claim and decision record. Do not substitute an informal delivery conversation for the agreed dispute process. [book:head-first-pmp], Stay on top of the seller
 
+## Margin and change requests
+
+Show each change request's effect on the running margin of the engagement, beside its effect on scope and schedule. The per-feature margin view and the engagement's cost tolerance are set up before signature in `project`'s [business case reference](../../project/references/business-case-and-tolerances.md).
+
+Fund an approved extra-cost change from the change budget agreed with the client, a larger budget from the client, or removed scope; never from tolerance. A loss already made on the fixed price is ours: recover it only through changes that price real new scope the client asks for, never by adding price to an unrelated request. [book:prince2-managing-successful-projects], 11.4. Technique: recommended issue and change control procedure; 10.3. Guidance for effective risk management
+
 ## Authority and current configuration status
 
 Name the authority that can accept, modify, reject or defer a proposed change. Use a Configuration Control Board when the contract or engagement governance assigns that role; otherwise follow the documented delegated authority appropriate to the affected baseline. [book:swebok], 3.1. Requesting, Evaluating, and Approving Software Changes (5907 · U3 · L23 · 00:00–02:46)

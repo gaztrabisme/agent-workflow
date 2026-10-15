@@ -11,8 +11,16 @@ Generate draw.io diagrams as native `.drawio` files. Optionally export to PNG, S
 
 1. **Generate draw.io XML** in mxGraphModel format for the requested diagram
 2. **Write the XML** to a `.drawio` file in the current working directory using the Write tool
-3. **If the user requested an export format** (png, svg, pdf), export using the draw.io CLI with `--embed-diagram`, then delete the source `.drawio` file
+3. **If the user requested an export format** (png, svg, pdf), export using the draw.io CLI with `--embed-diagram`, and keep the `.drawio` source beside the export
 4. **Open the result** — the exported file if exported, or the `.drawio` file otherwise
+
+## Editing a diagram that already exists
+
+Editing an existing diagram is the common case, and it does not restart the steps above. Do not regenerate the XML. Find the cell by its `id=` or its `value=` text and patch that string. On a 100-cell diagram, regeneration can change unrelated cells; a targeted patch changes only the cell you meant.
+
+- **Re-export in the same edit.** See `references/quality-conventions.md` → *The export is a derived artifact*.
+- **If the export overwrites one that has already shipped, diff the new PNG against the old one** and read what changed. A one-label edit can move a lane, and the diff is what catches it. Composite both onto the same background before comparing (`references/quality-conventions.md` → *Verifying a re-export by pixel diff*).
+- **A patch that lengthens a string re-opens the overflow check for that cell** (`references/quality-conventions.md` → *Card text overflow*). Content edits are layout edits.
 
 ## Choosing the output format
 
@@ -81,7 +89,7 @@ Key flags:
 - Use a descriptive filename based on the diagram content (e.g., `login-flow`, `database-schema`)
 - Use lowercase with hyphens for multi-word names
 - For export, use double extensions: `name.drawio.png`, `name.drawio.svg`, `name.drawio.pdf` — this signals the file contains embedded diagram XML
-- After a successful export, delete the intermediate `.drawio` file — the exported file contains the full diagram
+- After a successful export, keep the `.drawio` source next to the export. It is the editable source and keeps `git diff` history for the diagram. Re-export whenever it changes
 
 ## XML format
 
@@ -249,3 +257,5 @@ For the XML Schema Definition (XSD): https://www.drawio.com/assets/mxfile.xsd
 ## Presentation-grade diagrams
 
 For client-facing / review-cycle diagrams (architecture, topology, anything a stakeholder will scrutinize), read `references/quality-conventions.md` in this skill's directory BEFORE authoring. It contains the mandatory pixel-verification loop (export → read PNG → crop → fix), the edge-label gap rule, corridor routing, colored-header container conventions, icon-on-left card pattern, and a verified Azure icon-path list. The core rule: never deliver on "export succeeded" — gate on reading the exported pixels.
+
+Before exporting, `python scripts/check_diagram.py <file>.drawio --png <preview>.png` flags shapes drawn inside a container but not parented to it, overlapping shapes, edges through shapes and unlabelled shapes, and draws a wireframe preview; it exits 1 on an error. Its warnings are prompts to look, not verdicts. It does not replace reading the exported PNG.

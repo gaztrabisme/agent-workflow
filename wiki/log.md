@@ -73,3 +73,12 @@ Owner asked for a skill on "hitting the dopamine release" in presentations, vide
 - The fixed critique workflow has not been re-run end to end; next real use is that test.
 - claude.ai copy not made: run `./scripts/make-cloud-zips.sh` and upload `reward-design` if wanted there.
 - Not committed (owner commits).
+
+## 2026-10-15 — Work-laptop setup merged on branch `merge-2026-10-15`
+
+- Source: the work laptop's package `claude-setup-2026-10-15.zip` (forked from `0621c7e` on 2026-10-08). Branches: `mac-wip-2026-10-15` (the Mac's uncommitted work plus GitHub's per-machine split), `work-laptop-2026-10-15` (the package, line endings fixed), `merge-2026-10-15` (both).
+- Owner decisions (Huy, 15 Oct): `project` replaces `conductor` and `project-management`; the work laptop's `xlsx` replaces the Mac's copy of Anthropic's (which stays in `~/Documents/Work/tools/skills/xlsx`); the `require_load.py` brief hook is installed on the Mac.
+- Mac conductor edits carried into `project`: the provider-lane dynamic workflow, the plan-goal goal block, and the `epi` lane in `references/run/lane-plan.md`.
+- `CLAUDE.md`: the laptop's Voice, question, don't-invent and Character sections, plus the Mac's Documents, routing (now `project`), lanes and machine import. The laptop's LSP "two hats" paragraph moved to `config/claude/machines/huytl10.md`.
+- Left out of the package: `dev/AGENTS.md` (a symlink flattened to text by Windows), `skills/.gitignore`, the 2026-08-11 `skills-patches`, the laptop's project memory notes, and its three scene-engine Windows fixes (not in the package).
+- Not merged to `main`, not pushed, not installed; waits for Huy's review.

@@ -6,7 +6,7 @@ Write a short spoken version and a one-sentence main point before laying out sli
 
 Make a low-cost outline of the planned content, then arrange and remove pieces until each section supports the main point. A storyboard gives the communication a changeable structure before slide production creates attachment to individual pages. [book:storytelling-with-data], “Storyboarding”.
 
-For a live presentation, write speaking notes with the important points for each slide and practice transitions between slides. [book:storytelling-with-data], “Who, what, and how”.
+For a live presentation, write speaking notes with the important points for each slide and practice transitions between slides. [book:storytelling-with-data], “Who, what, and how”. Before the deck is shown, run the [speaker-script pass](speaker-script-pass.md).
 
 ## Set the order for the audience
 

@@ -120,7 +120,7 @@ Use [dark-patterns.md](references/dark-patterns.md) to recognize variable-ratio 
 ## Composition
 
 - **Inherits:** [core](../core/SKILL.md) for canonical gates.
-- **Consumes:** the brief, current piece, audience evidence, verified facts and the seven production siblings' constraints. Use [conductor](../conductor/SKILL.md) when a cross-skill approach declaration is needed.
+- **Consumes:** the brief, current piece, audience evidence, verified facts and the seven production siblings' constraints. Use [project](../project/SKILL.md) when a cross-skill approach declaration is needed.
 - **Hands off:** beat/cue plan to [presentation](../presentation/SKILL.md) for decks/videos; timing intent to [motion](../motion/SKILL.md); focal intent to [visual-design](../visual-design/SKILL.md); colour intent to [color-theory](../color-theory/SKILL.md); reveal intent to [information-design](../information-design/SKILL.md); outcome/agency intent to [ux](../ux/SKILL.md); agreed web behavior to [frontend](../frontend/SKILL.md).
 - **Returns:** production defects to the owning sibling, reward-plan defects to the named stage, later real-use learning to [evolution](../evolution/SKILL.md). Keep the delivery owner's accessibility and rendering gates.
 

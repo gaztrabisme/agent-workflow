@@ -647,3 +647,36 @@ C3a run as a content comparison or quietly reduced to another set difference?
 - [ ] Two independent real uses confirm the rebuilt structure and additions.
 - Course source addition (2026-10-01): read course 2999 Units 2–4 (5907 U3 lessons L18–L27; 10 lessons); course support added to 36 routed rules; 6 SOW practices added.
 **Verdict: PENDING** — the rebuild is source-grounded and mechanically validated; it has not yet been exercised twice in real work.
+
+## Evolution 10 — LSP presale after-action review (2026-10-10)
+
+### Traces
+LSP presale sessions 2026-10-05..09 (`C:\Users\HuyTL10\Documents\scgc-lsp`). The skill itself was loaded in only 2 sessions; the presale architecture and sizing ran under conductor. Report: `scgc-lsp/wiki/raw/2026-10-10-after-action-report.md`.
+
+### Settled verdicts
+- Evolution 9 (stage B rebuild) → **PENDING**. Not exercised as a whole; loaded twice.
+
+### Change
+| ID | Edit | Evidence |
+|---|---|---|
+| H5 | `references/tech-selection.md` Decision methods: write down the smallest configuration that meets the need before adding a component or sizing up; any size-up carries its reason | The owner cut four designs down: exit PPE camera (5 Oct), "3 + 1" edge units (6 Oct), decoding every camera at 4 MP 25 fps and an RTX PRO 6000 for light fine-tuning (9 Oct) |
+
+### Verdict: PENDING
+Validation: on the next sizing or architecture, the owner does not have to cut the design down; disproved if he does. Owner: Huy; revisit at the next project's close.
+
+---
+
+## Evolution 11 — Requirement coverage aid (2026-10-13)
+
+### Trace
+technical-proposal, a skill shared by its author (an FPT PM) on 13 Oct 2026, with full permission to reuse. Proposal and decision: `../project-management/proposals/shared-skills-second-pass-2026-10-13.md`, item 5.
+
+### Change
+| ID | Edit | File |
+|---|---|---|
+| SA1 | Optional script: for each requirement, the slides or document sections most likely to answer it, ranked by shared terms; no verdict. Adapted: any workbook sheet with an ID column (`--sheet`), UTF-8 output | `scripts/audit_proposal.py`, `SKILL.md` |
+
+Tested 13 Oct on five client requests against a 23-slide presale deck: four matched a plausible slide; the fifth (a cross-company query) scored below the threshold and was listed as a likely gap. Workbook input with a named sheet and the missing-sheet error both checked.
+
+### Verdict: PENDING
+Validation: on the next response pack, the reviewer uses the candidate list and records a locator per requirement. Disproved if the candidates are mostly slides that restate the requirement rather than answer it.
