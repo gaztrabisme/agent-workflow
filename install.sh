@@ -80,6 +80,20 @@ if [ -e "$CM" ] && [ ! -L "$CM" ] && ! cmp -s "$CM" "$AW/config/claude/CLAUDE.md
 fi
 ln -sfn "$AW/config/claude/CLAUDE.md" "$CM"
 
+# --- machine.md: this machine's facts, imported by CLAUDE.md ---
+# AW_MACHINE names the file in config/claude/machines/; default: the short hostname, lowercased.
+MACHINE="${AW_MACHINE:-$(hostname -s | tr '[:upper:]' '[:lower:]')}"
+MM="$HOME/.claude/machine.md"
+if [ -f "$AW/config/claude/machines/$MACHINE.md" ]; then
+  if [ -e "$MM" ] && [ ! -L "$MM" ]; then
+    cp "$MM" "$MM.bak-$(date +%Y%m%d-%H%M%S)"
+    say "Existing machine.md backed up."
+  fi
+  ln -sfn "$AW/config/claude/machines/$MACHINE.md" "$MM"
+else
+  warn "no config/claude/machines/$MACHINE.md; set AW_MACHINE to one of: $(ls "$AW/config/claude/machines" | sed 's/\.md$//' | tr '\n' ' ')"
+fi
+
 # --- hooks, plugins and plugin sources in settings.json (merged, never replaced) ---
 PG="$(dirname "$AW")/pi-plan-goal"
 if [ ! -d "$PG/claude-code" ]; then
