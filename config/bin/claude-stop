@@ -96,9 +96,12 @@ def stop(s, ask, force):
     label = f"{s['title'] or '(no name)'} in {s['cwd']} (pid {s['pid']}, {s['rss']/1048576:.2f} GB)"
     if s["cpu"] > 5:
         print(f"Note: it is using {s['cpu']:.0f}% CPU right now, so it may be in the middle of work.")
-    if ask and input(f"Stop {label}? [y/N] ").strip().lower() != "y":
-        print("Left running.")
-        return
+    if ask:
+        if not sys.stdin.isatty():
+            sys.exit("No keyboard to confirm with. Run again with --yes to stop it: claude-stop <number> --yes")
+        if input(f"Stop {label}? [y/N] ").strip().lower() != "y":
+            print("Left running.")
+            return
     os.kill(int(s["pid"]), signal.SIGTERM)
     for _ in range(20):
         time.sleep(0.5)

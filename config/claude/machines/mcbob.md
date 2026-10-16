@@ -56,3 +56,5 @@ If oMLX cannot serve an architecture: `mlx_lm.server` / `mlx_lm.generate` (minic
 3. Use the same permission mode as the sessions it must talk to. When modes differ, the receiving session holds cross-session messages for approval, and a Desktop session cannot ask, so they expire undelivered.
 
 It stops when the Mac sleeps or restarts. Check it with ListAgents. If the Desktop app reopens the same session, close the tmux copy so only one answers.
+
+After a Mac restart the Desktop app reopens its own sessions within seconds. Run ListAgents before any `tmux new-session ... --resume`, and resume in tmux only the sessions that are missing. If two rows carry the same name, the one marked "Claude Desktop session" is the one Huy types into; message it by its ref (for example "IELTSy repo sync [b67925]") and `/exit` the tmux copy.
