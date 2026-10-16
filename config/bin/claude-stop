@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+"""List running Claude Code sessions on this Mac and stop one.
+
+  claude-stop             list sessions: number, name, folder, age, memory (with its MCP servers), CPU
+  claude-stop 3           stop session 3 from the list (asks first)
+  claude-stop 3 --yes     stop without asking
+  claude-stop 3 --force   kill it if it has not exited 10 s after the polite stop
+
+Stopping sends SIGTERM to the session's claude process; its MCP servers and tool
+processes exit with it. The conversation stays on disk and can be resumed later
+(in the Desktop app, open it from the sidebar; in a terminal, `claude --resume <id>`).
+Sessions started from the Desktop app and from terminals are both listed.
+"""
+import glob, json, os, re, signal, subprocess, sys, time
+
+PROJECTS = os.path.expanduser("~/.claude/projects")
+
+
+def processes():
+    out = subprocess.run(["ps", "-axo", "pid=,ppid=,rss=,pcpu=,etime=,command="],
+                         capture_output=True, text=True).stdout
+    rows = {}
+    for line in out.splitlines():
+        p = line.split(None, 5)
+        if len(p) == 6:
+            rows[p[0]] = {"ppid": p[1], "rss": int(p[2]), "cpu": float(p[3]), "etime": p[4], "cmd": p[5]}
+    return rows
+
+
+def tree(pid, rows, kids):
+    total, cpu = rows[pid]["rss"], rows[pid]["cpu"]
+    for k in kids.get(pid, []):
+        r, c = tree(k, rows, kids)
+        total, cpu = total + r, cpu + c
+    return total, cpu
+
+
+def cwd_of(pid):
+    out = subprocess.run(["lsof", "-a", "-p", pid, "-d", "cwd", "-Fn"], capture_output=True, text=True).stdout
+    return next((l[1:] for l in out.splitlines() if l.startswith("n")), "?")
+
+
+def title_of(sid):
+    if not sid:
+        return ""
+    files = glob.glob(os.path.join(PROJECTS, "*", sid + ".jsonl"))
+    title = ""
+    if files:
+        with open(files[0], errors="replace") as f:
+            for line in f:
+                if '"custom-title"' in line or '"agent-name"' in line:
+                    try:
+                        d = json.loads(line)
+                        title = d.get("customTitle") or d.get("agentName") or title
+                    except ValueError:
+                        pass
+    return title
+
+
+def sessions():
+    rows = processes()
+    kids = {}
+    for pid, r in rows.items():
+        kids.setdefault(r["ppid"], []).append(pid)
+    found = []
+    for pid, r in rows.items():
+        exe = r["cmd"].split(" --")[0]
+        if not (exe.endswith("/claude") or exe == "claude" or exe.endswith("/MacOS/claude")):
+            continue
+        if " -p " in r["cmd"] + " " or "--print" in r["cmd"]:
+            continue  # one-shot runs, not sessions
+        parent = rows.get(r["ppid"], {}).get("cmd", "")
+        if parent.split(" --")[0].endswith("/claude") or parent.split(" ")[0] == "claude":
+            continue  # a child of another claude
+        m = re.search(r"--(?:resume|session-id)[ =]([0-9a-f-]{36})", r["cmd"])
+        sid = m.group(1) if m else ""
+        rss, cpu = tree(pid, rows, kids)
+        found.append({"pid": pid, "sid": sid, "rss": rss, "cpu": cpu, "etime": r["etime"],
+                      "where": "Desktop" if "Application Support/Claude" in r["cmd"] else "terminal",
+                      "cwd": cwd_of(pid), "title": title_of(sid)})
+    found.sort(key=lambda s: -s["rss"])
+    return found
+
+
+def show(found):
+    print(f"{'#':>2}  {'memory':>7}  {'cpu':>5}  {'running':>11}  {'from':8}  name / folder")
+    for i, s in enumerate(found, 1):
+        name = s["title"] or "(no name)"
+        print(f"{i:>2}  {s['rss']/1048576:>5.2f}GB  {s['cpu']:>4.0f}%  {s['etime']:>11}  {s['where']:8}  "
+              f"{name} — {s['cwd'].replace(os.path.expanduser('~'), '~')}")
+    print(f"\n{len(found)} sessions, {sum(s['rss'] for s in found)/1048576:.1f} GB in total. "
+          "Stop one with: claude-stop <#>")
+
+
+def stop(s, ask, force):
+    label = f"{s['title'] or '(no name)'} in {s['cwd']} (pid {s['pid']}, {s['rss']/1048576:.2f} GB)"
+    if s["cpu"] > 5:
+        print(f"Note: it is using {s['cpu']:.0f}% CPU right now, so it may be in the middle of work.")
+    if ask and input(f"Stop {label}? [y/N] ").strip().lower() != "y":
+        print("Left running.")
+        return
+    os.kill(int(s["pid"]), signal.SIGTERM)
+    for _ in range(20):
+        time.sleep(0.5)
+        if subprocess.run(["kill", "-0", s["pid"]], capture_output=True).returncode != 0:
+            print(f"Stopped. Resume later with: claude --resume {s['sid']}" if s["sid"] else "Stopped.")
+            return
+    if force:
+        os.kill(int(s["pid"]), signal.SIGKILL)
+        print("It did not exit politely, so it was killed.")
+    else:
+        print("Still running after 10 s. Run again with --force to kill it.")
+
+
+def main():
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    found = sessions()
+    if not args:
+        show(found)
+        return
+    n = int(args[0])
+    if not 1 <= n <= len(found):
+        sys.exit(f"No session {n}. Run claude-stop to see the list.")
+    stop(found[n - 1], ask="--yes" not in sys.argv, force="--force" in sys.argv)
+
+
+if __name__ == "__main__":
+    main()
