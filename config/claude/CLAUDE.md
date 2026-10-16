@@ -222,6 +222,10 @@ Exempt: one-line fixes, lookups, conversational turns, and anything where he nam
 
 All delegation lane rules live in one file: `~/.claude/skills/project/references/run/lane-plan.md`. It covers the providers of the `subagent` MCP server (codex, deepseek, glm, gemini, bppc, omlx), how to invoke and tune them, the brief contract, lane selection and quota fallback. Read it before any delegation, inside `project` or not. Before planning onto a cloud lane, check that the lane is open on the system (`subagent doctor --prompt --json`); any of them can be down. Do not restate lane rules here or in another skill.
 
+## Shell
+
+Never put `sleep N` ahead of other commands in one Bash call; the harness blocks it. Wait with `run_in_background: true` on an `until <check>; do sleep 15; done` loop, or the Monitor tool, and read the output when it finishes.
+
 ## This machine
 
 Facts true only for the machine this session runs on (hardware, OS, local servers, how to reach the other machines) are in `~/.claude/machine.md`, imported below. It links to `config/claude/machines/<machine>.md` in the agent-workflow repo. If the import is empty, this machine has no file yet: ask Huy rather than assuming another machine's setup.

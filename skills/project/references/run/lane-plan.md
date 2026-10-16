@@ -67,6 +67,8 @@ All external lanes go through the `subagent` MCP server (`mcp__subagent__*`; sou
 - For DeepSeek, use the documented run defaults: 120 steps, four agents, and 5,400 seconds.
 - Every `delegate` carries a `verification` command. It must not contain `cd`, so use paths relative to the workspace root, or absolute paths. It must also be one simple command: the guard blocks compound lines (`&&`, pipes, `$(…)`) before they run ("blocked before execution: compound command line", 2026-09-29). Put a multi-step check in a script and pass `bash path/to/verify.sh`.
 - The script in a `verification` command must be a file inside the workspace; the guard blocks a script outside it ("not a file in the workspace", 2026-09-30).
+- A verification command must fail on a placeholder or an incomplete deliverable. Checking section headings is not enough: also read the verdict line and the counts the verdict rests on. Before relying on it, run it once against an empty or placeholder report and confirm it fails.
+
 - Standing rules go in `instructions`, not in the task text, so they survive `continue`.
 - Two children never share a workspace. [book:agentic-mesh], Shared Workspaces for Agents.
 - `cancel` ends a session permanently. It is not a pause, so cancel early when the lane was the wrong weight, not late.

@@ -66,6 +66,8 @@ Three rules for the rows, learned from a run where two rows could never pass and
 - **Every branch passes.** A row that depends on a decision passes on each branch of that decision, and says so.
 - **Owner amendments.** If the owner changes the scope mid-run, append the dated change in the owner's words. Preserve the original row and its UAT result. A failing criterion may be revised only when its underlying assumption or the tested functionality has genuinely changed; record that change and keep the original failure visible. Never change wording just to hide a failure. [book:continuous-delivery], Essential Practices.
 
+A "left untouched" check on a repo other sessions also edit must name the exact paths or files this run could have touched, and compare hashes of those. A whole-folder `git status` diff will fail on other sessions' edits and cannot tell whose they are.
+
 ## Who audits
 
 The coordinator, at Close, against this file only: run each UAT command, report pass or fail per row. A criterion that fails is reported as failed, never re-worded to match what was produced — that is the kernel's first integrity constraint (`../../../core/SKILL.md`). The file is written before dispatch. The coordinator never deletes or silently rewrites a row. A scope change, or a demonstrated change to the tested assumption or functionality, is recorded as a dated amendment that preserves the original criterion and verdict. A criterion found to be wrong without such a change remains a stop-and-escalate.
