@@ -3,6 +3,9 @@
 Hook mode (default): reads the hook's JSON from stdin, starts a detached copy of this
 script with --run, and exits 0 at once, so compaction never waits and is never blocked.
 
+Notify mode (--notify, a Stop hook): when a review for this session has finished, shows
+its one-line result in the session's own window once.
+
 Run mode (--run): condenses the transcript since the last compaction into a short text
 file, asks a separate `claude -p` (read-only tools, no MCP servers) for lessons, and
 appends any to ~/.claude/lessons-queue.md for Huy to approve. A routine session yields
@@ -26,6 +29,13 @@ MODEL = os.environ.get("DISTILL_MODEL", "sonnet")
 MAX_CHARS = 400_000          # condensed transcript cap; the newest part is kept
 REMINDER = re.compile(r"<system-reminder>.*?</system-reminder>", re.S)
 TROUBLE = re.compile(r"error|blocked|denied|failed|traceback|timed out|exit code [1-9]", re.I)
+
+
+def mark_done(session, text):
+    """Leave a note for the session's Stop hook to show once in its window."""
+    d = os.path.join(WORK, "done")
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, session), "w").write(text)
 
 
 def log(line):
@@ -109,6 +119,7 @@ def run(transcript, session, cwd, trigger):
         return
     if answer.startswith("NOTHING TO LEARN"):
         log(f"nothing session={session[:8]} trigger={trigger} cwd={cwd}")
+        mark_done(session, "Lesson review of the last compaction: nothing to learn.")
         return
     n = answer.count("\n### ") + answer.startswith("### ")
     new = not os.path.exists(QUEUE)
@@ -119,9 +130,27 @@ def run(transcript, session, cwd, trigger):
         f.write(f"\n## {time.strftime('%Y-%m-%d %H:%M')} · {os.path.basename(cwd) or cwd} · "
                 f"session {session[:8]} · {trigger}\n\n{answer}\n")
     log(f"queued {n} session={session[:8]} trigger={trigger} cwd={cwd}")
+    mark_done(session, f"Lesson review of the last compaction: {n} lesson(s) queued in "
+                       f"~/.claude/lessons-queue.md for Huy's approval.")
+
+
+def notify():
+    """Stop hook: show a finished review's result once, in that session's window."""
+    try:
+        p = json.load(sys.stdin)
+    except ValueError:
+        return
+    f = os.path.join(WORK, "done", p.get("session_id", ""))
+    if p.get("session_id") and os.path.isfile(f):
+        msg = open(f).read().strip()
+        os.remove(f)
+        print(json.dumps({"systemMessage": msg}))
 
 
 def main():
+    if "--notify" in sys.argv:
+        notify()
+        return
     if "--run" in sys.argv:
         _, _, transcript, session, cwd, trigger = sys.argv
         run(transcript, session, cwd, trigger)

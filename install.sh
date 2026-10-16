@@ -143,6 +143,7 @@ for m in ("Edit", "Write"):
     add("PostToolUse", m, q)
 add("PreToolUse", "Agent", "python3 " + os.path.join(aw, "config", "hooks", "require_load.py"))
 add("PreCompact", "", "python3 " + os.path.join(aw, "config", "hooks", "precompact_distill.py"))
+add("Stop", "", "python3 " + os.path.join(aw, "config", "hooks", "precompact_distill.py") + " --notify")
 
 plugins = s.setdefault("enabledPlugins", {})
 for p in ("pyright-lsp@claude-plugins-official", "rust-analyzer-lsp@claude-plugins-official",
