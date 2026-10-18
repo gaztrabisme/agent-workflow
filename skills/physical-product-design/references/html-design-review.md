@@ -42,6 +42,7 @@ On narrow screens, collapse lengthy audit details while keeping the explanation,
 
 - Use named parts and assembly transforms from the current source. Preserve distinct classes for printed parts, purchased items, contact/clearance envelopes and service volumes.
 - Populate dimensions, selected hardware, revision, validation results and maturity from current project data. Avoid hard-coded values that become stale when parameters change.
+- After any revision that removes or renames a part, grep `cad/handoff.py`, `cad/viewer_template.html`, README, ledger, test record and order plan for the old part names and the old process words (PETG, Ender, cover, shim, splice) before rebuilding the review page. The viewer template hard-codes part names in its JavaScript (for example `m.name==='body'`), and the stale text surfaces only in the rendered page.
 - Rebuild the affected viewer data and views after geometry changes. After an evidence-only update, refresh the labels and handoff package without claiming that physical validation advanced.
 - Make diagnostic visibility and colours legible. Camera clipping, transparency, lighting and occlusion must not hide defects or suggest verified clearance where only an assumed envelope exists.
 - A rendered wood texture, metallic shader or smooth surface is a finish intention unless supported by the manufacturing process and a sample. Keep these distinctions visible in captions or material notes.

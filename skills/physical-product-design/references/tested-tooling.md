@@ -31,6 +31,8 @@ Capture Python/package versions and Blender/slicer versions in the project evide
 
 When reproducing an old artifact, start from its recorded versions and profile. When adopting newer tools or a different platform, exercise the relevant export, solver benchmark or slice before trusting compatibility. Retrieve current API/install instructions from official documentation as needed; this reference is not a copied installation manual.
 
+The shared venv (`3D-prints/.venv`, Python 3.11) has a numpy that no longer has `np.trapz`; use `np.trapezoid`. trimesh `to_planar` is deprecated; use `to_2D`. Run analysis scripts with `../.venv/bin/python -I`.
+
 ## Data flow and handoff contracts
 
 The exercised pipeline was:
@@ -50,6 +52,8 @@ Store geometry revision or hashes, parameters, source scripts, environment/profi
 ## Purchased CAD and mesh-export pitfalls
 
 A valid supplier assembly can contain touching material shells that become non-manifold if every coincident vertex is welded together. Inspect source solid structure before treating this as a printable-part defect. Where appropriate, tessellate and validate shells separately in source coordinates, apply only a documented small seam tolerance within each shell, then transform with adequate precision and preserve separate shell topology. Recheck bounds, volume and closure. Do not repair fit-critical geometry by indiscriminate welding or hole filling. Purchased multi-solid assemblies and connected printed parts have different validation expectations.
+
+- A smooth (ruled=False) cadquery loft can pass B-rep validity and still export an STL with thousands of zero-area triangles that split into hundreds of mesh pieces (P06 body: 11,048 zero-area faces, 822 pieces; ruled=True gave 0 and 1). Check the exported STL (area_faces < 1e-9, len(split(only_watertight=False)) == 1), not only the solid. Use ruled=True when the shape is tapered flats. Two solids touching on a coincident face can also fail the mesh check; leave a 0.1 mm per-side gap instead.
 
 A later September 2026 dock audit exercised real Chromium/WebGL interaction checks, panel-connector supplier STEP imports, released cable-feed poses and extracted offline-package checks. This extends the earlier tooling example; it does not retroactively turn its mocked-browser checks into real-browser evidence. No physical fit, powered cooling test or CFD was performed in that later audit.
 

@@ -126,7 +126,7 @@ Then it writes **the single coherent spec** — one document, one voice, contrad
 
 ## Step 5 — Unresolved contradictions become forks, not another round
 
-Anything the reconciler could not settle goes to the Plan Block's `DECIDE NOW` for the next run — a real fork with options and consequences, including why the alternatives lost. Never a second cross-review round, never a silent pick. [book:facilitating-software-architecture], Consequences.
+Anything the reconciler could not settle goes to the Plan Block's `Decisions for you` for the next run — a real fork with options and consequences, including why the alternatives lost. Never a second cross-review round, never a silent pick. [book:facilitating-software-architecture], Consequences.
 
 ## Step 6 — The users react to the coherent spec
 

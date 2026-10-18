@@ -49,13 +49,13 @@ Use [../routing.md](../routing.md) for the route table, carrier and capability s
 
 Before composing, read project rules, the wiki index and live state, existing decisions, the declared agent board if present, the relevant skill substrate, and the current harness row. A plan that ignores existing decisions reopens settled questions. [book:agentic-mesh], Agents as Plan Steps; [book:facilitating-software-architecture], Framing the Context.
 
-Read every input document as a CERIC hunt: what it claims, its evidence and reasoning, relevant context, implications, and what is missing. For a shared Office file, its comments, speaker notes and tracked changes are part of the input; say in the report what they ask for. (derived: LSP 2026-10-09) Write `grounded.md` with one section per input and a closing `Grounded:` line. Missing items become `DECIDE NOW` questions and specific questions in the briefs of agents tasked with resolving them; while open, they also become owned issue-log entries with a responsible person and follow-up. See [ceric-gates.md](ceric-gates.md). [book:learning-systems-thinking], Identify Your Reasons; [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
+Read every input document as a CERIC hunt: what it claims, its evidence and reasoning, relevant context, implications, and what is missing. For a shared Office file, its comments, speaker notes and tracked changes are part of the input; say in the report what they ask for. (derived: LSP 2026-10-09) Write `grounded.md` with one section per input and a closing `Grounded:` line. Missing items become `Decisions for you` questions and specific questions in the briefs of agents tasked with resolving them; while open, they also become owned issue-log entries with a responsible person and follow-up. See [ceric-gates.md](ceric-gates.md). [book:learning-systems-thinking], Identify Your Reasons; [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
 
-At Ground, carry forward every fork the prior run left open: restate it in `DECIDE NOW`, or record the evidence and owner decision that resolved or retired it. Close records the resulting state. (derived: dogfood 2026-10-01)
+At Ground, carry forward every fork the prior run left open: restate it in `Decisions for you`, or record the evidence and owner decision that resolved or retired it. Close records the resulting state. (derived: dogfood 2026-10-01)
 
 ### Intent interview
 
-Prepared after Ground, sent at Declare. When, after Ground, the request still has an open outcome that would cost a redone stage if guessed wrong, an undecided edge case or two conflicting requirements, prepare 2 to 5 concrete scenario questions about the outcome ("what should happen when…"). Ask about what, not how; ask nothing the record already settles. Each question states the scenario and why it matters, then a default if skipped, or `No default: needed before go` for a fact only the requester holds. Send them at the top of the Plan Block message, with the plan drafted on the defaults, so one reply can answer and give go. Skip the interview when the request is already specific or the requester says to skip. Answers go to `grounded.md` and `INTENT`. Full rules: [intent-interview.md](intent-interview.md). [book:swebok], 3. Requirements Elicitation.
+Prepared after Ground, sent at Declare. When, after Ground, the request still has an open outcome that would cost a redone stage if guessed wrong, an undecided edge case or two conflicting requirements, prepare 2 to 5 concrete scenario questions about the outcome ("what should happen when…"). Ask about what, not how; ask nothing the record already settles. Each question states the scenario and why it matters, then a default if skipped, or `No default: needed before go` for a fact only the requester holds. Send them at the top of the Plan Block message, with the plan drafted on the defaults, so one reply can answer and give go. Skip the interview when the request is already specific or the requester says to skip. Answers go to `grounded.md` and `Goal`. Full rules: [intent-interview.md](intent-interview.md). [book:swebok], 3. Requirements Elicitation.
 
 ## 3. Compose
 
@@ -67,44 +67,48 @@ When the owner says "dynamic workflow", the engine is the provider-lane dynamic 
 
 ## 4. Declare: the Plan Block
 
-The Plan Block is the single scheduled checkpoint, before any agent starts. It is one scannable block. Surface every foreseeable fork with two or three options, brief consequences, and a recommendation. A recommendation is for the requester; when seeking advice from others on a decision you own, do not disclose a preferred option if your authority could anchor their response. [book:facilitating-software-architecture], Should You Provisionally Select an Option or Not?
+The Plan Block is the single scheduled checkpoint, before any agent starts. Surface every foreseeable fork with two or three options, brief consequences, and a recommendation. A recommendation is for the requester; when seeking advice from others on a decision you own, do not disclose a preferred option if your authority could anchor their response. [book:facilitating-software-architecture], Should You Provisionally Select an Option or Not?
 
-```
-INTENT       <restated in one line>
-SHAPE        <shapes present, in canonical order> [book:agentic-mesh], Creating the Task Plan
-GROUNDED     <files read and what constrains this plan>
-ROUTE        <skills invoked, in order, with the mode> [book:agentic-mesh], Identifying Collaborators and Tools
-APPROACH     <chosen approach from the alternatives and why, in one line>
-ENGINE       <inline, fan-out, or dynamic workflow, and why>
-LANES        <checked status, or provisional status with check time and required recheck>
-LANE PLAN    <table per lane-plan.md; mark provisional until the required check is complete>
-SCHEDULE     <waves, loops, batch cap and acceptance, schedule record path; "none" for a single-stage run>
-GOAL FILE    <path; written before dispatch; session stop set from its criteria> [book:agentic-mesh], Shared Workspaces for Agents
-RUN ID       <identifier shared by every unit and run record>
-FAN-OUT      <unit or agent count and what each lane covers> [book:agentic-mesh], Simulation Agents
-PERSONAS     <who reacts and what each is asked to test>
-CONVERGE     <meeting point and artifacts on disk>
-ASSUMPTIONS  <assumptions and constraints to track through the run>
-GATES        <core gates applied; any skipped gate and why; human keystone owner, timing, and record if applicable>
-DECIDE NOW   <every fork ID and recommendation; when detail would make this block hard to scan, put the full options/consequences register below>
-NOT DOING    <explicit out of scope> [book:head-first-pmp], Scope Answers
-COST         <agent count, expected time, and any material risk budget> [book:pmbok-guide-7e], 4.4.2. Estimating
-```
+Print it as a two-column Markdown table, never as an aligned text block: a long value in a text block wraps under the next label, and the reader loses which label it belongs to (Huy, 2026-10-18). Use the row names below as written; each cell says the thing in plain words, with any file name or ID explained in the same cell. Leave out a row that does not apply to the run rather than filling it with "none", except `Decisions for you`, which always comes first.
 
-If the full fork details would make the Plan Block hard to scan, list every fork ID and recommendation in `DECIDE NOW`, then put this register directly below the block:
+| Item | Plan |
+|---|---|
+| Decisions for you | every fork, each with its recommendation; when detail would make the table hard to scan, put the full register below it |
+| Goal | the request restated in one line |
+| Kind of work | the shapes present, in canonical order [book:agentic-mesh], Creating the Task Plan |
+| What was read | files read and what constrains this plan |
+| Skills used | skills invoked, in order, with the mode [book:agentic-mesh], Identifying Collaborators and Tools |
+| Approach | chosen approach from the alternatives and why, in one line |
+| How it runs | inline, fan-out, or dynamic workflow, and why |
+| Lanes open | checked status, or provisional status with check time and required recheck |
+| Who does what | table per lane-plan.md; mark provisional until the required check is complete |
+| Schedule | waves, loops, batch cap and acceptance, schedule record path |
+| Success criteria | goal file path; written before dispatch; session stop set from its criteria [book:agentic-mesh], Shared Workspaces for Agents |
+| Run ID | identifier shared by every unit and run record |
+| Agents | unit or agent count and what each lane covers [book:agentic-mesh], Simulation Agents |
+| Reviewers | who reacts and what each is asked to test |
+| Merge point | where the threads meet, and the artifacts on disk |
+| Assumptions | assumptions and constraints to track through the run |
+| Checks | core gates applied; any skipped gate and why; human keystone owner, timing, and record if applicable |
+| Out of scope | what this run will not do [book:head-first-pmp], Scope Answers |
+| Cost | agent count, expected time, and any material risk budget [book:pmbok-guide-7e], 4.4.2. Estimating |
+
+**Native plan mode.** When a person will approve the plan in this session's window, enter plan mode (`EnterPlanMode`) at the start of Classify, so Classify and Ground run read-only, and present the Plan Block table with `ExitPlanMode`; the approval there is the go. Plan mode cannot write files, so `grounded.md` goes into the plan itself or is written right after approval. Skip plan mode when no person is there to approve: `claude -p` runs, runs launched by another session, and scheduled turns. There, end the turn at the Plan Block as text and wait for the go. In a bypass-mode session the approval prompt's first option ("Yes, and switch to BYPASS PERMISSIONS") returns the session to bypass, so messages to and from the other sessions keep flowing; "manually approve edits" drops it to a mode where they are held (tested 2026-10-18).
+
+If the full fork details would make the Plan Block hard to scan, list every fork and its recommendation in `Decisions for you`, then put this register directly below the table:
 
 | ID | Fork | Options and consequences | Recommendation | Decision owner |
 |---|---|---|---|---|
 
 (derived: dogfood 2026-10-01)
 
-If the INTENT restatement is wrong, stop here and correct it before any planning continues.
+If the `Goal` restatement is wrong, stop here and correct it before any planning continues.
 
-The Plan Block is the only scheduled stop; the intent interview's questions travel in the same message. When an answer changes the plan's stages, lanes, cost, goal criteria or a client-facing `INTENT`, the revised plan gets one more go; an answer that contradicts another answer or a recorded decision allows one follow-up round, sent with that revised plan where both are needed. End the planning turn at the Plan Block; dispatch starts only after an explicit go. Silence is not approval. [book:project-planning-scheduling-control], CHAPTER 17 Using Stagegate® to Select, Evaluate, and Control Projects. After go, decide forward only on choices delegated to you and log the choice. Pause for material scope, commitment, or risk changes that exceed your authority; investigate alternatives and impacts, then give the accountable decision owner a concise recommendation. Stop mid-run when continuing would break one of core's gates, for an irreversible and unrecoverable action, or for a falsified plan premise. [book:facilitating-software-architecture], Fast and Wrong Is Better Than Slow and Correct; [book:pmbok-guide-7e], 2.2.4. Leadership Skills.
+The Plan Block is the only scheduled stop; the intent interview's questions travel in the same message. When an answer changes the plan's stages, lanes, cost, goal criteria or a client-facing `Goal`, the revised plan gets one more go; an answer that contradicts another answer or a recorded decision allows one follow-up round, sent with that revised plan where both are needed. End the planning turn at the Plan Block; dispatch starts only after an explicit go. Silence is not approval. [book:project-planning-scheduling-control], CHAPTER 17 Using Stagegate® to Select, Evaluate, and Control Projects. After go, decide forward only on choices delegated to you and log the choice. Pause for material scope, commitment, or risk changes that exceed your authority; investigate alternatives and impacts, then give the accountable decision owner a concise recommendation. Stop mid-run when continuing would break one of core's gates, for an irreversible and unrecoverable action, or for a falsified plan premise. [book:facilitating-software-architecture], Fast and Wrong Is Better Than Slow and Correct; [book:pmbok-guide-7e], 2.2.4. Leadership Skills.
 
 ## Approach declaration
 
-Required for substantive work: choose an approach from the available alternatives and state it in one line, in the Plan Block's `APPROACH` row; trivial and conversational turns are exempt. [book:facilitating-software-architecture], Stage 2: The Act of Deciding; [book:facilitating-software-architecture], Step 2c (optional): Sharing your decision.
+Required for substantive work: choose an approach from the available alternatives and state it in one line, in the Plan Block's `Approach` row; trivial and conversational turns are exempt. [book:facilitating-software-architecture], Stage 2: The Act of Deciding; [book:facilitating-software-architecture], Step 2c (optional): Sharing your decision.
 
 ## 5. Goal: the stop condition on disk
 
@@ -136,7 +140,7 @@ Audit the artifacts against the goal file's UAT column and nothing else: run eac
 
 ## Gates as applied
 
-The core spine names eight gates. A run applies them as follows and records any gate it skips, with the reason, in the Plan Block's `GATES` row:
+The core spine names eight gates. A run applies them as follows and records any gate it skips, with the reason, in the Plan Block's `Checks` row:
 
 1. **Result integrity** — report observed outcomes faithfully; a failed UAT remains failed. `../../../core/references/output-contract.md`.
 2. **Grounding and evidence provenance** — Ground reads project state and source inputs; CERIC Gate 1 records claims, evidence, reasoning, context, implications, and missing information. `../../../core/references/grounding-gate.md`; [ceric-gates.md](ceric-gates.md).

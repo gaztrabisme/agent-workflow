@@ -222,9 +222,18 @@ Exempt: one-line fixes, lookups, conversational turns, and anything where he nam
 
 All delegation lane rules live in one file: `~/.claude/skills/project/references/run/lane-plan.md`. It covers the providers of the `subagent` MCP server (codex, deepseek, glm, gemini, bppc, omlx), how to invoke and tune them, the brief contract, lane selection and quota fallback. Read it before any delegation, inside `project` or not. Before planning onto a cloud lane, check that the lane is open on the system (`subagent doctor --prompt --json`); any of them can be down. Do not restate lane rules here or in another skill.
 
+## Missing tools
+
+When a problem cannot be measured or done with the tools at hand, do not guess around the gap (Huy, 2026-10-18):
+
+1. Search for an existing tool built for agents first: MCP servers, CLIs, libraries on GitHub.
+2. Read a third-party tool's code before installing it. An MCP server or CLI runs with the session's full access.
+3. If nothing fits, build the smallest tool that takes the measurement. A tool that grows beyond the task in hand is proposed to Huy before it is built.
+4. Record it where the next session will look: the skill that owns the task, `machine.md`, `bppc.md`, or the MCP config. A tool that only this session knows about is lost when it ends.
+
 ## Shell
 
-Never put `sleep N` ahead of other commands in one Bash call; the harness blocks it. Wait with `run_in_background: true` on an `until <check>; do sleep 15; done` loop, or the Monitor tool, and read the output when it finishes.
+Never put `sleep N` ahead of other commands in one Bash call; the harness blocks it. Wait with `run_in_background: true` on an `until <check>; do sleep 15; done` loop, or the Monitor tool, and read the output when it finishes. This covers short waits too: `sleep 45; cd …` and `sleep 240; cat out` were both blocked (2026-10-15). Wait on a condition, never on a fixed time.
 
 ## This machine
 

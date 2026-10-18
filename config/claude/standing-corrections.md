@@ -2,6 +2,8 @@
 
 Huy's past corrections as before-and-after pairs. Check every file or draft against these lines before it goes to Huy or a teammate, and say which lines were checked. Format: `DATE · SURFACE · BEFORE -> AFTER · RULE`. Cap 25 lines; the evolution skill drains it (a rule corrected on two surfaces is promoted into a skill; a line older than 60 days that never recurred is deleted).
 
+2026-10-18 · CV and LinkedIn text · summary with "builds and ships", "passed formal client acceptance", a paper, IELTS 8.0, backstory such as "extended a colleague's tool" -> two plain sentences on what he works on; results only in Impact blocks; no language scores · state what happened, never sell it
+2026-10-18 · CV and LinkedIn text · "built and presented the demo", "50+ staff trained" -> "built and presented a scripted demo", "ran workshops for 50+ staff" · claim only what the source says happened
 2026-10-18 · live LinkedIn profile · Featured section, pinned skills, Projects and a certification proposed or started beyond the approved text -> only the approved edits applied · on a profile or anything that publishes, apply only what Huy approved; propose the rest and wait
 2026-10-18 · portfolio assessment · Pertamina PPE "in production", written before the FPT work package arrived -> dismantled at project closure, per the package · a status not read from a source is marked "(inferred)" until one confirms it
 2026-10-18 · master CV · Remitano ComfyUI artwork automation missing until Huy raised it -> added with its figure · the master holds only what was found on the machine; ask Huy what each role is missing before cutting from it

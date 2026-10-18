@@ -221,6 +221,13 @@ fit" from a remembered number.
   `memory_guard_custom_ceiling_gb: 70` (settings.json, restart) admitted it: pressure stayed
   level 1 (normal), but macOS pushed ~12 GB of other apps to swap (13 → 25 GB). Owner approval
   needed; it applies to every model.
+- **Watermarks sit below the ceiling.** With `memory_guard_custom_ceiling_gb: 70`, oMLX's
+  enforcer goes soft at 63.0 GB and hard at 67.9 GB (log: `process_memory_enforcer ...
+  soft=63.0GB, hard=67.9GB, ceiling=70.0GB`). At hard it aborts in-flight requests and unloads
+  the model. gpt-oss-120b MXFP4-Q8 weighs 62 GB, so 6 long concurrent requests (about 12k
+  tokens each) passed it after about 12 hours (2026-10-15 12:29). A short concurrency test does
+  not show this. Run a model whose weights are within 6 GB of the ceiling at 4 or fewer
+  concurrent requests, and grep the log for `Aborted|Evicting` after the first hour.
 - MLX allocator bloat can pin usage high; a model swap has been observed to reset it.
 
 ## Logs

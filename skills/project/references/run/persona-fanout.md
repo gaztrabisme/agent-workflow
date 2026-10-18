@@ -92,7 +92,7 @@ Build one register:
 - Rank objections by their consequence for the decision, including whether the person can block it; do not count repeated mentions as votes. Keep blocking power, gap type, and owner in the planned response when needed, not as extra register columns. [book:learning-systems-thinking], Bandwagon.
 - Resolve the kind of gap in the planned response:
   - **Presentation gap** — the artifact answers this, but the persona missed or misunderstood it. Clarify the context and fix the document where that will prevent the same misunderstanding. [book:articulating-design-decisions], What’s Really Going On?
-  - **Substance gap** — there is no answer. The fix is a decision, a concession, or more work — and it goes into `DECIDE NOW` for the next run, not silently onto a backlog.
+  - **Substance gap** — there is no answer. The fix is a decision, a concession, or more work — and it goes into `Decisions for you` for the next run, not silently onto a backlog.
   - **Fact gap** — settling it needs sourced evidence. Spawn a research stream (`task-force-protocol.md`); do not resolve it by opinion.
 - **Unspoken objections get their own section** and are quoted verbatim. They are the reason to run this at all.
 

@@ -83,7 +83,7 @@ A deck is not a kind of work. It is the **form an artifact takes**, and the skil
 1. **Choose the carrier in the Plan Block, not at the end.** "We'll turn it into a deck later" is false — knowing the output is 12 slides changes what the producers write. Carrier chosen late means the content gets rewritten.
 2. **A carrier skill never decides content.** `presentation` owns how the deck is built; `solution-architect` owns what it says. When a carrier skill starts making substantive calls, the routing was wrong.
 
-**Project route override.** If a current project decision retires or replaces a carrier or capability skill, follow that decision for this project and name the override and decision in the Plan Block's `ROUTE` row. Keep the default route intact for other projects. (derived: dogfood 2026-10-01)
+**Project route override.** If a current project decision retires or replaces a carrier or capability skill, follow that decision for this project and name the override and decision in the Plan Block's `Skills used` row. Keep the default route intact for other projects. (derived: dogfood 2026-10-01)
 
 | The artifact is… | Skill |
 |---|---|
@@ -157,7 +157,7 @@ Most requests carry three or four of these, not six. Name the ones present; skip
 
 Two legitimate reorderings:
 - **Probe-first.** An irreversible or expensive fork (hardware spend, schema lock-in, a long training run) gets the cheapest experiment that resolves it *before* the frame is finished. This is `dev`'s sim/probe-first pattern; this skill honours it. [book:facilitating-software-architecture], Spikes Can Tackle Architectural Variability More Cheaply.
-- **Contest the brief itself.** When the ask is vague or hand-waves a tradeoff, surface the assumptions and fork before any stage, then put it in `DECIDE NOW`. See `../../core/references/pushback-and-teach.md`. [book:learning-systems-thinking], Modeling as a Core Practice.
+- **Contest the brief itself.** When the ask is vague or hand-waves a tradeoff, surface the assumptions and fork before any stage, then put it in `Decisions for you`. See `../../core/references/pushback-and-teach.md`. [book:learning-systems-thinking], Modeling as a Core Practice.
 
 ## Work this skill never routes
 

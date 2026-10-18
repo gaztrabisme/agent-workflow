@@ -161,6 +161,8 @@ Generate the viewer geometry, dimensions and evidence from the same current CAD 
 
 Confirm the actual printer, usable build area, nozzle, material, operator capability and adhesion/support practice for fabrication. Include brim, purge and support margin. Split or redesign a part that is too close to the bed limit; do not uniformly scale an enclosure and destroy its hardware fits. Earlier slicing may use an explicitly declared trial profile while actual equipment details remain unknown: inspect its layer output, label time/mass estimates and keep machine-ready output unreleased. A successful slice does not establish support removability, adhesion or physical fit.
 
+Ordering from JLC3DP: read [jlc3dp.md](references/jlc3dp.md).
+
 Deliver:
 
 - editable parametric CAD and the real parameter input;

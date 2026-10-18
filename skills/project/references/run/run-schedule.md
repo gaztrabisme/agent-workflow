@@ -1,6 +1,6 @@
 # Run Schedule
 
-Use a run-specific schedule when work repeats over items, runs in batches or waves, or depends on an external queue/watch process. The Plan Block's `SCHEDULE` row names the schedule record and summarizes its shape. A single-stage run can state `none`.
+Use a run-specific schedule when work repeats over items, runs in batches or waves, or depends on an external queue/watch process. The Plan Block's `Schedule` row names the schedule record and summarizes its shape. A single-stage run can state `none`.
 
 This record owns execution order, batching, queue state, and resume position. Provider status, lane selection, invocation, and fallback rules stay in `lane-plan.md`, the owner's single home for lane rules. (derived: dogfood 2026-10-01)
 

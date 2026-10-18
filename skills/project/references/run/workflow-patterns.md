@@ -12,7 +12,7 @@ A dynamic workflow takes the units in the lane plan, assigns each to a lane, and
 - **Verify layer.** A stage whose brief instructs it to refute, not confirm. Size it to the stakes: verify load-bearing claims individually and sample the tail. Respect documented harness caps; where no cap is documented, size the work to what can be watched and accepted. [book:site-reliability-engineering], Testing at Scale.
 - **Converge.** Declare the meeting point and final artifact before dispatch; see convergence.md.
 - **Resume.** Resume from the last completed stage when the harness supports it; otherwise use the run ledger as the resume state. Make each workflow step idempotent so a retry is safe. If a step has a partial or non-repeatable side effect, reconcile its actual state before retrying and guard against applying it twice. [book:site-reliability-engineering], Resolving Inconsistencies Idempotently.
-- **Caps and cost.** Use only the cap documented for the current harness row. Treat an unknown cap as a cost risk; state why a fan-out beyond known capacity is justified in the Plan Block's `COST` row.
+- **Caps and cost.** Use only the cap documented for the current harness row. Treat an unknown cap as a cost risk; state why a fan-out beyond known capacity is justified in the Plan Block's `Cost` row.
 
 ### Coordination topology
 
@@ -32,10 +32,10 @@ Claude Code is the only harness in the current map with a documented scripted mu
 
 What the owner means by "dynamic workflow": the coordinator-pipelined run above, with every unit on a `subagent` provider lane instead of a Claude agent. On Claude Code a `UserPromptSubmit` hook (`config/hooks/claude-lane-workflow-hook` in the agent-workflow repo) marks the session when the phrase appears, and a `PreToolUse` hook then denies the Workflow and Agent tools for that session; saying "ultracode" clears the mark.
 
-1. **Plan every lane first.** Run the lane check in lane-plan.md, then put the whole run in the Plan Block before anything fires: each unit with its stage or wave, primary and fallback lane, brief, and acceptance command. `ENGINE` reads `provider-lane dynamic workflow`; `SCHEDULE` lists the waves and which results each wave needs.
+1. **Plan every lane first.** Run the lane check in lane-plan.md, then put the whole run in the Plan Block before anything fires: each unit with its stage or wave, primary and fallback lane, brief, and acceptance command. `How it runs` reads `provider-lane dynamic workflow`; `Schedule` lists the waves and which results each wave needs.
 2. **Dispatch a wave.** One `delegate` per unit, all units of the wave sent together, each in its own workspace; one `await` per run straight after, with `wait_seconds` ≥ 1800.
 3. **Gate the wave.** Run each acceptance command and read its output sample; record the run ledger rows. A failed unit gets `continue` on the same lane or its fallback lane before the next wave that depends on it starts.
-4. **Next wave, then converge.** Later waves start when their inputs pass. The merger named in `CONVERGE` is also a lane unit.
+4. **Next wave, then converge.** Later waves start when their inputs pass. The merger named in `Merge point` is also a lane unit.
 
 A unit no open lane accepts is blocked and reported; the coordinator does not take it and does not fall back to a Claude agent.
 
