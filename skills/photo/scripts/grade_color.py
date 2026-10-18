@@ -31,7 +31,11 @@ def _hsl_to_rgb(h, s, l):
 def white_balance(rgb, op):
     out = np.asarray(rgb, float)
     linear = srgb_to_linear(out)
-    if "neutral_rect" in op:
+    if "gains" in op:
+        gains = np.asarray(op["gains"], float).copy()
+        if gains.shape != (3,) or np.any(gains <= 0):
+            raise ValueError("white-balance gains must be three positive linear-light RGB multipliers")
+    elif "neutral_rect" in op:
         x0, y0, x1, y1 = map(int, op["neutral_rect"])
         h, w = linear.shape[:2]
         if x0 < 0 or y0 < 0 or x1 > w or y1 > h or x1 <= x0 or y1 <= y0:

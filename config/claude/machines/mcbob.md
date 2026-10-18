@@ -46,6 +46,7 @@ If oMLX cannot serve an architecture: `mlx_lm.server` / `mlx_lm.generate` (minic
 
 - **Scheduled jobs (launchd) cannot read `~/Documents`.** A launch agent that points at a script there fails with "Operation not permitted". Keep the source in the repo, install a copy outside Documents (for example `~/.bob-sentry/`), and point the plist at the copy. After loading a job, wait for its first run and read its error log before saying it works.
 - **The dcg command guard scans the whole Bash command text, heredoc bodies included.** Prose containing words such as "restore" or "delete" inside `cat > file <<EOF` gets the command blocked. Write documents with the Write tool; keep Bash for short commands.
+- **Checking a local HTML page (a dashboard, a generated report) in the browser pane.** `browser_navigate` to a `file://` URL opens a static snapshot, and screenshot and JavaScript tools fail on it. Serve the folder instead: `python3 -m http.server <port> --bind 127.0.0.1` with `run_in_background: true`, then `mcp__Claude_Browser__preview_start` on `http://127.0.0.1:<port>/…`. Stop it with `pkill -f "http.server <port>"` when done. Huy opens the final page from disk with `open <path>`, so the file must not need the server.
 
 ## Starting another Claude session from a session
 
@@ -58,3 +59,7 @@ If oMLX cannot serve an architecture: `mlx_lm.server` / `mlx_lm.generate` (minic
 It stops when the Mac sleeps or restarts. Check it with ListAgents. If the Desktop app reopens the same session, close the tmux copy so only one answers.
 
 After a Mac restart the Desktop app reopens its own sessions within seconds. Run ListAgents before any `tmux new-session ... --resume`, and resume in tmux only the sessions that are missing. If two rows carry the same name, the one marked "Claude Desktop session" is the one Huy types into; message it by its ref (for example "IELTSy repo sync [b67925]") and `/exit` the tmux copy.
+
+## Resume
+
+Huy's current resume, its master fact file and the rules for editing them: `~/.claude/reference/resume.md`. Read it before writing any CV, LinkedIn or Upwork text.

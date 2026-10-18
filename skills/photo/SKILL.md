@@ -47,6 +47,8 @@ This skill produces edited portrait and social-image files with a clear record o
 - **One small edit:** map the image and edit scope, correct the base if needed, make the local change, then run T1 and T4–T9 as applicable.
 - **Critique an existing photo:** start with T1–T12, then return to the earliest failed stage and name one concrete change.
 - **Portrait session or social set:** use all stages. Keep an input map and edit ledger; test a batch operation on a sample, then inspect every image and the gallery.
+- **Batch with AI edits:** finish and review the non-AI stage on the whole set (including a highlight-clipping check against the source) before starting any AI edit. AI edits are slow (about 15 min per 4 photos) and cannot be patched when their input changes. Record the time a brief or input changed, and redo every output older than it. (derived: 2026-10-17 outing batch, three restarts)
+- **Event photos:** do not remove or re-compose blurred foreground people or objects by default (owner, 2026-10-17: a blurred head in front is implicit storytelling). Remove people only where the owner names a photo and says whom.
 - **After a fix:** rerun affected tests from [review-checklist.md](references/method/review-checklist.md); a retouch can change color, crop, or gallery fit.
 
 ## Execution
@@ -86,6 +88,7 @@ The photograph is a raster deliverable: PNG, JPEG, or TIFF as required by the br
 - Smoothing away pores, moles, natural variation, expression, or identity without a specific request.
 - Reshaping faces or bodies substantially without clear scope and approval.
 - Treating an automated fill, mask, comparison metric, or generated image as proof of photographic fidelity.
+- Sending photos of real people through a generative image tool (Codex image edit) and shipping the result unreviewed. In a 57-photo test, an independent reviewer rejected 22: different-looking faces, rewritten slide text or added detail, mostly on small or soft faces and group shots. Output is also about 1.5 MP whatever the input size. Required when it is used: (1) edit from the final non-AI version, so a later change forces a redo; (2) lock the colour back to that version afterwards (`scripts/colour_lock.py`); (3) have an agent that did not do the edit compare every output with its source, faces and text at 200%; (4) offer the non-AI version beside it, and say that reviewer verdicts cover only the photos reviewed. (derived: 2026-10-17 outing batch)
 - Overwriting originals, misassigning numbered inputs, or delivering rejected variants.
 - Calling a skipped or unavailable visual review a pass.
 - Presenting a course example, tool default, or derived workflow as a universal photographic standard.

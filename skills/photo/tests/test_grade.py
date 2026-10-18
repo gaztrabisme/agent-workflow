@@ -89,6 +89,11 @@ class ColourMathTests(unittest.TestCase):
         tinted = np.broadcast_to([.6, .5, .4], (4, 4, 3)).copy()
         neutralized = white_balance(tinted, {"neutral_rect": [0, 0, 4, 4]})
         np.testing.assert_allclose(neutralized[0, 0], neutralized[0, 0, 0], atol=1e-6)
+        lin = srgb_to_linear(tinted)[0, 0]
+        by_gains = white_balance(tinted, {"gains": list(lin.mean()/lin)})
+        np.testing.assert_allclose(by_gains, neutralized, atol=1e-9)
+        with self.assertRaises(ValueError):
+            white_balance(tinted, {"gains": [1, 0, 1]})
 
     def test_recipe_range_warning_identifies_lifted_black_and_lowered_white(self):
         warnings = recipe_output_range_warnings({"operations": [
