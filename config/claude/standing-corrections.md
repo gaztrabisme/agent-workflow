@@ -2,6 +2,9 @@
 
 Huy's past corrections as before-and-after pairs. Check every file or draft against these lines before it goes to Huy or a teammate, and say which lines were checked. Format: `DATE · SURFACE · BEFORE -> AFTER · RULE`. Cap 25 lines; the evolution skill drains it (a rule corrected on two surfaces is promoted into a skill; a line older than 60 days that never recurred is deleted).
 
+2026-10-18 · live LinkedIn profile · Featured section, pinned skills, Projects and a certification proposed or started beyond the approved text -> only the approved edits applied · on a profile or anything that publishes, apply only what Huy approved; propose the rest and wait
+2026-10-18 · portfolio assessment · Pertamina PPE "in production", written before the FPT work package arrived -> dismantled at project closure, per the package · a status not read from a source is marked "(inferred)" until one confirms it
+2026-10-18 · master CV · Remitano ComfyUI artwork automation missing until Huy raised it -> added with its figure · the master holds only what was found on the machine; ask Huy what each role is missing before cutting from it
 2026-10-12 · proposal assumptions · "(RFP v1.3)", "as LSP confirmed in the Q&A", "as discussed on 7 October" -> the statement alone · an assumption states the condition; it cites no document, call or answer
 2026-10-09 · slide label · "Pass opens for the lane; the ID joins it" -> walk through the flow in plain steps · a label must make sense without the paragraph around it
 2026-10-09 · slide table · memory and CPU rows "to confirm" -> estimated, method stated · estimate with a stated method; never ship a placeholder
