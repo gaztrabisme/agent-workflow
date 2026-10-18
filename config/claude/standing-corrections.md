@@ -4,22 +4,15 @@ Huy's past corrections as before-and-after pairs. Check every file or draft agai
 
 2026-10-18 · CV and LinkedIn text · summary with "builds and ships", "passed formal client acceptance", a paper, IELTS 8.0, backstory such as "extended a colleague's tool" -> two plain sentences on what he works on; results only in Impact blocks; no language scores · state what happened, never sell it
 2026-10-18 · CV and LinkedIn text · "built and presented the demo", "50+ staff trained" -> "built and presented a scripted demo", "ran workshops for 50+ staff" · claim only what the source says happened
-2026-10-18 · live LinkedIn profile · Featured section, pinned skills, Projects and a certification proposed or started beyond the approved text -> only the approved edits applied · on a profile or anything that publishes, apply only what Huy approved; propose the rest and wait
-2026-10-18 · portfolio assessment · Pertamina PPE "in production", written before the FPT work package arrived -> dismantled at project closure, per the package · a status not read from a source is marked "(inferred)" until one confirms it
+2026-10-18 · live LinkedIn profile; Upwork proposal · Featured section, pinned skills, Projects and a certification started beyond the approved text; "yes" to cutting a cover letter taken as "yes" to send it -> only the approved edits applied; stopped at Send · on a profile or anything that publishes, apply only what Huy approved; sending, submitting, publishing or posting each needs its own yes, given after Huy has seen the final text
+2026-10-18 · portfolio assessment; Upwork portfolio · Pertamina PPE "in production", written before the FPT work package arrived; "the ID-verification hold hides the edit menu" -> dismantled at project closure, per the package; the menu was still loading · a status or cause not read from a source is marked "(inferred)" until one confirms it
+2026-10-18 · Upwork cover letter · opened by restating the client's post, closed on a question asked only to have one, 8 paragraphs -> one relevant result, the approach in a sentence or two, sign-off · client-facing text says only what the reader doesn't already have; ask a question only when its answer changes scope, price or approach
+2026-10-18 · Upwork cover letter · eval-set plan and method steps written into the bid -> direction only · a bid shows how we'd approach the problem, not the work the client would pay for
+2026-10-18 · Upwork portfolio cover · grid first built from a folder that mixed outside-service (PixAI) images with our outputs -> rebuilt from files carrying ComfyUI metadata · before publishing any image, data file or quote, check who made it, with what, and whether we may show it
 2026-10-18 · master CV · Remitano ComfyUI artwork automation missing until Huy raised it -> added with its figure · the master holds only what was found on the machine; ask Huy what each role is missing before cutting from it
-2026-10-12 · proposal assumptions · "(RFP v1.3)", "as LSP confirmed in the Q&A", "as discussed on 7 October" -> the statement alone · an assumption states the condition; it cites no document, call or answer
 2026-10-09 · slide label · "Pass opens for the lane; the ID joins it" -> walk through the flow in plain steps · a label must make sense without the paragraph around it
-2026-10-09 · slide table · memory and CPU rows "to confirm" -> estimated, method stated · estimate with a stated method; never ship a placeholder
-2026-10-08 · WBS rows · five functions at 0 days -> our estimate, highlighted yellow · an estimate marked as ours beats a blank
-2026-10-08 · WBS column names · "Phi feature" -> source cited by document title in a references sheet · no people's names as labels
 2026-10-08 · slide comment for seniors · "mâu thuẫn", "sai", "bỏ" -> "em đề xuất", "a xem giúp em" · suggest and ask in Vietnamese; never assert who is right
-2026-10-08 · team chat draft · long paragraphs -> one-sentence bullets · team drafts are short
-2026-10-08 · team chat draft · defending our estimate -> one line, then accept his call · suggest and ask; never defend
 2026-10-08 · issue list for the team · PM-lane items (schedule, staffing) -> AI-lane items only · in team messages Huy speaks as the engineer; PM-lane issues go through the PM
 2026-10-08 · WBS · FTI hardware rows -> removed · other companies' work is named with its owner, not estimated
-2026-10-06 · report to Huy · "the five positions", "3 + 1" -> say what each is in the same sentence · no shorthand Huy did not write
-2026-10-05 · AI spec sheet · "AI-owned and shared rows of the BA feature list (32 of 83)…" -> removed · no narrative notes in a submitted sheet
-2026-10-05 · diagram upload · version with a fix note -> without the fix note · no internal notes in files others open
 2026-10-05 · WBS · hardware and cloud prices included -> needs only, prices left to FPT Telecom · another company's work is named, not priced
-2026-10-01 · QnA for the client · question citing our internal document -> cites the client's document · no internal references in client text
 2026-10-01 · WBS workbook · annotated sheets and a front sheet -> the sheet speaks for itself · fewer sheets, no prose cells
