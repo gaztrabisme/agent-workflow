@@ -14,7 +14,7 @@ Do not fire it when the request already answers these; when the requester says t
 
 ## What to ask
 
-- **What, not how.** Ask about the outcome and its behaviour: who uses it, what they see, what happens in a named case. Implementation choices (stack, lanes, engine, structure) stay as `Decisions for you` forks with recommendations. The form the requester or their audience receives (a live demo, a video, a deck, a shortlist they cut themselves) is an outcome, so it may be asked.
+- **What, not how.** Ask about the outcome and its behaviour: who uses it, what they see, what happens in a named case. Implementation choices (stack, lanes, engine, structure) are decided by the coordinator and listed under `Decided by coordinator`. The form the requester or their audience receives (a live demo, a video, a deck, a shortlist they cut themselves) is an outcome, so it may be asked.
 - **Concrete scenario.** Build each question from the requester's own material: named items, real files, a realistic case. Example: *"'Trip ideas' is in both Travel and Summer. When someone deletes Travel, what should happen to that note in Summer?"* — not *"Confirm the deletion requirements."*
 - **Stand-alone.** Each question says in one line why it matters: what the answer changes in the work. No internal labels or fork IDs.
 - **2 to 5 questions**, ordered by how much the answer would change the plan. If more than five seem needed, the request is not ready to plan; say so and ask the two that matter most.

@@ -243,3 +243,12 @@ Validation: on the next real plan, (1) the map exists before the first estimate 
 
 ### Addendum, 15 Oct 2026: enforcement hook live
 `~/.claude/hooks/require_load.py`, wired as a PreToolUse hook on the Agent tool in `~/.claude/settings.json`. It refuses a brief with no LOAD line followed by a Skills/Books/Web docs entry, "None found: <searches>" or "Not applicable: <reason>". Exempt: the built-in helper agents (claude-code-guide, statusline-setup, Explore, Plan) and prompts starting "BRIEF-EXEMPT: <reason>" for checking-only agents. Tested on 13 sample inputs (all as intended) and live: a brief without Load was refused in the session that built it. Limit: it checks the form, not whether the cited items fit or were read; that stays with checklist line 22 and the report's Load accounting.
+
+## Evolution 8 — Technical forks are decided by the coordinator (2026-10-21, Improver)
+
+**Trace:** six prompts in five sessions hand technical choices back. gsq-rco-mlx, 2026-10-20: "Like I said I prompt and walk away so I dont understand what this mean at all", then "Like I said before I dont know to decide, I just set the goal you decide these technical details". pi-mind, 2026-10-19: "I dont know the answers for all your questions so please answer them yourself". agent-workflow, 2026-10-14: "11. Dont know enough to decide 12. Dont understand enough to decide". edition-xs-stand, 2026-10-17: "Dont know enough to decide." ieltsy, 2026-10-20: "I lost context so I dont know what you're asking".
+**Root cause:** `references/run/flow.md` put every fork in `Decisions for you`, and `intent-interview.md` routed implementation choices there too.
+**Change (PM41–PM43):** `Decisions for you` keeps forks only the requester can settle; a `Decided by coordinator` row lists technical forks with a one-line reason. Files: `references/run/flow.md`, `references/run/intent-interview.md`, `references/anti-patterns.md`.
+**Expected result:** fewer "don't know / you decide" replies than the six above in the next seven days. Disproved if they do not fall, or if Huy overrules a coordinator decision because it needed his input.
+**Rollback:** `git revert <sha>`.
+**Verdict:** PENDING. Owner: Improver. Revisit: 2026-10-28.
