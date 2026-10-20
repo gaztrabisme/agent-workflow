@@ -44,7 +44,7 @@ Do not add links to `~/.config/opencode/skills`, `~/.omp/agent/skills`, `~/.pi/a
 - **`EVOLUTION.md`** in each skill records real-use lessons. Use the `evolution` skill to add entries; use `skill-builder` to change a skill's structure or trigger.
 - **`skills/dev/AGENTS.md`** is a symlink to `skills/dev/CLAUDE.md` and covers only that skill.
 - Run `./install.sh` after any change to `skills.txt`, `config/retired-skills.txt` or `install.sh`. Editing a file inside an existing skill needs no re-run. Restart the agent so it reloads the skill list.
-- Commit and push only when the owner asks. The machines' read-only tokens cannot push.
+- Commit and push only when the owner asks. The machines' read-only tokens cannot push. The Improver session (`~/Documents/Work/tools/improver`) commits on branch `improve` and fast-forwards main under its goal file (`wiki/goals/2026-10-20-improver.md`); pushing stays with the owner.
 
 ## claude.ai copies
 

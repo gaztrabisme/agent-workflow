@@ -38,7 +38,7 @@ Use [`templates/approval-block.md`](templates/approval-block.md). Merge duplicat
 
 Apply the Wu Wei filter: retain patterns tied to an observed failure, not theoretical purity; any new structure must earn its place through use. [book:site-reliability-engineering], The “Negative Lines of Code” Metric
 
-Do not edit before approval. The same stop applies to changes to workflow phases, trigger description, scripts or shared core. Never alter an integrity constraint or the Wu Wei filter through this loop.
+Do not edit before approval by the gate owner: Huy, or the Improver session within the limits in its goal file (`wiki/goals/2026-10-20-improver.md` in the agent-workflow repo). The same stop applies to changes to workflow phases, trigger description, scripts or shared core. Never alter an integrity constraint or the Wu Wei filter through this loop.
 
 After application, inspect the final change set to confirm that it contains only approved changes. [book:swebok], Implementing Software Changes
 
@@ -54,4 +54,4 @@ Every applied change begins `PENDING`; include a named owner for each follow-up,
 
 Before harvest, set the evidence floor for each verdict category and keep it fixed while examining the traces. The expected result must be testable.
 
-Each gate owner records that gate’s decision (accept, modify, reject or defer) and rationale. A decision at one gate does not authorize changes assigned to another gate. No changes are applied until the responsible gate owner approves.
+Each gate owner records that gate’s decision (accept, modify, reject or defer) and rationale. A decision at one gate does not authorize changes assigned to another gate. No changes are applied until the responsible gate owner (Huy, or Improver after a blind judge on another provider accepts the change) approves.

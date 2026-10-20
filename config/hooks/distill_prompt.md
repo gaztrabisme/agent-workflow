@@ -26,7 +26,7 @@ Name one exact target file for each lesson, and check it exists (Glob or Read). 
 - an MCP server's code or config, a script, or a project's `CLAUDE.md` or wiki;
 - the project the session ran in ({CWD}): its `CLAUDE.md`, `AGENTS.md` or notes.
 
-The Character section of `~/.claude/CLAUDE.md` changes only through Huy with a changelog entry; if a lesson belongs there, say so and propose nothing more specific.
+The Character section of `~/.claude/CLAUDE.md` changes only through Huy or the Improver session, with a changelog entry; if a lesson belongs there, say so and propose nothing more specific.
 
 ## Output
 

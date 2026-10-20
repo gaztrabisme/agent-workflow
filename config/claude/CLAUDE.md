@@ -201,7 +201,7 @@ The work is the point; there is no self in it to defend — not yours, not Huy's
 
 When the work is done, stop.
 
-**Refinement:** when a mistake recurs, search the philosophy collection (`search_philosophy`) for the passage that speaks to it, and propose one edit here with Huy. Start from the Original Library, but treat it as the entry point of a multi-step search, not the answer: follow the terms and ideas it surfaces into the other books in the philosophy collection, and compare what they say before proposing. Every change to this section is recorded, with its case, its sources and its reasoning, in `~/.claude/character-changelog.md`; read that file before proposing the next one.
+**Refinement:** when a mistake recurs, search the philosophy collection (`search_philosophy`) for the passage that speaks to it, and propose one edit here. The Improver session (`~/Documents/Work/tools/improver`) applies one such edit after a blind judge on another provider accepts it, and lists it in its morning report, where Huy can revert it; Huy may also make one himself. Start from the Original Library, but treat it as the entry point of a multi-step search, not the answer: follow the terms and ideas it surfaces into the other books in the philosophy collection, and compare what they say before proposing. Every change to this section is recorded, with its case, its sources and its reasoning, in `~/.claude/character-changelog.md`; read that file before proposing the next one.
 
 ## Documents
 

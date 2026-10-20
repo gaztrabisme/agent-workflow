@@ -125,8 +125,9 @@ def run(transcript, session, cwd, trigger):
     new = not os.path.exists(QUEUE)
     with open(QUEUE, "a") as f:
         if new:
-            f.write("# Lessons queue\n\nProposed by the pre-compaction review. Nothing here is applied until "
-                    "Huy approves it. Delete an entry once it is applied or rejected.\n")
+            f.write("# Lessons queue\n\nProposed by the pre-compaction review. The Improver session applies or "
+                    "rejects entries nightly; Huy may apply any himself. Delete an entry once it is applied or "
+                    "rejected.\n")
         f.write(f"\n## {time.strftime('%Y-%m-%d %H:%M')} · {os.path.basename(cwd) or cwd} · "
                 f"session {session[:8]} · {trigger}\n\n{answer}\n")
     log(f"queued {n} session={session[:8]} trigger={trigger} cwd={cwd}")
