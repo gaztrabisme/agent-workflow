@@ -41,13 +41,3 @@ All three target only `SKILL.md`; existing detailed references remain unchanged.
 
 ### Future validation
 Status for H1/H2/H3: **PENDING**, not established by this same-session application. Owner: skill owner / next executing agent. Revisit by 2026-11-05 or next two independent uses. Evidence floor: two later natural design tasks record a use experiment (or explicit conditional gate), a consequential lifecycle review and an independently checked critical input; at least one physical observation must affect or confirm a decision. Record time/effort and reject or narrow a hypothesis if it repeatedly adds ceremony without changing decisions. This Nano revision is exercise evidence only.
-
-## 2026-10-21 — Rerun an agent's study before reporting it (Improver)
-
-**Trace:** yeti-nano-dock, 2026-10-18. Huy asked "Did you run the tolerance study?"; the session had only read the agent's report, and its first rerun attempt passed `--help` to a script with no options, which ran in full and overwrote the saved results. Queued in `~/.claude/lessons-queue.md` (2026-10-18 23:58).
-**Root cause:** "Corrections and reproducibility" says to keep inputs and outcomes with the handoff, but nothing says the coordinator reruns an agent's numbers before reporting them.
-**Options considered:** (a) one paragraph in `references/engineering-validation.md` (chosen); (b) a general rule in the global instructions (rejected: the Character section already says a passing check is not the output; this is the concrete step for scripted studies).
-**Change (PPD-R1):** the paragraph at the end of "Corrections and reproducibility".
-**Expected result:** reports of study results say "ran" or "read only", and no output file is overwritten by a probe. Disproved if a later physical-product session reports an agent's figure as checked without a rerun.
-**Risk and rollback:** reruns cost time on long studies. Revert with `git revert <sha>`.
-**Verdict:** PENDING. Owner: Improver. Revisit: 2026-11-05 or the next two physical-product runs.
