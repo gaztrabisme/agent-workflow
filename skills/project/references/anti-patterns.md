@@ -21,7 +21,7 @@ The hard no-list for this skill. Planning items come from the former `project-ma
 - Smuggling upstream content into a brief instead of naming its exact file, section, and row.
 - Treating a lane's completion claim as acceptance, or recording PASS without reading an output sample.
 - Rewording a failed criterion to fit what was produced.
-- Leaving a foreseeable fork out of the Plan Block, putting a technical fork to the requester, or returning mid-run with a context-free question.
+- Leaving a foreseeable fork out of `Decisions for you`, or returning mid-run with a context-free question.
 - Launching fan-out without a declared meeting point, or silently smoothing away contradictory evidence.
 - Skipping the project and source read before planning.
 - Planning on a guessed intent when the outcome is open, or interviewing about what the record already settles or about how to build it.
