@@ -82,3 +82,7 @@ Owner asked for a skill on "hitting the dopamine release" in presentations, vide
 - `CLAUDE.md`: the laptop's Voice, question, don't-invent and Character sections, plus the Mac's Documents, routing (now `project`), lanes and machine import. The laptop's LSP "two hats" paragraph moved to `config/claude/machines/huytl10.md`.
 - Left out of the package: `dev/AGENTS.md` (a symlink flattened to text by Windows), `skills/.gitignore`, the 2026-08-11 `skills-patches`, the laptop's project memory notes, and its three scene-engine Windows fixes (not in the package).
 - Not merged to `main`, not pushed, not installed; waits for Huy's review.
+
+## 2026-10-21 · Improver · `machines/mcbob.md`: no `timeout` command on this Mac
+- Evidence: a freelancing session (2026-10-18) failed with `command not found: timeout`; the bob session's review (2026-10-20) records the same failure in its daily-look script. The workaround was written only in `skills/project/references/run/lane-plan.md`.
+- Change: one bullet under "Working on this Mac". Disproved if the failure recurs. Verdict PENDING, revisit 2026-10-28. Revert: `git revert <sha>`.
