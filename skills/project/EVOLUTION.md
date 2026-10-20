@@ -252,3 +252,12 @@ Validation: on the next real plan, (1) the map exists before the first estimate 
 **Expected result:** fewer "don't know / you decide" replies than the six above in the next seven days. Disproved if they do not fall, or if Huy overrules a coordinator decision because it needed his input.
 **Rollback:** `git revert <sha>`.
 **Verdict:** PENDING. Owner: Improver. Revisit: 2026-10-28.
+
+## Evolution 9 — Claude agents for delegated work need Huy's yes (2026-10-21, Improver)
+
+**Trace:** yeti-nano-dock, 2026-10-18, Huy: "Dont use Opus/Fable class subagent without my permissions. Always use Codex please", after the session launched a general-purpose Claude Agent for a redesign.
+**Root cause:** the Claude Agent section of `references/run/lane-plan.md` allowed small fan-outs without the owner's permission.
+**Change (PM44):** one paragraph under "Claude Agent tool / Workflow tool".
+**Expected result:** no Claude agent started for delegated work without Huy's yes. Disproved if the harvest shows one.
+**Rollback:** `git revert <sha>`.
+**Verdict:** PENDING. Owner: Improver. Revisit: 2026-10-28.
