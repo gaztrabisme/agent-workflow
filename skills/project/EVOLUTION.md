@@ -271,3 +271,15 @@ The global instructions already say to ask only for facts a person holds, so the
 
 ### Verdict: PENDING
 Validation: the next three Plan Blocks in the harvest have a `Decided by coordinator` row and no technical fork in `Decisions for you`; Huy's "don't know / you decide" replies fall below 6 a week. Owner: Improver. Revisit: 2026-10-28.
+
+## Evolution 9 — Claude agents for delegated work need Huy's yes (2026-10-21, Improver)
+
+**Trace:** yeti-nano-dock, 2026-10-18: Huy wrote "Dont use Opus/Fable class subagent without my permissions. Always use Codex please" after the session launched a general-purpose Claude Agent for the R2 redesign. Queued in `~/.claude/lessons-queue.md` by that session's review (2026-10-18 23:58). Later sessions asked first or were told to ("Task an Opus subagent", pi-mind, 2026-10-20; "Yes use your own subagent", yeti-nano-dock, 2026-10-19), which fits the rule.
+**Root cause:** the Claude Agent section allowed small fan-outs on the coordinator's judgement; nothing said the owner must agree first.
+**Options considered:** (a) a rule in `lane-plan.md`, where lanes are chosen (chosen); (b) a standing-corrections line only (rejected: that file is checked on drafts, not when picking a lane); (c) a hook blocking the Agent tool (rejected: outside Improver's limits, and Huy does grant permission case by case).
+**Change (PM44):** a paragraph under "Claude Agent tool / Workflow tool" in `references/run/lane-plan.md`.
+**Expected result:** no Claude agent started for delegated work without a yes in the same session. Disproved if the harvest shows one, or if sessions stall asking for permission on work Codex could do.
+**Risk and rollback:** small persona or grader sets now need a question first. Revert with `git revert <sha>`.
+
+### Verdict: PENDING
+Owner: Improver. Revisit: 2026-10-28.

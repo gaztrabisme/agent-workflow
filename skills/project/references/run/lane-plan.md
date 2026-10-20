@@ -109,6 +109,8 @@ All external lanes go through the `subagent` MCP server (`mcp__subagent__*`; sou
 
 Same model as the coordinator, billed to the coordinator's session: a Claude fan-out spends the session's own budget. Measured on 2026-09-15: a Workflow fan-out of 12 graders plus 2 verifiers per finding reached 154 agents and 1.8 M tokens before the session limit killed the run with 7 agents done. The cap counts every Claude agent a run starts, not only those alive at once: on 2026-09-28 a per-lesson audit loop ran ≤ 4 Claude agents at a time but about 140 fix jobs in total, and hit the 5-hour usage limit mid-run. Rule: Claude fan-outs only for small, watchable sets (≤ 8 agents), or when no other lane can do the job; never for verifier layers at scale.
 
+**No Claude agent for delegated work without Huy's yes in this session** (Huy, 2026-10-18: "Dont use Opus/Fable class subagent without my permissions. Always use Codex please", after a session started a general-purpose Agent for a CAD redesign). Delegated work goes to Codex. Where Codex cannot do the job, ask once and say what the Claude agent would cost.
+
 ## Lane selection
 
 | Unit shape | Lane | Why |
