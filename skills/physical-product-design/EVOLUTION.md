@@ -41,3 +41,11 @@ All three target only `SKILL.md`; existing detailed references remain unchanged.
 
 ### Future validation
 Status for H1/H2/H3: **PENDING**, not established by this same-session application. Owner: skill owner / next executing agent. Revisit by 2026-11-05 or next two independent uses. Evidence floor: two later natural design tasks record a use experiment (or explicit conditional gate), a consequential lifecycle review and an independently checked critical input; at least one physical observation must affect or confirm a decision. Record time/effort and reject or narrow a hypothesis if it repeatedly adds ceremony without changing decisions. This Nano revision is exercise evidence only.
+
+## 2026-10-21 — Say whether a study was run or read (Improver)
+
+**Trace:** yeti-nano-dock, 2026-10-18. Huy asked "Did you run the tolerance study?"; the session had only read the agent's report. Its first rerun passed `--help` to a script with no options, which ran in full and overwrote the saved results.
+**Change (PPD-R1):** one paragraph at the end of "Corrections and reproducibility" in `references/engineering-validation.md`.
+**Expected result:** reports say "ran" or "read only", and no saved output is overwritten by a rerun. Disproved if a later session reports an agent's figure without saying which.
+**Rollback:** `git revert <sha>`.
+**Verdict:** PENDING. Owner: Improver. Revisit: 2026-11-05.

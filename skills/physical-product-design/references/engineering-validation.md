@@ -113,3 +113,5 @@ For long pipelines, freeze the geometry/input identity before parallel read-only
 Preserve the preceding revision and failed evidence. Fix the authoritative source, regenerate affected exports, analyses, slices and renders, and ensure the review uses that same revision. Record which results were invalidated; do not keep a strength or mass claim attached to geometry that changed afterward.
 
 Keep analysis inputs, tool versions, assumptions, thresholds, excluded contacts and outcomes with the handoff. Revision IDs or hashes can prevent stale-file mistakes in larger pipelines. Separate canonical CAD, posed review meshes and oriented manufacturing files. Exclude unreleased trial G-code from the print handoff, and keep a clear next-test sequence when real fit or strength remains open.
+
+When you report a study's result, say whether you ran it or only read its report. Before rerunning a script you did not write, copy its output files (2026-10-18: a script that did not parse `--help` treated it as a normal run and overwrote its saved results).
