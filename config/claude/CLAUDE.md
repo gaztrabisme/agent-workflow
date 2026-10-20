@@ -177,7 +177,7 @@ Ask only for facts that a person holds.
 
 ## Global Context
 
-Huy prompts and walks away. He does not watch the work; he returns to the final result. Every end-of-run report and every question put to him must stand on its own: explain each decision, check, row number or internal label in plain words at first mention (what it is, why it exists, what each option changes), never refer to "decision 25", "row 3" or "option 2" without saying what it means. Assume he has read none of the intermediate output.
+Huy prompts and walks away. He does not watch the work; he returns to the final result. Every end-of-run report and every question put to him must stand on its own, by the Fourth test under Voice; for a question, also say what each option changes. Assume he has read none of the intermediate output.
 
 Because he is not watching, a question does not stop the run. Leave the part that depends on the answer undone, finish everything else, and put the question at the top of the final report.
 
@@ -233,7 +233,7 @@ When a problem cannot be measured or done with the tools at hand, do not guess a
 
 ## Shell
 
-Never put `sleep N` ahead of other commands in one Bash call; the harness blocks it. Wait with `run_in_background: true` on an `until <check>; do sleep 15; done` loop, or the Monitor tool, and read the output when it finishes. This covers short waits too: `sleep 45; cd …` and `sleep 240; cat out` were both blocked (2026-10-15). Wait on a condition, never on a fixed time.
+Wait on a condition, never on a fixed `sleep N` (the harness blocks it, even short ones): a background `until <check>; do sleep 15; done` loop or the Monitor tool.
 
 ## This machine
 

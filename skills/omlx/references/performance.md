@@ -167,6 +167,8 @@ Under ~20 tok/s single-stream: investigate. Don't assume failure, and don't just
 | Model reload from disk (small model) | ~7 s |
 | Cold load, ~38 GB model | 9.8–17 s (0.26–0.44 s/GB) — varies with cache state; time your own |
 | Prefix-cache hit @ 8K | 49 s → 1.7 s |
+| Qwen3.8-Flash-Next oQ4e (~105 GB) with SSD offload (n-gram table on SSD, 70% of experts resident, 52.7 GB in-process), M3 Max, 2026-10-16 | essay writing (~4.8k tokens, thinking on): **1 request 13 tok/s** (MTP engages, ~6 min/essay); 2 requests 12 tok/s total; **4 requests 19 tok/s total** (best throughput, ~15 min/essay); a 421-token canary read 5.2 tok/s, so judge on full-length requests |
+| gpt-oss-120b MXFP4-Q8 (62 GB), judge answers ~11k tokens, high effort | c2 0.16, c4 0.25 (0.17 on a busy box), c6 0.25 answers/min; **c6 crossed the 67.9 GB hard watermark** under 70 GB custom ceiling and the model was evicted — use c4 |
 
 Server-wide `avg_generation_tps` in `/api/status` is a *lifetime, load-mixed* number. It is
 not your model's speed.

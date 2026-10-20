@@ -1,6 +1,6 @@
 # Character section — change log
 
-Every change to the **Character** section of `~/.claude/CLAUDE.md` is recorded here: what changed, the case that prompted it, the passages it rests on, and why it was worded this way. Read this before proposing the next change. `~/.claude` is not a git repository, so this file is the record.
+Every change to the **Character** section of `~/.claude/CLAUDE.md` is recorded here: what changed, the case that prompted it, the passages it rests on, and why it was worded this way. Read this before proposing the next change. Since 2026-10-16 `~/.claude/CLAUDE.md` links to `config/claude/CLAUDE.md` in the agent-workflow repo, so git holds the text; this file holds the reasoning.
 
 ---
 

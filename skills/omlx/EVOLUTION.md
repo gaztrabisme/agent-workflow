@@ -381,3 +381,10 @@ it at the cost of ~12 GB more swap. Added to request-contract and serving-ops.
 
 **Verdict: PENDING.** Candidate change: omlx_probe's deep check should catch a JSON decode
 error and print `finish_reason` + completion tokens instead of a traceback.
+
+## Real use 2026-10-16 — Flash-Next SSD offload measured; idle TTL and probe pitfalls
+
+Flash-Next with SSD offload: 1 request 13 tok/s (MTP), 4 requests 19 tok/s total; a short canary
+under-reads (5.2 tok/s). gpt-oss at 6 requests was evicted by the hard watermark at 68.0 GB.
+oMLX's per-model idle TTL (900 s) unloaded a model between benchmark levels. Added to
+performance.md reference throughput. **Verdict: PENDING.**

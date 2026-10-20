@@ -50,6 +50,8 @@ Do not add links to `~/.config/opencode/skills`, `~/.omp/agent/skills`, `~/.pi/a
 
 claude.ai keeps its own uploaded copies; they do not follow this repo. Claude Code's desktop app syncs them into `~/.claude/skills/synced/<account-id>/`, where they appear as `anthropic-skills:<name>` next to the linked `<name>`. After changing a skill's text, run `./scripts/make-cloud-zips.sh` and re-upload that skill's zip in claude.ai under Settings → Customize → Skills. A zip may hold at most 200 files; `color-theory`, `photo` and `zalo-platform` are merged by `cloud_merge.py` to fit.
 
+Uploading through Chrome (tested 2026-10-18, 32 of 33 zips): Settings → Customize → Skills → Add → Upload a skill. Attach up to about 14 zips in one `file_upload` call, click "Upload N skills", then click each "Replace" / "Upload and replace" confirmation. Run the click loop in chunks under 30 s, because a longer script times out the tab. `xlsx` is refused ("name already in use", claude.ai has its own), and `delegate` has no zip. Removing a skill on claude.ai also deletes its version history, so ask before removing. Needs the owner's yes for each run, since it publishes to their account.
+
 ## Check that every agent sources from here
 
 ```bash
