@@ -67,13 +67,14 @@ When the owner says "dynamic workflow", the engine is the provider-lane dynamic 
 
 ## 4. Declare: the Plan Block
 
-The Plan Block is the single scheduled checkpoint, before any agent starts. Surface every foreseeable fork with two or three options, brief consequences, and a recommendation. A recommendation is for the requester; when seeking advice from others on a decision you own, do not disclose a preferred option if your authority could anchor their response. [book:facilitating-software-architecture], Should You Provisionally Select an Option or Not?
+The Plan Block is the single scheduled checkpoint, before any agent starts. Surface every foreseeable fork with two or three options, brief consequences, and a recommendation. Put to the requester only the forks that need something only they hold: the goal, money, taste, accounts and approvals, and facts about their own situation. Decide technical forks (thresholds, methods, models, structure) yourself and list each under `Decided by coordinator` with its one-line reason, so the requester can overrule it (Huy, 2026-10-20: "I just set the goal, you decide these technical details"). A recommendation is for the requester; when seeking advice from others on a decision you own, do not disclose a preferred option if your authority could anchor their response. [book:facilitating-software-architecture], Should You Provisionally Select an Option or Not?
 
 Print it as a two-column Markdown table, never as an aligned text block: a long value in a text block wraps under the next label, and the reader loses which label it belongs to (Huy, 2026-10-18). Use the row names below as written; each cell says the thing in plain words, with any file name or ID explained in the same cell. Leave out a row that does not apply to the run rather than filling it with "none", except `Decisions for you`, which always comes first.
 
 | Item | Plan |
 |---|---|
-| Decisions for you | every fork, each with its recommendation; when detail would make the table hard to scan, put the full register below it |
+| Decisions for you | each fork only the requester can settle, with its recommendation; when detail would make the table hard to scan, put the full register below it |
+| Decided by coordinator | each technical fork, the option chosen and why in one line |
 | Goal | the request restated in one line |
 | Kind of work | the shapes present, in canonical order [book:agentic-mesh], Creating the Task Plan |
 | What was read | files read and what constrains this plan |

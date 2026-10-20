@@ -243,3 +243,31 @@ Validation: on the next real plan, (1) the map exists before the first estimate 
 
 ### Addendum, 15 Oct 2026: enforcement hook live
 `~/.claude/hooks/require_load.py`, wired as a PreToolUse hook on the Agent tool in `~/.claude/settings.json`. It refuses a brief with no LOAD line followed by a Skills/Books/Web docs entry, "None found: <searches>" or "Not applicable: <reason>". Exempt: the built-in helper agents (claude-code-guide, statusline-setup, Explore, Plan) and prompts starting "BRIEF-EXEMPT: <reason>" for checking-only agents. Tested on 13 sample inputs (all as intended) and live: a brief without Load was refused in the session that built it. Limit: it checks the form, not whether the cited items fit or were read; that stays with checklist line 22 and the report's Load accounting.
+
+## Evolution 8 — Technical forks are decided by the coordinator, not put to the requester (2026-10-21, Improver)
+
+### Trace
+Harvest of 2026-10-14 to 2026-10-21 (257 prompts Huy typed, 19 sessions). Six prompts in five sessions answer a plan's questions by handing technical choices back:
+- gsq-rco-mlx, 2026-10-20: "'Accept the REAP mask with layers 3, 4 and 9 below the 0.95 median-Jaccard threshold?' Like I said I prompt and walk away so I dont understand what this mean at all"; then "Like I said before I dont know to decide, I just set the goal you decide these technical details".
+- pi-mind, 2026-10-19: "I dont know the answers for all your questions so please answer them yourself".
+- agent-workflow, 2026-10-14, answering a 14-item list of open decisions: "11. Dont know enough to decide 12. Dont understand enough to decide".
+- edition-xs-stand, 2026-10-17: "Dont know enough to decide."
+- ieltsy, 2026-10-20: "I lost context so I dont know what you're asking".
+The global instructions already say to ask only for facts a person holds, so these are repeat corrections.
+
+### Hypothesis H1 — two rows, by who can answer
+**Root cause:** `references/run/flow.md` told the coordinator to put every foreseeable fork in `Decisions for you`, and `intent-interview.md` routed implementation choices (stack, lanes, engine, structure) there too, so technical forks reached a requester who sets goals only.
+**Options considered:** (a) split the row by who can answer (chosen: three small edits, keeps every fork visible); (b) a line in the global instructions only (rejected: the rule is already there and the skill text overrides it in practice); (c) drop technical forks from the Plan Block (rejected: Huy loses the chance to overrule).
+**Change:** `Decisions for you` keeps only forks that need what the requester alone holds (goal, money, taste, accounts and approvals, facts about them). A new row, `Decided by coordinator`, lists each technical fork with the option chosen and a one-line reason.
+**Expected result:** fewer replies of the form "I don't know enough to decide" or "you decide". Disproved if, over the next 7 days of harvest, such replies to Plan Blocks do not fall below 6, or if Huy overrules a coordinator decision because it needed his input.
+**Risk and rollback:** a fork with money or risk to Huy gets decided silently. Revert with `git revert <sha>` in the agent-workflow repo.
+
+### Changes
+| ID | Change | File |
+|---|---|---|
+| PM41 | Plan Block rule: put only requester-only forks to the requester; decide technical forks and list them | `references/run/flow.md` |
+| PM42 | `Decided by coordinator` row in the Plan Block table | `references/run/flow.md` |
+| PM43 | Interview routes implementation choices to `Decided by coordinator`; anti-pattern updated | `references/run/intent-interview.md`, `references/anti-patterns.md` |
+
+### Verdict: PENDING
+Validation: the next three Plan Blocks in the harvest have a `Decided by coordinator` row and no technical fork in `Decisions for you`; Huy's "don't know / you decide" replies fall below 6 a week. Owner: Improver. Revisit: 2026-10-28.
