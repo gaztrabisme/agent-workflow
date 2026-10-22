@@ -18,6 +18,7 @@ Rules that apply before that file is open:
   ```
 - The LAN address is DHCP and has moved before. The Tailscale address `100.106.185.34` is the stable one. If the LAN address stops answering, `tailscale status` reports the current one.
 - If both fail, Tailscale is probably down. It needs `sudo` and may need browser login, so Huy brings it up: ask him to run `! sudo tailscale up`, show him any login URL it prints, and do not open that URL yourself.
+- bppc dual-boots Windows 11 from the same disk. When Windows is up, the Linux address answers with a different host key and the loop above fails; connect with `ssh bppc-win` (alias in `~/.ssh/config`: `bppc@192.168.1.17`, this Mac's `id_ed25519`, its own known_hosts entry). The shell is cmd. SSH there is LAN only (firewall: Private profile, no Tailscale on Windows). After a BIOS reset it boots Windows; Huy sets Boot Option #1 back to ubuntu.
 - Daily local LLM on the PC: `start-llm` from this Mac (LAN first, Tailscale second, never runs sudo). Serves `http://<bppc>:8080/v1`; the API key is required and is in `~/.config/bppc-llm/api_key` (details in `~/.claude/reference/bppc.md`).
 
 ## Local LLM on this Mac (oMLX)
