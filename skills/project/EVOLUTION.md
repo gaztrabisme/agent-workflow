@@ -252,3 +252,12 @@ Validation: on the next real plan, (1) the map exists before the first estimate 
 **Expected result:** no Claude agent started for delegated work without Huy's yes. Disproved if the harvest shows one.
 **Rollback:** `git revert <sha>`.
 **Verdict:** PENDING. Owner: Improver. Revisit: 2026-10-28.
+
+## Evolution 10 — Technical forks are decided by the coordinator (2026-10-23, Improver)
+
+**Trace:** four times an agent put a technical choice to Huy and he handed it back. gsq-rco-mlx, 2026-10-20, asked "Accept the REAP mask with layers 3, 4 and 9 below the 0.95 median-Jaccard threshold?": "Like I said before I dont know to decide, I just set the goal you decide these technical details". pi-mind, 2026-10-19, asked among others whether a 150 ms limit covers the whole search, whether DuckDB may be added, and where graph code should live: "I dont know the answers for all your questions so please answer them yourself". edition-xs-stand, 2026-10-17, asked whether to raise the stand from 310 to 320 mm: "Dont know enough to decide." synth-vid-generator, 2026-10-22, asked whether to switch to a pool of pre-rigged heads: "Idk should do the most streamline method to achieve high fidelity and variety while saving time".
+**Root cause:** `references/run/flow.md` says to surface every foreseeable fork to the requester, and `intent-interview.md` routes implementation choices to `Decisions for you`; nothing says which forks the coordinator decides.
+**Change (PM45–PM47):** `Decisions for you` keeps forks only the requester can settle; a `Decided by coordinator` row lists technical forks with a one-line reason. Files: `references/run/flow.md`, `references/run/intent-interview.md`, `references/anti-patterns.md`.
+**Expected result:** fewer replies that hand a technical choice back. Disproved if such replies do not fall over the next 14 days, or if Huy overrules a coordinator decision because it needed his input.
+**Rollback:** `git revert <sha>`.
+**Verdict:** PENDING. Owner: Improver. Revisit: 2026-11-06.
