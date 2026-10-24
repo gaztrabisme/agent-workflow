@@ -261,3 +261,12 @@ Validation: on the next real plan, (1) the map exists before the first estimate 
 **Expected result:** fewer replies that hand a technical choice back. Disproved if such replies do not fall over the next 14 days, or if Huy overrules a coordinator decision because it needed his input.
 **Rollback:** `git revert <sha>`.
 **Verdict:** PENDING. Owner: Improver. Revisit: 2026-11-06.
+
+## Evolution 11 — Mid-run technical choices are delegated (2026-10-25, Improver)
+
+**Trace:** synth-vid-generator, 2026-10-23: the agent recommended skipping "a check that a worn hard hat appears in the top half of the person's box in the overhead camera" for people directly under that camera, and asked "Want me to make it?"; Huy: "dont stop to ask, just decide yourself". The four cases behind Evolution 10 were also questions asked mid-run, not in a Plan Block (gsq-rco-mlx 2026-10-20, pi-mind 2026-10-19, edition-xs-stand 2026-10-17, synth-vid-generator 2026-10-22).
+**Root cause:** Evolution 10 changed the Plan Block only. The mid-run rule in `references/run/flow.md` says to decide forward "only on choices delegated to you" and does not say whether technical choices are delegated.
+**Change (PM48):** one sentence after that rule: technical choices count as delegated unless the requester said otherwise; decide, log the reason, report.
+**Expected result:** fewer mid-run questions on technical choices. Disproved if Huy hands back technical questions asked mid-run at the same rate over the next 14 days, or overrules a mid-run decision because it needed his input.
+**Rollback:** `git revert <sha>`.
+**Verdict:** PENDING. Owner: Improver. Revisit: 2026-11-07.
