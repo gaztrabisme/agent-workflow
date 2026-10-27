@@ -1,5 +1,7 @@
 # The Experiment Loop
 
+For running many trials unattended, use the `autoresearch` skill ([../../autoresearch/SKILL.md](../../autoresearch/SKILL.md)); this page covers the ML judgement around it.
+
 Use this loop for training, fine-tuning, model comparisons, and other ML experiments where success is measured by outcomes rather than a binary code test. Read `ml-heuristics.md` for problem formulation and model choices, and use the shared teaching gate in `../../core/references/pushback-and-teach.md` when explaining ML mechanisms.
 
 ## Ground, define convergence, and size the study
@@ -26,7 +28,7 @@ Define primary and secondary thresholds, a stop condition, an iteration proxy, a
 
 `Change one variable → train → evaluate → record → decide`
 
-Change one variable per training run so its effect can be attributed. [book:effective-conversational-ai], 1.3.2 The continuous improvement cycle
+Change one variable per run when runs execute one at a time. [book:effective-conversational-ai], 1.3.2 The continuous improvement cycle. When runs execute in parallel, a small factorial grid can expose interactions one-at-a-time changes miss (SkyPilot, "Scaling Karpathy's Autoresearch", 18 Mar 2026: 16-GPU run, grids of 10–13 runs).
 
 Use a cheap proxy to rank candidates, but ship only if the pre-registered decisive gate passes. After the convergence criteria are met or returns diminish, stop unless the business requires further gains. [book:ai-engineering-huyen], Select evaluation methods; [book:human-in-the-loop-ml], 3.5.3 When do I stop if I'm not time- or budget-constrained?
 

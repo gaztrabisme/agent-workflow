@@ -1,5 +1,6 @@
 ai-discovery-workshop
 applied-ml-problem-solver
+autoresearch
 business-intelligence
 ceric
 color-theory
