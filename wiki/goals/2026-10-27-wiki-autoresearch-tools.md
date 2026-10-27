@@ -25,4 +25,24 @@ Shorthand: A = `~/Documents/Work/tools/agent-workflow`; S = `~/Documents/Work/to
 Coordinator writes briefs and runs every UAT. Codex (subagent lane) builds multi-file code and reviews; Haiku subagents do mechanical text edits. Nothing pushed.
 
 ## Amendments
-(none)
+- 2026-10-27, coordinator: G2's "≤3 missing link targets" was based on a wrong count of mine; the real wiki pages have 0 broken links, and 135 were inside copied source documents (`inputs/`). Those folders are now excluded; "not in index" became "unreachable from index".
+- 2026-10-27, coordinator: subagent-mcp refuses its own repo as a workspace, so the subagent-mcp work ran in the worktree `subagent-mcp-wt/autoresearch-aware`.
+- 2026-10-27, coordinator: Codex under the read sandbox silently dropped its edits (its own sandbox fails to start inside ours). Fixed by running Codex without its own sandbox and limiting writes in the outer profile. Haiku (`claude-cli:haiku`) added as fallback proposer at the owner's request.
+- 2026-10-27, coordinator: G9's planted read. The direct `cat` was refused by the guard (Codex trace). Both models declined to write the read script (Codex after the guard refusal; Gemini's content filter). The script read was proven without a model: a script reading the real session `val.bin` under both sandbox profiles got "Operation not permitted"; the smoke runs showed the same for children on Codex and Gemini.
+- 2026-10-27, coordinator: the 8-iteration GPU run (session e2e1) ran before the review fixes; after them, a 1-iteration check (session e2e3) confirmed training, private artifact copies and scoring still work.
+
+## Close audit (2026-10-27)
+| ID | Result | Evidence |
+|---|---|---|
+| G1 | PASS | 65 passed |
+| G2 | PASS | index-over-cap, log-over-cap, 0 broken links; Linkcruiser hash unchanged |
+| G3 | PASS | six rules grep 1 each; 63 lines |
+| G4 | PASS | `claude mcp list`, `codex mcp list`, pi mcp.json |
+| G5 | PASS | 1719 passed; smoke: no leak on Codex and Gemini, edit lands on both |
+| G6 | PASS | 159 passed incl. 5 native sandbox tests |
+| G7 | PASS | live smoke: Haiku kept a change after 3 re-measures; Codex iteration scored |
+| G8 | PASS | skills.txt, link check empty, train-loop links skill |
+| G9 | PASS with amendment | e2e1: 8 iterations, 3 keeps, val_bpb 4.20 → 2.36, held-out 2.03, memory 93–95% free; planted read per amendment |
+| G10 | PASS | 12 findings: 9 fixed in autoresearch-mcp, 3 in subagent-mcp; H5 (detached descendants) mitigated, not removed |
+| G11 | PASS | 75 failures identical to main; 3 queries top-3; second pass 0 re-embedded, 186 files reconciled |
+| G12 | PASS | 6 findings fixed with tests |

@@ -86,3 +86,5 @@ Owner asked for a skill on "hitting the dopamine release" in presentations, vide
 ## 2026-10-23 · Improver · `machines/mcbob.md`: no `timeout` command on this Mac
 - Evidence: a freelancing session (2026-10-18) failed with `command not found: timeout`; the bob session's review (2026-10-20) records the same failure in its daily-look script. The perl workaround was written only in `skills/project/references/run/lane-plan.md`.
 - Change: one bullet under "Working on this Mac". Disproved if the failure recurs. Verdict PENDING, revisit 2026-11-06. Revert: `git revert <sha>`.
+
+## [2026-10-27] run | wiki tool, autoresearch MCP server and wiki search built and checked (goal 2026-10-27-wiki-autoresearch-tools, all rows pass; see its amendments). Commits: agent-workflow main; subagent-mcp branch autoresearch-aware (worktree subagent-mcp-wt/autoresearch-aware); autoresearch-mcp main (new local repo); knowledge-base branch wiki-corpus (worktree knowledge-base-wt/wiki-corpus). Nothing pushed or merged.
