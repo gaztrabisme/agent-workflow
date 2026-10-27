@@ -1,0 +1,9 @@
+.venv/
+.uv-cache/
+.pytest_cache/
+.pytest-tmp/
+__pycache__/
+*.egg-info/
+dist/
+# Local offline bootstrap (normal installs resolve from PyPI).
+uv.toml

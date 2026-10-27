@@ -1,0 +1,285 @@
+{
+  "wiki": "/Users/GaryT/Documents/Work/projects/Linkcruiser/wiki",
+  "findings": [
+    {
+      "rule": "index-over-cap",
+      "path": "index.md",
+      "message": "237 lines exceeds cap 200"
+    },
+    {
+      "rule": "log-over-cap",
+      "path": "log.md",
+      "message": "2531 lines exceeds cap 400"
+    },
+    {
+      "rule": "run-report-in-index",
+      "path": "index.md",
+      "message": "19 run report links; at most one roll-up allowed"
+    },
+    {
+      "rule": "undated-page",
+      "path": "accepted-2026-10-20/receipt.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "accepted-2026-10-23/receipt.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "accepted-context-2026-10-19/receipt.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "acquisition-2026-10-20/receipt.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "unreachable",
+      "path": "authorizer-log.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/00-frame.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/01-owner-decisions.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/architect.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/backend.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/frontend.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/persona-operator.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/persona-recruiter.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "undated-page",
+      "path": "cell-2026-09-05-jobs/persona-recruiter.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/review-primitives-legacy.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "undated-page",
+      "path": "cell-2026-09-05-jobs/review-primitives-legacy.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/spec-before-loop-fold.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/spec-before-review-apply.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "cell-2026-09-05-jobs/verification.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "undated-page",
+      "path": "cv-cohort-2026-10-22/maturity.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "cv-cohort-2026-10-22/review.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "existing-connections-2026-10-13/shortlist.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "existing-connections-2026-10-14/shortlist.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "existing-connections-2026-10-15/shortlist.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "recruitment-strategy-2026-10-11/day14/review.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "recruitment-strategy-2026-10-11/day7/review.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "unreachable",
+      "path": "recruitment-strategy-2026-10-11/grounded.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "recruitment-strategy-2026-10-11/live-review-2026-10-11.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "recruitment-strategy-2026-10-11/m1/report.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "recruitment-strategy-2026-10-11/m2/report.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "undated-page",
+      "path": "recruitment-strategy-2026-10-11/oct12-review-prep.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "unreachable",
+      "path": "recruitment-strategy-2026-10-11/readback/report.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "recruitment-strategy-2026-10-11/review.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "undated-page",
+      "path": "recruitment-strategy-2026-10-11/review.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "recruitment-strategy-2026-10-11/scorecard.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "unreachable",
+      "path": "recruitment-strategy-2026-10-11/source-checks.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-05-recruitment-messages.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-11-heartbeat-2319.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-18-heartbeat-0233.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-19-heartbeat-0057.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-20-cap-checks.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-20-heartbeat-0114.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-23-availability.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-24-monitor.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-25-monitor.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "run-2026-10-26-monitor.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "unreachable",
+      "path": "warm-2026-10-19/jd-first-policy-update.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "undated-page",
+      "path": "warm-2026-10-19/jd-first-policy-update.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "unreachable",
+      "path": "warm-2026-10-19/quan-pre-send.md",
+      "message": "page is unreachable from index.md"
+    },
+    {
+      "rule": "undated-page",
+      "path": "warm-2026-10-19/quan-pre-send.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "warm-2026-10-19/second-run.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "warm-2026-10-21/kiet-pending.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "warm-2026-10-21/kiet-sent.md",
+      "message": "no date in filename or first 15 lines"
+    },
+    {
+      "rule": "undated-page",
+      "path": "warm-2026-10-23/linh-uncertain.md",
+      "message": "no date in filename or first 15 lines"
+    }
+  ]
+}

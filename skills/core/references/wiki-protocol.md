@@ -14,7 +14,11 @@ Project memory is an agent-maintained record of decisions, findings, work state,
 ## Index and journal
 
 - Keep the index a short, purpose-labeled hub of links, grouped by topic; list every page with a one-line summary and update the index on ingest or page creation. [book:software-engineering-at-google], Landing Pages.
+- Keep index.md at or under 200 lines. Past that, split it into topic sub-indexes linked from index.md.
+- Put per-run reports in `runs/`. The index carries one roll-up line linking to `runs/`, not one line per report.
 - Keep log.md append-only, with dated entries and a consistent prefix that supports search. [book:building-applications-ai-agents], Data Provenance and Integrity.
+- When log.md passes 400 lines, run `wiki rotate`: entries older than 30 days move to `log-YYYY-MM.md`, and log.md keeps a pointer line per month.
+- In a git worktree, append to `log.<branch>.md` with `wiki log`; run `wiki merge-logs` when the branch lands.
 
 ## Ingest and session protocol
 
@@ -22,6 +26,7 @@ Project memory is an agent-maintained record of decisions, findings, work state,
 - At session start, read the index and current work state; read decision records when a decision is due. During work, update current state and useful findings. Create a topic page when a fact will help later work; link related pages. [book:software-engineering-at-google], Scaling Your Questions: Ask the Community; [book:learning-systems-thinking], Link models to show relationships.
 - Brief the user on current status, recent breadcrumbs, and pending items. [book:pmbok-guide-7e], Reports.
 - On completion, update the relevant pages with outcomes, append the session entry, and update the index when new pages were created. [book:software-engineering-at-google], Documentation Is Like Code.
+- At session end, run `wiki lint <wiki>` and fix what it reports or log why not.
 - For every mode, at minimum append a dated event to log.md and update active-work.md with current state and next steps. [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
 - Keep a standing assumption log for unresolved assumptions and constraints; revisit them as evidence arrives. [book:pmbok-guide-7e], 4.6.2. Logs and Registers.
 
@@ -53,6 +58,6 @@ Project memory is an agent-maintained record of decisions, findings, work state,
 - Before relying on a roll-up for a consequential decision, open the dated source entry it summarizes. [book:research-methods-psychology], Chapter 1: Psychology Is a Way of Thinking.
 - Verify a roll-up's claim that an issue is still open against its source record.
 - Date-stamp each claim rather than using a section-level date to imply all its content is current. [book:facilitating-software-architecture], Meta-Elements.
-- Rewrite a superseded roll-up claim; do not append a newer claim underneath it and leave both standing. [book:facilitating-software-architecture], Further ADR Resources.
+- Rewrite a superseded roll-up claim rather than appending the newer claim under it, and keep a pointer to the dated entry or claim it replaced. [book:facilitating-software-architecture], Further ADR Resources.
 - Write specific findings as breadcrumbs, not activity descriptions. [book:site-reliability-engineering], Keep a History of Outages; [book:learning-systems-thinking], Be Missouri.
 - Link to an existing page when writing about its concept. [book:learning-systems-thinking], Link models to show relationships.

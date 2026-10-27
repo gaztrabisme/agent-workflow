@@ -1,0 +1,67 @@
+tests/test_interfaces.py::test_cli_lint_json_and_strict
+tests/test_interfaces.py::test_cli_search_stub
+tests/test_interfaces.py::test_mcp_module_imports_lists_four_tools_and_calls_shared_lint
+tests/test_lint.py::test_index_over_cap[200-False]
+tests/test_lint.py::test_index_over_cap[201-True]
+tests/test_lint.py::test_log_over_cap[400-False]
+tests/test_lint.py::test_log_over_cap[401-True]
+tests/test_lint.py::test_unreachable[False]
+tests/test_lint.py::test_unreachable[True]
+tests/test_lint.py::test_source_copy_exclusions[inputs-True]
+tests/test_lint.py::test_source_copy_exclusions[raw-True]
+tests/test_lint.py::test_source_copy_exclusions[archive/inputs/deep-True]
+tests/test_lint.py::test_source_copy_exclusions[archive/raw/deep-True]
+tests/test_lint.py::test_source_copy_exclusions[myinputs-False]
+tests/test_lint.py::test_source_copy_exclusions[rawdata-False]
+tests/test_lint.py::test_reachability_follows_any_depth_and_terminates_cycles[1]
+tests/test_lint.py::test_reachability_follows_any_depth_and_terminates_cycles[3]
+tests/test_lint.py::test_reachability_follows_any_depth_and_terminates_cycles[40]
+tests/test_lint.py::test_disconnected_cycle_is_unreachable
+tests/test_lint.py::test_reachability_traverses_exempt_pages[topics]
+tests/test_lint.py::test_reachability_traverses_exempt_pages[inputs]
+tests/test_lint.py::test_reachability_traverses_exempt_pages[raw]
+tests/test_lint.py::test_reachability_traverses_exempt_pages[runs]
+tests/test_lint.py::test_reachability_traverses_exempt_pages[goals]
+tests/test_lint.py::test_reachability_follows_repo_root_links_through_external_markdown
+tests/test_lint.py::test_reachability_prefers_page_relative_target_over_repo_root
+tests/test_lint.py::test_index_dead_entry[False]
+tests/test_lint.py::test_index_dead_entry[True]
+tests/test_lint.py::test_broken_link[False-[Topic](target.md#part)]
+tests/test_lint.py::test_broken_link[False-[[target]]]
+tests/test_lint.py::test_broken_link[False-[[target|Label]]]
+tests/test_lint.py::test_broken_link[True-[Topic](target.md#part)]
+tests/test_lint.py::test_broken_link[True-[[target]]]
+tests/test_lint.py::test_broken_link[True-[[target|Label]]]
+tests/test_lint.py::test_root_relative_link_not_flagged
+tests/test_lint.py::test_run_report_in_index[run--1-False]
+tests/test_lint.py::test_run_report_in_index[run--2-True]
+tests/test_lint.py::test_run_report_in_index[runs/-1-False]
+tests/test_lint.py::test_run_report_in_index[runs/-2-True]
+tests/test_lint.py::test_undated_page[plain.md-no date\n-True]
+tests/test_lint.py::test_undated_page[dated-2026-10-27.md-no date\n-False]
+tests/test_lint.py::test_undated_page[plain.md-\n\n\n\n\n\n\n\n\n\n\n\n\n\n2026-10-27\n-False]
+tests/test_lint.py::test_undated_page[plain.md-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2026-10-27\n-True]
+tests/test_lint.py::test_links_in_code_ignored_and_url_encoded_links_resolve
+tests/test_lint.py::test_lint_never_modifies_files
+tests/test_logs.py::test_log_matches_order_and_keeps_title[False]
+tests/test_logs.py::test_log_matches_order_and_keeps_title[True]
+tests/test_logs.py::test_log_worktree_writes_branch_file
+tests/test_logs.py::test_log_empty_and_single_entry_default_newest_first
+tests/test_logs.py::test_rotate_recognizes_real_heading_formats[## [2026-01-01] run | one]
+tests/test_logs.py::test_rotate_recognizes_real_heading_formats[## 2026-01-01 \u2014 two]
+tests/test_logs.py::test_rotate_recognizes_real_heading_formats[## [2026-01-01\u201302] three]
+tests/test_logs.py::test_rotate_recognizes_real_heading_formats[## 2026-01-01/02 \u2014 four]
+tests/test_logs.py::test_rotate_only_old_whole_entries_pointer_and_idempotence[False]
+tests/test_logs.py::test_rotate_only_old_whole_entries_pointer_and_idempotence[True]
+tests/test_logs.py::test_rotate_dry_run_and_below_cap_do_not_write
+tests/test_logs.py::test_rotate_existing_archive_keeps_its_order[False]
+tests/test_logs.py::test_rotate_existing_archive_keeps_its_order[True]
+tests/test_logs.py::test_merge_logs_order_and_remove_branch_files[False]
+tests/test_logs.py::test_merge_logs_order_and_remove_branch_files[True]
+tests/test_logs.py::test_merge_dry_run_no_writes
+tests/test_logs.py::test_rotate_keeps_existing_pointers_when_later_entries_age
+tests/test_logs.py::test_merge_rejects_unstructured_branch_without_deleting
+tests/test_logs.py::test_newest_log_inserts_immediately_after_title
+tests/test_logs.py::test_rotate_preserves_code_headings_and_code_pointers
+
+65 tests collected in 0.51s

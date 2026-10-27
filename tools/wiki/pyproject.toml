@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wiki_tool"
+version = "0.1.0"
+description = "Small CLI and MCP tools for project wikis"
+requires-python = ">=3.11"
+dependencies = ["fastmcp>=2.13"]
+
+[project.scripts]
+wiki = "wiki_tool.cli:main"
+wiki-mcp = "wiki_tool.server:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wiki_tool"]
+
+[tool.uv]
+cache-dir = ".uv-cache"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "--basetemp=.pytest-tmp"
