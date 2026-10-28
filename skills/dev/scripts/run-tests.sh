@@ -130,6 +130,7 @@ json_escape() {
 passed=0
 failed=0
 total=0
+skipped=0
 duration=""
 errors_json="[]"
 parse_error=false
@@ -137,13 +138,15 @@ parse_error=false
 case "$runner" in
     pytest)
         # Parse pytest summary line: "47 passed, 2 failed in 3.21s"
-        summary_line=$(grep -E '[0-9]+ (passed|failed|error)' "$log_file" | tail -1) || summary_line=""
+        summary_line=$(grep -E '^([=]+ )?[0-9]+ (passed|failed|errors?).* in [0-9.]+s' "$log_file" | tail -1) || summary_line=""
         if [[ -n "$summary_line" ]]; then
             passed=$(echo "$summary_line" | grep -oE '[0-9]+ passed' | grep -oE '[0-9]+') || passed=0
             failed=$(echo "$summary_line" | grep -oE '[0-9]+ failed' | grep -oE '[0-9]+') || failed=0
             errors_count=$(echo "$summary_line" | grep -oE '[0-9]+ error' | grep -oE '[0-9]+') || errors_count=0
             failed=$((failed + errors_count))
             duration=$(echo "$summary_line" | grep -oE 'in [0-9.]+s' | sed 's/in //') || duration=""
+        else
+            parse_error=true
         fi
         total=$((passed + failed))
 
@@ -169,20 +172,29 @@ case "$runner" in
 
     jest)
         # Parse jest summary: "Tests: 2 failed, 45 passed, 47 total"
-        summary_line=$(grep -E 'Tests:.*total' "$log_file" | tail -1) || summary_line=""
+        summary_line=$(grep -E '^Tests:([[:space:]]+[0-9]+ (failed|passed|skipped|todo),)*[[:space:]]+[0-9]+ total$' "$log_file" | tail -1) || summary_line=""
         if [[ -n "$summary_line" ]]; then
             passed=$(echo "$summary_line" | grep -oE '[0-9]+ passed' | grep -oE '[0-9]+') || passed=0
             failed=$(echo "$summary_line" | grep -oE '[0-9]+ failed' | grep -oE '[0-9]+') || failed=0
             total=$(echo "$summary_line" | grep -oE '[0-9]+ total' | grep -oE '[0-9]+') || total=0
+            skipped=$(echo "$summary_line" | grep -oE '[0-9]+ (skipped|todo)' | awk '{n += $1} END {print n+0}')
+        else
+            parse_error=true
         fi
         time_line=$(grep -E 'Time:' "$log_file" | tail -1) || time_line=""
         duration=$(echo "$time_line" | grep -oE '[0-9.]+ s' | head -1) || duration=""
         ;;
 
     go)
-        # Parse go test: "ok" / "FAIL" lines + "--- FAIL:" lines
-        passed=$(grep -cE '^ok\s' "$log_file") || passed=0
-        failed=$(grep -cE '^FAIL\s' "$log_file") || failed=0
+        # Count test results; package "ok" lines can also mean no tests ran.
+        passed=$(grep -cE '^--- PASS:' "$log_file") || passed=0
+        failed=$(grep -cE '^--- FAIL:' "$log_file") || failed=0
+        if ! grep -qE '^(ok[[:space:]]|FAIL([[:space:]]|$))' "$log_file"; then
+            parse_error=true
+        fi
+        if [[ "$failed" -eq 0 ]] && grep -qE '^FAIL([[:space:]]|$)' "$log_file"; then
+            failed=1
+        fi
         total=$((passed + failed))
         duration=$(grep -oE '[0-9.]+s$' "$log_file" | tail -1) || duration=""
 
@@ -206,14 +218,25 @@ case "$runner" in
         ;;
 
     cargo)
-        # Parse cargo test: "test result: ok. 10 passed; 0 failed;"
-        summary_line=$(grep -E 'test result:' "$log_file" | tail -1) || summary_line=""
-        if [[ -n "$summary_line" ]]; then
-            passed=$(echo "$summary_line" | grep -oE '[0-9]+ passed' | grep -oE '[0-9]+') || passed=0
-            failed=$(echo "$summary_line" | grep -oE '[0-9]+ failed' | grep -oE '[0-9]+') || failed=0
+        # Sum all test binaries and doctests, including trailing zero-test summaries.
+        summary_lines=$(grep -E '^test result:' "$log_file") || summary_lines=""
+        if [[ -n "$summary_lines" ]]; then
+            while IFS= read -r summary_line; do
+                if [[ "$summary_line" =~ ^test\ result:\ (ok|FAILED)\.\ ([0-9]+)\ passed\;\ ([0-9]+)\ failed\; ]]; then
+                    passed=$((passed + BASH_REMATCH[2]))
+                    failed=$((failed + BASH_REMATCH[3]))
+                    if [[ "${BASH_REMATCH[1]}" == "FAILED" && "${BASH_REMATCH[3]}" -eq 0 ]]; then
+                        parse_error=true
+                    fi
+                else
+                    parse_error=true
+                fi
+            done <<< "$summary_lines"
+        else
+            parse_error=true
         fi
         total=$((passed + failed))
-        duration=$(grep -oE 'finished in [0-9.]+s' "$log_file" | grep -oE '[0-9.]+s') || duration=""
+        duration=$(grep -oE 'finished in [0-9.]+s' "$log_file" | grep -oE '[0-9.]+s' | tail -1) || duration=""
 
         if [[ "$failed" -gt 0 ]]; then
             failing_tests=$(grep -E "^---- .* stdout ----" "$log_file" | head -5 | sed 's/^---- //; s/ stdout ----//') || failing_tests=""
@@ -243,6 +266,7 @@ case "$runner" in
             total=$(echo "$summary_line" | awk '{print $3}')
             passed=$(echo "$pass_line" | awk '{print $3}')
             failed=$(echo "$fail_line" | awk '{print $3}')
+            skipped=$(grep -E '^# (skipped|todo) [0-9]+$' "$log_file" | awk '{n += $3} END {print n+0}')
         else
             parse_error=true
         fi
@@ -271,16 +295,23 @@ passed=${passed:-0}
 failed=${failed:-0}
 total=${total:-0}
 
+if [[ "$total" -le 0 || $((passed + failed)) -le 0 || $((passed + failed + skipped)) -ne "$total" ]]; then
+    parse_error=true
+fi
+if [[ "$failed" -gt 0 && "$exit_code" -eq 0 ]]; then
+    exit_code=1
+fi
+
 # ── Build JSON summary ───────────────────────────────────
 status="pass"
 if [[ "$parse_error" == true ]]; then
-    status="error"
+    status="fail"
 elif [[ "$exit_code" -ne 0 ]]; then
     status="fail"
 fi
 
-if [[ "$status" == "error" ]]; then
-    echo "{\"status\":\"${status}\",\"runner\":\"${runner}\",\"message\":\"Test output did not contain a parseable summary; inspect the log and use the project command if needed.\",\"passed\":${passed},\"failed\":${failed},\"total\":${total},\"log\":\"${log_file}\"}"
+if [[ "$parse_error" == true ]]; then
+    echo "{\"status\":\"${status}\",\"runner\":\"${runner}\",\"message\":\"Test output did not contain a non-empty, consistent summary; inspect the log and use the project command if needed.\",\"passed\":${passed},\"failed\":${failed},\"total\":${total},\"log\":\"${log_file}\"}"
     exit 2
 elif [[ "$failed" -gt 0 ]]; then
     echo "{\"status\":\"${status}\",\"runner\":\"${runner}\",\"passed\":${passed},\"failed\":${failed},\"total\":${total},\"duration\":\"${duration}\",\"errors\":${errors_json},\"log\":\"${log_file}\"}"

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # Code quality scanner — JSON summary to stdout, full output to log file.
-# Runs configured and installed quality tools; records exactly which tools ran.
+# Requires applicable quality tools; records exactly which tools ran.
 #
 # Set DEV_SKILL_DIR to the installed dev skill directory once.
 # Usage: bash "$DEV_SKILL_DIR/scripts/run-quality.sh" [options] [path]
 #
 # Options:
 #   --log-dir DIR        Directory for log files (default: fresh directory under TMPDIR)
-#   --strict             Treat warnings as errors (default: advisories only)
+#   --strict             Accepted for compatibility; errors always fail
 #   --security-only      Run only security checks (bandit)
 #   --lint-only          Run only lint checks (ruff)
 #   --types-only         Run only type checks (pyright or tsc)
@@ -21,7 +21,6 @@ set -euo pipefail
 # ── Parse arguments ──────────────────────────────────────
 log_dir=""
 target_path="."
-strict=false
 run_lint=true
 run_security=true
 run_types=true
@@ -33,7 +32,6 @@ while [[ $# -gt 0 ]]; do
             shift 2
             ;;
         --strict)
-            strict=true
             shift
             ;;
         --security-only)
@@ -84,15 +82,15 @@ json_escape() {
 }
 
 has_python_files() {
-    find "$target_path" -name '*.py' -not -path '*/node_modules/*' -not -path '*/.venv/*' -not -path '*/__pycache__/*' -not -path '*/.git/*' 2>/dev/null | head -1 | grep -q .
+    find "$target_path" -name '*.py' -not -path '*/node_modules/*' -not -path '*/.venv/*' -not -path '*/__pycache__/*' -not -path '*/.git/*' -print -quit 2>/dev/null | grep -q .
 }
 
 has_js_files() {
-    find "$target_path" \( -name '*.js' -o -name '*.ts' -o -name '*.jsx' -o -name '*.tsx' \) -not -path '*/node_modules/*' -not -path '*/.git/*' 2>/dev/null | head -1 | grep -q .
+    find "$target_path" \( -name '*.js' -o -name '*.ts' -o -name '*.jsx' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) -not -path '*/node_modules/*' -not -path '*/.git/*' -print -quit 2>/dev/null | grep -q .
 }
 
 has_typescript_files() {
-    find "$target_path" \( -name '*.ts' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) -not -path '*/node_modules/*' -not -path '*/.git/*' 2>/dev/null | head -1 | grep -q .
+    find "$target_path" \( -name '*.ts' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) -not -path '*/node_modules/*' -not -path '*/.git/*' -print -quit 2>/dev/null | grep -q .
 }
 
 # ── Detect project type ──────────────────────────────────
@@ -111,8 +109,8 @@ if has_typescript_files; then
 fi
 
 if ! $is_python && ! $is_js; then
-    echo '{"status":"skip","checks_run":[],"message":"No Python or JS/TS files found in target path."}'
-    exit 0
+    echo '{"status":"error","checks_run":[],"message":"No supported scanner; configure a native gate."}'
+    exit 2
 fi
 
 # ── Initialize counters ─────────────────────────────────
@@ -138,40 +136,45 @@ if $run_lint && $is_python && command -v ruff &>/dev/null; then
     echo "=== RUFF LINT ===" >> "$log_file"
 
     # Lint check
-    ruff_output=$(ruff check "$target_path" --output-format=json 2>>"$log_file") || true
+    ruff_output=$(ruff check "$target_path" --output-format=json 2>>"$log_file") || overall_status="fail"
     echo "$ruff_output" >> "$log_file"
 
-    if [[ -n "$ruff_output" && "$ruff_output" != "[]" ]]; then
-        lint_errors=$(echo "$ruff_output" | python3 -c "
+    lint_errors=$(echo "$ruff_output" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
+if not isinstance(data, list) or any(not isinstance(d, dict) for d in data):
+    raise ValueError('Expected Ruff finding list')
 errors = [d for d in data if d.get('fix') is None]
-fixable = [d for d in data if d.get('fix') is not None]
 print(len(errors))
-" 2>/dev/null) || lint_errors=0
-        lint_fixable=$(echo "$ruff_output" | python3 -c "
+" 2>>"$log_file") || { lint_errors=1; overall_status="fail"; }
+    lint_fixable=$(echo "$ruff_output" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
 fixable = [d for d in data if d.get('fix') is not None]
 print(len(fixable))
-" 2>/dev/null) || lint_fixable=0
-        lint_warnings=$lint_fixable
-    fi
+" 2>>"$log_file") || { lint_fixable=0; overall_status="fail"; }
+    lint_warnings=$lint_fixable
 
     # Format check
     echo "" >> "$log_file"
     echo "=== RUFF FORMAT CHECK ===" >> "$log_file"
-    format_output=$(ruff format --check "$target_path" 2>&1) || true
+    format_output=$(ruff format --check "$target_path" 2>&1) || overall_status="fail"
     echo "$format_output" >> "$log_file"
     format_issues=$(echo "$format_output" | grep -c "Would reformat" 2>/dev/null) || format_issues=0
     lint_warnings=$((lint_warnings + format_issues))
 
-    if [[ "$lint_errors" -gt 0 ]]; then
+    if [[ "$lint_errors" -gt 0 || "$lint_fixable" -gt 0 ]]; then
         overall_status="fail"
     fi
 
-elif $run_lint && $is_js; then
-    # Run ESLint only when the project has a config and the tool is installed.
+elif $run_lint && $is_python; then
+    echo "Ruff is required for Python lint and format checks." >> "$log_file"
+    lint_errors=$((lint_errors + 1))
+    overall_status="fail"
+fi
+
+if $run_lint && $is_js; then
+    # ESLint requires both a project config and an installed tool.
     eslint_bin=""
     if [[ -x "node_modules/.bin/eslint" ]]; then
         eslint_bin="node_modules/.bin/eslint"
@@ -181,23 +184,35 @@ elif $run_lint && $is_js; then
     if [[ -n "$eslint_bin" ]] && { [[ -f ".eslintrc.js" ]] || [[ -f ".eslintrc.cjs" ]] || [[ -f ".eslintrc.json" ]] || [[ -f ".eslintrc.yaml" ]] || [[ -f ".eslintrc.yml" ]] || [[ -f "eslint.config.js" ]] || [[ -f "eslint.config.cjs" ]] || [[ -f "eslint.config.mjs" ]] || [[ -f "eslint.config.ts" ]]; }; then
         record_check "eslint"
         echo "=== ESLINT ===" >> "$log_file"
-        eslint_output=$("$eslint_bin" "$target_path" --format json 2>>"$log_file") || true
+        eslint_output=$("$eslint_bin" "$target_path" --format json 2>>"$log_file") || overall_status="fail"
         echo "$eslint_output" >> "$log_file"
-        if [[ -n "$eslint_output" ]]; then
-            lint_errors=$(echo "$eslint_output" | python3 -c "
+        eslint_errors=$(echo "$eslint_output" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
-print(sum(d.get('errorCount', 0) for d in data))
-" 2>/dev/null) || lint_errors=0
-            lint_warnings=$(echo "$eslint_output" | python3 -c "
+if not isinstance(data, list):
+    raise ValueError('Expected ESLint result list')
+counts = [d['errorCount'] for d in data]
+if any(type(n) is not int or n < 0 for n in counts):
+    raise ValueError('Invalid ESLint error count')
+print(sum(counts))
+" 2>>"$log_file") || { eslint_errors=1; overall_status="fail"; }
+        eslint_warnings=$(echo "$eslint_output" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
-print(sum(d.get('warningCount', 0) for d in data))
-" 2>/dev/null) || lint_warnings=0
-        fi
+counts = [d['warningCount'] for d in data]
+if any(type(n) is not int or n < 0 for n in counts):
+    raise ValueError('Invalid ESLint warning count')
+print(sum(counts))
+" 2>>"$log_file") || { eslint_warnings=0; overall_status="fail"; }
+        lint_errors=$((lint_errors + eslint_errors))
+        lint_warnings=$((lint_warnings + eslint_warnings))
         if [[ "$lint_errors" -gt 0 ]]; then
             overall_status="fail"
         fi
+    else
+        echo "ESLint and a project config are required for JS/TS lint checks." >> "$log_file"
+        lint_errors=$((lint_errors + 1))
+        overall_status="fail"
     fi
 fi
 
@@ -207,39 +222,43 @@ if $run_security && $is_python && command -v bandit &>/dev/null; then
     echo "" >> "$log_file"
     echo "=== BANDIT SECURITY SCAN ===" >> "$log_file"
 
-    bandit_output=$(bandit -r "$target_path" -f json --exclude '*/.venv/*,*/node_modules/*,*/__pycache__/*' 2>>"$log_file") || true
+    bandit_output=$(bandit -r "$target_path" -f json --exclude '*/.venv/*,*/node_modules/*,*/__pycache__/*' 2>>"$log_file") || overall_status="fail"
     echo "$bandit_output" >> "$log_file"
 
-    if [[ -n "$bandit_output" ]]; then
-        security_issues=$(echo "$bandit_output" | python3 -c "
+    security_issues=$(echo "$bandit_output" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
-results = data.get('results', [])
+if data.get('errors'):
+    raise ValueError('Bandit left files unscanned')
+results = data['results']
+if not isinstance(results, list) or any(not isinstance(r, dict) for r in results):
+    raise ValueError('Expected Bandit finding list')
 print(len(results))
-" 2>/dev/null) || security_issues=0
+" 2>>"$log_file") || { security_issues=1; overall_status="fail"; }
 
-        # Extract high/critical severity issues
-        critical_list=$(echo "$bandit_output" | python3 -c "
+    # Extract high/critical severity issues
+    critical_list=$(echo "$bandit_output" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
-results = data.get('results', [])
+results = data['results']
 critical = [f\"{r['test_id']}:{r['test_name']}\" for r in results if r.get('issue_severity') in ('HIGH', 'MEDIUM')]
 for c in critical[:5]:
     print(c)
-" 2>/dev/null) || critical_list=""
+" 2>>"$log_file") || { critical_list=""; overall_status="fail"; }
 
-        if [[ -n "$critical_list" ]]; then
-            while IFS= read -r line; do
-                security_critical+=("$line")
-            done <<< "$critical_list"
-        fi
+    if [[ -n "$critical_list" ]]; then
+        while IFS= read -r line; do
+            security_critical+=("$line")
+        done <<< "$critical_list"
     fi
 
     if [[ "$security_issues" -gt 0 ]]; then
-        if $strict; then
-            overall_status="fail"
-        fi
+        overall_status="fail"
     fi
+elif $run_security && $is_python; then
+    echo "Bandit is required for Python security checks." >> "$log_file"
+    security_issues=$((security_issues + 1))
+    overall_status="fail"
 fi
 
 # ── Pyright (type checking) ─────────────────────────────
@@ -248,22 +267,25 @@ if $run_types && $is_python && command -v pyright &>/dev/null; then
     echo "" >> "$log_file"
     echo "=== PYRIGHT TYPE CHECK ===" >> "$log_file"
 
-    pyright_output=$(pyright "$target_path" --outputjson 2>>"$log_file") || true
+    pyright_output=$(pyright "$target_path" --outputjson 2>>"$log_file") || overall_status="fail"
     echo "$pyright_output" >> "$log_file"
 
-    if [[ -n "$pyright_output" ]]; then
-        type_errors=$(echo "$pyright_output" | python3 -c "
+    type_errors=$(echo "$pyright_output" | python3 -c "
 import json, sys
 data = json.load(sys.stdin)
-summary = data.get('summary', {})
-print(summary.get('errorCount', 0))
-" 2>/dev/null) || type_errors=0
-    fi
+count = data['summary']['errorCount']
+if type(count) is not int or count < 0:
+    raise ValueError('Invalid Pyright error count')
+print(count)
+" 2>>"$log_file") || { type_errors=1; overall_status="fail"; }
 
-    # Type errors are advisory in non-strict mode
-    if [[ "$type_errors" -gt 0 ]] && $strict; then
+    if [[ "$type_errors" -gt 0 ]]; then
         overall_status="fail"
     fi
+elif $run_types && $is_python; then
+    echo "Pyright is required for Python type checks." >> "$log_file"
+    type_errors=$((type_errors + 1))
+    overall_status="fail"
 fi
 
 # ── TypeScript type checking ────────────────────────────
@@ -290,13 +312,21 @@ if $run_types && $is_typescript; then
             tsc_exit=$?
         fi
         echo "$tsc_output" >> "$log_file"
-        type_errors=$(echo "$tsc_output" | grep -cE 'error TS[0-9]+' 2>/dev/null) || type_errors=0
-        if [[ "$tsc_exit" -ne 0 && "$type_errors" -eq 0 ]]; then
-            type_errors=1
+        tsc_errors=$(echo "$tsc_output" | grep -cE 'error TS[0-9]+' 2>/dev/null) || tsc_errors=0
+        if [[ "$tsc_exit" -ne 0 ]]; then
+            overall_status="fail"
+            if [[ "$tsc_errors" -eq 0 ]]; then
+                tsc_errors=1
+            fi
         fi
-        if [[ "$type_errors" -gt 0 ]] && $strict; then
+        type_errors=$((type_errors + tsc_errors))
+        if [[ "$type_errors" -gt 0 ]]; then
             overall_status="fail"
         fi
+    else
+        echo "TypeScript and tsconfig.json are required for TS type checks." >> "$log_file"
+        type_errors=$((type_errors + 1))
+        overall_status="fail"
     fi
 fi
 
@@ -332,7 +362,7 @@ if [[ "$checks_run_count" -gt 0 ]]; then
 fi
 checks_run_json+="]"
 if [[ "$checks_run_count" -eq 0 ]]; then
-    overall_status="skip"
+    overall_status="fail"
 fi
 
 cat <<EOJSON
