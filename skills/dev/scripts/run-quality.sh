@@ -72,12 +72,14 @@ log_file="${log_dir}/quality.log"
 
 # ── Helpers ──────────────────────────────────────────────
 json_escape() {
-    local s="$1"
+    local s="$1" code hex control
     s="${s//\\/\\\\}"
     s="${s//\"/\\\"}"
-    s="${s//$'\n'/\\n}"
-    s="${s//$'\r'/}"
-    s="${s//$'\t'/\\t}"
+    for ((code = 1; code < 32; code++)); do
+        printf -v hex '%02x' "$code"
+        printf -v control '%b' "\\x$hex"
+        s="${s//"$control"/\\u00$hex}"
+    done
     printf '%s' "$s"
 }
 
@@ -86,12 +88,37 @@ has_python_files() {
 }
 
 has_js_files() {
-    find "$target_path" \( -name '*.js' -o -name '*.ts' -o -name '*.jsx' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) -not -path '*/node_modules/*' -not -path '*/.git/*' -print -quit 2>/dev/null | grep -q .
+    find "$target_path" \( -name '*.js' -o -name '*.mjs' -o -name '*.cjs' -o -name '*.ts' -o -name '*.jsx' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) -not -path '*/node_modules/*' -not -path '*/.venv/*' -not -path '*/__pycache__/*' -not -path '*/.git/*' -print -quit 2>/dev/null | grep -q .
 }
 
 has_typescript_files() {
-    find "$target_path" \( -name '*.ts' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) -not -path '*/node_modules/*' -not -path '*/.git/*' -print -quit 2>/dev/null | grep -q .
+    find "$target_path" \( -name '*.ts' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) -not -path '*/node_modules/*' -not -path '*/.venv/*' -not -path '*/__pycache__/*' -not -path '*/.git/*' -print -quit 2>/dev/null | grep -q .
 }
+
+# Resolve target-local tools before ancestor installations or PATH tools.
+find_js_tool() {
+    local dir="$target_dir" bin
+    while [[ -n "$dir" ]]; do
+        if [[ -x "$dir/node_modules/.bin/$1" ]]; then
+            printf '%s' "$dir/node_modules/.bin/$1"
+            return
+        fi
+        [[ "$dir" != / ]] || break
+        dir=$(dirname "$dir")
+    done
+    bin=$(command -v "$1") || return 1
+    [[ "$bin" == /* ]] || bin="$PWD/$bin"
+    printf '%s' "$bin"
+}
+
+# Keep log paths relative to the caller while tools run from the target.
+if [[ -d "$target_path" ]]; then
+    target_dir=$(cd "$target_path" && pwd -P)
+    target_path="$target_dir"
+else
+    target_dir=$(cd "$(dirname "$target_path")" && pwd -P)
+    target_path="$target_dir/$(basename "$target_path")"
+fi
 
 # ── Detect project type ──────────────────────────────────
 is_python=false
@@ -162,6 +189,10 @@ print(len(fixable))
     echo "$format_output" >> "$log_file"
     format_issues=$(echo "$format_output" | grep -c "Would reformat" 2>/dev/null) || format_issues=0
     lint_warnings=$((lint_warnings + format_issues))
+    if [[ ! "$format_output" =~ ^[0-9]+\ files?\ already\ formatted$ ]]; then
+        lint_errors=$((lint_errors + 1))
+        overall_status="fail"
+    fi
 
     if [[ "$lint_errors" -gt 0 || "$lint_fixable" -gt 0 ]]; then
         overall_status="fail"
@@ -174,17 +205,12 @@ elif $run_lint && $is_python; then
 fi
 
 if $run_lint && $is_js; then
-    # ESLint requires both a project config and an installed tool.
-    eslint_bin=""
-    if [[ -x "node_modules/.bin/eslint" ]]; then
-        eslint_bin="node_modules/.bin/eslint"
-    elif command -v eslint &>/dev/null; then
-        eslint_bin=$(command -v eslint)
-    fi
-    if [[ -n "$eslint_bin" ]] && { [[ -f ".eslintrc.js" ]] || [[ -f ".eslintrc.cjs" ]] || [[ -f ".eslintrc.json" ]] || [[ -f ".eslintrc.yaml" ]] || [[ -f ".eslintrc.yml" ]] || [[ -f "eslint.config.js" ]] || [[ -f "eslint.config.cjs" ]] || [[ -f "eslint.config.mjs" ]] || [[ -f "eslint.config.ts" ]]; }; then
+    # Let the installed ESLint version discover and validate its own config.
+    eslint_bin=$(find_js_tool eslint) || eslint_bin=""
+    if [[ -n "$eslint_bin" ]]; then
         record_check "eslint"
         echo "=== ESLINT ===" >> "$log_file"
-        eslint_output=$("$eslint_bin" "$target_path" --format json 2>>"$log_file") || overall_status="fail"
+        eslint_output=$(cd "$target_dir" && "$eslint_bin" "$target_path" --format json) 2>>"$log_file" || overall_status="fail"
         echo "$eslint_output" >> "$log_file"
         eslint_errors=$(echo "$eslint_output" | python3 -c "
 import json, sys
@@ -291,29 +317,77 @@ fi
 # ── TypeScript type checking ────────────────────────────
 if $run_types && $is_typescript; then
     tsconfig_path=""
-    if [[ -f "./tsconfig.json" ]]; then
-        tsconfig_path="./tsconfig.json"
-    elif [[ -f "$target_path/tsconfig.json" ]]; then
-        tsconfig_path="$target_path/tsconfig.json"
-    fi
-    tsc_bin=""
-    if [[ -x "node_modules/.bin/tsc" ]]; then
-        tsc_bin="node_modules/.bin/tsc"
-    elif command -v tsc &>/dev/null; then
-        tsc_bin=$(command -v tsc)
-    fi
+    tsconfig_dir="$target_dir"
+    while [[ -n "$tsconfig_dir" ]]; do
+        if [[ -f "$tsconfig_dir/tsconfig.json" ]]; then
+            tsconfig_path="$tsconfig_dir/tsconfig.json"
+            break
+        fi
+        [[ "$tsconfig_dir" != / ]] || break
+        tsconfig_dir=$(dirname "$tsconfig_dir")
+    done
+    tsc_bin=$(find_js_tool tsc) || tsc_bin=""
     if [[ -n "$tsconfig_path" && -n "$tsc_bin" ]]; then
         record_check "tsc --noEmit"
         echo "" >> "$log_file"
         echo "=== TSC TYPE CHECK ===" >> "$log_file"
-        if tsc_output=$("$tsc_bin" --noEmit --pretty false -p "$tsconfig_path" 2>&1); then
+        # Resolve JSONC/extends through tsc, then check every referenced config.
+        # Even --noEmit can write incremental metadata; keep that in a temp dir.
+        if tsc_output=$(cd "$target_dir" && python3 - "$tsc_bin" "$tsconfig_path" 2>&1 <<'PY'
+import json
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+
+tsc, root_config = sys.argv[1:]
+checked = set()
+active = set()
+
+def invoke(*args):
+    result = subprocess.run([tsc, *args], capture_output=True, text=True)
+    if result.returncode or result.stderr:
+        raise ValueError(result.stdout + result.stderr or 'TypeScript failed without diagnostics')
+    return result.stdout
+
+def check(config, scratch):
+    config = config.resolve()
+    if config in active:
+        raise ValueError(f'Cyclic TypeScript project reference: {config}')
+    if config in checked:
+        return
+    active.add(config)
+    data = json.loads(invoke('--showConfig', '--pretty', 'false', '-p', str(config)))
+    references = data.get('references', [])
+    if not isinstance(references, list):
+        raise ValueError('Expected TypeScript project reference list')
+    for reference in references:
+        path = reference['path']
+        if not isinstance(path, str) or not path:
+            raise ValueError('Invalid TypeScript project reference path')
+        child = config.parent / path
+        if not path.endswith('.json'):
+            child /= 'tsconfig.json'
+        check(child, scratch)
+    output = invoke('--noEmit', '--pretty', 'false', '--incremental',
+                    '--tsBuildInfoFile', str(scratch / f'{len(checked)}.tsbuildinfo'),
+                    '-p', str(config))
+    if output:
+        raise ValueError(output)
+    active.remove(config)
+    checked.add(config)
+
+with tempfile.TemporaryDirectory(prefix='dev-quality-tsc-') as scratch:
+    check(Path(root_config), Path(scratch))
+PY
+        ); then
             tsc_exit=0
         else
             tsc_exit=$?
         fi
         echo "$tsc_output" >> "$log_file"
         tsc_errors=$(echo "$tsc_output" | grep -cE 'error TS[0-9]+' 2>/dev/null) || tsc_errors=0
-        if [[ "$tsc_exit" -ne 0 ]]; then
+        if [[ "$tsc_exit" -ne 0 || -n "$tsc_output" ]]; then
             overall_status="fail"
             if [[ "$tsc_errors" -eq 0 ]]; then
                 tsc_errors=1
@@ -365,8 +439,9 @@ if [[ "$checks_run_count" -eq 0 ]]; then
     overall_status="fail"
 fi
 
+escaped_log_file=$(json_escape "$log_file")
 cat <<EOJSON
-{"status":"${overall_status}","checks_run":${checks_run_json},"lint":{"errors":${lint_errors},"warnings":${lint_warnings},"fixable":${lint_fixable}},"security":{"issues":${security_issues},"critical":${critical_json}},"types":{"errors":${type_errors}},"log":"${log_file}"}
+{"status":"${overall_status}","checks_run":${checks_run_json},"lint":{"errors":${lint_errors},"warnings":${lint_warnings},"fixable":${lint_fixable}},"security":{"issues":${security_issues},"critical":${critical_json}},"types":{"errors":${type_errors}},"log":"${escaped_log_file}"}
 EOJSON
 
 if [[ "$overall_status" == "fail" ]]; then
